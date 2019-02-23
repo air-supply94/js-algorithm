@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		"strict": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"target": "esnext",
+		"allowSyntheticDefaultImports": true,
+		"isolatedModules": false,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"importHelpers": true,
+		"listFiles": true,
+		"noImplicitThis": false,
+		"removeComments": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"allowJs": true
+	},
+	"exclude": [
+		"node_modules"
+	]
+}
