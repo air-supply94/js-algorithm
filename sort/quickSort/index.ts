@@ -12,7 +12,7 @@ function quickSort(originalArray: any[], left: number, right: number, comparator
 	let index: number;
 	if (originalArray.length > 1) {
 		index = partition(originalArray, left, right, comparator);
-		if (left < index - 1) {
+		if (left < index ) {
 			quickSort(originalArray, left, index - 1, comparator);
 		}
 		

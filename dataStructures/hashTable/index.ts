@@ -12,12 +12,12 @@ export default class HashTable implements InterfaceHasTable {
 	
 	public hash(key) {
 		// @ts-ignore
-		var hash: number = [].reduce.call(key, (prev, value) => prev + value.charCodeAt(0), 0);
+		const hash: number = [].reduce.call(key, (prev, value) => prev + value.charCodeAt(0), 0);
 		return hash % this.buckets.length;
 	}
 	
 	public set(key, value) {
-		var keyHash = this.hash(key);
+		const keyHash = this.hash(key);
 		this.keys[key] = keyHash;
 		var doubleLinkedList = this.buckets[keyHash];
 		var node = doubleLinkedList.find({
@@ -35,10 +35,10 @@ export default class HashTable implements InterfaceHasTable {
 	}
 	
 	public delete(key) {
-		var keyHash = this.hash(key);
+		const keyHash = this.hash(key);
 		delete this.keys[key];
-		var doubleLinkedList = this.buckets[keyHash];
-		var node = doubleLinkedList.find({
+		const doubleLinkedList = this.buckets[keyHash];
+		const node = doubleLinkedList.find({
 			callback(nodeValue) {
 				return nodeValue.key === key;
 			},
@@ -52,8 +52,8 @@ export default class HashTable implements InterfaceHasTable {
 	}
 	
 	public get(key) {
-		var doubleLinkedList = this.buckets[this.hash(key)];
-		var node = doubleLinkedList.find({
+		const doubleLinkedList = this.buckets[this.hash(key)];
+		const node = doubleLinkedList.find({
 			callback(nodeValue) {
 				return nodeValue.key === key;
 			},

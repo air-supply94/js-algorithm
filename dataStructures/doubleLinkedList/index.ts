@@ -5,9 +5,7 @@ import {InterfaceDoubleLinkedList, InterfaceDoubleLinkedListNode} from './@types
 
 export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	constructor(comparatorFunction?: Comparator | compareFunctionType) {
-		this.head = null;
-		this.tail = null;
-		this.size = 0;
+		this.clear();
 		this.compare = comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
 	}
 	
@@ -57,7 +55,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	};
 	
 	public deleteHead() {
-		var deletedHead = this.head;
+		const deletedHead = this.head;
 		if (this.head === this.tail) {
 			this.clear();
 		} else {
@@ -83,17 +81,15 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	};
 	
 	public find(findParams) {
-		var value = findParams.value;
-		var callback = findParams.callback;
-		var currentNode = this.head;
+		const {value, callback = {}} = findParams;
+		let currentNode = this.head;
 		
 		while (currentNode) {
-			if (callback && typeof callback === "function" && callback(currentNode.value)) {
+			if (typeof callback === "function" && callback(currentNode.value)) {
 				break;
 			} else if (this.compare.equal(currentNode.value, value)) {
 				break;
 			}
-			
 			currentNode = currentNode.next;
 		}
 		
@@ -101,7 +97,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	};
 	
 	public delete(value) {
-		var deletedNode = null;
+		let deletedNode = null;
 		while (this.head && this.compare.equal(this.head.value, value)) {
 			deletedNode = this.head;
 			this.head = this.head.next;
@@ -111,7 +107,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 			this.head.previous = null;
 		}
 		
-		var currentNode = this.head;
+		let currentNode = this.head;
 		if (currentNode) {
 			while (currentNode.next) {
 				if (this.compare.equal(currentNode.next.value, value)) {
@@ -136,7 +132,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	};
 	
 	public append(value) {
-		var newNode = new DoubleLinkedListNode(value, null, this.tail);
+		const newNode = new DoubleLinkedListNode(value, null, this.tail);
 		
 		if (this.isEmpty()) {
 			this.head = this.tail = newNode;
@@ -149,7 +145,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	};
 	
 	public prepend(value) {
-		var newNode = new DoubleLinkedListNode(value, this.head);
+		const newNode = new DoubleLinkedListNode(value, this.head);
 		if (this.isEmpty()) {
 			this.head = this.tail = newNode;
 		} else {
@@ -161,7 +157,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	};
 	
 	public reverse() {
-		const nodes: any[] = [];
+		const nodes: InterfaceDoubleLinkedListNode[] = [];
 		while (!this.isEmpty()) {
 			nodes.push(this.deleteTail().value);
 		}

@@ -1,13 +1,11 @@
 import LinkedListNode from './linkedListNode';
 import Comparator from '../../utils/comparator/index';
 import {compareFunctionType} from '../../utils/@types';
-import {InterfaceLinkedList} from './@types';
+import {InterfaceLinkedList, InterfaceLinkedListNode} from './@types';
 
 export default class LinkedList implements InterfaceLinkedList {
 	constructor(comparatorFunction?: Comparator | compareFunctionType) {
-		this.head = null;
-		this.tail = null;
-		this.size = 0;
+		this.clear();
 		this.compare = comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
 	}
 	
@@ -27,8 +25,8 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public toArray() {
-		var nodes: any[] = [];
-		var currentNode = this.head;
+		const nodes: InterfaceLinkedListNode[] = [];
+		let currentNode = this.head;
 		while (currentNode) {
 			nodes.push(currentNode);
 			currentNode = currentNode.next;
@@ -42,7 +40,7 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public deleteHead() {
-		var deletedHead = this.head;
+		const deletedHead = this.head;
 		if (this.head === this.tail) {
 			this.clear();
 		} else {
@@ -53,8 +51,8 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public deleteTail() {
-		var deletedTail = this.tail;
-		var currentNode = this.head;
+		const deletedTail = this.tail;
+		let currentNode = this.head;
 		if (this.head === this.tail) {
 			this.clear();
 		} else {
@@ -73,17 +71,15 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public find(findParams) {
-		var value = findParams.value;
-		var callback = findParams.callback;
-		var currentNode = this.head;
+		const {value, callback = {}} = findParams;
+		let currentNode = this.head;
 		
 		while (currentNode) {
-			if (callback && typeof callback === 'function' && callback(currentNode.value)) {
+			if (typeof callback === 'function' && callback(currentNode.value)) {
 				break;
 			} else if (this.compare.equal(currentNode.value, value)) {
 				break;
 			}
-			
 			currentNode = currentNode.next;
 		}
 		
@@ -91,14 +87,14 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public delete(value) {
-		var deletedNode = null;
+		let deletedNode = null;
 		while (this.head && this.compare.equal(this.head.value, value)) {
 			deletedNode = this.head;
 			this.head = this.head.next;
 			--this.size;
 		}
 		
-		var currentNode = this.head;
+		let currentNode = this.head;
 		if (currentNode) {
 			while (currentNode.next) {
 				if (this.compare.equal(currentNode.next.value, value)) {
@@ -119,7 +115,7 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public append(value) {
-		var newNode = new LinkedListNode(value);
+		const newNode = new LinkedListNode(value);
 		
 		if (this.isEmpty()) {
 			this.head = this.tail = newNode;
@@ -132,7 +128,7 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public prepend(value) {
-		var newNode = new LinkedListNode(value, this.head);
+		const newNode = new LinkedListNode(value, this.head);
 		if (this.isEmpty()) {
 			this.head = this.tail = newNode;
 		} else {
@@ -144,7 +140,7 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public reverse() {
-		const nodes: any[] = [];
+		const nodes: InterfaceLinkedListNode[] = [];
 		while (!this.isEmpty()) {
 			nodes.push(this.deleteTail().value);
 		}

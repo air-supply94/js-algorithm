@@ -17,7 +17,7 @@ export default class Queue implements InterfaceQueue {
 	};
 	
 	public dequeue() {
-		var removedHead = this.doubleLinkedList.deleteHead();
+		const removedHead = this.doubleLinkedList.deleteHead();
 		return removedHead ? removedHead.value : undefined;
 	};
 	
