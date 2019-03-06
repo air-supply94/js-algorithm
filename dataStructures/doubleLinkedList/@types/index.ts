@@ -27,4 +27,5 @@ export interface InterfaceDoubleLinkedList {
 	has: (value?: any) => boolean
 	isEmpty: () => boolean
 	reverse: () => this
+	connect: (...args: InterfaceDoubleLinkedList[]) => this
 }

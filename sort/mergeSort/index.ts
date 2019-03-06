@@ -11,33 +11,23 @@ function mergeSort(originalArray: any[], comparator: InterfaceComparator): any[]
 	if (originalArray.length <= 1) {
 		return originalArray;
 	}
-	var middleIndex = Math.floor(originalArray.length / 2);
-	var leftArray = originalArray.slice(0, middleIndex);
-	var rightArray = originalArray.slice(middleIndex, originalArray.length);
-	
-	return mergeSortedArrays(mergeSort(leftArray, comparator), mergeSort(rightArray, comparator), comparator);
+	const middleIndex = Math.floor(originalArray.length / 2);
+	const leftChild = originalArray.slice(0, middleIndex);
+	const rightChild = originalArray.slice(middleIndex, originalArray.length);
+	return mergeSortedArrays(mergeSort(leftChild, comparator), mergeSort(rightChild, comparator), comparator);
 }
 
 function mergeSortedArrays(leftArray: any[], rightArray: any[], comparator: InterfaceComparator): any[] {
-	var sortedArray: any[] = [];
-	
+	let result: any[] = [];
 	while (leftArray.length && rightArray.length) {
-		var minimumElement = null;
-		
-		if (comparator.lessThanOrEqual(leftArray[0], rightArray[0])) {
-			minimumElement = leftArray.shift();
-		} else {
-			minimumElement = rightArray.shift();
-		}
-		
-		sortedArray.push(minimumElement);
+		result.push(comparator.lessThanOrEqual(leftArray[0], rightArray[0]) ? leftArray.shift() : rightArray.shift());
 	}
 	
 	if (leftArray.length) {
-		sortedArray = sortedArray.concat(leftArray);
-	} else {
-		sortedArray = sortedArray.concat(rightArray);
+		result = result.concat(leftArray);
+	} else if (rightArray.length) {
+		result = result.concat(rightArray);
 	}
 	
-	return sortedArray;
+	return result;
 }

@@ -386,4 +386,30 @@ describe('Index', () => {
 		expect(linkedList.size).toBe(1);
 		expect(linkedList.has(undefined)).toBe(true);
 	});
+	
+	it('connect', () => {
+		const linkedList1 = new Index();
+		linkedList1.fromArray([1, 2, 3]);
+		
+		const linkedList2 = new Index();
+		linkedList2.fromArray([4, 5, 6]);
+		
+		const linkedList3 = new Index();
+		linkedList3.fromArray([7, 8, 9]);
+		linkedList1.connect(linkedList1);
+		
+		expect(linkedList1.size).toBe(6);
+		linkedList1.clear().fromArray([1, 2, 3]).connect(linkedList2, linkedList3);
+		
+		expect(linkedList1.size).toBe(9);
+		expect(linkedList1.head.value).toBe(1);
+		expect(linkedList1.head.previous).toBe(null);
+		expect(linkedList1.head.next.value).toBe(2);
+		
+		expect(linkedList1.tail.value).toBe(9);
+		expect(linkedList1.tail.previous.value).toBe(8);
+		expect(linkedList1.tail.next).toBe(null);
+		
+		expect(linkedList1.toString()).toBe('1,2,3,4,5,6,7,8,9');
+	});
 });

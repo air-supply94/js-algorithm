@@ -12,15 +12,15 @@ export default class HashTable implements InterfaceHasTable {
 	
 	public hash(key) {
 		// @ts-ignore
-		const hash: number = [].reduce.call(key, (prev, value) => prev + value.charCodeAt(0), 0);
+		const hash: number = [].reduce.call(key, (prev, value) => prev + value.codePointAt(0), 0);
 		return hash % this.buckets.length;
 	}
 	
 	public set(key, value) {
 		const keyHash = this.hash(key);
 		this.keys[key] = keyHash;
-		var doubleLinkedList = this.buckets[keyHash];
-		var node = doubleLinkedList.find({
+		const doubleLinkedList = this.buckets[keyHash];
+		const node = doubleLinkedList.find({
 			callback(nodeValue) {
 				return nodeValue.key === key;
 			},

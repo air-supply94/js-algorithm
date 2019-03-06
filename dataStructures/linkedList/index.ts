@@ -24,13 +24,19 @@ export default class LinkedList implements InterfaceLinkedList {
 		return this.toArray().map(node => node.toString(callback)).toString();
 	};
 	
-	public toArray() {
-		const nodes: InterfaceLinkedListNode[] = [];
+	// 不要在回调函数里更改链表
+	public eachFromHead(callback) {
 		let currentNode = this.head;
 		while (currentNode) {
-			nodes.push(currentNode);
+			callback(currentNode);
 			currentNode = currentNode.next;
 		}
+		return this;
+	};
+	
+	public toArray() {
+		const nodes: InterfaceLinkedListNode[] = [];
+		this.eachFromHead(node => nodes.push(node));
 		return nodes;
 	};
 	
@@ -140,13 +146,22 @@ export default class LinkedList implements InterfaceLinkedList {
 	};
 	
 	public reverse() {
-		const nodes: InterfaceLinkedListNode[] = [];
-		while (!this.isEmpty()) {
-			nodes.push(this.deleteTail().value);
-		}
-		this.fromArray(nodes);
-		return this;
+		const values: any[] = this.toArray().reverse().map(node => node.value);
+		return this.clear().fromArray(values);
 	};
+	
+	public connect(...arg) {
+		// 不要一边遍历一边添加
+		// 防止连接自身出现死循环
+		const values: any[] = [];
+		arg.forEach(doubleLinkedList => {
+			doubleLinkedList.eachFromHead(nodes => {
+				values.push(nodes.value);
+			});
+		});
+		
+		return this.fromArray(values);
+	}
 	
 	public has(value) {
 		return !!this.find({value: value});

@@ -30,6 +30,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 		return nodes;
 	};
 	
+	// 不要在回调函数里更改链表
 	public eachFromHead(callback) {
 		let currentNode = this.head;
 		while (currentNode) {
@@ -40,6 +41,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 		return this;
 	};
 	
+	// 不要在回调函数里更改链表
 	public eachFromTail(callback) {
 		let currentNode = this.tail;
 		while (currentNode) {
@@ -157,13 +159,25 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	};
 	
 	public reverse() {
-		const nodes: InterfaceDoubleLinkedListNode[] = [];
-		while (!this.isEmpty()) {
-			nodes.push(this.deleteTail().value);
-		}
-		this.fromArray(nodes);
-		return this;
+		const value: any[] = [];
+		this.eachFromTail(nodes => {
+			value.push(nodes.value);
+		});
+		return this.clear().fromArray(value);
 	};
+	
+	public connect(...arg) {
+		// 不要一边遍历一边添加
+		// 防止连接自身出现死循环
+		const values: any[] = [];
+		arg.forEach(doubleLinkedList => {
+			doubleLinkedList.eachFromHead(nodes => {
+				values.push(nodes.value);
+			});
+		});
+		
+		return this.fromArray(values);
+	}
 	
 	public has(value) {
 		return !!this.find({value: value});

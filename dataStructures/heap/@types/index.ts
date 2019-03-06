@@ -22,14 +22,14 @@ export interface InterfaceHeap {
 	findIndex: (item?: any, comparator?: compareFunctionType, fromIndex?: number) => number
 	isEmpty: () => boolean
 	toString: () => string
-	up: (customStartIndex?: number) => this
-	down: (customStartIndex?: number) => this
+	up: (startIndex?: number) => this
+	down: (startIndex?: number) => this
 }
 
 export interface InterfaceMinHeap extends InterfaceHeap {
-	pairIsInCorrectOrder: (firstElement, secondElement) => boolean
+	pairIsInCorrectOrder: (parentElement, childElement) => boolean
 }
 
 export interface InterfaceMaxHeap extends InterfaceHeap {
-	pairIsInCorrectOrder: (firstElement, secondElement) => boolean
+	pairIsInCorrectOrder: (parentElement, childElement) => boolean
 }

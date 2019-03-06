@@ -24,4 +24,6 @@ export interface InterfaceLinkedList {
 	has: (value?: any) => boolean
 	isEmpty: () => boolean
 	reverse: () => this
+	eachFromHead: (callback: (node: InterfaceLinkedListNode, ...arg) => any) => this
+	connect: (...args: InterfaceLinkedList[]) => this
 }
