@@ -1,44 +1,31 @@
 import Comparator from '../../utils/comparator';
 import InterfaceComparator from '../../utils/comparator/@types';
 import {compareFunctionType} from '../../utils/@types';
-import swap from "../../utils/swap";
 
 export default function quickSortExchange(originalArray: any[], compareCallback?: Comparator | compareFunctionType): any[] {
 	const comparator = compareCallback instanceof Comparator ? compareCallback : new Comparator(compareCallback);
-	return quickSort(originalArray, 0, originalArray.length - 1, comparator);
+	return quickSort(originalArray, comparator);
 }
 
-function quickSort(originalArray: any[], left: number, right: number, comparator: InterfaceComparator): any[] {
-	let index: number;
-	if (originalArray.length > 1) {
-		index = partition(originalArray, left, right, comparator);
-		if (left < index ) {
-			quickSort(originalArray, left, index - 1, comparator);
-		}
-		
-		if (index < right) {
-			quickSort(originalArray, index, right, comparator);
+function quickSort(originalArray: any[], comparator: InterfaceComparator): any[] {
+	if (originalArray.length <= 1) {
+		return originalArray;
+	}
+	
+	const pivotElement = originalArray.splice(Math.floor(originalArray.length / 2), 1)[0];
+	const center: any[] = [pivotElement];
+	const left: any[] = [];
+	const right: any[] = [];
+	while (originalArray.length) {
+		const currentElement = originalArray.shift();
+		if (comparator.equal(currentElement, pivotElement)) {
+			center.push(currentElement);
+		} else if (comparator.lessThan(currentElement, pivotElement)) {
+			left.push(currentElement);
+		} else {
+			right.push(currentElement);
 		}
 	}
-	return originalArray;
-}
-
-function partition(originalArray: any[], left: number, right: number, comparator: InterfaceComparator): number {
-	let pivotElement = originalArray[Math.floor((left + right) / 2)];
-	let i = left;
-	let j = right;
-	while (i < j) {
-		while (comparator.lessThan(originalArray[i], pivotElement)) {
-			i++;
-		}
-		while (comparator.greaterThan(originalArray[j], pivotElement)) {
-			j--;
-		}
-		if (i <= j) {
-			swap(originalArray, i, j);
-			i++;
-			j--;
-		}
-	}
-	return i;
+	
+	return quickSort(left, comparator).concat(center).concat(quickSort(right, comparator));
 }

@@ -8,8 +8,7 @@ export default function toLength(x?: any): number {
 	x = toInteger(x);
 	if (x < 0) {
 		return 0;
-	}
-	if (x > MAX_ARRAY_INDEX) {
+	} else if (x > MAX_ARRAY_INDEX) {
 		return MAX_ARRAY_INDEX;
 	}
 	return x;

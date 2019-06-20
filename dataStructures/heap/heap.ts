@@ -16,6 +16,7 @@ export default abstract class Heap implements InterfaceHeap {
 	
 	public heapContainer;
 	public compare;
+	
 	public fromArray(value) {
 		value.forEach(val => this.add(val));
 		return this;
@@ -49,12 +50,12 @@ export default abstract class Heap implements InterfaceHeap {
 	
 	public hasLeftChild(parentIndex) {
 		const i = this.getLeftChildIndex(parentIndex);
-		return i > -1 && i < this.heapContainer.length;
+		return i > 0 && i < this.heapContainer.length;
 	}
 	
 	public hasRightChild(parentIndex) {
 		const i = this.getRightChildIndex(parentIndex);
-		return i > -1 && i < this.heapContainer.length;
+		return i > 0 && i < this.heapContainer.length;
 	}
 	
 	public leftChild(parentIndex) {

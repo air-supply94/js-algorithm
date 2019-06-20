@@ -12,9 +12,9 @@ function mergeSort(originalArray: any[], comparator: InterfaceComparator): any[]
 		return originalArray;
 	}
 	const middleIndex = Math.floor(originalArray.length / 2);
-	const leftChild = originalArray.slice(0, middleIndex);
-	const rightChild = originalArray.slice(middleIndex, originalArray.length);
-	return mergeSortedArrays(mergeSort(leftChild, comparator), mergeSort(rightChild, comparator), comparator);
+	const left = originalArray.slice(0, middleIndex);
+	const right = originalArray.slice(middleIndex);
+	return mergeSortedArrays(mergeSort(left, comparator), mergeSort(right, comparator), comparator);
 }
 
 function mergeSortedArrays(leftArray: any[], rightArray: any[], comparator: InterfaceComparator): any[] {
@@ -25,7 +25,7 @@ function mergeSortedArrays(leftArray: any[], rightArray: any[], comparator: Inte
 	
 	if (leftArray.length) {
 		result = result.concat(leftArray);
-	} else if (rightArray.length) {
+	} else {
 		result = result.concat(rightArray);
 	}
 	

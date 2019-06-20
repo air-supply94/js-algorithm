@@ -12,7 +12,6 @@ export default function toFinite(x?: any): number {
 		return MAX_NUMBER;
 	} else if (x === -Infinity) {
 		return -MAX_NUMBER;
-	} else {
-		return x;
 	}
+	return x;
 }
