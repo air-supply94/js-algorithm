@@ -23,11 +23,7 @@ function mergeSortedArrays(leftArray: any[], rightArray: any[], comparator: Inte
 		result.push(comparator.lessThanOrEqual(leftArray[0], rightArray[0]) ? leftArray.shift() : rightArray.shift());
 	}
 	
-	if (leftArray.length) {
-		result = result.concat(leftArray);
-	} else {
-		result = result.concat(rightArray);
-	}
+	result = result.concat(leftArray.length ? leftArray : rightArray);
 	
 	return result;
 }

@@ -180,7 +180,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
 	}
 	
 	public has(value) {
-		return !!this.find({value: value});
+		return !!this.find({value});
 	};
 	
 	public isEmpty() {

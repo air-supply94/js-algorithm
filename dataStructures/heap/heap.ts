@@ -131,7 +131,7 @@ export default abstract class Heap implements InterfaceHeap {
 	}
 	
 	public down(customStartIndex = 0) {
-		let nextIndex: null | number = null;
+		let nextIndex: number;
 		while (this.hasLeftChild(customStartIndex)) {
 			if (this.hasRightChild(customStartIndex) && this.pairIsInCorrectOrder(this.rightChild(customStartIndex), this.leftChild(customStartIndex))) {
 				nextIndex = this.getRightChildIndex(customStartIndex);
