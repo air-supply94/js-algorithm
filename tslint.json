@@ -1,0 +1,185 @@
+{
+	"extends": [
+		"tslint:latest",
+		"tslint-config-prettier"
+	],
+	"rulesDirectory": [],
+	"rules": {
+		"no-unused-variable": true,
+		"switch-default": true,
+		"class-name": true,
+		"prefer-template": true,
+		"newline-per-chained-call": true,
+		"no-shadowed-variable": false,
+		"number-literal-format": true,
+		"type-literal-delimiter": true,
+		"comment-format": [
+			true,
+			"check-space"
+		],
+		"trailing-comma": [
+			true,
+			{
+				"multiline": {
+					"objects": "always",
+					"arrays": "always",
+					"functions": "always",
+					"imports": "always",
+					"exports": "always",
+					"typeLiterals": "always"
+				},
+				"esSpecCompliant": true
+			}
+		],
+		"typedef-whitespace": [
+			true,
+			{
+				"call-signature": "nospace",
+				"index-signature": "nospace",
+				"parameter": "nospace",
+				"property-declaration": "nospace",
+				"variable-declaration": "nospace"
+			}
+		],
+		"whitespace": [
+			true,
+			"check-branch",
+			"check-decl",
+			"check-operator",
+			"check-module",
+			"check-separator",
+			"check-type",
+			"check-type-operator",
+			"check-rest-spread"
+		],
+		"semicolon": [
+			true,
+			"always"
+		],
+		"no-trailing-whitespace": true,
+		"no-irregular-whitespace": true,
+		"newline-before-return": false,
+		"linebreak-style": [
+			true,
+			"LF"
+		],
+		"indent": [
+			true,
+			"spaces",
+			2
+		],
+		"import-spacing": true,
+		"align": [
+			true,
+			"members",
+			"elements"
+		],
+		"switch-final-break": [
+			true,
+			"always"
+		],
+		"no-var-keyword": true,
+		"no-string-literal": true,
+		"array-type": [
+			true,
+			"array"
+		],
+		"strict-string-expressions": true,
+		"prefer-const": true,
+		"one-line": [
+			true,
+			"check-catch",
+			"check-finally",
+			"check-else"
+		],
+		"space-before-function-paren": [
+			true,
+			{
+				"method": "never",
+				"constructor": "never",
+				"anonymous": "always",
+				"named": "never",
+				"asyncArrow": "always"
+			}
+		],
+		"object-literal-shorthand": true,
+		"no-unnecessary-initializer": true,
+		"prefer-object-spread": true,
+		"no-angle-bracket-type-assertion": true,
+		"arrow-parens": false,
+		"interface-name": false,
+		"max-classes-per-file": false,
+		"max-line-length": [
+			false,
+			180
+		],
+		"member-access": true,
+		"member-ordering": [
+			true,
+			{
+				"order": [
+					"constructor",
+					"static-field",
+					"static-method",
+					"instance-field",
+					"instance-method"
+				]
+			}
+		],
+		"no-consecutive-blank-lines": [
+			true,
+			1
+		],
+		"no-console": [
+			true,
+			"debug",
+			"info",
+			"time",
+			"timeEnd",
+			"trace"
+		],
+		"no-empty": false,
+		"no-inferrable-types": [
+			true,
+			"ignore-params"
+		],
+		"no-non-null-assertion": false,
+		"no-switch-case-fall-through": true,
+		"no-var-requires": false,
+		"object-literal-key-quotes": [
+			true,
+			"as-needed"
+		],
+		"object-literal-sort-keys": false,
+		"ordered-imports": false,
+		"quotemark": [
+			true,
+			"single"
+		],
+		"no-submodule-imports": false,
+		"no-implicit-dependencies": false,
+		"curly": true,
+		"variable-name": false,
+		"no-this-assignment": false,
+		"jsdoc-format": false,
+		"ban-types": [
+			true,
+			[
+				"Object",
+				"Use {} instead."
+			],
+			[
+				"String",
+				"Use string instead."
+			],
+			[
+				"Number",
+				"Use number instead."
+			],
+			[
+				"Boolean",
+				"Use boolean instead."
+			]
+		]
+	}
+}
