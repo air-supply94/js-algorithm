@@ -18,12 +18,13 @@ export default abstract class Heap implements InterfaceHeap {
   public abstract pairIsInCorrectOrder(firstElement, secondElement): boolean;
 
   public fromArray(value) {
-    value.forEach(val => this.add(val));
+    value.forEach(item => this.add(item));
     return this;
   }
 
   public sort() {
-    const sortArray: any[] = [];
+    const sortArray = [];
+    // @ts-ignore
     while (!this.isEmpty()) {
       sortArray.push(this.poll());
     }
@@ -32,11 +33,11 @@ export default abstract class Heap implements InterfaceHeap {
   }
 
   public getLeftChildIndex(parentIndex) {
-    return 2 * parentIndex + 1;
+    return parentIndex * 2 + 1;
   }
 
   public getRightChildIndex(parentIndex) {
-    return 2 * parentIndex + 2;
+    return parentIndex * 2 + 2;
   }
 
   public getParentIndex(childIndex) {
@@ -48,11 +49,11 @@ export default abstract class Heap implements InterfaceHeap {
   }
 
   public hasLeftChild(parentIndex) {
-    return this.getLeftChildIndex(parentIndex) > 0 && this.getLeftChildIndex(parentIndex) < this.heapContainer.length;
+    return this.getLeftChildIndex(parentIndex) > -1 && this.getLeftChildIndex(parentIndex) < this.heapContainer.length;
   }
 
   public hasRightChild(parentIndex) {
-    return this.getRightChildIndex(parentIndex) > 0 && this.getRightChildIndex(parentIndex) < this.heapContainer.length;
+    return this.getRightChildIndex(parentIndex) > -1 && this.getRightChildIndex(parentIndex) < this.heapContainer.length;
   }
 
   public leftChild(parentIndex) {
@@ -87,11 +88,11 @@ export default abstract class Heap implements InterfaceHeap {
   }
 
   public findIndex(item, comparator = this.compare, fromIndex = 0) {
-    return this.heapContainer.findIndex((value) => comparator.equal(item, value), fromIndex);
+    return this.heapContainer.findIndex(value => comparator.equal(item, value), fromIndex);
   }
 
   public isEmpty() {
-    return this.heapContainer.length === 0;
+    return this.heapContainer.length <= 0;
   }
 
   public toString() {
@@ -104,22 +105,21 @@ export default abstract class Heap implements InterfaceHeap {
       if (removeIndex === this.heapContainer.length - 1) {
         this.heapContainer.pop();
         break;
-      } else {
-        this.heapContainer[removeIndex] = this.heapContainer.pop();
-        if (this.hasLeftChild(removeIndex) && (!this.hasParent(removeIndex) || this.pairIsInCorrectOrder(this.parent(removeIndex), this.heapContainer[removeIndex]))) {
-          this.down(removeIndex);
-        } else {
-          this.up(removeIndex);
-        }
-        removeIndex = this.findIndex(item, comparator);
       }
+      this.heapContainer[removeIndex] = this.heapContainer.pop();
+      if (!this.hasParent(removeIndex) || this.pairIsInCorrectOrder(this.parent(removeIndex), this.heapContainer[removeIndex])) {
+        this.down(removeIndex);
+      } else {
+        this.up(removeIndex);
+      }
+      removeIndex = this.findIndex(item, comparator);
     }
     return this;
   }
 
   public up(customStartIndex = this.heapContainer.length - 1) {
     while (this.hasParent(customStartIndex) && !this.pairIsInCorrectOrder(this.parent(customStartIndex), this.heapContainer[customStartIndex])) {
-      swap(this.heapContainer, customStartIndex, this.getParentIndex(customStartIndex));
+      swap(this.heapContainer, this.getParentIndex(customStartIndex), customStartIndex);
       customStartIndex = this.getParentIndex(customStartIndex);
     }
     return this;
@@ -131,10 +131,12 @@ export default abstract class Heap implements InterfaceHeap {
       nextIndex = this.hasRightChild(customStartIndex) && this.pairIsInCorrectOrder(this.rightChild(customStartIndex), this.leftChild(customStartIndex))
         ? this.getRightChildIndex(customStartIndex)
         : this.getLeftChildIndex(customStartIndex);
+
       if (this.pairIsInCorrectOrder(this.heapContainer[customStartIndex], this.heapContainer[nextIndex])) {
         break;
       }
-      swap(this.heapContainer, customStartIndex, nextIndex);
+
+      swap(this.heapContainer, nextIndex, customStartIndex);
       customStartIndex = nextIndex;
     }
     return this;
