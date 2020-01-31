@@ -1,5 +1,5 @@
 import MinHeap from '../heap/minHeap';
-import Comparator from '../../utils/comparator/index';
+import { Comparator } from '../../utils/comparator/index';
 import { InterfacePriority } from './@types';
 
 export default class PriorityQueue implements InterfacePriority {

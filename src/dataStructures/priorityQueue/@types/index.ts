@@ -1,4 +1,4 @@
-import InterfaceComparator from '../../../utils/comparator/@types';
+import { InterfaceComparator } from '../../../utils/comparator/@types';
 import { InterfaceHeap } from '../../heap/@types';
 
 export interface InterfacePriority {

@@ -1,4 +1,4 @@
-import InterfaceComparator from '../../../utils/comparator/@types/index';
+import { InterfaceComparator } from '../../../utils/comparator/@types/index';
 
 export interface InterfaceLinkedListNode {
   value: any;

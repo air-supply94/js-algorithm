@@ -1,5 +1,5 @@
 import linearSearch from '../index';
-import Comparator from '../../../utils/comparator';
+import {Comparator} from '../../../utils/comparator';
 
 describe('linearSearch', () => {
   it('should search all numbers in array', () => {

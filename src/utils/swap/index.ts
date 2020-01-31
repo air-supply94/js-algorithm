@@ -1,7 +1,3 @@
-/**
- * Created by joey on 2018/10/25
- */
-
 export default function swap(data: any[], first: number, second: number): any[] {
   const t = data[first];
   data[first] = data[second];

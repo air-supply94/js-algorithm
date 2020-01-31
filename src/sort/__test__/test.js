@@ -4,7 +4,7 @@ import mergeSort from '../mergeSort';
 import quickSort from '../quickSort/inPlace';
 import selectionSort from '../selectionSort';
 import shellSort from '../shellSort';
-import Comparator from '../../utils/comparator';
+import {Comparator} from '../../utils/comparator';
 
 describe('sort', () => {
 	const sortCollection = [bubbleSort, insertionSort, mergeSort, quickSort, selectionSort, shellSort];

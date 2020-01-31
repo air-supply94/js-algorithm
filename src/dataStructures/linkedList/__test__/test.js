@@ -1,5 +1,5 @@
 import Index from '../index';
-import Comparator from '../../../utils/comparator';
+import {Comparator} from '../../../utils/comparator';
 
 describe('Index', () => {
 	it('should create empty linked list', () => {

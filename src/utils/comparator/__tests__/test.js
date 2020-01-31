@@ -1,4 +1,4 @@
-import Comparator from '../index';
+import {Comparator} from '../index';
 
 describe('Comparator', () => {
 	it('should compare with default comparator function', () => {

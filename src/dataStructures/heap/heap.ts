@@ -1,19 +1,19 @@
 /**
  * Created by joey on 2018/10/25
  */
-import Comparator from '../../utils/comparator';
+import { Comparator } from '../../utils/comparator';
 import swap from '../../utils/swap';
 import { compareFunctionType } from '../../utils/@types';
 import { InterfaceHeap } from './@types';
 
 export default abstract class Heap implements InterfaceHeap {
-  constructor(comparatorFunction?: Comparator | compareFunctionType) {
+  protected constructor(comparatorFunction?: Comparator | compareFunctionType) {
     this.heapContainer = [];
     this.compare = comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
   }
 
-  public heapContainer;
-  public compare;
+  private heapContainer;
+  private compare;
 
   public abstract pairIsInCorrectOrder(firstElement, secondElement): boolean;
 
@@ -44,18 +44,15 @@ export default abstract class Heap implements InterfaceHeap {
   }
 
   public hasParent(childIndex) {
-    const i = this.getParentIndex(childIndex);
-    return i > -1 && i < this.heapContainer.length;
+    return this.getParentIndex(childIndex) > -1 && this.getParentIndex(childIndex) < this.heapContainer.length;
   }
 
   public hasLeftChild(parentIndex) {
-    const i = this.getLeftChildIndex(parentIndex);
-    return i > 0 && i < this.heapContainer.length;
+    return this.getLeftChildIndex(parentIndex) > 0 && this.getLeftChildIndex(parentIndex) < this.heapContainer.length;
   }
 
   public hasRightChild(parentIndex) {
-    const i = this.getRightChildIndex(parentIndex);
-    return i > 0 && i < this.heapContainer.length;
+    return this.getRightChildIndex(parentIndex) > 0 && this.getRightChildIndex(parentIndex) < this.heapContainer.length;
   }
 
   public leftChild(parentIndex) {
@@ -77,18 +74,16 @@ export default abstract class Heap implements InterfaceHeap {
   public poll() {
     if (this.heapContainer.length <= 1) {
       return this.heapContainer.pop();
-    } else {
-      const item = this.heapContainer[0];
-      this.heapContainer[0] = this.heapContainer.pop();
-      this.down();
-      return item;
     }
+    const item = this.heapContainer[0];
+    this.heapContainer[0] = this.heapContainer.pop();
+    this.down();
+    return item;
   }
 
   public add(item) {
     this.heapContainer.push(item);
-    this.up();
-    return this;
+    return this.up();
   }
 
   public findIndex(item, comparator = this.compare, fromIndex = 0) {
@@ -133,19 +128,14 @@ export default abstract class Heap implements InterfaceHeap {
   public down(customStartIndex = 0) {
     let nextIndex: number;
     while (this.hasLeftChild(customStartIndex)) {
-      // tslint:disable-next-line:prefer-conditional-expression
-      if (this.hasRightChild(customStartIndex) && this.pairIsInCorrectOrder(this.rightChild(customStartIndex), this.leftChild(customStartIndex))) {
-        nextIndex = this.getRightChildIndex(customStartIndex);
-      } else {
-        nextIndex = this.getLeftChildIndex(customStartIndex);
-      }
-
+      nextIndex = this.hasRightChild(customStartIndex) && this.pairIsInCorrectOrder(this.rightChild(customStartIndex), this.leftChild(customStartIndex))
+        ? this.getRightChildIndex(customStartIndex)
+        : this.getLeftChildIndex(customStartIndex);
       if (this.pairIsInCorrectOrder(this.heapContainer[customStartIndex], this.heapContainer[nextIndex])) {
         break;
-      } else {
-        swap(this.heapContainer, customStartIndex, nextIndex);
-        customStartIndex = nextIndex;
       }
+      swap(this.heapContainer, customStartIndex, nextIndex);
+      customStartIndex = nextIndex;
     }
     return this;
   }

@@ -1,5 +1,5 @@
 import DoubleLinkedListNode from './doubleLinkedListNode';
-import Comparator from '../../utils/comparator';
+import { Comparator } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 import {
   InterfaceDoubleLinkedList,

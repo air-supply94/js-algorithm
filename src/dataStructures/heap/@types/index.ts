@@ -1,9 +1,6 @@
 import { compareFunctionType } from '../../../utils/@types';
-import InterfaceComparator from '../../../utils/comparator/@types';
 
 export interface InterfaceHeap {
-  heapContainer: any[];
-  compare: InterfaceComparator;
   fromArray: (value: any[]) => this;
   sort: () => any[];
   getLeftChildIndex: (parentIndex: number) => number;

@@ -1,4 +1,4 @@
-import Comparator from '../../utils/comparator';
+import { Comparator } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 
 export default function binarySearch(sortedArray: any[], seekElement?: any, compareCallback?: Comparator | compareFunctionType): number {

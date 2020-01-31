@@ -1,23 +1,19 @@
-/**
- * Created by joey on 2018/10/15
- */
 import { compareFunctionType } from '../@types';
-import InterfaceComparator from './@types';
+import { InterfaceComparator } from './@types';
 
-// tslint:disable-next-line:only-arrow-functions
-const defaultCompareFunction: compareFunctionType = function (a, b) {
+function defaultCompareFunction(a, b) {
   if (a === b) {
     return 0;
   }
   return a < b ? -1 : 1;
-};
+}
 
-export default class Comparator implements InterfaceComparator {
-  constructor(compareFunction?: compareFunctionType) {
-    this.compare = typeof compareFunction === 'function' ? compareFunction : defaultCompareFunction;
+export class Comparator implements InterfaceComparator {
+  constructor(compareFunction = defaultCompareFunction) {
+    this.compare = compareFunction;
   }
 
-  public compare: compareFunctionType;
+  private compare: compareFunctionType;
 
   public equal(a, b) {
     return this.compare(a, b) === 0;

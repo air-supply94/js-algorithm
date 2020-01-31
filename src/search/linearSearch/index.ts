@@ -1,4 +1,4 @@
-import Comparator from '../../utils/comparator';
+import { Comparator } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 
 export default function (array: any[], seekElement?: any, compareCallback?: Comparator | compareFunctionType): any[] {

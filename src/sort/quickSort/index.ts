@@ -1,5 +1,5 @@
-import Comparator from '../../utils/comparator/index';
-import InterfaceComparator from '../../utils/comparator/@types/index';
+import { Comparator } from '../../utils/comparator/index';
+import { InterfaceComparator } from '../../utils/comparator/@types/index';
 import { compareFunctionType } from '../../utils/@types';
 
 export default function quickSortExchange(originalArray: any[], compareCallback?: Comparator | compareFunctionType): any[] {

@@ -1,6 +1,6 @@
 import Index from '../index';
 import DoubleLinkedListNode from '../doubleLinkedListNode';
-import Comparator from '../../../utils/comparator';
+import {Comparator} from '../../../utils/comparator';
 
 describe('DoubleLinkedListNode', () => {
   it('should create list node with value', () => {

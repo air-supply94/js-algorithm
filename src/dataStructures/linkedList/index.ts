@@ -1,5 +1,5 @@
 import LinkedListNode from './linkedListNode';
-import Comparator from '../../utils/comparator';
+import { Comparator } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 import {
   InterfaceLinkedList,

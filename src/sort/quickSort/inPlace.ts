@@ -1,5 +1,5 @@
-import Comparator from '../../utils/comparator';
-import InterfaceComparator from '../../utils/comparator/@types';
+import { Comparator } from '../../utils/comparator';
+import { InterfaceComparator } from '../../utils/comparator/@types';
 import { compareFunctionType } from '../../utils/@types';
 import swap from '../../utils/swap';
 
