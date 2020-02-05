@@ -47,7 +47,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     return nodes;
   }
 
-  public eachFromHead(callback?: (node: InterfaceDoubleLinkedListNode<T>) => void): this {
+  public eachFromHead(callback: (node: InterfaceDoubleLinkedListNode<T>) => void): this {
     let currentNode = this._head;
     while (currentNode) {
       callback(currentNode);
@@ -57,7 +57,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     return this;
   }
 
-  public eachFromTail(callback?: (node: InterfaceDoubleLinkedListNode<T>) => void): this {
+  public eachFromTail(callback: (node: InterfaceDoubleLinkedListNode<T>) => void): this {
     let currentNode = this._tail;
     while (currentNode) {
       callback(currentNode);

@@ -1,11 +1,10 @@
-import { InterfaceDoubleLinkedList } from '../../doubleLinkedList/@types';
+import { InterfaceDoubleLinkedListNode } from '../../doubleLinkedList/@types';
 
 export interface InterfaceSet {
-  doubleLinkedList: InterfaceDoubleLinkedList;
   size: number;
   add: (value?: any) => this;
   delete: (value?: any) => this;
-  forEach: (callback: (value?: any, key?: any) => any) => this;
+  forEach: (callback: (value: InterfaceDoubleLinkedListNode<any>, key: InterfaceDoubleLinkedListNode<any>) => void) => this;
   entries: () => [any, any][];
   values: () => any[];
   clear: () => this;

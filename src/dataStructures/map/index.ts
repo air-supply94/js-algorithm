@@ -49,7 +49,7 @@ export class Map implements InterfaceMap {
     return this;
   }
 
-  public forEach(callback?: (value: InterfaceDoubleLinkedListNode<any>, key: InterfaceDoubleLinkedListNode<any>) => void) {
+  public forEach(callback: (value: InterfaceDoubleLinkedListNode<any>, key: InterfaceDoubleLinkedListNode<any>) => void) {
     this._doubleLinkedList.eachFromHead(node => callback(node.value.value, node.value.key));
     return this;
   }
