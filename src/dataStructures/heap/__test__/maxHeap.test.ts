@@ -281,19 +281,6 @@ describe('MaxHeap', () => {
       4,
       4,
     ].reverse());
-    expect(maxHeap.heapContainer)
-    .toEqual([
-      0,
-      0,
-      1,
-      2,
-      2,
-      3,
-      3,
-      4,
-      4,
-      4,
-    ].reverse());
   });
 
   it('sort string', () => {
@@ -313,20 +300,6 @@ describe('MaxHeap', () => {
     .map(value => String(value)));
 
     expect(maxHeap.sort())
-    .toEqual([
-      0,
-      0,
-      1,
-      2,
-      2,
-      3,
-      3,
-      4,
-      4,
-      4,
-    ].reverse()
-    .map(value => String(value)));
-    expect(maxHeap.heapContainer)
     .toEqual([
       0,
       0,
@@ -362,17 +335,6 @@ describe('MaxHeap', () => {
     const maxHeap = new MaxHeap(compareCallback);
     maxHeap.fromArray(arr);
     expect(maxHeap.sort())
-    .toEqual(
-      [
-        {age: 1},
-        {age: 5},
-        {age: 7},
-        {age: 20},
-        {age: 25},
-        {age: 30},
-      ].reverse(),
-    );
-    expect(maxHeap.heapContainer)
     .toEqual(
       [
         {age: 1},

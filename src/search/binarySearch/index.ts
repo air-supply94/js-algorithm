@@ -1,8 +1,11 @@
-import { Comparator } from '../../utils/comparator';
+import {
+  Comparator,
+  initComparator,
+} from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 
 export function binarySearch<T>(sortedArray: T[], seekElement?: any, compareCallback?: Comparator | compareFunctionType): number {
-  const comparator = compareCallback instanceof Comparator ? compareCallback : new Comparator(compareCallback);
+  const comparator = initComparator(compareCallback);
   let startIndex = 0;
   let endIndex = sortedArray.length - 1;
   while (startIndex <= endIndex) {

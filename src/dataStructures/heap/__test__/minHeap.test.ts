@@ -306,19 +306,6 @@ describe('MinHeap', () => {
       4,
       4,
     ]);
-    expect(minHeap.heapContainer)
-    .toEqual([
-      0,
-      0,
-      1,
-      2,
-      2,
-      3,
-      3,
-      4,
-      4,
-      4,
-    ]);
   });
 
   it('sort string', () => {
@@ -337,19 +324,6 @@ describe('MinHeap', () => {
     ].map(value => String(value)));
 
     expect(minHeap.sort())
-    .toEqual([
-      0,
-      0,
-      1,
-      2,
-      2,
-      3,
-      3,
-      4,
-      4,
-      4,
-    ].map(value => String(value)));
-    expect(minHeap.heapContainer)
     .toEqual([
       0,
       0,
@@ -384,17 +358,6 @@ describe('MinHeap', () => {
     const minHeap = new MinHeap(compareCallback);
     minHeap.fromArray(arr);
     expect(minHeap.sort())
-    .toEqual(
-      [
-        {age: 1},
-        {age: 5},
-        {age: 7},
-        {age: 20},
-        {age: 25},
-        {age: 30},
-      ],
-    );
-    expect(minHeap.heapContainer)
     .toEqual(
       [
         {age: 1},

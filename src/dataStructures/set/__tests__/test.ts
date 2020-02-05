@@ -5,10 +5,7 @@ const value1 = {name: 'a'};
 const value2 = {name: 'b'};
 const set1 = new Set([value1]);
 const set2 = new Set(set1);
-const set3 = new Set('');
 test('test set', () => {
-  expect(set3.values())
-  .toEqual([]);
   expect(set1)
   .toEqual(set2);
   expect(set1.size)
