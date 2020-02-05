@@ -2,16 +2,14 @@ import { InterfaceMap } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
 import { InterfaceDoubleLinkedListNode } from '../doubleLinkedList/@types';
 
-function compareFunction(a, b) {
-  if (a.key === b.key) {
-    return 0;
-  }
-  return a.key < b.key ? -1 : 1;
-}
-
 export class Map implements InterfaceMap {
+
+  public get size() {
+    return this._doubleLinkedList.size;
+  }
+
   constructor(object?: InterfaceMap | [any, any][]) {
-    this._doubleLinkedList = new DoubleLinkedList<{ key: any; value: any }>(compareFunction);
+    this._doubleLinkedList = new DoubleLinkedList<{ key: any; value: any }>(Map.compareFunction);
     if (object instanceof Map) {
       object.forEach((value, key) => {
         this.set(key, value);
@@ -25,11 +23,14 @@ export class Map implements InterfaceMap {
     }
   }
 
-  private _doubleLinkedList;
-
-  public get size() {
-    return this._doubleLinkedList.size;
+  public static compareFunction = (a, b) => {
+    if (a.key === b.key) {
+      return 0;
+    }
+    return a.key < b.key ? -1 : 1;
   }
+
+  private _doubleLinkedList;
 
   public delete(key?: any): this {
     this._doubleLinkedList.delete({key});

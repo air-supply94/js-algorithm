@@ -12,7 +12,7 @@ export class DoubleLinkedListNode<T> implements InterfaceDoubleLinkedListNode<T>
   public next: InterfaceDoubleLinkedListNode<T>;
   public previous: InterfaceDoubleLinkedListNode<T>;
 
-  public toString(callback?: (node: T) => string): string {
+  public toString(callback?: (value: T) => string): string {
     return typeof callback === 'function' ? callback(this.value) : String(this.value);
   }
 }

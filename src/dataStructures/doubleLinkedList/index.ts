@@ -1,5 +1,8 @@
 import { DoubleLinkedListNode } from './doubleLinkedListNode';
-import { Comparator } from '../../utils/comparator';
+import {
+  Comparator,
+  initComparator,
+} from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 import {
   InterfaceDoubleLinkedList,
@@ -9,7 +12,7 @@ import {
 export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   constructor(comparatorFunction?: Comparator | compareFunctionType) {
     this.clear();
-    this._compare = comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
+    this._compare = initComparator(comparatorFunction);
   }
 
   private _compare: Comparator;

@@ -6,9 +6,6 @@ describe('Stack', () => {
     expect(stack)
     .not
     .toBeNull();
-    expect(stack.doubleLinkedList)
-    .not
-    .toBeNull();
     stack.push(1);
     expect(stack.size)
     .toBe(1);
@@ -38,7 +35,7 @@ describe('Stack', () => {
     const stack = new Stack();
 
     expect(stack.peek())
-    .toBeUndefined();
+    .toBeNull();
 
     stack.push(1);
     stack.push(2);
@@ -78,13 +75,13 @@ describe('Stack', () => {
     expect(stack.size)
     .toBe(0);
     expect(stack.pop())
-    .toBeUndefined();
+    .toBeNull();
     expect(stack.isEmpty())
     .toBe(true);
   });
 
   it('should be possible to push/pop objects', () => {
-    const stack = new Stack();
+    const stack = new Stack<{ value: string; key: string }>();
 
     stack.push({
       value: 'test1',
@@ -109,7 +106,7 @@ describe('Stack', () => {
     const stack = new Stack();
 
     expect(stack.peek())
-    .toBeUndefined();
+    .toBeNull();
 
     stack.push(1);
     stack.push(2);
@@ -127,7 +124,7 @@ describe('Stack', () => {
     const stack = new Stack();
 
     expect(stack.peek())
-    .toBeUndefined();
+    .toBeNull();
 
     stack.push(1);
     stack.push(undefined);
