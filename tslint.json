@@ -5,6 +5,7 @@
   ],
   "rulesDirectory": [],
   "rules": {
+    "prefer-conditional-expression": false,
     "no-unused-variable": true,
     "switch-default": true,
     "class-name": true,

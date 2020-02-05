@@ -1,4 +1,4 @@
-import DoubleLinkedList from '../doubleLinkedList';
+import { DoubleLinkedList } from '../doubleLinkedList';
 import { InterfaceHasTable } from './@types';
 
 export class HashTable implements InterfaceHasTable {

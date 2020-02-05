@@ -1,5 +1,5 @@
-import Index from '../index';
-import DoubleLinkedListNode from '../doubleLinkedListNode';
+import { DoubleLinkedList } from '../index';
+import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { Comparator } from '../../../utils/comparator';
 
 describe('DoubleLinkedListNode', () => {
@@ -76,7 +76,6 @@ describe('DoubleLinkedListNode', () => {
     };
     const node = new DoubleLinkedListNode(nodeValue);
     const toStringCallback = value => `value: ${value.value}, key: ${value.key}`;
-
     expect(node.toString(toStringCallback))
     .toBe('value: 1, key: test');
   });
@@ -84,7 +83,7 @@ describe('DoubleLinkedListNode', () => {
 
 describe('Index', () => {
   it('should create empty linked list', () => {
-    const linkedList = new Index(new Comparator());
+    const linkedList = new DoubleLinkedList(new Comparator());
     linkedList.append(1);
 
     expect(linkedList.size)
@@ -99,14 +98,12 @@ describe('Index', () => {
     .toEqual(linkedList);
     expect(linkedList.isEmpty())
     .toBeTruthy();
-    expect(linkedList.find(1))
-    .toBeNull();
     expect(linkedList.isEmpty())
     .toBeTruthy();
   });
 
   it('should append node to linked list', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     expect(linkedList.head)
     .toBeNull();
@@ -127,7 +124,7 @@ describe('Index', () => {
   });
 
   it('should prepend node to linked list', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     linkedList.prepend(2);
     expect(linkedList.size)
@@ -153,7 +150,7 @@ describe('Index', () => {
   });
 
   it('should create linked list from array', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
     linkedList.fromArray([
       1,
       1,
@@ -172,7 +169,7 @@ describe('Index', () => {
   });
 
   it('should create linked eachFromHead', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
     linkedList.fromArray([
       1,
       1,
@@ -191,7 +188,7 @@ describe('Index', () => {
   });
 
   it('should create linked eachFromTail', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
     linkedList.fromArray([
       1,
       1,
@@ -210,7 +207,7 @@ describe('Index', () => {
   });
 
   it('should reverse linked list', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     linkedList.append(1);
     linkedList.append(2);
@@ -228,7 +225,7 @@ describe('Index', () => {
   });
 
   it('should delete node by value from linked list', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     expect(linkedList.delete(5))
     .toBeNull();
@@ -312,7 +309,7 @@ describe('Index', () => {
   });
 
   it('should delete linked list tail', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     expect(linkedList.deleteTail())
     .toBeNull();
@@ -369,7 +366,7 @@ describe('Index', () => {
   });
 
   it('should delete linked list head', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     expect(linkedList.deleteHead())
     .toBeNull();
@@ -414,7 +411,7 @@ describe('Index', () => {
   });
 
   it('should delete linked head and tail', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
     linkedList.append(1);
     linkedList.append(1);
     linkedList.append(2);
@@ -439,7 +436,7 @@ describe('Index', () => {
   });
 
   it('should delete linked head and tail111', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
     linkedList.append(1);
     linkedList.append(1);
     linkedList.append(2);
@@ -471,7 +468,7 @@ describe('Index', () => {
   });
 
   it('should be possible to store objects in the list and to print them out', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     const nodeValue1 = {
       value: 1,
@@ -494,7 +491,7 @@ describe('Index', () => {
   });
 
   it('should find node by value', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     expect(linkedList.find({value: 5}))
     .toBeNull();
@@ -515,7 +512,7 @@ describe('Index', () => {
   });
 
   it('should find node by callback', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList<{ value: number; key: string }>();
 
     linkedList.append({
       value: 1,
@@ -551,7 +548,7 @@ describe('Index', () => {
       return a.customValue < b.customValue ? -1 : 1;
     };
 
-    const linkedList = new Index(comparatorFunction);
+    const linkedList = new DoubleLinkedList<{ value: number; customValue: string }>(comparatorFunction);
 
     linkedList.append({
       value: 1,
@@ -580,18 +577,18 @@ describe('Index', () => {
     expect(node.value.customValue)
     .toBe('test2');
     expect(linkedList.find({
-      value: 2,
-      customValue: 'test5',
+      value: {
+        value: 2,
+        customValue: 'test5',
+      },
     }))
     .toBeNull();
   });
 
   it('add undefined', () => {
-    const linkedList = new Index();
+    const linkedList = new DoubleLinkedList();
 
     expect(linkedList.find({value: 5}))
-    .toBeNull();
-    expect(linkedList.find(111))
     .toBeNull();
 
     linkedList.append(undefined);
@@ -604,21 +601,21 @@ describe('Index', () => {
   });
 
   it('connect', () => {
-    const linkedList1 = new Index();
+    const linkedList1 = new DoubleLinkedList();
     linkedList1.fromArray([
       1,
       2,
       3,
     ]);
 
-    const linkedList2 = new Index();
+    const linkedList2 = new DoubleLinkedList();
     linkedList2.fromArray([
       4,
       5,
       6,
     ]);
 
-    const linkedList3 = new Index();
+    const linkedList3 = new DoubleLinkedList();
     linkedList3.fromArray([
       7,
       8,

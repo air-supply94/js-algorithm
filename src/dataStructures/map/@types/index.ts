@@ -1,7 +1,7 @@
 import { InterfaceDoubleLinkedList } from '../../doubleLinkedList/@types';
 
 export interface InterfaceMap {
-  doubleLinkedList: InterfaceDoubleLinkedList;
+  doubleLinkedList: InterfaceDoubleLinkedList<any>;
   size: number;
   delete: (key?: any) => this;
   set: (key?: any, value?: any) => this;

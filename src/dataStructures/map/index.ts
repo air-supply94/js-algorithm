@@ -1,5 +1,5 @@
-import DoubleLinkedList from '../doubleLinkedList';
 import { InterfaceMap } from './@types';
+import { DoubleLinkedList } from '../doubleLinkedList';
 
 function compareFunction(a, b) {
   if (a.key === b.key) {

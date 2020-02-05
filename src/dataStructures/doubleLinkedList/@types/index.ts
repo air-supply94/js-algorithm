@@ -1,31 +1,28 @@
-import { InterfaceComparator } from '../../../utils/comparator/@types';
-
-export interface InterfaceDoubleLinkedListNode {
-  value: any;
-  next: any;
-  previous: any;
-  toString: (callback?: Function) => string;
+export interface InterfaceDoubleLinkedListNode<T> {
+  value: T;
+  next: null | InterfaceDoubleLinkedListNode<T>;
+  previous: null | InterfaceDoubleLinkedListNode<T>;
+  toString: (callback?: (node: T) => string) => string;
 }
 
-export interface InterfaceDoubleLinkedList {
-  head: null | InterfaceDoubleLinkedListNode;
-  tail: null | InterfaceDoubleLinkedListNode;
+export interface InterfaceDoubleLinkedList<T> {
+  head: null | InterfaceDoubleLinkedListNode<T>;
+  tail: null | InterfaceDoubleLinkedListNode<T>;
   size: number;
-  compare: InterfaceComparator;
   clear: () => this;
-  toString: (callback?: Function) => string;
-  eachFromHead: (callback: (node: InterfaceDoubleLinkedListNode, ...arg) => any) => this;
-  eachFromTail: (callback: (node: InterfaceDoubleLinkedListNode, ...arg) => any) => this;
-  toArray: () => InterfaceDoubleLinkedListNode[];
-  fromArray: (values: any[]) => this;
-  deleteHead: () => null | InterfaceDoubleLinkedListNode;
-  deleteTail: () => null | InterfaceDoubleLinkedListNode;
-  find: (params: { value?: any; callback?: Function }) => null | InterfaceDoubleLinkedListNode;
-  delete: (value?: any) => null | InterfaceDoubleLinkedListNode;
-  append: (value?: any) => this;
-  prepend: (value?: any) => this;
+  toString: (callback?: (node: T) => string) => string;
+  eachFromHead: (callback: (node: InterfaceDoubleLinkedListNode<T>) => void) => this;
+  eachFromTail: (callback: (node: InterfaceDoubleLinkedListNode<T>) => void) => this;
+  toArray: () => InterfaceDoubleLinkedListNode<T>[];
+  fromArray: (values: T[]) => this;
+  deleteHead: () => null | InterfaceDoubleLinkedListNode<T>;
+  deleteTail: () => null | InterfaceDoubleLinkedListNode<T>;
+  find: (params: { value?: any; callback?: (node: T) => boolean }) => null | InterfaceDoubleLinkedListNode<T>;
+  delete: (value?: any) => null | InterfaceDoubleLinkedListNode<T>;
+  append: (value: T) => this;
+  prepend: (value: T) => this;
   has: (value?: any) => boolean;
   isEmpty: () => boolean;
   reverse: () => this;
-  connect: (...args: InterfaceDoubleLinkedList[]) => this;
+  connect: (...args: InterfaceDoubleLinkedList<T>[]) => this;
 }

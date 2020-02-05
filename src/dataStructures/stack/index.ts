@@ -1,5 +1,5 @@
-import DoubleLinkedList from '../doubleLinkedList';
 import { InterfaceStack } from './@types';
+import { DoubleLinkedList } from '../doubleLinkedList';
 
 export class Stack implements InterfaceStack {
   constructor() {

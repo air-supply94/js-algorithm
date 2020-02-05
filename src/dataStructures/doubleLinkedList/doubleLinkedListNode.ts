@@ -1,18 +1,18 @@
 import { InterfaceDoubleLinkedListNode } from './@types';
 
-export default class DoubleLinkedListNode implements InterfaceDoubleLinkedListNode {
+export class DoubleLinkedListNode<T> implements InterfaceDoubleLinkedListNode<T> {
 
-  constructor(value: any, next = null, previous = null) {
+  constructor(value: T, next = null, previous = null) {
     this.value = value;
     this.next = next;
     this.previous = previous;
   }
 
   public value;
-  public next;
-  public previous;
+  public next: InterfaceDoubleLinkedListNode<T>;
+  public previous: InterfaceDoubleLinkedListNode<T>;
 
-  public toString(callback?: Function) {
+  public toString(callback?: (node: T) => string): string {
     return typeof callback === 'function' ? callback(this.value) : String(this.value);
   }
 }

@@ -1,4 +1,4 @@
-import DoubleLinkedListNode from './doubleLinkedListNode';
+import { DoubleLinkedListNode } from './doubleLinkedListNode';
 import { Comparator } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 import {
@@ -6,37 +6,49 @@ import {
   InterfaceDoubleLinkedListNode,
 } from './@types';
 
-export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
+export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   constructor(comparatorFunction?: Comparator | compareFunctionType) {
     this.clear();
-    this.compare = comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
+    this._compare = comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
   }
 
-  public compare;
-  public head;
-  public tail;
-  public size;
+  private _compare: Comparator;
+  private _head: InterfaceDoubleLinkedListNode<T>;
+  private _tail: InterfaceDoubleLinkedListNode<T>;
+  private _size: number;
 
-  public clear() {
-    this.head = this.tail = null;
-    this.size = 0;
+  get size() {
+    return this._size;
+  }
+
+  get head() {
+    return this._head;
+  }
+
+  get tail() {
+    return this._tail;
+  }
+
+  public clear(): this {
+    this._head = this._tail = null;
+    this._size = 0;
     return this;
   }
 
-  public toString(callback?: Function) {
+  public toString(callback?: (node: T) => string): string {
     return this.toArray()
     .map(node => node.toString(callback))
     .toString();
   }
 
-  public toArray() {
-    const nodes: InterfaceDoubleLinkedListNode[] = [];
+  public toArray(): InterfaceDoubleLinkedListNode<T>[] {
+    const nodes = [];
     this.eachFromHead(node => nodes.push(node));
     return nodes;
   }
 
-  public eachFromHead(callback) {
-    let currentNode = this.head;
+  public eachFromHead(callback?: (node: InterfaceDoubleLinkedListNode<T>) => void): this {
+    let currentNode = this._head;
     while (currentNode) {
       callback(currentNode);
       currentNode = currentNode.next;
@@ -45,8 +57,8 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
     return this;
   }
 
-  public eachFromTail(callback) {
-    let currentNode = this.tail;
+  public eachFromTail(callback?: (node: InterfaceDoubleLinkedListNode<T>) => void): this {
+    let currentNode = this._tail;
     while (currentNode) {
       callback(currentNode);
       currentNode = currentNode.previous;
@@ -54,45 +66,45 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
     return this;
   }
 
-  public fromArray(values) {
+  public fromArray(values: T[]): this {
     values.forEach(value => this.append(value));
     return this;
   }
 
-  public deleteHead() {
-    const deletedHead = this.head;
-    if (this.head === this.tail) {
+  public deleteHead(): null | InterfaceDoubleLinkedListNode<T> {
+    const deletedHead = this._head;
+    if (this._head === this._tail) {
       this.clear();
     } else {
-      this.head = this.head.next;
-      this.head.previous = null;
-      --this.size;
+      this._head = this._head.next;
+      this._head.previous = null;
+      --this._size;
     }
 
     return deletedHead;
   }
 
-  public deleteTail() {
-    const deletedTail = this.tail;
-    if (this.head === this.tail) {
+  public deleteTail(): null | InterfaceDoubleLinkedListNode<T> {
+    const deletedTail = this._tail;
+    if (this._head === this._tail) {
       this.clear();
     } else {
-      this.tail = this.tail.previous;
-      this.tail.next = null;
-      --this.size;
+      this._tail = this._tail.previous;
+      this._tail.next = null;
+      --this._size;
     }
 
     return deletedTail;
   }
 
-  public find(findParams) {
+  public find(findParams: { value?: any; callback?: (node: T) => boolean }): null | InterfaceDoubleLinkedListNode<T> {
     const {value, callback = {}} = findParams;
-    let currentNode = this.head;
+    let currentNode = this._head;
 
     while (currentNode) {
       if (typeof callback === 'function' && callback(currentNode.value)) {
         break;
-      } else if (this.compare.equal(currentNode.value, value)) {
+      } else if (this._compare.equal(currentNode.value, value)) {
         break;
       }
       currentNode = currentNode.next;
@@ -101,69 +113,68 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
     return currentNode;
   }
 
-  public delete(value) {
+  public delete(value?: any): null | InterfaceDoubleLinkedListNode<T> {
     let deletedNode = null;
-    while (this.head && this.compare.equal(this.head.value, value)) {
-      deletedNode = this.head;
-      this.head = this.head.next;
-      --this.size;
+    while (this._head && this._compare.equal(this._head.value, value)) {
+      deletedNode = this._head;
+      this._head = this._head.next;
+      --this._size;
     }
-    if (this.head) {
-      this.head.previous = null;
+    if (this._head) {
+      this._head.previous = null;
     }
 
-    let currentNode = this.head;
+    let currentNode = this._head;
     if (currentNode) {
       while (currentNode.next) {
-        if (this.compare.equal(currentNode.next.value, value)) {
+        if (this._compare.equal(currentNode.next.value, value)) {
           deletedNode = currentNode.next;
           if (currentNode.next.next) {
             currentNode.next.next.previous = currentNode;
           }
           currentNode.next = currentNode.next.next;
-          --this.size;
+          --this._size;
         } else {
           currentNode = currentNode.next;
         }
       }
     }
 
-    this.tail = currentNode;
-    if (this.tail) {
-      this.tail.next = null;
+    this._tail = currentNode;
+    if (this._tail) {
+      this._tail.next = null;
     }
 
     return deletedNode;
   }
 
-  public append(value) {
-    const newNode = new DoubleLinkedListNode(value, null, this.tail);
+  public append(value: T): this {
+    const newNode = new DoubleLinkedListNode(value, null, this._tail);
 
     if (this.isEmpty()) {
-      this.head = this.tail = newNode;
+      this._head = this._tail = newNode;
     } else {
-      this.tail = this.tail.next = newNode;
+      this._tail = this._tail.next = newNode;
     }
-    ++this.size;
+    ++this._size;
 
     return this;
   }
 
-  public prepend(value) {
-    const newNode = new DoubleLinkedListNode(value, this.head);
-    // tslint:disable-next-line:prefer-conditional-expression
+  public prepend(value: T): this {
+    const newNode = new DoubleLinkedListNode(value, this._head);
     if (this.isEmpty()) {
-      this.head = this.tail = newNode;
+      this._head = this._tail = newNode;
     } else {
-      this.head = this.head.previous = newNode;
+      this._head = this._head.previous = newNode;
     }
-    ++this.size;
+    ++this._size;
 
     return this;
   }
 
-  public reverse() {
-    const value: any[] = [];
+  public reverse(): this {
+    const value = [];
     this.eachFromTail(nodes => {
       value.push(nodes.value);
     });
@@ -171,8 +182,8 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
     .fromArray(value);
   }
 
-  public connect(...arg) {
-    const values: any[] = [];
+  public connect(...arg: InterfaceDoubleLinkedList<T>[]): this {
+    const values = [];
     arg.forEach(doubleLinkedList => {
       doubleLinkedList.eachFromHead(nodes => {
         values.push(nodes.value);
@@ -182,11 +193,11 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
     return this.fromArray(values);
   }
 
-  public has(value) {
+  public has(value?: any): boolean {
     return !!this.find({value});
   }
 
   public isEmpty(): boolean {
-    return this.size === 0;
+    return this._size === 0;
   }
 }
