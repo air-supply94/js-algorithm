@@ -1,3 +1,4 @@
+/*
 import { Comparator } from '../../utils/comparator';
 import { InterfaceComparator } from '../../utils/comparator/@types';
 import { compareFunctionType } from '../../utils/@types';
@@ -13,7 +14,6 @@ function quickSort(originalArray: any[], inputLowIndex: number, inputHighIndex: 
     const partitionIndex = partitionArray(originalArray, inputLowIndex, inputHighIndex, comparator);
     quickSort(originalArray, inputLowIndex, partitionIndex - 1, comparator);
     quickSort(originalArray, partitionIndex + 1, inputHighIndex, comparator);
-  }
 
   return originalArray;
 }
@@ -32,3 +32,4 @@ function partitionArray(originalArray, lowIndex: number, highIndex: number, comp
   swap(originalArray, partitionIndex, highIndex);
   return partitionIndex;
 }
+*/

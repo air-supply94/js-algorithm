@@ -3,7 +3,7 @@ import { InterfaceDoubleLinkedList } from '../../doubleLinkedList/@types';
 export interface InterfaceQueue {
   doubleLinkedList: InterfaceDoubleLinkedList;
   size: number;
-  toString: (callback?: (...arg) => string) => string;
+  toString: (callback?: Function) => string;
   dequeue: () => any;
   enqueue: (value?: any) => this;
   peek: () => any;

@@ -1,4 +1,5 @@
 import { compareFunctionType } from '../../../utils/@types';
+import { Comparator } from '../../../utils/comparator';
 
 export interface InterfaceHeap {
   fromArray: (value: any[]) => this;
@@ -15,8 +16,8 @@ export interface InterfaceHeap {
   peek: () => any;
   poll: () => any;
   add: (item?: any) => this;
-  remove: (item?: any, comparator?: compareFunctionType) => this;
-  findIndex: (item?: any, comparator?: compareFunctionType, fromIndex?: number) => number;
+  remove: (item?: any, comparator?: Comparator) => this;
+  findIndex: (item?: any, comparator?: Comparator, fromIndex?: number) => number;
   isEmpty: () => boolean;
   toString: () => string;
   up: (startIndex?: number) => this;

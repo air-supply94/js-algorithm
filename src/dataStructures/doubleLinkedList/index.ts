@@ -23,7 +23,7 @@ export default class DoubleLinkedList implements InterfaceDoubleLinkedList {
     return this;
   }
 
-  public toString(callback) {
+  public toString(callback?: Function) {
     return this.toArray()
     .map(node => node.toString(callback))
     .toString();

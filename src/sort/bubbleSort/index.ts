@@ -1,8 +1,8 @@
-import swap from '../../utils/swap';
+import { swap } from '../../utils/swap';
 import { Comparator } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 
-export default function (originalArray: any[], compareCallback?: Comparator | compareFunctionType): any[] {
+export function bubbleSort<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = compareCallback instanceof Comparator ? compareCallback : new Comparator(compareCallback);
   let isSwap: boolean;
   for (let i = 0; i < originalArray.length; ++i) {

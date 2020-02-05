@@ -1,10 +1,7 @@
-/**
- * Created by joey on 2018/8/20
- */
 import DoubleLinkedList from '../doubleLinkedList';
 import { InterfaceSet } from './@types';
 
-export default class Set implements InterfaceSet {
+export class Set implements InterfaceSet {
   constructor(object?: any) {
     this.doubleLinkedList = new DoubleLinkedList();
     if (object instanceof Set || Array.isArray(object)) {
@@ -40,7 +37,10 @@ export default class Set implements InterfaceSet {
 
   public entries() {
     const entries: any[] = [];
-    this.doubleLinkedList.eachFromHead(node => entries.push([node.value, node.value]));
+    this.doubleLinkedList.eachFromHead(node => entries.push([
+      node.value,
+      node.value,
+    ]));
     return entries;
   }
 

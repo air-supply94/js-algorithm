@@ -1,6 +1,3 @@
-/**
- * Created by joey on 2018/8/20
- */
 import DoubleLinkedList from '../doubleLinkedList';
 import { InterfaceMap } from './@types';
 
@@ -11,7 +8,7 @@ function compareFunction(a, b) {
   return a.key < b.key ? -1 : 1;
 }
 
-export default class Map implements InterfaceMap {
+export class Map implements InterfaceMap {
   constructor(object?: any) {
     this.doubleLinkedList = new DoubleLinkedList(compareFunction);
     if (object instanceof Map) {
@@ -41,7 +38,10 @@ export default class Map implements InterfaceMap {
     if (oldNode) {
       oldNode.value.value = value;
     } else {
-      this.doubleLinkedList.append({key, value});
+      this.doubleLinkedList.append({
+        key,
+        value,
+      });
     }
     return this;
   }
@@ -53,7 +53,10 @@ export default class Map implements InterfaceMap {
 
   public entries() {
     const entries: any[] = [];
-    this.doubleLinkedList.eachFromHead(node => entries.push([node.value.key, node.value.value]));
+    this.doubleLinkedList.eachFromHead(node => entries.push([
+      node.value.key,
+      node.value.value,
+    ]));
     return entries;
   }
 

@@ -1,21 +1,16 @@
-import { Comparator } from '../../utils/comparator/index';
-import { InterfaceComparator } from '../../utils/comparator/@types/index';
+import { Comparator } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 
-export default function quickSortExchange(originalArray: any[], compareCallback?: Comparator | compareFunctionType): any[] {
-  const comparator = compareCallback instanceof Comparator ? compareCallback : new Comparator(compareCallback);
-  return quickSort(originalArray, comparator);
-}
-
-function quickSort(originalArray: any[], comparator: InterfaceComparator): any[] {
+export function quickSortExchange<T>(originalArray: T[], comparator: Comparator | compareFunctionType): T[] {
+  comparator = comparator instanceof Comparator ? comparator : new Comparator(comparator);
   if (originalArray.length <= 1) {
     return originalArray;
   }
 
   const pivotElement = originalArray.splice(Math.floor(originalArray.length / 2), 1)[0];
-  const center: any[] = [pivotElement];
-  const left: any[] = [];
-  const right: any[] = [];
+  const center = [pivotElement];
+  const left = [];
+  const right = [];
   while (originalArray.length) {
     const currentElement = originalArray.shift();
     if (comparator.equal(currentElement, pivotElement)) {
@@ -27,7 +22,7 @@ function quickSort(originalArray: any[], comparator: InterfaceComparator): any[]
     }
   }
 
-  return quickSort(left, comparator)
+  return quickSortExchange(left, comparator)
   .concat(center)
-  .concat(quickSort(right, comparator));
+  .concat(quickSortExchange(right, comparator));
 }

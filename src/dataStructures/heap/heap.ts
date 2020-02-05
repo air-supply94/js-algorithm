@@ -1,19 +1,16 @@
-/**
- * Created by joey on 2018/10/25
- */
 import { Comparator } from '../../utils/comparator';
-import swap from '../../utils/swap';
+import { swap } from '../../utils/swap';
 import { compareFunctionType } from '../../utils/@types';
 import { InterfaceHeap } from './@types';
 
-export default abstract class Heap implements InterfaceHeap {
+export abstract class Heap implements InterfaceHeap {
   protected constructor(comparatorFunction?: Comparator | compareFunctionType) {
     this.heapContainer = [];
     this.compare = comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
   }
 
-  private heapContainer;
-  private compare;
+  public heapContainer;
+  protected compare: Comparator;
 
   public abstract pairIsInCorrectOrder(firstElement, secondElement): boolean;
 
@@ -99,7 +96,7 @@ export default abstract class Heap implements InterfaceHeap {
     return this.heapContainer.toString();
   }
 
-  public remove(item, comparator) {
+  public remove(item, comparator?: Comparator) {
     let removeIndex = this.findIndex(item, comparator);
     while (removeIndex !== -1) {
       if (removeIndex === this.heapContainer.length - 1) {

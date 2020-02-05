@@ -1,4 +1,4 @@
-export default function swap(data: any[], first: number, second: number): any[] {
+export function swap<T>(data: T[], first: number, second: number): T[] {
   const t = data[first];
   data[first] = data[second];
   data[second] = t;

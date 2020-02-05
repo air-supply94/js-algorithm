@@ -7,11 +7,12 @@ export default class DoubleLinkedListNode implements InterfaceDoubleLinkedListNo
     this.next = next;
     this.previous = previous;
   }
+
   public value;
   public next;
   public previous;
 
-  public toString(callback) {
+  public toString(callback?: Function) {
     return typeof callback === 'function' ? callback(this.value) : String(this.value);
   }
 }

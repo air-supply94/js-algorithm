@@ -9,17 +9,18 @@
 		"@babel/plugin-transform-runtime": "^7.2.0",
 		"@babel/preset-env": "^7.3.1",
 		"@babel/runtime": "^7.3.1",
+		"@types/jest": "^25.1.1",
 		"babel-eslint": "^10.0.1",
 		"babel-jest": "^24.1.0",
 		"eslint": "^5.14.1",
-		"jest": "^24.1.0",
-		"lint-staged": "^9.2.5",
 		"husky": "^3.0.5",
-		"ts-jest": "^24.1.0",
+		"jest": "^25.1.0",
+		"lint-staged": "^9.2.5",
+		"ts-jest": "^25.2.0",
 		"tslint": "^5.20.0",
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-language-service": "^0.9.9",
-		"typescript": "^3.3.3333"
+		"typescript": "^3.7.5"
 	},
 	"scripts": {
 		"test": "jest --config jest.js --color",
@@ -27,9 +28,9 @@
 		"lint:ts": "tslint -c tslint.json \"src/**/*.ts\" --fix",
 		"lint-staged": "lint-staged"
 	},
-  "engines": {
-    "node": ">=10.15.0"
-  },
+	"engines": {
+		"node": ">=10.15.0"
+	},
 	"lint-staged": {
 		"src/**/*.ts": [
 			"npm run lint:ts",

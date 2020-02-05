@@ -1,10 +1,10 @@
-import { InterfaceComparator } from '../../../utils/comparator/@types/index';
+import { InterfaceComparator } from '../../../utils/comparator/@types';
 
 export interface InterfaceDoubleLinkedListNode {
   value: any;
   next: any;
   previous: any;
-  toString: (callback?: (...arg) => string) => string;
+  toString: (callback?: Function) => string;
 }
 
 export interface InterfaceDoubleLinkedList {
@@ -13,7 +13,7 @@ export interface InterfaceDoubleLinkedList {
   size: number;
   compare: InterfaceComparator;
   clear: () => this;
-  toString: (callback?: (...arg) => string) => string;
+  toString: (callback?: Function) => string;
   eachFromHead: (callback: (node: InterfaceDoubleLinkedListNode, ...arg) => any) => this;
   eachFromTail: (callback: (node: InterfaceDoubleLinkedListNode, ...arg) => any) => this;
   toArray: () => InterfaceDoubleLinkedListNode[];

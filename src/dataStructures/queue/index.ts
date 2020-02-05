@@ -1,7 +1,7 @@
 import DoubleLinkedList from '../doubleLinkedList';
 import { InterfaceQueue } from './@types';
 
-export default class Queue implements InterfaceQueue {
+export class Queue implements InterfaceQueue {
   constructor() {
     this.doubleLinkedList = new DoubleLinkedList();
   }
@@ -12,7 +12,7 @@ export default class Queue implements InterfaceQueue {
     return this.doubleLinkedList.size;
   }
 
-  public toString(callback) {
+  public toString(callback?: Function) {
     return this.doubleLinkedList.toString(callback);
   }
 

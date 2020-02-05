@@ -1,8 +1,8 @@
-import MinHeap from '../heap/minHeap';
-import { Comparator } from '../../utils/comparator/index';
+import { MinHeap } from '../heap/minHeap';
+import { Comparator } from '../../utils/comparator';
 import { InterfacePriority } from './@types';
 
-export default class PriorityQueue implements InterfacePriority {
+export class PriorityQueue implements InterfacePriority {
   constructor() {
     // tslint:disable-next-line:only-arrow-functions
     this.compareValue = new Comparator(function (a, b) {

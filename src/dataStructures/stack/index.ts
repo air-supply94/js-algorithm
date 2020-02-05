@@ -1,7 +1,7 @@
 import DoubleLinkedList from '../doubleLinkedList';
 import { InterfaceStack } from './@types';
 
-export default class Stack implements InterfaceStack {
+export class Stack implements InterfaceStack {
   constructor() {
     this.doubleLinkedList = new DoubleLinkedList();
   }
@@ -12,7 +12,7 @@ export default class Stack implements InterfaceStack {
     return this.doubleLinkedList.size;
   }
 
-  public toString(callback) {
+  public toString(callback?: Function) {
     return this.doubleLinkedList.toString(callback);
   }
 
