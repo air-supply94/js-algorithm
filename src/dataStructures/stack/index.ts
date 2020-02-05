@@ -1,49 +1,48 @@
 import { InterfaceStack } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
 
-export class Stack implements InterfaceStack {
+export class Stack<T> implements InterfaceStack<T> {
   constructor() {
-    this.doubleLinkedList = new DoubleLinkedList();
+    this._doubleLinkedList = new DoubleLinkedList<T>();
   }
 
-  public doubleLinkedList;
+  private _doubleLinkedList;
 
-  public get size() {
-    return this.doubleLinkedList.size;
+  get size(): number {
+    return this._doubleLinkedList.size;
   }
 
   public toString(callback?: Function) {
-    return this.doubleLinkedList.toString(callback);
+    return this._doubleLinkedList.toString(callback);
   }
 
-  public toArray() {
-    const nodes: any[] = [];
-    this.doubleLinkedList.eachFromTail(node => nodes.push(node.value));
+  public toArray(): T[] {
+    const nodes = [];
+    this._doubleLinkedList.eachFromTail(node => nodes.push(node.value));
     return nodes;
   }
 
   public pop() {
-    const removedTail = this.doubleLinkedList.deleteTail();
+    const removedTail = this._doubleLinkedList.deleteTail();
     return removedTail ? removedTail.value : undefined;
   }
 
   public push(value) {
-    this.doubleLinkedList.append(value);
+    this._doubleLinkedList.append(value);
     return this;
   }
 
   public peek() {
-    // @ts-ignore
-    return this.isEmpty() ? undefined : this.doubleLinkedList.tail.value;
+    return this.isEmpty() ? undefined : this._doubleLinkedList.tail.value;
   }
 
   public clear() {
-    this.doubleLinkedList.clear();
+    this._doubleLinkedList.clear();
     return this;
   }
 
   public has(value) {
-    return this.doubleLinkedList.has(value);
+    return this._doubleLinkedList.has(value);
   }
 
   public isEmpty() {

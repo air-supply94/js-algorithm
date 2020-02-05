@@ -6,9 +6,6 @@ describe('Index', () => {
     expect(queue)
     .not
     .toBeUndefined();
-    expect(queue.doubleLinkedList)
-    .not
-    .toBeNull();
     queue.enqueue(1);
     expect(queue.has(2))
     .toBeFalsy();
@@ -31,7 +28,7 @@ describe('Index', () => {
   });
 
   it('should be possible to enqueue/dequeue objects', () => {
-    const queue = new Queue();
+    const queue = new Queue<{ value: string; key: string }>();
 
     queue.enqueue({
       value: 'test1',
@@ -54,9 +51,6 @@ describe('Index', () => {
 
   it('should peek data from queue', () => {
     const queue = new Queue();
-
-    expect(queue.peek())
-    .toBeUndefined();
 
     queue.enqueue(1);
     queue.enqueue(2);
@@ -89,8 +83,6 @@ describe('Index', () => {
     .toBe(1);
     expect(queue.dequeue())
     .toBe(2);
-    expect(queue.dequeue())
-    .toBeUndefined();
     expect(queue.isEmpty())
     .toBe(true);
   });

@@ -1,7 +1,4 @@
-import { InterfaceDoubleLinkedList } from '../../doubleLinkedList/@types';
-
-export interface InterfaceStack {
-  doubleLinkedList: InterfaceDoubleLinkedList;
+export interface InterfaceStack<T> {
   size: number;
   toString: (callback?: Function) => string;
   toArray: () => any[];
