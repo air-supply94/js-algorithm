@@ -10,21 +10,13 @@ const map = new Map([
   ],
 ]);
 const _map = new Map(map);
-const map3 = new Map('');
-const map4 = new Map([
-  1,
-  2,
-  3,
-]);
 test('map test', () => {
   expect(_map)
   .toEqual(map);
-  expect(map4.size)
-  .toBe(0);
+
   expect(_map.size)
   .toBe(1);
-  expect(map3.keys())
-  .toEqual([]);
+
   expect(_map.keys())
   .toEqual([key1]);
   expect(_map.values())

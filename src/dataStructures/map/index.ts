@@ -1,5 +1,6 @@
 import { InterfaceMap } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
+import { InterfaceDoubleLinkedListNode } from '../doubleLinkedList/@types';
 
 function compareFunction(a, b) {
   if (a.key === b.key) {
@@ -9,10 +10,12 @@ function compareFunction(a, b) {
 }
 
 export class Map implements InterfaceMap {
-  constructor(object?: any) {
-    this.doubleLinkedList = new DoubleLinkedList(compareFunction);
+  constructor(object?: InterfaceMap | [any, any][]) {
+    this._doubleLinkedList = new DoubleLinkedList<{ key: any; value: any }>(compareFunction);
     if (object instanceof Map) {
-      object.forEach((value, key) => this.set(key, value));
+      object.forEach((value, key) => {
+        this.set(key, value);
+      });
     } else if (Array.isArray(object)) {
       object.forEach((value) => {
         if (Array.isArray(value)) {
@@ -22,23 +25,23 @@ export class Map implements InterfaceMap {
     }
   }
 
-  public doubleLinkedList;
+  private _doubleLinkedList;
 
   public get size() {
-    return this.doubleLinkedList.size;
+    return this._doubleLinkedList.size;
   }
 
-  public delete(key) {
-    this.doubleLinkedList.delete({key});
+  public delete(key?: any): this {
+    this._doubleLinkedList.delete({key});
     return this;
   }
 
-  public set(key, value) {
-    const oldNode = this.doubleLinkedList.find({value: {key}});
+  public set(key?: any, value?: any): this {
+    const oldNode = this._doubleLinkedList.find({value: {key}});
     if (oldNode) {
       oldNode.value.value = value;
     } else {
-      this.doubleLinkedList.append({
+      this._doubleLinkedList.append({
         key,
         value,
       });
@@ -46,43 +49,43 @@ export class Map implements InterfaceMap {
     return this;
   }
 
-  public forEach(callback) {
-    this.doubleLinkedList.eachFromHead(node => callback(node.value.value, node.value.key));
+  public forEach(callback?: (value: InterfaceDoubleLinkedListNode<any>, key: InterfaceDoubleLinkedListNode<any>) => void) {
+    this._doubleLinkedList.eachFromHead(node => callback(node.value.value, node.value.key));
     return this;
   }
 
-  public entries() {
-    const entries: any[] = [];
-    this.doubleLinkedList.eachFromHead(node => entries.push([
+  public entries(): [any, any][] {
+    const entries = [];
+    this._doubleLinkedList.eachFromHead(node => entries.push([
       node.value.key,
       node.value.value,
     ]));
     return entries;
   }
 
-  public values() {
-    const values: any[] = [];
-    this.doubleLinkedList.eachFromHead(node => values.push(node.value.value));
+  public values(): any[] {
+    const values = [];
+    this._doubleLinkedList.eachFromHead(node => values.push(node.value.value));
     return values;
   }
 
-  public keys() {
-    const keys: any[] = [];
-    this.doubleLinkedList.eachFromHead(node => keys.push(node.value.key));
+  public keys(): any[] {
+    const keys = [];
+    this._doubleLinkedList.eachFromHead(node => keys.push(node.value.key));
     return keys;
   }
 
-  public clear() {
-    this.doubleLinkedList.clear();
+  public clear(): this {
+    this._doubleLinkedList.clear();
     return this;
   }
 
-  public get(key) {
-    const result = this.doubleLinkedList.find({value: {key}});
+  public get(key?: any): any {
+    const result = this._doubleLinkedList.find({value: {key}});
     return result ? result.value.value : undefined;
   }
 
-  public has(key) {
-    return !!this.doubleLinkedList.find({value: {key}});
+  public has(key?: any): boolean {
+    return !!this._doubleLinkedList.find({value: {key}});
   }
 }
