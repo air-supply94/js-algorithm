@@ -1,15 +1,17 @@
-import BinarySearchTree from '../binary-search-tree/BinarySearchTree';
+import { BinarySearchTree } from '../binary-search-tree/BinarySearchTree';
+import { InterfaceBinaryTreeNode } from '../@types';
 
-export default class AvlTree extends BinarySearchTree {
+export default class AvlTree<T> extends BinarySearchTree<T> {
   /**
    * @param {*} value
    */
-  insert(value) {
+  // @ts-ignore
+  public insert(value) {
     // Do the normal BST insert.
     super.insert(value);
 
     // Let's move up to the root and check balance factors along the way.
-    let currentNode = this.root.find(value);
+    let currentNode: InterfaceBinaryTreeNode<T> = this.root.find(value);
     while (currentNode) {
       this.balance(currentNode);
       currentNode = currentNode.parent;
@@ -20,7 +22,8 @@ export default class AvlTree extends BinarySearchTree {
    * @param {*} value
    * @return {boolean}
    */
-  remove(value) {
+  // @ts-ignore
+  public remove(value) {
     // Do standard BST removal.
     super.remove(value);
 
@@ -31,7 +34,7 @@ export default class AvlTree extends BinarySearchTree {
   /**
    * @param {BinarySearchTreeNode} node
    */
-  balance(node) {
+  public balance(node) {
     // If balance factor is not OK then try to balance the node.
     if (node.balanceFactor > 1) {
       // Left rotation.
@@ -57,7 +60,7 @@ export default class AvlTree extends BinarySearchTree {
   /**
    * @param {BinarySearchTreeNode} rootNode
    */
-  rotateLeftLeft(rootNode) {
+  public rotateLeftLeft(rootNode) {
     // Detach left node from root node.
     const leftNode = rootNode.left;
     rootNode.setLeft(null);
@@ -83,7 +86,7 @@ export default class AvlTree extends BinarySearchTree {
   /**
    * @param {BinarySearchTreeNode} rootNode
    */
-  rotateLeftRight(rootNode) {
+  public rotateLeftRight(rootNode) {
     // Detach left node from rootNode since it is going to be replaced.
     const leftNode = rootNode.left;
     rootNode.setLeft(null);
@@ -111,7 +114,7 @@ export default class AvlTree extends BinarySearchTree {
   /**
    * @param {BinarySearchTreeNode} rootNode
    */
-  rotateRightLeft(rootNode) {
+  public rotateRightLeft(rootNode) {
     // Detach right node from rootNode since it is going to be replaced.
     const rightNode = rootNode.right;
     rootNode.setRight(null);
@@ -138,7 +141,7 @@ export default class AvlTree extends BinarySearchTree {
   /**
    * @param {BinarySearchTreeNode} rootNode
    */
-  rotateRightRight(rootNode) {
+  public rotateRightRight(rootNode) {
     // Detach right node from root node.
     const rightNode = rootNode.right;
     rootNode.setRight(null);

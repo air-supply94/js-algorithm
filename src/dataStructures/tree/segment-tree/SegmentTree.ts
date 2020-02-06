@@ -37,11 +37,16 @@ export default class SegmentTree {
     this.buildSegmentTree();
   }
 
+  public inputArray: any;
+  public operation: any;
+  public operationFallback: any;
+  public segmentTree: any;
+
   /**
    * @param {number[]} inputArray
    * @return {number[]}
    */
-  initSegmentTree(inputArray) {
+  public initSegmentTree(inputArray) {
     let segmentTreeArrayLength;
     const inputArrayLength = inputArray.length;
 
@@ -65,7 +70,7 @@ export default class SegmentTree {
   /**
    * Build segment tree.
    */
-  buildSegmentTree() {
+  public buildSegmentTree() {
     const leftIndex = 0;
     const rightIndex = this.inputArray.length - 1;
     const position = 0;
@@ -79,7 +84,7 @@ export default class SegmentTree {
    * @param {number} rightInputIndex
    * @param {number} position
    */
-  buildTreeRecursively(leftInputIndex, rightInputIndex, position) {
+  public buildTreeRecursively(leftInputIndex, rightInputIndex, position) {
     // If low input index and high input index are equal that would mean
     // the we have finished splitting and we are already came to the leaf
     // of the segment tree. We need to copy this leaf value from input
@@ -111,7 +116,7 @@ export default class SegmentTree {
    * @param {number} queryRightIndex
    * @return {number}
    */
-  rangeQuery(queryLeftIndex, queryRightIndex) {
+  public rangeQuery(queryLeftIndex, queryRightIndex) {
     const leftIndex = 0;
     const rightIndex = this.inputArray.length - 1;
     const position = 0;
@@ -135,7 +140,7 @@ export default class SegmentTree {
    * @param {number} position - root position in binary tree
    * @return {number}
    */
-  rangeQueryRecursive(queryLeftIndex, queryRightIndex, leftIndex, rightIndex, position) {
+  public rangeQueryRecursive(queryLeftIndex, queryRightIndex, leftIndex, rightIndex, position) {
     if (queryLeftIndex <= leftIndex && queryRightIndex >= rightIndex) {
       // Total overlap.
       return this.segmentTree[position];
@@ -173,7 +178,7 @@ export default class SegmentTree {
    * @param {number} parentIndex
    * @return {number}
    */
-  getLeftChildIndex(parentIndex) {
+  public getLeftChildIndex(parentIndex) {
     return (2 * parentIndex) + 1;
   }
 
@@ -182,7 +187,7 @@ export default class SegmentTree {
    * @param {number} parentIndex
    * @return {number}
    */
-  getRightChildIndex(parentIndex) {
+  public getRightChildIndex(parentIndex) {
     return (2 * parentIndex) + 2;
   }
 }

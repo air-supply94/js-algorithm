@@ -9,8 +9,12 @@ export default class FenwickTree {
     this.arraySize = arraySize;
 
     // Fill tree array with zeros.
-    this.treeArray = Array(this.arraySize + 1).fill(0);
+    this.treeArray = Array(this.arraySize + 1)
+    .fill(0);
   }
+
+  public arraySize: any;
+  public treeArray: any;
 
   /**
    * Adds value to existing value at position.
@@ -19,11 +23,12 @@ export default class FenwickTree {
    * @param  {number} value
    * @return {FenwickTree}
    */
-  increase(position, value) {
+  public increase(position, value) {
     if (position < 1 || position > this.arraySize) {
       throw new Error('Position is out of allowed range');
     }
 
+    // tslint:disable-next-line:no-bitwise
     for (let i = position; i <= this.arraySize; i += (i & -i)) {
       this.treeArray[i] += value;
     }
@@ -37,13 +42,14 @@ export default class FenwickTree {
    * @param  {number} position
    * @return {number}
    */
-  query(position) {
+  public query(position) {
     if (position < 1 || position > this.arraySize) {
       throw new Error('Position is out of allowed range');
     }
 
     let sum = 0;
 
+    // tslint:disable-next-line:no-bitwise
     for (let i = position; i > 0; i -= (i & -i)) {
       sum += this.treeArray[i];
     }
@@ -58,7 +64,7 @@ export default class FenwickTree {
    * @param  {number} rightIndex
    * @return {number}
    */
-  queryRange(leftIndex, rightIndex) {
+  public queryRange(leftIndex, rightIndex) {
     if (leftIndex > rightIndex) {
       throw new Error('Left index can not be greater than right one');
     }

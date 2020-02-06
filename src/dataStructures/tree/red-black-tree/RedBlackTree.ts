@@ -1,4 +1,4 @@
-import BinarySearchTree from '../binary-search-tree/BinarySearchTree';
+import { BinarySearchTree } from '../binary-search-tree/BinarySearchTree';
 
 // Possible colors of red-black tree nodes.
 const RED_BLACK_TREE_COLORS = {
@@ -9,12 +9,12 @@ const RED_BLACK_TREE_COLORS = {
 // Color property name in meta information of the nodes.
 const COLOR_PROP_NAME = 'color';
 
-export default class RedBlackTree extends BinarySearchTree {
+export default class RedBlackTree<T> extends BinarySearchTree<T> {
   /**
    * @param {*} value
    * @return {BinarySearchTreeNode}
    */
-  insert(value) {
+  public insert(value) {
     const insertedNode = super.insert(value);
 
     // if (!this.root.left && !this.root.right) {
@@ -36,14 +36,15 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {*} value
    * @return {boolean}
    */
-  remove(value) {
+  // @ts-ignore
+  public remove(value) {
     throw new Error(`Can't remove ${value}. Remove method is not implemented yet`);
   }
 
   /**
    * @param {BinarySearchTreeNode} node
    */
-  balance(node) {
+  public balance(node) {
     // If it is a root node then nothing to balance here.
     if (this.nodeComparator.equal(node, this.root)) {
       return;
@@ -120,7 +121,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} grandParentNode
    * @return {BinarySearchTreeNode}
    */
-  leftLeftRotation(grandParentNode) {
+  public leftLeftRotation(grandParentNode) {
     // Memorize the parent of grand-parent node.
     const grandGrandParent = grandParentNode.parent;
 
@@ -167,7 +168,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} grandParentNode
    * @return {BinarySearchTreeNode}
    */
-  leftRightRotation(grandParentNode) {
+  public leftRightRotation(grandParentNode) {
     // Memorize left and left-right nodes.
     const parentNode = grandParentNode.left;
     const childNode = parentNode.right;
@@ -195,7 +196,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} grandParentNode
    * @return {BinarySearchTreeNode}
    */
-  rightRightRotation(grandParentNode) {
+  public rightRightRotation(grandParentNode) {
     // Memorize the parent of grand-parent node.
     const grandGrandParent = grandParentNode.parent;
 
@@ -242,7 +243,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} grandParentNode
    * @return {BinarySearchTreeNode}
    */
-  rightLeftRotation(grandParentNode) {
+  public rightLeftRotation(grandParentNode) {
     // Memorize right and right-left nodes.
     const parentNode = grandParentNode.right;
     const childNode = parentNode.left;
@@ -269,7 +270,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {BinarySearchTreeNode}
    */
-  makeNodeRed(node) {
+  public makeNodeRed(node) {
     node.meta.set(COLOR_PROP_NAME, RED_BLACK_TREE_COLORS.red);
 
     return node;
@@ -279,7 +280,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {BinarySearchTreeNode}
    */
-  makeNodeBlack(node) {
+  public makeNodeBlack(node) {
     node.meta.set(COLOR_PROP_NAME, RED_BLACK_TREE_COLORS.black);
 
     return node;
@@ -289,7 +290,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {boolean}
    */
-  isNodeRed(node) {
+  public isNodeRed(node) {
     return node.meta.get(COLOR_PROP_NAME) === RED_BLACK_TREE_COLORS.red;
   }
 
@@ -297,7 +298,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {boolean}
    */
-  isNodeBlack(node) {
+  public isNodeBlack(node) {
     return node.meta.get(COLOR_PROP_NAME) === RED_BLACK_TREE_COLORS.black;
   }
 
@@ -305,7 +306,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {boolean}
    */
-  isNodeColored(node) {
+  public isNodeColored(node) {
     return this.isNodeRed(node) || this.isNodeBlack(node);
   }
 
@@ -313,7 +314,7 @@ export default class RedBlackTree extends BinarySearchTree {
    * @param {BinarySearchTreeNode|BinaryTreeNode} firstNode
    * @param {BinarySearchTreeNode|BinaryTreeNode} secondNode
    */
-  swapNodeColors(firstNode, secondNode) {
+  public swapNodeColors(firstNode, secondNode) {
     const firstColor = firstNode.meta.get(COLOR_PROP_NAME);
     const secondColor = secondNode.meta.get(COLOR_PROP_NAME);
 
