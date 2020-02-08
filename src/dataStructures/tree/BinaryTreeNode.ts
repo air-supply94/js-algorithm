@@ -67,9 +67,9 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
     .setRight(sourceNode.right);
   }
 
-  public left: InterfaceBinaryTreeNode<T>;
-  public right: InterfaceBinaryTreeNode<T>;
-  public parent: InterfaceBinaryTreeNode<T>;
+  public left: null | InterfaceBinaryTreeNode<T>;
+  public right: null | InterfaceBinaryTreeNode<T>;
+  public parent: null | InterfaceBinaryTreeNode<T>;
   public value: T;
   public meta: HashTable<T>;
   public nodeComparator: Comparator;

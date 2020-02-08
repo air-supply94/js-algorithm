@@ -34,6 +34,8 @@ describe('BinaryTreeNode', () => {
     const leftNode = new BinaryTreeNode(1);
     const rightNode = new BinaryTreeNode(3);
     const rootNode = new BinaryTreeNode(2);
+    expect(rightNode.removeChild(leftNode))
+    .toBeFalsy();
 
     rootNode
     .setLeft(leftNode)

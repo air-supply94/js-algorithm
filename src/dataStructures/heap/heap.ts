@@ -13,7 +13,7 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
   protected compare: Comparator;
 
   get heapContainer() {
-    return this._heapContainer.slice();
+    return this._heapContainer;
   }
 
   protected abstract pairIsInCorrectOrder(firstElement: T, secondElement: T): boolean;

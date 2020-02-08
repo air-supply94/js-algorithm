@@ -4,13 +4,26 @@ import { MinHeap } from '../minHeap';
 describe('MinHeap', () => {
   it('should create an empty min heap', () => {
     const minHeap = new MinHeap();
-
     expect(minHeap)
     .toBeDefined();
     expect(minHeap.peek())
     .toBeUndefined();
     expect(minHeap.isEmpty())
     .toBe(true);
+  });
+
+  it('remove and up', () => {
+    const minHeap = new MinHeap();
+    minHeap.add(1)
+    .add(5)
+    .add(3)
+    .add(6)
+    .add(7)
+    .add(8)
+    .add(4)
+    .remove(7);
+    expect(minHeap.toString())
+    .toBe('1,4,3,6,5,8');
   });
 
   it('should create min heap from array', () => {

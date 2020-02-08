@@ -9,8 +9,14 @@ const map = new Map([
     value1,
   ],
 ]);
+
+// @ts-ignore
+const emptyMap = new Map([{}]);
 const _map = new Map(map);
 test('map test', () => {
+  expect(emptyMap.size)
+  .toBe(0);
+
   expect(_map)
   .toEqual(map);
 

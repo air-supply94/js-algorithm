@@ -3,6 +3,11 @@ import { Queue } from '../index';
 describe('Index', () => {
   it('should create empty queue', () => {
     const queue = new Queue();
+    expect(queue.dequeue())
+    .toBeNull();
+    expect(queue.peek())
+    .toBeNull();
+
     expect(queue)
     .not
     .toBeUndefined();

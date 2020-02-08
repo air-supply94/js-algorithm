@@ -8,9 +8,9 @@ export interface InterfaceBinaryTreeNode<T> {
   readonly height: number;
   readonly balanceFactor: number;
   readonly uncle: null | InterfaceBinaryTreeNode<T>;
-  left: InterfaceBinaryTreeNode<T>;
-  right: InterfaceBinaryTreeNode<T>;
-  parent: InterfaceBinaryTreeNode<T>;
+  left: null | InterfaceBinaryTreeNode<T>;
+  right: null | InterfaceBinaryTreeNode<T>;
+  parent: null | InterfaceBinaryTreeNode<T>;
   value: T;
   meta: HashTable<T>;
   nodeComparator: Comparator;
