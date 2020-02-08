@@ -20,6 +20,9 @@ export interface InterfaceBinaryTreeNode<T> {
   removeChild(nodeToRemove: InterfaceBinaryTreeNode<T>): boolean;
   replaceChild(nodeToReplace: InterfaceBinaryTreeNode<T>, replacementNode: InterfaceBinaryTreeNode<T>): boolean;
   traverseInOrder(): T[];
+  traversePreOrder(): T[];
+  traverseAfterOrder(): T[];
+  traverseLevelOrder(): T[];
   toString(): string;
 }
 

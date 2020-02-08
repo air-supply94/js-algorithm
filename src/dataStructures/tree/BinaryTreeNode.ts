@@ -1,6 +1,8 @@
 import { Comparator } from '../../utils/comparator';
 import { HashTable } from '../hashTable';
 import { InterfaceBinaryTreeNode } from './@types';
+import { Stack } from '../stack';
+import { Queue } from '../queue';
 
 export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
 
@@ -143,15 +145,79 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
   }
 
   public traverseInOrder(): T[] {
+    const result = [];
+    const nodeStack = new Stack<InterfaceBinaryTreeNode<T>>();
+    let currentNode: InterfaceBinaryTreeNode<T> = this;
+    while (true) {
+      while (currentNode) {
+        nodeStack.push(currentNode);
+        currentNode = currentNode.left;
+      }
+
+      if (nodeStack.isEmpty()) {
+        break;
+      }
+
+      currentNode = nodeStack.pop();
+      result.push(currentNode.value);
+      currentNode = currentNode.right;
+    }
+    return result;
+  }
+
+  public traversePreOrder(): T[] {
+    const result = [];
+    const nodeStack = new Stack<InterfaceBinaryTreeNode<T>>();
+    let currentNode: InterfaceBinaryTreeNode<T> = this;
+    while (true) {
+      while (currentNode) {
+        result.push(currentNode.value);
+        if (currentNode.right) {
+          nodeStack.push(currentNode.right);
+        }
+        currentNode = currentNode.left;
+      }
+
+      if (nodeStack.isEmpty()) {
+        break;
+      }
+
+      currentNode = nodeStack.pop();
+    }
+    return result;
+  }
+
+  public traverseAfterOrder(): T[] {
     let result = [];
+
     if (this.left) {
-      result = result.concat(this.left.traverseInOrder());
+      result = result.concat(this.left.traverseAfterOrder());
+    }
+
+    if (this.right) {
+      result = result.concat(this.right.traverseAfterOrder());
     }
 
     result.push(this.value);
 
-    if (this.right) {
-      result = result.concat(this.right.traverseInOrder());
+    return result;
+  }
+
+  public traverseLevelOrder(): T[] {
+    const result = [];
+    const nodeQueue = new Queue<InterfaceBinaryTreeNode<T>>();
+    nodeQueue.enqueue(this);
+    while (!nodeQueue.isEmpty()) {
+      const currentNode = nodeQueue.dequeue();
+      result.push(currentNode.value);
+
+      if (currentNode.left) {
+        nodeQueue.enqueue(currentNode.left);
+      }
+
+      if (currentNode.right) {
+        nodeQueue.enqueue(currentNode.right);
+      }
     }
 
     return result;

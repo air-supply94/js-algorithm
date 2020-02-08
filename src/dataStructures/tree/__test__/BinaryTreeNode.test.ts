@@ -50,23 +50,42 @@ describe('BinaryTreeNode', () => {
   });
 
   it('should traverse node', () => {
-    const leftNode = new BinaryTreeNode(1);
-    const rightNode = new BinaryTreeNode(3);
-    const rootNode = new BinaryTreeNode(2);
+    const rootNode = new BinaryTreeNode(4);
+    const leftParent = new BinaryTreeNode(2);
+    const leftLeftChild = new BinaryTreeNode(1);
+    const leftRightChild = new BinaryTreeNode(3);
+    const rightParent = new BinaryTreeNode(6);
+    const rightRightChild = new BinaryTreeNode(7);
+    const rightLeftChild = new BinaryTreeNode(5);
 
     rootNode
-    .setLeft(leftNode)
-    .setRight(rightNode);
+    .setLeft(leftParent)
+    .setRight(rightParent);
 
-    expect(rootNode.traverseInOrder())
-    .toEqual([
-      1,
-      2,
-      3,
-    ]);
+    leftParent.setLeft(leftLeftChild)
+    .setRight(leftRightChild);
+
+    rightParent.setLeft(rightLeftChild)
+    .setRight(rightRightChild);
+
+    expect(rootNode.traversePreOrder()
+    .join())
+    .toBe('4,2,1,3,6,5,7');
+
+    expect(rootNode.traverseInOrder()
+    .join())
+    .toBe('1,2,3,4,5,6,7');
+
+    expect(rootNode.traverseAfterOrder()
+    .join())
+    .toBe('1,3,2,5,7,6,4');
+
+    expect(rootNode.traverseLevelOrder()
+    .join())
+    .toBe('4,2,6,1,3,5,7');
 
     expect(rootNode.toString())
-    .toBe('1,2,3');
+    .toBe('1,2,3,4,5,6,7');
   });
 
   it('should remove child node', () => {
