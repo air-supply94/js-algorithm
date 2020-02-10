@@ -29,6 +29,9 @@ export interface InterfaceBinaryTreeNode<T> {
 export interface InterfaceBinarySearchTreeNode<T> extends InterfaceBinaryTreeNode<T> {
   compareFunction: compareFunctionType;
   nodeValueComparator: Comparator;
+  left: null | InterfaceBinarySearchTreeNode<T>;
+  right: null | InterfaceBinarySearchTreeNode<T>;
+  parent: null | InterfaceBinarySearchTreeNode<T>;
   insert(value: T): null | InterfaceBinarySearchTreeNode<T>;
   find(value?: any): null | InterfaceBinarySearchTreeNode<T>;
   contains(value?: any): boolean;
@@ -43,4 +46,17 @@ export interface InterfaceBinarySearchTree<T> {
   contains(value?: any): boolean;
   remove(value?: any): boolean;
   toString(): string;
+}
+
+export interface InterfaceAvlTree<T> {
+  readonly root: InterfaceBinarySearchTreeNode<T>;
+  toString(): string;
+  contains(value?: any): boolean;
+  insert(value: T): boolean;
+  remove(value?: any): boolean;
+  balance(node: InterfaceBinarySearchTreeNode<T>): this;
+  rotateLeftLeft(rootNode: InterfaceBinarySearchTreeNode<T>): this;
+  rotateLeftRight(rootNode: InterfaceBinarySearchTreeNode<T>): this;
+  rotateRightLeft(rootNode: InterfaceBinarySearchTreeNode<T>): this;
+  rotateRightRight(rootNode: InterfaceBinarySearchTreeNode<T>): this;
 }

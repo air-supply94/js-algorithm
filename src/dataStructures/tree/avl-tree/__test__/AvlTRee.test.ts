@@ -1,4 +1,4 @@
-import AvlTree from '../AvlTree';
+import { AvlTree } from '../AvlTree';
 
 describe('AvlTree', () => {
   it('should do simple left-left rotation', () => {
@@ -369,6 +369,8 @@ describe('AvlTree', () => {
     tree.insert(8);
     tree.insert(9);
 
+    expect(tree.remove(19))
+    .toBeFalsy();
     expect(tree.toString())
     .toBe('1,2,3,4,5,6,7,8,9');
     expect(tree.root.value)

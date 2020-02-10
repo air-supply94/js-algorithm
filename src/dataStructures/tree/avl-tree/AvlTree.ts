@@ -1,125 +1,108 @@
 import { BinarySearchTree } from '../binary-search-tree/BinarySearchTree';
-import { InterfaceBinaryTreeNode } from '../@types';
+import {
+  InterfaceAvlTree,
+  InterfaceBinarySearchTreeNode,
+} from '../@types';
 
-export default class AvlTree<T> extends BinarySearchTree<T> {
-  /**
-   * @param {*} value
-   */
-  // @ts-ignore
-  public insert(value) {
-    // Do the normal BST insert.
-    super.insert(value);
+export class AvlTree<T> implements InterfaceAvlTree<T> {
+  constructor() {
+    this._binarySearchTree = new BinarySearchTree<T>();
+  }
 
-    // Let's move up to the root and check balance factors along the way.
-    let currentNode: InterfaceBinaryTreeNode<T> = this.root.find(value);
+  private _binarySearchTree: BinarySearchTree<T>;
+
+  get root(): InterfaceBinarySearchTreeNode<T> {
+    return this._binarySearchTree.root;
+  }
+
+  public toString(): string {
+    return this._binarySearchTree.toString();
+  }
+
+  public contains(value?: any): boolean {
+    return this._binarySearchTree.contains(value);
+  }
+
+  public insert(value: T): boolean {
+    const node = this._binarySearchTree.insert(value);
+
+    let currentNode: InterfaceBinarySearchTreeNode<T> = this.root.find(value);
     while (currentNode) {
       this.balance(currentNode);
       currentNode = currentNode.parent;
     }
+
+    return !!node;
   }
 
-  /**
-   * @param {*} value
-   * @return {boolean}
-   */
-  // @ts-ignore
-  public remove(value) {
-    // Do standard BST removal.
-    super.remove(value);
+  public remove(value?: any): boolean {
+    if (this._binarySearchTree.remove(value)) {
+      this.balance(this.root);
+      return true;
+    }
 
-    // Balance the tree starting from the root node.
-    this.balance(this.root);
+    return false;
   }
 
-  /**
-   * @param {BinarySearchTreeNode} node
-   */
-  public balance(node) {
-    // If balance factor is not OK then try to balance the node.
+  public balance(node: InterfaceBinarySearchTreeNode<T>): this {
     if (node.balanceFactor > 1) {
-      // Left rotation.
       if (node.left.balanceFactor > 0) {
-        // Left-Left rotation
         this.rotateLeftLeft(node);
       } else if (node.left.balanceFactor < 0) {
-        // Left-Right rotation.
         this.rotateLeftRight(node);
       }
     } else if (node.balanceFactor < -1) {
-      // Right rotation.
       if (node.right.balanceFactor < 0) {
-        // Right-Right rotation
         this.rotateRightRight(node);
       } else if (node.right.balanceFactor > 0) {
-        // Right-Left rotation.
         this.rotateRightLeft(node);
       }
     }
+    return this;
   }
 
-  /**
-   * @param {BinarySearchTreeNode} rootNode
-   */
-  public rotateLeftLeft(rootNode) {
-    // Detach left node from root node.
+  public rotateLeftLeft(rootNode: InterfaceBinarySearchTreeNode<T>): this {
     const leftNode = rootNode.left;
     rootNode.setLeft(null);
 
-    // Make left node to be a child of rootNode's parent.
     if (rootNode.parent) {
       rootNode.parent.setLeft(leftNode);
     } else if (rootNode === this.root) {
-      // If root node is root then make left node to be a new root.
-      this.root = leftNode;
+      this._binarySearchTree.root = leftNode;
     }
 
-    // If left node has a right child then detach it and
-    // attach it as a left child for rootNode.
     if (leftNode.right) {
       rootNode.setLeft(leftNode.right);
     }
 
-    // Attach rootNode to the right of leftNode.
     leftNode.setRight(rootNode);
+    return this;
   }
 
-  /**
-   * @param {BinarySearchTreeNode} rootNode
-   */
-  public rotateLeftRight(rootNode) {
-    // Detach left node from rootNode since it is going to be replaced.
+  public rotateLeftRight(rootNode: InterfaceBinarySearchTreeNode<T>): this {
     const leftNode = rootNode.left;
     rootNode.setLeft(null);
 
-    // Detach right node from leftNode.
     const leftRightNode = leftNode.right;
     leftNode.setRight(null);
 
-    // Preserve leftRightNode's left subtree.
     if (leftRightNode.left) {
       leftNode.setRight(leftRightNode.left);
       leftRightNode.setLeft(null);
     }
 
-    // Attach leftRightNode to the rootNode.
     rootNode.setLeft(leftRightNode);
 
-    // Attach leftNode as left node for leftRight node.
     leftRightNode.setLeft(leftNode);
 
-    // Do left-left rotation.
     this.rotateLeftLeft(rootNode);
+    return this;
   }
 
-  /**
-   * @param {BinarySearchTreeNode} rootNode
-   */
-  public rotateRightLeft(rootNode) {
-    // Detach right node from rootNode since it is going to be replaced.
+  public rotateRightLeft(rootNode: InterfaceBinarySearchTreeNode<T>): this {
     const rightNode = rootNode.right;
     rootNode.setRight(null);
 
-    // Detach left node from rightNode.
     const rightLeftNode = rightNode.left;
     rightNode.setLeft(null);
 
@@ -128,39 +111,29 @@ export default class AvlTree<T> extends BinarySearchTree<T> {
       rightLeftNode.setRight(null);
     }
 
-    // Attach rightLeftNode to the rootNode.
     rootNode.setRight(rightLeftNode);
 
-    // Attach rightNode as right node for rightLeft node.
     rightLeftNode.setRight(rightNode);
 
-    // Do right-right rotation.
     this.rotateRightRight(rootNode);
+    return this;
   }
 
-  /**
-   * @param {BinarySearchTreeNode} rootNode
-   */
-  public rotateRightRight(rootNode) {
-    // Detach right node from root node.
+  public rotateRightRight(rootNode: InterfaceBinarySearchTreeNode<T>): this {
     const rightNode = rootNode.right;
     rootNode.setRight(null);
 
-    // Make right node to be a child of rootNode's parent.
     if (rootNode.parent) {
       rootNode.parent.setRight(rightNode);
     } else if (rootNode === this.root) {
-      // If root node is root then make right node to be a new root.
-      this.root = rightNode;
+      this._binarySearchTree.root = rightNode;
     }
 
-    // If right node has a left child then detach it and
-    // attach it as a right child for rootNode.
     if (rightNode.left) {
       rootNode.setRight(rightNode.left);
     }
 
-    // Attach rootNode to the left of rightNode.
     rightNode.setLeft(rootNode);
+    return this;
   }
 }
