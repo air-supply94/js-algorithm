@@ -188,18 +188,29 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
   }
 
   public traverseAfterOrder(): T[] {
-    let result = [];
+    const result = [];
+    const nodeStack = new Stack<InterfaceBinaryTreeNode<T>>();
+    let currentNode: InterfaceBinaryTreeNode<T> = this;
+    nodeStack.push(currentNode);
 
-    if (this.left) {
-      result = result.concat(this.left.traverseAfterOrder());
+    while (!nodeStack.isEmpty()) {
+      if (nodeStack.peek() !== currentNode.parent) {
+        // tslint:disable-next-line:no-conditional-assignment
+        while (currentNode = nodeStack.peek()) {
+          if (currentNode.left) {
+            if (currentNode.right) {
+              nodeStack.push(currentNode.right);
+            }
+            nodeStack.push(currentNode.left);
+          } else {
+            nodeStack.push(currentNode.right);
+          }
+        }
+        nodeStack.pop();
+      }
+      currentNode = nodeStack.pop();
+      result.push(currentNode.value);
     }
-
-    if (this.right) {
-      result = result.concat(this.right.traverseAfterOrder());
-    }
-
-    result.push(this.value);
-
     return result;
   }
 
