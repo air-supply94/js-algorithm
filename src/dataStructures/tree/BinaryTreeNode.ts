@@ -1,10 +1,9 @@
 import { Comparator } from '../../utils/comparator';
 import { HashTable } from '../hashTable';
-import { InterfaceBinaryTreeNode } from './@types';
 import { Stack } from '../stack';
 import { Queue } from '../queue';
 
-export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
+export class BinaryTreeNode<T> {
 
   get leftHeight(): number {
     if (!this.left) {
@@ -30,7 +29,7 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
     return this.leftHeight - this.rightHeight;
   }
 
-  get uncle(): null | InterfaceBinaryTreeNode<T> {
+  get uncle(): null | this {
     if (!this.parent) {
       return null;
     }
@@ -61,15 +60,15 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
     this.nodeComparator = new Comparator();
   }
 
-  public static copyNode<T>(sourceNode: InterfaceBinaryTreeNode<T>, targetNode: InterfaceBinaryTreeNode<T>): void {
+  public static copyNode<T>(sourceNode: BinaryTreeNode<T>, targetNode: BinaryTreeNode<T>): void {
     targetNode.setValue(sourceNode.value)
     .setLeft(sourceNode.left)
     .setRight(sourceNode.right);
   }
 
-  public left: null | InterfaceBinaryTreeNode<T>;
-  public right: null | InterfaceBinaryTreeNode<T>;
-  public parent: null | InterfaceBinaryTreeNode<T>;
+  public left: null | this;
+  public right: null | this;
+  public parent: null | this;
   public value: T;
   public meta: HashTable<T>;
   public nodeComparator: Comparator;
@@ -79,7 +78,7 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
     return this;
   }
 
-  public setLeft(node: InterfaceBinaryTreeNode<T>): this {
+  public setLeft(node: this): this {
     if (this.left) {
       this.left.parent = null;
     }
@@ -93,7 +92,7 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
     return this;
   }
 
-  public setRight(node: InterfaceBinaryTreeNode<T>): this {
+  public setRight(node: this): this {
     if (this.right) {
       this.right.parent = null;
     }
@@ -108,7 +107,7 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
 
   }
 
-  public removeChild(nodeToRemove: InterfaceBinaryTreeNode<T>): boolean {
+  public removeChild(nodeToRemove: this): boolean {
     if (!nodeToRemove) {
       return false;
     }
@@ -126,7 +125,7 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
     return false;
   }
 
-  public replaceChild(nodeToReplace: InterfaceBinaryTreeNode<T>, replacementNode: InterfaceBinaryTreeNode<T>): boolean {
+  public replaceChild(nodeToReplace: this, replacementNode: this): boolean {
     if (!nodeToReplace || !replacementNode) {
       return false;
     }
@@ -146,8 +145,8 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
 
   public traverseInOrder(): T[] {
     const result = [];
-    const nodeStack = new Stack<InterfaceBinaryTreeNode<T>>();
-    let currentNode: InterfaceBinaryTreeNode<T> = this;
+    const nodeStack = new Stack<BinaryTreeNode<T>>();
+    let currentNode: BinaryTreeNode<T> = this;
     while (true) {
       while (currentNode) {
         nodeStack.push(currentNode);
@@ -167,8 +166,8 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
 
   public traversePreOrder(): T[] {
     const result = [];
-    const nodeStack = new Stack<InterfaceBinaryTreeNode<T>>();
-    let currentNode: InterfaceBinaryTreeNode<T> = this;
+    const nodeStack = new Stack<BinaryTreeNode<T>>();
+    let currentNode: BinaryTreeNode<T> = this;
     while (true) {
       while (currentNode) {
         result.push(currentNode.value);
@@ -189,8 +188,8 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
 
   public traverseAfterOrder(): T[] {
     const result = [];
-    const nodeStack = new Stack<InterfaceBinaryTreeNode<T>>();
-    let currentNode: InterfaceBinaryTreeNode<T> = this;
+    const nodeStack = new Stack<BinaryTreeNode<T>>();
+    let currentNode: BinaryTreeNode<T> = this;
     nodeStack.push(currentNode);
 
     while (!nodeStack.isEmpty()) {
@@ -216,7 +215,7 @@ export class BinaryTreeNode<T> implements InterfaceBinaryTreeNode<T> {
 
   public traverseLevelOrder(): T[] {
     const result = [];
-    const nodeQueue = new Queue<InterfaceBinaryTreeNode<T>>();
+    const nodeQueue = new Queue<BinaryTreeNode<T>>();
     nodeQueue.enqueue(this);
     while (!nodeQueue.isEmpty()) {
       const currentNode = nodeQueue.dequeue();

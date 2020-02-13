@@ -1,17 +1,14 @@
 import { BinarySearchTree } from '../binary-search-tree/BinarySearchTree';
-import {
-  InterfaceAvlTree,
-  InterfaceBinarySearchTreeNode,
-} from '../@types';
+import { BinarySearchTreeNode } from '../binary-search-tree/BinarySearchTreeNode';
 
-export class AvlTree<T> implements InterfaceAvlTree<T> {
+export class AvlTree<T> {
   constructor() {
     this._binarySearchTree = new BinarySearchTree<T>();
   }
 
   private _binarySearchTree: BinarySearchTree<T>;
 
-  get root(): InterfaceBinarySearchTreeNode<T> {
+  get root(): BinarySearchTreeNode<T> {
     return this._binarySearchTree.root;
   }
 
@@ -26,7 +23,7 @@ export class AvlTree<T> implements InterfaceAvlTree<T> {
   public insert(value: T): boolean {
     const node = this._binarySearchTree.insert(value);
 
-    let currentNode: InterfaceBinarySearchTreeNode<T> = this.root.find(value);
+    let currentNode: BinarySearchTreeNode<T> = this.root.find(value);
     while (currentNode) {
       this.balance(currentNode);
       currentNode = currentNode.parent;
@@ -44,7 +41,7 @@ export class AvlTree<T> implements InterfaceAvlTree<T> {
     return false;
   }
 
-  public balance(node: InterfaceBinarySearchTreeNode<T>): this {
+  public balance(node: BinarySearchTreeNode<T>): this {
     if (node.balanceFactor > 1) {
       if (node.left.balanceFactor > 0) {
         this.rotateLeftLeft(node);
@@ -61,7 +58,7 @@ export class AvlTree<T> implements InterfaceAvlTree<T> {
     return this;
   }
 
-  public rotateLeftLeft(rootNode: InterfaceBinarySearchTreeNode<T>): this {
+  public rotateLeftLeft(rootNode: BinarySearchTreeNode<T>): this {
     const leftNode = rootNode.left;
     rootNode.setLeft(null);
 
@@ -79,7 +76,7 @@ export class AvlTree<T> implements InterfaceAvlTree<T> {
     return this;
   }
 
-  public rotateLeftRight(rootNode: InterfaceBinarySearchTreeNode<T>): this {
+  public rotateLeftRight(rootNode: BinarySearchTreeNode<T>): this {
     const leftNode = rootNode.left;
     rootNode.setLeft(null);
 
@@ -99,7 +96,7 @@ export class AvlTree<T> implements InterfaceAvlTree<T> {
     return this;
   }
 
-  public rotateRightLeft(rootNode: InterfaceBinarySearchTreeNode<T>): this {
+  public rotateRightLeft(rootNode: BinarySearchTreeNode<T>): this {
     const rightNode = rootNode.right;
     rootNode.setRight(null);
 
@@ -119,7 +116,7 @@ export class AvlTree<T> implements InterfaceAvlTree<T> {
     return this;
   }
 
-  public rotateRightRight(rootNode: InterfaceBinarySearchTreeNode<T>): this {
+  public rotateRightRight(rootNode: BinarySearchTreeNode<T>): this {
     const rightNode = rootNode.right;
     rootNode.setRight(null);
 

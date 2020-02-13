@@ -1,21 +1,17 @@
 import { BinarySearchTreeNode } from './BinarySearchTreeNode';
 import { compareFunctionType } from '../../../utils/@types';
-import {
-  InterfaceBinarySearchTree,
-  InterfaceBinarySearchTreeNode,
-} from '../@types';
 import { Comparator } from '../../../utils/comparator';
 
-export class BinarySearchTree<T> implements InterfaceBinarySearchTree<T> {
+export class BinarySearchTree<T> {
   constructor(nodeValueCompareFunction?: compareFunctionType) {
-    this.root = new BinarySearchTreeNode(null, nodeValueCompareFunction);
+    this.root = new BinarySearchTreeNode<T>(null, nodeValueCompareFunction);
     this.nodeComparator = this.root.nodeComparator;
   }
 
-  public root: InterfaceBinarySearchTreeNode<T>;
+  public root: BinarySearchTreeNode<T>;
   public nodeComparator: Comparator;
 
-  public insert(value: T): null | InterfaceBinarySearchTreeNode<T> {
+  public insert(value: T): null | BinarySearchTreeNode<T> {
     return this.root.insert(value);
   }
 
