@@ -177,12 +177,25 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   }
 
   public reverse(): this {
-    const value = [];
-    this.eachFromTail(nodes => {
-      value.push(nodes.value);
-    });
-    return this.clear()
-    .fromArray(value);
+    if (this._head === this._tail) {
+      return this;
+    }
+
+    let current = this.head;
+    this._head = this._tail;
+    this._tail = current;
+    let previous: InterfaceDoubleLinkedListNode<T>;
+    let next;
+    while (current) {
+      next = current.next;
+      current.next = previous;
+      current.previous = next;
+      previous = current;
+      current = next;
+    }
+    this._head.previous = null;
+    this._tail.next = null;
+    return this;
   }
 
   public connect(...arg: InterfaceDoubleLinkedList<T>[]): this {
