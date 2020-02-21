@@ -98,8 +98,9 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
     return this._heapContainer.toString();
   }
 
-  public remove(item?: any, comparator?: Comparator): this {
+  public remove(item: T, comparator?: Comparator): T | null {
     let removeIndex = this.findIndex(item, comparator);
+    const result = removeIndex === -1 ? null : item;
     while (removeIndex !== -1) {
       if (removeIndex === this._heapContainer.length - 1) {
         this._heapContainer.pop();
@@ -113,7 +114,7 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
       }
       removeIndex = this.findIndex(item, comparator);
     }
-    return this;
+    return result;
   }
 
   public up(customStartIndex = this._heapContainer.length - 1): this {

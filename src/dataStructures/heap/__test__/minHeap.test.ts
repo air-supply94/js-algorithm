@@ -185,17 +185,24 @@ describe('MinHeap', () => {
     expect(minHeap.toString())
     .toBe('3,11,10,12,11');
 
-    expect(minHeap.remove(3)
-    .toString())
+    expect(minHeap.remove(3))
+    .toBe(3);
+
+    expect(minHeap.toString())
     .toEqual('10,11,11,12');
-    expect(minHeap.remove(3)
-    .peek())
+
+    minHeap.remove(3);
+    expect(minHeap.peek())
     .toEqual(10);
-    expect(minHeap.remove(11)
-    .toString())
+
+    expect(minHeap.remove(11))
+    .toBe(11);
+
+    expect(minHeap.toString())
     .toEqual('10,12');
-    expect(minHeap.remove(3)
-    .peek())
+
+    minHeap.remove(3);
+    expect(minHeap.peek())
     .toEqual(10);
   });
 
@@ -215,32 +222,53 @@ describe('MinHeap', () => {
 
     expect(minHeap.toString())
     .toBe('1,2,4,6,3,5,6,10,8,7');
-    expect(minHeap.remove(8)
-    .toString())
+
+    expect(minHeap.remove(8))
+    .toEqual(8);
+    expect(minHeap.remove(8))
+    .toBeNull();
+    expect(minHeap.toString())
     .toEqual('1,2,4,6,3,5,6,10,7');
-    expect(minHeap.remove(7)
+
+    expect(minHeap.remove(7))
+    .toBe(7);
+    expect(minHeap
     .toString())
     .toEqual('1,2,4,6,3,5,6,10');
-    expect(minHeap.remove(1)
-    .toString())
+
+    expect(minHeap.remove(1))
+    .toBe(1);
+    expect(minHeap.toString())
     .toEqual('2,3,4,6,10,5,6');
-    expect(minHeap.remove(2)
-    .toString())
+
+    expect(minHeap.remove(2))
+    .toBe(2);
+    expect(minHeap.toString())
     .toEqual('3,6,4,6,10,5');
-    expect(minHeap.remove(6)
-    .toString())
+
+    expect(minHeap.remove(6))
+    .toBe(6);
+    expect(minHeap.toString())
     .toEqual('3,5,4,10');
-    expect(minHeap.remove(10)
-    .toString())
+
+    expect(minHeap.remove(10))
+    .toBe(10);
+    expect(minHeap.toString())
     .toEqual('3,5,4');
-    expect(minHeap.remove(5)
-    .toString())
+
+    expect(minHeap.remove(5))
+    .toBe(5);
+    expect(minHeap.toString())
     .toEqual('3,4');
-    expect(minHeap.remove(3)
-    .toString())
+
+    expect(minHeap.remove(3))
+    .toBe(3);
+    expect(minHeap.toString())
     .toEqual('4');
-    expect(minHeap.remove(4)
-    .toString())
+
+    expect(minHeap.remove(4))
+    .toBe(4);
+    expect(minHeap.toString())
     .toEqual('');
   });
 

@@ -92,8 +92,7 @@ export class AvlTree<T> {
 
     leftRightNode.setLeft(leftNode);
 
-    this.rotateLeftLeft(rootNode);
-    return this;
+    return this.rotateLeftLeft(rootNode);
   }
 
   public rotateRightLeft(rootNode: BinarySearchTreeNode<T>): this {
@@ -112,8 +111,7 @@ export class AvlTree<T> {
 
     rightLeftNode.setRight(rightNode);
 
-    this.rotateRightRight(rootNode);
-    return this;
+    return this.rotateRightRight(rootNode);
   }
 
   public rotateRightRight(rootNode: BinarySearchTreeNode<T>): this {

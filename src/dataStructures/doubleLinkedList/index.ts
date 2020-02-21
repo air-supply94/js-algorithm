@@ -100,7 +100,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     return deletedTail;
   }
 
-  public find(findParams: { value?: any; callback?: (node: T) => boolean }): null | InterfaceDoubleLinkedListNode<T> {
+  public find(findParams: { value: T; callback?: (node: T) => boolean }): null | InterfaceDoubleLinkedListNode<T> {
     const {value, callback = {}} = findParams;
     let currentNode = this._head;
 
@@ -116,7 +116,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     return currentNode;
   }
 
-  public delete(value?: any): null | InterfaceDoubleLinkedListNode<T> {
+  public delete(value: T): null | InterfaceDoubleLinkedListNode<T> {
     let deletedNode = null;
     while (this._head && this._compare.equal(this._head.value, value)) {
       deletedNode = this._head;

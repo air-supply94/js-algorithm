@@ -172,17 +172,20 @@ describe('MaxHeap', () => {
     expect(maxHeap.toString())
     .toBe('12,11,10,3,11');
 
-    expect(maxHeap.remove(12)
-    .toString())
+    maxHeap.remove(12);
+    expect(maxHeap.toString())
     .toEqual('11,11,10,3');
-    expect(maxHeap.remove(12)
-    .peek())
+
+    maxHeap.remove(12);
+    expect(maxHeap.peek())
     .toEqual(11);
-    expect(maxHeap.remove(11)
-    .toString())
+
+    maxHeap.remove(11);
+    expect(maxHeap.toString())
     .toEqual('10,3');
-    expect(maxHeap.remove(10)
-    .peek())
+
+    maxHeap.remove(10);
+    expect(maxHeap.peek())
     .toEqual(3);
   });
 
@@ -202,32 +205,41 @@ describe('MaxHeap', () => {
 
     expect(maxHeap.toString())
     .toBe('10,8,6,7,6,4,5,3,2,1');
-    expect(maxHeap.remove(4)
-    .toString())
+
+    maxHeap.remove(4);
+    expect(maxHeap.toString())
     .toEqual('10,8,6,7,6,1,5,3,2');
-    expect(maxHeap.remove(3)
-    .toString())
+
+    maxHeap.remove(3);
+    expect(maxHeap.toString())
     .toEqual('10,8,6,7,6,1,5,2');
-    expect(maxHeap.remove(5)
-    .toString())
+
+    maxHeap.remove(5);
+    expect(maxHeap.toString())
     .toEqual('10,8,6,7,6,1,2');
-    expect(maxHeap.remove(10)
-    .toString())
+
+    maxHeap.remove(10);
+    expect(maxHeap.toString())
     .toEqual('8,7,6,2,6,1');
-    expect(maxHeap.remove(6)
-    .toString())
+
+    maxHeap.remove(6);
+    expect(maxHeap.toString())
     .toEqual('8,7,1,2');
-    expect(maxHeap.remove(2)
-    .toString())
+
+    maxHeap.remove(2);
+    expect(maxHeap.toString())
     .toEqual('8,7,1');
-    expect(maxHeap.remove(1)
-    .toString())
+
+    maxHeap.remove(1);
+    expect(maxHeap.toString())
     .toEqual('8,7');
-    expect(maxHeap.remove(7)
-    .toString())
+
+    maxHeap.remove(7);
+    expect(maxHeap.toString())
     .toEqual('8');
-    expect(maxHeap.remove(8)
-    .toString())
+
+    maxHeap.remove(8);
+    expect(maxHeap.toString())
     .toEqual('');
   });
 

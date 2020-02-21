@@ -15,7 +15,7 @@ export interface InterfaceHeap<T> {
   peek: () => T;
   poll: () => T;
   add: (item: T) => this;
-  remove: (item?: any, comparator?: Comparator) => this;
+  remove: (item: T, comparator?: Comparator) => T | null;
   findIndex: (item?: any, comparator?: Comparator, fromIndex?: number) => number;
   isEmpty: () => boolean;
   toString: () => string;

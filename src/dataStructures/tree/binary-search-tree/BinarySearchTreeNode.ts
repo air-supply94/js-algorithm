@@ -63,7 +63,7 @@ export class BinarySearchTreeNode<T> extends BinaryTreeNode<T> {
     return !!this.find(value);
   }
 
-  public remove(value?: any): boolean {
+  public remove(value: T): boolean {
     const nodeToRemove = this.find(value);
 
     if (!nodeToRemove) {
