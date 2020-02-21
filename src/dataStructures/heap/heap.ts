@@ -125,9 +125,8 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
   }
 
   public down(customStartIndex = 0): this {
-    let nextIndex: number;
     while (this.hasLeftChild(customStartIndex)) {
-      nextIndex = this.hasRightChild(customStartIndex) && this.pairIsInCorrectOrder(this.rightChild(customStartIndex), this.leftChild(customStartIndex))
+      const nextIndex = this.hasRightChild(customStartIndex) && this.pairIsInCorrectOrder(this.rightChild(customStartIndex), this.leftChild(customStartIndex))
         ? this.getRightChildIndex(customStartIndex)
         : this.getLeftChildIndex(customStartIndex);
 
@@ -135,7 +134,7 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
         break;
       }
 
-      swap(this._heapContainer, nextIndex, customStartIndex);
+      swap(this._heapContainer, customStartIndex, nextIndex);
       customStartIndex = nextIndex;
     }
     return this;

@@ -18,12 +18,10 @@ export function mergeSort<T>(originalArray: T[], comparator?: Comparator | compa
 }
 
 function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: InterfaceComparator): T[] {
-  let result: T[] = [];
+  const result: T[] = [];
   while (leftArray.length && rightArray.length) {
     result.push(comparator.lessThanOrEqual(leftArray[0], rightArray[0]) ? leftArray.shift() : rightArray.shift());
   }
 
-  result = result.concat(leftArray.length ? leftArray : rightArray);
-
-  return result;
+  return result.concat(leftArray, rightArray);
 }
