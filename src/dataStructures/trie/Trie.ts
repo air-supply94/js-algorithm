@@ -9,12 +9,8 @@ export class Trie {
 
   public head: TrieNode;
 
-  /**
-   * @param {string} word
-   * @return {Trie}
-   */
-  public addWord(word) {
-    const characters = Array.from(word);
+  public addWord(word: string): this {
+    const characters = word.split('');
     let currentNode = this.head;
 
     for (let charIndex = 0; charIndex < characters.length; charIndex += 1) {
@@ -25,14 +21,9 @@ export class Trie {
     return this;
   }
 
-  /**
-   * @param {string} word
-   * @return {Trie}
-   */
-  public deleteWord(word) {
+  public deleteWord(word: string): this {
     const depthFirstDelete = (currentNode, charIndex = 0) => {
       if (charIndex >= word.length) {
-        // Return if we're trying to delete the character that is out of word's scope.
         return;
       }
 
@@ -40,35 +31,24 @@ export class Trie {
       const nextNode = currentNode.getChild(character);
 
       if (nextNode == null) {
-        // Return if we're trying to delete a word that has not been added to the Trie.
         return;
       }
 
-      // Go deeper.
       depthFirstDelete(nextNode, charIndex + 1);
 
-      // Since we're going to delete a word let's un-mark its last character isCompleteWord flag.
       if (charIndex === (word.length - 1)) {
         nextNode.isCompleteWord = false;
       }
 
-      // childNode is deleted only if:
-      // - childNode has NO children
-      // - childNode.isCompleteWord === false
       currentNode.removeChild(character);
     };
 
-    // Start depth-first deletion from the head node.
     depthFirstDelete(this.head);
 
     return this;
   }
 
-  /**
-   * @param {string} word
-   * @return {string[]}
-   */
-  public suggestNextCharacters(word) {
+  public suggestNextCharacters(word: string): string[] {
     const lastCharacter = this.getLastCharacterNode(word);
 
     if (!lastCharacter) {
@@ -78,27 +58,16 @@ export class Trie {
     return lastCharacter.suggestChildren();
   }
 
-  /**
-   * Check if complete word exists in Trie.
-   *
-   * @param {string} word
-   * @return {boolean}
-   */
-  public doesWordExist(word) {
+  public doesWordExist(word: string): boolean {
     const lastCharacter = this.getLastCharacterNode(word);
 
     return !!lastCharacter && lastCharacter.isCompleteWord;
   }
 
-  /**
-   * @param {string} word
-   * @return {TrieNode}
-   */
-  public getLastCharacterNode(word) {
-    const characters = Array.from(word);
+  public getLastCharacterNode(word: string): TrieNode {
+    const characters: string[] = word.split('');
     let currentNode = this.head;
 
-    // tslint:disable-next-line:prefer-for-of
     for (let charIndex = 0; charIndex < characters.length; charIndex += 1) {
       if (!currentNode.hasChild(characters[charIndex])) {
         return null;
