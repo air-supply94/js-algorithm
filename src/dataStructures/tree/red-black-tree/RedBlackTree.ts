@@ -104,7 +104,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
 
         // Set newGrandParent as a root if it doesn't have parent.
         if (newGrandParent && newGrandParent.parent === null) {
-          this.root = newGrandParent;
+          this.setRoot(newGrandParent);
 
           // Recolor root into black.
           this.makeNodeBlack(this.root);
@@ -153,7 +153,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
       }
     } else {
       // Make parent node a root
-      parentNode.parent = null;
+      parentNode.setParent(null);
     }
 
     // Swap colors of granParent and parent nodes.
@@ -228,7 +228,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
       }
     } else {
       // Make parent node a root.
-      parentNode.parent = null;
+      parentNode.setParent(null);
     }
 
     // Swap colors of granParent and parent nodes.

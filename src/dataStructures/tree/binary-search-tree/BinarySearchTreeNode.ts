@@ -97,7 +97,7 @@ export class BinarySearchTreeNode<T> extends BinaryTreeNode<T> {
       }
     }
 
-    nodeToRemove.parent = null;
+    nodeToRemove.setParent(null);
 
     return true;
   }

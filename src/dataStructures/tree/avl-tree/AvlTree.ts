@@ -65,7 +65,7 @@ export class AvlTree<T> {
     if (rootNode.parent) {
       rootNode.parent.setLeft(leftNode);
     } else if (rootNode === this.root) {
-      this._binarySearchTree.root = leftNode;
+      this._binarySearchTree.setRoot(leftNode);
     }
 
     if (leftNode.right) {
@@ -121,7 +121,7 @@ export class AvlTree<T> {
     if (rootNode.parent) {
       rootNode.parent.setRight(rightNode);
     } else if (rootNode === this.root) {
-      this._binarySearchTree.root = rightNode;
+      this._binarySearchTree.setRoot(rightNode);
     }
 
     if (rightNode.left) {

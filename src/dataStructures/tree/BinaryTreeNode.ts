@@ -4,6 +4,43 @@ import { Stack } from '../stack';
 import { Queue } from '../queue';
 
 export class BinaryTreeNode<T> {
+  constructor(value = null) {
+    this._left = null;
+    this._right = null;
+    this._parent = null;
+    this._value = value;
+
+    this.meta = new HashTable();
+
+    this.nodeComparator = new Comparator();
+  }
+
+  public static copyNode<T>(sourceNode: BinaryTreeNode<T>, targetNode: BinaryTreeNode<T>): void {
+    targetNode.setValue(sourceNode._value)
+    .setLeft(sourceNode._left)
+    .setRight(sourceNode._right);
+  }
+
+  private _left: null | this;
+  private _right: null | this;
+  private _parent: null | this;
+  private _value: T;
+
+  get value(): T {
+    return this._value;
+  }
+
+  get left(): null | this {
+    return this._left;
+  }
+
+  get right(): null | this {
+    return this._right;
+  }
+
+  get parent(): null | this {
+    return this._parent;
+  }
 
   get leftHeight(): number {
     if (!this.left) {
@@ -49,44 +86,28 @@ export class BinaryTreeNode<T> {
     return this.parent.parent.left;
   }
 
-  constructor(value = null) {
-    this.left = null;
-    this.right = null;
-    this.parent = null;
-    this.value = value;
-
-    this.meta = new HashTable();
-
-    this.nodeComparator = new Comparator();
-  }
-
-  public static copyNode<T>(sourceNode: BinaryTreeNode<T>, targetNode: BinaryTreeNode<T>): void {
-    targetNode.setValue(sourceNode.value)
-    .setLeft(sourceNode.left)
-    .setRight(sourceNode.right);
-  }
-
-  public left: null | this;
-  public right: null | this;
-  public parent: null | this;
-  public value: T;
   public meta: HashTable<T>;
   public nodeComparator: Comparator;
 
   public setValue(value: T): this {
-    this.value = value;
+    this._value = value;
+    return this;
+  }
+
+  public setParent(parent: null | this): this {
+    this._parent = parent;
     return this;
   }
 
   public setLeft(node: this): this {
     if (this.left) {
-      this.left.parent = null;
+      this.left.setParent(null);
     }
 
-    this.left = node;
+    this._left = node;
 
     if (this.left) {
-      this.left.parent = this;
+      this.left.setParent(this);
     }
 
     return this;
@@ -94,13 +115,13 @@ export class BinaryTreeNode<T> {
 
   public setRight(node: this): this {
     if (this.right) {
-      this.right.parent = null;
+      this.right.setParent(null);
     }
 
-    this.right = node;
+    this._right = node;
 
     if (this.right) {
-      this.right.parent = this;
+      this.right.setParent(this);
     }
 
     return this;
@@ -113,12 +134,12 @@ export class BinaryTreeNode<T> {
     }
 
     if (this.left && this.nodeComparator.equal(nodeToRemove, this.left)) {
-      this.left = null;
+      this.setLeft(null);
       return true;
     }
 
     if (this.right && this.nodeComparator.equal(nodeToRemove, this.right)) {
-      this.right = null;
+      this.setRight(null);
       return true;
     }
 
@@ -131,12 +152,12 @@ export class BinaryTreeNode<T> {
     }
 
     if (this.left && this.nodeComparator.equal(this.left, nodeToReplace)) {
-      this.left = replacementNode;
+      this.setLeft(replacementNode);
       return true;
     }
 
     if (this.right && this.nodeComparator.equal(this.right, nodeToReplace)) {
-      this.right = replacementNode;
+      this.setRight(replacementNode);
       return true;
     }
 
