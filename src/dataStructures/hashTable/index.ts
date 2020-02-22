@@ -1,26 +1,24 @@
 import { DoubleLinkedList } from '../doubleLinkedList';
 import { InterfaceHasTable } from './@types';
 
-export class HashTable<T> implements InterfaceHasTable {
+export class HashTable<T> implements InterfaceHasTable<T> {
   constructor(hashTableSize: number = 32) {
-    this.buckets = new Array(hashTableSize).fill(null)
-    .map(() => new DoubleLinkedList());
-    this.keys = {};
+    this._buckets = new Array(hashTableSize).fill(null)
+    .map(() => new DoubleLinkedList<{ key: string; value: T }>());
+    this._keys = {};
   }
 
-  public buckets;
-  public keys;
+  private _buckets: DoubleLinkedList<{ key: string; value: T }>[];
+  private _keys: { [index: string]: number };
 
-  public hash(key) {
-    // @ts-ignore
-    const hash: number = [].reduce.call(key, (prev, value) => prev + value.codePointAt(0), 0);
-    return hash % this.buckets.length;
+  private hash(key: string): number {
+    return [].reduce.call(key, (prev, value) => prev + value.codePointAt(0), 0) % this._buckets.length;
   }
 
-  public set(key, value) {
+  public set(key: string, value: T): this {
     const keyHash = this.hash(key);
-    this.keys[key] = keyHash;
-    const doubleLinkedList = this.buckets[keyHash];
+    this._keys[key] = keyHash;
+    const doubleLinkedList = this._buckets[keyHash];
     const node = doubleLinkedList.find({
       callback(nodeValue) {
         return nodeValue.key === key;
@@ -38,10 +36,10 @@ export class HashTable<T> implements InterfaceHasTable {
     return this;
   }
 
-  public delete(key) {
+  public delete(key: string): T {
     const keyHash = this.hash(key);
-    delete this.keys[key];
-    const doubleLinkedList = this.buckets[keyHash];
+    delete this._keys[key];
+    const doubleLinkedList = this._buckets[keyHash];
     const node = doubleLinkedList.find({
       callback(nodeValue) {
         return nodeValue.key === key;
@@ -52,25 +50,25 @@ export class HashTable<T> implements InterfaceHasTable {
       doubleLinkedList.delete(node.value);
     }
 
-    return this;
+    return node ? node.value.value : null;
   }
 
-  public get(key) {
-    const doubleLinkedList = this.buckets[this.hash(key)];
+  public get(key: string): T | null {
+    const doubleLinkedList = this._buckets[this.hash(key)];
     const node = doubleLinkedList.find({
       callback(nodeValue) {
         return nodeValue.key === key;
       },
     });
 
-    return node ? node.value.value : undefined;
+    return node ? node.value.value : null;
   }
 
-  public has(key) {
-    return Object.prototype.hasOwnProperty.call(this.keys, key);
+  public has(key: string): boolean {
+    return Object.prototype.hasOwnProperty.call(this._keys, key);
   }
 
-  public getKeys() {
-    return Object.keys(this.keys);
+  public getKeys(): string[] {
+    return Object.keys(this._keys);
   }
 }

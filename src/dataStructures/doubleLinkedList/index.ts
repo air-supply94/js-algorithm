@@ -100,7 +100,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     return deletedTail;
   }
 
-  public find(findParams: { value: T; callback?: (node: T) => boolean }): null | InterfaceDoubleLinkedListNode<T> {
+  public find(findParams: { value?: T; callback?: (node: T) => boolean }): null | InterfaceDoubleLinkedListNode<T> {
     const {value, callback = {}} = findParams;
     let currentNode = this._head;
 
