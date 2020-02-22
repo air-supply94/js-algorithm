@@ -3,17 +3,19 @@ import { bubbleSort } from '../bubbleSort';
 import { insertionSort } from '../insertionSort';
 import { mergeSort } from '../mergeSort';
 import { shellSort } from '../shellSort';
-import { quickSortExchange } from '../quickSort';
+import { quickSortExchange } from '../quickSort/quickSortExchange';
+import { quickSortInPlace } from '../quickSort/quickSortInPlace';
 import { selectionSort } from '../selectionSort';
 
 describe('sort', () => {
-  const sortCollection = [
+  const sortCollection: Function[] = [
     bubbleSort,
     insertionSort,
     mergeSort,
     quickSortExchange,
     selectionSort,
     shellSort,
+    quickSortInPlace,
   ];
   sortCollection.forEach(sort => {
     it(`sort ${sort.toString()} comparator`, () => {
