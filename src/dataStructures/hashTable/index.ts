@@ -12,7 +12,7 @@ export class HashTable<T> implements InterfaceHasTable<T> {
   private _keys: { [index: string]: number };
 
   private hash(key: string): number {
-    return [].reduce.call(key, (prev, value) => prev + value.codePointAt(0), 0) % this._buckets.length;
+    return [].reduce.call(key, (prev, value) => prev + value.charCodeAt(0), 0) % this._buckets.length;
   }
 
   public set(key: string, value: T): this {

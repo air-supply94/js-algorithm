@@ -13,7 +13,7 @@ test('test set', () => {
   expect(set1.values())
   .toEqual([value1]);
   expect(set1.delete(2))
-  .toEqual(set1);
+  .toBeFalsy();
   expect(set1.clear())
   .toEqual(set1);
   expect(set1.size)

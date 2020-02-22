@@ -35,7 +35,7 @@ export class Queue<T> implements InterfaceQueue<T> {
     return this;
   }
 
-  public has(value?: any): boolean {
+  public has(value?: T): boolean {
     return this._doubleLinkedList.has(value);
   }
 

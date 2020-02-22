@@ -16,26 +16,41 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   }
 
   private _compare: Comparator;
-  private _head: InterfaceDoubleLinkedListNode<T>;
-  private _tail: InterfaceDoubleLinkedListNode<T>;
+  private _head: InterfaceDoubleLinkedListNode<T> | null;
+  private _tail: InterfaceDoubleLinkedListNode<T> | null;
   private _size: number;
 
-  get size() {
+  private setSize(size: number): this {
+    this._size = size;
+    return this;
+  }
+
+  private setHead(head: InterfaceDoubleLinkedListNode<T> | null): this {
+    this._head = head;
+    return this;
+  }
+
+  private setTail(tail: InterfaceDoubleLinkedListNode<T> | null): this {
+    this._tail = tail;
+    return this;
+  }
+
+  get size(): number {
     return this._size;
   }
 
-  get head() {
+  get head(): InterfaceDoubleLinkedListNode<T> | null {
     return this._head;
   }
 
-  get tail() {
+  get tail(): InterfaceDoubleLinkedListNode<T> | null {
     return this._tail;
   }
 
   public clear(): this {
-    this._head = this._tail = null;
-    this._size = 0;
-    return this;
+    return this.setHead(null)
+    .setTail(null)
+    .setSize(0);
   }
 
   public toString(callback?: (node: T) => string): string {
@@ -51,7 +66,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   }
 
   public eachFromHead(callback: (node: InterfaceDoubleLinkedListNode<T>) => void): this {
-    let currentNode = this._head;
+    let currentNode = this.head;
     while (currentNode) {
       callback(currentNode);
       currentNode = currentNode.next;
@@ -61,7 +76,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   }
 
   public eachFromTail(callback: (node: InterfaceDoubleLinkedListNode<T>) => void): this {
-    let currentNode = this._tail;
+    let currentNode = this.tail;
     while (currentNode) {
       callback(currentNode);
       currentNode = currentNode.previous;
@@ -75,26 +90,26 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   }
 
   public deleteHead(): null | InterfaceDoubleLinkedListNode<T> {
-    const deletedHead = this._head;
-    if (this._head === this._tail) {
+    const deletedHead = this.head;
+    if (this.head === this.tail) {
       this.clear();
     } else {
-      this._head = this._head.next;
-      this._head.setPrevious(null);
-      --this._size;
+      this.setHead(this.head.next);
+      this.head.setPrevious(null);
+      this.setSize(this.size - 1);
     }
 
     return deletedHead;
   }
 
   public deleteTail(): null | InterfaceDoubleLinkedListNode<T> {
-    const deletedTail = this._tail;
-    if (this._head === this._tail) {
+    const deletedTail = this.tail;
+    if (this.head === this.tail) {
       this.clear();
     } else {
-      this._tail = this._tail.previous;
-      this._tail.setNext(null);
-      --this._size;
+      this.setTail(this.tail.previous);
+      this.tail.setNext(null);
+      this.setSize(this.size - 1);
     }
 
     return deletedTail;
@@ -116,18 +131,19 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     return currentNode;
   }
 
-  public delete(value: T): null | InterfaceDoubleLinkedListNode<T> {
+  public delete(value?: T): null | InterfaceDoubleLinkedListNode<T> {
     let deletedNode = null;
-    while (this._head && this._compare.equal(this._head.value, value)) {
-      deletedNode = this._head;
-      this._head = this._head.next;
-      --this._size;
-    }
-    if (this._head) {
-      this._head.setPrevious(null);
+    while (this.head && this._compare.equal(this.head.value, value)) {
+      deletedNode = this.head;
+      this.setHead(this.head.next);
+      this.setSize(this.size - 1);
     }
 
-    let currentNode = this._head;
+    if (this.head) {
+      this.head.setPrevious(null);
+    }
+
+    let currentNode = this.head;
     if (currentNode) {
       while (currentNode.next) {
         if (this._compare.equal(currentNode.next.value, value)) {
@@ -136,56 +152,58 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
             currentNode.next.next.setPrevious(currentNode);
           }
           currentNode.setNext(currentNode.next.next);
-          --this._size;
+          this.setSize(this.size - 1);
         } else {
           currentNode = currentNode.next;
         }
       }
     }
 
-    this._tail = currentNode;
-    if (this._tail) {
-      this._tail.setNext(null);
+    this.setTail(currentNode);
+    if (this.tail) {
+      this.tail.setNext(null);
     }
 
     return deletedNode;
   }
 
   public append(value: T): this {
-    const newNode = new DoubleLinkedListNode(value, null, this._tail);
+    const newNode = new DoubleLinkedListNode(value, null, this.tail);
 
     if (this.isEmpty()) {
-      this._head = this._tail = newNode;
+      this.setTail(newNode)
+      .setHead(newNode);
     } else {
-      this._tail.setNext(newNode);
-      this._tail = newNode;
+      this.tail.setNext(newNode);
+      this.setTail(newNode);
     }
-    ++this._size;
+    this.setSize(this.size + 1);
 
     return this;
   }
 
   public prepend(value: T): this {
-    const newNode = new DoubleLinkedListNode(value, this._head);
+    const newNode = new DoubleLinkedListNode(value, this.head);
     if (this.isEmpty()) {
-      this._head = this._tail = newNode;
+      this.setHead(newNode)
+      .setTail(newNode);
     } else {
-      this._head.setPrevious(newNode);
-      this._head = newNode;
+      this.head.setPrevious(newNode);
+      this.setHead(newNode);
     }
-    ++this._size;
+    this.setSize(this.size + 1);
 
     return this;
   }
 
   public reverse(): this {
-    if (this._head === this._tail) {
+    if (this.head === this.tail) {
       return this;
     }
 
     let current = this.head;
-    this._head = this._tail;
-    this._tail = current;
+    this.setHead(this.tail);
+    this.setTail(current);
     let previous: InterfaceDoubleLinkedListNode<T>;
     let next;
     while (current) {
@@ -195,8 +213,8 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
       previous = current;
       current = next;
     }
-    this._head.setPrevious(null);
-    this._tail.setNext(null);
+    this.head.setPrevious(null);
+    this.tail.setNext(null);
     return this;
   }
 
@@ -211,7 +229,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     return this.fromArray(values);
   }
 
-  public has(value?: any): boolean {
+  public has(value?: T): boolean {
     return !!this.find({value});
   }
 

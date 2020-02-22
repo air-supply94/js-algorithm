@@ -56,57 +56,57 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
   }
 
   public leftChild(parentIndex: number): T {
-    return this._heapContainer[this.getLeftChildIndex(parentIndex)];
+    return this.heapContainer[this.getLeftChildIndex(parentIndex)];
   }
 
   public rightChild(parentIndex: number): T {
-    return this._heapContainer[this.getRightChildIndex(parentIndex)];
+    return this.heapContainer[this.getRightChildIndex(parentIndex)];
   }
 
   public parent(childIndex: number): T {
-    return this._heapContainer[this.getParentIndex(childIndex)];
+    return this.heapContainer[this.getParentIndex(childIndex)];
   }
 
   public peek(): T {
-    return this._heapContainer[0];
+    return this.heapContainer[0];
   }
 
   public poll(): T {
-    if (this._heapContainer.length <= 1) {
+    if (this.heapContainer.length <= 1) {
       return this._heapContainer.pop();
     }
-    const item = this._heapContainer[0];
-    this._heapContainer[0] = this._heapContainer.pop();
+    const item = this.heapContainer[0];
+    this.heapContainer[0] = this.heapContainer.pop();
     this.down();
     return item;
   }
 
   public add(item: T): this {
-    this._heapContainer.push(item);
+    this.heapContainer.push(item);
     return this.up();
   }
 
   public findIndex(item?: any, comparator = this.compare, fromIndex = 0): number {
-    return this._heapContainer.findIndex(value => comparator.equal(item, value), fromIndex);
+    return this.heapContainer.findIndex(value => comparator.equal(item, value), fromIndex);
   }
 
   public isEmpty(): boolean {
-    return this._heapContainer.length <= 0;
+    return this.heapContainer.length <= 0;
   }
 
   public toString(): string {
-    return this._heapContainer.toString();
+    return this.heapContainer.toString();
   }
 
   public remove(item: T, comparator?: Comparator): T | null {
     let removeIndex = this.findIndex(item, comparator);
     const result = removeIndex === -1 ? null : item;
     while (removeIndex !== -1) {
-      if (removeIndex === this._heapContainer.length - 1) {
-        this._heapContainer.pop();
+      if (removeIndex === this.heapContainer.length - 1) {
+        this.heapContainer.pop();
         break;
       }
-      this._heapContainer[removeIndex] = this._heapContainer.pop();
+      this.heapContainer[removeIndex] = this.heapContainer.pop();
       if (!this.hasParent(removeIndex) || this.pairIsInCorrectOrder(this.parent(removeIndex), this._heapContainer[removeIndex])) {
         this.down(removeIndex);
       } else {
@@ -117,9 +117,9 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
     return result;
   }
 
-  public up(customStartIndex = this._heapContainer.length - 1): this {
+  public up(customStartIndex = this.heapContainer.length - 1): this {
     while (this.hasParent(customStartIndex) && !this.pairIsInCorrectOrder(this.parent(customStartIndex), this._heapContainer[customStartIndex])) {
-      swap(this._heapContainer, this.getParentIndex(customStartIndex), customStartIndex);
+      swap(this.heapContainer, this.getParentIndex(customStartIndex), customStartIndex);
       customStartIndex = this.getParentIndex(customStartIndex);
     }
     return this;
@@ -131,11 +131,11 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
         ? this.getRightChildIndex(customStartIndex)
         : this.getLeftChildIndex(customStartIndex);
 
-      if (this.pairIsInCorrectOrder(this._heapContainer[customStartIndex], this._heapContainer[nextIndex])) {
+      if (this.pairIsInCorrectOrder(this.heapContainer[customStartIndex], this.heapContainer[nextIndex])) {
         break;
       }
 
-      swap(this._heapContainer, customStartIndex, nextIndex);
+      swap(this.heapContainer, customStartIndex, nextIndex);
       customStartIndex = nextIndex;
     }
     return this;

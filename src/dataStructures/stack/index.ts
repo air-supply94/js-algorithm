@@ -41,7 +41,7 @@ export class Stack<T> implements InterfaceStack<T> {
     return this;
   }
 
-  public has(value?: any): boolean {
+  public has(value?: T): boolean {
     return this._doubleLinkedList.has(value);
   }
 

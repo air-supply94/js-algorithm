@@ -28,7 +28,7 @@ test('map test', () => {
   expect(_map.values())
   .toEqual([value1]);
   expect(_map.delete(2))
-  .toEqual(_map);
+  .toBeFalsy();
   expect(_map.clear())
   .toEqual(_map);
   expect(_map.keys())
@@ -191,9 +191,9 @@ test('map test', () => {
   expect(_map.has(value1))
   .toBe(false);
   expect(_map.get(key1))
-  .toBeUndefined();
+  .toBeNull();
   expect(_map.get(value1))
-  .toBeUndefined();
+  .toBeNull();
   expect(_map.keys())
   .toEqual([]);
   expect(_map.values())

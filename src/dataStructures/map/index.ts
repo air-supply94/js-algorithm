@@ -32,9 +32,8 @@ export class Map implements InterfaceMap {
 
   private _doubleLinkedList;
 
-  public delete(key?: any): this {
-    this._doubleLinkedList.delete({key});
-    return this;
+  public delete(key?: any): boolean {
+    return !!this._doubleLinkedList.delete({key});
   }
 
   public set(key?: any, value?: any): this {
@@ -84,9 +83,9 @@ export class Map implements InterfaceMap {
     return this;
   }
 
-  public get(key?: any): any {
+  public get(key?: any): null | any {
     const result = this._doubleLinkedList.find({value: {key}});
-    return result ? result.value.value : undefined;
+    return result ? result.value.value : null;
   }
 
   public has(key?: any): boolean {

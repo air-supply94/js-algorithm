@@ -21,10 +21,10 @@ export interface InterfaceDoubleLinkedList<T> {
   deleteHead: () => null | InterfaceDoubleLinkedListNode<T>;
   deleteTail: () => null | InterfaceDoubleLinkedListNode<T>;
   find: (params: { value?: T; callback?: (node: T) => boolean }) => null | InterfaceDoubleLinkedListNode<T>;
-  delete: (value: T) => null | InterfaceDoubleLinkedListNode<T>;
+  delete: (value?: T) => null | InterfaceDoubleLinkedListNode<T>;
   append: (value: T) => this;
   prepend: (value: T) => this;
-  has: (value?: any) => boolean;
+  has: (value?: T) => boolean;
   isEmpty: () => boolean;
   reverse: () => this;
   connect: (...args: InterfaceDoubleLinkedList<T>[]) => this;

@@ -16,9 +16,8 @@ export class Set implements InterfaceSet {
     return this._doubleLinkedList.size;
   }
 
-  public delete(value?: any): this {
-    this._doubleLinkedList.delete(value);
-    return this;
+  public delete(value?: any): boolean {
+    return !!this._doubleLinkedList.delete(value);
   }
 
   public add(value?: any): this {

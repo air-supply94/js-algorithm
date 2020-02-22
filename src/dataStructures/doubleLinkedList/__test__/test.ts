@@ -222,12 +222,25 @@ describe('Index', () => {
     .toBeNull();
     expect(linkedList.head.previous)
     .toBeNull();
+
+    linkedList.delete(4);
+    linkedList.delete(3);
+    linkedList.delete(2);
+    linkedList.reverse();
+    expect(linkedList.head.previous)
+    .toBeNull();
+    expect(linkedList.tail.next)
+    .toBeNull();
+    expect(linkedList.head.value)
+    .toBe(1);
+    expect(linkedList.size)
+    .toBe(1);
   });
 
   it('should delete node by value from linked list', () => {
     const linkedList = new DoubleLinkedList();
 
-    expect(linkedList.delete(5))
+    expect(linkedList.delete(4))
     .toBeNull();
 
     linkedList.append(1);

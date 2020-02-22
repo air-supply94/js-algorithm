@@ -6,6 +6,6 @@ export interface InterfaceStack<T> {
   push: (value: T) => this;
   peek: () => T;
   clear: () => this;
-  has: (key?: any) => boolean;
+  has: (key?: T) => boolean;
   isEmpty: () => boolean;
 }
