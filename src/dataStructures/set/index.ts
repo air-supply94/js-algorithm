@@ -24,7 +24,7 @@ export class Set implements InterfaceSet {
   public add(value?: any): this {
     const oldNode = this._doubleLinkedList.find({value});
     if (oldNode) {
-      oldNode.value = value;
+      oldNode.setValue(value);
     } else {
       this._doubleLinkedList.append(value);
     }

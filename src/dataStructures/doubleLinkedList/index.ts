@@ -80,7 +80,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
       this.clear();
     } else {
       this._head = this._head.next;
-      this._head.previous = null;
+      this._head.setPrevious(null);
       --this._size;
     }
 
@@ -93,7 +93,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
       this.clear();
     } else {
       this._tail = this._tail.previous;
-      this._tail.next = null;
+      this._tail.setNext(null);
       --this._size;
     }
 
@@ -124,7 +124,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
       --this._size;
     }
     if (this._head) {
-      this._head.previous = null;
+      this._head.setPrevious(null);
     }
 
     let currentNode = this._head;
@@ -133,9 +133,9 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
         if (this._compare.equal(currentNode.next.value, value)) {
           deletedNode = currentNode.next;
           if (currentNode.next.next) {
-            currentNode.next.next.previous = currentNode;
+            currentNode.next.next.setPrevious(currentNode);
           }
-          currentNode.next = currentNode.next.next;
+          currentNode.setNext(currentNode.next.next);
           --this._size;
         } else {
           currentNode = currentNode.next;
@@ -145,7 +145,7 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
 
     this._tail = currentNode;
     if (this._tail) {
-      this._tail.next = null;
+      this._tail.setNext(null);
     }
 
     return deletedNode;
@@ -157,7 +157,8 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     if (this.isEmpty()) {
       this._head = this._tail = newNode;
     } else {
-      this._tail = this._tail.next = newNode;
+      this._tail.setNext(newNode);
+      this._tail = newNode;
     }
     ++this._size;
 
@@ -169,7 +170,8 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     if (this.isEmpty()) {
       this._head = this._tail = newNode;
     } else {
-      this._head = this._head.previous = newNode;
+      this._head.setPrevious(newNode);
+      this._head = newNode;
     }
     ++this._size;
 
@@ -188,13 +190,13 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     let next;
     while (current) {
       next = current.next;
-      current.next = previous;
-      current.previous = next;
+      current.setNext(previous)
+      .setPrevious(next);
       previous = current;
       current = next;
     }
-    this._head.previous = null;
-    this._tail.next = null;
+    this._head.setPrevious(null);
+    this._tail.setNext(null);
     return this;
   }
 

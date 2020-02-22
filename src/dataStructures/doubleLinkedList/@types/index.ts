@@ -3,6 +3,9 @@ export interface InterfaceDoubleLinkedListNode<T> {
   next: null | InterfaceDoubleLinkedListNode<T>;
   previous: null | InterfaceDoubleLinkedListNode<T>;
   toString: (callback?: (node: T) => string) => string;
+  setValue(value: T): this;
+  setNext(node: InterfaceDoubleLinkedListNode<T> | null): this;
+  setPrevious(node: InterfaceDoubleLinkedListNode<T> | null): this;
 }
 
 export interface InterfaceDoubleLinkedList<T> {

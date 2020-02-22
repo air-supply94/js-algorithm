@@ -40,7 +40,10 @@ export class Map implements InterfaceMap {
   public set(key?: any, value?: any): this {
     const oldNode = this._doubleLinkedList.find({value: {key}});
     if (oldNode) {
-      oldNode.value.value = value;
+      oldNode.setValue({
+        key,
+        value,
+      });
     } else {
       this._doubleLinkedList.append({
         key,

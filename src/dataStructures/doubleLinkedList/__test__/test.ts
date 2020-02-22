@@ -59,12 +59,12 @@ describe('DoubleLinkedListNode', () => {
   });
 
   it('should convert node to string', () => {
-    const node = new DoubleLinkedListNode(1);
+    const node = new DoubleLinkedListNode('1');
 
     expect(node.toString())
     .toBe('1');
 
-    node.value = 'string value';
+    node.setValue('string value');
     expect(node.toString())
     .toBe('string value');
   });
