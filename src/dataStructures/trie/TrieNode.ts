@@ -4,7 +4,7 @@ export class TrieNode {
   constructor(character: string, isCompleteWord = false) {
     this.character = character;
     this.isCompleteWord = isCompleteWord;
-    this.children = new HashTable(26);
+    this.children = new HashTable(1);
   }
 
   public character: string;

@@ -204,8 +204,8 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
     let current = this.head;
     this.setHead(this.tail);
     this.setTail(current);
-    let previous: InterfaceDoubleLinkedListNode<T>;
-    let next;
+    let previous: InterfaceDoubleLinkedListNode<T> = null;
+    let next = null;
     while (current) {
       next = current.next;
       current.setNext(previous)
