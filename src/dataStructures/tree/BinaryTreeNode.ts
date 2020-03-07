@@ -16,9 +16,9 @@ export class BinaryTreeNode<T> {
   }
 
   public static copyNode<T>(sourceNode: BinaryTreeNode<T>, targetNode: BinaryTreeNode<T>): void {
-    targetNode.setValue(sourceNode._value)
-    .setLeft(sourceNode._left)
-    .setRight(sourceNode._right);
+    targetNode.setValue(sourceNode.value)
+    .setLeft(sourceNode.left)
+    .setRight(sourceNode.right);
   }
 
   private _left: null | this;
@@ -129,10 +129,6 @@ export class BinaryTreeNode<T> {
   }
 
   public removeChild(nodeToRemove: this): boolean {
-    if (!nodeToRemove) {
-      return false;
-    }
-
     if (this.left && this.nodeComparator.equal(nodeToRemove, this.left)) {
       this.setLeft(null);
       return true;

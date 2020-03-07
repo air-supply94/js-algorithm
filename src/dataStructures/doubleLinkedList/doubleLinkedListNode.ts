@@ -40,6 +40,6 @@ export class DoubleLinkedListNode<T> implements InterfaceDoubleLinkedListNode<T>
   }
 
   public toString(callback?: (value: T) => string): string {
-    return typeof callback === 'function' ? callback(this._value) : String(this._value);
+    return typeof callback === 'function' ? callback(this.value) : String(this.value);
   }
 }

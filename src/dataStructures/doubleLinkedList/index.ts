@@ -197,15 +197,11 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   }
 
   public reverse(): this {
-    if (this.head === this.tail) {
-      return this;
-    }
-
     let current = this.head;
     this.setHead(this.tail);
     this.setTail(current);
     let previous: InterfaceDoubleLinkedListNode<T> = null;
-    let next = null;
+    let next: InterfaceDoubleLinkedListNode<T> = null;
     while (current) {
       next = current.next;
       current.setNext(previous)
@@ -213,8 +209,6 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
       previous = current;
       current = next;
     }
-    this.head.setPrevious(null);
-    this.tail.setNext(null);
     return this;
   }
 
@@ -234,6 +228,6 @@ export class DoubleLinkedList<T> implements InterfaceDoubleLinkedList<T> {
   }
 
   public isEmpty(): boolean {
-    return this._size === 0;
+    return this.size === 0;
   }
 }

@@ -32,7 +32,7 @@ export class AvlTree<T> {
     return !!node;
   }
 
-  public remove(value?: any): boolean {
+  public remove(value?: T): boolean {
     if (this._binarySearchTree.remove(value)) {
       this.balance(this.root);
       return true;
