@@ -81,8 +81,8 @@ export class BinarySearchTreeNode<T> extends BinaryTreeNode<T> {
     } else if (nodeToRemove.left && nodeToRemove.right) {
       const nextBiggerNode = nodeToRemove.right.findMin();
       if (!this.nodeComparator.equal(nextBiggerNode, nodeToRemove.right)) {
-        this.remove(nextBiggerNode.value);
         nodeToRemove.setValue(nextBiggerNode.value);
+        return nodeToRemove.right.remove(nextBiggerNode.value);
       } else {
         nodeToRemove.setValue(nodeToRemove.right.value);
         nodeToRemove.setRight(nodeToRemove.right.right);

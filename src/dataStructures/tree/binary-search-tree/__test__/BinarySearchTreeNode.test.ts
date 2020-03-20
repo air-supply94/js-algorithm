@@ -227,6 +227,8 @@ describe('BinarySearchTreeNode', () => {
     .toBe(30);
 
     bstRootNode.remove(20);
+    expect(bstRootNode.right.parent.value)
+    .toBe(10);
     expect(bstRootNode.toString())
     .toBe('5,10,15,25,30');
 
