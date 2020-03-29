@@ -1,6 +1,6 @@
 import { InterfaceSet } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
-import { DoubleLinkedListNodeInterface } from '../doubleLinkedList/@types';
+import { DoubleLinkedListNodeInterface } from '../doubleLinkedList/types';
 
 export class Set implements InterfaceSet {
   constructor(object?: InterfaceSet | any[]) {

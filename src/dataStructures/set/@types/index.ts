@@ -1,4 +1,4 @@
-import { DoubleLinkedListNodeInterface } from '../../doubleLinkedList/@types';
+import { DoubleLinkedListNodeInterface } from '../../doubleLinkedList/types';
 
 export interface InterfaceSet {
   size: number;

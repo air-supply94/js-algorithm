@@ -1,7 +1,7 @@
-import { QueueInterface } from './@types';
+import { QueueInterface } from './types';
 import { DoubleLinkedList } from '../doubleLinkedList';
 
-export * from './@types';
+export * from './types';
 
 export class Queue<T = unknown> implements QueueInterface<T> {
   constructor() {

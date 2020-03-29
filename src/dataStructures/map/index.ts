@@ -1,6 +1,6 @@
 import { InterfaceMap } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
-import { DoubleLinkedListNodeInterface } from '../doubleLinkedList/@types';
+import { DoubleLinkedListNodeInterface } from '../doubleLinkedList/types';
 
 export class Map implements InterfaceMap {
 

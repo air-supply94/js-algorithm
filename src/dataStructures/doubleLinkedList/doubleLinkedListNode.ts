@@ -1,4 +1,4 @@
-import { DoubleLinkedListNodeInterface } from './@types';
+import { DoubleLinkedListNodeInterface } from './types';
 
 export class DoubleLinkedListNode<T> implements DoubleLinkedListNodeInterface<T> {
 

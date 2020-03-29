@@ -706,4 +706,49 @@ describe('Index', () => {
     expect(linkedList.get(9).value)
     .toBe(10);
   });
+
+  it('insert item', () => {
+    const linkedList = new DoubleLinkedList();
+    linkedList.fromArray([
+      1,
+      2,
+      3,
+    ]);
+
+    linkedList.insert(0, 0);
+    expect(linkedList.head.value)
+    .toBe(0);
+    expect(linkedList.head.next.value)
+    .toBe(1);
+    expect(linkedList.head.next.next.value)
+    .toBe(2);
+    expect(linkedList.head.next.previous.value)
+    .toBe(0);
+    expect(linkedList.head.next.next.previous.value)
+    .toBe(1);
+
+    linkedList.insert(4, 10);
+    expect(linkedList.tail.value)
+    .toBe(4);
+    expect(linkedList.tail.previous.value)
+    .toBe(3);
+    expect(linkedList.tail.previous.previous.value)
+    .toBe(2);
+    expect(linkedList.tail.previous.next.value)
+    .toBe(4);
+    expect(linkedList.tail.previous.previous.next.value)
+    .toBe(3);
+
+    linkedList.insert(10, 2);
+    expect(linkedList.get(2).value)
+    .toBe(10);
+    expect(linkedList.get(2).next.value)
+    .toBe(2);
+    expect(linkedList.get(2).previous.value)
+    .toBe(1);
+    expect(linkedList.get(2).previous.next.value)
+    .toBe(10);
+    expect(linkedList.get(2).next.previous.value)
+    .toBe(10);
+  });
 });

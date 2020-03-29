@@ -1,7 +1,7 @@
-import { StackInterface } from './@types';
+import { StackInterface } from './types';
 import { DoubleLinkedList } from '../doubleLinkedList';
 
-export * from './@types';
+export * from './types';
 
 export class Stack<T = unknown> implements StackInterface<T> {
   constructor() {

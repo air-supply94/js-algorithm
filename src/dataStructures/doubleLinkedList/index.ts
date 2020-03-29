@@ -6,9 +6,9 @@ import {
 import {
   DoubleLinkedListInterface,
   DoubleLinkedListNodeInterface,
-} from './@types';
+} from './types';
 
-export * from './@types';
+export * from './types';
 
 export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<T> {
   constructor(comparatorFunction?: Comparator | compareFunctionType) {
@@ -197,7 +197,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     const middle = this.size / 2 >>> 0;
     if (this.size > 10 && position >= middle) {
       this.eachFromTail(node => {
-        if (this.size - 1 - i === index) {
+        if (this.size - 1 - i === position) {
           findNode = node;
           return false;
         }
@@ -206,7 +206,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
       });
     } else {
       this.eachFromHead(node => {
-        if (i === index) {
+        if (i === position) {
           findNode = node;
           return false;
         }
@@ -215,6 +215,21 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
       });
     }
     return findNode;
+  }
+
+  public insert(value: T, index: number): this {
+    const position = index >>> 0;
+    if (position === 0) {
+      return this.prepend(value);
+    } else if (position >= this.size) {
+      return this.append(value);
+    }
+
+    const oldPositionNode = this.get(index) as DoubleLinkedListNodeInterface<T>;
+    const newPositionNode = new DoubleLinkedListNode(value, oldPositionNode, oldPositionNode.previous);
+    oldPositionNode.previous.setNext(newPositionNode);
+    oldPositionNode.setPrevious(newPositionNode);
+    return this;
   }
 
   public append(value: T): this {

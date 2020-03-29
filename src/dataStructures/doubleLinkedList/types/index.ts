@@ -22,6 +22,7 @@ export interface DoubleLinkedListInterface<T> {
   deleteAll: (value?: T) => null | DoubleLinkedListNodeInterface<T>;
   delete: (value?: T) => null | DoubleLinkedListNodeInterface<T>;
   get: (index: number) => null | DoubleLinkedListNodeInterface<T>;
+  insert: (value: T, index: number) => this;
   append: (value: T) => this;
   prepend: (value: T) => this;
   has: (value?: T) => boolean;
