@@ -21,6 +21,7 @@ export interface DoubleLinkedListInterface<T> {
   find: (params: { value?: T; callback?: (node: T) => boolean }) => null | DoubleLinkedListNodeInterface<T>;
   deleteAll: (value?: T) => null | DoubleLinkedListNodeInterface<T>;
   delete: (value?: T) => null | DoubleLinkedListNodeInterface<T>;
+  get: (index: number) => null | DoubleLinkedListNodeInterface<T>;
   append: (value: T) => this;
   prepend: (value: T) => this;
   has: (value?: T) => boolean;

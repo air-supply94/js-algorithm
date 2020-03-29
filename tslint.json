@@ -5,6 +5,7 @@
   ],
   "rulesDirectory": [],
   "rules": {
+    "no-bitwise": false,
     "prefer-for-of": false,
     "prefer-conditional-expression": false,
     "no-unused-variable": true,

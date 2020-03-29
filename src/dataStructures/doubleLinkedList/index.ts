@@ -186,6 +186,37 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return this.deleteBase(1, value);
   }
 
+  public get(index: number): null | DoubleLinkedListNodeInterface<T> {
+    const position = index >>> 0;
+    let i = 0;
+    if (this.size && position >= this.size) {
+      return null;
+    }
+
+    let findNode = null;
+    const middle = this.size / 2 >>> 0;
+    if (this.size > 10 && position >= middle) {
+      this.eachFromTail(node => {
+        if (this.size - 1 - i === index) {
+          findNode = node;
+          return false;
+        }
+        ++i;
+        return true;
+      });
+    } else {
+      this.eachFromHead(node => {
+        if (i === index) {
+          findNode = node;
+          return false;
+        }
+        i++;
+        return true;
+      });
+    }
+    return findNode;
+  }
+
   public append(value: T): this {
     const newNode = new DoubleLinkedListNode(value, null, this.tail);
 

@@ -682,4 +682,28 @@ describe('Index', () => {
     expect(linkedList1.toString())
     .toBe('1,2,3,4,5,6,7,8,9');
   });
+  it('get item', () => {
+    const linkedList = new DoubleLinkedList();
+    linkedList.fromArray([
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+    ]);
+
+    expect(linkedList.get(11))
+    .toBeNull();
+
+    expect(linkedList.get(3).value)
+    .toBe(4);
+    expect(linkedList.get(9).value)
+    .toBe(10);
+  });
 });
