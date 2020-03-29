@@ -1,45 +1,51 @@
-import { InterfaceQueue } from './@types';
+import { QueueInterface } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
 
-export class Queue<T> implements InterfaceQueue<T> {
+export * from './@types';
+
+export class Queue<T = unknown> implements QueueInterface<T> {
   constructor() {
     this._doubleLinkedList = new DoubleLinkedList<T>();
   }
 
-  private _doubleLinkedList;
+  private _doubleLinkedList: DoubleLinkedList<T>;
 
-  get size(): number {
-    return this._doubleLinkedList.size;
+  get doubleLinkedList() {
+    return this._doubleLinkedList;
   }
 
-  public toString(callback?: (node: T) => string): string {
-    return this._doubleLinkedList.toString(callback);
+  get size(): number {
+    return this.doubleLinkedList.size;
+  }
+
+  public toString(callback?: (value: T) => string): string {
+    return this.doubleLinkedList.toString(callback);
   }
 
   public dequeue(): T {
-    const removedHead = this._doubleLinkedList.deleteHead();
+    const removedHead = this.doubleLinkedList.deleteHead();
     return removedHead ? removedHead.value : null;
   }
 
   public enqueue(value: T): this {
-    this._doubleLinkedList.append(value);
+    this.doubleLinkedList.append(value);
     return this;
   }
 
   public peek(): T {
-    return this.isEmpty() ? null : this._doubleLinkedList.head.value;
+    return this.isEmpty() ? null : this.doubleLinkedList.head.value;
   }
 
   public clear(): this {
-    this._doubleLinkedList.clear();
+    this.doubleLinkedList.clear();
     return this;
   }
 
   public has(value?: T): boolean {
-    return this._doubleLinkedList.has(value);
+    return this.doubleLinkedList.has(value);
   }
 
   public isEmpty(): boolean {
-    return this._doubleLinkedList.isEmpty();
+    return this.doubleLinkedList.isEmpty();
   }
 }

@@ -1,6 +1,6 @@
-export interface InterfaceQueue<T> {
+export interface QueueInterface<T> {
   size: number;
-  toString: (callback?: (node: T) => string) => string;
+  toString: (callback?: (value: T) => string) => string;
   dequeue: () => T;
   enqueue: (value?: T) => this;
   peek: () => T;

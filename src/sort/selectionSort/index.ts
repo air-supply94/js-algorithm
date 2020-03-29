@@ -1,12 +1,11 @@
-import { swap } from '../../utils/swap';
 import {
+  swap,
+  compareFunctionType,
   Comparator,
-  initComparator,
-} from '../../utils/comparator';
-import { compareFunctionType } from '../../utils/@types';
+} from '../../utils';
 
 export function selectionSort<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
-  const comparator = initComparator(compareCallback);
+  const comparator = new Comparator(compareCallback);
   for (let i = 0; i < originalArray.length - 1; ++i) {
     let minIndex = i;
     for (let j = i + 1; j < originalArray.length; ++j) {

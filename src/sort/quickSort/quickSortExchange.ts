@@ -1,11 +1,8 @@
-import {
-  Comparator,
-  initComparator,
-} from '../../utils/comparator';
+import { Comparator } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 
 export function quickSortExchange<T>(originalArray: T[], comparator: Comparator | compareFunctionType): T[] {
-  comparator = initComparator(comparator);
+  comparator = new Comparator(comparator);
   if (originalArray.length <= 1) {
     return originalArray;
   }

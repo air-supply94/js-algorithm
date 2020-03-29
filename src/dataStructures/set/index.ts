@@ -1,6 +1,6 @@
 import { InterfaceSet } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
-import { InterfaceDoubleLinkedListNode } from '../doubleLinkedList/@types';
+import { DoubleLinkedListNodeInterface } from '../doubleLinkedList/@types';
 
 export class Set implements InterfaceSet {
   constructor(object?: InterfaceSet | any[]) {
@@ -17,7 +17,7 @@ export class Set implements InterfaceSet {
   }
 
   public delete(value?: any): boolean {
-    return !!this._doubleLinkedList.delete(value);
+    return !!this._doubleLinkedList.deleteAll(value);
   }
 
   public add(value?: any): this {
@@ -30,7 +30,7 @@ export class Set implements InterfaceSet {
     return this;
   }
 
-  public forEach(callback: (value: InterfaceDoubleLinkedListNode<any>, key: InterfaceDoubleLinkedListNode<any>) => void) {
+  public forEach(callback: (value: DoubleLinkedListNodeInterface<any>, key: DoubleLinkedListNodeInterface<any>) => void) {
     this._doubleLinkedList.eachFromHead(node => callback(node.value, node.value));
     return this;
   }

@@ -47,7 +47,7 @@ export class HashTable<T> implements InterfaceHasTable<T> {
     });
 
     if (node) {
-      doubleLinkedList.delete(node.value);
+      doubleLinkedList.deleteAll(node.value);
     }
 
     return node ? node.value.value : null;

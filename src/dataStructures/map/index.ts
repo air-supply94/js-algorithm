@@ -1,6 +1,6 @@
 import { InterfaceMap } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
-import { InterfaceDoubleLinkedListNode } from '../doubleLinkedList/@types';
+import { DoubleLinkedListNodeInterface } from '../doubleLinkedList/@types';
 
 export class Map implements InterfaceMap {
 
@@ -33,7 +33,7 @@ export class Map implements InterfaceMap {
   private _doubleLinkedList;
 
   public delete(key?: any): boolean {
-    return !!this._doubleLinkedList.delete({key});
+    return !!this._doubleLinkedList.deleteAll({key});
   }
 
   public set(key?: any, value?: any): this {
@@ -52,7 +52,7 @@ export class Map implements InterfaceMap {
     return this;
   }
 
-  public forEach(callback: (value: InterfaceDoubleLinkedListNode<any>, key: InterfaceDoubleLinkedListNode<any>) => void) {
+  public forEach(callback: (value: DoubleLinkedListNodeInterface<any>, key: DoubleLinkedListNodeInterface<any>) => void) {
     this._doubleLinkedList.eachFromHead(node => callback(node.value.value, node.value.key));
     return this;
   }

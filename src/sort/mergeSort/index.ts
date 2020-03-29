@@ -1,12 +1,11 @@
 import {
   Comparator,
-  initComparator,
-} from '../../utils/comparator';
-import { InterfaceComparator } from '../../utils/comparator/@types';
-import { compareFunctionType } from '../../utils/@types';
+  compareFunctionType,
+  InterfaceComparator,
+} from '../../utils';
 
 export function mergeSort<T>(originalArray: T[], comparator?: Comparator | compareFunctionType): T[] {
-  comparator = initComparator(comparator);
+  comparator = new Comparator(comparator);
 
   if (originalArray.length <= 1) {
     return originalArray;

@@ -2,8 +2,11 @@ import { compareFunctionType } from '../@types';
 import { InterfaceComparator } from './@types';
 
 export class Comparator implements InterfaceComparator {
-  constructor(compareFunction = Comparator.defaultCompareFunction) {
-    this.compare = compareFunction;
+  constructor(comparatorFunction: Comparator | compareFunctionType = Comparator.defaultCompareFunction) {
+    if (comparatorFunction instanceof Comparator) {
+      return comparatorFunction;
+    }
+    this.compare = comparatorFunction;
   }
 
   public static defaultCompareFunction = (a, b) => {
@@ -45,6 +48,4 @@ export class Comparator implements InterfaceComparator {
   }
 }
 
-export function initComparator(comparatorFunction: Comparator | compareFunctionType): Comparator {
-  return comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
-}
+export * from './@types';

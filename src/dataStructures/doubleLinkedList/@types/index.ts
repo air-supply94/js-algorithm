@@ -1,31 +1,32 @@
-export interface InterfaceDoubleLinkedListNode<T> {
+export interface DoubleLinkedListNodeInterface<T> {
   value: T;
-  next: null | InterfaceDoubleLinkedListNode<T>;
-  previous: null | InterfaceDoubleLinkedListNode<T>;
+  next: null | DoubleLinkedListNodeInterface<T>;
+  previous: null | DoubleLinkedListNodeInterface<T>;
   toString: (callback?: (node: T) => string) => string;
   setValue(value: T): this;
-  setNext(node: InterfaceDoubleLinkedListNode<T> | null): this;
-  setPrevious(node: InterfaceDoubleLinkedListNode<T> | null): this;
+  setNext(node: DoubleLinkedListNodeInterface<T> | null): this;
+  setPrevious(node: DoubleLinkedListNodeInterface<T> | null): this;
 }
 
-export interface InterfaceDoubleLinkedList<T> {
-  head: null | InterfaceDoubleLinkedListNode<T>;
-  tail: null | InterfaceDoubleLinkedListNode<T>;
+export interface DoubleLinkedListInterface<T> {
+  head: null | DoubleLinkedListNodeInterface<T>;
+  tail: null | DoubleLinkedListNodeInterface<T>;
   size: number;
-  clear: () => this;
-  toString: (callback?: (node: T) => string) => string;
-  eachFromHead: (callback: (node: InterfaceDoubleLinkedListNode<T>) => void) => this;
-  eachFromTail: (callback: (node: InterfaceDoubleLinkedListNode<T>) => void) => this;
-  toArray: () => InterfaceDoubleLinkedListNode<T>[];
+  eachFromHead: (callback: (node: DoubleLinkedListNodeInterface<T>) => void | boolean) => this;
+  eachFromTail: (callback: (node: DoubleLinkedListNodeInterface<T>) => void | boolean) => this;
+  toArray: () => DoubleLinkedListNodeInterface<T>[];
   fromArray: (values: T[]) => this;
-  deleteHead: () => null | InterfaceDoubleLinkedListNode<T>;
-  deleteTail: () => null | InterfaceDoubleLinkedListNode<T>;
-  find: (params: { value?: T; callback?: (node: T) => boolean }) => null | InterfaceDoubleLinkedListNode<T>;
-  delete: (value?: T) => null | InterfaceDoubleLinkedListNode<T>;
+  deleteHead: () => null | DoubleLinkedListNodeInterface<T>;
+  deleteTail: () => null | DoubleLinkedListNodeInterface<T>;
+  find: (params: { value?: T; callback?: (node: T) => boolean }) => null | DoubleLinkedListNodeInterface<T>;
+  deleteAll: (value?: T) => null | DoubleLinkedListNodeInterface<T>;
+  delete: (value?: T) => null | DoubleLinkedListNodeInterface<T>;
   append: (value: T) => this;
   prepend: (value: T) => this;
   has: (value?: T) => boolean;
   isEmpty: () => boolean;
   reverse: () => this;
-  connect: (...args: InterfaceDoubleLinkedList<T>[]) => this;
+  connect: (...args: DoubleLinkedListInterface<T>[]) => this;
+  clear(): this;
+  toString(callback?: (node: T) => string): string;
 }

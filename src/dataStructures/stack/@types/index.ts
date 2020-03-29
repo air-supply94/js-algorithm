@@ -1,6 +1,6 @@
-export interface InterfaceStack<T> {
+export interface StackInterface<T> {
   size: number;
-  toString: (callback?: (node: T) => string) => string;
+  toString: (callback?: (value: T) => string) => string;
   toArray: () => T[];
   pop: () => T;
   push: (value: T) => this;

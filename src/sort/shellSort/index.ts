@@ -1,12 +1,9 @@
 import { swap } from '../../utils/swap';
-import {
-  Comparator,
-  initComparator,
-} from '../../utils/comparator';
+import { Comparator, } from '../../utils/comparator';
 import { compareFunctionType } from '../../utils/@types';
 
 export function shellSort<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
-  const comparator = initComparator(compareCallback);
+  const comparator = new Comparator(compareCallback);
   let gap = Math.floor(originalArray.length / 2);
 
   while (gap > 0) {

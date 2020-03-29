@@ -1,51 +1,59 @@
-import { InterfaceStack } from './@types';
+import { StackInterface } from './@types';
 import { DoubleLinkedList } from '../doubleLinkedList';
 
-export class Stack<T> implements InterfaceStack<T> {
+export * from './@types';
+
+export class Stack<T = unknown> implements StackInterface<T> {
   constructor() {
     this._doubleLinkedList = new DoubleLinkedList<T>();
   }
 
-  private _doubleLinkedList;
+  private _doubleLinkedList: DoubleLinkedList<T>;
 
-  get size(): number {
-    return this._doubleLinkedList.size;
+  get doubleLinkedList() {
+    return this._doubleLinkedList;
   }
 
-  public toString(callback?: (node: T) => string): string {
-    return this._doubleLinkedList.toString(callback);
+  get size(): number {
+    return this.doubleLinkedList.size;
+  }
+
+  public toString(callback?: (value: T) => string): string {
+    return this.doubleLinkedList.toString(callback);
   }
 
   public toArray(): T[] {
     const nodes = [];
-    this._doubleLinkedList.eachFromTail(node => nodes.push(node.value));
+    this.doubleLinkedList.eachFromTail(node => {
+      nodes.push(node.value);
+    });
     return nodes;
   }
 
   public pop(): T {
-    const removedTail = this._doubleLinkedList.deleteTail();
+    const removedTail = this.doubleLinkedList.deleteTail();
     return removedTail ? removedTail.value : null;
   }
 
   public push(value: T): this {
-    this._doubleLinkedList.append(value);
+    this.doubleLinkedList.append(value);
     return this;
   }
 
   public peek(): T {
-    return this.isEmpty() ? null : this._doubleLinkedList.tail.value;
+    return this.isEmpty() ? null : this.doubleLinkedList.tail.value;
   }
 
   public clear(): this {
-    this._doubleLinkedList.clear();
+    this.doubleLinkedList.clear();
     return this;
   }
 
   public has(value?: T): boolean {
-    return this._doubleLinkedList.has(value);
+    return this.doubleLinkedList.has(value);
   }
 
   public isEmpty(): boolean {
-    return this._doubleLinkedList.isEmpty();
+    return this.doubleLinkedList.isEmpty();
   }
 }

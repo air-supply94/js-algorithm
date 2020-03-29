@@ -182,9 +182,15 @@ describe('Index', () => {
     ]);
 
     const array = [];
-    linkedList.eachFromHead((node) => array.push(node.value));
+    linkedList.eachFromHead((node) => {
+      if (node.value > 1) {
+        return false;
+      }
+      array.push(node.value);
+      return true;
+    });
     expect(array.toString())
-    .toBe('1,1,2,3,3,3,4,5');
+    .toBe('1,1');
   });
 
   it('should create linked eachFromTail', () => {
@@ -201,9 +207,20 @@ describe('Index', () => {
     ]);
 
     const array = [];
-    linkedList.eachFromTail((node) => array.push(node.value));
+    linkedList.eachFromTail((node) => {
+      if (node.value < 5) {
+        return false;
+      }
+
+      array.push(node.value);
+      return true;
+    });
     expect(array.toString())
-    .toBe('5,4,3,3,3,2,1,1');
+    .toBe('5');
+    expect(linkedList.delete(3).value)
+    .toBe(3);
+    expect(linkedList.toString())
+    .toBe('1,1,2,3,3,4,5');
   });
 
   it('should reverse linked list', () => {
@@ -223,9 +240,9 @@ describe('Index', () => {
     expect(linkedList.head.previous)
     .toBeNull();
 
-    linkedList.delete(4);
-    linkedList.delete(3);
-    linkedList.delete(2);
+    linkedList.deleteAll(4);
+    linkedList.deleteAll(3);
+    linkedList.deleteAll(2);
     linkedList.reverse();
     expect(linkedList.head.previous)
     .toBeNull();
@@ -240,7 +257,7 @@ describe('Index', () => {
   it('should delete node by value from linked list', () => {
     const linkedList = new DoubleLinkedList();
 
-    expect(linkedList.delete(4))
+    expect(linkedList.deleteAll(4))
     .toBeNull();
 
     linkedList.append(1);
@@ -259,7 +276,7 @@ describe('Index', () => {
     expect(linkedList.tail.toString())
     .toBe('5');
 
-    const deletedNode = linkedList.delete(3);
+    const deletedNode = linkedList.deleteAll(3);
     expect(linkedList.size)
     .toBe(5);
     expect(deletedNode.value)
@@ -269,13 +286,13 @@ describe('Index', () => {
     expect(linkedList.tail.previous.previous.value)
     .toBe(2);
 
-    linkedList.delete(3);
+    linkedList.deleteAll(3);
     expect(linkedList.size)
     .toBe(5);
     expect(linkedList.toString())
     .toBe('1,1,2,4,5');
 
-    linkedList.delete(1);
+    linkedList.deleteAll(1);
     expect(linkedList.size)
     .toBe(3);
     expect(linkedList.toString())
@@ -290,7 +307,7 @@ describe('Index', () => {
     expect(linkedList.tail.toString())
     .toBe('5');
 
-    linkedList.delete(5);
+    linkedList.deleteAll(5);
     expect(linkedList.size)
     .toBe(2);
     expect(linkedList.toString())
@@ -301,7 +318,7 @@ describe('Index', () => {
     expect(linkedList.tail.toString())
     .toBe('4');
 
-    linkedList.delete(4);
+    linkedList.deleteAll(4);
     expect(linkedList.size)
     .toBe(1);
     expect(linkedList.toString())
@@ -314,7 +331,7 @@ describe('Index', () => {
     expect(linkedList.head)
     .toBe(linkedList.tail);
 
-    linkedList.delete(2);
+    linkedList.deleteAll(2);
     expect(linkedList.size)
     .toBe(0);
     expect(linkedList.toString())
@@ -435,7 +452,7 @@ describe('Index', () => {
     .toBe(5);
     expect(linkedList.toString())
     .toBe('1,1,2,1,1');
-    linkedList.delete(1);
+    linkedList.deleteAll(1);
     expect(linkedList.size)
     .toBe(1);
     expect(linkedList.toString())
@@ -461,7 +478,7 @@ describe('Index', () => {
     .toBe(6);
     expect(linkedList.toString())
     .toBe('1,1,2,1,1,3');
-    linkedList.delete(1);
+    linkedList.deleteAll(1);
     expect(linkedList.size)
     .toBe(2);
     expect(linkedList.toString())

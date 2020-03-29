@@ -1,12 +1,11 @@
 import {
   Comparator,
-  initComparator,
-} from '../../utils/comparator';
-import { compareFunctionType } from '../../utils/@types';
-import { swap } from '../../utils/swap';
+  swap,
+  compareFunctionType,
+} from '../../utils';
 
 export function quickSortInPlace<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType, left: number = 0, right: number = originalArray.length - 1): T[] {
-  const comparator = initComparator(compareCallback);
+  const comparator = new Comparator(compareCallback);
   if (originalArray.length > 1) {
     const partitionIndex = partitionArray(originalArray, comparator, left, right);
 

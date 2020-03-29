@@ -1,6 +1,6 @@
-import { InterfaceDoubleLinkedListNode } from './@types';
+import { DoubleLinkedListNodeInterface } from './@types';
 
-export class DoubleLinkedListNode<T> implements InterfaceDoubleLinkedListNode<T> {
+export class DoubleLinkedListNode<T> implements DoubleLinkedListNodeInterface<T> {
 
   constructor(value: T, next = null, previous = null) {
     this._value = value;
@@ -9,8 +9,8 @@ export class DoubleLinkedListNode<T> implements InterfaceDoubleLinkedListNode<T>
   }
 
   private _value;
-  private _next: InterfaceDoubleLinkedListNode<T> | null;
-  private _previous: InterfaceDoubleLinkedListNode<T> | null;
+  private _next: DoubleLinkedListNodeInterface<T> | null;
+  private _previous: DoubleLinkedListNodeInterface<T> | null;
 
   get value() {
     return this._value;
@@ -25,7 +25,7 @@ export class DoubleLinkedListNode<T> implements InterfaceDoubleLinkedListNode<T>
     return this._next;
   }
 
-  public setNext(node: InterfaceDoubleLinkedListNode<T> | null): this {
+  public setNext(node: DoubleLinkedListNodeInterface<T> | null): this {
     this._next = node;
     return this;
   }
@@ -34,7 +34,7 @@ export class DoubleLinkedListNode<T> implements InterfaceDoubleLinkedListNode<T>
     return this._previous;
   }
 
-  public setPrevious(node: InterfaceDoubleLinkedListNode<T> | null): this {
+  public setPrevious(node: DoubleLinkedListNodeInterface<T> | null): this {
     this._previous = node;
     return this;
   }
