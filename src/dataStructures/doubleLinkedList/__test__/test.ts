@@ -684,8 +684,11 @@ describe('Index', () => {
   });
   it('get item', () => {
     const linkedList = new DoubleLinkedList();
+    linkedList.fromArray([1]);
+
+    expect(linkedList.get(0).value)
+    .toBe(1);
     linkedList.fromArray([
-      1,
       2,
       3,
       4,
@@ -697,13 +700,9 @@ describe('Index', () => {
       10,
       11,
     ]);
-
-    expect(linkedList.get(11))
-    .toBeNull();
-
     expect(linkedList.get(3).value)
     .toBe(4);
-    expect(linkedList.get(9).value)
+    expect(linkedList.get(-2).value)
     .toBe(10);
   });
 

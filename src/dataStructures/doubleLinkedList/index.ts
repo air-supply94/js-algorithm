@@ -187,11 +187,13 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public get(index: number): null | DoubleLinkedListNodeInterface<T> {
-    const position = index >>> 0;
-    let i = 0;
-    if (this.size && position >= this.size) {
-      return null;
+    if (this.size <= 1) {
+      return this.head;
     }
+
+    const indexInt = index | 0;
+    const position = indexInt < 0 ? Math.abs(indexInt + this.size) % this.size : indexInt % this.size;
+    let i = 0;
 
     let findNode = null;
     const middle = this.size / 2 >>> 0;
