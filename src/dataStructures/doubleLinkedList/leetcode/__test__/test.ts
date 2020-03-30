@@ -1,6 +1,7 @@
 import { DoubleLinkedList } from '../../index';
 import { deleteDuplicates } from '../deleteDuplicates';
 import { getDecimalValue } from '../getDecimalValue';
+import { isPalindrome } from '../isPalindrome';
 
 describe('leetcode DoubleLinkedList', () => {
   it('deleteDuplicates', () => {
@@ -39,5 +40,25 @@ describe('leetcode DoubleLinkedList', () => {
     doubleLinkedList.append(0);
     expect(getDecimalValue(doubleLinkedList))
     .toBe(30);
+  });
+
+  it('isPalindrome', () => {
+    const doubleLinkedList = new DoubleLinkedList<number>();
+    expect(isPalindrome(doubleLinkedList))
+    .toBeFalsy();
+    doubleLinkedList.fromArray([
+      1,
+      2,
+      1,
+    ]);
+    expect(isPalindrome(doubleLinkedList))
+    .toBeTruthy();
+    doubleLinkedList.append(1);
+    expect(isPalindrome(doubleLinkedList))
+    .toBeFalsy();
+    doubleLinkedList.insert(1, 1);
+    doubleLinkedList.insert(2, 2);
+    expect(isPalindrome(doubleLinkedList))
+    .toBeTruthy();
   });
 });

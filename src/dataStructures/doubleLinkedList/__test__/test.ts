@@ -715,6 +715,8 @@ describe('Index', () => {
     ]);
 
     linkedList.insert(0, 0);
+    expect(linkedList.size)
+    .toBe(4);
     expect(linkedList.head.value)
     .toBe(0);
     expect(linkedList.head.next.value)

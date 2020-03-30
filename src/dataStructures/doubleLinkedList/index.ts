@@ -231,7 +231,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     const newPositionNode = new DoubleLinkedListNode(value, oldPositionNode, oldPositionNode.previous);
     oldPositionNode.previous.setNext(newPositionNode);
     oldPositionNode.setPrevious(newPositionNode);
-    return this;
+    return this.setSize(this.size + 1);
   }
 
   public append(value: T): this {
