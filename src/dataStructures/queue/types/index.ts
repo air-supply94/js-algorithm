@@ -1,4 +1,4 @@
-export interface QueueInterface<T> {
+export interface QueueInterface<T = unknown> {
   size: number;
   toString: (callback?: (value: T) => string) => string;
   dequeue: () => T;

@@ -1,4 +1,4 @@
-export interface DoubleLinkedListNodeInterface<T> {
+export interface DoubleLinkedListNodeInterface<T = unknown> {
   value: T;
   next: null | DoubleLinkedListNodeInterface<T>;
   previous: null | DoubleLinkedListNodeInterface<T>;
@@ -8,7 +8,7 @@ export interface DoubleLinkedListNodeInterface<T> {
   setPrevious(node: DoubleLinkedListNodeInterface<T> | null): this;
 }
 
-export interface DoubleLinkedListInterface<T> {
+export interface DoubleLinkedListInterface<T = unknown> {
   head: null | DoubleLinkedListNodeInterface<T>;
   tail: null | DoubleLinkedListNodeInterface<T>;
   size: number;
@@ -29,6 +29,9 @@ export interface DoubleLinkedListInterface<T> {
   isEmpty: () => boolean;
   reverse: () => this;
   connect: (...args: DoubleLinkedListInterface<T>[]) => this;
+  setSize(size: number): this;
+  setHead(head: DoubleLinkedListNodeInterface<T> | null): this;
+  setTail(tail: DoubleLinkedListNodeInterface<T> | null): this;
   clear(): this;
   toString(callback?: (node: T) => string): string;
 }

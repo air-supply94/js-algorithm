@@ -1,4 +1,4 @@
-export interface StackInterface<T> {
+export interface StackInterface<T = unknown> {
   size: number;
   toString: (callback?: (value: T) => string) => string;
   toArray: () => T[];

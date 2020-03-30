@@ -21,21 +21,6 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   private _tail: DoubleLinkedListNodeInterface<T> | null;
   private _size: number;
 
-  private setSize(size: number): this {
-    this._size = size;
-    return this;
-  }
-
-  private setHead(head: DoubleLinkedListNodeInterface<T> | null): this {
-    this._head = head;
-    return this;
-  }
-
-  private setTail(tail: DoubleLinkedListNodeInterface<T> | null): this {
-    this._tail = tail;
-    return this;
-  }
-
   private deleteBase(count: number, value?: T): null | DoubleLinkedListNodeInterface<T> {
     let deleteCount = 0;
     let deletedNode = null;
@@ -82,12 +67,27 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return this._size;
   }
 
+  public setSize(size: number): this {
+    this._size = size;
+    return this;
+  }
+
   get head(): DoubleLinkedListNodeInterface<T> | null {
     return this._head;
   }
 
+  public setHead(head: DoubleLinkedListNodeInterface<T> | null): this {
+    this._head = head;
+    return this;
+  }
+
   get tail(): DoubleLinkedListNodeInterface<T> | null {
     return this._tail;
+  }
+
+  public setTail(tail: DoubleLinkedListNodeInterface<T> | null): this {
+    this._tail = tail;
+    return this;
   }
 
   public clear(): this {
