@@ -687,6 +687,7 @@ describe('Index', () => {
     expect(linkedList1.toString())
     .toBe('1,2,3,4,5,6,7,8,9');
   });
+
   it('get item', () => {
     const linkedList = new DoubleLinkedList();
 
@@ -760,5 +761,31 @@ describe('Index', () => {
     .toBe(10);
     expect(linkedList.get(2).next.previous.value)
     .toBe(10);
+  });
+
+  it('deleteIndex', () => {
+    const linkedList = new DoubleLinkedList();
+    expect(linkedList.deleteIndex(0))
+    .toBeNull();
+    expect(linkedList.deleteIndex(-10))
+    .toBeNull();
+
+    linkedList.fromArray([
+      1,
+      2,
+      3,
+    ]);
+    expect(linkedList.deleteIndex(10))
+    .toBeNull();
+    expect(linkedList.deleteIndex(-2).value)
+    .toBe(2);
+    expect(linkedList.head.next.value)
+    .toBe(3);
+    expect(linkedList.tail.previous.value)
+    .toBe(1);
+    expect(linkedList.deleteIndex(1).value)
+    .toBe(3);
+    expect(linkedList.deleteIndex(0).value)
+    .toBe(1);
   });
 });

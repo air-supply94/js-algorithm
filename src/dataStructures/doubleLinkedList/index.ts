@@ -191,6 +191,25 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return this.deleteBase(1, value);
   }
 
+  public deleteIndex(index: number): null | DoubleLinkedListNodeInterface<T> {
+    const node = this.get(index);
+
+    if (node === this.head) {
+      return this.deleteHead();
+    }
+
+    if (node === this.tail) {
+      return this.deleteTail();
+    }
+
+    if (node) {
+      node.next.setPrevious(node.previous);
+      node.previous.setNext(node.next);
+    }
+
+    return node;
+  }
+
   public get(index: number): null | DoubleLinkedListNodeInterface<T> {
     const position = DoubleLinkedList.formatIndex(index, this.size);
 
