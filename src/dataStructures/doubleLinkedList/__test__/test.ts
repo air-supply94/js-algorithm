@@ -227,6 +227,11 @@ describe('Index', () => {
     const linkedList = new DoubleLinkedList();
 
     linkedList.append(1);
+    linkedList.reverse();
+    expect(linkedList.tail.next)
+    .toBeNull();
+    expect(linkedList.head.previous)
+    .toBeNull();
     linkedList.append(2);
     linkedList.append(3);
     linkedList.append(4);
@@ -684,11 +689,11 @@ describe('Index', () => {
   });
   it('get item', () => {
     const linkedList = new DoubleLinkedList();
-    linkedList.fromArray([1]);
 
-    expect(linkedList.get(0).value)
-    .toBe(1);
+    expect(linkedList.get(0))
+    .toBeNull();
     linkedList.fromArray([
+      1,
       2,
       3,
       4,
@@ -704,6 +709,10 @@ describe('Index', () => {
     .toBe(4);
     expect(linkedList.get(-2).value)
     .toBe(10);
+    expect(linkedList.get(-12))
+    .toBeNull();
+    expect(linkedList.get(12))
+    .toBeNull();
   });
 
   it('insert item', () => {
@@ -714,7 +723,7 @@ describe('Index', () => {
       3,
     ]);
 
-    linkedList.insert(0, 0);
+    linkedList.insert(0, -10);
     expect(linkedList.size)
     .toBe(4);
     expect(linkedList.head.value)

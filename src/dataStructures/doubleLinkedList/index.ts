@@ -16,6 +16,11 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     this._compare = new Comparator(comparatorFunction);
   }
 
+  public static formatIndex(index: any, size: number): number {
+    const indexInt = index | 0;
+    return indexInt < 0 ? indexInt + size : indexInt;
+  }
+
   private _compare: Comparator;
   private _head: DoubleLinkedListNodeInterface<T> | null;
   private _tail: DoubleLinkedListNodeInterface<T> | null;
@@ -187,14 +192,13 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public get(index: number): null | DoubleLinkedListNodeInterface<T> {
-    if (this.size <= 1) {
-      return this.head;
+    const position = DoubleLinkedList.formatIndex(index, this.size);
+
+    if (this.size === 0 || position < 0 || position >= this.size) {
+      return null;
     }
 
-    const indexInt = index | 0;
-    const position = indexInt < 0 ? Math.abs(indexInt + this.size) % this.size : indexInt % this.size;
     let i = 0;
-
     let findNode = null;
     const middle = this.size / 2 >>> 0;
     if (this.size > 10 && position >= middle) {
@@ -220,8 +224,8 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public insert(value: T, index: number): this {
-    const position = index >>> 0;
-    if (position === 0) {
+    const position = DoubleLinkedList.formatIndex(index, this.size);
+    if (position <= 0) {
       return this.prepend(value);
     } else if (position >= this.size) {
       return this.append(value);
