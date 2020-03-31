@@ -1,5 +1,8 @@
 import { StackInterface } from './types';
-import { DoubleLinkedList } from '../doubleLinkedList';
+import {
+  DoubleLinkedList,
+  DoubleLinkedListInterface,
+} from '../doubleLinkedList';
 
 export * from './types';
 
@@ -8,7 +11,7 @@ export class Stack<T = unknown> implements StackInterface<T> {
     this._doubleLinkedList = new DoubleLinkedList<T>();
   }
 
-  private _doubleLinkedList: DoubleLinkedList<T>;
+  private _doubleLinkedList: DoubleLinkedListInterface<T>;
 
   get doubleLinkedList() {
     return this._doubleLinkedList;

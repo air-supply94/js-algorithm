@@ -779,6 +779,8 @@ describe('Index', () => {
     .toBeNull();
     expect(linkedList.deleteIndex(-2).value)
     .toBe(2);
+    expect(linkedList.size)
+    .toBe(2);
     expect(linkedList.head.next.value)
     .toBe(3);
     expect(linkedList.tail.previous.value)

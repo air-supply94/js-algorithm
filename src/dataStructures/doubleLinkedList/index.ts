@@ -26,7 +26,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   private _tail: DoubleLinkedListNodeInterface<T> | null;
   private _size: number;
 
-  private deleteBase(count: number, value?: T): null | DoubleLinkedListNodeInterface<T> {
+  private deleteValueBase(count: number, value?: T): null | DoubleLinkedListNodeInterface<T> {
     let deleteCount = 0;
     let deletedNode = null;
     while (deleteCount < count && this.head && this.compare.equal(this.head.value, value)) {
@@ -169,7 +169,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return deletedTail;
   }
 
-  public find(findParams: { value?: T; callback?: (node: T) => boolean }): null | DoubleLinkedListNodeInterface<T> {
+  public find(findParams: { value?: T; callback?: (value: T) => boolean }): null | DoubleLinkedListNodeInterface<T> {
     const {value, callback = {}} = findParams;
     let findNode = null;
     this.eachFromHead(node => {
@@ -184,11 +184,11 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public deleteAll(value?: T): null | DoubleLinkedListNodeInterface<T> {
-    return this.deleteBase(Infinity, value);
+    return this.deleteValueBase(Infinity, value);
   }
 
   public delete(value?: T): null | DoubleLinkedListNodeInterface<T> {
-    return this.deleteBase(1, value);
+    return this.deleteValueBase(1, value);
   }
 
   public deleteIndex(index: number): null | DoubleLinkedListNodeInterface<T> {
@@ -205,6 +205,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     if (node) {
       node.next.setPrevious(node.previous);
       node.previous.setNext(node.next);
+      this.setSize(this.size - 1);
     }
 
     return node;
@@ -318,6 +319,6 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public isEmpty(): boolean {
-    return this.size === 0;
+    return this.size <= 0;
   }
 }

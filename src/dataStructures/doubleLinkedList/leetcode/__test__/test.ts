@@ -3,6 +3,7 @@ import { deleteDuplicates } from '../deleteDuplicates';
 import { getDecimalValue } from '../getDecimalValue';
 import { isPalindrome } from '../isPalindrome';
 import { addTwoNumbers } from '../addTwoNumbers';
+import { swapPairs } from '../swapPairs';
 
 describe('leetcode DoubleLinkedList', () => {
   it('deleteDuplicates', () => {
@@ -90,5 +91,60 @@ describe('leetcode DoubleLinkedList', () => {
     expect(addTwoNumbers(doubleLinkedList1, doubleLinkedList2)
     .toString())
     .toBe('5,9,2,1,2');
+  });
+
+  it('swapPairs', () => {
+    let i = 0;
+    const doubleLinkedList = new DoubleLinkedList();
+    doubleLinkedList.fromArray([
+      1,
+      2,
+    ]);
+
+    expect(swapPairs(doubleLinkedList)
+    .toString())
+    .toBe('2,1');
+
+    doubleLinkedList.append(4);
+    expect(swapPairs(doubleLinkedList)
+    .toString())
+    .toBe('1,2,4');
+
+    doubleLinkedList.eachFromHead(() => {
+      ++i;
+    });
+    expect(i)
+    .toBe(doubleLinkedList.size);
+    doubleLinkedList.eachFromTail(() => {
+      --i;
+    });
+    expect(i)
+    .toBe(0);
+
+    doubleLinkedList.append(3)
+    .append(5)
+    .append(6);
+    expect(swapPairs(doubleLinkedList)
+    .toString())
+    .toBe('2,1,3,4,6,5');
+
+    expect(doubleLinkedList.head.value)
+    .toBe(2);
+    expect(doubleLinkedList.head.previous)
+    .toBeNull();
+    expect(doubleLinkedList.tail.value)
+    .toBe(5);
+    expect(doubleLinkedList.tail.next)
+    .toBeNull();
+    doubleLinkedList.eachFromHead(() => {
+      ++i;
+    });
+    expect(i)
+    .toBe(doubleLinkedList.size);
+    doubleLinkedList.eachFromTail(() => {
+      --i;
+    });
+    expect(i)
+    .toBe(0);
   });
 });
