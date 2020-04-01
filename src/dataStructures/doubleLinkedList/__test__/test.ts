@@ -1,6 +1,7 @@
 import { DoubleLinkedList } from '../index';
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { Comparator } from '../../../utils/comparator';
+import { hasCircle } from '../leetcode/hasCircle';
 
 describe('DoubleLinkedListNode', () => {
   it('should create list node with value', () => {
@@ -670,20 +671,8 @@ describe('Index', () => {
 
     expect(linkedList1.size)
     .toBe(9);
-    expect(linkedList1.head.value)
-    .toBe(1);
-    expect(linkedList1.head.previous)
-    .toBe(null);
-    expect(linkedList1.head.next.value)
-    .toBe(2);
-
-    expect(linkedList1.tail.value)
-    .toBe(9);
-    expect(linkedList1.tail.previous.value)
-    .toBe(8);
-    expect(linkedList1.tail.next)
-    .toBe(null);
-
+    expect(hasCircle(linkedList1))
+    .toBeFalsy();
     expect(linkedList1.toString())
     .toBe('1,2,3,4,5,6,7,8,9');
   });
@@ -725,42 +714,25 @@ describe('Index', () => {
     ]);
 
     linkedList.insert(0, -10);
+    expect(linkedList.toString())
+    .toBe('0,1,2,3');
     expect(linkedList.size)
     .toBe(4);
-    expect(linkedList.head.value)
-    .toBe(0);
-    expect(linkedList.head.next.value)
-    .toBe(1);
-    expect(linkedList.head.next.next.value)
-    .toBe(2);
-    expect(linkedList.head.next.previous.value)
-    .toBe(0);
-    expect(linkedList.head.next.next.previous.value)
-    .toBe(1);
+    expect(hasCircle(linkedList))
+    .toBeFalsy();
 
     linkedList.insert(4, 10);
-    expect(linkedList.tail.value)
-    .toBe(4);
-    expect(linkedList.tail.previous.value)
-    .toBe(3);
-    expect(linkedList.tail.previous.previous.value)
-    .toBe(2);
-    expect(linkedList.tail.previous.next.value)
-    .toBe(4);
-    expect(linkedList.tail.previous.previous.next.value)
-    .toBe(3);
+    expect(linkedList.toString())
+    .toBe('0,1,2,3,4');
+    expect(hasCircle(linkedList))
+    .toBeFalsy();
 
     linkedList.insert(10, 2);
-    expect(linkedList.get(2).value)
-    .toBe(10);
-    expect(linkedList.get(2).next.value)
-    .toBe(2);
-    expect(linkedList.get(2).previous.value)
-    .toBe(1);
-    expect(linkedList.get(2).previous.next.value)
-    .toBe(10);
-    expect(linkedList.get(2).next.previous.value)
-    .toBe(10);
+    expect(linkedList.toString())
+    .toBe('0,1,10,2,3,4');
+
+    expect(hasCircle(linkedList))
+    .toBeFalsy();
   });
 
   it('deleteIndex', () => {

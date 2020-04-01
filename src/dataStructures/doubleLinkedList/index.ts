@@ -21,7 +21,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return indexInt < 0 ? indexInt + size : indexInt;
   }
 
-  private _compare: Comparator;
+  private readonly _compare: Comparator;
   private _head: DoubleLinkedListNodeInterface<T> | null;
   private _tail: DoubleLinkedListNodeInterface<T> | null;
   private _size: number;
@@ -116,25 +116,34 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public eachFromHead(callback: (node: DoubleLinkedListNodeInterface<T>) => void | boolean): this {
+    const length = this.size;
+    let i = 0;
     let currentNode = this.head;
-    while (currentNode) {
+    while (i < length) {
+      const next = currentNode.next;
       if (callback(currentNode) === false) {
         break;
       }
-      currentNode = currentNode.next;
+      currentNode = next;
+      i++;
     }
 
     return this;
   }
 
   public eachFromTail(callback: (node: DoubleLinkedListNodeInterface<T>) => void | boolean): this {
+    const length = this.size;
+    let i = 0;
     let currentNode = this.tail;
-    while (currentNode) {
+    while (i < length) {
+      const next = currentNode.previous;
       if (callback(currentNode) === false) {
         break;
       }
-      currentNode = currentNode.previous;
+      currentNode = next;
+      i++;
     }
+
     return this;
   }
 
@@ -145,7 +154,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
 
   public deleteHead(): null | DoubleLinkedListNodeInterface<T> {
     const deletedHead = this.head;
-    if (this.head === this.tail) {
+    if (this.size <= 1) {
       this.clear();
     } else {
       this.setHead(this.head.next);
@@ -158,7 +167,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
 
   public deleteTail(): null | DoubleLinkedListNodeInterface<T> {
     const deletedTail = this.tail;
-    if (this.head === this.tail) {
+    if (this.size <= 1) {
       this.clear();
     } else {
       this.setTail(this.tail.previous);
@@ -214,7 +223,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   public get(index: number): null | DoubleLinkedListNodeInterface<T> {
     const position = DoubleLinkedList.formatIndex(index, this.size);
 
-    if (this.size === 0 || position < 0 || position >= this.size) {
+    if (position < 0 || position >= this.size) {
       return null;
     }
 
@@ -306,8 +315,8 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   public connect(...arg: DoubleLinkedListInterface<T>[]): this {
     const values = [];
     arg.forEach(doubleLinkedList => {
-      doubleLinkedList.eachFromHead(nodes => {
-        values.push(nodes.value);
+      doubleLinkedList.eachFromHead(node => {
+        values.push(node.value);
       });
     });
 

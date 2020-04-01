@@ -5,6 +5,9 @@ import { isPalindrome } from '../isPalindrome';
 import { addTwoNumbers } from '../addTwoNumbers';
 import { swapPairs } from '../swapPairs';
 import { partition } from '../partition';
+import { hasCircle } from '../hasCircle';
+import { detectCircle } from '../detectCircle';
+import { getCircleLength } from '../getCircleLength';
 
 describe('leetcode DoubleLinkedList', () => {
   it('deleteDuplicates', () => {
@@ -25,10 +28,8 @@ describe('leetcode DoubleLinkedList', () => {
     .toBe('1,2,3,4');
     expect(doubleLinkedList.size)
     .toBe(4);
-    expect(doubleLinkedList.tail.next)
-    .toBeNull();
-    expect(doubleLinkedList.tail.previous.value)
-    .toBe(3);
+    expect(hasCircle(doubleLinkedList))
+    .toBeFalsy();
   });
 
   it('getDecimalValue', () => {
@@ -95,7 +96,6 @@ describe('leetcode DoubleLinkedList', () => {
   });
 
   it('swapPairs', () => {
-    let i = 0;
     const doubleLinkedList = new DoubleLinkedList();
     doubleLinkedList.fromArray([
       1,
@@ -110,17 +110,8 @@ describe('leetcode DoubleLinkedList', () => {
     expect(swapPairs(doubleLinkedList)
     .toString())
     .toBe('1,2,4');
-
-    doubleLinkedList.eachFromHead(() => {
-      ++i;
-    });
-    expect(i)
-    .toBe(doubleLinkedList.size);
-    doubleLinkedList.eachFromTail(() => {
-      --i;
-    });
-    expect(i)
-    .toBe(0);
+    expect(hasCircle(doubleLinkedList))
+    .toBeFalsy();
 
     doubleLinkedList.append(3)
     .append(5)
@@ -128,29 +119,12 @@ describe('leetcode DoubleLinkedList', () => {
     expect(swapPairs(doubleLinkedList)
     .toString())
     .toBe('2,1,3,4,6,5');
+    expect(hasCircle(doubleLinkedList))
+    .toBeFalsy();
 
-    expect(doubleLinkedList.head.value)
-    .toBe(2);
-    expect(doubleLinkedList.head.previous)
-    .toBeNull();
-    expect(doubleLinkedList.tail.value)
-    .toBe(5);
-    expect(doubleLinkedList.tail.next)
-    .toBeNull();
-    doubleLinkedList.eachFromHead(() => {
-      ++i;
-    });
-    expect(i)
-    .toBe(doubleLinkedList.size);
-    doubleLinkedList.eachFromTail(() => {
-      --i;
-    });
-    expect(i)
-    .toBe(0);
   });
 
   it('partition', () => {
-    let i = 0;
     const doubleLinkedList = new DoubleLinkedList();
     doubleLinkedList.fromArray([
       2,
@@ -168,17 +142,8 @@ describe('leetcode DoubleLinkedList', () => {
     expect(partition(doubleLinkedList, 2)
     .toString())
     .toBe('1,2,3');
-
-    doubleLinkedList.eachFromHead(() => {
-      ++i;
-    });
-    expect(i)
-    .toBe(doubleLinkedList.size);
-    doubleLinkedList.eachFromTail(() => {
-      --i;
-    });
-    expect(i)
-    .toBe(0);
+    expect(hasCircle(doubleLinkedList))
+    .toBeFalsy();
 
     expect(doubleLinkedList.head.value)
     .toBe(1);
@@ -189,5 +154,35 @@ describe('leetcode DoubleLinkedList', () => {
     expect(doubleLinkedList.tail.next)
     .toBeNull();
 
+  });
+
+  it('hasCircle and detectCircle and getCircleLength', () => {
+    const linkedList = new DoubleLinkedList();
+    expect(hasCircle(linkedList))
+    .toBeFalsy();
+    expect(getCircleLength(linkedList.head, 'next'))
+    .toBe(0);
+    linkedList.append(1)
+    .append(2)
+    .append(3)
+    .append(4)
+    .append(5);
+    expect(hasCircle(linkedList))
+    .toBeFalsy();
+
+    linkedList.tail.setNext(linkedList.head);
+    expect(hasCircle(linkedList))
+    .toBeTruthy();
+    expect(getCircleLength(linkedList.head, 'next'))
+    .toBe(5);
+    linkedList.tail.setNext(null);
+
+    linkedList.head.setPrevious(linkedList.tail.previous);
+    expect(detectCircle(linkedList.tail, 'previous').value)
+    .toBe(4);
+    expect(getCircleLength(linkedList.tail, 'previous'))
+    .toBe(4);
+    expect(hasCircle(linkedList))
+    .toBeTruthy();
   });
 });

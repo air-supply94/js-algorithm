@@ -11,7 +11,7 @@ export class Stack<T = unknown> implements StackInterface<T> {
     this._doubleLinkedList = new DoubleLinkedList<T>();
   }
 
-  private _doubleLinkedList: DoubleLinkedListInterface<T>;
+  private readonly _doubleLinkedList: DoubleLinkedListInterface<T>;
 
   get doubleLinkedList() {
     return this._doubleLinkedList;
