@@ -4,6 +4,7 @@ import { getDecimalValue } from '../getDecimalValue';
 import { isPalindrome } from '../isPalindrome';
 import { addTwoNumbers } from '../addTwoNumbers';
 import { swapPairs } from '../swapPairs';
+import { partition } from '../partition';
 
 describe('leetcode DoubleLinkedList', () => {
   it('deleteDuplicates', () => {
@@ -146,5 +147,47 @@ describe('leetcode DoubleLinkedList', () => {
     });
     expect(i)
     .toBe(0);
+  });
+
+  it('partition', () => {
+    let i = 0;
+    const doubleLinkedList = new DoubleLinkedList();
+    doubleLinkedList.fromArray([
+      2,
+      1,
+    ]);
+
+    expect(partition(doubleLinkedList, 3)
+    .toString())
+    .toBe('2,1');
+    expect(partition(doubleLinkedList, 0)
+    .toString())
+    .toBe('2,1');
+
+    doubleLinkedList.append(3);
+    expect(partition(doubleLinkedList, 2)
+    .toString())
+    .toBe('1,2,3');
+
+    doubleLinkedList.eachFromHead(() => {
+      ++i;
+    });
+    expect(i)
+    .toBe(doubleLinkedList.size);
+    doubleLinkedList.eachFromTail(() => {
+      --i;
+    });
+    expect(i)
+    .toBe(0);
+
+    expect(doubleLinkedList.head.value)
+    .toBe(1);
+    expect(doubleLinkedList.head.previous)
+    .toBeNull();
+    expect(doubleLinkedList.tail.value)
+    .toBe(3);
+    expect(doubleLinkedList.tail.next)
+    .toBeNull();
+
   });
 });
