@@ -9,7 +9,7 @@ export class Comparator implements InterfaceComparator {
     this.compare = comparatorFunction;
   }
 
-  public static defaultCompareFunction = (a, b) => {
+  public static defaultCompareFunction(a, b) {
     if (a === b) {
       return 0;
     }

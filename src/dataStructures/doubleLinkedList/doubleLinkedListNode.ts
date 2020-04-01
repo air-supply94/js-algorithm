@@ -1,6 +1,6 @@
 import { DoubleLinkedListNodeInterface } from './types';
 
-export class DoubleLinkedListNode<T> implements DoubleLinkedListNodeInterface<T> {
+export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeInterface<T> {
 
   constructor(value: T, next = null, previous = null) {
     this._value = value;

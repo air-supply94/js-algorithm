@@ -8,6 +8,10 @@ import { partition } from '../partition';
 import { hasCircle } from '../hasCircle';
 import { detectCircle } from '../detectCircle';
 import { getCircleLength } from '../getCircleLength';
+import {
+  flatten,
+  FlattenDoubleLinkedListNode,
+} from '../flatten';
 
 describe('leetcode DoubleLinkedList', () => {
   it('deleteDuplicates', () => {
@@ -184,5 +188,46 @@ describe('leetcode DoubleLinkedList', () => {
     .toBe(4);
     expect(hasCircle(linkedList))
     .toBeTruthy();
+  });
+
+  it('flatten', () => {
+    const node1 = new FlattenDoubleLinkedListNode(1);
+    const node2 = new FlattenDoubleLinkedListNode(2);
+    const node3 = new FlattenDoubleLinkedListNode(3);
+    const node4 = new FlattenDoubleLinkedListNode(4);
+    const node5 = new FlattenDoubleLinkedListNode(5);
+    const node6 = new FlattenDoubleLinkedListNode(6);
+    node1.setNext(node2);
+    node2.setPrevious(node1)
+    .setNext(node6)
+    .setChild(node3);
+    node3.setPrevious(node2)
+    .setNext(node4);
+    node4.setPrevious(node3)
+    .setChild(node5);
+    node5.setPrevious(node4);
+    expect(flatten(null))
+    .toBeNull();
+
+    let flattenNode = flatten(node1);
+    expect(node2.child)
+    .toBeNull();
+    expect(node4.child)
+    .toBeNull();
+    // @ts-ignore
+    expect(detectCircle(node1, 'next'))
+    .toBeNull();
+    // @ts-ignore
+    expect(detectCircle(node6, 'previous'))
+    .toBeNull();
+
+    const result = [];
+    while (flattenNode) {
+      result.push(flattenNode.value);
+      // @ts-ignore
+      flattenNode = flattenNode.next;
+    }
+    expect(result.toString())
+    .toBe('1,2,3,4,5,6');
   });
 });

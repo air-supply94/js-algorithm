@@ -15,9 +15,6 @@ export function deleteDuplicates(doubleLinkedList: DoubleLinkedListInterface): D
   }
 
   doubleLinkedList.setTail(currentNode);
-  if (currentNode) {
-    currentNode.setNext(null);
-  }
 
   return doubleLinkedList;
 }
