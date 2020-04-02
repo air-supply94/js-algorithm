@@ -13,7 +13,7 @@ export class Queue<T = unknown> implements QueueInterface<T> {
 
   private readonly _doubleLinkedList: DoubleLinkedListInterface<T>;
 
-  get doubleLinkedList() {
+  private get doubleLinkedList() {
     return this._doubleLinkedList;
   }
 

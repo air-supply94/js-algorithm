@@ -13,7 +13,7 @@ export class Stack<T = unknown> implements StackInterface<T> {
 
   private readonly _doubleLinkedList: DoubleLinkedListInterface<T>;
 
-  get doubleLinkedList() {
+  private get doubleLinkedList() {
     return this._doubleLinkedList;
   }
 
