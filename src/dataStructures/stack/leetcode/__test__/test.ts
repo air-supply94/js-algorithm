@@ -1,5 +1,6 @@
 import { balanceSymbol } from '../balanceSymbol';
 import { postfix } from '../postfix';
+import { hannuo } from '../hannuo';
 
 describe('leetcode stack', () => {
   it('balanceSymbol', () => {
@@ -29,5 +30,10 @@ describe('leetcode stack', () => {
       '*',
     ]))
     .toBe(9);
+  });
+
+  it('hannuo', () => {
+    hannuo(4, 'a', 'b', 'c');
+    hannuo(0, 'a', 'b', 'c');
   });
 });
