@@ -1,7 +1,7 @@
 import {
   Comparator,
   compareFunctionType,
-  InterfaceComparator,
+  ComparatorInterface,
 } from '../../utils';
 
 export function mergeSort<T>(originalArray: T[], comparator?: Comparator | compareFunctionType): T[] {
@@ -16,7 +16,7 @@ export function mergeSort<T>(originalArray: T[], comparator?: Comparator | compa
   return mergeSortedArrays<T>(mergeSort<T>(left, comparator), mergeSort<T>(right, comparator), comparator);
 }
 
-function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: InterfaceComparator): T[] {
+function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: ComparatorInterface): T[] {
   const result: T[] = [];
   while (leftArray.length && rightArray.length) {
     result.push(comparator.lessThanOrEqual(leftArray[0], rightArray[0]) ? leftArray.shift() : rightArray.shift());

@@ -1,6 +1,6 @@
 type compare = (a?: any, b?: any) => boolean;
 
-export interface InterfaceComparator {
+export interface ComparatorInterface {
   equal: compare;
   lessThan: compare;
   greaterThan: compare;

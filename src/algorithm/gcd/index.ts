@@ -3,8 +3,8 @@ export function gcd(m: number, n: number): number {
     m,
     n,
   ] = [
-    m | 0,
-    n | 0,
+    m,
+    n,
   ].sort();
 
   while (m > 0) {

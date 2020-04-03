@@ -22,10 +22,10 @@ describe('leetcode stack', () => {
       '+',
       '/',
       '-',
+      null,
       8,
       '+',
       3,
-      'a',
       '*',
     ]))
     .toBe(9);

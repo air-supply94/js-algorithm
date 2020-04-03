@@ -107,8 +107,9 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     .toString();
   }
 
-  public toArray(): DoubleLinkedListNodeInterface<T>[] {
+  public toArray(start: 'head' | 'tail' = 'head'): DoubleLinkedListNodeInterface<T>[] {
     const nodes = [];
+
     this.eachFromHead(node => {
       nodes.push(node);
     });
@@ -119,7 +120,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     const length = this.size;
     let i = 0;
     let currentNode = this.head;
-    while (i < length) {
+    while (i < length && currentNode) {
       const next = currentNode.next;
       if (callback(currentNode) === false) {
         break;
@@ -135,7 +136,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     const length = this.size;
     let i = 0;
     let currentNode = this.tail;
-    while (i < length) {
+    while (i < length && currentNode) {
       const next = currentNode.previous;
       if (callback(currentNode) === false) {
         break;
