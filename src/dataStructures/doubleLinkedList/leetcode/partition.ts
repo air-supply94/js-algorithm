@@ -2,48 +2,41 @@ import {
   DoubleLinkedListInterface,
   DoubleLinkedListNodeInterface,
 } from '../types';
+import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 
 export function partition(doubleLinkedList: DoubleLinkedListInterface, x: number): DoubleLinkedListInterface {
-  let beforeHead: DoubleLinkedListNodeInterface | null = null;
-  let before: DoubleLinkedListNodeInterface | null = null;
-  let afterHead: DoubleLinkedListNodeInterface | null = null;
-  let after: DoubleLinkedListNodeInterface | null = null;
+  const beforeHead: DoubleLinkedListNodeInterface = new DoubleLinkedListNode(null);
+  let before: DoubleLinkedListNodeInterface | null = beforeHead;
+  const afterHead: DoubleLinkedListNodeInterface = new DoubleLinkedListNode(null);
+  let after: DoubleLinkedListNodeInterface = afterHead;
   let head: DoubleLinkedListNodeInterface | null = null;
   let tail: DoubleLinkedListNodeInterface | null = null;
 
   doubleLinkedList.eachFromHead(node => {
     if (node.value < x) {
-      if (!before) {
-        before = beforeHead = node;
-      } else {
-        before.setNext(node);
-        node.setPrevious(before);
-        before = node;
-      }
+      before.setNext(node);
+      node.setPrevious(before);
+      before = node;
     } else {
-      if (!after) {
-        after = afterHead = node;
-      } else {
-        after.setNext(node);
-        node.setPrevious(after);
-        after = node;
-      }
+      after.setNext(node);
+      node.setPrevious(after);
+      after = node;
     }
   });
 
-  if (before) {
-    beforeHead.setPrevious(null);
-    before.setNext(afterHead);
-    head = beforeHead;
+  if (beforeHead.next) {
+    head = beforeHead.next;
+    head.setPrevious(null);
     tail = before;
+    tail.setNext(afterHead.next);
   }
 
-  if (afterHead) {
-    afterHead.setPrevious(before);
-    after.setNext(null);
+  if (afterHead.next) {
+    afterHead.next.setPrevious(tail);
     if (!head) {
-      head = afterHead;
+      head = afterHead.next;
     }
+    afterHead.setNext(null);
     tail = after;
   }
 

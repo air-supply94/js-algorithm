@@ -12,6 +12,7 @@ import {
   flatten,
   FlattenDoubleLinkedListNode,
 } from '../flatten';
+import { mergeTwoLists } from '../mergeTwoLists';
 
 describe('leetcode DoubleLinkedList', () => {
   it('deleteDuplicates', () => {
@@ -229,5 +230,31 @@ describe('leetcode DoubleLinkedList', () => {
     }
     expect(result.toString())
     .toBe('1,2,3,4,5,6');
+  });
+
+  it('mergeTwoLists', () => {
+    const doubleLinkedList1 = new DoubleLinkedList<number>();
+    const doubleLinkedList2 = new DoubleLinkedList<number>();
+    expect(mergeTwoLists(doubleLinkedList1, doubleLinkedList2).size)
+    .toBe(0);
+    doubleLinkedList1.append(1)
+    .append(3)
+    .append(5)
+    .append(7);
+    doubleLinkedList2.append(2)
+    .append(4)
+    .append(6);
+
+    mergeTwoLists<number>(doubleLinkedList1, doubleLinkedList2);
+    expect(doubleLinkedList1.head.previous)
+    .toBeNull();
+    expect(doubleLinkedList1.tail.next)
+    .toBeNull();
+    expect(doubleLinkedList1.size)
+    .toBe(7);
+    expect(doubleLinkedList1.toString())
+    .toBe('1,2,3,4,5,6,7');
+    expect(hasCircle(doubleLinkedList1))
+    .toBeFalsy();
   });
 });
