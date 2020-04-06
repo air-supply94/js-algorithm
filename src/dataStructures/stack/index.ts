@@ -26,11 +26,11 @@ export class Stack<T = unknown> implements StackInterface<T> {
   }
 
   public toArray(): T[] {
-    const nodes = [];
+    const values = [];
     this.doubleLinkedList.eachFromTail(node => {
-      nodes.push(node.value);
+      values.push(node.value);
     });
-    return nodes;
+    return values;
   }
 
   public pop(): T {

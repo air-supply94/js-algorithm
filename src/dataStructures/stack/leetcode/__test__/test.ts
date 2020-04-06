@@ -1,6 +1,7 @@
 import { balanceSymbol } from '../balanceSymbol';
 import { postfix } from '../postfix';
 import { hannuo } from '../hannuo';
+import { calPoints } from '../calPoints';
 
 describe('leetcode stack', () => {
   it('balanceSymbol', () => {
@@ -35,5 +36,20 @@ describe('leetcode stack', () => {
   it('hannuo', () => {
     hannuo(4, 'a', 'b', 'c');
     hannuo(0, 'a', 'b', 'c');
+  });
+
+  it('calPoints', () => {
+    expect(calPoints([
+      5,
+      -2,
+      4,
+      'test',
+      'C',
+      'D',
+      9,
+      '+',
+      '+',
+    ]))
+    .toBe(27);
   });
 });

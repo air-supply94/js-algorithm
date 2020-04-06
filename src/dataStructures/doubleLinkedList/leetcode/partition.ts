@@ -6,7 +6,7 @@ import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 
 export function partition(doubleLinkedList: DoubleLinkedListInterface, x: number): DoubleLinkedListInterface {
   const beforeHead: DoubleLinkedListNodeInterface = new DoubleLinkedListNode(null);
-  let before: DoubleLinkedListNodeInterface | null = beforeHead;
+  let before: DoubleLinkedListNodeInterface = beforeHead;
   const afterHead: DoubleLinkedListNodeInterface = new DoubleLinkedListNode(null);
   let after: DoubleLinkedListNodeInterface = afterHead;
   let head: DoubleLinkedListNodeInterface | null = null;
