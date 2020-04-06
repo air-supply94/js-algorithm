@@ -1,5 +1,7 @@
-import { Comparator } from '../../utils/comparator';
-import { compareFunctionType } from '../../utils/@types';
+import {
+  Comparator,
+  compareFunctionType,
+} from '../../utils';
 
 export function quickSortExchange<T>(originalArray: T[], comparator: Comparator | compareFunctionType): T[] {
   comparator = new Comparator(comparator);

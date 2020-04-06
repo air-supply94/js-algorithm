@@ -107,7 +107,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     .toString();
   }
 
-  public toArray(start: 'head' | 'tail' = 'head'): DoubleLinkedListNodeInterface<T>[] {
+  public toArray(): DoubleLinkedListNodeInterface<T>[] {
     const nodes = [];
 
     this.eachFromHead(node => {
@@ -223,15 +223,14 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
 
   public get(index: number): null | DoubleLinkedListNodeInterface<T> {
     const position = DoubleLinkedList.formatIndex(index, this.size);
+    let i = 0;
+    let findNode = null;
 
     if (position < 0 || position >= this.size) {
       return null;
     }
 
-    let i = 0;
-    let findNode = null;
-    const middle = this.size / 2 >>> 0;
-    if (this.size > 10 && position >= middle) {
+    if (position >= this.size / 2 >>> 0) {
       this.eachFromTail(node => {
         if (this.size - 1 - i === position) {
           findNode = node;

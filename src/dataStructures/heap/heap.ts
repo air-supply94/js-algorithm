@@ -1,6 +1,8 @@
-import { Comparator } from '../../utils/comparator';
+import {
+  Comparator,
+  compareFunctionType,
+} from '../../utils';
 import { swap } from '../../utils/swap';
-import { compareFunctionType } from '../../utils/@types';
 import { InterfaceHeap } from './@types';
 
 export abstract class Heap<T> implements InterfaceHeap<T> {

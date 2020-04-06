@@ -5,6 +5,7 @@ import { calPoints } from '../calPoints';
 import { backspaceCompare } from '../backspaceCompare';
 import { removeDuplicates } from '../removeDuplicates';
 import { maxSlidingWindow } from '../maxSlidingWindow';
+import { decodeString } from '../decodeString';
 
 describe('leetcode stack', () => {
   it('balanceSymbol', () => {
@@ -92,5 +93,21 @@ describe('leetcode stack', () => {
     ], 3)
     .toString())
     .toBe('3,3,5,5,6,7');
+  });
+
+  it('decodeString', () => {
+    expect(decodeString('[]'))
+    .toBe('');
+    expect(decodeString('a[]'))
+    .toBe('a');
+
+    expect(decodeString('3[a]2[bc]'))
+    .toBe('aaabcbc');
+    expect(decodeString('3[a]c[bc]'))
+    .toBe('aaac');
+    expect(decodeString('3[a2[c]]'))
+    .toBe('accaccacc');
+    expect(decodeString('2[abc]3[cd]ef'))
+    .toBe('abcabccdcdcdef');
   });
 });

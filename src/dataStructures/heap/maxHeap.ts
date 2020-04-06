@@ -1,7 +1,9 @@
 import { Heap } from './heap';
 import { InterfaceMaxHeap } from './@types';
-import { compareFunctionType } from '../../utils/@types';
-import { Comparator } from '../../utils/comparator';
+import {
+  compareFunctionType,
+  Comparator,
+} from '../../utils';
 
 export class MaxHeap<T> extends Heap<T> implements InterfaceMaxHeap<T> {
   constructor(comparatorFunction?: Comparator | compareFunctionType) {

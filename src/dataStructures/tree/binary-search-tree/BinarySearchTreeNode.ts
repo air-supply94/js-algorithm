@@ -1,6 +1,8 @@
 import { BinaryTreeNode } from '../BinaryTreeNode';
-import { Comparator } from '../../../utils/comparator';
-import { compareFunctionType } from '../../../utils/@types';
+import {
+  Comparator,
+  compareFunctionType,
+} from '../../../utils';
 
 export class BinarySearchTreeNode<T> extends BinaryTreeNode<T> {
   constructor(value = null, compareFunction?: compareFunctionType) {

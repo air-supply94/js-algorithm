@@ -1,6 +1,8 @@
 import { swap } from '../../utils/swap';
-import { Comparator } from '../../utils/comparator';
-import { compareFunctionType } from '../../utils/@types';
+import {
+  Comparator,
+  compareFunctionType,
+} from '../../utils';
 
 export function insertionSort<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);
