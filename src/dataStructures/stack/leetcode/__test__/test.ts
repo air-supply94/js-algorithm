@@ -2,6 +2,7 @@ import { balanceSymbol } from '../balanceSymbol';
 import { postfix } from '../postfix';
 import { hannuo } from '../hannuo';
 import { calPoints } from '../calPoints';
+import { backspaceCompare } from '../backspaceCompare';
 
 describe('leetcode stack', () => {
   it('balanceSymbol', () => {
@@ -51,5 +52,12 @@ describe('leetcode stack', () => {
       '+',
     ]))
     .toBe(27);
+  });
+
+  it('backspaceCompare', () => {
+    expect(backspaceCompare('ab#c', 'ad#c'))
+    .toBeTruthy();
+    expect(backspaceCompare('ab##', 'c#d#'))
+    .toBeTruthy();
   });
 });
