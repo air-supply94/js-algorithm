@@ -3,6 +3,7 @@ import { postfix } from '../postfix';
 import { hannuo } from '../hannuo';
 import { calPoints } from '../calPoints';
 import { backspaceCompare } from '../backspaceCompare';
+import { removeDuplicates } from '../removeDuplicates';
 
 describe('leetcode stack', () => {
   it('balanceSymbol', () => {
@@ -59,5 +60,10 @@ describe('leetcode stack', () => {
     .toBeTruthy();
     expect(backspaceCompare('ab##', 'c#d#'))
     .toBeTruthy();
+  });
+
+  it('removeDuplicates', () => {
+    expect(removeDuplicates('abbaca'))
+    .toBe('ca');
   });
 });
