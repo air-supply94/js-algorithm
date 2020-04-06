@@ -4,6 +4,7 @@ import { hannuo } from '../hannuo';
 import { calPoints } from '../calPoints';
 import { backspaceCompare } from '../backspaceCompare';
 import { removeDuplicates } from '../removeDuplicates';
+import { maxSlidingWindow } from '../maxSlidingWindow';
 
 describe('leetcode stack', () => {
   it('balanceSymbol', () => {
@@ -65,5 +66,31 @@ describe('leetcode stack', () => {
   it('removeDuplicates', () => {
     expect(removeDuplicates('abbaca'))
     .toBe('ca');
+  });
+
+  it('maxSlidingWindow', () => {
+    expect(maxSlidingWindow([], 10)
+    .toString())
+    .toBe('');
+
+    expect(maxSlidingWindow([
+      1,
+      2,
+    ], 10)
+    .toString())
+    .toBe('2');
+
+    expect(maxSlidingWindow([
+      1,
+      3,
+      -1,
+      -3,
+      5,
+      3,
+      6,
+      7,
+    ], 3)
+    .toString())
+    .toBe('3,3,5,5,6,7');
   });
 });
