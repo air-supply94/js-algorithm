@@ -18,7 +18,7 @@ export interface DoubleLinkedListInterface<T = unknown> {
   fromArray(values: T[]): this;
   deleteHead(): null | DoubleLinkedListNodeInterface<T>;
   deleteTail(): null | DoubleLinkedListNodeInterface<T>;
-  find(params: { value?: T; callback?: (value: T) => boolean }): null | DoubleLinkedListNodeInterface<T>;
+  find(params: { value?: T; callback?: (value: T) => boolean | void }): null | DoubleLinkedListNodeInterface<T>;
   deleteAll(value?: T): null | DoubleLinkedListNodeInterface<T>;
   delete(value?: T): null | DoubleLinkedListNodeInterface<T>;
   get(index: number): null | DoubleLinkedListNodeInterface<T>;

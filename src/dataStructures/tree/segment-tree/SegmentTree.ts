@@ -1,3 +1,4 @@
+/*
 function isPowerOfTwo(number) {
   // 1 (2^0) is the smallest power of two.
   if (number < 1) {
@@ -21,11 +22,11 @@ function isPowerOfTwo(number) {
 }
 
 export default class SegmentTree {
-  /**
+  /!**
    * @param {number[]} inputArray
    * @param {function} operation - binary function (i.e. sum, min)
    * @param {number} operationFallback - operation fallback value (i.e. 0 for sum, Infinity for min)
-   */
+   *!/
   constructor(inputArray, operation, operationFallback) {
     this.inputArray = inputArray;
     this.operation = operation;
@@ -42,10 +43,10 @@ export default class SegmentTree {
   public operationFallback: any;
   public segmentTree: any;
 
-  /**
+  /!**
    * @param {number[]} inputArray
    * @return {number[]}
-   */
+   *!/
   public initSegmentTree(inputArray) {
     let segmentTreeArrayLength;
     const inputArrayLength = inputArray.length;
@@ -67,9 +68,9 @@ export default class SegmentTree {
     return new Array(segmentTreeArrayLength).fill(null);
   }
 
-  /**
+  /!**
    * Build segment tree.
-   */
+   *!/
   public buildSegmentTree() {
     const leftIndex = 0;
     const rightIndex = this.inputArray.length - 1;
@@ -77,13 +78,13 @@ export default class SegmentTree {
     this.buildTreeRecursively(leftIndex, rightIndex, position);
   }
 
-  /**
+  /!**
    * Build segment tree recursively.
    *
    * @param {number} leftInputIndex
    * @param {number} rightInputIndex
    * @param {number} position
-   */
+   *!/
   public buildTreeRecursively(leftInputIndex, rightInputIndex, position) {
     // If low input index and high input index are equal that would mean
     // the we have finished splitting and we are already came to the leaf
@@ -109,13 +110,13 @@ export default class SegmentTree {
     );
   }
 
-  /**
+  /!**
    * Do range query on segment tree in context of this.operation function.
    *
    * @param {number} queryLeftIndex
    * @param {number} queryRightIndex
    * @return {number}
-   */
+   *!/
   public rangeQuery(queryLeftIndex, queryRightIndex) {
     const leftIndex = 0;
     const rightIndex = this.inputArray.length - 1;
@@ -130,7 +131,7 @@ export default class SegmentTree {
     );
   }
 
-  /**
+  /!**
    * Do range query on segment tree recursively in context of this.operation function.
    *
    * @param {number} queryLeftIndex - left index of the query
@@ -139,7 +140,7 @@ export default class SegmentTree {
    * @param {number} rightIndex - right index of input array segment
    * @param {number} position - root position in binary tree
    * @return {number}
-   */
+   *!/
   public rangeQueryRecursive(queryLeftIndex, queryRightIndex, leftIndex, rightIndex, position) {
     if (queryLeftIndex <= leftIndex && queryRightIndex >= rightIndex) {
       // Total overlap.
@@ -173,21 +174,22 @@ export default class SegmentTree {
     return this.operation(leftOperationResult, rightOperationResult);
   }
 
-  /**
+  /!**
    * Left child index.
    * @param {number} parentIndex
    * @return {number}
-   */
+   *!/
   public getLeftChildIndex(parentIndex) {
     return (2 * parentIndex) + 1;
   }
 
-  /**
+  /!**
    * Right child index.
    * @param {number} parentIndex
    * @return {number}
-   */
+   *!/
   public getRightChildIndex(parentIndex) {
     return (2 * parentIndex) + 2;
   }
 }
+*/

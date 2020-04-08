@@ -27,8 +27,8 @@ describe('Index', () => {
 
     queue.enqueue(1);
     queue.enqueue(2);
-
-    expect(queue.toString())
+    expect(queue.toArray()
+    .toString())
     .toBe('1,2');
   });
 

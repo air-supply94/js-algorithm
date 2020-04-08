@@ -42,8 +42,7 @@ export class Comparator implements ComparatorInterface {
 
   public reverse() {
     const compareOriginal = this.compare;
-    // tslint:disable-next-line:only-arrow-functions
-    this.compare = function (a, b) {
+    this.compare = function fn(a, b) {
       return compareOriginal(b, a);
     };
     return this;

@@ -25,7 +25,15 @@ export class Queue<T = unknown> implements QueueInterface<T> {
     return this.doubleLinkedList.toString(callback);
   }
 
-  public dequeue(): T {
+  public toArray(): T[] {
+    const values = [];
+    this.doubleLinkedList.eachFromHead(node => {
+      values.push(node.value);
+    });
+    return values;
+  }
+
+  public dequeue(): T | null {
     const removedHead = this.doubleLinkedList.deleteHead();
     return removedHead ? removedHead.value : null;
   }
@@ -35,7 +43,7 @@ export class Queue<T = unknown> implements QueueInterface<T> {
     return this;
   }
 
-  public peek(): T {
+  public peek(): T | null {
     return this.isEmpty() ? null : this.doubleLinkedList.head.value;
   }
 

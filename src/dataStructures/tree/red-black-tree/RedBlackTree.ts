@@ -1,3 +1,4 @@
+/*
 import { BinarySearchTree } from '../binary-search-tree/BinarySearchTree';
 
 // Possible colors of red-black tree nodes.
@@ -10,10 +11,10 @@ const RED_BLACK_TREE_COLORS = {
 const COLOR_PROP_NAME = 'color';
 
 export default class RedBlackTree<T> extends BinarySearchTree<T> {
-  /**
+  /!**
    * @param {*} value
    * @return {BinarySearchTreeNode}
-   */
+   *!/
   public insert(value) {
     const insertedNode = super.insert(value);
 
@@ -32,18 +33,18 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
     return insertedNode;
   }
 
-  /**
+  /!**
    * @param {*} value
    * @return {boolean}
-   */
+   *!/
   // @ts-ignore
   public remove(value) {
     throw new Error(`Can't remove ${value}. Remove method is not implemented yet`);
   }
 
-  /**
+  /!**
    * @param {BinarySearchTreeNode} node
-   */
+   *!/
   public balance(node) {
     // If it is a root node then nothing to balance here.
     if (this.nodeComparator.equal(node, this.root)) {
@@ -116,11 +117,11 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
     }
   }
 
-  /**
+  /!**
    * Left Left Case (p is left child of g and x is left child of p)
    * @param {BinarySearchTreeNode|BinaryTreeNode} grandParentNode
    * @return {BinarySearchTreeNode}
-   */
+   *!/
   public leftLeftRotation(grandParentNode) {
     // Memorize the parent of grand-parent node.
     const grandGrandParent = grandParentNode.parent;
@@ -163,11 +164,11 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
     return parentNode;
   }
 
-  /**
+  /!**
    * Left Right Case (p is left child of g and x is right child of p)
    * @param {BinarySearchTreeNode|BinaryTreeNode} grandParentNode
    * @return {BinarySearchTreeNode}
-   */
+   *!/
   public leftRightRotation(grandParentNode) {
     // Memorize left and left-right nodes.
     const parentNode = grandParentNode.left;
@@ -191,11 +192,11 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
     return this.leftLeftRotation(grandParentNode);
   }
 
-  /**
+  /!**
    * Right Right Case (p is right child of g and x is right child of p)
    * @param {BinarySearchTreeNode|BinaryTreeNode} grandParentNode
    * @return {BinarySearchTreeNode}
-   */
+   *!/
   public rightRightRotation(grandParentNode) {
     // Memorize the parent of grand-parent node.
     const grandGrandParent = grandParentNode.parent;
@@ -238,11 +239,11 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
     return parentNode;
   }
 
-  /**
+  /!**
    * Right Left Case (p is right child of g and x is left child of p)
    * @param {BinarySearchTreeNode|BinaryTreeNode} grandParentNode
    * @return {BinarySearchTreeNode}
-   */
+   *!/
   public rightLeftRotation(grandParentNode) {
     // Memorize right and right-left nodes.
     const parentNode = grandParentNode.right;
@@ -266,54 +267,54 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
     return this.rightRightRotation(grandParentNode);
   }
 
-  /**
+  /!**
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {BinarySearchTreeNode}
-   */
+   *!/
   public makeNodeRed(node) {
     node.meta.set(COLOR_PROP_NAME, RED_BLACK_TREE_COLORS.red);
 
     return node;
   }
 
-  /**
+  /!**
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {BinarySearchTreeNode}
-   */
+   *!/
   public makeNodeBlack(node) {
     node.meta.set(COLOR_PROP_NAME, RED_BLACK_TREE_COLORS.black);
 
     return node;
   }
 
-  /**
+  /!**
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {boolean}
-   */
+   *!/
   public isNodeRed(node) {
     return node.meta.get(COLOR_PROP_NAME) === RED_BLACK_TREE_COLORS.red;
   }
 
-  /**
+  /!**
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {boolean}
-   */
+   *!/
   public isNodeBlack(node) {
     return node.meta.get(COLOR_PROP_NAME) === RED_BLACK_TREE_COLORS.black;
   }
 
-  /**
+  /!**
    * @param {BinarySearchTreeNode|BinaryTreeNode} node
    * @return {boolean}
-   */
+   *!/
   public isNodeColored(node) {
     return this.isNodeRed(node) || this.isNodeBlack(node);
   }
 
-  /**
+  /!**
    * @param {BinarySearchTreeNode|BinaryTreeNode} firstNode
    * @param {BinarySearchTreeNode|BinaryTreeNode} secondNode
-   */
+   *!/
   public swapNodeColors(firstNode, secondNode) {
     const firstColor = firstNode.meta.get(COLOR_PROP_NAME);
     const secondColor = secondNode.meta.get(COLOR_PROP_NAME);
@@ -322,3 +323,4 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
     secondNode.meta.set(COLOR_PROP_NAME, firstColor);
   }
 }
+*/

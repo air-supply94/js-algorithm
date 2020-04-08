@@ -33,7 +33,7 @@ export class Stack<T = unknown> implements StackInterface<T> {
     return values;
   }
 
-  public pop(): T {
+  public pop(): T | null {
     const removedTail = this.doubleLinkedList.deleteTail();
     return removedTail ? removedTail.value : null;
   }
@@ -43,7 +43,7 @@ export class Stack<T = unknown> implements StackInterface<T> {
     return this;
   }
 
-  public peek(): T {
+  public peek(): T | null {
     return this.isEmpty() ? null : this.doubleLinkedList.tail.value;
   }
 

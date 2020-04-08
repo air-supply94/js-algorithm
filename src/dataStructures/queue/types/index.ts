@@ -1,10 +1,11 @@
 export interface QueueInterface<T = unknown> {
   size: number;
   toString(callback?: (value: T) => string): string;
-  dequeue(): T;
-  enqueue(value?: T): this;
-  peek(): T;
+  toArray(): T[];
+  dequeue(): T | null;
+  enqueue(value: T): this;
+  peek(): T | null;
   clear(): this;
-  has(value: T): boolean;
+  has(value?: T): boolean;
   isEmpty(): boolean;
 }
