@@ -252,7 +252,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return findNode;
   }
 
-  public insert(value: T, index: number): this {
+  public insert(value: T, index: number): DoubleLinkedListNodeInterface<T> {
     const position = DoubleLinkedList.formatIndex(index, this.size);
     if (position <= 0) {
       return this.prepend(value);
@@ -264,10 +264,11 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     const newPositionNode = new DoubleLinkedListNode(value, oldPositionNode, oldPositionNode.previous);
     oldPositionNode.previous.setNext(newPositionNode);
     oldPositionNode.setPrevious(newPositionNode);
-    return this.setSize(this.size + 1);
+    this.setSize(this.size + 1);
+    return newPositionNode;
   }
 
-  public append(value: T): this {
+  public append(value: T): DoubleLinkedListNodeInterface<T> {
     const newNode = new DoubleLinkedListNode(value, null, this.tail);
 
     if (this.isEmpty()) {
@@ -279,10 +280,10 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     }
     this.setSize(this.size + 1);
 
-    return this;
+    return newNode;
   }
 
-  public prepend(value: T): this {
+  public prepend(value: T): DoubleLinkedListNodeInterface<T> {
     const newNode = new DoubleLinkedListNode(value, this.head);
     if (this.isEmpty()) {
       this.setHead(newNode)
@@ -293,7 +294,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     }
     this.setSize(this.size + 1);
 
-    return this;
+    return newNode;
   }
 
   public reverse(): this {

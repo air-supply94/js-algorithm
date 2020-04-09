@@ -48,11 +48,11 @@ describe('BinarySearchTree', () => {
 
     bst.insert(10);
     const originRemove = bst.remove;
-    bst.remove = function <T = unknown>(value: T): boolean {
+    bst.remove = function <T = unknown>(value: T): BinarySearchTreeNodeInterface<T> | null {
       return remove(this.root, value, this.comparator);
     };
-    expect(bst.remove(10))
-    .toBeTruthy();
+    expect(bst.remove(10).value)
+    .toBe(10);
     expect(bst.root.value)
     .toBe(10);
     bst.remove = originRemove;
@@ -66,14 +66,14 @@ describe('BinarySearchTree', () => {
     const removed1 = bst.remove(5);
     expect(bst.toString())
     .toBe('10,20');
-    expect(removed1)
-    .toBe(true);
+    expect(removed1.value)
+    .toBe(5);
 
     const removed2 = bst.remove(20);
     expect(bst.toString())
     .toBe('10');
-    expect(removed2)
-    .toBe(true);
+    expect(removed2.value)
+    .toBe(20);
   });
 
   it('should insert object values', () => {
@@ -289,14 +289,14 @@ describe('BinarySearchTree', () => {
     const removed1 = bstRootNode.remove(5);
     expect(bstRootNode.toString())
     .toBe('10,20');
-    expect(removed1)
-    .toBe(true);
+    expect(removed1.value)
+    .toBe(5);
 
     const removed2 = bstRootNode.remove(20);
     expect(bstRootNode.toString())
     .toBe('10');
-    expect(removed2)
-    .toBe(true);
+    expect(removed2.value)
+    .toBe(20);
   });
 
   it('should remove nodes with one child', () => {
@@ -340,17 +340,26 @@ describe('BinarySearchTree', () => {
     expect(bstRootNode.find(20).right.value)
     .toBe(30);
 
-    bstRootNode.remove(20);
+    const removeNode = bstRootNode.remove(20);
+    expect(removeNode.value)
+    .toBe(20);
+    expect(removeNode.parent.value)
+    .toBe(30);
+
     expect(bstRootNode.root.right.parent.value)
     .toBe(10);
     expect(bstRootNode.toString())
     .toBe('5,10,15,25,30');
 
-    bstRootNode.remove(15);
+    expect(bstRootNode.remove(15).parent.value)
+    .toBe(25);
+
     expect(bstRootNode.toString())
     .toBe('5,10,25,30');
 
-    bstRootNode.remove(10);
+    const removeNode2 = bstRootNode.remove(10);
+    expect(removeNode2.parent.value)
+    .toBe(25);
     expect(bstRootNode.toString())
     .toBe('5,25,30');
     expect(bstRootNode.root.value)

@@ -3,7 +3,7 @@ export interface StackInterface<T = unknown> {
   toString(callback?: (value: T) => string): string;
   toArray(): T[];
   pop(): T | null;
-  push(value: T): this;
+  push(value: T): T;
   peek(): T | null;
   clear(): this;
   has(key?: T): boolean;

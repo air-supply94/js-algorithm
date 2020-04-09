@@ -27,7 +27,7 @@ export interface BinarySearchTreeInterface<T = unknown> {
   insert(value: T): null | BinarySearchTreeNodeInterface<T>;
   find(value: T): null | BinarySearchTreeNodeInterface<T>;
   contains(value: T): boolean;
-  remove(value: T): boolean;
+  remove(value: T): BinarySearchTreeNodeInterface<T> | null;
   findMin(): null | BinarySearchTreeNodeInterface<T>;
   findMax(): null | BinarySearchTreeNodeInterface<T>;
   traversePreOrder(): T[];

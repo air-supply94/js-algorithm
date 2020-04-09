@@ -118,9 +118,9 @@ describe('leetcode DoubleLinkedList', () => {
     expect(hasCircle(doubleLinkedList))
     .toBeFalsy();
 
-    doubleLinkedList.append(3)
-    .append(5)
-    .append(6);
+    doubleLinkedList.append(3);
+    doubleLinkedList.append(5);
+    doubleLinkedList.append(6);
     expect(swapPairs(doubleLinkedList)
     .toString())
     .toBe('2,1,3,4,6,5');
@@ -167,11 +167,11 @@ describe('leetcode DoubleLinkedList', () => {
     .toBeFalsy();
     expect(getCircleLength(linkedList.head, 'next'))
     .toBe(0);
-    linkedList.append(1)
-    .append(2)
-    .append(3)
-    .append(4)
-    .append(5);
+    linkedList.append(1);
+    linkedList.append(2);
+    linkedList.append(3);
+    linkedList.append(4);
+    linkedList.append(5);
     expect(hasCircle(linkedList))
     .toBeFalsy();
 
@@ -237,13 +237,13 @@ describe('leetcode DoubleLinkedList', () => {
     const doubleLinkedList2 = new DoubleLinkedList<number>();
     expect(mergeTwoLists(doubleLinkedList1, doubleLinkedList2).size)
     .toBe(0);
-    doubleLinkedList1.append(1)
-    .append(3)
-    .append(5)
-    .append(7);
-    doubleLinkedList2.append(2)
-    .append(4)
-    .append(6);
+    doubleLinkedList1.append(1);
+    doubleLinkedList1.append(3);
+    doubleLinkedList1.append(5);
+    doubleLinkedList1.append(7);
+    doubleLinkedList2.append(2);
+    doubleLinkedList2.append(4);
+    doubleLinkedList2.append(6);
 
     mergeTwoLists<number>(doubleLinkedList1, doubleLinkedList2);
     expect(doubleLinkedList1.head.previous)

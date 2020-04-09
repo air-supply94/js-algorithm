@@ -38,9 +38,8 @@ export class Stack<T = unknown> implements StackInterface<T> {
     return removedTail ? removedTail.value : null;
   }
 
-  public push(value: T): this {
-    this.doubleLinkedList.append(value);
-    return this;
+  public push(value: T): T {
+    return this.doubleLinkedList.append(value).value;
   }
 
   public peek(): T | null {

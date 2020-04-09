@@ -22,9 +22,9 @@ export interface DoubleLinkedListInterface<T = unknown> {
   deleteAll(value?: T): null | DoubleLinkedListNodeInterface<T>;
   delete(value?: T): null | DoubleLinkedListNodeInterface<T>;
   get(index: number): null | DoubleLinkedListNodeInterface<T>;
-  insert(value: T, index: number): this;
-  append(value: T): this;
-  prepend(value: T): this;
+  insert(value: T, index: number): DoubleLinkedListNodeInterface<T>;
+  append(value: T): DoubleLinkedListNodeInterface<T>;
+  prepend(value: T): DoubleLinkedListNodeInterface<T>;
   has(value?: T): boolean;
   isEmpty(): boolean;
   reverse(): this;

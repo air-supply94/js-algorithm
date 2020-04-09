@@ -515,8 +515,8 @@ describe('Index', () => {
       key: 'key2',
     };
 
-    linkedList.append(nodeValue1)
-    .prepend(nodeValue2);
+    linkedList.append(nodeValue1);
+    linkedList.prepend(nodeValue2);
     expect(linkedList.size)
     .toBe(2);
 
@@ -536,8 +536,8 @@ describe('Index', () => {
     expect(linkedList.find({value: 1}))
     .toBeDefined();
 
-    linkedList.append(2)
-    .append(3);
+    linkedList.append(2);
+    linkedList.append(3);
 
     const node = linkedList.find({value: 2});
 
@@ -553,12 +553,12 @@ describe('Index', () => {
     linkedList.append({
       value: 1,
       key: 'test1',
-    })
-    .append({
+    });
+    linkedList.append({
       value: 2,
       key: 'test2',
-    })
-    .append({
+    });
+    linkedList.append({
       value: 3,
       key: 'test3',
     });
@@ -589,12 +589,12 @@ describe('Index', () => {
     linkedList.append({
       value: 1,
       customValue: 'test1',
-    })
-    .append({
+    });
+    linkedList.append({
       value: 2,
       customValue: 'test2',
-    })
-    .append({
+    });
+    linkedList.append({
       value: 3,
       customValue: 'test3',
     });

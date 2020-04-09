@@ -38,9 +38,8 @@ export class Queue<T = unknown> implements QueueInterface<T> {
     return removedHead ? removedHead.value : null;
   }
 
-  public enqueue(value: T): this {
-    this.doubleLinkedList.append(value);
-    return this;
+  public enqueue(value: T): T {
+    return this.doubleLinkedList.append(value).value;
   }
 
   public peek(): T | null {

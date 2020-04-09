@@ -10,14 +10,14 @@ export function calPoints(options: (string | number)[]): number {
       stack.pop();
     } else if (value === 'D') {
       const last = stack.pop();
-      stack.push(last)
-      .push(last * 2);
+      stack.push(last);
+      stack.push(last * 2);
     } else if (value === '+') {
       const last = stack.pop();
       const lastSecond = stack.pop();
-      stack.push(lastSecond)
-      .push(last)
-      .push(last + lastSecond);
+      stack.push(lastSecond);
+      stack.push(last);
+      stack.push(last + lastSecond);
     }
   });
 

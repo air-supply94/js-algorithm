@@ -52,7 +52,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
     return !!this.find(value);
   }
 
-  public remove(value: T): boolean {
+  public remove(value: T): BinarySearchTreeNodeInterface<T> | null {
     return remove<T>(this.root, value, this.comparator, this.setRoot.bind(this, null));
   }
 

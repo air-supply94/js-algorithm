@@ -1,11 +1,69 @@
-/*
-import { AvlTree } from '../AvlTree';
+import { AvlTree } from '../avlTree';
 
 describe('AvlTree', () => {
-  it('should do simple left-left rotation', () => {
+  it('should do special case', () => {
     const tree = new AvlTree();
+    tree.binarySearchTree.insert(1);
+    tree.binarySearchTree.insert(3);
+    tree.binarySearchTree.insert(4);
+    tree.binarySearchTree.insert(2);
+    tree.balance(tree.root);
+
+    tree.binarySearchTree.setRoot(null);
+    tree.binarySearchTree.insert(4);
+    tree.binarySearchTree.insert(2);
+    tree.binarySearchTree.insert(1);
+    tree.binarySearchTree.insert(3);
+    tree.balance(tree.root);
+
+    tree.binarySearchTree.setRoot(null);
+    const rootNode = tree.binarySearchTree.insert(3);
+    tree.binarySearchTree.insert(2);
+    tree.binarySearchTree.insert(1);
+    tree.binarySearchTree.setRoot(null);
+    tree.rotateLeftLeft(rootNode);
+
+    tree.binarySearchTree.setRoot(null);
+    const rootNode1 = tree.binarySearchTree.insert(1);
+    tree.binarySearchTree.insert(2);
+    tree.binarySearchTree.insert(3);
+    tree.binarySearchTree.setRoot(null);
+    tree.rotateRightRight(rootNode1);
+  });
+
+  it('should do simple left-left rotation', () => {
+    function callback(node) {
+    }
+
+    const tree = new AvlTree();
+    expect(tree.find(1))
+    .toBeNull();
+    expect(tree.findMax())
+    .toBeNull();
+    expect(tree.findMin())
+    .toBeNull();
+    expect(tree.traversePreOrder())
+    .toEqual([]);
+    expect(tree.traversePreOrderCallback(callback))
+    .toBeUndefined();
+    expect(tree.traverseInOrder())
+    .toEqual([]);
+    expect(tree.traverseInOrderCallback(callback))
+    .toBeUndefined();
+    expect(tree.traverseAfterOrder())
+    .toEqual([]);
+    expect(tree.traverseAfterOrderCallback(callback))
+    .toBeUndefined();
+    expect(tree.traverseLevelOrder())
+    .toEqual([]);
+    expect(tree.traverseLevelOrderCallback(callback))
+    .toBeUndefined();
 
     tree.insert(4);
+    expect(tree.insert(4))
+    .toBeNull();
+    expect(tree.remove(12))
+    .toBeFalsy();
     tree.insert(3);
     tree.insert(2);
 
@@ -404,4 +462,3 @@ describe('AvlTree', () => {
     .toBe(0);
   });
 });
-*/
