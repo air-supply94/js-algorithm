@@ -1,8 +1,13 @@
 import { Stack } from '../../../stack';
-import { BinarySearchTreeNodeInterface } from '../types';
+import {
+  BinarySearchTreeNodeInterface,
+  traverseCallback,
+} from '../types';
 
-export function traverseInOrder<T = unknown>(root: null | BinarySearchTreeNodeInterface<T>): T[] {
-  const result = [];
+export function traverseInOrder<T = unknown>(
+  root: null | BinarySearchTreeNodeInterface<T>,
+  callback: traverseCallback,
+): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
   while (true) {
@@ -16,8 +21,9 @@ export function traverseInOrder<T = unknown>(root: null | BinarySearchTreeNodeIn
     }
 
     currentNode = nodeStack.pop();
-    result.push(currentNode.value);
+    if (callback(currentNode) === false) {
+      break;
+    }
     currentNode = currentNode.right;
   }
-  return result;
 }

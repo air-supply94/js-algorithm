@@ -1,5 +1,7 @@
 import { Comparator } from '../../../../utils/comparator';
 
+export type traverseCallback<T = unknown> = (node: BinarySearchTreeNodeInterface<T>) => void | boolean;
+
 export interface BinarySearchTreeNodeInterface<T = unknown> {
   readonly value: T;
   readonly left: BinarySearchTreeNodeInterface<T> | null;
@@ -29,7 +31,11 @@ export interface BinarySearchTreeInterface<T = unknown> {
   findMin(): null | BinarySearchTreeNodeInterface<T>;
   findMax(): null | BinarySearchTreeNodeInterface<T>;
   traversePreOrder(): T[];
+  traversePreOrderCallback(callback: traverseCallback<T>): void;
   traverseInOrder(): T[];
+  traverseInOrderCallback(callback: traverseCallback<T>): void;
   traverseAfterOrder(): T[];
+  traverseAfterOrderCallback(callback: traverseCallback<T>): void;
   traverseLevelOrder(): T[];
+  traverseLevelOrderCallback(callback: traverseCallback<T>): void;
 }

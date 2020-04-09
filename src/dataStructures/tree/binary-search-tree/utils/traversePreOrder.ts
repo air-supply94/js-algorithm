@@ -1,24 +1,34 @@
 import { Stack } from '../../../stack';
-import { BinarySearchTreeNodeInterface } from '../types';
+import {
+  BinarySearchTreeNodeInterface,
+  traverseCallback,
+} from '../types';
 
-export function traversePreOrder<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): T[] {
-  const result = [];
+export function traversePreOrder<T = unknown>(
+  root: BinarySearchTreeNodeInterface<T> | null,
+  callback: traverseCallback,
+): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
+  let breakTag = false;
   while (true) {
     while (currentNode) {
-      result.push(currentNode.value);
+      if (callback(currentNode) === false) {
+        breakTag = true;
+        break;
+      }
+
       if (currentNode.right) {
         nodeStack.push(currentNode.right);
       }
+
       currentNode = currentNode.left;
     }
 
-    if (nodeStack.isEmpty()) {
+    if (nodeStack.isEmpty() || breakTag) {
       break;
     }
 
     currentNode = nodeStack.pop();
   }
-  return result;
 }

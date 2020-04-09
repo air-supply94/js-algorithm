@@ -48,7 +48,6 @@ describe('BinarySearchTree', () => {
 
     bst.insert(10);
     const originRemove = bst.remove;
-    delete bst.remove;
     bst.remove = function <T = unknown>(value: T): boolean {
       return remove(this.root, value, this.comparator);
     };
@@ -124,7 +123,6 @@ describe('BinarySearchTree', () => {
     expect(bst.findMax())
     .toBeNull();
     const originInsert = bst.insert;
-    delete bst.insert;
     bst.insert = function <T = unknown>(value: T): null | BinarySearchTreeNodeInterface<T> {
       return insert(this.root, value, this.comparator);
     };
@@ -459,6 +457,19 @@ describe('BinarySearchTree', () => {
 
   it('should traverse node', () => {
     const bst = new BinarySearchTree();
+    expect(bst.traversePreOrder()
+    .join())
+    .toBe('');
+    expect(bst.traverseInOrder()
+    .join())
+    .toBe('');
+    expect(bst.traverseAfterOrder()
+    .join())
+    .toBe('');
+    expect(bst.traverseLevelOrder()
+    .join())
+    .toBe('');
+
     bst.insert(4);
     bst.insert(2);
     bst.insert(1);
@@ -466,6 +477,35 @@ describe('BinarySearchTree', () => {
     bst.insert(6);
     bst.insert(7);
     bst.insert(5);
+    let result = [];
+
+    function callback(node) {
+      if (result.length >= 3) {
+        return false;
+      }
+      result.push(node.value);
+      return true;
+    }
+
+    bst.traversePreOrderCallback(callback);
+    expect(result.toString())
+    .toBe('4,2,1');
+    result = [];
+
+    bst.traverseInOrderCallback(callback);
+    expect(result.toString())
+    .toBe('1,2,3');
+    result = [];
+
+    bst.traverseAfterOrderCallback(callback);
+    expect(result.toString())
+    .toBe('1,3,2');
+    result = [];
+
+    bst.traverseLevelOrderCallback(callback);
+    expect(result.toString())
+    .toBe('4,2,6');
+    result = [];
 
     expect(bst.traversePreOrder()
     .join())

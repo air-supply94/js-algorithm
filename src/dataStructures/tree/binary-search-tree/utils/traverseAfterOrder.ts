@@ -1,29 +1,39 @@
 import { Stack } from '../../../stack';
-import { BinarySearchTreeNodeInterface } from '../types';
+import {
+  BinarySearchTreeNodeInterface,
+  traverseCallback,
+} from '../types';
 
-export function traverseAfterOrder<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): T[] {
-  const result = [];
+export function traverseAfterOrder<T = unknown>(
+  root: BinarySearchTreeNodeInterface<T> | null,
+  callback: traverseCallback,
+): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
-  nodeStack.push(currentNode);
+  if (root) {
+    nodeStack.push(currentNode);
+  }
 
   while (!nodeStack.isEmpty()) {
-    if (nodeStack.peek() !== currentNode.parent) {
-      // tslint:disable-next-line:no-conditional-assignment
-      while (currentNode = nodeStack.peek()) {
-        if (currentNode.left) {
-          if (currentNode.right) {
-            nodeStack.push(currentNode.right);
+    let peekNode = nodeStack.peek();
+    if (peekNode !== currentNode.parent) {
+      while (peekNode) {
+        if (peekNode.left) {
+          if (peekNode.right) {
+            nodeStack.push(peekNode.right);
           }
-          nodeStack.push(currentNode.left);
+          nodeStack.push(peekNode.left);
         } else {
-          nodeStack.push(currentNode.right);
+          nodeStack.push(peekNode.right);
         }
+        peekNode = nodeStack.peek();
       }
       nodeStack.pop();
     }
+
     currentNode = nodeStack.pop();
-    result.push(currentNode.value);
+    if (callback(currentNode) === false) {
+      break;
+    }
   }
-  return result;
 }

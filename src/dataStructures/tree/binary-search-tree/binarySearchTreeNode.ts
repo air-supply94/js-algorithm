@@ -127,7 +127,10 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
     return false;
   }
 
-  public replaceChild(nodeToReplace: BinarySearchTreeNodeInterface<T>, replacementNode: BinarySearchTreeNodeInterface<T>): boolean {
+  public replaceChild(
+    nodeToReplace: BinarySearchTreeNodeInterface<T>,
+    replacementNode: BinarySearchTreeNodeInterface<T>,
+  ): boolean {
     if (!nodeToReplace || !replacementNode) {
       return false;
     }
@@ -146,7 +149,11 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
   }
 
   public toString(): string {
-    return traverseInOrder(this)
-    .toString();
+    const result = [];
+    traverseInOrder(this, function (node) {
+      result.push(node.value);
+    });
+
+    return result.toString();
   }
 }

@@ -9,13 +9,14 @@ import {
   insert,
   remove,
   traverseInOrder,
-  traverseAfterOrder,
   traverseLevelOrder,
+  traverseAfterOrder,
   traversePreOrder,
 } from './utils';
 import {
   BinarySearchTreeInterface,
   BinarySearchTreeNodeInterface,
+  traverseCallback,
 } from './types';
 
 export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<T> {
@@ -64,19 +65,52 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
   }
 
   public traversePreOrder(): T[] {
-    return traversePreOrder(this.root);
+    const result = [];
+    this.traversePreOrderCallback(function (node) {
+      result.push(node.value);
+    });
+    return result;
+
+  }
+
+  public traversePreOrderCallback(callback: traverseCallback<T>): void {
+    traversePreOrder<T>(this.root, callback);
   }
 
   public traverseInOrder(): T[] {
-    return traverseInOrder(this.root);
+    const result = [];
+    this.traverseInOrderCallback(function (node) {
+      result.push(node.value);
+    });
+    return result;
+  }
+
+  public traverseInOrderCallback(callback: traverseCallback<T>): void {
+    traverseInOrder<T>(this.root, callback);
   }
 
   public traverseAfterOrder(): T[] {
-    return traverseAfterOrder(this.root);
+    const result = [];
+    this.traverseAfterOrderCallback(function (node) {
+      result.push(node.value);
+    });
+    return result;
+  }
+
+  public traverseAfterOrderCallback(callback: traverseCallback<T>): void {
+    return traverseAfterOrder<T>(this.root, callback);
   }
 
   public traverseLevelOrder(): T[] {
-    return traverseLevelOrder(this.root);
+    const result = [];
+    this.traverseLevelOrderCallback(function (node) {
+      result.push(node.value);
+    });
+    return result;
+  }
+
+  public traverseLevelOrderCallback(callback: traverseCallback<T>): void {
+    traverseLevelOrder<T>(this.root, callback);
   }
 
   public toString(): string {

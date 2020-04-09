@@ -7,7 +7,7 @@ export function insert<T = unknown>(
   value: T,
   comparator: Comparator,
   emptyRootCallback?: (root: BinarySearchTreeNodeInterface<T> | null) => unknown,
-): BinarySearchTreeNodeInterface<T> {
+): BinarySearchTreeNodeInterface<T> | null {
   if (!root) {
     const newNode = new BinarySearchTreeNode<T>(value);
     if (typeof emptyRootCallback === 'function') {

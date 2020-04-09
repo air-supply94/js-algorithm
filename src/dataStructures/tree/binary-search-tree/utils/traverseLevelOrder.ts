@@ -1,13 +1,23 @@
 import { Queue } from '../../../queue';
-import { BinarySearchTreeNodeInterface } from '../types';
+import {
+  BinarySearchTreeNodeInterface,
+  traverseCallback,
+} from '../types';
 
-export function traverseLevelOrder<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): T[] {
-  const result = [];
+export function traverseLevelOrder<T = unknown>(
+  root: BinarySearchTreeNodeInterface<T> | null,
+  callback: traverseCallback,
+): void {
   const nodeQueue = new Queue<BinarySearchTreeNodeInterface<T>>();
-  nodeQueue.enqueue(root);
+  if (root) {
+    nodeQueue.enqueue(root);
+  }
+
   while (!nodeQueue.isEmpty()) {
     const currentNode = nodeQueue.dequeue();
-    result.push(currentNode.value);
+    if (callback(currentNode) === false) {
+      break;
+    }
 
     if (currentNode.left) {
       nodeQueue.enqueue(currentNode.left);
@@ -17,6 +27,4 @@ export function traverseLevelOrder<T = unknown>(root: BinarySearchTreeNodeInterf
       nodeQueue.enqueue(currentNode.right);
     }
   }
-
-  return result;
 }
