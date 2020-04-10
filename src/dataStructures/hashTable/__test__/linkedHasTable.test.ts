@@ -1,10 +1,10 @@
-import { LinkedHasTable } from '../linkedHasTable';
+import { LinkedHashTable } from '../linkedHashTable';
 
 describe('HashTable', () => {
 
   it('should set, read and delete data with collisions', () => {
-    const hashTable = new LinkedHasTable();
-    const size = LinkedHasTable.size;
+    const hashTable = new LinkedHashTable();
+    const size = LinkedHashTable.size;
 
     hashTable.set(size + 1, 'sky-old');
     hashTable.set(size + 1, 'sky');
@@ -46,7 +46,7 @@ describe('HashTable', () => {
   });
 
   it('should be possible to add objects to hash table', () => {
-    const hashTable = new LinkedHasTable<string, { prop1: string; prop2: string }>();
+    const hashTable = new LinkedHashTable<string, { prop1: string; prop2: string }>();
 
     hashTable.set('objectKey', {
       prop1: 'a',
@@ -63,7 +63,7 @@ describe('HashTable', () => {
   });
 
   it('should track actual keys', () => {
-    const hashTable = new LinkedHasTable();
+    const hashTable = new LinkedHashTable();
 
     hashTable.set('a', 'sky-old');
     hashTable.set('a', 'sky');

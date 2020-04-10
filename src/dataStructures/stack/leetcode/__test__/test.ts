@@ -1,6 +1,5 @@
 import { balanceSymbol } from '../balanceSymbol';
 import { postfix } from '../postfix';
-import { hannuo } from '../hannuo';
 import { calPoints } from '../calPoints';
 import { backspaceCompare } from '../backspaceCompare';
 import { removeDuplicates } from '../removeDuplicates';
@@ -35,11 +34,6 @@ describe('leetcode stack', () => {
       '*',
     ]))
     .toBe(9);
-  });
-
-  it('hannuo', () => {
-    hannuo(4, 'a', 'b', 'c');
-    hannuo(0, 'a', 'b', 'c');
   });
 
   it('calPoints', () => {

@@ -1,4 +1,4 @@
-import { Comparator } from '../../../utils/comparator';
+import { Comparator } from '../../../utils';
 import { MinHeap } from '../minHeap';
 
 describe('MinHeap', () => {
@@ -21,7 +21,7 @@ describe('MinHeap', () => {
     .add(7)
     .add(8)
     .add(4)
-    .remove(7);
+    .removeAll(7);
     expect(minHeap.toString())
     .toBe('1,4,3,6,5,8');
   });
@@ -185,23 +185,26 @@ describe('MinHeap', () => {
     expect(minHeap.toString())
     .toBe('3,11,10,12,11');
 
-    expect(minHeap.remove(3))
-    .toBe(3);
+    expect(minHeap.removeAll(3))
+    .toEqual([3]);
 
     expect(minHeap.toString())
     .toEqual('10,11,11,12');
 
-    minHeap.remove(3);
+    minHeap.removeAll(3);
     expect(minHeap.peek())
     .toEqual(10);
 
-    expect(minHeap.remove(11))
-    .toBe(11);
+    expect(minHeap.removeAll(11))
+    .toEqual([
+      11,
+      11,
+    ]);
 
     expect(minHeap.toString())
     .toEqual('10,12');
 
-    minHeap.remove(3);
+    minHeap.removeAll(3);
     expect(minHeap.peek())
     .toEqual(10);
   });
@@ -223,51 +226,54 @@ describe('MinHeap', () => {
     expect(minHeap.toString())
     .toBe('1,2,4,6,3,5,6,10,8,7');
 
-    expect(minHeap.remove(8))
-    .toEqual(8);
-    expect(minHeap.remove(8))
-    .toBeNull();
+    expect(minHeap.removeAll(8))
+    .toEqual([8]);
+    expect(minHeap.removeAll(8))
+    .toEqual([]);
     expect(minHeap.toString())
     .toEqual('1,2,4,6,3,5,6,10,7');
 
-    expect(minHeap.remove(7))
-    .toBe(7);
+    expect(minHeap.removeAll(7))
+    .toEqual([7]);
     expect(minHeap
     .toString())
     .toEqual('1,2,4,6,3,5,6,10');
 
-    expect(minHeap.remove(1))
-    .toBe(1);
+    expect(minHeap.removeAll(1))
+    .toEqual([1]);
     expect(minHeap.toString())
     .toEqual('2,3,4,6,10,5,6');
 
-    expect(minHeap.remove(2))
-    .toBe(2);
+    expect(minHeap.removeAll(2))
+    .toEqual([2]);
     expect(minHeap.toString())
     .toEqual('3,6,4,6,10,5');
 
-    expect(minHeap.remove(6))
-    .toBe(6);
+    expect(minHeap.removeAll(6))
+    .toEqual([
+      6,
+      6,
+    ]);
     expect(minHeap.toString())
     .toEqual('3,5,4,10');
 
-    expect(minHeap.remove(10))
-    .toBe(10);
+    expect(minHeap.removeAll(10))
+    .toEqual([10]);
     expect(minHeap.toString())
     .toEqual('3,5,4');
 
-    expect(minHeap.remove(5))
-    .toBe(5);
+    expect(minHeap.removeAll(5))
+    .toEqual([5]);
     expect(minHeap.toString())
     .toEqual('3,4');
 
-    expect(minHeap.remove(3))
-    .toBe(3);
+    expect(minHeap.removeAll(3))
+    .toEqual([3]);
     expect(minHeap.toString())
     .toEqual('4');
 
-    expect(minHeap.remove(4))
-    .toBe(4);
+    expect(minHeap.removeAll(4))
+    .toEqual([4]);
     expect(minHeap.toString())
     .toEqual('');
   });
@@ -290,7 +296,7 @@ describe('MinHeap', () => {
       return a.length < b.length ? -1 : 1;
     });
 
-    minHeap.remove('hey', comparator);
+    minHeap.removeAll('hey', comparator);
     expect(minHeap.toString())
     .toBe('a,bb,dddd');
   });
@@ -311,11 +317,11 @@ describe('MinHeap', () => {
     expect(minHeap.toString())
     .toBe('1,2,3,4,5,6,7,8,9');
 
-    minHeap.remove(2);
+    minHeap.removeAll(2);
     expect(minHeap.toString())
     .toBe('1,4,3,8,5,6,7,9');
 
-    minHeap.remove(4);
+    minHeap.removeAll(4);
     expect(minHeap.toString())
     .toBe('1,5,3,8,9,6,7');
   });

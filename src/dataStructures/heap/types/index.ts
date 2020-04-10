@@ -1,6 +1,6 @@
-import { Comparator } from '../../../utils/comparator';
+import { Comparator } from '../../../utils';
 
-export interface InterfaceHeap<T> {
+export interface HeapInterface<T = unknown> {
   fromArray: (value: T[]) => this;
   sort: () => T[];
   getLeftChildIndex: (parentIndex: number) => number;
@@ -9,24 +9,25 @@ export interface InterfaceHeap<T> {
   hasParent: (childIndex: number) => boolean;
   hasLeftChild: (parentIndex: number) => boolean;
   hasRightChild: (parentIndex: number) => boolean;
-  leftChild: (parentIndex: number) => T;
-  rightChild: (parentIndex: number) => T;
-  parent: (childIndex: number) => T;
-  peek: () => T;
-  poll: () => T;
+  leftChild: (parentIndex: number) => T | undefined;
+  rightChild: (parentIndex: number) => T | undefined;
+  parent: (childIndex: number) => T | undefined;
+  peek: () => T | undefined;
+  poll: () => T | undefined;
   add: (item: T) => this;
-  remove: (item: T, comparator?: Comparator) => T | null;
-  findIndex: (item?: any, comparator?: Comparator, fromIndex?: number) => number;
+  removeAll: (item: T, comparator?: Comparator) => T [];
+  remove: (item: T, comparator?: Comparator) => T [];
+  findIndex: (item: T, comparator?: Comparator, fromIndex?: number) => number;
   isEmpty: () => boolean;
   toString: () => string;
   up: (startIndex?: number) => this;
   down: (startIndex?: number) => this;
 }
 
-export interface InterfaceMinHeap<T> extends InterfaceHeap<T> {
+export interface MinHeapInterface<T = unknown> extends HeapInterface<T> {
   pairIsInCorrectOrder: (parentElement: T, childElement: T) => boolean;
 }
 
-export interface InterfaceMaxHeap<T> extends InterfaceHeap<T> {
+export interface MaxHeapInterface<T = unknown> extends HeapInterface<T> {
   pairIsInCorrectOrder: (parentElement: T, childElement: T) => boolean;
 }

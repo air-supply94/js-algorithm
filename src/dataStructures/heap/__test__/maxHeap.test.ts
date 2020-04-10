@@ -1,4 +1,4 @@
-import { Comparator } from '../../../utils/comparator';
+import { Comparator } from '../../../utils';
 import { MaxHeap } from '../maxHeap';
 
 describe('MaxHeap', () => {
@@ -169,22 +169,25 @@ describe('MaxHeap', () => {
     maxHeap.add(11);
     maxHeap.add(11);
 
+    expect(maxHeap.remove(100))
+    .toEqual([]);
+
     expect(maxHeap.toString())
     .toBe('12,11,10,3,11');
 
-    maxHeap.remove(12);
+    maxHeap.removeAll(12);
     expect(maxHeap.toString())
     .toEqual('11,11,10,3');
 
-    maxHeap.remove(12);
+    maxHeap.removeAll(12);
     expect(maxHeap.peek())
     .toEqual(11);
 
-    maxHeap.remove(11);
+    maxHeap.removeAll(11);
     expect(maxHeap.toString())
     .toEqual('10,3');
 
-    maxHeap.remove(10);
+    maxHeap.removeAll(10);
     expect(maxHeap.peek())
     .toEqual(3);
   });
@@ -206,39 +209,39 @@ describe('MaxHeap', () => {
     expect(maxHeap.toString())
     .toBe('10,8,6,7,6,4,5,3,2,1');
 
-    maxHeap.remove(4);
+    maxHeap.removeAll(4);
     expect(maxHeap.toString())
     .toEqual('10,8,6,7,6,1,5,3,2');
 
-    maxHeap.remove(3);
+    maxHeap.removeAll(3);
     expect(maxHeap.toString())
     .toEqual('10,8,6,7,6,1,5,2');
 
-    maxHeap.remove(5);
+    maxHeap.removeAll(5);
     expect(maxHeap.toString())
     .toEqual('10,8,6,7,6,1,2');
 
-    maxHeap.remove(10);
+    maxHeap.removeAll(10);
     expect(maxHeap.toString())
     .toEqual('8,7,6,2,6,1');
 
-    maxHeap.remove(6);
+    maxHeap.removeAll(6);
     expect(maxHeap.toString())
     .toEqual('8,7,1,2');
 
-    maxHeap.remove(2);
+    maxHeap.removeAll(2);
     expect(maxHeap.toString())
     .toEqual('8,7,1');
 
-    maxHeap.remove(1);
+    maxHeap.removeAll(1);
     expect(maxHeap.toString())
     .toEqual('8,7');
 
-    maxHeap.remove(7);
+    maxHeap.removeAll(7);
     expect(maxHeap.toString())
     .toEqual('8');
 
-    maxHeap.remove(8);
+    maxHeap.removeAll(8);
     expect(maxHeap.toString())
     .toEqual('');
   });
@@ -261,102 +264,8 @@ describe('MaxHeap', () => {
       return a.length < b.length ? -1 : 1;
     });
 
-    maxHeap.remove('hey', comparator);
+    maxHeap.removeAll('hey', comparator);
     expect(maxHeap.toString())
     .toBe('dddd,a,bb');
   });
-
-  it('sort number', () => {
-    const maxHeap = new MaxHeap();
-    maxHeap.fromArray([
-      3,
-      4,
-      2,
-      1,
-      0,
-      0,
-      4,
-      3,
-      4,
-      2,
-    ]);
-    expect(maxHeap.sort())
-    .toEqual([
-      0,
-      0,
-      1,
-      2,
-      2,
-      3,
-      3,
-      4,
-      4,
-      4,
-    ].reverse());
-  });
-
-  it('sort string', () => {
-    const maxHeap = new MaxHeap();
-    maxHeap.fromArray([
-      3,
-      4,
-      2,
-      1,
-      0,
-      0,
-      4,
-      3,
-      4,
-      2,
-    ].reverse()
-    .map(value => String(value)));
-
-    expect(maxHeap.sort())
-    .toEqual([
-      0,
-      0,
-      1,
-      2,
-      2,
-      3,
-      3,
-      4,
-      4,
-      4,
-    ].reverse()
-    .map(value => String(value)));
-  });
-
-  it('sort object', () => {
-    const arr = [
-      {age: 1},
-      {age: 30},
-      {age: 20},
-      {age: 5},
-      {age: 7},
-      {age: 25},
-    ];
-
-    function compareCallback(a, b) {
-      if (a.age === b.age) {
-        return 0;
-      }
-      return a.age < b.age ? -1 : 1;
-    }
-
-    const maxHeap = new MaxHeap(compareCallback);
-    maxHeap.fromArray(arr);
-    expect(maxHeap.sort())
-    .toEqual(
-      [
-        {age: 1},
-        {age: 5},
-        {age: 7},
-        {age: 20},
-        {age: 25},
-        {age: 30},
-      ].reverse(),
-    );
-  });
-
 });

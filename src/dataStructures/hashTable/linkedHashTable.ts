@@ -2,20 +2,15 @@ import {
   DoubleLinkedList,
   DoubleLinkedListInterface,
 } from '../doubleLinkedList';
-import { LinkedHasTableInterface } from './types';
+import { LinkedHashTableInterface } from './types';
+import { BKDRHash } from './utils';
 
 function hash(key: unknown, size: number): number {
   if (typeof key === 'number') {
     return (key >>> 0) % size;
   }
 
-  const seed = 131;
-  let hash = 0;
-  for (const item of String(key)) {
-    hash = (hash * seed) + item.charCodeAt(0);
-  }
-
-  return hash % size;
+  return BKDRHash(String(key)) % size;
 }
 
 function compareFunction(a: { key: unknown }, b: { key: unknown }) {
@@ -26,13 +21,13 @@ function compareFunction(a: { key: unknown }, b: { key: unknown }) {
   return a.key < b.key ? -1 : 1;
 }
 
-export class LinkedHasTable<T = unknown, K = unknown> implements LinkedHasTableInterface<T, K> {
+export class LinkedHashTable<T = unknown, K = unknown> implements LinkedHashTableInterface<T, K> {
 
   get keys(): T[] {
     return this._keys;
   }
 
-  constructor(size = LinkedHasTable.size) {
+  constructor(size = LinkedHashTable.size) {
     this._buckets = new Array(size).fill(null)
     .map(() => new DoubleLinkedList<{ key: T; value: K }>(compareFunction));
     this._keys = [];
@@ -64,7 +59,7 @@ export class LinkedHasTable<T = unknown, K = unknown> implements LinkedHasTableI
   }
 
   public set(key: T, value: K): this {
-    const keyHash = hash(key, LinkedHasTable.size);
+    const keyHash = hash(key, LinkedHashTable.size);
     this.addKeys(key);
     const doubleLinkedList = this.buckets[keyHash];
     const node = doubleLinkedList.find({
@@ -84,7 +79,7 @@ export class LinkedHasTable<T = unknown, K = unknown> implements LinkedHasTableI
   }
 
   public delete(key: T): K | null {
-    const keyHash = hash(key, LinkedHasTable.size);
+    const keyHash = hash(key, LinkedHashTable.size);
     this.deleteKeys(key);
     const doubleLinkedList = this.buckets[keyHash];
     const node = doubleLinkedList.deleteAll({
@@ -96,7 +91,7 @@ export class LinkedHasTable<T = unknown, K = unknown> implements LinkedHasTableI
   }
 
   public get(key: T): K | null {
-    const doubleLinkedList = this.buckets[hash(key, LinkedHasTable.size)];
+    const doubleLinkedList = this.buckets[hash(key, LinkedHashTable.size)];
     const node = doubleLinkedList.find({value: {key}});
 
     return node ? node.value.value : null;

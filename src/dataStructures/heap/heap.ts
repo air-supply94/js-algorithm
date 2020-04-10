@@ -1,17 +1,44 @@
 import {
   Comparator,
   compareFunctionType,
+  swap,
 } from '../../utils';
-import { swap } from '../../utils/swap';
-import { InterfaceHeap } from './@types';
+import { HeapInterface } from './types';
 
-export abstract class Heap<T> implements InterfaceHeap<T> {
+export abstract class Heap<T = unknown> implements HeapInterface<T> {
   protected constructor(comparatorFunction?: Comparator | compareFunctionType) {
     this._heapContainer = [];
-    this.compare = comparatorFunction instanceof Comparator ? comparatorFunction : new Comparator(comparatorFunction);
+    this.compare = new Comparator(comparatorFunction);
   }
 
   private readonly _heapContainer: T[];
+
+  private removeValueBase(item: T, count: number, comparator?: Comparator): T [] {
+    let i = 0;
+    let removeIndex = this.findIndex(item, comparator);
+    const result = [];
+
+    while (i < count && removeIndex !== -1) {
+      result.push(this.heapContainer[removeIndex]);
+
+      if (removeIndex === this.heapContainer.length - 1) {
+        this.heapContainer.pop();
+        break;
+      }
+
+      this.heapContainer[removeIndex] = this.heapContainer.pop();
+      if (!this.hasParent(removeIndex) || this.pairIsInCorrectOrder(this.parent(removeIndex), this.heapContainer[removeIndex])) {
+        this.down(removeIndex);
+      } else {
+        this.up(removeIndex);
+      }
+
+      i++;
+      removeIndex = this.findIndex(item, comparator, removeIndex);
+    }
+    return result;
+  }
+
   protected compare: Comparator;
 
   get heapContainer() {
@@ -57,23 +84,23 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
     return this.getRightChildIndex(parentIndex) > -1 && this.getRightChildIndex(parentIndex) < this.heapContainer.length;
   }
 
-  public leftChild(parentIndex: number): T {
+  public leftChild(parentIndex: number): T | undefined {
     return this.heapContainer[this.getLeftChildIndex(parentIndex)];
   }
 
-  public rightChild(parentIndex: number): T {
+  public rightChild(parentIndex: number): T | undefined {
     return this.heapContainer[this.getRightChildIndex(parentIndex)];
   }
 
-  public parent(childIndex: number): T {
+  public parent(childIndex: number): T | undefined {
     return this.heapContainer[this.getParentIndex(childIndex)];
   }
 
-  public peek(): T {
+  public peek(): T | undefined {
     return this.heapContainer[0];
   }
 
-  public poll(): T {
+  public poll(): T | undefined {
     if (this.heapContainer.length <= 1) {
       return this.heapContainer.pop();
     }
@@ -88,7 +115,7 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
     return this.up();
   }
 
-  public findIndex(item?: any, comparator = this.compare, fromIndex = 0): number {
+  public findIndex(item: T, comparator = this.compare, fromIndex = 0): number {
     return this.heapContainer.findIndex(value => comparator.equal(item, value), fromIndex);
   }
 
@@ -100,23 +127,12 @@ export abstract class Heap<T> implements InterfaceHeap<T> {
     return this.heapContainer.toString();
   }
 
-  public remove(item: T, comparator?: Comparator): T | null {
-    let removeIndex = this.findIndex(item, comparator);
-    const result = removeIndex === -1 ? null : item;
-    while (removeIndex !== -1) {
-      if (removeIndex === this.heapContainer.length - 1) {
-        this.heapContainer.pop();
-        break;
-      }
-      this.heapContainer[removeIndex] = this.heapContainer.pop();
-      if (!this.hasParent(removeIndex) || this.pairIsInCorrectOrder(this.parent(removeIndex), this.heapContainer[removeIndex])) {
-        this.down(removeIndex);
-      } else {
-        this.up(removeIndex);
-      }
-      removeIndex = this.findIndex(item, comparator);
-    }
-    return result;
+  public removeAll(item: T, comparator?: Comparator): T[] {
+    return this.removeValueBase(item, Infinity, comparator);
+  }
+
+  public remove(item: T, comparator?: Comparator): T [] {
+    return this.removeValueBase(item, 1, comparator);
   }
 
   public up(customStartIndex = this.heapContainer.length - 1): this {

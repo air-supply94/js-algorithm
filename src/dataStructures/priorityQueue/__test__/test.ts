@@ -1,4 +1,4 @@
-import { PriorityQueue } from '../index';
+import { PriorityQueue } from '../priorityQueue';
 
 describe('PriorityQueue', () => {
   it('should create default priority queue', () => {
@@ -6,35 +6,37 @@ describe('PriorityQueue', () => {
 
     expect(priorityQueue)
     .toBeDefined();
+    expect(priorityQueue.isEmpty())
+    .toBeTruthy();
   });
 
   it('should insert items to the queue and respect priorities', () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
-    expect(priorityQueue.minHeap.peek().value)
+    expect(priorityQueue.peek().value)
     .toBe(10);
 
     priorityQueue.add(5, 2);
-    expect(priorityQueue.minHeap.peek().value)
+    expect(priorityQueue.peek().value)
     .toBe(10);
 
     priorityQueue.add(100);
-    expect(priorityQueue.minHeap.peek().value)
+    expect(priorityQueue.peek().value)
     .toBe(100);
 
-    priorityQueue.remove(200);
-    expect(priorityQueue.minHeap.peek().value)
+    priorityQueue.removeAll(200);
+    expect(priorityQueue.peek().value)
     .toBe(100);
 
-    priorityQueue.remove(100);
-    expect(priorityQueue.minHeap.peek().value)
+    priorityQueue.removeAll(100);
+    expect(priorityQueue.peek().value)
     .toBe(10);
-    priorityQueue.remove(10);
-    expect(priorityQueue.minHeap.peek().value)
+    priorityQueue.removeAll(10);
+    expect(priorityQueue.peek().value)
     .toBe(5);
-    priorityQueue.remove(5);
-    expect(priorityQueue.minHeap.peek())
+    priorityQueue.removeAll(5);
+    expect(priorityQueue.peek())
     .toBeUndefined();
   });
 
@@ -46,13 +48,13 @@ describe('PriorityQueue', () => {
     priorityQueue.add(100, 0);
     priorityQueue.add(200, 0);
 
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(100);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(200);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(10);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(5);
   });
 
@@ -64,15 +66,15 @@ describe('PriorityQueue', () => {
     priorityQueue.add(100, 0);
     priorityQueue.add(200, 0);
 
-    priorityQueue.changePriority(100, 10);
-    priorityQueue.changePriority(10, 20);
-    expect(priorityQueue.minHeap.poll().value)
+    priorityQueue.changeAllPriority(100, 10);
+    priorityQueue.changeAllPriority(10, 20);
+    expect(priorityQueue.poll().value)
     .toBe(200);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(5);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(100);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(10);
   });
 
@@ -84,16 +86,16 @@ describe('PriorityQueue', () => {
     priorityQueue.add(100, 0);
     priorityQueue.add(200, 0);
 
-    priorityQueue.changePriority(200, 10);
-    priorityQueue.changePriority(10, 20);
+    priorityQueue.changeAllPriority(200, 10);
+    priorityQueue.changeAllPriority(10, 20);
 
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(100);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(5);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(200);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(10);
   });
 
@@ -105,21 +107,21 @@ describe('PriorityQueue', () => {
     priorityQueue.add(100, 0);
     priorityQueue.add(200, 0);
 
-    priorityQueue.changePriority(300, 10);
-    priorityQueue.changePriority(200, 10);
-    priorityQueue.changePriority(10, 20);
+    priorityQueue.changeAllPriority(300, 10);
+    priorityQueue.changeAllPriority(200, 10);
+    priorityQueue.changeAllPriority(10, 20);
 
     priorityQueue.add(15, 15);
 
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(100);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(5);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(200);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(15);
-    expect(priorityQueue.minHeap.poll().value)
+    expect(priorityQueue.poll().value)
     .toBe(10);
   });
 
@@ -131,10 +133,12 @@ describe('PriorityQueue', () => {
     priorityQueue.add(100, 0);
     priorityQueue.add(200, 0);
     priorityQueue.add(15, 15);
-
-    expect(priorityQueue.hasValue(70))
+    expect(priorityQueue.has(70))
     .toBe(false);
-    expect(priorityQueue.hasValue(15))
+    expect(priorityQueue.has(15))
     .toBe(true);
+    expect(priorityQueue.sort()
+    .toString())
+    .toBe('100,200,10,5,15');
   });
 });

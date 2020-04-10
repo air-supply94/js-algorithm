@@ -1,11 +1,11 @@
 import { Heap } from './heap';
-import { InterfaceMinHeap } from './@types';
+import { MinHeapInterface } from './types';
 import {
   Comparator,
   compareFunctionType,
-} from '../../utils/comparator';
+} from '../../utils';
 
-export class MinHeap<T> extends Heap<T> implements InterfaceMinHeap<T> {
+export class MinHeap<T = unknown> extends Heap<T> implements MinHeapInterface<T> {
   constructor(comparatorFunction?: Comparator | compareFunctionType) {
     super(comparatorFunction);
   }
