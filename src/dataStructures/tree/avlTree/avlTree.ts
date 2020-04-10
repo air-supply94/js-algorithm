@@ -3,7 +3,7 @@ import {
   BinarySearchTreeInterface,
   BinarySearchTreeNodeInterface,
   traverseCallback,
-} from '../binary-search-tree';
+} from '../binarySearchTree';
 import {
   Comparator,
   compareFunctionType,

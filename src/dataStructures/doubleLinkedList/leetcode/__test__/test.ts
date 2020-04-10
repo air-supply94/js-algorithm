@@ -1,4 +1,4 @@
-import { DoubleLinkedList } from '../../index';
+import { DoubleLinkedList } from '../../doubleLinkedList';
 import { deleteDuplicates } from '../deleteDuplicates';
 import { getDecimalValue } from '../getDecimalValue';
 import { isPalindrome } from '../isPalindrome';

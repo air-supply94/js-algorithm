@@ -1,4 +1,7 @@
-import { DoubleLinkedListNodeInterface } from './types';
+import {
+  DoubleLinkedListNodeInterface,
+  toStringCallback,
+} from './types';
 
 export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeInterface<T> {
 
@@ -39,7 +42,7 @@ export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeIn
     return this;
   }
 
-  public toString(callback?: (value: T) => string): string {
+  public toString(callback?: toStringCallback<T>): string {
     return typeof callback === 'function' ? callback(this.value) : String(this.value);
   }
 }

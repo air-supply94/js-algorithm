@@ -1,4 +1,4 @@
-import { DoubleLinkedList } from '../index';
+import { DoubleLinkedList } from '../doubleLinkedList';
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { Comparator } from '../../../utils/comparator';
 import { hasCircle } from '../leetcode/hasCircle';

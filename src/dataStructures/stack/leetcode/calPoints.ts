@@ -1,4 +1,4 @@
-import { Stack } from '../index';
+import { Stack } from '../stack';
 import { add } from '../../../utils';
 
 export function calPoints(options: (string | number)[]): number {

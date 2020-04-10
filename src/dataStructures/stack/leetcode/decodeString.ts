@@ -1,4 +1,4 @@
-import { Stack } from '../index';
+import { Stack } from '../stack';
 
 export function decodeString(str: string): string {
   const stack = new Stack<string>();

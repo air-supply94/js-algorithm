@@ -1,4 +1,4 @@
-import { DoubleLinkedListInterface } from '../index';
+import { DoubleLinkedListInterface } from '../types';
 
 export function swapPairs(doubleLinkedList: DoubleLinkedListInterface): DoubleLinkedListInterface {
   if (doubleLinkedList.size <= 2) {

@@ -1,4 +1,4 @@
-import { Stack } from '../index';
+import { Stack } from '../stack';
 
 export function balanceSymbol(str: string): boolean {
   const stack = new Stack<string>();

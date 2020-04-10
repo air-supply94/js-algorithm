@@ -1,7 +1,7 @@
 import {
   BinarySearchTreeInterface,
   BinarySearchTreeNodeInterface,
-} from '../../binary-search-tree/types';
+} from '../../binarySearchTree/types';
 
 export interface AvlTreeInterface<T = unknown> extends Omit<BinarySearchTreeInterface<T>, 'setRoot' | 'comparator'> {
   readonly binarySearchTree: BinarySearchTreeInterface<T>;

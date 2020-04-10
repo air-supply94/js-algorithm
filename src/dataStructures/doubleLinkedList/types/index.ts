@@ -1,8 +1,16 @@
+export type eachCallback<T = unknown> = (node: DoubleLinkedListNodeInterface<T>) => void | boolean;
+export type toStringCallback<T = unknown> = (value: T) => string ;
+
+export interface FindParams<T = unknown> {
+  value?: T;
+  callback?: (value: T) => boolean | void;
+}
+
 export interface DoubleLinkedListNodeInterface<T = unknown> {
   value: T;
   next: null | DoubleLinkedListNodeInterface<T>;
   previous: null | DoubleLinkedListNodeInterface<T>;
-  toString(callback?: (node: T) => string): string;
+  toString(callback?: toStringCallback): string;
   setValue(value: T): this;
   setNext(node: DoubleLinkedListNodeInterface<T> | null): this;
   setPrevious(node: DoubleLinkedListNodeInterface<T> | null): this;
@@ -12,13 +20,13 @@ export interface DoubleLinkedListInterface<T = unknown> {
   head: null | DoubleLinkedListNodeInterface<T>;
   tail: null | DoubleLinkedListNodeInterface<T>;
   size: number;
-  eachFromHead(callback: (node: DoubleLinkedListNodeInterface<T>) => void | boolean): this;
-  eachFromTail(callback: (node: DoubleLinkedListNodeInterface<T>) => void | boolean): this;
+  eachFromHead(callback: eachCallback<T>): void;
+  eachFromTail(callback: eachCallback<T>): void;
   toArray(): DoubleLinkedListNodeInterface<T>[];
   fromArray(values: T[]): this;
   deleteHead(): null | DoubleLinkedListNodeInterface<T>;
   deleteTail(): null | DoubleLinkedListNodeInterface<T>;
-  find(params: { value?: T; callback?: (value: T) => boolean | void }): null | DoubleLinkedListNodeInterface<T>;
+  find(params: FindParams): null | DoubleLinkedListNodeInterface<T>;
   deleteAll(value?: T): null | DoubleLinkedListNodeInterface<T>;
   delete(value?: T): null | DoubleLinkedListNodeInterface<T>;
   get(index: number): null | DoubleLinkedListNodeInterface<T>;
@@ -34,5 +42,5 @@ export interface DoubleLinkedListInterface<T = unknown> {
   setHead(head: DoubleLinkedListNodeInterface<T> | null): this;
   setTail(tail: DoubleLinkedListNodeInterface<T> | null): this;
   clear(): this;
-  toString(callback?: (node: T) => string): string;
+  toString(callback?: toStringCallback): string;
 }

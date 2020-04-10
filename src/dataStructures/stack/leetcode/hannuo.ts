@@ -1,4 +1,4 @@
-import { Stack } from '../index';
+import { Stack } from '../stack';
 
 export function hannuo(n: number, one: string, two: string, three: string) {
   function move(x: string, y: string): void {

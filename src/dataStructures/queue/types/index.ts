@@ -1,6 +1,8 @@
+import { toStringCallback } from '../../doubleLinkedList/types';
+
 export interface QueueInterface<T = unknown> {
   size: number;
-  toString(callback?: (value: T) => string): string;
+  toString(callback?: toStringCallback<T>): string;
   toArray(): T[];
   dequeue(): T | null;
   enqueue(value: T): T;

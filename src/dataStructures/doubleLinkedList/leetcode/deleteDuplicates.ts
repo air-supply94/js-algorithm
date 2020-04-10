@@ -1,4 +1,4 @@
-import { DoubleLinkedListInterface } from '../index';
+import { DoubleLinkedListInterface } from '../types';
 
 export function deleteDuplicates(doubleLinkedList: DoubleLinkedListInterface): DoubleLinkedListInterface {
   let currentNode = doubleLinkedList.head;
