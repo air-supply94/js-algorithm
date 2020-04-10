@@ -1,47 +1,52 @@
-import { HashTable } from '../index';
+import { LinkedHasTable } from '../linkedHasTable';
 
 describe('HashTable', () => {
 
   it('should set, read and delete data with collisions', () => {
-    const hashTable = new HashTable(3);
+    const hashTable = new LinkedHasTable();
+    const size = LinkedHasTable.size;
 
-    hashTable.set('a', 'sky-old');
-    hashTable.set('a', 'sky');
-    hashTable.set('b', 'sea');
-    hashTable.set('c', 'earth');
-    hashTable.set('d', 'ocean');
+    hashTable.set(size + 1, 'sky-old');
+    hashTable.set(size + 1, 'sky');
+    hashTable.set(2, 'sea');
+    hashTable.set(3, 'earth');
+    hashTable.set(4, 'ocean');
 
-    expect(hashTable.has('x'))
+    expect(hashTable.get(1))
+    .toBeNull();
+    expect(hashTable.get(size * 2 + 1))
+    .toBeNull();
+    expect(hashTable.has(0))
     .toBe(false);
-    expect(hashTable.has('b'))
+    expect(hashTable.has(2))
     .toBe(true);
-    expect(hashTable.has('c'))
+    expect(hashTable.has(3))
     .toBe(true);
 
-    expect(hashTable.get('a'))
+    expect(hashTable.get(size + 1))
     .toBe('sky');
-    expect(hashTable.get('d'))
+    expect(hashTable.get(4))
     .toBe('ocean');
     expect(hashTable.get('x'))
     .toBeNull();
 
-    hashTable.delete('a');
+    hashTable.delete(size + 1);
 
     expect(hashTable.delete('not-existing'))
     .toBe(null);
 
-    expect(hashTable.get('a'))
+    expect(hashTable.get(size + 1))
     .toBeNull();
-    expect(hashTable.get('d'))
+    expect(hashTable.get(4))
     .toBe('ocean');
 
-    hashTable.set('d', 'ocean-new');
-    expect(hashTable.get('d'))
+    hashTable.set(4, 'ocean-new');
+    expect(hashTable.get(4))
     .toBe('ocean-new');
   });
 
   it('should be possible to add objects to hash table', () => {
-    const hashTable = new HashTable<{ prop1: string; prop2: string }>();
+    const hashTable = new LinkedHasTable<string, { prop1: string; prop2: string }>();
 
     hashTable.set('objectKey', {
       prop1: 'a',
@@ -58,7 +63,7 @@ describe('HashTable', () => {
   });
 
   it('should track actual keys', () => {
-    const hashTable = new HashTable(3);
+    const hashTable = new LinkedHasTable();
 
     hashTable.set('a', 'sky-old');
     hashTable.set('a', 'sky');
@@ -66,7 +71,7 @@ describe('HashTable', () => {
     hashTable.set('c', 'earth');
     hashTable.set('d', 'ocean');
 
-    expect(hashTable.getKeys())
+    expect(hashTable.keys)
     .toEqual([
       'a',
       'b',

@@ -1,15 +1,15 @@
-import { HashTable } from '../hashTable';
+import { LinkedHasTable } from '../hashTable/linkedHasTable';
 
 export class TrieNode {
   constructor(character: string, isCompleteWord = false) {
     this.character = character;
     this.isCompleteWord = isCompleteWord;
-    this.children = new HashTable(1);
+    this.children = new LinkedHasTable(1);
   }
 
   public character: string;
   public isCompleteWord: boolean;
-  public children: HashTable<TrieNode>;
+  public children: LinkedHasTable<TrieNode>;
 
   public getChild(character: string): TrieNode | null {
     return this.children.get(character);
@@ -46,11 +46,11 @@ export class TrieNode {
   }
 
   public hasChildren(): boolean {
-    return this.children.getKeys().length !== 0;
+    return this.children.keys().length !== 0;
   }
 
   public suggestChildren(): string[] {
-    return this.children.getKeys();
+    return this.children.keys();
   }
 
   public toString(): string {

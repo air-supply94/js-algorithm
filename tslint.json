@@ -122,11 +122,21 @@
       true,
       {
         "order": [
-          "constructor",
-          "static-field",
-          "static-method",
-          "instance-field",
-          "instance-method"
+          "private-constructor",
+          "protected-constructor",
+          "public-constructor",
+          "private-static-field",
+          "private-static-method",
+          "protected-static-field",
+          "protected-static-method",
+          "public-static-field",
+          "public-static-method",
+          "private-instance-field",
+          "private-instance-method",
+          "protected-instance-field",
+          "protected-instance-method",
+          "public-instance-field",
+          "public-instance-method"
         ]
       }
     ],

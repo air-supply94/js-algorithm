@@ -157,7 +157,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return deletedTail;
   }
 
-  public find(findParams: FindParams): null | DoubleLinkedListNodeInterface<T> {
+  public find(findParams: FindParams<T>): null | DoubleLinkedListNodeInterface<T> {
     const {value, callback = {}} = findParams;
     let findNode = null;
     this.eachFromHead(node => {
