@@ -33,8 +33,7 @@ export class Stack<T = unknown> implements StackInterface<T> {
   }
 
   public pop(): T | null {
-    const removedTail = this.doubleLinkedList.deleteTail();
-    return removedTail ? removedTail.value : null;
+    return this.isEmpty() ? null : this.doubleLinkedList.deleteTail().value;
   }
 
   public push(value: T): T {

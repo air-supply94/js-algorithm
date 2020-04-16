@@ -7,7 +7,7 @@ export function each<T = unknown>(
   startNode: DoubleLinkedListNodeInterface<T> | null,
   size: number,
   propertyKey: 'next' | 'previous',
-  callback: eachCallback,
+  callback: eachCallback<T>,
 ): void {
   let i = 0;
   let currentNode = startNode;

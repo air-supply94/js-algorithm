@@ -6,10 +6,10 @@ export interface PriorityQueueItem<T = unknown> {
 export interface PriorityQueueInterface<T = unknown> {
   isEmpty(): boolean;
   sort(): T[];
-  poll(): PriorityQueueItem<T> | undefined;
-  peek(): PriorityQueueItem<T> | undefined;
+  poll(): T | undefined;
+  peek(): T | undefined;
   add(value: T, priority): this;
-  removeAll(value: T): PriorityQueueItem<T>[];
+  removeAll(value: T): T[];
   changeAllPriority(value: T, priority: number): this;
   has(value: T): boolean;
 }

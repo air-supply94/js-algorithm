@@ -103,7 +103,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     .setSize(0);
   }
 
-  public toString(callback?: toStringCallback): string {
+  public toString(callback?: toStringCallback<T>): string {
     return this.toArray()
     .map(node => node.toString(callback))
     .toString();

@@ -13,7 +13,7 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
 
   private readonly _heapContainer: T[];
 
-  private removeValueBase(item: T, count: number, comparator?: Comparator): T [] {
+  private removeValueBase(item: T, count: number, comparator?: Comparator): T[] {
     let i = 0;
     let removeIndex = this.findIndex(item, comparator);
     const result = [];

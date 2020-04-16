@@ -33,8 +33,7 @@ export class Queue<T = unknown> implements QueueInterface<T> {
   }
 
   public dequeue(): T | null {
-    const removedHead = this.doubleLinkedList.deleteHead();
-    return removedHead ? removedHead.value : null;
+    return this.isEmpty() ? null : this.doubleLinkedList.deleteHead().value;
   }
 
   public enqueue(value: T): T {

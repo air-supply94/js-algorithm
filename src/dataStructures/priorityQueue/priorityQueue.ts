@@ -40,12 +40,12 @@ export class PriorityQueue<T = unknown> implements PriorityQueueInterface<T> {
     .map(item => item.value);
   }
 
-  public poll(): PriorityQueueItem<T> | undefined {
-    return this.minHeap.poll();
+  public poll(): T | undefined {
+    return this.isEmpty() ? undefined : this.minHeap.poll().value;
   }
 
-  public peek(): PriorityQueueItem<T> | undefined {
-    return this.minHeap.peek();
+  public peek(): T | undefined {
+    return this.isEmpty() ? undefined : this.minHeap.peek().value;
   }
 
   public add(value: T, priority = 0): this {
@@ -56,13 +56,14 @@ export class PriorityQueue<T = unknown> implements PriorityQueueInterface<T> {
     return this;
   }
 
-  public removeAll(value: T): PriorityQueueItem<T>[] {
-    return this.minHeap.removeAll({value}, this.valueCompare);
+  public removeAll(value: T): T[] {
+    return this.minHeap.removeAll({value}, this.valueCompare)
+    .map(item => item.value);
   }
 
   public changeAllPriority(value: T, priority: number): this {
     this.removeAll(value)
-    .forEach(item => this.add(item.value, priority));
+    .forEach(item => this.add(item, priority));
 
     return this;
   }

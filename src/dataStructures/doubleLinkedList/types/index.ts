@@ -1,5 +1,5 @@
 export type eachCallback<T = unknown> = (node: DoubleLinkedListNodeInterface<T>) => void | boolean;
-export type toStringCallback<T = unknown> = (value: T) => string ;
+export type toStringCallback<T = unknown> = (value: T) => string;
 
 export interface FindParams<T = unknown> {
   value?: T;
@@ -10,7 +10,7 @@ export interface DoubleLinkedListNodeInterface<T = unknown> {
   value: T;
   next: null | DoubleLinkedListNodeInterface<T>;
   previous: null | DoubleLinkedListNodeInterface<T>;
-  toString(callback?: toStringCallback): string;
+  toString(callback?: toStringCallback<T>): string;
   setValue(value: T): this;
   setNext(node: DoubleLinkedListNodeInterface<T> | null): this;
   setPrevious(node: DoubleLinkedListNodeInterface<T> | null): this;
@@ -42,5 +42,5 @@ export interface DoubleLinkedListInterface<T = unknown> {
   setHead(head: DoubleLinkedListNodeInterface<T> | null): this;
   setTail(tail: DoubleLinkedListNodeInterface<T> | null): this;
   clear(): this;
-  toString(callback?: toStringCallback): string;
+  toString(callback?: toStringCallback<T>): string;
 }

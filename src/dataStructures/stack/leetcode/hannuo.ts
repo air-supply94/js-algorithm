@@ -1,11 +1,11 @@
 import { Stack } from '../stack';
 
-export function hannuo(n: number, one: string, two: string, three: string) {
-  function move(x: string, y: string): void {
+export function hannuo<T = unknown>(n: number, one: T, two: T, three: T) {
+  function move(x: T, y: T): void {
     console.log(`${x}--->${y}`);
   }
 
-  const stack = new Stack<{ n: number; one: string; two: string; three: string }>();
+  const stack = new Stack<{ n: number; one: T; two: T; three: T }>();
   stack.push({
     n: n >>> 0 || 1,
     one,

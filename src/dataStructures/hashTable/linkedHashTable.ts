@@ -7,7 +7,7 @@ import { BKDRHash } from './utils';
 
 function hash(key: unknown, size: number): number {
   if (typeof key === 'number') {
-    return (key >>> 0) % size;
+    return (key % size) >>> 0;
   }
 
   return BKDRHash(String(key)) % size;
