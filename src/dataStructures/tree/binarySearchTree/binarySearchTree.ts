@@ -21,15 +21,12 @@ import {
 
 export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<T> {
   constructor(compareFunction?: compareFunctionType | Comparator) {
-    this._comparator = new Comparator(compareFunction);
+    this.comparator = new Comparator(compareFunction);
   }
 
-  private readonly _comparator: Comparator;
   private _root: BinarySearchTreeNodeInterface<T> | null = null;
 
-  get comparator() {
-    return this._comparator;
-  }
+  public readonly comparator: Comparator;
 
   get root(): BinarySearchTreeNodeInterface<T> | null {
     return this._root;

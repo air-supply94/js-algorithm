@@ -18,7 +18,7 @@ export function insert<T = unknown>(
 
   if (comparator.lessThan(value, root.value)) {
     if (root.left) {
-      return insert(root.left, value, comparator, emptyRootCallback);
+      return insert(root.left, value, comparator);
     }
 
     const newNode = new BinarySearchTreeNode<T>(value);
@@ -29,7 +29,7 @@ export function insert<T = unknown>(
 
   if (comparator.greaterThan(value, root.value)) {
     if (root.right) {
-      return insert(root.right, value, comparator, emptyRootCallback);
+      return insert(root.right, value, comparator);
     }
 
     const newNode = new BinarySearchTreeNode<T>(value);

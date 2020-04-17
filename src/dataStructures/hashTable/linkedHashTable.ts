@@ -22,25 +22,15 @@ function compareFunction(a: { key: unknown }, b: { key: unknown }) {
 }
 
 export class LinkedHashTable<T = unknown, K = unknown> implements LinkedHashTableInterface<T, K> {
-
-  get keys(): T[] {
-    return this._keys;
-  }
-
   constructor(size = LinkedHashTable.size) {
-    this._buckets = new Array(size).fill(null)
+    this.buckets = new Array(size).fill(null)
     .map(() => new DoubleLinkedList<{ key: T; value: K }>(compareFunction));
-    this._keys = [];
+    this.keys = [];
   }
 
   public static size = 32;
 
-  private get buckets() {
-    return this._buckets;
-  }
-
-  private readonly _buckets: DoubleLinkedListInterface<{ key: T; value: K }>[];
-  private readonly _keys: T[];
+  private readonly buckets: DoubleLinkedListInterface<{ key: T; value: K }>[];
 
   private keyIndex(key: T): number {
     return this.keys.indexOf(key);
@@ -57,6 +47,8 @@ export class LinkedHashTable<T = unknown, K = unknown> implements LinkedHashTabl
       this.keys.splice(this.keyIndex(key), 1);
     }
   }
+
+  public readonly keys: T[];
 
   public set(key: T, value: K): this {
     const keyHash = hash(key, LinkedHashTable.size);

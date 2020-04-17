@@ -7,14 +7,10 @@ import {
 
 export class Queue<T = unknown> implements QueueInterface<T> {
   constructor() {
-    this._doubleLinkedList = new DoubleLinkedList<T>();
+    this.doubleLinkedList = new DoubleLinkedList<T>();
   }
 
-  private readonly _doubleLinkedList: DoubleLinkedListInterface<T>;
-
-  private get doubleLinkedList() {
-    return this._doubleLinkedList;
-  }
+  private readonly doubleLinkedList: DoubleLinkedListInterface<T>;
 
   get size(): number {
     return this.doubleLinkedList.size;

@@ -35,8 +35,8 @@ export function remove<T = unknown>(
       nodeToRemove.setValue(nextBiggerNode.value);
       remove(nodeToRemove.right, nextBiggerNode.value, comparator);
     } else {
-      nodeToRemove.setValue(nodeToRemove.right.value);
-      nodeToRemove.setRight(nodeToRemove.right.right);
+      nodeToRemove.setValue(nodeToRemove.right.value)
+      .setRight(nodeToRemove.right.right);
     }
   } else {
     // 真正删除的node

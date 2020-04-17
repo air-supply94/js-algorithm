@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    "types": [
-      "jest"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "sourceMap": true,
     "strict": false,
     "module": "esnext",

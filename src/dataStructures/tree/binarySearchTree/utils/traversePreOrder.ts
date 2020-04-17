@@ -10,12 +10,10 @@ export function traversePreOrder<T = unknown>(
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
-  let breakTag = false;
-  while (true) {
+  outer: while (true) {
     while (currentNode) {
       if (callback(currentNode) === false) {
-        breakTag = true;
-        break;
+        break outer;
       }
 
       if (currentNode.right) {
@@ -25,7 +23,7 @@ export function traversePreOrder<T = unknown>(
       currentNode = currentNode.left;
     }
 
-    if (nodeStack.isEmpty() || breakTag) {
+    if (nodeStack.isEmpty()) {
       break;
     }
 

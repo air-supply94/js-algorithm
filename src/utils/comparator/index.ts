@@ -1,7 +1,7 @@
 import {
   ComparatorInterface,
   compareFunctionType,
-} from './@types';
+} from './types';
 
 export class Comparator implements ComparatorInterface {
   constructor(comparatorFunction: Comparator | compareFunctionType = Comparator.defaultCompareFunction) {
@@ -49,4 +49,4 @@ export class Comparator implements ComparatorInterface {
   }
 }
 
-export * from './@types';
+export * from './types';
