@@ -4,9 +4,9 @@ import {
   compareFunctionType,
 } from '../../utils';
 
-export function shellSort<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
+export function shellSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);
-  let gap = Math.floor(originalArray.length / 2);
+  let gap = originalArray.length / 2 | 0;
 
   while (gap > 0) {
     for (let i = 0; i < (originalArray.length - gap); i++) {
@@ -18,12 +18,12 @@ export function shellSort<T>(originalArray: T[], compareCallback?: Comparator | 
           swap(originalArray, currentIndex, gapShiftedIndex);
         }
 
-        gapShiftedIndex = currentIndex;
+        gapShiftedIndex -= gap;
         currentIndex -= gap;
       }
     }
 
-    gap = Math.floor(gap / 2);
+    gap >>= 1;
   }
 
   return originalArray;

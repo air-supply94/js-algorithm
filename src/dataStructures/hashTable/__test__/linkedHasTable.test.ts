@@ -71,13 +71,6 @@ describe('HashTable', () => {
     hashTable.set('c', 'earth');
     hashTable.set('d', 'ocean');
 
-    expect(hashTable.keys)
-    .toEqual([
-      'a',
-      'b',
-      'c',
-      'd',
-    ]);
     expect(hashTable.has('a'))
     .toBe(true);
     expect(hashTable.has('x'))

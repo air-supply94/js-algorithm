@@ -4,7 +4,7 @@ import {
   Comparator,
 } from '../../utils';
 
-export function selectionSort<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
+export function selectionSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);
   for (let i = 0; i < originalArray.length - 1; ++i) {
     let minIndex = i;

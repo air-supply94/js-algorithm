@@ -4,7 +4,7 @@ import {
 } from '../../binarySearchTree/types';
 
 export interface AvlTreeInterface<T = unknown> extends Omit<BinarySearchTreeInterface<T>, 'setRoot' | 'comparator'> {
-  // readonly binarySearchTree: BinarySearchTreeInterface<T>;
+  readonly binarySearchTree: BinarySearchTreeInterface<T>;
   balance(node: BinarySearchTreeNodeInterface<T>): this;
   rotateLeftLeft(rootNode: BinarySearchTreeNodeInterface<T>): this;
   rotateLeftRight(rootNode: BinarySearchTreeNodeInterface<T>): this;

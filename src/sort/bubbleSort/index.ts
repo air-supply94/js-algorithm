@@ -4,7 +4,7 @@ import {
   compareFunctionType,
 } from '../../utils';
 
-export function bubbleSort<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
+export function bubbleSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);
   let isSwap: boolean;
   for (let i = 0; i < originalArray.length; ++i) {

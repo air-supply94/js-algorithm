@@ -4,7 +4,7 @@ import {
   compareFunctionType,
 } from '../../utils';
 
-export function insertionSort<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
+export function insertionSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);
   for (let i = 1; i < originalArray.length; i++) {
     let currentIndex = i;

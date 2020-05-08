@@ -4,7 +4,7 @@ import {
   ComparatorInterface,
 } from '../../utils';
 
-export function mergeSort<T>(originalArray: T[], comparator?: Comparator | compareFunctionType): T[] {
+export function mergeSort<T = unknown>(originalArray: T[], comparator?: Comparator | compareFunctionType): T[] {
   comparator = new Comparator(comparator);
 
   if (originalArray.length <= 1) {

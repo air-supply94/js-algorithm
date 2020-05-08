@@ -3,7 +3,7 @@ import {
   compareFunctionType,
 } from '../../utils/';
 
-export function linearSearch<T>(array: T[], seekElement?: any, compareCallback?: Comparator | compareFunctionType): number[] {
+export function linearSearch<T = unknown>(array: T[], seekElement?: any, compareCallback?: Comparator | compareFunctionType): number[] {
   const comparator = new Comparator(compareCallback);
   const result: number[] = [];
   array.forEach((value, index) => {

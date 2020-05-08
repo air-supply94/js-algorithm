@@ -12,14 +12,10 @@ import { AvlTreeInterface } from './types';
 
 export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
   constructor(compareFunction?: compareFunctionType | Comparator) {
-    this._binarySearchTree = new BinarySearchTree<T>(compareFunction);
+    this.binarySearchTree = new BinarySearchTree<T>(compareFunction);
   }
 
-  private readonly _binarySearchTree: BinarySearchTreeInterface<T>;
-
-  get binarySearchTree() {
-    return this._binarySearchTree;
-  }
+  public readonly binarySearchTree: BinarySearchTreeInterface<T>;
 
   get root(): BinarySearchTreeNodeInterface<T> | null {
     return this.binarySearchTree.root;

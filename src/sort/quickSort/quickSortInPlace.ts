@@ -4,7 +4,7 @@ import {
   compareFunctionType,
 } from '../../utils';
 
-export function quickSortInPlace<T>(originalArray: T[], compareCallback?: Comparator | compareFunctionType, left: number = 0, right: number = originalArray.length - 1): T[] {
+export function quickSortInPlace<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType, left: number = 0, right: number = originalArray.length - 1): T[] {
   const comparator = new Comparator(compareCallback);
   if (originalArray.length > 1) {
     const partitionIndex = partitionArray(originalArray, comparator, left, right);
@@ -12,6 +12,7 @@ export function quickSortInPlace<T>(originalArray: T[], compareCallback?: Compar
     if (left < partitionIndex - 1) {
       quickSortInPlace(originalArray, comparator, left, partitionIndex - 1);
     }
+
     if (partitionIndex < right) {
       quickSortInPlace(originalArray, comparator, partitionIndex, right);
     }
@@ -21,15 +22,16 @@ export function quickSortInPlace<T>(originalArray: T[], compareCallback?: Compar
 }
 
 function partitionArray(originalArray, comparator: Comparator, left: number, right: number): number {
-  const pivot = originalArray[Math.floor((left + right) / 2)];
+  const pivotElement = originalArray[(left + right) / 2 | 0];
   let i = left;
   let j = right;
+
   while (i <= j) {
-    while (comparator.lessThan(originalArray[i], pivot)) {
+    while (comparator.lessThan(originalArray[i], pivotElement)) {
       i++;
     }
 
-    while (comparator.greaterThan(originalArray[j], pivot)) {
+    while (comparator.greaterThan(originalArray[j], pivotElement)) {
       j--;
     }
 
@@ -39,5 +41,6 @@ function partitionArray(originalArray, comparator: Comparator, left: number, rig
       j--;
     }
   }
+
   return i;
 }

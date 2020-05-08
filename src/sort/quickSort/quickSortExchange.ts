@@ -3,13 +3,13 @@ import {
   compareFunctionType,
 } from '../../utils';
 
-export function quickSortExchange<T>(originalArray: T[], comparator: Comparator | compareFunctionType): T[] {
+export function quickSortExchange<T = unknown>(originalArray: T[], comparator: Comparator | compareFunctionType): T[] {
   comparator = new Comparator(comparator);
   if (originalArray.length <= 1) {
     return originalArray;
   }
 
-  const pivotElement = originalArray.splice(Math.floor(originalArray.length / 2), 1)[0];
+  const pivotElement = originalArray.splice(originalArray.length / 2 | 0, 1)[0];
   const center = [pivotElement];
   const left = [];
   const right = [];
