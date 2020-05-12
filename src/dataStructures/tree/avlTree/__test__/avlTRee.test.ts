@@ -1,36 +1,6 @@
 import { AvlTree } from '../avlTree';
 
 describe('AvlTree', () => {
-  it('should do special case', () => {
-    const tree = new AvlTree();
-    tree.binarySearchTree.insert(1);
-    tree.binarySearchTree.insert(3);
-    tree.binarySearchTree.insert(4);
-    tree.binarySearchTree.insert(2);
-    tree.balance(tree.root);
-
-    tree.binarySearchTree.setRoot(null);
-    tree.binarySearchTree.insert(4);
-    tree.binarySearchTree.insert(2);
-    tree.binarySearchTree.insert(1);
-    tree.binarySearchTree.insert(3);
-    tree.balance(tree.root);
-
-    tree.binarySearchTree.setRoot(null);
-    const rootNode = tree.binarySearchTree.insert(3);
-    tree.binarySearchTree.insert(2);
-    tree.binarySearchTree.insert(1);
-    tree.binarySearchTree.setRoot(null);
-    tree.rotateLeftLeft(rootNode);
-
-    tree.binarySearchTree.setRoot(null);
-    const rootNode1 = tree.binarySearchTree.insert(1);
-    tree.binarySearchTree.insert(2);
-    tree.binarySearchTree.insert(3);
-    tree.binarySearchTree.setRoot(null);
-    tree.rotateRightRight(rootNode1);
-  });
-
   it('should do simple left-left rotation', () => {
     function callback(node) {
     }
