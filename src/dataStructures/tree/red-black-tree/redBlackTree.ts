@@ -1,13 +1,17 @@
 import {
   BinarySearchTree,
   BinarySearchTreeInterface,
-  BinarySearchTreeNodeInterface,
+  traverseCallback,
 } from '../binarySearchTree';
 import {
-  compareFunctionType,
   Comparator,
+  compareFunctionType,
 } from '../../../utils/comparator';
-import { RedBlackTreeNodeInterface } from './types';
+import {
+  CompleteRedBlackTreeNode,
+  RedBlackTreeInterface,
+  RedBlackTreeNodeInterface,
+} from './types';
 import { RedBlackTreeNode } from './redBlackTreeNode';
 import {
   rotateLeftLeft,
@@ -24,12 +28,20 @@ function redBlackTreeCompare(a, b) {
   return a.value < b.value ? -1 : 1;
 }
 
-export class RedBlackTree<T = unknown> extends BinarySearchTree<RedBlackTreeNodeInterface<T>> implements BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>> {
-  constructor(compareFunction?: compareFunctionType | Comparator) {
-    super(compareFunction || redBlackTreeCompare);
+export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
+  get comparator(): Comparator {
+    return this.binarySearchTree.comparator;
   }
 
-  private balance(node: BinarySearchTreeNodeInterface<RedBlackTreeNodeInterface<T>> | null): void {
+  get root(): CompleteRedBlackTreeNode<T> | null {
+    return this.binarySearchTree.root;
+  }
+
+  constructor(compareFunction?: compareFunctionType | Comparator) {
+    this.binarySearchTree = new BinarySearchTree<RedBlackTreeNodeInterface<T>>(compareFunction || redBlackTreeCompare);
+  }
+
+  private balance(node: CompleteRedBlackTreeNode<T> | null): void {
     if (!node) {
       return;
     }
@@ -73,14 +85,90 @@ export class RedBlackTree<T = unknown> extends BinarySearchTree<RedBlackTreeNode
     }
   }
 
-  public insert(value): BinarySearchTreeNodeInterface<RedBlackTreeNodeInterface<T>> | null {
-    const node = super.insert(new RedBlackTreeNode<T>(value));
+  public readonly binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
+
+  public setRoot(root: CompleteRedBlackTreeNode<T> | null): this {
+    this.binarySearchTree.setRoot(root);
+    return this;
+  }
+
+  public toString(): string {
+    return this.traverseInOrder()
+    .toString();
+  }
+
+  public find(value: T): null | CompleteRedBlackTreeNode<T> {
+    return this.binarySearchTree.find(new RedBlackTreeNode(value));
+  }
+
+  public findMin(): null | CompleteRedBlackTreeNode<T> {
+    return this.binarySearchTree.findMin();
+  }
+
+  public findMax(): null | CompleteRedBlackTreeNode<T> {
+    return this.binarySearchTree.findMax();
+  }
+
+  public traversePreOrder(): T[] {
+    const result = [];
+    this.traversePreOrderCallback(node => {
+      result.push(node.value.value);
+    });
+    return result;
+  }
+
+  public traversePreOrderCallback(callback: traverseCallback<RedBlackTreeNodeInterface<T>>): void {
+    this.binarySearchTree.traversePreOrderCallback(callback);
+  }
+
+  public traverseInOrder(): T[] {
+    const result = [];
+    this.traverseInOrderCallback(node => {
+      result.push(node.value.value);
+    });
+    return result;
+  }
+
+  public traverseInOrderCallback(callback: traverseCallback<RedBlackTreeNodeInterface<T>>): void {
+    this.binarySearchTree.traverseInOrderCallback(callback);
+  }
+
+  public traverseAfterOrder(): T[] {
+    const result = [];
+    this.traverseAfterOrderCallback(node => {
+      result.push(node.value.value);
+    });
+    return result;
+  }
+
+  public traverseAfterOrderCallback(callback: traverseCallback<RedBlackTreeNodeInterface<T>>): void {
+    this.binarySearchTree.traverseAfterOrderCallback(callback);
+  }
+
+  public traverseLevelOrder(): T[] {
+    const result = [];
+    this.traverseLevelOrderCallback(node => {
+      result.push(node.value.value);
+    });
+    return result;
+  }
+
+  public traverseLevelOrderCallback(callback: traverseCallback<RedBlackTreeNodeInterface<T>>): void {
+    this.binarySearchTree.traverseLevelOrderCallback(callback);
+  }
+
+  public contains(value: T): boolean {
+    return !!this.find(value);
+  }
+
+  public insert(value: T): CompleteRedBlackTreeNode<T> | null {
+    const node = this.binarySearchTree.insert(new RedBlackTreeNode<T>(value));
     this.balance(node);
     return node;
   }
 
-  /*  public remove(value): BinarySearchTreeNodeInterface<RedBlackTreeNodeInterface<T>> | null {
-      const node = this.find(new RedBlackTreeNode<T>(value));
-      return node;
-    }*/
+  public remove(value: T): CompleteRedBlackTreeNode<T> | null {
+    const node = this.find(value);
+    return node;
+  }
 }

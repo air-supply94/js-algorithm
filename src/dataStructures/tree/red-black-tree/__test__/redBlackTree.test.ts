@@ -19,9 +19,12 @@ describe('RedBlackTree', () => {
     .toBe(true);
     expect(firstInsertedNode.value.isRed)
     .toBe(false);
-
-    expect(tree.toString())
+    expect(tree.contains(20))
+    .toBeTruthy();
+    expect(firstInsertedNode.toString())
     .toBe('20');
+    expect(tree.comparator)
+    .toBeDefined();
     expect(tree.root.height)
     .toBe(0);
   });
@@ -32,6 +35,19 @@ describe('RedBlackTree', () => {
     const firstInsertedNode = tree.insert(10);
     const secondInsertedNode = tree.insert(15);
     const thirdInsertedNode = tree.insert(5);
+
+    expect(tree.traverseInOrder()
+    .toString())
+    .toBe('5,10,15');
+    expect(tree.traverseLevelOrder()
+    .toString())
+    .toBe('10,5,15');
+    expect(tree.traversePreOrder()
+    .toString())
+    .toBe('10,5,15');
+    expect(tree.traverseAfterOrder()
+    .toString())
+    .toBe('5,15,10');
 
     expect(firstInsertedNode.value.isBlack)
     .toBe(true);
@@ -223,6 +239,13 @@ describe('RedBlackTree', () => {
     .toBe(true);
     expect(node3.value.isBlack)
     .toBe(true);
+
+    expect(tree.findMin().value.value)
+    .toBe(-20);
+    expect(tree.findMax().value.value)
+    .toBe(25);
+    expect(tree.remove(25).value.value)
+    .toBe(25);
   });
 
   it('should do left-left rotation', () => {
