@@ -2,6 +2,7 @@ import {
   BinarySearchTree,
   BinarySearchTreeInterface,
   BinarySearchTreeNodeInterface,
+  getBalanceFactor,
   traverseCallback,
 } from '../binarySearchTree';
 import {
@@ -27,6 +28,7 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
 
   constructor(compareFunction?: compareFunctionType | Comparator) {
     this.binarySearchTree = new BinarySearchTree<T>(compareFunction);
+    this.setRoot = this.setRoot.bind(this);
   }
 
   public readonly binarySearchTree: BinarySearchTreeInterface<T>;
@@ -41,17 +43,17 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
   }
 
   public balance(node: BinarySearchTreeNodeInterface<T>): this {
-    if (node.balanceFactor > 1) {
-      if (node.left.balanceFactor > 0) {
-        rotateLeftLeft<T>(node, this.root, this.setRoot.bind(this));
-      } else if (node.left.balanceFactor < 0) {
-        rotateLeftRight<T>(node, this.root, this.setRoot.bind(this));
+    if (getBalanceFactor<T>(node) > 1) {
+      if (getBalanceFactor<T>(node.left) > 0) {
+        rotateLeftLeft<T>(node, this.setRoot);
+      } else if (getBalanceFactor<T>(node.left) < 0) {
+        rotateLeftRight<T>(node, this.setRoot);
       }
-    } else if (node.balanceFactor < -1) {
-      if (node.right.balanceFactor < 0) {
-        rotateRightRight<T>(node, this.root, this.setRoot.bind(this));
-      } else if (node.right.balanceFactor > 0) {
-        rotateRightLeft<T>(node, this.root, this.setRoot.bind(this));
+    } else if (getBalanceFactor<T>(node) < -1) {
+      if (getBalanceFactor<T>(node.right) < 0) {
+        rotateRightRight<T>(node, this.setRoot);
+      } else if (getBalanceFactor<T>(node.right) > 0) {
+        rotateRightLeft<T>(node, this.setRoot);
       }
     }
     return this;

@@ -1,6 +1,7 @@
 import {
   BinarySearchTree,
   BinarySearchTreeInterface,
+  getUncle,
   traverseCallback,
 } from '../binarySearchTree';
 import {
@@ -39,6 +40,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
 
   constructor(compareFunction?: compareFunctionType | Comparator) {
     this.binarySearchTree = new BinarySearchTree<RedBlackTreeNodeInterface<T>>(compareFunction || redBlackTreeCompare);
+    this.setRoot = this.setRoot.bind(this);
   }
 
   private balance(node: CompleteRedBlackTreeNode<T> | null): void {
@@ -55,9 +57,11 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       return;
     }
 
-    if (node.uncle && node.uncle.value.isRed) {
+    if (getUncle(node) && getUncle(node).value.isRed) {
       node.parent.value.makeBlack();
-      node.uncle.value.makeBlack();
+      getUncle(node)
+      .value
+      .makeBlack();
       node.parent.parent.value.makeRed();
       return this.balance(node.parent.parent);
     }
@@ -66,21 +70,21 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       if (node === node.parent.left) {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateLeftLeft(node.parent.parent, this.root, this.setRoot.bind(this));
-      } else {
+        rotateLeftLeft(node.parent.parent, this.setRoot);
+      } else if (node === node.parent.right) {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateLeftRight(node.parent.parent, this.root, this.setRoot.bind(this));
+        rotateLeftRight(node.parent.parent, this.setRoot);
       }
-    } else {
+    } else if (node.parent === node.parent.parent.right) {
       if (node === node.parent.right) {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateRightRight(node.parent.parent, this.root, this.setRoot.bind(this));
-      } else {
+        rotateRightRight(node.parent.parent, this.setRoot);
+      } else if (node === node.parent.left) {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateRightLeft(node.parent.parent, this.root, this.setRoot.bind(this));
+        rotateRightLeft(node.parent.parent, this.setRoot);
       }
     }
   }

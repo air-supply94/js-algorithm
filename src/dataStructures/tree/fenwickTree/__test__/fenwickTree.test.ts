@@ -1,22 +1,6 @@
-/*
-import FenwickTree from '../FenwickTree';
+import { FenwickTree } from '../fenwickTree';
 
 describe('FenwickTree', () => {
-  it('should create empty fenwick tree of correct size', () => {
-    const tree1 = new FenwickTree(5);
-    expect(tree1.treeArray.length)
-    .toBe(5 + 1);
-
-    for (let i = 0; i < 5; i += 1) {
-      expect(tree1.treeArray[i])
-      .toBe(0);
-    }
-
-    const tree2 = new FenwickTree(50);
-    expect(tree2.treeArray.length)
-    .toBe(50 + 1);
-  });
-
   it('should create correct fenwick tree', () => {
     const inputArray = [
       3,
@@ -33,28 +17,10 @@ describe('FenwickTree', () => {
     ];
 
     const tree = new FenwickTree(inputArray.length);
-    expect(tree.treeArray.length)
-    .toBe(inputArray.length + 1);
 
     inputArray.forEach((value, index) => {
       tree.increase(index + 1, value);
     });
-
-    expect(tree.treeArray)
-    .toEqual([
-      0,
-      3,
-      5,
-      -1,
-      10,
-      5,
-      9,
-      -3,
-      19,
-      7,
-      9,
-      3,
-    ]);
 
     expect(tree.query(1))
     .toBe(3);
@@ -154,36 +120,15 @@ describe('FenwickTree', () => {
   it('should throw exceptions', () => {
     const tree = new FenwickTree(5);
 
-    const increaseAtInvalidLowIndex = () => {
-      tree.increase(0, 1);
-    };
-
-    const increaseAtInvalidHighIndex = () => {
-      tree.increase(10, 1);
-    };
-
-    const queryInvalidLowIndex = () => {
-      tree.query(0);
-    };
-
-    const queryInvalidHighIndex = () => {
-      tree.query(10);
-    };
-
-    const rangeQueryInvalidIndex = () => {
-      tree.queryRange(3, 2);
-    };
-
-    expect(increaseAtInvalidLowIndex)
-    .toThrowError();
-    expect(increaseAtInvalidHighIndex)
-    .toThrowError();
-    expect(queryInvalidLowIndex)
-    .toThrowError();
-    expect(queryInvalidHighIndex)
-    .toThrowError();
-    expect(rangeQueryInvalidIndex)
-    .toThrowError();
+    expect(tree.increase(0, 1))
+    .toBeUndefined();
+    expect(tree.increase(10, 1))
+    .toBeUndefined();
+    expect(tree.query(0))
+    .toBe(0);
+    expect(tree.query(10))
+    .toBe(0);
+    expect(tree.queryRange(3, 2))
+    .toBe(0);
   });
 });
-*/

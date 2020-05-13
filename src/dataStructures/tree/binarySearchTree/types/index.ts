@@ -7,11 +7,6 @@ export interface BinarySearchTreeNodeInterface<T = unknown> {
   readonly left: BinarySearchTreeNodeInterface<T> | null;
   readonly right: BinarySearchTreeNodeInterface<T> | null;
   readonly parent: BinarySearchTreeNodeInterface<T> | null;
-  readonly leftHeight: number;
-  readonly rightHeight: number;
-  readonly height: number;
-  readonly balanceFactor: number;
-  readonly uncle: BinarySearchTreeNodeInterface<T> | null;
   setValue(value: T): this;
   setParent(parent: null | BinarySearchTreeNodeInterface<T>): this;
   setLeft(node: BinarySearchTreeNodeInterface<T> | null): this;

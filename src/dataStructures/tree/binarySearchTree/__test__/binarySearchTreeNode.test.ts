@@ -1,4 +1,9 @@
 import { BinarySearchTreeNode } from '../binarySearchTreeNode';
+import {
+  getBalanceFactor,
+  getHeight,
+  getUncle,
+} from '../utils';
 
 describe('BinarySearchTreeNode', () => {
   it('should create node', () => {
@@ -133,50 +138,50 @@ describe('BinarySearchTreeNode', () => {
     const grandRight = new BinarySearchTreeNode(6);
     const grandGrandLeft = new BinarySearchTreeNode(7);
 
-    expect(root.height)
+    expect(getHeight(root))
     .toBe(0);
-    expect(root.balanceFactor)
+    expect(getBalanceFactor(root))
     .toBe(0);
 
     root
     .setLeft(left)
     .setRight(right);
 
-    expect(root.height)
+    expect(getHeight(root))
     .toBe(1);
-    expect(left.height)
+    expect(getHeight(left))
     .toBe(0);
-    expect(root.balanceFactor)
+    expect(getBalanceFactor(root))
     .toBe(0);
 
     left
     .setLeft(grandLeft)
     .setRight(grandRight);
 
-    expect(root.height)
+    expect(getHeight(root))
     .toBe(2);
-    expect(left.height)
+    expect(getHeight(left))
     .toBe(1);
-    expect(grandLeft.height)
+    expect(getHeight(grandLeft))
     .toBe(0);
-    expect(grandRight.height)
+    expect(getHeight(grandRight))
     .toBe(0);
-    expect(root.balanceFactor)
+    expect(getBalanceFactor(root))
     .toBe(1);
 
     grandLeft.setLeft(grandGrandLeft);
 
-    expect(root.height)
+    expect(getHeight(root))
     .toBe(3);
-    expect(left.height)
+    expect(getHeight(left))
     .toBe(2);
-    expect(grandLeft.height)
+    expect(getHeight(grandLeft))
     .toBe(1);
-    expect(grandRight.height)
+    expect(getHeight(grandRight))
     .toBe(0);
-    expect(grandGrandLeft.height)
+    expect(getHeight(grandGrandLeft))
     .toBe(0);
-    expect(root.balanceFactor)
+    expect(getBalanceFactor(root))
     .toBe(2);
   });
 
@@ -186,11 +191,11 @@ describe('BinarySearchTreeNode', () => {
 
     root.setRight(right);
 
-    expect(root.height)
+    expect(getHeight(root))
     .toBe(1);
-    expect(right.height)
+    expect(getHeight(right))
     .toBe(0);
-    expect(root.balanceFactor)
+    expect(getBalanceFactor(root))
     .toBe(-1);
   });
 
@@ -256,30 +261,30 @@ describe('BinarySearchTreeNode', () => {
     const uncle = new BinarySearchTreeNode('uncle');
     const child = new BinarySearchTreeNode('child');
 
-    expect(grandParent.uncle)
+    expect(getUncle(grandParent))
     .toBeNull();
-    expect(parent.uncle)
+    expect(getUncle(parent))
     .toBeNull();
 
     grandParent.setLeft(parent);
 
-    expect(parent.uncle)
+    expect(getUncle(parent))
     .toBeNull();
-    expect(child.uncle)
+    expect(getUncle(child))
     .toBeNull();
 
     parent.setLeft(child);
 
-    expect(child.uncle)
+    expect(getUncle(child))
     .toBeNull();
 
     grandParent.setRight(uncle);
 
-    expect(parent.uncle)
+    expect(getUncle(parent))
     .toBeNull();
-    expect(child.uncle)
+    expect(getUncle(child))
     .toBeDefined();
-    expect(child.uncle)
+    expect(getUncle(child))
     .toEqual(uncle);
   });
 
@@ -289,30 +294,30 @@ describe('BinarySearchTreeNode', () => {
     const uncle = new BinarySearchTreeNode('uncle');
     const child = new BinarySearchTreeNode('child');
 
-    expect(grandParent.uncle)
+    expect(getUncle(grandParent))
     .toBeNull();
-    expect(parent.uncle)
+    expect(getUncle(parent))
     .toBeNull();
 
     grandParent.setRight(parent);
 
-    expect(parent.uncle)
+    expect(getUncle(parent))
     .toBeNull();
-    expect(child.uncle)
+    expect(getUncle(child))
     .toBeNull();
 
     parent.setRight(child);
 
-    expect(child.uncle)
+    expect(getUncle(child))
     .toBeNull();
 
     grandParent.setLeft(uncle);
 
-    expect(parent.uncle)
+    expect(getUncle(parent))
     .toBeNull();
-    expect(child.uncle)
+    expect(getUncle(child))
     .toBeDefined();
-    expect(child.uncle)
+    expect(getUncle(child))
     .toEqual(uncle);
   });
 

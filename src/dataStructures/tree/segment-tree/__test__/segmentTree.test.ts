@@ -1,5 +1,4 @@
-/*
-import SegmentTree from '../SegmentTree';
+import { SegmentTree } from '../segmentTree';
 
 describe('SegmentTree', () => {
   it('should build tree for input array #0 with length of power of two', () => {
@@ -241,4 +240,3 @@ describe('SegmentTree', () => {
     .toBe(0);
   });
 });
-*/

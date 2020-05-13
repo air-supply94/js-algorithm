@@ -30,50 +30,6 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
     return this._parent;
   }
 
-  get leftHeight(): number {
-    if (!this.left) {
-      return 0;
-    }
-
-    return this.left.height + 1;
-  }
-
-  get rightHeight(): number {
-    if (!this.right) {
-      return 0;
-    }
-
-    return this.right.height + 1;
-  }
-
-  get height(): number {
-    return Math.max(this.leftHeight, this.rightHeight);
-  }
-
-  get balanceFactor(): number {
-    return this.leftHeight - this.rightHeight;
-  }
-
-  get uncle(): null | BinarySearchTreeNodeInterface<T> {
-    if (!this.parent) {
-      return null;
-    }
-
-    if (!this.parent.parent) {
-      return null;
-    }
-
-    if (!this.parent.parent.left || !this.parent.parent.right) {
-      return null;
-    }
-
-    if (this.parent === this.parent.parent.left) {
-      return this.parent.parent.right;
-    }
-
-    return this.parent.parent.left;
-  }
-
   public setValue(value: T): this {
     this._value = value;
     return this;

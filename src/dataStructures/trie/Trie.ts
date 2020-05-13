@@ -1,3 +1,4 @@
+/*
 import { TrieNode } from './TrieNode';
 
 const HEAD_CHARACTER = '*';
@@ -79,3 +80,4 @@ export class Trie {
     return currentNode;
   }
 }
+*/

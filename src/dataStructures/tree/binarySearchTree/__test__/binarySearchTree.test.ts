@@ -1,6 +1,7 @@
 import { BinarySearchTree } from '../binarySearchTree';
 import { BinarySearchTreeNodeInterface } from '../types';
 import {
+  getHeight,
   insert,
   remove,
 } from '../utils';
@@ -144,14 +145,14 @@ describe('BinarySearchTree', () => {
 
     expect(bst.toString())
     .toBe('-20,-10,6,10,20,25');
-    expect(bst.root.height)
+    expect(getHeight(bst.root))
     .toBe(2);
 
     bst.insert(4);
 
     expect(bst.toString())
     .toBe('-20,-10,4,6,10,20,25');
-    expect(bst.root.height)
+    expect(getHeight(bst.root))
     .toBe(3);
   });
 

@@ -1,4 +1,5 @@
 import { RedBlackTree } from '../redBlackTree';
+import { getHeight } from '../../binarySearchTree/utils';
 
 function redBlackTreeCompare(a, b) {
   if (a.value === b.value) {
@@ -25,7 +26,7 @@ describe('RedBlackTree', () => {
     .toBe('20');
     expect(tree.comparator)
     .toBeDefined();
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(0);
   });
 
@@ -58,7 +59,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('5,10,15');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(1);
   });
 
@@ -74,7 +75,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('5,10,15,20,25,30');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(3);
   });
 
@@ -143,7 +144,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-20,-10,6,10,20,25');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
 
     const node7 = tree.insert(4);
@@ -153,7 +154,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-20,-10,4,6,10,20,25');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(3);
 
     expect(node1.value.isBlack)
@@ -187,7 +188,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-20,-10,2,6,8,10,15,20,25');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(3);
 
     expect(node1.value.isBlack)
@@ -213,7 +214,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-20,-10,2,4,6,8,10,15,20,25');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(3);
 
     expect(tree.root.value)
@@ -259,7 +260,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-10,7,10,15,20');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
 
     expect(node1.value.isBlack)
@@ -276,7 +277,7 @@ describe('RedBlackTree', () => {
     const node6 = tree.insert(13);
     expect(tree.toString())
     .toBe('-10,7,10,13,15,20');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
 
     expect(node1.value.isBlack)
@@ -304,7 +305,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-10,7,10,15,20');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
 
     expect(node1.value.isBlack)
@@ -321,7 +322,7 @@ describe('RedBlackTree', () => {
     const node6 = tree.insert(17);
     expect(tree.toString())
     .toBe('-10,7,10,15,17,20');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
 
     expect(node1.value.isBlack)
@@ -353,7 +354,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-20,-10,1,6,9,10,15,20,30');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(3);
 
     expect(node1.value.isBlack)
@@ -379,7 +380,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-20,-10,1,4,6,9,10,15,20,30');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(3);
   });
 
@@ -395,7 +396,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-20,-10,6,10,20,30');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
 
     expect(node1.value.isBlack)
@@ -426,7 +427,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('-20,-10,6,10,20,25,30');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
 
     expect(node1.value.isBlack)
@@ -456,7 +457,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('5,10,15,20,25');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
   });
 
@@ -471,7 +472,7 @@ describe('RedBlackTree', () => {
 
     expect(tree.toString())
     .toBe('15,17,19,20,25');
-    expect(tree.root.height)
+    expect(getHeight(tree.root))
     .toBe(2);
   });
 });

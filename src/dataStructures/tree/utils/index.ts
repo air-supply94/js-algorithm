@@ -2,13 +2,12 @@ import { BinarySearchTreeNodeInterface } from '../binarySearchTree/types';
 
 export function rotateLeftLeft<T = unknown>(
   rootNode: BinarySearchTreeNodeInterface<T>,
-  binarySearchTreeRoot: BinarySearchTreeNodeInterface<T> | null,
   setRoot: Function,
 ): void {
   const leftNode = rootNode.left;
   rootNode.setLeft(null);
 
-  if (rootNode === binarySearchTreeRoot) {
+  if (!rootNode.parent) {
     setRoot(leftNode);
   } else if (rootNode.parent.left === rootNode) {
     rootNode.parent.setLeft(leftNode);
@@ -25,7 +24,6 @@ export function rotateLeftLeft<T = unknown>(
 
 export function rotateLeftRight<T = unknown>(
   rootNode: BinarySearchTreeNodeInterface<T>,
-  binarySearchTreeRoot: BinarySearchTreeNodeInterface<T> | null,
   setRoot: Function,
 ): void {
   const leftNode = rootNode.left;
@@ -43,12 +41,11 @@ export function rotateLeftRight<T = unknown>(
 
   leftRightNode.setLeft(leftNode);
 
-  return rotateLeftLeft(rootNode, binarySearchTreeRoot, setRoot);
+  return rotateLeftLeft(rootNode, setRoot);
 }
 
 export function rotateRightLeft<T = unknown>(
   rootNode: BinarySearchTreeNodeInterface<T>,
-  binarySearchTreeRoot: BinarySearchTreeNodeInterface<T> | null,
   setRoot: Function,
 ): void {
   const rightNode = rootNode.right;
@@ -66,17 +63,16 @@ export function rotateRightLeft<T = unknown>(
 
   rightLeftNode.setRight(rightNode);
 
-  return rotateRightRight(rootNode, binarySearchTreeRoot, setRoot);
+  return rotateRightRight(rootNode, setRoot);
 }
 
 export function rotateRightRight<T = unknown>(
   rootNode: BinarySearchTreeNodeInterface<T>,
-  binarySearchTreeRoot: BinarySearchTreeNodeInterface<T> | null,
   setRoot: Function,
 ): void {
   const rightNode = rootNode.right;
   rootNode.setRight(null);
-  if (rootNode === binarySearchTreeRoot) {
+  if (!rootNode.parent) {
     setRoot(rightNode);
   } else if (rootNode.parent.right === rootNode) {
     rootNode.parent.setRight(rightNode);

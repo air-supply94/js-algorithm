@@ -1,3 +1,4 @@
+/*
 import { LinkedHashTable } from '../hashTable/linkedHashTable';
 
 export class TrieNode {
@@ -62,3 +63,4 @@ export class TrieNode {
     return `${this.character}${isCompleteString}${childrenAsString}`;
   }
 }
+*/
