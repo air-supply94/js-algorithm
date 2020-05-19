@@ -1,4 +1,4 @@
-import { Trie } from '../Trie';
+import { Trie } from '../trie';
 
 describe('Trie', () => {
   it('should create trie', () => {
@@ -113,7 +113,7 @@ describe('Trie', () => {
     expect(trie.suggestNextCharacters('cat'))
     .toEqual(['s']);
     expect(trie.suggestNextCharacters('cab'))
-    .toBeNull();
+    .toEqual([]);
   });
 
   it('should check if word exists', () => {

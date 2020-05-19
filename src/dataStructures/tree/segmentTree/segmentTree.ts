@@ -18,17 +18,9 @@ export class SegmentTree {
   private readonly inputArray: number[];
 
   private initSegmentTree(inputArray: number[]): number[] {
-    let segmentTreeArrayLength;
     const inputArrayLength = inputArray.length;
-
-    if (isPowerOfTwo(inputArrayLength)) {
-      segmentTreeArrayLength = (2 * inputArrayLength) - 1;
-    } else {
-      const nextPowerOfTwoNumber = Math.pow(2, Math.ceil(Math.log2(inputArrayLength)));
-      segmentTreeArrayLength = (2 * nextPowerOfTwoNumber) - 1;
-    }
-
-    return new Array(segmentTreeArrayLength).fill(null);
+    const length = isPowerOfTwo(inputArrayLength) ? inputArrayLength : Math.pow(2, 1 + Math.log2(inputArrayLength) | 0);
+    return new Array((2 * length) - 1).fill(0);
   }
 
   private buildSegmentTree(): void {
@@ -44,7 +36,7 @@ export class SegmentTree {
       return;
     }
 
-    const middleIndex = Math.floor((leftInputIndex + rightInputIndex) / 2);
+    const middleIndex = (leftInputIndex + rightInputIndex) / 2 | 0;
     this.buildTreeRecursively(leftInputIndex, middleIndex, this.getLeftChildIndex(position));
     this.buildTreeRecursively(middleIndex + 1, rightInputIndex, this.getRightChildIndex(position));
 
@@ -95,6 +87,13 @@ export class SegmentTree {
   public readonly segmentTree: number[];
 
   public rangeQuery(queryLeftIndex: number, queryRightIndex: number): number {
+    [
+      queryLeftIndex,
+      queryRightIndex,
+    ] = [
+      queryLeftIndex | 0,
+      queryRightIndex | 0,
+    ].sort();
     const leftIndex = 0;
     const rightIndex = this.inputArray.length - 1;
     const position = 0;

@@ -1,4 +1,4 @@
-import { TrieNode } from '../TrieNode';
+import { TrieNode } from '../trieNode';
 
 describe('TrieNode', () => {
   it('should create trie node', () => {
@@ -37,7 +37,7 @@ describe('TrieNode', () => {
     .toString())
     .toBe('o');
     expect(trieNode.getChild('b'))
-    .toBeNull();
+    .toBeUndefined();
   });
 
   it('should check if node has children', () => {
