@@ -1,8 +1,14 @@
+import { SegmentTreeInterface } from './types';
+import {
+  getLeftChildIndex,
+  getRightChildIndex,
+} from '../../../utils/tree';
+
 function isPowerOfTwo(number: number): boolean {
   return number > 1 && Math.pow(2, Math.log2(number) | 0) === number;
 }
 
-export class SegmentTree {
+export class SegmentTree implements SegmentTreeInterface {
   constructor(inputArray, operation, operationFallback) {
     this.inputArray = inputArray;
     this.operation = operation;
@@ -13,21 +19,13 @@ export class SegmentTree {
     this.buildSegmentTree();
   }
 
-  private readonly operation: (...args: number[]) => number;
-  private readonly operationFallback: number;
-  private readonly inputArray: number[];
-
   private initSegmentTree(inputArray: number[]): number[] {
-    const inputArrayLength = inputArray.length;
-    const length = isPowerOfTwo(inputArrayLength) ? inputArrayLength : Math.pow(2, 1 + Math.log2(inputArrayLength) | 0);
+    const length = isPowerOfTwo(inputArray.length) ? inputArray.length : Math.pow(2, 1 + Math.log2(inputArray.length) | 0);
     return new Array((2 * length) - 1).fill(0);
   }
 
   private buildSegmentTree(): void {
-    const leftIndex = 0;
-    const rightIndex = this.inputArray.length - 1;
-    const position = 0;
-    this.buildTreeRecursively(leftIndex, rightIndex, position);
+    this.buildTreeRecursively(0, this.inputArray.length - 1, 0);
   }
 
   private buildTreeRecursively(leftInputIndex: number, rightInputIndex: number, position: number) {
@@ -37,12 +35,12 @@ export class SegmentTree {
     }
 
     const middleIndex = (leftInputIndex + rightInputIndex) / 2 | 0;
-    this.buildTreeRecursively(leftInputIndex, middleIndex, this.getLeftChildIndex(position));
-    this.buildTreeRecursively(middleIndex + 1, rightInputIndex, this.getRightChildIndex(position));
+    this.buildTreeRecursively(leftInputIndex, middleIndex, getLeftChildIndex(position));
+    this.buildTreeRecursively(middleIndex + 1, rightInputIndex, getRightChildIndex(position));
 
     this.segmentTree[position] = this.operation(
-      this.segmentTree[this.getLeftChildIndex(position)],
-      this.segmentTree[this.getRightChildIndex(position)],
+      this.segmentTree[getLeftChildIndex(position)],
+      this.segmentTree[getRightChildIndex(position)],
     );
   }
 
@@ -62,7 +60,7 @@ export class SegmentTree {
       queryRightIndex,
       leftIndex,
       middleIndex,
-      this.getLeftChildIndex(position),
+      getLeftChildIndex(position),
     );
 
     const rightOperationResult = this.rangeQueryRecursive(
@@ -70,20 +68,15 @@ export class SegmentTree {
       queryRightIndex,
       middleIndex + 1,
       rightIndex,
-      this.getRightChildIndex(position),
+      getRightChildIndex(position),
     );
 
     return this.operation(leftOperationResult, rightOperationResult);
   }
 
-  private getLeftChildIndex(parentIndex: number): number {
-    return (2 * parentIndex) + 1;
-  }
-
-  private getRightChildIndex(parentIndex: number): number {
-    return (2 * parentIndex) + 2;
-  }
-
+  public readonly operation: (...args: number[]) => number;
+  public readonly operationFallback: number;
+  public readonly inputArray: number[];
   public readonly segmentTree: number[];
 
   public rangeQuery(queryLeftIndex: number, queryRightIndex: number): number {
@@ -94,16 +87,13 @@ export class SegmentTree {
       queryLeftIndex | 0,
       queryRightIndex | 0,
     ].sort();
-    const leftIndex = 0;
-    const rightIndex = this.inputArray.length - 1;
-    const position = 0;
 
     return this.rangeQueryRecursive(
       queryLeftIndex,
       queryRightIndex,
-      leftIndex,
-      rightIndex,
-      position,
+      0,
+      this.inputArray.length - 1,
+      0,
     );
   }
 }

@@ -47,8 +47,7 @@ export class Trie implements TrieInterface {
         return;
       }
 
-      const character = str[charIndex];
-      const nextNode = currentNode.getChild(character);
+      const nextNode = currentNode.getChild(str[charIndex]);
 
       if (!nextNode) {
         return;
@@ -60,7 +59,7 @@ export class Trie implements TrieInterface {
         nextNode.setIsCompleteWord(false);
       }
 
-      currentNode.removeChild(character);
+      currentNode.removeChild(str[charIndex]);
     }
 
     depthFirstDelete(this.head);
