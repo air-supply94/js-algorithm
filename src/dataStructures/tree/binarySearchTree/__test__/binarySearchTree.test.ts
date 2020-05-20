@@ -3,7 +3,7 @@ import { BinarySearchTreeNodeInterface } from '../types';
 import {
   getHeight,
   insert,
-  remove,
+  findReplaceNode,
 } from '../utils';
 
 describe('BinarySearchTree', () => {
@@ -50,7 +50,7 @@ describe('BinarySearchTree', () => {
     bst.insert(10);
     const originRemove = bst.remove;
     bst.remove = function <T = unknown>(value: T): BinarySearchTreeNodeInterface<T> | null {
-      return remove(this.root, value, this.comparator);
+      return findReplaceNode(this.root, value, this.comparator);
     };
     expect(bst.remove(10).value)
     .toBe(10);
@@ -360,7 +360,7 @@ describe('BinarySearchTree', () => {
 
     const removeNode2 = bstRootNode.remove(10);
     expect(removeNode2.parent.value)
-    .toBe(25);
+    .toBe(30);
     expect(bstRootNode.toString())
     .toBe('5,25,30');
     expect(bstRootNode.root.value)
@@ -452,17 +452,6 @@ describe('BinarySearchTree', () => {
 
     expect(bstNode.findMin().value)
     .toEqual(obj1);
-  });
-
-  it('should abandon removed node', () => {
-    const rootNode = new BinarySearchTree();
-    rootNode.insert('foo');
-    rootNode.insert('bar');
-    const childNode = rootNode.find('bar');
-    rootNode.remove('bar');
-
-    expect(childNode.parent)
-    .toBeNull();
   });
 
   it('should traverse node', () => {

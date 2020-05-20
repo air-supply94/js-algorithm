@@ -12,6 +12,8 @@ export interface RedBlackTreeNodeInterface<T = unknown> {
   readonly value: T;
   readonly isRed: boolean;
   readonly isBlack: boolean;
+  color: RedBlackTreeColor;
+  setColor(color: RedBlackTreeColor): this;
   setValue(value: T): this;
   makeRed(): this;
   makeBlack(): this;

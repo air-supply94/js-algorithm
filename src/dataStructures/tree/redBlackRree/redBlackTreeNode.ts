@@ -11,11 +11,20 @@ export const RED_BLACK_TREE_COLORS = {
 export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<T> {
   constructor(value: T) {
     this._value = value;
-    this.color = RED_BLACK_TREE_COLORS.red as RedBlackTreeColor;
+    this._color = RED_BLACK_TREE_COLORS.red as RedBlackTreeColor;
   }
 
-  private color: RedBlackTreeColor;
+  private _color: RedBlackTreeColor;
   private _value: T;
+
+  get color(): RedBlackTreeColor {
+    return this._color;
+  }
+
+  public setColor(color: RedBlackTreeColor): this {
+    this._color = color;
+    return this;
+  }
 
   get value(): T {
     return this._value;
@@ -35,12 +44,12 @@ export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<
   }
 
   public makeRed(): this {
-    this.color = RED_BLACK_TREE_COLORS.red as RedBlackTreeColor;
+    this.setColor(RED_BLACK_TREE_COLORS.red as RedBlackTreeColor);
     return this;
   }
 
   public makeBlack(): this {
-    this.color = RED_BLACK_TREE_COLORS.black as RedBlackTreeColor;
+    this.setColor(RED_BLACK_TREE_COLORS.black as RedBlackTreeColor);
     return this;
   }
 

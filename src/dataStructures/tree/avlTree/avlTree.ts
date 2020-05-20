@@ -47,13 +47,15 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
       if (getBalanceFactor<T>(node.left) > 0) {
         rotateLeftLeft<T>(node, this.setRoot);
       } else if (getBalanceFactor<T>(node.left) < 0) {
-        rotateLeftRight<T>(node, this.setRoot);
+        rotateLeftRight<T>(node);
+        rotateLeftLeft<T>(node, this.setRoot);
       }
     } else if (getBalanceFactor<T>(node) < -1) {
       if (getBalanceFactor<T>(node.right) < 0) {
         rotateRightRight<T>(node, this.setRoot);
       } else if (getBalanceFactor<T>(node.right) > 0) {
-        rotateRightLeft<T>(node, this.setRoot);
+        rotateRightLeft<T>(node);
+        rotateRightRight<T>(node, this.setRoot);
       }
     }
     return this;
@@ -119,11 +121,12 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
   }
 
   public remove(value: T): BinarySearchTreeNodeInterface<T> | null {
-    let removeNode = this.binarySearchTree.remove(value);
+    const node = this.binarySearchTree.remove(value);
+    let removeNode = node;
     while (removeNode && removeNode.parent) {
       this.balance(removeNode.parent);
       removeNode = removeNode.parent;
     }
-    return removeNode;
+    return node;
   }
 }

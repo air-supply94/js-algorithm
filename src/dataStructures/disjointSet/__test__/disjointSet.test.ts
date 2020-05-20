@@ -3,7 +3,8 @@ import { DisjointSet } from '../disjointSet';
 describe('DisjointSet', () => {
   it('should throw error when trying to union and check not existing sets', () => {
     const disjointSet = new DisjointSet();
-
+    disjointSet.makeSet('a');
+    disjointSet.makeSet('a');
     expect(disjointSet.union('A', 'B'))
     .toBeNull();
     expect(disjointSet.inSameSet('A', 'B'))

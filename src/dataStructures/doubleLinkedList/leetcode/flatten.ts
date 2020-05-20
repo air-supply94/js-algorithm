@@ -1,5 +1,5 @@
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
-import { Stack } from '../../stack/stack';
+import { Stack } from '../../stack';
 
 export class FlattenDoubleLinkedListNode<T = unknown> extends DoubleLinkedListNode {
   constructor(value: T, next = null, previous = null, child = null) {

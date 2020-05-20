@@ -7,7 +7,7 @@ import {
   findMax,
   findMin,
   insert,
-  remove,
+  findReplaceNode,
   traverseInOrder,
   traverseLevelOrder,
   traverseAfterOrder,
@@ -22,9 +22,10 @@ import {
 export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<T> {
   constructor(compareFunction?: compareFunctionType | Comparator) {
     this.comparator = new Comparator(compareFunction);
+    this._root = null;
   }
 
-  private _root: BinarySearchTreeNodeInterface<T> | null = null;
+  private _root: BinarySearchTreeNodeInterface<T> | null;
 
   public readonly comparator: Comparator;
 
@@ -50,7 +51,18 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
   }
 
   public remove(value: T): BinarySearchTreeNodeInterface<T> | null {
-    return remove<T>(this.root, value, this.comparator, this.setRoot.bind(this, null));
+    const replaceNode = findReplaceNode<T>(this.root, value, this.comparator);
+    if (replaceNode) {
+      if (!replaceNode.parent) {
+        this.setRoot(null);
+      } else {
+        const parent = replaceNode.parent;
+        parent.removeChild(replaceNode);
+        replaceNode.setParent(parent);
+      }
+    }
+
+    return replaceNode;
   }
 
   public findMin(): null | BinarySearchTreeNodeInterface<T> {
@@ -67,7 +79,6 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
       result.push(node.value);
     });
     return result;
-
   }
 
   public traversePreOrderCallback(callback: traverseCallback<T>): void {

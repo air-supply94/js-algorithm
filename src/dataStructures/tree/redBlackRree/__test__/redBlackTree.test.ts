@@ -1,5 +1,6 @@
 import { RedBlackTree } from '../redBlackTree';
 import { getHeight } from '../../binarySearchTree/utils';
+import { RedBlackTreeNodeInterface } from '../types';
 
 function redBlackTreeCompare(a, b) {
   if (a.value === b.value) {
@@ -475,4 +476,164 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
     .toBe(2);
   });
+
+  it('should insert and remove object item', () => {
+    function compare(a, b) {
+      if (a.value.key === b.value.key) {
+        return 0;
+      }
+
+      return a.value.key < b.value.key ? -1 : 1;
+    }
+
+    const tree = new RedBlackTree<{ key: string; value: number }>(compare);
+
+    const data = [
+      {
+        key: 'a',
+        value: 1,
+        toString() {
+          return `${this.key}-${this.value}`;
+        },
+      },
+      {
+        key: 'b',
+        value: 2,
+        toString() {
+          return `${this.key}-${this.value}`;
+        },
+      },
+      {
+        key: 'c',
+        value: 3,
+        toString() {
+          return `${this.key}-${this.value}`;
+        },
+      },
+      {
+        key: 'd',
+        value: 4,
+        toString() {
+          return `${this.key}-${this.value}`;
+        },
+      },
+    ];
+
+    expect(treeUtils(tree).color)
+    .toBe('');
+    expect(treeUtils(tree).value)
+    .toBe('');
+
+    data.forEach(item => tree.insert(item));
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1,0');
+    expect(treeUtils(tree).value)
+    .toBe('b-2,a-1,c-3,d-4');
+
+    expect(tree.remove({
+      key: 'a',
+      value: 10,
+    }).value.value.value)
+    .toBe(1);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1');
+    expect(treeUtils(tree).value)
+    .toBe('c-3,b-2,d-4');
+
+    expect(tree.remove({
+      key: 'b',
+      value: 10,
+    }).value.value.value)
+    .toBe(2);
+    expect(treeUtils(tree).color)
+    .toBe('1,0');
+    expect(treeUtils(tree).value)
+    .toBe('c-3,d-4');
+
+    expect(tree.remove({
+      key: 'c',
+      value: 10,
+    }).value.value.value)
+    .toBe(3);
+    expect(treeUtils(tree).color)
+    .toBe('1');
+    expect(treeUtils(tree).value)
+    .toBe('d-4');
+
+    expect(tree.remove({
+      key: 'd',
+      value: 10,
+    }).value.value.value)
+    .toBe(4);
+    expect(treeUtils(tree).color)
+    .toBe('');
+    expect(treeUtils(tree).value)
+    .toBe('');
+  });
+
+  it('should do remove item', () => {
+    const tree = new RedBlackTree<number>();
+
+    expect(tree.remove(1))
+    .toBeNull();
+    expect(treeUtils(tree).color)
+    .toBe('');
+    expect(treeUtils(tree).value)
+    .toBe('');
+
+    tree.insert(5);
+    tree.insert(4);
+    tree.insert(6);
+    tree.insert(3);
+    tree.insert(7);
+
+    expect(tree.remove(5).value.value)
+    .toBe(5);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1,0');
+    expect(treeUtils(tree).value)
+    .toBe('4,3,6,7');
+
+    expect(tree.remove(7).value.value)
+    .toBe(7);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1');
+    expect(treeUtils(tree).value)
+    .toBe('4,3,6');
+
+    expect(tree.remove(3).value.value)
+    .toBe(3);
+    expect(treeUtils(tree).color)
+    .toBe('1,0');
+    expect(treeUtils(tree).value)
+    .toBe('4,6');
+
+    expect(tree.remove(6).value.value)
+    .toBe(6);
+    expect(treeUtils(tree).color)
+    .toBe('1');
+    expect(treeUtils(tree).value)
+    .toBe('4');
+
+    expect(tree.remove(4).value.value)
+    .toBe(4);
+    expect(treeUtils(tree).color)
+    .toBe('');
+    expect(treeUtils(tree).value)
+    .toBe('');
+  });
 });
+
+function treeUtils<T = unknown>(tree: RedBlackTree<T>) {
+  const items: RedBlackTreeNodeInterface<T>[] = [];
+  tree.traverseLevelOrderCallback(node => {
+    items.push(node.value);
+  });
+
+  return {
+    color: items.map(item => item.isBlack ? 1 : 0)
+    .join(','),
+    value: items.map(item => item.value)
+    .join(','),
+  };
+}

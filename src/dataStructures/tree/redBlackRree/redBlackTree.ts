@@ -1,6 +1,7 @@
 import {
   BinarySearchTree,
   BinarySearchTreeInterface,
+  findReplaceNode,
   getUncle,
   traverseCallback,
 } from '../binarySearchTree';
@@ -38,12 +39,28 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
     return this.binarySearchTree.root;
   }
 
-  constructor(compareFunction?: compareFunctionType | Comparator) {
+  constructor(
+    compareFunction?: compareFunctionType | Comparator,
+    swap = function (
+      tmpNode: CompleteRedBlackTreeNode<T>,
+      replaceNode: CompleteRedBlackTreeNode<T>,
+    ): void {
+      const tmpValue = tmpNode.value.value;
+      tmpNode.value.setValue(replaceNode.value.value);
+      replaceNode.value.setValue(tmpValue);
+    },
+  ) {
     this.binarySearchTree = new BinarySearchTree<RedBlackTreeNodeInterface<T>>(compareFunction || redBlackTreeCompare);
+    this.swap = swap;
     this.setRoot = this.setRoot.bind(this);
   }
 
-  private balance(node: CompleteRedBlackTreeNode<T> | null): void {
+  private readonly swap: (
+    tmpNode: CompleteRedBlackTreeNode<T>,
+    replaceNode: CompleteRedBlackTreeNode<T>,
+  ) => void;
+
+  private insertBalance(node: CompleteRedBlackTreeNode<T> | null): void {
     if (!node) {
       return;
     }
@@ -63,7 +80,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       .value
       .makeBlack();
       node.parent.parent.value.makeRed();
-      return this.balance(node.parent.parent);
+      return this.insertBalance(node.parent.parent);
     }
 
     if (node.parent === node.parent.parent.left) {
@@ -74,7 +91,8 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       } else if (node === node.parent.right) {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateLeftRight(node.parent.parent, this.setRoot);
+        rotateLeftRight(node.parent.parent);
+        rotateLeftLeft(node.parent, this.setRoot);
       }
     } else if (node.parent === node.parent.parent.right) {
       if (node === node.parent.right) {
@@ -84,9 +102,85 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       } else if (node === node.parent.left) {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateRightLeft(node.parent.parent, this.setRoot);
+        rotateRightLeft(node.parent.parent);
+        rotateRightRight(node.parent, this.setRoot);
       }
     }
+  }
+
+  private removeBalance(node: CompleteRedBlackTreeNode<T>): void {
+    let currentNode = node;
+    while (currentNode.parent && currentNode.value.isBlack) {
+      if (currentNode === currentNode.parent.left) {
+        const sibling = currentNode.parent.right;
+
+        if (sibling && sibling.value.isRed) {
+          currentNode.parent.value.makeRed();
+          sibling.value.makeBlack();
+          rotateRightRight(currentNode.parent, this.setRoot);
+          continue;
+        }
+
+        if (
+          (!sibling.left && !sibling.right) ||
+          (sibling.left && sibling.right && sibling.left.value.isBlack && sibling.right.value.isBlack)
+        ) {
+          sibling.value.makeRed();
+          currentNode = currentNode.parent;
+          continue;
+        }
+
+        if (sibling.left && sibling.left.value.isRed) {
+          sibling.left.value.makeBlack();
+          sibling.value.makeRed();
+          rotateRightLeft(currentNode.parent);
+          continue;
+        }
+
+        if (sibling.right && sibling.right.value.isRed) {
+          sibling.value.setColor(currentNode.parent.value.color);
+          currentNode.parent.value.makeBlack();
+          sibling.right.value.makeBlack();
+          rotateRightRight(currentNode.parent, this.setRoot);
+          currentNode = this.root;
+        }
+
+      } else if (currentNode === currentNode.parent.right) {
+        const sibling = currentNode.parent.left;
+
+        if (sibling && sibling.value.isRed) {
+          currentNode.parent.value.makeRed();
+          sibling.value.makeBlack();
+          rotateLeftLeft(currentNode.parent, this.setRoot);
+          continue;
+        }
+
+        if (
+          (!sibling.left && !sibling.right) ||
+          (sibling.left && sibling.right && sibling.left.value.isBlack && sibling.right.value.isBlack)
+        ) {
+          sibling.value.makeRed();
+          currentNode = currentNode.parent;
+          continue;
+        }
+
+        if (sibling.right && sibling.right.value.isRed) {
+          sibling.right.value.makeBlack();
+          sibling.value.makeRed();
+          rotateLeftRight(currentNode.parent);
+          continue;
+        }
+
+        if (sibling.left && sibling.left.value.isRed) {
+          sibling.value.setColor(currentNode.parent.value.color);
+          currentNode.parent.value.makeBlack();
+          sibling.left.value.makeBlack();
+          rotateLeftLeft(currentNode.parent, this.setRoot);
+          currentNode = this.root;
+        }
+      }
+    }
+    currentNode.value.makeBlack();
   }
 
   public readonly binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
@@ -167,12 +261,33 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
 
   public insert(value: T): CompleteRedBlackTreeNode<T> | null {
     const node = this.binarySearchTree.insert(new RedBlackTreeNode<T>(value));
-    this.balance(node);
+    this.insertBalance(node);
     return node;
   }
 
   public remove(value: T): CompleteRedBlackTreeNode<T> | null {
-    const node = this.find(value);
-    return node;
+    const replaceNode = findReplaceNode(
+      this.root,
+      new RedBlackTreeNode<T>(value),
+      this.comparator,
+      false,
+      this.swap,
+    );
+
+    if (!replaceNode) {
+      return replaceNode;
+    }
+
+    if (!replaceNode.parent) {
+      this.setRoot(null);
+      return replaceNode;
+    }
+
+    if (replaceNode.value.isBlack) {
+      this.removeBalance(replaceNode);
+    }
+
+    replaceNode.parent.removeChild(replaceNode);
+    return replaceNode;
   }
 }
