@@ -571,7 +571,7 @@ describe('RedBlackTree', () => {
     .toBe('');
   });
 
-  it('should do remove item', () => {
+  it('should do remove base', () => {
     const tree = new RedBlackTree<number>();
 
     expect(tree.remove(1))
@@ -622,6 +622,81 @@ describe('RedBlackTree', () => {
     expect(treeUtils(tree).value)
     .toBe('');
   });
+
+  it('should do remove right', () => {
+    const tree = new RedBlackTree<number>();
+
+    testData()
+    .forEach(item => tree.insert(item));
+
+    expect(tree.remove(50).value.value)
+    .toBe(50);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1,1,1,1,1,0,0');
+    expect(treeUtils(tree).value)
+    .toBe('40,20,80,10,30,60,90,70,100');
+
+    tree.remove(70);
+    expect(tree.remove(60).value.value)
+    .toBe(60);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1,1,1,1,1');
+    expect(treeUtils(tree).value)
+    .toBe('40,20,90,10,30,80,100');
+
+    tree.insert(95);
+    expect(tree.remove(80).value.value)
+    .toBe(80);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1,1,1,1,1');
+    expect(treeUtils(tree).value)
+    .toBe('40,20,95,10,30,90,100');
+
+    expect(tree.remove(10).value.value)
+    .toBe(10);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,0,0,1,1');
+    expect(treeUtils(tree).value)
+    .toBe('40,20,95,30,90,100');
+  });
+
+  it('should do remove left', () => {
+    const tree = new RedBlackTree<number>();
+
+    testData()
+    .reverse()
+    .forEach(item => tree.insert(item));
+
+    expect(tree.remove(60).value.value)
+    .toBe(60);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1,1,1,1,1,0,0');
+    expect(treeUtils(tree).value)
+    .toBe('70,30,90,20,50,80,100,10,40');
+
+    tree.remove(40);
+    expect(tree.remove(50).value.value)
+    .toBe(50);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1,1,1,1,1');
+    expect(treeUtils(tree).value)
+    .toBe('70,20,90,10,30,80,100');
+
+    tree.insert(15);
+    expect(tree.remove(30).value.value)
+    .toBe(30);
+    expect(treeUtils(tree).color)
+    .toBe('1,1,1,1,1,1,1');
+    expect(treeUtils(tree).value)
+    .toBe('70,15,90,10,20,80,100');
+
+    expect(tree.remove(100).value.value)
+    .toBe(100);
+    expect(treeUtils(tree).color)
+    .toBe('1,0,1,1,1,0');
+    expect(treeUtils(tree).value)
+    .toBe('70,15,90,10,20,80');
+  });
 });
 
 function treeUtils<T = unknown>(tree: RedBlackTree<T>) {
@@ -636,4 +711,10 @@ function treeUtils<T = unknown>(tree: RedBlackTree<T>) {
     value: items.map(item => item.value)
     .join(','),
   };
+}
+
+function testData() {
+  return Array(10)
+  .fill(0)
+  .map((item, index) => (index + 1) * 10);
 }

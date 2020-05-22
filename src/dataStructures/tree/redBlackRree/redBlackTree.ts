@@ -117,6 +117,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         if (sibling && sibling.value.isRed) {
           currentNode.parent.value.makeRed();
           sibling.value.makeBlack();
+
           rotateRightRight(currentNode.parent, this.setRoot);
           continue;
         }
@@ -130,19 +131,19 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
           continue;
         }
 
-        if (sibling.left && sibling.left.value.isRed) {
-          sibling.left.value.makeBlack();
-          sibling.value.makeRed();
-          rotateRightLeft(currentNode.parent);
-          continue;
-        }
-
         if (sibling.right && sibling.right.value.isRed) {
           sibling.value.setColor(currentNode.parent.value.color);
           currentNode.parent.value.makeBlack();
           sibling.right.value.makeBlack();
           rotateRightRight(currentNode.parent, this.setRoot);
           currentNode = this.root;
+          continue;
+        }
+
+        if (sibling.left && sibling.left.value.isRed) {
+          sibling.left.value.makeBlack();
+          sibling.value.makeRed();
+          rotateRightLeft(currentNode.parent);
         }
 
       } else if (currentNode === currentNode.parent.right) {
@@ -164,20 +165,21 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
           continue;
         }
 
-        if (sibling.right && sibling.right.value.isRed) {
-          sibling.right.value.makeBlack();
-          sibling.value.makeRed();
-          rotateLeftRight(currentNode.parent);
-          continue;
-        }
-
         if (sibling.left && sibling.left.value.isRed) {
           sibling.value.setColor(currentNode.parent.value.color);
           currentNode.parent.value.makeBlack();
           sibling.left.value.makeBlack();
           rotateLeftLeft(currentNode.parent, this.setRoot);
           currentNode = this.root;
+          continue;
         }
+
+        if (sibling.right && sibling.right.value.isRed) {
+          sibling.right.value.makeBlack();
+          sibling.value.makeRed();
+          rotateLeftRight(currentNode.parent);
+        }
+
       }
     }
     currentNode.value.makeBlack();
