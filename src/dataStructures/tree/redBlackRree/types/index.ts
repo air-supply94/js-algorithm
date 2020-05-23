@@ -22,7 +22,7 @@ export interface RedBlackTreeNodeInterface<T = unknown> {
 export interface RedBlackTreeInterface<T = unknown> {
   readonly comparator: Comparator;
   readonly root: CompleteRedBlackTreeNode<T> | null;
-  binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
+  readonly binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
   setRoot(root: CompleteRedBlackTreeNode<T> | null): this;
   find(value: T): null | CompleteRedBlackTreeNode<T>;
   findMin(): null | CompleteRedBlackTreeNode<T>;

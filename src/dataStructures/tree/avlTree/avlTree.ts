@@ -4,17 +4,15 @@ import {
   BinarySearchTreeNodeInterface,
   getBalanceFactor,
   traverseCallback,
+  rotateLeftLeft,
+  rotateLeftRight,
+  rotateRightLeft,
+  rotateRightRight,
 } from '../binarySearchTree';
 import {
   Comparator,
   compareFunctionType,
 } from '../../../utils';
-import {
-  rotateLeftLeft,
-  rotateLeftRight,
-  rotateRightLeft,
-  rotateRightRight,
-} from '../utils';
 import { AvlTreeInterface } from './types';
 
 export class AvlTree<T = unknown> implements AvlTreeInterface<T> {

@@ -1,4 +1,4 @@
-import { BinarySearchTreeNodeInterface } from '../binarySearchTree/types';
+import { BinarySearchTreeNodeInterface } from '../types';
 
 export function rotateLeftLeft<T = unknown>(
   rootNode: BinarySearchTreeNodeInterface<T>,

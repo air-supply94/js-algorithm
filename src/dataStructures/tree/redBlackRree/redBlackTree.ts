@@ -4,6 +4,10 @@ import {
   findReplaceNode,
   getUncle,
   traverseCallback,
+  rotateLeftLeft,
+  rotateLeftRight,
+  rotateRightLeft,
+  rotateRightRight,
 } from '../binarySearchTree';
 import {
   Comparator,
@@ -15,12 +19,6 @@ import {
   RedBlackTreeNodeInterface,
 } from './types';
 import { RedBlackTreeNode } from './redBlackTreeNode';
-import {
-  rotateLeftLeft,
-  rotateLeftRight,
-  rotateRightLeft,
-  rotateRightRight,
-} from '../utils';
 
 function redBlackTreeCompare(a, b) {
   if (a.value === b.value) {

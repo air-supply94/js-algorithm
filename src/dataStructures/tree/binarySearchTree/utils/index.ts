@@ -9,3 +9,4 @@ export * from './insert';
 export * from './findReplaceNode';
 export * from './height';
 export * from './getUncle';
+export * from './rotate';
