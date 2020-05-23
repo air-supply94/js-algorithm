@@ -24,8 +24,18 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
     return this.binarySearchTree.root;
   }
 
-  constructor(compareFunction?: compareFunctionType | Comparator) {
-    this.binarySearchTree = new BinarySearchTree<T>(compareFunction);
+  constructor(
+    compareFunction?: compareFunctionType | Comparator,
+    swap = function (
+      tmpNode: BinarySearchTreeNodeInterface<T>,
+      replaceNode: BinarySearchTreeNodeInterface<T>,
+    ): void {
+      const tmpValue = tmpNode.value;
+      tmpNode.setValue(replaceNode.value);
+      replaceNode.setValue(tmpValue);
+    },
+  ) {
+    this.binarySearchTree = new BinarySearchTree<T>(compareFunction, true, swap);
     this.setRoot = this.setRoot.bind(this);
   }
 

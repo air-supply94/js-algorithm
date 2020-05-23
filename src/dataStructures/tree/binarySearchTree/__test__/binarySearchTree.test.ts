@@ -14,6 +14,12 @@ describe('BinarySearchTree', () => {
     .toBeDefined();
     expect(bst.root)
     .toBeNull();
+
+    bst.insert(1);
+    bst.insert(2);
+    bst.insert(0);
+    expect(findReplaceNode(bst.root, 1, bst.comparator).parent.value)
+    .toBe(2);
   });
 
   it('should insert values', () => {

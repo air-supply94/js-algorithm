@@ -16,8 +16,7 @@ export function findReplaceNode<T = unknown>(
     const tmpValue = tmpNode.value;
     tmpNode.setValue(replaceNode.value);
     replaceNode.setValue(tmpValue);
-  },
-): null | BinarySearchTreeNodeInterface<T> {
+  }): null | BinarySearchTreeNodeInterface<T> {
   let tmpNode = find<T>(root, value, comparator);
   let replaceNode = tmpNode;
   if (!tmpNode) {

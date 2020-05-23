@@ -48,7 +48,9 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       replaceNode.value.setValue(tmpValue);
     },
   ) {
-    this.binarySearchTree = new BinarySearchTree<RedBlackTreeNodeInterface<T>>(compareFunction || redBlackTreeCompare);
+    this.binarySearchTree = new BinarySearchTree<RedBlackTreeNodeInterface<T>>(
+      compareFunction || redBlackTreeCompare,
+    );
     this.swap = swap;
     this.setRoot = this.setRoot.bind(this);
   }

@@ -20,10 +20,29 @@ import {
 } from './types';
 
 export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<T> {
-  constructor(compareFunction?: compareFunctionType | Comparator) {
+  constructor(
+    compareFunction?: compareFunctionType | Comparator,
+    isFindMin = true,
+    swap = function (
+      tmpNode: BinarySearchTreeNodeInterface<T>,
+      replaceNode: BinarySearchTreeNodeInterface<T>,
+    ): void {
+      const tmpValue = tmpNode.value;
+      tmpNode.setValue(replaceNode.value);
+      replaceNode.setValue(tmpValue);
+    },
+  ) {
     this.comparator = new Comparator(compareFunction);
+    this.swap = swap;
+    this.isFindMin = isFindMin;
     this._root = null;
   }
+
+  private readonly isFindMin: boolean;
+  private readonly swap: (
+    tmpNode: BinarySearchTreeNodeInterface<T>,
+    replaceNode: BinarySearchTreeNodeInterface<T>,
+  ) => void;
 
   private _root: BinarySearchTreeNodeInterface<T> | null;
 
@@ -51,7 +70,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
   }
 
   public remove(value: T): BinarySearchTreeNodeInterface<T> | null {
-    const replaceNode = findReplaceNode<T>(this.root, value, this.comparator);
+    const replaceNode = findReplaceNode<T>(this.root, value, this.comparator, this.isFindMin, this.swap);
     if (replaceNode) {
       if (!replaceNode.parent) {
         this.setRoot(null);
