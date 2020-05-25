@@ -158,15 +158,25 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public find(findParams: FindParams<T>): null | DoubleLinkedListNodeInterface<T> {
-    const {value, callback = {}} = findParams;
+    const {value, callback} = findParams;
     let findNode = null;
-    this.eachFromHead(node => {
-      if ((typeof callback === 'function' && callback(node.value)) || this.compare.equal(node.value, value)) {
-        findNode = node;
-        return false;
-      }
-      return true;
-    });
+    if (typeof callback === 'function') {
+      this.eachFromHead(node => {
+        if (callback(node.value)) {
+          findNode = node;
+          return false;
+        }
+        return true;
+      });
+    } else {
+      this.eachFromHead(node => {
+        if (this.compare.equal(node.value, value)) {
+          findNode = node;
+          return false;
+        }
+        return true;
+      });
+    }
 
     return findNode;
   }

@@ -87,23 +87,23 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       if (node === node.parent.left) {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateLeftLeft(node.parent.parent, this.setRoot);
+        rotateLeftLeft<RedBlackTreeNodeInterface<T>>(node.parent.parent, this.setRoot);
       } else if (node === node.parent.right) {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateLeftRight(node.parent.parent);
-        rotateLeftLeft(node.parent, this.setRoot);
+        rotateLeftRight<RedBlackTreeNodeInterface<T>>(node.parent.parent);
+        rotateLeftLeft<RedBlackTreeNodeInterface<T>>(node.parent, this.setRoot);
       }
     } else if (node.parent === node.parent.parent.right) {
       if (node === node.parent.right) {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateRightRight(node.parent.parent, this.setRoot);
+        rotateRightRight<RedBlackTreeNodeInterface<T>>(node.parent.parent, this.setRoot);
       } else if (node === node.parent.left) {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateRightLeft(node.parent.parent);
-        rotateRightRight(node.parent, this.setRoot);
+        rotateRightLeft<RedBlackTreeNodeInterface<T>>(node.parent.parent);
+        rotateRightRight<RedBlackTreeNodeInterface<T>>(node.parent, this.setRoot);
       }
     }
   }
@@ -118,7 +118,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
           currentNode.parent.value.makeRed();
           sibling.value.makeBlack();
 
-          rotateRightRight(currentNode.parent, this.setRoot);
+          rotateRightRight<RedBlackTreeNodeInterface<T>>(currentNode.parent, this.setRoot);
           continue;
         }
 
@@ -135,7 +135,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
           sibling.value.setColor(currentNode.parent.value.color);
           currentNode.parent.value.makeBlack();
           sibling.right.value.makeBlack();
-          rotateRightRight(currentNode.parent, this.setRoot);
+          rotateRightRight<RedBlackTreeNodeInterface<T>>(currentNode.parent, this.setRoot);
           currentNode = this.root;
           continue;
         }
@@ -143,7 +143,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         if (sibling.left && sibling.left.value.isRed) {
           sibling.left.value.makeBlack();
           sibling.value.makeRed();
-          rotateRightLeft(currentNode.parent);
+          rotateRightLeft<RedBlackTreeNodeInterface<T>>(currentNode.parent);
         }
 
       } else if (currentNode === currentNode.parent.right) {
@@ -152,7 +152,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         if (sibling && sibling.value.isRed) {
           currentNode.parent.value.makeRed();
           sibling.value.makeBlack();
-          rotateLeftLeft(currentNode.parent, this.setRoot);
+          rotateLeftLeft<RedBlackTreeNodeInterface<T>>(currentNode.parent, this.setRoot);
           continue;
         }
 
@@ -169,7 +169,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
           sibling.value.setColor(currentNode.parent.value.color);
           currentNode.parent.value.makeBlack();
           sibling.left.value.makeBlack();
-          rotateLeftLeft(currentNode.parent, this.setRoot);
+          rotateLeftLeft<RedBlackTreeNodeInterface<T>>(currentNode.parent, this.setRoot);
           currentNode = this.root;
           continue;
         }
@@ -177,7 +177,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         if (sibling.right && sibling.right.value.isRed) {
           sibling.right.value.makeBlack();
           sibling.value.makeRed();
-          rotateLeftRight(currentNode.parent);
+          rotateLeftRight<RedBlackTreeNodeInterface<T>>(currentNode.parent);
         }
 
       }
@@ -268,7 +268,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
   }
 
   public remove(value: T): CompleteRedBlackTreeNode<T> | null {
-    const replaceNode = findReplaceNode(
+    const replaceNode = findReplaceNode<RedBlackTreeNodeInterface<T>>(
       this.root,
       new RedBlackTreeNode<T>(value),
       this.comparator,

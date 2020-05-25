@@ -5,7 +5,7 @@ export function getLeftHeight<T = unknown>(root: BinarySearchTreeNodeInterface<T
     return 0;
   }
 
-  return getHeight(root.left) + 1;
+  return getHeight<T>(root.left) + 1;
 }
 
 export function getRightHeight<T = unknown>(root: BinarySearchTreeNodeInterface<T>): number {
@@ -13,7 +13,7 @@ export function getRightHeight<T = unknown>(root: BinarySearchTreeNodeInterface<
     return 0;
   }
 
-  return getHeight(root.right) + 1;
+  return getHeight<T>(root.right) + 1;
 }
 
 export function getHeight<T = unknown>(root: BinarySearchTreeNodeInterface<T>): number {

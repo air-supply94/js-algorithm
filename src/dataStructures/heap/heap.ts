@@ -105,7 +105,7 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
     return this.removeValueBase(item, Infinity, comparator);
   }
 
-  public remove(item: T, comparator?: Comparator): T [] {
+  public remove(item: T, comparator?: Comparator): T[] {
     return this.removeValueBase(item, 1, comparator);
   }
 

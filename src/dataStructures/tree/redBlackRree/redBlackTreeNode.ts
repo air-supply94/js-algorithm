@@ -4,8 +4,8 @@ import {
 } from './types';
 
 export const RED_BLACK_TREE_COLORS = {
-  red: 'red',
-  black: 'black',
+  red: 'r',
+  black: 'b',
 };
 
 export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<T> {
