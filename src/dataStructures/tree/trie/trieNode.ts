@@ -64,11 +64,7 @@ export class TrieNode implements TrieNodeInterface {
   }
 
   public toString(): string {
-    let childrenAsString = this.suggestChildren()
-    .toString();
-    childrenAsString = childrenAsString ? `:${childrenAsString}` : '';
-    const isCompleteString = this.isCompleteWord ? '*' : '';
-
-    return `${this.character}${isCompleteString}${childrenAsString}`;
+    return `${this.character}${this.suggestChildren()
+    .join('')}`;
   }
 }

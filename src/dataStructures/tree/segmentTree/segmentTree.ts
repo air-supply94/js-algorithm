@@ -16,16 +16,12 @@ export class SegmentTree implements SegmentTreeInterface {
 
     this.segmentTree = this.initSegmentTree(this.inputArray);
 
-    this.buildSegmentTree();
+    this.buildTreeRecursively(0, this.inputArray.length - 1, 0);
   }
 
   private initSegmentTree(inputArray: number[]): number[] {
     const length = isPowerOfTwo(inputArray.length) ? inputArray.length : Math.pow(2, 1 + Math.log2(inputArray.length) | 0);
     return new Array((2 * length) - 1).fill(0);
-  }
-
-  private buildSegmentTree(): void {
-    this.buildTreeRecursively(0, this.inputArray.length - 1, 0);
   }
 
   private buildTreeRecursively(leftInputIndex: number, rightInputIndex: number, position: number) {

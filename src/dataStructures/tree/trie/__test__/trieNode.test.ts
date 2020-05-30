@@ -9,7 +9,7 @@ describe('TrieNode', () => {
     expect(trieNode.isCompleteWord)
     .toBe(true);
     expect(trieNode.toString())
-    .toBe('c*');
+    .toBe('c');
   });
 
   it('should add child nodes', () => {
@@ -19,7 +19,7 @@ describe('TrieNode', () => {
     trieNode.addChild('o');
 
     expect(trieNode.toString())
-    .toBe('c:a,o');
+    .toBe('cao');
   });
 
   it('should get child nodes', () => {

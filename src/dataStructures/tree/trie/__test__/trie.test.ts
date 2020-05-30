@@ -7,7 +7,7 @@ describe('Trie', () => {
     expect(trie)
     .toBeDefined();
     expect(trie.head.toString())
-    .toBe('*');
+    .toBe('');
   });
 
   it('should add words to trie', () => {
@@ -16,26 +16,26 @@ describe('Trie', () => {
     trie.addWord('cat');
 
     expect(trie.head.toString())
-    .toBe('*:c');
+    .toBe('c');
     expect(trie.head.getChild('c')
     .toString())
-    .toBe('c:a');
+    .toBe('ca');
 
     trie.addWord('car');
     expect(trie.head.toString())
-    .toBe('*:c');
+    .toBe('c');
     expect(trie.head.getChild('c')
     .toString())
-    .toBe('c:a');
+    .toBe('ca');
     expect(trie.head.getChild('c')
     .getChild('a')
     .toString())
-    .toBe('a:t,r');
+    .toBe('atr');
     expect(trie.head.getChild('c')
     .getChild('a')
     .getChild('t')
     .toString())
-    .toBe('t*');
+    .toBe('t');
   });
 
   it('should delete words from trie', () => {

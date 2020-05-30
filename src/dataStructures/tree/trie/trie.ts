@@ -4,7 +4,7 @@ import {
   TrieNodeInterface,
 } from './types';
 
-const HEAD_CHARACTER = '*';
+const HEAD_CHARACTER = '';
 
 export class Trie implements TrieInterface {
   constructor() {
@@ -37,10 +37,7 @@ export class Trie implements TrieInterface {
   }
 
   public deleteWord(word: string): this {
-    const str: string[] = [];
-    for (const character of word) {
-      str.push(character);
-    }
+    const str: string[] = Array.from(word);
 
     function depthFirstDelete(currentNode: TrieNodeInterface, charIndex = 0) {
       if (charIndex >= str.length) {
