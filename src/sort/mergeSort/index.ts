@@ -1,8 +1,4 @@
-import {
-  Comparator,
-  compareFunctionType,
-  ComparatorInterface,
-} from '../../utils';
+import { Comparator, compareFunctionType, ComparatorInterface } from '../../utils';
 
 export function mergeSort<T = unknown>(originalArray: T[], comparator?: Comparator | compareFunctionType): T[] {
   comparator = new Comparator(comparator);

@@ -13,7 +13,7 @@ export function divingBoard(shorter: number, longer: number, count: number): num
 
   if (shorter === longer) {
     return Array(count)
-    .fill(shorter);
+      .fill(shorter);
   }
 
   const result = [];

@@ -1,5 +1,5 @@
-import { DoubleLinkedListInterface } from '../types';
 import { DoubleLinkedList } from '../doubleLinkedList';
+import { DoubleLinkedListInterface } from '../types';
 
 export function addTwoNumbers(l1: DoubleLinkedListInterface<number>, l2: DoubleLinkedListInterface<number>): DoubleLinkedListInterface {
   const resultDoubleLinkedList = new DoubleLinkedList<number>();

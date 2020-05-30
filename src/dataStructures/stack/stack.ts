@@ -1,9 +1,5 @@
+import { DoubleLinkedList, DoubleLinkedListInterface, toStringCallback } from '../doubleLinkedList';
 import { StackInterface } from './types';
-import {
-  DoubleLinkedList,
-  DoubleLinkedListInterface,
-  toStringCallback,
-} from '../doubleLinkedList';
 
 export class Stack<T = unknown> implements StackInterface<T> {
   constructor() {
@@ -12,7 +8,7 @@ export class Stack<T = unknown> implements StackInterface<T> {
 
   private readonly doubleLinkedList: DoubleLinkedListInterface<T>;
 
-  get size(): number {
+  public get size(): number {
     return this.doubleLinkedList.size;
   }
 
@@ -22,7 +18,7 @@ export class Stack<T = unknown> implements StackInterface<T> {
 
   public toArray(): T[] {
     const values = [];
-    this.doubleLinkedList.eachFromTail(node => {
+    this.doubleLinkedList.eachFromTail((node) => {
       values.push(node.value);
     });
     return values;

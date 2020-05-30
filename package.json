@@ -1,53 +1,60 @@
 {
-	"name": "algorithm_exercise",
-	"version": "0.0.0",
-	"author": "zhouhaifei <zhouhaifei1994@sina.com>",
-	"description": "algorithm_exercise ",
-	"dependencies": {},
-	"devDependencies": {
-		"@babel/core": "^7.3.3",
-		"@babel/plugin-transform-runtime": "^7.2.0",
-		"@babel/preset-env": "^7.3.1",
-		"@babel/preset-typescript": "^7.9.0",
-		"@babel/runtime": "^7.3.1",
-		"@types/jest": "^25.1.1",
-		"babel-jest": "^24.1.0",
-		"husky": "^3.0.5",
-		"jest": "^25.1.0",
-		"lint-staged": "^9.2.5",
-		"ts-jest": "^25.2.0",
-		"tslint": "^5.20.0",
-		"tslint-config-prettier": "^1.18.0",
-		"tslint-language-service": "^0.9.9",
-		"typescript": "^3.7.5"
-	},
-	"scripts": {
-		"test": "jest --config jest.js --color",
-		"lint": "npm run lint:ts",
-		"lint:ts": "tslint -c tslint.json \"src/**/*.ts\" --fix",
-		"lint-staged": "lint-staged"
-	},
-	"engines": {
-		"node": ">=12.13.1"
-	},
-	"lint-staged": {
-		"src/**/*.ts": [
-			"npm run lint:ts",
-			"git add ."
-		]
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm run lint-staged"
-		}
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/air-supply94/algorithm_exercise.git"
-	},
-	"bugs": {
-		"url": "https://github.com/air-supply94/algorithm_exercise/issues"
-	},
-	"homepage": "https://github.com/air-supply94/algorithm_exercise",
-	"license": "MIT"
+  "name": "algorithm_exercise",
+  "version": "0.0.0",
+  "author": "zhouhaifei <zhouhaifei1994@sina.com>",
+  "description": "algorithm_exercise ",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/runtime": "^7.3.1",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@types/jest": "^25.1.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "7.4.0",
+    "husky": "^3.0.5",
+    "jest": "^25.1.0",
+    "lint-staged": "^9.2.5",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.5",
+    "zhouhaifei-code-style": "1.0.3"
+  },
+  "scripts": {
+    "test": "jest --config jest.js --color",
+    "lint-staged": "lint-staged --allow-empty",
+    "lint:js": "eslint --fix --ext .js,.ts ./src",
+    "prettier": "prettier -c --write \"**/*.{md,html,json}\""
+  },
+  "engines": {
+    "node": ">=12.13.1"
+  },
+  "lint-staged": {
+    "**/*.{js,ts}": [
+      "npm run lint:js",
+      "git add ."
+    ],
+    "**/*.{md,html,json}": [
+      "prettier --write",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/air-supply94/algorithm_exercise.git"
+  },
+  "bugs": {
+    "url": "https://github.com/air-supply94/algorithm_exercise/issues"
+  },
+  "homepage": "https://github.com/air-supply94/algorithm_exercise",
+  "license": "MIT"
 }

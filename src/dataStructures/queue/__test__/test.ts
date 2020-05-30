@@ -4,22 +4,22 @@ describe('Index', () => {
   it('should create empty queue', () => {
     const queue = new Queue();
     expect(queue.dequeue())
-    .toBeNull();
+      .toBeNull();
     expect(queue.peek())
-    .toBeNull();
+      .toBeNull();
 
     expect(queue)
-    .not
-    .toBeUndefined();
+      .not
+      .toBeUndefined();
     queue.enqueue(1);
     expect(queue.has(2))
-    .toBeFalsy();
+      .toBeFalsy();
     expect(queue.has(1))
-    .toBeTruthy();
+      .toBeTruthy();
     expect(queue.clear())
-    .toEqual(queue);
+      .toEqual(queue);
     expect(queue.has(1))
-    .toBeFalsy();
+      .toBeFalsy();
   });
 
   it('should enqueue data to queue', () => {
@@ -28,12 +28,12 @@ describe('Index', () => {
     queue.enqueue(1);
     queue.enqueue(2);
     expect(queue.toArray()
-    .toString())
-    .toBe('1,2');
+      .toString())
+      .toBe('1,2');
   });
 
   it('should be possible to enqueue/dequeue objects', () => {
-    const queue = new Queue<{ value: string; key: string }>();
+    const queue = new Queue<{ value: string; key: string; }>();
 
     queue.enqueue({
       value: 'test1',
@@ -44,14 +44,14 @@ describe('Index', () => {
       key: 'key2',
     });
 
-    const stringifier = value => `${value.key}:${value.value}`;
+    const stringifier = (value) => `${value.key}:${value.value}`;
 
     expect(queue.toString(stringifier))
-    .toBe('key1:test1,key2:test2');
+      .toBe('key1:test1,key2:test2');
     expect(queue.dequeue().value)
-    .toBe('test1');
+      .toBe('test1');
     expect(queue.dequeue().value)
-    .toBe('test2');
+      .toBe('test2');
   });
 
   it('should peek data from queue', () => {
@@ -61,21 +61,21 @@ describe('Index', () => {
     queue.enqueue(2);
 
     expect(queue.peek())
-    .toBe(1);
+      .toBe(1);
     expect(queue.peek())
-    .toBe(1);
+      .toBe(1);
   });
 
   it('should check if queue is empty', () => {
     const queue = new Queue();
 
     expect(queue.isEmpty())
-    .toBe(true);
+      .toBe(true);
 
     queue.enqueue(1);
 
     expect(queue.isEmpty())
-    .toBe(false);
+      .toBe(false);
   });
 
   it('should dequeue from queue in FIFO order', () => {
@@ -85,11 +85,11 @@ describe('Index', () => {
     queue.enqueue(2);
 
     expect(queue.dequeue())
-    .toBe(1);
+      .toBe(1);
     expect(queue.dequeue())
-    .toBe(2);
+      .toBe(2);
     expect(queue.isEmpty())
-    .toBe(true);
+      .toBe(true);
   });
 
   it('had undefined', () => {
@@ -98,8 +98,8 @@ describe('Index', () => {
     queue.enqueue(1);
     queue.enqueue(undefined);
     expect(queue.size)
-    .toBe(2);
+      .toBe(2);
     expect(queue.has(undefined))
-    .toBe(true);
+      .toBe(true);
   });
 });

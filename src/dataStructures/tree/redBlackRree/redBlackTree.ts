@@ -1,24 +1,7 @@
-import {
-  BinarySearchTree,
-  BinarySearchTreeInterface,
-  findReplaceNode,
-  getUncle,
-  traverseCallback,
-  rotateLeftLeft,
-  rotateLeftRight,
-  rotateRightLeft,
-  rotateRightRight,
-} from '../binarySearchTree';
-import {
-  Comparator,
-  compareFunctionType,
-} from '../../../utils/comparator';
-import {
-  CompleteRedBlackTreeNode,
-  RedBlackTreeInterface,
-  RedBlackTreeNodeInterface,
-} from './types';
+import { Comparator, compareFunctionType } from '../../../utils/comparator';
+import { BinarySearchTree, BinarySearchTreeInterface, findReplaceNode, getUncle, traverseCallback, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
 import { RedBlackTreeNode } from './redBlackTreeNode';
+import { CompleteRedBlackTreeNode, RedBlackTreeInterface, RedBlackTreeNodeInterface } from './types';
 
 function redBlackTreeCompare(a, b) {
   if (a.value === b.value) {
@@ -29,27 +12,27 @@ function redBlackTreeCompare(a, b) {
 }
 
 export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
-  get comparator(): Comparator {
+  public get comparator(): Comparator {
     return this.binarySearchTree.comparator;
   }
 
-  get root(): CompleteRedBlackTreeNode<T> | null {
+  public get root(): CompleteRedBlackTreeNode<T> | null {
     return this.binarySearchTree.root;
   }
 
   constructor(
     compareFunction?: compareFunctionType | Comparator,
-    swap = function (
+    swap = function(
       tmpNode: CompleteRedBlackTreeNode<T>,
-      replaceNode: CompleteRedBlackTreeNode<T>,
+      replaceNode: CompleteRedBlackTreeNode<T>
     ): void {
       const tmpValue = tmpNode.value.value;
       tmpNode.value.setValue(replaceNode.value.value);
       replaceNode.value.setValue(tmpValue);
-    },
+    }
   ) {
     this.binarySearchTree = new BinarySearchTree<RedBlackTreeNodeInterface<T>>(
-      compareFunction || redBlackTreeCompare,
+      compareFunction || redBlackTreeCompare
     );
     this.swap = swap;
     this.setRoot = this.setRoot.bind(this);
@@ -77,9 +60,10 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
     if (getUncle(node) && getUncle(node).value.isRed) {
       node.parent.value.makeBlack();
       getUncle(node)
-      .value
-      .makeBlack();
+        .value
+        .makeBlack();
       node.parent.parent.value.makeRed();
+      // eslint-disable-next-line consistent-return
       return this.insertBalance(node.parent.parent);
     }
 
@@ -145,7 +129,6 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
           sibling.value.makeRed();
           rotateRightLeft<RedBlackTreeNodeInterface<T>>(currentNode.parent);
         }
-
       } else if (currentNode === currentNode.parent.right) {
         const sibling = currentNode.parent.left;
 
@@ -179,7 +162,6 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
           sibling.value.makeRed();
           rotateLeftRight<RedBlackTreeNodeInterface<T>>(currentNode.parent);
         }
-
       }
     }
     currentNode.value.makeBlack();
@@ -194,7 +176,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
 
   public toString(): string {
     return this.traverseInOrder()
-    .toString();
+      .toString();
   }
 
   public find(value: T): null | CompleteRedBlackTreeNode<T> {
@@ -211,7 +193,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
 
   public traversePreOrder(): T[] {
     const result = [];
-    this.traversePreOrderCallback(node => {
+    this.traversePreOrderCallback((node) => {
       result.push(node.value.value);
     });
     return result;
@@ -223,7 +205,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
 
   public traverseInOrder(): T[] {
     const result = [];
-    this.traverseInOrderCallback(node => {
+    this.traverseInOrderCallback((node) => {
       result.push(node.value.value);
     });
     return result;
@@ -235,7 +217,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
 
   public traverseAfterOrder(): T[] {
     const result = [];
-    this.traverseAfterOrderCallback(node => {
+    this.traverseAfterOrderCallback((node) => {
       result.push(node.value.value);
     });
     return result;
@@ -247,7 +229,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
 
   public traverseLevelOrder(): T[] {
     const result = [];
-    this.traverseLevelOrderCallback(node => {
+    this.traverseLevelOrderCallback((node) => {
       result.push(node.value.value);
     });
     return result;
@@ -258,7 +240,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
   }
 
   public contains(value: T): boolean {
-    return !!this.find(value);
+    return Boolean(this.find(value));
   }
 
   public insert(value: T): CompleteRedBlackTreeNode<T> | null {
@@ -273,7 +255,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       new RedBlackTreeNode<T>(value),
       this.comparator,
       false,
-      this.swap,
+      this.swap
     );
 
     if (!replaceNode) {

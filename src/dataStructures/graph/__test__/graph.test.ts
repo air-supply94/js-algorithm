@@ -1,6 +1,6 @@
 import { Graph } from '../Graph';
-import { GraphVertex } from '../GraphVertex';
 import { GraphEdge } from '../GraphEdge';
+import { GraphVertex } from '../GraphVertex';
 
 describe('Graph', () => {
   it('should add vertices to graph', () => {
@@ -12,16 +12,16 @@ describe('Graph', () => {
     graph.addVertex(vertexA);
     graph.addVertex(vertexB);
     expect(graph.addVertex(vertexA))
-    .toBe(vertexA);
+      .toBe(vertexA);
     expect(graph.addVertex(vertexB))
-    .toBe(vertexB);
+      .toBe(vertexB);
 
     expect(graph.toString())
-    .toBe('A,B');
+      .toBe('A,B');
     expect(graph.getVertex(vertexA.value))
-    .toEqual(vertexA);
+      .toEqual(vertexA);
     expect(graph.getVertex(vertexB.value))
-    .toEqual(vertexB);
+      .toEqual(vertexB);
   });
 
   it('should add edges to undirected graph', () => {
@@ -35,40 +35,40 @@ describe('Graph', () => {
     graph.addEdge(edgeAB);
 
     expect(graph.getAllVertices().length)
-    .toBe(2);
+      .toBe(2);
     expect(graph.getAllVertices()[0])
-    .toEqual(vertexA);
+      .toEqual(vertexA);
     expect(graph.getAllVertices()[1])
-    .toEqual(vertexB);
+      .toEqual(vertexB);
 
     const graphVertexA = graph.getVertex(vertexA.value);
     const graphVertexB = graph.getVertex(vertexB.value);
 
     expect(graph.toString())
-    .toBe('A,B');
+      .toBe('A,B');
     expect(graphVertexA)
-    .toBeDefined();
+      .toBeDefined();
     expect(graphVertexB)
-    .toBeDefined();
+      .toBeDefined();
 
     expect(graph.getVertex('not existing'))
-    .toBeNull();
+      .toBeNull();
     expect(graph.getVertex('toString'))
-    .toBeNull();
+      .toBeNull();
 
     expect(graphVertexA.getNeighbors().length)
-    .toBe(1);
+      .toBe(1);
     expect(graphVertexA.getNeighbors()[0])
-    .toEqual(vertexB);
+      .toEqual(vertexB);
     expect(graphVertexA.getNeighbors()[0])
-    .toEqual(graphVertexB);
+      .toEqual(graphVertexB);
 
     expect(graphVertexB.getNeighbors().length)
-    .toBe(1);
+      .toBe(1);
     expect(graphVertexB.getNeighbors()[0])
-    .toEqual(vertexA);
+      .toEqual(vertexA);
     expect(graphVertexB.getNeighbors()[0])
-    .toEqual(graphVertexA);
+      .toEqual(graphVertexA);
   });
 
   it('should add edges to directed graph', () => {
@@ -85,21 +85,21 @@ describe('Graph', () => {
     const graphVertexB = graph.getVertex(vertexB.value);
 
     expect(graph.toString())
-    .toBe('A,B');
+      .toBe('A,B');
     expect(graphVertexA)
-    .toBeDefined();
+      .toBeDefined();
     expect(graphVertexB)
-    .toBeDefined();
+      .toBeDefined();
 
     expect(graphVertexA.getNeighbors().length)
-    .toBe(1);
+      .toBe(1);
     expect(graphVertexA.getNeighbors()[0])
-    .toEqual(vertexB);
+      .toEqual(vertexB);
     expect(graphVertexA.getNeighbors()[0])
-    .toEqual(graphVertexB);
+      .toEqual(graphVertexB);
 
     expect(graphVertexB.getNeighbors().length)
-    .toBe(0);
+      .toBe(0);
   });
 
   it('should find edge by vertices in undirected graph', () => {
@@ -119,15 +119,15 @@ describe('Graph', () => {
     const graphEdgeCA = graph.findEdge(vertexC, vertexA);
 
     expect(graphEdgeAC)
-    .toBeNull();
+      .toBeNull();
     expect(graphEdgeCA)
-    .toBeNull();
+      .toBeNull();
     expect(graphEdgeAB)
-    .toEqual(edgeAB);
+      .toEqual(edgeAB);
     expect(graphEdgeBA)
-    .toEqual(edgeAB);
+      .toEqual(edgeAB);
     expect(graphEdgeAB.weight)
-    .toBe(10);
+      .toBe(10);
   });
 
   it('should find edge by vertices in directed graph', () => {
@@ -147,15 +147,15 @@ describe('Graph', () => {
     const graphEdgeCA = graph.findEdge(vertexC, vertexA);
 
     expect(graphEdgeAC)
-    .toBeNull();
+      .toBeNull();
     expect(graphEdgeCA)
-    .toBeNull();
+      .toBeNull();
     expect(graphEdgeBA)
-    .toBeNull();
+      .toBeNull();
     expect(graphEdgeAB)
-    .toEqual(edgeAB);
+      .toEqual(edgeAB);
     expect(graphEdgeAB.weight)
-    .toBe(10);
+      .toBe(10);
   });
 
   it('should return vertex neighbors', () => {
@@ -174,11 +174,11 @@ describe('Graph', () => {
     const neighbors = graph.getNeighbors(vertexA);
 
     expect(neighbors.length)
-    .toBe(2);
+      .toBe(2);
     expect(neighbors[0])
-    .toEqual(vertexB);
+      .toEqual(vertexB);
     expect(neighbors[1])
-    .toEqual(vertexC);
+      .toEqual(vertexC);
   });
 
   it('should add edge twice', () => {
@@ -191,11 +191,11 @@ describe('Graph', () => {
 
     graph.addEdge(edgeAB);
     expect(graph.addEdge(edgeAB))
-    .toEqual(edgeAB);
+      .toEqual(edgeAB);
     expect(graph.addEdge(edgeAB).startVertex)
-    .toBe(vertexA);
+      .toBe(vertexA);
     expect(graph.addEdge(edgeAB).endVertex)
-    .toBe(vertexB);
+      .toBe(vertexB);
   });
 
   it('should return the list of all added edges', () => {
@@ -214,11 +214,11 @@ describe('Graph', () => {
     const edges = graph.getAllEdges();
 
     expect(edges.length)
-    .toBe(2);
+      .toBe(2);
     expect(edges[0])
-    .toEqual(edgeAB);
+      .toEqual(edgeAB);
     expect(edges[1])
-    .toEqual(edgeBC);
+      .toEqual(edgeBC);
   });
 
   it('should calculate total graph weight for default graph', () => {
@@ -240,7 +240,7 @@ describe('Graph', () => {
     graph.addEdge(edgeAD);
 
     expect(graph.getWeight())
-    .toBe(0);
+      .toBe(0);
   });
 
   it('should calculate total graph weight for weighted graph', () => {
@@ -262,7 +262,7 @@ describe('Graph', () => {
     graph.addEdge(edgeAD);
 
     expect(graph.getWeight())
-    .toBe(10);
+      .toBe(10);
   });
 
   it('should be possible to delete edges from graph', () => {
@@ -281,18 +281,18 @@ describe('Graph', () => {
     graph.addEdge(edgeAC);
 
     expect(graph.getAllEdges().length)
-    .toBe(3);
+      .toBe(3);
 
     graph.deleteEdge(edgeAB);
 
     expect(graph.getAllEdges().length)
-    .toBe(2);
+      .toBe(2);
     expect(graph.getAllEdges()[0]
       .value)
-    .toBe(edgeBC.value);
+      .toBe(edgeBC.value);
     expect(graph.getAllEdges()[1]
       .value)
-    .toBe(edgeAC.value);
+      .toBe(edgeAC.value);
   });
 
   it('should should throw an error when trying to delete not existing edge', () => {
@@ -307,7 +307,7 @@ describe('Graph', () => {
     graph.addEdge(edgeAB);
 
     expect(graph.deleteEdge(edgeBC))
-    .toBeNull();
+      .toBeNull();
   });
 
   it('should be possible to reverse graph', () => {
@@ -326,51 +326,51 @@ describe('Graph', () => {
     graph.addEdge(edgeCD);
 
     expect(graph.toString())
-    .toBe('A,B,C,D');
+      .toBe('A,B,C,D');
 
     expect(graph.getAllEdges().length)
-    .toBe(3);
+      .toBe(3);
     expect(graph.getNeighbors(vertexA).length)
-    .toBe(2);
+      .toBe(2);
     expect(graph.getNeighbors(vertexA)[0]
       .value)
-    .toBe(vertexB.value);
+      .toBe(vertexB.value);
     expect(graph.getNeighbors(vertexA)[1]
       .value)
-    .toBe(vertexC.value);
+      .toBe(vertexC.value);
     expect(graph.getNeighbors(vertexB).length)
-    .toBe(0);
+      .toBe(0);
     expect(graph.getNeighbors(vertexC).length)
-    .toBe(1);
+      .toBe(1);
     expect(graph.getNeighbors(vertexC)[0]
       .value)
-    .toBe(vertexD.value);
+      .toBe(vertexD.value);
     expect(graph.getNeighbors(vertexD).length)
-    .toBe(0);
+      .toBe(0);
 
     graph.reverse();
 
     expect(graph.toString())
-    .toBe('A,B,C,D');
+      .toBe('A,B,C,D');
     expect(graph.getAllEdges().length)
-    .toBe(3);
+      .toBe(3);
     expect(graph.getNeighbors(vertexA).length)
-    .toBe(0);
+      .toBe(0);
     expect(graph.getNeighbors(vertexB).length)
-    .toBe(1);
+      .toBe(1);
     expect(graph.getNeighbors(vertexB)[0]
       .value)
-    .toBe(vertexA.value);
+      .toBe(vertexA.value);
     expect(graph.getNeighbors(vertexC).length)
-    .toBe(1);
+      .toBe(1);
     expect(graph.getNeighbors(vertexC)[0]
       .value)
-    .toBe(vertexA.value);
+      .toBe(vertexA.value);
     expect(graph.getNeighbors(vertexD).length)
-    .toBe(1);
+      .toBe(1);
     expect(graph.getNeighbors(vertexD)[0]
       .value)
-    .toBe(vertexC.value);
+      .toBe(vertexC.value);
   });
 
   it('should return vertices indices', () => {
@@ -392,12 +392,12 @@ describe('Graph', () => {
 
     const verticesIndices = graph.getVerticesIndices();
     expect(verticesIndices)
-    .toEqual({
-      A: 0,
-      B: 1,
-      C: 2,
-      D: 3,
-    });
+      .toEqual({
+        A: 0,
+        B: 1,
+        C: 2,
+        D: 3,
+      });
   });
 
   it('should generate adjacency matrix for undirected graph', () => {
@@ -419,32 +419,32 @@ describe('Graph', () => {
 
     const adjacencyMatrix = graph.getAdjacencyMatrix();
     expect(adjacencyMatrix)
-    .toEqual([
-      [
-        Infinity,
-        0,
-        Infinity,
-        Infinity,
-      ],
-      [
-        0,
-        Infinity,
-        0,
-        0,
-      ],
-      [
-        Infinity,
-        0,
-        Infinity,
-        0,
-      ],
-      [
-        Infinity,
-        0,
-        0,
-        Infinity,
-      ],
-    ]);
+      .toEqual([
+        [
+          Infinity,
+          0,
+          Infinity,
+          Infinity,
+        ],
+        [
+          0,
+          Infinity,
+          0,
+          0,
+        ],
+        [
+          Infinity,
+          0,
+          Infinity,
+          0,
+        ],
+        [
+          Infinity,
+          0,
+          0,
+          Infinity,
+        ],
+      ]);
   });
 
   it('should generate adjacency matrix for directed graph', () => {
@@ -466,31 +466,31 @@ describe('Graph', () => {
 
     const adjacencyMatrix = graph.getAdjacencyMatrix();
     expect(adjacencyMatrix)
-    .toEqual([
-      [
-        Infinity,
-        2,
-        Infinity,
-        Infinity,
-      ],
-      [
-        Infinity,
-        Infinity,
-        1,
-        7,
-      ],
-      [
-        Infinity,
-        Infinity,
-        Infinity,
-        5,
-      ],
-      [
-        Infinity,
-        Infinity,
-        Infinity,
-        Infinity,
-      ],
-    ]);
+      .toEqual([
+        [
+          Infinity,
+          2,
+          Infinity,
+          Infinity,
+        ],
+        [
+          Infinity,
+          Infinity,
+          1,
+          7,
+        ],
+        [
+          Infinity,
+          Infinity,
+          Infinity,
+          5,
+        ],
+        [
+          Infinity,
+          Infinity,
+          Infinity,
+          Infinity,
+        ],
+      ]);
   });
 });

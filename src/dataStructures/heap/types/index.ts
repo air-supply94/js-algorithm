@@ -1,4 +1,4 @@
-import { Comparator } from '../../../utils';
+import { Comparator } from '@/utils';
 
 export interface HeapInterface<T = unknown> {
   fromArray: (value: T[]) => this;

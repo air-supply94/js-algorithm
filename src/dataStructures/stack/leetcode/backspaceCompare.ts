@@ -8,7 +8,7 @@ export function backspaceCompare(str1: string, str2: string): boolean {
     }
 
     return stack.toArray()
-    .join('');
+      .join('');
   }
 
   return getString(str1) === getString(str2);

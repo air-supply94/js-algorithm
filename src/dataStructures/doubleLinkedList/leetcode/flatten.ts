@@ -1,5 +1,5 @@
-import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { Stack } from '../../stack';
+import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 
 export class FlattenDoubleLinkedListNode<T = unknown> extends DoubleLinkedListNode {
   constructor(value: T, next = null, previous = null, child = null) {
@@ -8,7 +8,8 @@ export class FlattenDoubleLinkedListNode<T = unknown> extends DoubleLinkedListNo
   }
 
   private _child: this;
-  get child() {
+
+  public get child() {
     return this._child;
   }
 

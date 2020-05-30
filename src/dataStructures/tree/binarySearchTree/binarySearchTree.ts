@@ -1,36 +1,19 @@
-import {
-  Comparator,
-  compareFunctionType,
-} from '../../../utils';
-import {
-  find,
-  findMax,
-  findMin,
-  insert,
-  findReplaceNode,
-  traverseInOrder,
-  traverseLevelOrder,
-  traverseAfterOrder,
-  traversePreOrder,
-} from './utils';
-import {
-  BinarySearchTreeInterface,
-  BinarySearchTreeNodeInterface,
-  traverseCallback,
-} from './types';
+import { Comparator, compareFunctionType } from '../../../utils';
+import { BinarySearchTreeInterface, BinarySearchTreeNodeInterface, traverseCallback } from './types';
+import { find, findMax, findMin, insert, findReplaceNode, traverseInOrder, traverseLevelOrder, traverseAfterOrder, traversePreOrder } from './utils';
 
 export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<T> {
   constructor(
     compareFunction?: compareFunctionType | Comparator,
     isFindMin = true,
-    swap = function (
+    swap = function(
       tmpNode: BinarySearchTreeNodeInterface<T>,
-      replaceNode: BinarySearchTreeNodeInterface<T>,
+      replaceNode: BinarySearchTreeNodeInterface<T>
     ): void {
       const tmpValue = tmpNode.value;
       tmpNode.setValue(replaceNode.value);
       replaceNode.setValue(tmpValue);
-    },
+    }
   ) {
     this.comparator = new Comparator(compareFunction);
     this.swap = swap;
@@ -39,6 +22,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
   }
 
   private readonly isFindMin: boolean;
+
   private readonly swap: (
     tmpNode: BinarySearchTreeNodeInterface<T>,
     replaceNode: BinarySearchTreeNodeInterface<T>,
@@ -48,7 +32,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
 
   public readonly comparator: Comparator;
 
-  get root(): BinarySearchTreeNodeInterface<T> | null {
+  public get root(): BinarySearchTreeNodeInterface<T> | null {
     return this._root;
   }
 
@@ -66,7 +50,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
   }
 
   public contains(value: T): boolean {
-    return !!this.find(value);
+    return Boolean(this.find(value));
   }
 
   public remove(value: T): BinarySearchTreeNodeInterface<T> | null {
@@ -94,7 +78,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
 
   public traversePreOrder(): T[] {
     const result = [];
-    this.traversePreOrderCallback(function (node) {
+    this.traversePreOrderCallback((node) => {
       result.push(node.value);
     });
     return result;
@@ -106,7 +90,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
 
   public traverseInOrder(): T[] {
     const result = [];
-    this.traverseInOrderCallback(function (node) {
+    this.traverseInOrderCallback((node) => {
       result.push(node.value);
     });
     return result;
@@ -118,7 +102,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
 
   public traverseAfterOrder(): T[] {
     const result = [];
-    this.traverseAfterOrderCallback(function (node) {
+    this.traverseAfterOrderCallback((node) => {
       result.push(node.value);
     });
     return result;
@@ -130,7 +114,7 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
 
   public traverseLevelOrder(): T[] {
     const result = [];
-    this.traverseLevelOrderCallback(function (node) {
+    this.traverseLevelOrderCallback((node) => {
       result.push(node.value);
     });
     return result;
@@ -142,6 +126,6 @@ export class BinarySearchTree<T = unknown> implements BinarySearchTreeInterface<
 
   public toString(): string {
     return this.traverseInOrder()
-    .toString();
+      .toString();
   }
 }

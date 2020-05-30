@@ -1,39 +1,26 @@
-import {
-  BinarySearchTree,
-  BinarySearchTreeInterface,
-  BinarySearchTreeNodeInterface,
-  getBalanceFactor,
-  traverseCallback,
-  rotateLeftLeft,
-  rotateLeftRight,
-  rotateRightLeft,
-  rotateRightRight,
-} from '../binarySearchTree';
-import {
-  Comparator,
-  compareFunctionType,
-} from '../../../utils';
+import { Comparator, compareFunctionType } from '../../../utils';
+import { BinarySearchTree, BinarySearchTreeInterface, BinarySearchTreeNodeInterface, getBalanceFactor, traverseCallback, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
 import { AvlTreeInterface } from './types';
 
 export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
-  get comparator(): Comparator {
+  public get comparator(): Comparator {
     return this.binarySearchTree.comparator;
   }
 
-  get root(): BinarySearchTreeNodeInterface<T> | null {
+  public get root(): BinarySearchTreeNodeInterface<T> | null {
     return this.binarySearchTree.root;
   }
 
   constructor(
     compareFunction?: compareFunctionType | Comparator,
-    swap = function (
+    swap = function(
       tmpNode: BinarySearchTreeNodeInterface<T>,
-      replaceNode: BinarySearchTreeNodeInterface<T>,
+      replaceNode: BinarySearchTreeNodeInterface<T>
     ): void {
       const tmpValue = tmpNode.value;
       tmpNode.setValue(replaceNode.value);
       replaceNode.setValue(tmpValue);
-    },
+    }
   ) {
     this.binarySearchTree = new BinarySearchTree<T>(compareFunction, true, swap);
     this.setRoot = this.setRoot.bind(this);

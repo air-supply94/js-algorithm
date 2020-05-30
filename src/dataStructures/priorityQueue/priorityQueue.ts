@@ -1,9 +1,6 @@
+import { Comparator } from '@/utils';
 import { MinHeap } from '../heap';
-import { Comparator } from '../../utils/comparator';
-import {
-  PriorityQueueInterface,
-  PriorityQueueItem,
-} from './types';
+import { PriorityQueueInterface, PriorityQueueItem } from './types';
 
 function valueCompare(a: Pick<PriorityQueueItem, 'value'>, b: Pick<PriorityQueueItem, 'value'>) {
   if (a.value === b.value) {
@@ -28,7 +25,9 @@ export class PriorityQueue<T = unknown> implements PriorityQueueInterface<T> {
   }
 
   private readonly valueCompare;
+
   private readonly priorityCompare;
+
   private readonly minHeap;
 
   public isEmpty(): boolean {
@@ -37,7 +36,7 @@ export class PriorityQueue<T = unknown> implements PriorityQueueInterface<T> {
 
   public sort(): T[] {
     return this.minHeap.sort()
-    .map(item => item.value);
+      .map((item) => item.value);
   }
 
   public poll(): T | undefined {
@@ -57,18 +56,18 @@ export class PriorityQueue<T = unknown> implements PriorityQueueInterface<T> {
   }
 
   public removeAll(value: T): T[] {
-    return this.minHeap.removeAll({value}, this.valueCompare)
-    .map(item => item.value);
+    return this.minHeap.removeAll({ value }, this.valueCompare)
+      .map((item) => item.value);
   }
 
   public changeAllPriority(value: T, priority: number): this {
     this.removeAll(value)
-    .forEach(item => this.add(item, priority));
+      .forEach((item) => this.add(item, priority));
 
     return this;
   }
 
   public has(value: T): boolean {
-    return this.minHeap.findIndex({value}, this.valueCompare) !== -1;
+    return this.minHeap.findIndex({ value }, this.valueCompare) !== -1;
   }
 }

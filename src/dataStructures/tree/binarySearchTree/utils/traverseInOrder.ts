@@ -1,15 +1,13 @@
 import { Stack } from '../../../stack';
-import {
-  BinarySearchTreeNodeInterface,
-  traverseCallback,
-} from '../types';
+import { BinarySearchTreeNodeInterface, traverseCallback } from '../types';
 
 export function traverseInOrder<T = unknown>(
   root: null | BinarySearchTreeNodeInterface<T>,
-  callback: traverseCallback,
+  callback: traverseCallback
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     while (currentNode) {
       nodeStack.push(currentNode);

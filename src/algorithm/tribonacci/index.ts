@@ -1,5 +1,5 @@
 export function tribonacci(n: number): number {
-  n = n | 0;
+  n |= 0;
   let n0 = 0;
   let n1 = 1;
   let n2 = 1;

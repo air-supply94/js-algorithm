@@ -9,12 +9,13 @@ export class TrieNode implements TrieNodeInterface {
 
   private _isCompleteWord: boolean;
 
-  get isCompleteWord(): boolean {
+  public get isCompleteWord(): boolean {
     return this._isCompleteWord;
   }
 
   public readonly character: string;
-  public children: { [key: string]: TrieNodeInterface };
+
+  public children: { [key: string]: TrieNodeInterface; };
 
   public setIsCompleteWord(isCompleteWord: boolean): this {
     this._isCompleteWord = isCompleteWord;
@@ -39,9 +40,9 @@ export class TrieNode implements TrieNodeInterface {
     const childNode = this.getChild(character);
 
     if (
-      childNode
-      && !childNode.isCompleteWord
-      && !childNode.hasChildren()
+      childNode &&
+      !childNode.isCompleteWord &&
+      !childNode.hasChildren()
     ) {
       delete this.children[character];
       return true;
@@ -60,11 +61,11 @@ export class TrieNode implements TrieNodeInterface {
 
   public suggestChildren(): string[] {
     return Object.values(this.children)
-    .map(item => item.character);
+      .map((item) => item.character);
   }
 
   public toString(): string {
     return `${this.character}${this.suggestChildren()
-    .join('')}`;
+      .join('')}`;
   }
 }

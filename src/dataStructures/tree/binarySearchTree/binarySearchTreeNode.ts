@@ -1,5 +1,5 @@
-import { traverseInOrder } from './utils';
 import { BinarySearchTreeNodeInterface } from './types';
+import { traverseInOrder } from './utils';
 
 export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeInterface<T> {
   constructor(value = null) {
@@ -10,23 +10,26 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
   }
 
   private _left: null | BinarySearchTreeNodeInterface<T>;
+
   private _right: null | BinarySearchTreeNodeInterface<T>;
+
   private _parent: null | BinarySearchTreeNodeInterface<T>;
+
   private _value: T;
 
-  get value(): T {
+  public get value(): T {
     return this._value;
   }
 
-  get left(): null | BinarySearchTreeNodeInterface<T> {
+  public get left(): null | BinarySearchTreeNodeInterface<T> {
     return this._left;
   }
 
-  get right(): null | BinarySearchTreeNodeInterface<T> {
+  public get right(): null | BinarySearchTreeNodeInterface<T> {
     return this._right;
   }
 
-  get parent(): null | BinarySearchTreeNodeInterface<T> {
+  public get parent(): null | BinarySearchTreeNodeInterface<T> {
     return this._parent;
   }
 
@@ -66,7 +69,6 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
     }
 
     return this;
-
   }
 
   public removeChild(nodeToRemove: BinarySearchTreeNodeInterface<T>): boolean {
@@ -85,7 +87,7 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
 
   public replaceChild(
     nodeToReplace: BinarySearchTreeNodeInterface<T>,
-    replacementNode: BinarySearchTreeNodeInterface<T>,
+    replacementNode: BinarySearchTreeNodeInterface<T>
   ): boolean {
     if (!nodeToReplace || !replacementNode) {
       return false;
@@ -106,7 +108,7 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
 
   public toString(): string {
     const result = [];
-    traverseInOrder(this, function (node) {
+    traverseInOrder(this, (node) => {
       result.push(node.value);
     });
 

@@ -1,21 +1,21 @@
-import { balanceSymbol } from '../balanceSymbol';
-import { postfix } from '../postfix';
-import { calPoints } from '../calPoints';
 import { backspaceCompare } from '../backspaceCompare';
-import { removeDuplicates } from '../removeDuplicates';
-import { maxSlidingWindow } from '../maxSlidingWindow';
+import { balanceSymbol } from '../balanceSymbol';
+import { calPoints } from '../calPoints';
 import { decodeString } from '../decodeString';
+import { maxSlidingWindow } from '../maxSlidingWindow';
+import { postfix } from '../postfix';
+import { removeDuplicates } from '../removeDuplicates';
 
 describe('leetcode stack', () => {
   it('balanceSymbol', () => {
     expect(balanceSymbol('(aaa)[]['))
-    .toBeFalsy();
+      .toBeFalsy();
     expect(balanceSymbol('[aaa)[]]'))
-    .toBeFalsy();
+      .toBeFalsy();
     expect(balanceSymbol('}]aaa()[]'))
-    .toBeFalsy();
+      .toBeFalsy();
     expect(balanceSymbol('([({})[{}]])aaa()[]'))
-    .toBeTruthy();
+      .toBeTruthy();
   });
 
   it('postfix', () => {
@@ -33,7 +33,7 @@ describe('leetcode stack', () => {
       3,
       '*',
     ]))
-    .toBe(9);
+      .toBe(9);
   });
 
   it('calPoints', () => {
@@ -48,32 +48,32 @@ describe('leetcode stack', () => {
       '+',
       '+',
     ]))
-    .toBe(27);
+      .toBe(27);
   });
 
   it('backspaceCompare', () => {
     expect(backspaceCompare('ab#c', 'ad#c'))
-    .toBeTruthy();
+      .toBeTruthy();
     expect(backspaceCompare('ab##', 'c#d#'))
-    .toBeTruthy();
+      .toBeTruthy();
   });
 
   it('removeDuplicates', () => {
     expect(removeDuplicates('abbaca'))
-    .toBe('ca');
+      .toBe('ca');
   });
 
   it('maxSlidingWindow', () => {
     expect(maxSlidingWindow([], 10)
-    .toString())
-    .toBe('');
+      .toString())
+      .toBe('');
 
     expect(maxSlidingWindow([
       1,
       2,
     ], 10)
-    .toString())
-    .toBe('2');
+      .toString())
+      .toBe('2');
 
     expect(maxSlidingWindow([
       1,
@@ -85,23 +85,23 @@ describe('leetcode stack', () => {
       6,
       7,
     ], 3)
-    .toString())
-    .toBe('3,3,5,5,6,7');
+      .toString())
+      .toBe('3,3,5,5,6,7');
   });
 
   it('decodeString', () => {
     expect(decodeString('[]'))
-    .toBe('');
+      .toBe('');
     expect(decodeString('a[]'))
-    .toBe('a');
+      .toBe('a');
 
     expect(decodeString('3[a]2[bc]'))
-    .toBe('aaabcbc');
+      .toBe('aaabcbc');
     expect(decodeString('3[a]c[bc]'))
-    .toBe('aaac');
+      .toBe('aaac');
     expect(decodeString('3[a2[c]]'))
-    .toBe('accaccacc');
+      .toBe('accaccacc');
     expect(decodeString('2[abc]3[cd]ef'))
-    .toBe('abcabccdcdcdef');
+      .toBe('abcabccdcdcdef');
   });
 });

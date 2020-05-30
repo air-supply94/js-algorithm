@@ -1,12 +1,9 @@
 import { Stack } from '../../../stack';
-import {
-  BinarySearchTreeNodeInterface,
-  traverseCallback,
-} from '../types';
+import { BinarySearchTreeNodeInterface, traverseCallback } from '../types';
 
 export function traverseAfterOrder<T = unknown>(
   root: BinarySearchTreeNodeInterface<T> | null,
-  callback: traverseCallback,
+  callback: traverseCallback
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;

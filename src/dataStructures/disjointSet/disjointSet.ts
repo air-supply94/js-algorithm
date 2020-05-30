@@ -1,8 +1,5 @@
 import { DisjointSetItem } from './disjointSetItem';
-import {
-  DisjointSetInterface,
-  DisjointSetItemInterface,
-} from './types';
+import { DisjointSetInterface, DisjointSetItemInterface } from './types';
 
 export class DisjointSet<T = unknown> implements DisjointSetInterface<T> {
   constructor(keyCallback?: (item: T) => string) {
@@ -11,16 +8,17 @@ export class DisjointSet<T = unknown> implements DisjointSetInterface<T> {
   }
 
   public readonly keyCallback?: (item: T) => string;
-  public readonly items: { [key: string]: DisjointSetItemInterface<T> };
 
-  public makeSet(itemValue: T): this {
-    const disjointSetItem = new DisjointSetItem(itemValue, this.keyCallback);
+  public readonly items: { [key: string]: DisjointSetItemInterface<T>; };
+
+  public makeSet(itemValue: T): DisjointSetItemInterface<T> {
+    const disjointSetItem = new DisjointSetItem<T>(itemValue, this.keyCallback);
 
     if (!this.items[disjointSetItem.getKey()]) {
       this.items[disjointSetItem.getKey()] = disjointSetItem;
     }
 
-    return this;
+    return this.items[disjointSetItem.getKey()];
   }
 
   public find(itemValue: T): null | string {
@@ -33,7 +31,7 @@ export class DisjointSet<T = unknown> implements DisjointSetInterface<T> {
     }
 
     return requiredDisjointItem.getRoot()
-    .getKey();
+      .getKey();
   }
 
   public union(valueA: T, valueB: T): null | string {

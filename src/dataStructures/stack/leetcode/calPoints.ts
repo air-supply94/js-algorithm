@@ -1,9 +1,9 @@
+import { add } from '@/utils';
 import { Stack } from '../stack';
-import { add } from '../../../utils';
 
-export function calPoints(options: (string | number)[]): number {
+export function calPoints(options: Array<string | number>): number {
   const stack = new Stack<number>();
-  options.forEach(value => {
+  options.forEach((value) => {
     if (typeof value === 'number') {
       stack.push(value);
     } else if (value === 'C') {
@@ -22,5 +22,5 @@ export function calPoints(options: (string | number)[]): number {
   });
 
   return stack.toArray()
-  .reduce(add, 0);
+    .reduce(add, 0);
 }

@@ -26,6 +26,6 @@ export function decodeString(str: string): string {
   }
 
   return stack.toArray()
-  .reverse()
-  .join('');
+    .reverse()
+    .join('');
 }

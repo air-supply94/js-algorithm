@@ -3,5 +3,5 @@ export interface SegmentTreeInterface {
   operationFallback: number;
   inputArray: number[];
   segmentTree: number[];
-  rangeQuery(queryLeftIndex: number, queryRightIndex: number): number;
+  rangeQuery: (queryLeftIndex: number, queryRightIndex: number) => number;
 }

@@ -1,8 +1,5 @@
 import { TrieNode } from './trieNode';
-import {
-  TrieInterface,
-  TrieNodeInterface,
-} from './types';
+import { TrieInterface, TrieNodeInterface } from './types';
 
 const HEAD_CHARACTER = '';
 
@@ -77,6 +74,6 @@ export class Trie implements TrieInterface {
   public doesWordExist(word: string): boolean {
     const lastCharacter = this.getLastCharacterNode(word);
 
-    return !!lastCharacter && lastCharacter.isCompleteWord;
+    return Boolean(lastCharacter) && lastCharacter.isCompleteWord;
   }
 }

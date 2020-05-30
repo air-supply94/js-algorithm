@@ -13,14 +13,16 @@ export class DisjointSetItem<T = unknown> implements DisjointSetItemInterface<T>
   }
 
   private _parent: DisjointSetItemInterface<T> | null;
-  get parent(): DisjointSetItemInterface<T> | null {
+
+  public get parent(): DisjointSetItemInterface<T> | null {
     return this._parent;
   }
 
   public readonly value: T;
+
   public readonly keyCallback: (item: string | T) => string;
 
-  public readonly children: { [key: string]: DisjointSetItemInterface<T> };
+  public readonly children: { [key: string]: DisjointSetItemInterface<T>; };
 
   public getKey(): string {
     return this.keyCallback(this.value);
@@ -36,10 +38,10 @@ export class DisjointSetItem<T = unknown> implements DisjointSetItemInterface<T>
 
   public getRank(): number {
     return this.getChildren()
-    .reduce((prev: number, child: DisjointSetItemInterface<T>) => prev + child.getRank() + 1, 0);
+      .reduce((prev: number, child: DisjointSetItemInterface<T>) => prev + child.getRank() + 1, 0);
   }
 
-  public getChildren(): DisjointSetItemInterface<T>[] {
+  public getChildren(): Array<DisjointSetItemInterface<T>> {
     return Object.values(this.children);
   }
 

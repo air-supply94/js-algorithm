@@ -5,11 +5,11 @@ describe('PriorityQueue', () => {
     const priorityQueue = new PriorityQueue();
 
     expect(priorityQueue)
-    .toBeDefined();
+      .toBeDefined();
     expect(priorityQueue.poll())
-    .toBeUndefined();
+      .toBeUndefined();
     expect(priorityQueue.isEmpty())
-    .toBeTruthy();
+      .toBeTruthy();
   });
 
   it('should insert items to the queue and respect priorities', () => {
@@ -17,29 +17,29 @@ describe('PriorityQueue', () => {
 
     priorityQueue.add(10, 1);
     expect(priorityQueue.peek())
-    .toBe(10);
+      .toBe(10);
 
     priorityQueue.add(5, 2);
     expect(priorityQueue.peek())
-    .toBe(10);
+      .toBe(10);
 
     priorityQueue.add(100);
     expect(priorityQueue.peek())
-    .toBe(100);
+      .toBe(100);
 
     priorityQueue.removeAll(200);
     expect(priorityQueue.peek())
-    .toBe(100);
+      .toBe(100);
 
     priorityQueue.removeAll(100);
     expect(priorityQueue.peek())
-    .toBe(10);
+      .toBe(10);
     priorityQueue.removeAll(10);
     expect(priorityQueue.peek())
-    .toBe(5);
+      .toBe(5);
     priorityQueue.removeAll(5);
     expect(priorityQueue.peek())
-    .toBeUndefined();
+      .toBeUndefined();
   });
 
   it('should poll from queue with respect to priorities', () => {
@@ -51,13 +51,13 @@ describe('PriorityQueue', () => {
     priorityQueue.add(200, 0);
 
     expect(priorityQueue.poll())
-    .toBe(100);
+      .toBe(100);
     expect(priorityQueue.poll())
-    .toBe(200);
+      .toBe(200);
     expect(priorityQueue.poll())
-    .toBe(10);
+      .toBe(10);
     expect(priorityQueue.poll())
-    .toBe(5);
+      .toBe(5);
   });
 
   it('should be possible to change priority of internal nodes', () => {
@@ -71,13 +71,13 @@ describe('PriorityQueue', () => {
     priorityQueue.changeAllPriority(100, 10);
     priorityQueue.changeAllPriority(10, 20);
     expect(priorityQueue.poll())
-    .toBe(200);
+      .toBe(200);
     expect(priorityQueue.poll())
-    .toBe(5);
+      .toBe(5);
     expect(priorityQueue.poll())
-    .toBe(100);
+      .toBe(100);
     expect(priorityQueue.poll())
-    .toBe(10);
+      .toBe(10);
   });
 
   it('should be possible to change priority of head node', () => {
@@ -92,13 +92,13 @@ describe('PriorityQueue', () => {
     priorityQueue.changeAllPriority(10, 20);
 
     expect(priorityQueue.poll())
-    .toBe(100);
+      .toBe(100);
     expect(priorityQueue.poll())
-    .toBe(5);
+      .toBe(5);
     expect(priorityQueue.poll())
-    .toBe(200);
+      .toBe(200);
     expect(priorityQueue.poll())
-    .toBe(10);
+      .toBe(10);
   });
 
   it('should be possible to change priority along with node addition', () => {
@@ -116,15 +116,15 @@ describe('PriorityQueue', () => {
     priorityQueue.add(15, 15);
 
     expect(priorityQueue.poll())
-    .toBe(100);
+      .toBe(100);
     expect(priorityQueue.poll())
-    .toBe(5);
+      .toBe(5);
     expect(priorityQueue.poll())
-    .toBe(200);
+      .toBe(200);
     expect(priorityQueue.poll())
-    .toBe(15);
+      .toBe(15);
     expect(priorityQueue.poll())
-    .toBe(10);
+      .toBe(10);
   });
 
   it('should be possible to search in priority queue by value', () => {
@@ -136,11 +136,11 @@ describe('PriorityQueue', () => {
     priorityQueue.add(200, 0);
     priorityQueue.add(15, 15);
     expect(priorityQueue.has(70))
-    .toBe(false);
+      .toBe(false);
     expect(priorityQueue.has(15))
-    .toBe(true);
+      .toBe(true);
     expect(priorityQueue.sort()
-    .toString())
-    .toBe('100,200,10,5,15');
+      .toString())
+      .toBe('100,200,10,5,15');
   });
 });

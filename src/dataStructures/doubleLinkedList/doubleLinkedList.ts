@@ -1,21 +1,7 @@
+import { Comparator, compareFunctionType } from '../../utils';
 import { DoubleLinkedListNode } from './doubleLinkedListNode';
-import {
-  Comparator,
-  compareFunctionType,
-} from '../../utils';
-import {
-  DoubleLinkedListInterface,
-  DoubleLinkedListNodeInterface,
-  eachCallback,
-  FindParams,
-  toStringCallback,
-} from './types';
-import {
-  reverse,
-  get,
-  each,
-  formatIndex,
-} from './utils';
+import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface, eachCallback, FindParams, toStringCallback } from './types';
+import { reverse, get, each, formatIndex } from './utils';
 
 export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<T> {
   constructor(comparatorFunction?: Comparator | compareFunctionType) {
@@ -24,8 +10,11 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   private readonly _compare: Comparator;
+
   private _head: DoubleLinkedListNodeInterface<T> | null;
+
   private _tail: DoubleLinkedListNodeInterface<T> | null;
+
   private _size: number;
 
   private deleteValueBase(count: number, value?: T): null | DoubleLinkedListNodeInterface<T> {
@@ -66,11 +55,11 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return deletedNode;
   }
 
-  get compare() {
+  public get compare() {
     return this._compare;
   }
 
-  get size(): number {
+  public get size(): number {
     return this._size;
   }
 
@@ -79,7 +68,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return this;
   }
 
-  get head(): DoubleLinkedListNodeInterface<T> | null {
+  public get head(): DoubleLinkedListNodeInterface<T> | null {
     return this._head;
   }
 
@@ -88,7 +77,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return this;
   }
 
-  get tail(): DoubleLinkedListNodeInterface<T> | null {
+  public get tail(): DoubleLinkedListNodeInterface<T> | null {
     return this._tail;
   }
 
@@ -99,20 +88,20 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
 
   public clear(): this {
     return this.setHead(null)
-    .setTail(null)
-    .setSize(0);
+      .setTail(null)
+      .setSize(0);
   }
 
   public toString(callback?: toStringCallback<T>): string {
     return this.toArray()
-    .map(node => node.toString(callback))
-    .toString();
+      .map((node) => node.toString(callback))
+      .toString();
   }
 
-  public toArray(): DoubleLinkedListNodeInterface<T>[] {
+  public toArray(): Array<DoubleLinkedListNodeInterface<T>> {
     const nodes = [];
 
-    this.eachFromHead(node => {
+    this.eachFromHead((node) => {
       nodes.push(node);
     });
     return nodes;
@@ -127,7 +116,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public fromArray(values: T[]): this {
-    values.forEach(value => this.append(value));
+    values.forEach((value) => this.append(value));
     return this;
   }
 
@@ -158,10 +147,10 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public find(findParams: FindParams<T>): null | DoubleLinkedListNodeInterface<T> {
-    const {value, callback} = findParams;
+    const { value, callback } = findParams;
     let findNode = null;
     if (typeof callback === 'function') {
-      this.eachFromHead(node => {
+      this.eachFromHead((node) => {
         if (callback(node.value)) {
           findNode = node;
           return false;
@@ -169,7 +158,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
         return true;
       });
     } else {
-      this.eachFromHead(node => {
+      this.eachFromHead((node) => {
         if (this.compare.equal(node.value, value)) {
           findNode = node;
           return false;
@@ -234,7 +223,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
 
     if (this.isEmpty()) {
       this.setTail(newNode)
-      .setHead(newNode);
+        .setHead(newNode);
     } else {
       this.tail.setNext(newNode);
       this.setTail(newNode);
@@ -248,7 +237,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     const newNode = new DoubleLinkedListNode(value, this.head);
     if (this.isEmpty()) {
       this.setHead(newNode)
-      .setTail(newNode);
+        .setTail(newNode);
     } else {
       this.head.setPrevious(newNode);
       this.setHead(newNode);
@@ -266,10 +255,10 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return this;
   }
 
-  public connect(...arg: DoubleLinkedListInterface<T>[]): this {
+  public connect(...arg: Array<DoubleLinkedListInterface<T>>): this {
     const values = [];
-    arg.forEach(doubleLinkedList => {
-      doubleLinkedList.eachFromHead(node => {
+    arg.forEach((doubleLinkedList) => {
+      doubleLinkedList.eachFromHead((node) => {
         values.push(node.value);
       });
     });
@@ -278,7 +267,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
   }
 
   public has(value?: T): boolean {
-    return !!this.find({value});
+    return Boolean(this.find({ value }));
   }
 
   public isEmpty(): boolean {

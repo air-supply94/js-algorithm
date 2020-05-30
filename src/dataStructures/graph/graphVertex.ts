@@ -1,15 +1,7 @@
-import {
-  DoubleLinkedList,
-  DoubleLinkedListInterface,
-  DoubleLinkedListNodeInterface,
-} from '../doubleLinkedList';
-import {
-  GraphEdgeInterface,
-  GraphVertexInterface,
-} from './types';
+import { DoubleLinkedList, DoubleLinkedListInterface, DoubleLinkedListNodeInterface } from '../doubleLinkedList';
+import { GraphEdgeInterface, GraphVertexInterface } from './types';
 
 export class GraphVertex implements GraphVertexInterface {
-
   constructor(value: string) {
     function edgeComparator(edgeA: GraphEdgeInterface, edgeB: GraphEdgeInterface) {
       if (edgeA.value === edgeB.value) {
@@ -24,6 +16,7 @@ export class GraphVertex implements GraphVertexInterface {
   }
 
   public readonly value: string;
+
   public edges: DoubleLinkedListInterface<GraphEdgeInterface>;
 
   public addEdge(edge: GraphEdgeInterface): GraphEdgeInterface {
@@ -37,12 +30,12 @@ export class GraphVertex implements GraphVertexInterface {
 
   public getNeighbors(): GraphVertexInterface[] {
     return this.edges.toArray()
-    .map((node: DoubleLinkedListNodeInterface<GraphEdgeInterface>) => node.value.startVertex === this ? node.value.endVertex : node.value.startVertex);
+      .map((node: DoubleLinkedListNodeInterface<GraphEdgeInterface>) => (node.value.startVertex === this ? node.value.endVertex : node.value.startVertex));
   }
 
   public getEdges(): GraphEdgeInterface[] {
     return this.edges.toArray()
-    .map(linkedListNode => linkedListNode.value);
+      .map((linkedListNode) => linkedListNode.value);
   }
 
   public getDegree(): number {
@@ -50,15 +43,15 @@ export class GraphVertex implements GraphVertexInterface {
   }
 
   public hasEdge(requiredEdge: GraphEdgeInterface): boolean {
-    return !!this.edges.find({value: requiredEdge});
+    return Boolean(this.edges.find({ value: requiredEdge }));
   }
 
   public hasNeighbor(vertex: GraphVertexInterface): boolean {
-    return !!this.edges.find({
+    return Boolean(this.edges.find({
       callback(edge: GraphEdgeInterface) {
         return edge.startVertex === vertex || edge.endVertex === vertex;
       },
-    });
+    }));
   }
 
   public findEdge(vertex: GraphVertex): GraphEdgeInterface | null {

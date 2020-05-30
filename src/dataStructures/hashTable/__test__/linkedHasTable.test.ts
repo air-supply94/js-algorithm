@@ -1,7 +1,6 @@
 import { LinkedHashTable } from '../linkedHashTable';
 
 describe('HashTable', () => {
-
   it('should test bucket', () => {
     const hashTable = new LinkedHashTable();
     const str1 = String.fromCodePoint(LinkedHashTable.size);
@@ -11,11 +10,11 @@ describe('HashTable', () => {
     hashTable.set(str1, 1);
     hashTable.set(str3, 3);
     expect(hashTable.get(str1))
-    .toBe(1);
+      .toBe(1);
     expect(hashTable.get(str2))
-    .toBe(2);
+      .toBe(2);
     expect(hashTable.get(str3))
-    .toBe(3);
+      .toBe(3);
   });
 
   it('should set, read and delete data with collisions', () => {
@@ -29,40 +28,40 @@ describe('HashTable', () => {
     hashTable.set(4, 'ocean');
 
     expect(hashTable.get(1))
-    .toBeNull();
+      .toBeNull();
     expect(hashTable.get(size * 2 + 1))
-    .toBeNull();
+      .toBeNull();
     expect(hashTable.has(0))
-    .toBe(false);
+      .toBe(false);
     expect(hashTable.has(2))
-    .toBe(true);
+      .toBe(true);
     expect(hashTable.has(3))
-    .toBe(true);
+      .toBe(true);
 
     expect(hashTable.get(size + 1))
-    .toBe('sky');
+      .toBe('sky');
     expect(hashTable.get(4))
-    .toBe('ocean');
+      .toBe('ocean');
     expect(hashTable.get('x'))
-    .toBeNull();
+      .toBeNull();
 
     hashTable.delete(size + 1);
 
     expect(hashTable.delete('not-existing'))
-    .toBe(null);
+      .toBe(null);
 
     expect(hashTable.get(size + 1))
-    .toBeNull();
+      .toBeNull();
     expect(hashTable.get(4))
-    .toBe('ocean');
+      .toBe('ocean');
 
     hashTable.set(4, 'ocean-new');
     expect(hashTable.get(4))
-    .toBe('ocean-new');
+      .toBe('ocean-new');
   });
 
   it('should be possible to add objects to hash table', () => {
-    const hashTable = new LinkedHashTable<{ prop1: string; prop2: string }>();
+    const hashTable = new LinkedHashTable<{ prop1: string; prop2: string; }>();
 
     hashTable.set('objectKey', {
       prop1: 'a',
@@ -71,11 +70,11 @@ describe('HashTable', () => {
 
     const object = hashTable.get('objectKey');
     expect(object)
-    .toBeDefined();
+      .toBeDefined();
     expect(object.prop1)
-    .toBe('a');
+      .toBe('a');
     expect(object.prop2)
-    .toBe('b');
+      .toBe('b');
   });
 
   it('should track actual keys', () => {
@@ -88,17 +87,17 @@ describe('HashTable', () => {
     hashTable.set('d', 'ocean');
 
     expect(hashTable.has('a'))
-    .toBe(true);
+      .toBe(true);
     expect(hashTable.has('x'))
-    .toBe(false);
+      .toBe(false);
 
     hashTable.delete('a');
 
     expect(hashTable.has('a'))
-    .toBe(false);
+      .toBe(false);
     expect(hashTable.has('b'))
-    .toBe(true);
+      .toBe(true);
     expect(hashTable.has('x'))
-    .toBe(false);
+      .toBe(false);
   });
 });

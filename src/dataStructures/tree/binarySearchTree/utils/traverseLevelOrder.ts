@@ -1,12 +1,9 @@
 import { Queue } from '../../../queue';
-import {
-  BinarySearchTreeNodeInterface,
-  traverseCallback,
-} from '../types';
+import { BinarySearchTreeNodeInterface, traverseCallback } from '../types';
 
 export function traverseLevelOrder<T = unknown>(
   root: BinarySearchTreeNodeInterface<T> | null,
-  callback: traverseCallback,
+  callback: traverseCallback
 ): void {
   const nodeQueue = new Queue<BinarySearchTreeNodeInterface<T>>();
   if (root) {

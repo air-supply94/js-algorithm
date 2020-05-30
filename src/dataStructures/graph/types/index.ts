@@ -5,38 +5,38 @@ export interface GraphEdgeInterface {
   endVertex: GraphVertexInterface;
   weight: number;
   readonly value: string;
-  reverse(): this;
+  reverse: () => this;
 }
 
 export interface GraphVertexInterface {
   value: string;
   edges: DoubleLinkedListInterface<GraphEdgeInterface>;
-  addEdge(edge: GraphEdgeInterface): GraphEdgeInterface;
-  deleteEdge(edge: GraphEdgeInterface): null | GraphEdgeInterface;
-  getNeighbors(): GraphVertexInterface[];
-  getEdges(): GraphEdgeInterface[];
-  getDegree(): number;
-  hasEdge(requiredEdge: GraphEdgeInterface): boolean;
-  hasNeighbor(vertex: GraphVertexInterface): boolean;
-  findEdge(vertex: GraphVertexInterface): GraphEdgeInterface | null;
-  deleteAllEdges(): void;
+  addEdge: (edge: GraphEdgeInterface) => GraphEdgeInterface;
+  deleteEdge: (edge: GraphEdgeInterface) => null | GraphEdgeInterface;
+  getNeighbors: () => GraphVertexInterface[];
+  getEdges: () => GraphEdgeInterface[];
+  getDegree: () => number;
+  hasEdge: (requiredEdge: GraphEdgeInterface) => boolean;
+  hasNeighbor: (vertex: GraphVertexInterface) => boolean;
+  findEdge: (vertex: GraphVertexInterface) => GraphEdgeInterface | null;
+  deleteAllEdges: () => void;
 }
 
 export interface GraphInterface {
   isDirected: boolean;
-  hasVertex(vertex: GraphVertexInterface | string): boolean;
-  addVertex(vertex: GraphVertexInterface): GraphVertexInterface;
-  getVertex(vertex: GraphVertexInterface | string): GraphVertexInterface | null;
-  getNeighbors(vertex: GraphVertexInterface | string): GraphVertexInterface[];
-  getAllVertices(): GraphVertexInterface[];
-  getAllEdges(): GraphEdgeInterface[];
-  hasEdge(edge: GraphEdgeInterface | string): boolean;
-  getEdge(edge: GraphEdgeInterface | string): GraphEdgeInterface | null;
-  addEdge(edge: GraphEdgeInterface): GraphEdgeInterface;
-  deleteEdge(edge: GraphEdgeInterface | string): GraphEdgeInterface | null;
-  findEdge(startVertex: GraphVertexInterface | string, endVertex: GraphVertexInterface | string): GraphEdgeInterface | null;
-  getWeight(): number;
-  reverse(): this;
-  getVerticesIndices(): { [key: string]: number };
-  getAdjacencyMatrix(): number[][];
+  hasVertex: (vertex: GraphVertexInterface | string) => boolean;
+  addVertex: (vertex: GraphVertexInterface) => GraphVertexInterface;
+  getVertex: (vertex: GraphVertexInterface | string) => GraphVertexInterface | null;
+  getNeighbors: (vertex: GraphVertexInterface | string) => GraphVertexInterface[];
+  getAllVertices: () => GraphVertexInterface[];
+  getAllEdges: () => GraphEdgeInterface[];
+  hasEdge: (edge: GraphEdgeInterface | string) => boolean;
+  getEdge: (edge: GraphEdgeInterface | string) => GraphEdgeInterface | null;
+  addEdge: (edge: GraphEdgeInterface) => GraphEdgeInterface;
+  deleteEdge: (edge: GraphEdgeInterface | string) => GraphEdgeInterface | null;
+  findEdge: (startVertex: GraphVertexInterface | string, endVertex: GraphVertexInterface | string) => GraphEdgeInterface | null;
+  getWeight: () => number;
+  reverse: () => this;
+  getVerticesIndices: () => { [key: string]: number; };
+  getAdjacencyMatrix: () => number[][];
 }

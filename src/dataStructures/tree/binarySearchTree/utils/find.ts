@@ -1,10 +1,10 @@
+import { Comparator } from '@/utils';
 import { BinarySearchTreeNodeInterface } from '../types';
-import { Comparator } from '../../../../utils/comparator';
 
 export function find<T = unknown>(
   root: null | BinarySearchTreeNodeInterface<T>,
   value: T,
-  comparator: Comparator,
+  comparator: Comparator
 ): null | BinarySearchTreeNodeInterface<T> {
   if (!root) {
     return null;

@@ -1,7 +1,4 @@
-import {
-  RedBlackTreeColor,
-  RedBlackTreeNodeInterface,
-} from './types';
+import { RedBlackTreeColor, RedBlackTreeNodeInterface } from './types';
 
 export const RED_BLACK_TREE_COLORS = {
   red: 'r',
@@ -15,9 +12,10 @@ export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<
   }
 
   private _color: RedBlackTreeColor;
+
   private _value: T;
 
-  get color(): RedBlackTreeColor {
+  public get color(): RedBlackTreeColor {
     return this._color;
   }
 
@@ -26,7 +24,7 @@ export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<
     return this;
   }
 
-  get value(): T {
+  public get value(): T {
     return this._value;
   }
 
@@ -35,11 +33,11 @@ export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<
     return this;
   }
 
-  get isRed(): boolean {
+  public get isRed(): boolean {
     return this.color === RED_BLACK_TREE_COLORS.red;
   }
 
-  get isBlack(): boolean {
+  public get isBlack(): boolean {
     return this.color === RED_BLACK_TREE_COLORS.black;
   }
 

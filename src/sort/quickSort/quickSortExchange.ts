@@ -1,7 +1,4 @@
-import {
-  Comparator,
-  compareFunctionType,
-} from '../../utils';
+import { Comparator, compareFunctionType } from '../../utils';
 
 export function quickSortExchange<T = unknown>(originalArray: T[], comparator: Comparator | compareFunctionType): T[] {
   comparator = new Comparator(comparator);
@@ -25,6 +22,6 @@ export function quickSortExchange<T = unknown>(originalArray: T[], comparator: C
   }
 
   return quickSortExchange(left, comparator)
-  .concat(center)
-  .concat(quickSortExchange(right, comparator));
+    .concat(center)
+    .concat(quickSortExchange(right, comparator));
 }

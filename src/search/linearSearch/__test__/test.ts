@@ -1,5 +1,5 @@
+import { Comparator } from '@/utils';
 import { linearSearch } from '../index';
-import { Comparator } from '../../../utils/comparator';
 
 describe('linearSearch', () => {
   it('should search all numbers in array', () => {
@@ -12,14 +12,14 @@ describe('linearSearch', () => {
     ];
 
     expect(linearSearch(array, 10, new Comparator()))
-    .toEqual([]);
+      .toEqual([]);
     expect(linearSearch(array, 1))
-    .toEqual([0]);
+      .toEqual([0]);
     expect(linearSearch(array, 2))
-    .toEqual([
-      1,
-      4,
-    ]);
+      .toEqual([
+        1,
+        4,
+      ]);
   });
 
   it('should search all strings in array', () => {
@@ -30,14 +30,14 @@ describe('linearSearch', () => {
     ];
 
     expect(linearSearch(array, 'c'))
-    .toEqual([]);
+      .toEqual([]);
     expect(linearSearch(array, 'b'))
-    .toEqual([1]);
+      .toEqual([1]);
     expect(linearSearch(array, 'a'))
-    .toEqual([
-      0,
-      2,
-    ]);
+      .toEqual([
+        0,
+        2,
+      ]);
   });
 
   it('should search through objects as well', () => {
@@ -50,20 +50,20 @@ describe('linearSearch', () => {
     };
 
     const array = [
-      {key: 5},
-      {key: 6},
-      {key: 7},
-      {key: 6},
+      { key: 5 },
+      { key: 6 },
+      { key: 7 },
+      { key: 6 },
     ];
 
-    expect(linearSearch(array, {key: 10}, comparatorCallback))
-    .toEqual([]);
-    expect(linearSearch(array, {key: 5}, comparatorCallback))
-    .toEqual([0]);
-    expect(linearSearch(array, {key: 6}, comparatorCallback))
-    .toEqual([
-      1,
-      3,
-    ]);
+    expect(linearSearch(array, { key: 10 }, comparatorCallback))
+      .toEqual([]);
+    expect(linearSearch(array, { key: 5 }, comparatorCallback))
+      .toEqual([0]);
+    expect(linearSearch(array, { key: 6 }, comparatorCallback))
+      .toEqual([
+        1,
+        3,
+      ]);
   });
 });

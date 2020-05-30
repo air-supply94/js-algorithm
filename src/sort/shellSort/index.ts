@@ -1,8 +1,5 @@
-import { swap } from '../../utils/swap';
-import {
-  Comparator,
-  compareFunctionType,
-} from '../../utils';
+import { swap } from '@/utils';
+import { Comparator, compareFunctionType } from '../../utils';
 
 export function shellSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);

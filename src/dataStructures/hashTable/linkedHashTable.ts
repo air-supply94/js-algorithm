@@ -1,15 +1,9 @@
-import {
-  DoubleLinkedList,
-  DoubleLinkedListInterface,
-} from '../doubleLinkedList';
-import {
-  LinkedHashTableInterface,
-  LinkedHashTableItemInterface,
-} from './types';
+import { Comparator } from '@/utils';
+import { DoubleLinkedList, DoubleLinkedListInterface } from '../doubleLinkedList';
+import { LinkedHashTableInterface, LinkedHashTableItemInterface } from './types';
 import { BKDRHash } from './utils';
-import { Comparator } from '../../utils/comparator';
 
-function LinkedListCompare(a: { key: string }, b: { key: string }) {
+function LinkedListCompare(a: { key: string; }, b: { key: string; }) {
   if (a.key === b.key) {
     return 0;
   } else if (a.key < b.key) {
@@ -22,15 +16,16 @@ export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T>
   constructor(size = LinkedHashTable.size) {
     this.LinkedListCompare = new Comparator(LinkedListCompare);
     this.buckets = new Array(size).fill(null)
-    .map(() => new DoubleLinkedList<LinkedHashTableItemInterface<T>>(this.LinkedListCompare));
+      .map(() => new DoubleLinkedList<LinkedHashTableItemInterface<T>>(this.LinkedListCompare));
   }
 
   public static size = 31;
 
   private readonly LinkedListCompare: Comparator;
-  private readonly buckets: DoubleLinkedListInterface<LinkedHashTableItemInterface<T>>[];
 
-  private getInfo(key: string | number): { key: string; hash: number; bucket: DoubleLinkedListInterface<LinkedHashTableItemInterface<T>> } {
+  private readonly buckets: Array<DoubleLinkedListInterface<LinkedHashTableItemInterface<T>>>;
+
+  private getInfo(key: string | number): { key: string; hash: number; bucket: DoubleLinkedListInterface<LinkedHashTableItemInterface<T>>; } {
     key = String(key);
     const hash = BKDRHash(key);
     const keyHash = hash % LinkedHashTable.size;
@@ -44,9 +39,7 @@ export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T>
 
   public set(key: string | number, value: T): T {
     const info = this.getInfo(key);
-    const node = info.bucket.find({
-      value: {key: info.key},
-    });
+    const node = info.bucket.find({ value: { key: info.key }});
 
     if (!node) {
       info.bucket.append({
@@ -78,12 +71,12 @@ export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T>
 
   public get(key: string | number): T | null {
     const info = this.getInfo(key);
-    const node = info.bucket.find({value: {key: info.key}});
+    const node = info.bucket.find({ value: { key: info.key }});
     return node ? node.value.value : null;
   }
 
   public has(key: string | number): boolean {
     const info = this.getInfo(key);
-    return !!info.bucket.find({value: {key: info.key}});
+    return Boolean(info.bucket.find({ value: { key: info.key }}));
   }
 }

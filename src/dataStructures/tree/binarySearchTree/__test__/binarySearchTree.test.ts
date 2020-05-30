@@ -1,25 +1,21 @@
 import { BinarySearchTree } from '../binarySearchTree';
 import { BinarySearchTreeNodeInterface } from '../types';
-import {
-  getHeight,
-  insert,
-  findReplaceNode,
-} from '../utils';
+import { getHeight, insert, findReplaceNode } from '../utils';
 
 describe('BinarySearchTree', () => {
   it('should create binary search tree', () => {
     const bst = new BinarySearchTree();
 
     expect(bst)
-    .toBeDefined();
+      .toBeDefined();
     expect(bst.root)
-    .toBeNull();
+      .toBeNull();
 
     bst.insert(1);
     bst.insert(2);
     bst.insert(0);
     expect(findReplaceNode(bst.root, 1, bst.comparator).parent.value)
-    .toBe(2);
+      .toBe(2);
   });
 
   it('should insert values', () => {
@@ -30,11 +26,11 @@ describe('BinarySearchTree', () => {
     bst.insert(5);
 
     expect(bst.toString())
-    .toBe('5,10,20');
+      .toBe('5,10,20');
     expect(insertedNode1.value)
-    .toBe(10);
+      .toBe(10);
     expect(insertedNode2.value)
-    .toBe(20);
+      .toBe(20);
   });
 
   it('should check if value exists', () => {
@@ -45,9 +41,9 @@ describe('BinarySearchTree', () => {
     bst.insert(5);
 
     expect(bst.contains(20))
-    .toBe(true);
+      .toBe(true);
     expect(bst.contains(40))
-    .toBe(false);
+      .toBe(false);
   });
 
   it('should remove nodes', () => {
@@ -59,34 +55,34 @@ describe('BinarySearchTree', () => {
       return findReplaceNode(this.root, value, this.comparator);
     };
     expect(bst.remove(10).value)
-    .toBe(10);
+      .toBe(10);
     expect(bst.root.value)
-    .toBe(10);
+      .toBe(10);
     bst.remove = originRemove;
 
     bst.insert(20);
     bst.insert(5);
 
     expect(bst.toString())
-    .toBe('5,10,20');
+      .toBe('5,10,20');
 
     const removed1 = bst.remove(5);
     expect(bst.toString())
-    .toBe('10,20');
+      .toBe('10,20');
     expect(removed1.value)
-    .toBe(5);
+      .toBe(5);
 
     const removed2 = bst.remove(20);
     expect(bst.toString())
-    .toBe('10');
+      .toBe('10');
     expect(removed2.value)
-    .toBe(20);
+      .toBe(20);
   });
 
   it('should insert object values', () => {
     const nodeValueCompareFunction = (a, b) => {
-      const normalizedA = a || {value: null};
-      const normalizedB = b || {value: null};
+      const normalizedA = a || { value: null };
+      const normalizedB = b || { value: null };
 
       if (normalizedA.value === normalizedB.value) {
         return 0;
@@ -118,24 +114,24 @@ describe('BinarySearchTree', () => {
     bst.insert(obj1);
 
     expect(bst.toString())
-    .toBe('obj1,obj2,obj3');
+      .toBe('obj1,obj2,obj3');
   });
 
   it('should be traversed to sorted array', () => {
     const bst = new BinarySearchTree();
     expect(bst.find(1))
-    .toBeNull();
+      .toBeNull();
     expect(bst.findMin())
-    .toBeNull();
+      .toBeNull();
     expect(bst.findMax())
-    .toBeNull();
+      .toBeNull();
     const originInsert = bst.insert;
     bst.insert = function <T = unknown>(value: T): null | BinarySearchTreeNodeInterface<T> {
       return insert(this.root, value, this.comparator);
     };
     bst.insert(10);
     expect(bst.root)
-    .toBeNull();
+      .toBeNull();
 
     bst.insert = originInsert;
     bst.insert(10);
@@ -145,21 +141,21 @@ describe('BinarySearchTree', () => {
     bst.insert(25);
     bst.insert(6);
     expect(bst.findMin().value)
-    .toBe(-20);
+      .toBe(-20);
     expect(bst.findMax().value)
-    .toBe(25);
+      .toBe(25);
 
     expect(bst.toString())
-    .toBe('-20,-10,6,10,20,25');
+      .toBe('-20,-10,6,10,20,25');
     expect(getHeight(bst.root))
-    .toBe(2);
+      .toBe(2);
 
     bst.insert(4);
 
     expect(bst.toString())
-    .toBe('-20,-10,4,6,10,20,25');
+      .toBe('-20,-10,4,6,10,20,25');
     expect(getHeight(bst.root))
-    .toBe(3);
+      .toBe(3);
   });
 
   it('should insert in itself if it is empty', () => {
@@ -167,11 +163,11 @@ describe('BinarySearchTree', () => {
     bstNode.insert(1);
 
     expect(bstNode.root.value)
-    .toBe(1);
+      .toBe(1);
     expect(bstNode.root.left)
-    .toBeNull();
+      .toBeNull();
     expect(bstNode.root.right)
-    .toBeNull();
+      .toBeNull();
   });
 
   it('should insert nodes in correct order', () => {
@@ -180,51 +176,51 @@ describe('BinarySearchTree', () => {
     const insertedNode1 = bstNode.insert(1);
 
     expect(insertedNode1.value)
-    .toBe(1);
+      .toBe(1);
     expect(bstNode.toString())
-    .toBe('1,2');
+      .toBe('1,2');
     expect(bstNode.contains(1))
-    .toBe(true);
+      .toBe(true);
     expect(bstNode.contains(3))
-    .toBe(false);
+      .toBe(false);
 
     const insertedNode2 = bstNode.insert(3);
 
     expect(insertedNode2.value)
-    .toBe(3);
+      .toBe(3);
     expect(bstNode.toString())
-    .toBe('1,2,3');
+      .toBe('1,2,3');
     expect(bstNode.contains(3))
-    .toBe(true);
+      .toBe(true);
     expect(bstNode.contains(4))
-    .toBe(false);
+      .toBe(false);
 
     bstNode.insert(7);
 
     expect(bstNode.toString())
-    .toBe('1,2,3,7');
+      .toBe('1,2,3,7');
     expect(bstNode.contains(7))
-    .toBe(true);
+      .toBe(true);
     expect(bstNode.contains(8))
-    .toBe(false);
+      .toBe(false);
 
     bstNode.insert(4);
 
     expect(bstNode.toString())
-    .toBe('1,2,3,4,7');
+      .toBe('1,2,3,4,7');
     expect(bstNode.contains(4))
-    .toBe(true);
+      .toBe(true);
     expect(bstNode.contains(8))
-    .toBe(false);
+      .toBe(false);
 
     bstNode.insert(6);
 
     expect(bstNode.toString())
-    .toBe('1,2,3,4,6,7');
+      .toBe('1,2,3,4,6,7');
     expect(bstNode.contains(6))
-    .toBe(true);
+      .toBe(true);
     expect(bstNode.contains(8))
-    .toBe(false);
+      .toBe(false);
   });
 
   it('should not insert duplicates', () => {
@@ -233,20 +229,20 @@ describe('BinarySearchTree', () => {
     bstNode.insert(1);
 
     expect(bstNode.toString())
-    .toBe('1,2');
+      .toBe('1,2');
     expect(bstNode.contains(1))
-    .toBe(true);
+      .toBe(true);
     expect(bstNode.contains(3))
-    .toBe(false);
+      .toBe(false);
 
     bstNode.insert(1);
 
     expect(bstNode.toString())
-    .toBe('1,2');
+      .toBe('1,2');
     expect(bstNode.contains(1))
-    .toBe(true);
+      .toBe(true);
     expect(bstNode.contains(3))
-    .toBe(false);
+      .toBe(false);
   });
 
   it('should find min node', () => {
@@ -259,10 +255,10 @@ describe('BinarySearchTree', () => {
     node.insert(1);
 
     expect(node.findMin())
-    .not
-    .toBeNull();
+      .not
+      .toBeNull();
     expect(node.findMin().value)
-    .toBe(1);
+      .toBe(1);
   });
 
   it('should find node', () => {
@@ -275,12 +271,12 @@ describe('BinarySearchTree', () => {
     node.insert(1);
 
     expect(node.find(6))
-    .toBeNull();
+      .toBeNull();
     expect(node.find(5))
-    .not
-    .toBeNull();
+      .not
+      .toBeNull();
     expect(node.find(5).value)
-    .toBe(5);
+      .toBe(5);
   });
 
   it('should remove leaf nodes', () => {
@@ -291,19 +287,19 @@ describe('BinarySearchTree', () => {
     bstRootNode.insert(5);
 
     expect(bstRootNode.toString())
-    .toBe('5,10,20');
+      .toBe('5,10,20');
 
     const removed1 = bstRootNode.remove(5);
     expect(bstRootNode.toString())
-    .toBe('10,20');
+      .toBe('10,20');
     expect(removed1.value)
-    .toBe(5);
+      .toBe(5);
 
     const removed2 = bstRootNode.remove(20);
     expect(bstRootNode.toString())
-    .toBe('10');
+      .toBe('10');
     expect(removed2.value)
-    .toBe(20);
+      .toBe(20);
   });
 
   it('should remove nodes with one child', () => {
@@ -315,19 +311,19 @@ describe('BinarySearchTree', () => {
     bstRootNode.insert(30);
 
     expect(bstRootNode.toString())
-    .toBe('5,10,20,30');
+      .toBe('5,10,20,30');
 
     bstRootNode.remove(20);
     expect(bstRootNode.toString())
-    .toBe('5,10,30');
+      .toBe('5,10,30');
 
     bstRootNode.insert(1);
     expect(bstRootNode.toString())
-    .toBe('1,5,10,30');
+      .toBe('1,5,10,30');
 
     bstRootNode.remove(5);
     expect(bstRootNode.toString())
-    .toBe('1,10,30');
+      .toBe('1,10,30');
   });
 
   it('should remove nodes with two children', () => {
@@ -341,63 +337,63 @@ describe('BinarySearchTree', () => {
     bstRootNode.insert(25);
 
     expect(bstRootNode.toString())
-    .toBe('5,10,15,20,25,30');
+      .toBe('5,10,15,20,25,30');
     expect(bstRootNode.find(20).left.value)
-    .toBe(15);
+      .toBe(15);
     expect(bstRootNode.find(20).right.value)
-    .toBe(30);
+      .toBe(30);
 
     const removeNode = bstRootNode.remove(20);
     expect(removeNode.value)
-    .toBe(20);
+      .toBe(20);
     expect(removeNode.parent.value)
-    .toBe(30);
+      .toBe(30);
 
     expect(bstRootNode.root.right.parent.value)
-    .toBe(10);
+      .toBe(10);
     expect(bstRootNode.toString())
-    .toBe('5,10,15,25,30');
+      .toBe('5,10,15,25,30');
 
     expect(bstRootNode.remove(15).parent.value)
-    .toBe(25);
+      .toBe(25);
 
     expect(bstRootNode.toString())
-    .toBe('5,10,25,30');
+      .toBe('5,10,25,30');
 
     const removeNode2 = bstRootNode.remove(10);
     expect(removeNode2.parent.value)
-    .toBe(30);
+      .toBe(30);
     expect(bstRootNode.toString())
-    .toBe('5,25,30');
+      .toBe('5,25,30');
     expect(bstRootNode.root.value)
-    .toBe(25);
+      .toBe(25);
 
     bstRootNode.remove(25);
     expect(bstRootNode.toString())
-    .toBe('5,30');
+      .toBe('5,30');
 
     bstRootNode.remove(5);
     expect(bstRootNode.toString())
-    .toBe('30');
+      .toBe('30');
   });
 
   it('should remove node with no parent', () => {
     const bstRootNode = new BinarySearchTree();
     expect(bstRootNode.toString())
-    .toBe('');
+      .toBe('');
 
     bstRootNode.insert(1);
     bstRootNode.insert(2);
     expect(bstRootNode.toString())
-    .toBe('1,2');
+      .toBe('1,2');
 
     bstRootNode.remove(1);
     expect(bstRootNode.toString())
-    .toBe('2');
+      .toBe('2');
 
     bstRootNode.remove(2);
     expect(bstRootNode.toString())
-    .toBe('');
+      .toBe('');
   });
 
   it('should throw error when trying to remove not existing node', () => {
@@ -407,13 +403,13 @@ describe('BinarySearchTree', () => {
     bstRootNode.insert(20);
 
     expect(bstRootNode.remove(30))
-    .toBeFalsy();
+      .toBeFalsy();
   });
 
   it('should be possible to use objects as node values', () => {
     const nodeValueComparatorCallback = (a, b) => {
-      const normalizedA = a || {value: null};
-      const normalizedB = b || {value: null};
+      const normalizedA = a || { value: null };
+      const normalizedB = b || { value: null };
 
       if (normalizedA.value === normalizedB.value) {
         return 0;
@@ -443,37 +439,37 @@ describe('BinarySearchTree', () => {
     bstNode.insert(obj1);
 
     expect(bstNode.toString())
-    .toBe('obj1,obj2');
+      .toBe('obj1,obj2');
     expect(bstNode.contains(obj1))
-    .toBe(true);
+      .toBe(true);
     expect(bstNode.contains(obj3))
-    .toBe(false);
+      .toBe(false);
 
     bstNode.insert(obj3);
 
     expect(bstNode.toString())
-    .toBe('obj1,obj2,obj3');
+      .toBe('obj1,obj2,obj3');
     expect(bstNode.contains(obj3))
-    .toBe(true);
+      .toBe(true);
 
     expect(bstNode.findMin().value)
-    .toEqual(obj1);
+      .toEqual(obj1);
   });
 
   it('should traverse node', () => {
     const bst = new BinarySearchTree();
     expect(bst.traversePreOrder()
-    .join())
-    .toBe('');
+      .join())
+      .toBe('');
     expect(bst.traverseInOrder()
-    .join())
-    .toBe('');
+      .join())
+      .toBe('');
     expect(bst.traverseAfterOrder()
-    .join())
-    .toBe('');
+      .join())
+      .toBe('');
     expect(bst.traverseLevelOrder()
-    .join())
-    .toBe('');
+      .join())
+      .toBe('');
 
     bst.insert(4);
     bst.insert(2);
@@ -494,40 +490,40 @@ describe('BinarySearchTree', () => {
 
     bst.traversePreOrderCallback(callback);
     expect(result.toString())
-    .toBe('4,2,1');
+      .toBe('4,2,1');
     result = [];
 
     bst.traverseInOrderCallback(callback);
     expect(result.toString())
-    .toBe('1,2,3');
+      .toBe('1,2,3');
     result = [];
 
     bst.traverseAfterOrderCallback(callback);
     expect(result.toString())
-    .toBe('1,3,2');
+      .toBe('1,3,2');
     result = [];
 
     bst.traverseLevelOrderCallback(callback);
     expect(result.toString())
-    .toBe('4,2,6');
+      .toBe('4,2,6');
     result = [];
 
     expect(bst.traversePreOrder()
-    .join())
-    .toBe('4,2,1,3,6,5,7');
+      .join())
+      .toBe('4,2,1,3,6,5,7');
 
     expect(bst.traverseInOrder()
-    .join())
-    .toBe('1,2,3,4,5,6,7');
+      .join())
+      .toBe('1,2,3,4,5,6,7');
 
     bst.insert(0);
     expect(bst.traverseAfterOrder()
-    .join())
-    .toBe('0,1,3,2,5,7,6,4');
+      .join())
+      .toBe('0,1,3,2,5,7,6,4');
     bst.remove(0);
 
     expect(bst.traverseLevelOrder()
-    .join())
-    .toBe('4,2,6,1,3,5,7');
+      .join())
+      .toBe('4,2,6,1,3,5,7');
   });
 });

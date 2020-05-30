@@ -14,5 +14,5 @@ export function sieve(n: number): number[] {
     }
   }
 
-  return result.filter(n => n !== 0 && n !== 1);
+  return result.filter((n) => n !== 0 && n !== 1);
 }

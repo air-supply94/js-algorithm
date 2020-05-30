@@ -1,9 +1,5 @@
-import {
-  GraphEdgeInterface,
-  GraphInterface,
-  GraphVertexInterface,
-} from './types';
 import { GraphEdge } from './graphEdge';
+import { GraphEdgeInterface, GraphInterface, GraphVertexInterface } from './types';
 
 export class Graph implements GraphInterface {
   constructor(isDirected = false) {
@@ -12,8 +8,10 @@ export class Graph implements GraphInterface {
     this.isDirected = isDirected;
   }
 
-  private readonly vertices: { [key: string]: GraphVertexInterface };
-  private readonly edges: { [key: string]: GraphEdgeInterface };
+  private readonly vertices: { [key: string]: GraphVertexInterface; };
+
+  private readonly edges: { [key: string]: GraphEdgeInterface; };
+
   public readonly isDirected: boolean;
 
   public addVertex(vertex: GraphVertexInterface): GraphVertexInterface {
@@ -117,26 +115,26 @@ export class Graph implements GraphInterface {
 
   public getWeight(): number {
     return this.getAllEdges()
-    .reduce((weight, graphEdge: GraphEdgeInterface) => weight + graphEdge.weight, 0);
+      .reduce((weight, graphEdge: GraphEdgeInterface) => weight + graphEdge.weight, 0);
   }
 
   public reverse(): this {
     this.getAllEdges()
-    .forEach((edge: GraphEdgeInterface) => {
-      this.deleteEdge(edge);
-      edge.reverse();
-      this.addEdge(edge);
-    });
+      .forEach((edge: GraphEdgeInterface) => {
+        this.deleteEdge(edge);
+        edge.reverse();
+        this.addEdge(edge);
+      });
 
     return this;
   }
 
-  public getVerticesIndices(): { [key: string]: number } {
+  public getVerticesIndices(): { [key: string]: number; } {
     return this.getAllVertices()
-    .reduce((prev, vertex: GraphVertexInterface, index) => {
-      prev[vertex.value] = index;
-      return prev;
-    }, {});
+      .reduce((prev, vertex: GraphVertexInterface, index) => {
+        prev[vertex.value] = index;
+        return prev;
+      }, {});
   }
 
   public getAdjacencyMatrix(): any[] {
@@ -144,16 +142,16 @@ export class Graph implements GraphInterface {
     const verticesIndices = this.getVerticesIndices();
 
     const adjacencyMatrix = Array(vertices.length)
-    .fill(null)
-    .map(() => Array(vertices.length)
-    .fill(Infinity));
+      .fill(null)
+      .map(() => Array(vertices.length)
+        .fill(Infinity));
 
     vertices.forEach((vertex: GraphVertexInterface, vertexIndex) => {
       vertex.getNeighbors()
-      .forEach((neighbor) => {
-        const neighborIndex = verticesIndices[neighbor.value];
-        adjacencyMatrix[vertexIndex][neighborIndex] = this.findEdge(vertex, neighbor).weight;
-      });
+        .forEach((neighbor) => {
+          const neighborIndex = verticesIndices[neighbor.value];
+          adjacencyMatrix[vertexIndex][neighborIndex] = this.findEdge(vertex, neighbor).weight;
+        });
     });
 
     return adjacencyMatrix;
@@ -161,6 +159,6 @@ export class Graph implements GraphInterface {
 
   public toString() {
     return Object.keys(this.vertices)
-    .toString();
+      .toString();
   }
 }

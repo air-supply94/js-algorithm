@@ -14,7 +14,7 @@ export function swapPairs(doubleLinkedList: DoubleLinkedListInterface): DoubleLi
       secondNode.setPrevious(null);
 
       firstNode.setPrevious(secondNode)
-      .setNext(secondNode.next);
+        .setNext(secondNode.next);
 
       secondNode.next.setPrevious(firstNode);
       secondNode.setNext(firstNode);
@@ -23,7 +23,7 @@ export function swapPairs(doubleLinkedList: DoubleLinkedListInterface): DoubleLi
       firstNode.setNext(null);
 
       secondNode.setPrevious(firstNode.previous)
-      .setNext(firstNode);
+        .setNext(firstNode);
 
       firstNode.previous.setNext(secondNode);
       firstNode.setPrevious(secondNode);

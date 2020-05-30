@@ -1,10 +1,6 @@
-import {
-  GraphEdgeInterface,
-  GraphVertexInterface,
-} from './types';
+import { GraphEdgeInterface, GraphVertexInterface } from './types';
 
 export class GraphEdge implements GraphEdgeInterface {
-
   constructor(startVertex: GraphVertexInterface, endVertex: GraphVertexInterface, weight = 0) {
     this.startVertex = startVertex;
     this.endVertex = endVertex;
@@ -12,10 +8,12 @@ export class GraphEdge implements GraphEdgeInterface {
   }
 
   public startVertex: GraphVertexInterface;
+
   public endVertex: GraphVertexInterface;
+
   public weight: number;
 
-  get value(): string {
+  public get value(): string {
     return [
       (this.startVertex.value),
       (this.endVertex.value),

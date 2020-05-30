@@ -1,9 +1,7 @@
-import {
-  BinarySearchTreeInterface,
-  BinarySearchTreeNodeInterface,
-} from '../../binarySearchTree/types';
+import { BinarySearchTreeInterface,
+  BinarySearchTreeNodeInterface } from '../../binarySearchTree/types';
 
 export interface AvlTreeInterface<T = unknown> extends BinarySearchTreeInterface<T> {
   readonly binarySearchTree: BinarySearchTreeInterface<T>;
-  balance(node: BinarySearchTreeNodeInterface<T>): this;
+  balance: (node: BinarySearchTreeNodeInterface<T>) => this;
 }

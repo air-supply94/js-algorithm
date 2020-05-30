@@ -2,7 +2,8 @@ import { BinarySearchTreeNodeInterface } from '../types';
 
 export function rotateLeftLeft<T = unknown>(
   rootNode: BinarySearchTreeNodeInterface<T>,
-  setRoot: Function,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  setRoot: Function
 ): void {
   const leftNode = rootNode.left;
   rootNode.setLeft(null);
@@ -62,7 +63,8 @@ export function rotateRightLeft<T = unknown>(rootNode: BinarySearchTreeNodeInter
 
 export function rotateRightRight<T = unknown>(
   rootNode: BinarySearchTreeNodeInterface<T>,
-  setRoot: Function,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  setRoot: Function
 ): void {
   const rightNode = rootNode.right;
   rootNode.setRight(null);

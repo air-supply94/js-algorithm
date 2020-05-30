@@ -7,7 +7,7 @@ export function reverse<T = unknown>(head: DoubleLinkedListNodeInterface<T> | nu
   while (current) {
     next = current.next;
     current.setNext(previous)
-    .setPrevious(next);
+      .setPrevious(next);
     previous = current;
     current = next;
   }

@@ -1,4 +1,4 @@
-import { Comparator } from '../../../utils';
+import { Comparator } from '@/utils';
 import { MaxHeap } from '../maxHeap';
 
 describe('MaxHeap', () => {
@@ -6,11 +6,11 @@ describe('MaxHeap', () => {
     const maxHeap = new MaxHeap();
 
     expect(maxHeap)
-    .toBeDefined();
+      .toBeDefined();
     expect(maxHeap.peek())
-    .toBeUndefined();
+      .toBeUndefined();
     expect(maxHeap.isEmpty())
-    .toBe(true);
+      .toBe(true);
   });
 
   it('should create min heap from array', () => {
@@ -23,7 +23,7 @@ describe('MaxHeap', () => {
       1,
     ]);
     expect(maxHeap.toString())
-    .toBe('11,10,5,3,1');
+      .toBe('11,10,5,3,1');
   });
 
   it('should add items to the heap and heapify it up', () => {
@@ -31,50 +31,50 @@ describe('MaxHeap', () => {
 
     maxHeap.add(5);
     expect(maxHeap.isEmpty())
-    .toBe(false);
+      .toBe(false);
     expect(maxHeap.peek())
-    .toBe(5);
+      .toBe(5);
     expect(maxHeap.toString())
-    .toBe('5');
+      .toBe('5');
 
     maxHeap.add(3);
     expect(maxHeap.peek())
-    .toBe(5);
+      .toBe(5);
     expect(maxHeap.toString())
-    .toBe('5,3');
+      .toBe('5,3');
 
     maxHeap.add(10);
     expect(maxHeap.peek())
-    .toBe(10);
+      .toBe(10);
     expect(maxHeap.toString())
-    .toBe('10,3,5');
+      .toBe('10,3,5');
 
     maxHeap.add(1);
     expect(maxHeap.peek())
-    .toBe(10);
+      .toBe(10);
     expect(maxHeap.toString())
-    .toBe('10,3,5,1');
+      .toBe('10,3,5,1');
 
     maxHeap.add(1);
     expect(maxHeap.peek())
-    .toBe(10);
+      .toBe(10);
     expect(maxHeap.toString())
-    .toBe('10,3,5,1,1');
+      .toBe('10,3,5,1,1');
 
     expect(maxHeap.poll())
-    .toBe(10);
+      .toBe(10);
     expect(maxHeap.toString())
-    .toBe('5,3,1,1');
+      .toBe('5,3,1,1');
 
     expect(maxHeap.poll())
-    .toBe(5);
+      .toBe(5);
     expect(maxHeap.toString())
-    .toBe('3,1,1');
+      .toBe('3,1,1');
 
     expect(maxHeap.poll())
-    .toBe(3);
+      .toBe(3);
     expect(maxHeap.toString())
-    .toBe('1,1');
+      .toBe('1,1');
   });
 
   it('should poll items from the heap and heapify it down', () => {
@@ -87,37 +87,37 @@ describe('MaxHeap', () => {
     maxHeap.add(1);
 
     expect(maxHeap.toString())
-    .toBe('11,10,5,3,1');
+      .toBe('11,10,5,3,1');
 
     expect(maxHeap.poll())
-    .toBe(11);
+      .toBe(11);
     expect(maxHeap.toString())
-    .toBe('10,3,5,1');
+      .toBe('10,3,5,1');
 
     expect(maxHeap.poll())
-    .toBe(10);
+      .toBe(10);
     expect(maxHeap.toString())
-    .toBe('5,3,1');
+      .toBe('5,3,1');
 
     expect(maxHeap.poll())
-    .toBe(5);
+      .toBe(5);
     expect(maxHeap.toString())
-    .toBe('3,1');
+      .toBe('3,1');
 
     expect(maxHeap.poll())
-    .toBe(3);
+      .toBe(3);
     expect(maxHeap.toString())
-    .toBe('1');
+      .toBe('1');
 
     expect(maxHeap.poll())
-    .toBe(1);
+      .toBe(1);
     expect(maxHeap.toString())
-    .toBe('');
+      .toBe('');
 
     expect(maxHeap.poll())
-    .toBeUndefined();
+      .toBeUndefined();
     expect(maxHeap.toString())
-    .toBe('');
+      .toBe('');
   });
 
   it('should heapify down through the right branch as well', () => {
@@ -128,16 +128,16 @@ describe('MaxHeap', () => {
     maxHeap.add(10);
 
     expect(maxHeap.toString())
-    .toBe('12,3,10');
+      .toBe('12,3,10');
 
     maxHeap.add(11);
     expect(maxHeap.toString())
-    .toBe('12,11,10,3');
+      .toBe('12,11,10,3');
 
     expect(maxHeap.poll())
-    .toBe(12);
+      .toBe(12);
     expect(maxHeap.toString())
-    .toBe('11,3,10');
+      .toBe('11,3,10');
   });
 
   it('should be possible to find item indices in heap', () => {
@@ -150,14 +150,14 @@ describe('MaxHeap', () => {
     maxHeap.add(11);
 
     expect(maxHeap.toString())
-    .toBe('12,11,10,3,11');
+      .toBe('12,11,10,3,11');
 
     expect(maxHeap.findIndex(5))
-    .toBe(-1);
+      .toBe(-1);
     expect(maxHeap.findIndex(12))
-    .toBe(0);
+      .toBe(0);
     expect(maxHeap.findIndex(11))
-    .toBe(1);
+      .toBe(1);
   });
 
   it('should be possible to remove items from heap with heapify down', () => {
@@ -170,26 +170,26 @@ describe('MaxHeap', () => {
     maxHeap.add(11);
 
     expect(maxHeap.remove(100))
-    .toEqual([]);
+      .toEqual([]);
 
     expect(maxHeap.toString())
-    .toBe('12,11,10,3,11');
+      .toBe('12,11,10,3,11');
 
     maxHeap.removeAll(12);
     expect(maxHeap.toString())
-    .toEqual('11,11,10,3');
+      .toEqual('11,11,10,3');
 
     maxHeap.removeAll(12);
     expect(maxHeap.peek())
-    .toEqual(11);
+      .toEqual(11);
 
     maxHeap.removeAll(11);
     expect(maxHeap.toString())
-    .toEqual('10,3');
+      .toEqual('10,3');
 
     maxHeap.removeAll(10);
     expect(maxHeap.peek())
-    .toEqual(3);
+      .toEqual(3);
   });
 
   it('should be possible to remove items from heap with heapify up', () => {
@@ -207,43 +207,43 @@ describe('MaxHeap', () => {
     maxHeap.add(1);
 
     expect(maxHeap.toString())
-    .toBe('10,8,6,7,6,4,5,3,2,1');
+      .toBe('10,8,6,7,6,4,5,3,2,1');
 
     maxHeap.removeAll(4);
     expect(maxHeap.toString())
-    .toEqual('10,8,6,7,6,1,5,3,2');
+      .toEqual('10,8,6,7,6,1,5,3,2');
 
     maxHeap.removeAll(3);
     expect(maxHeap.toString())
-    .toEqual('10,8,6,7,6,1,5,2');
+      .toEqual('10,8,6,7,6,1,5,2');
 
     maxHeap.removeAll(5);
     expect(maxHeap.toString())
-    .toEqual('10,8,6,7,6,1,2');
+      .toEqual('10,8,6,7,6,1,2');
 
     maxHeap.removeAll(10);
     expect(maxHeap.toString())
-    .toEqual('8,7,6,2,6,1');
+      .toEqual('8,7,6,2,6,1');
 
     maxHeap.removeAll(6);
     expect(maxHeap.toString())
-    .toEqual('8,7,1,2');
+      .toEqual('8,7,1,2');
 
     maxHeap.removeAll(2);
     expect(maxHeap.toString())
-    .toEqual('8,7,1');
+      .toEqual('8,7,1');
 
     maxHeap.removeAll(1);
     expect(maxHeap.toString())
-    .toEqual('8,7');
+      .toEqual('8,7');
 
     maxHeap.removeAll(7);
     expect(maxHeap.toString())
-    .toEqual('8');
+      .toEqual('8');
 
     maxHeap.removeAll(8);
     expect(maxHeap.toString())
-    .toEqual('');
+      .toEqual('');
   });
 
   it('should be possible to remove items from heap with custom finding comparator', () => {
@@ -254,7 +254,7 @@ describe('MaxHeap', () => {
     maxHeap.add('dddd');
 
     expect(maxHeap.toString())
-    .toBe('dddd,ccc,bb,a');
+      .toBe('dddd,ccc,bb,a');
 
     const comparator = new Comparator((a, b) => {
       if (a.length === b.length) {
@@ -266,6 +266,6 @@ describe('MaxHeap', () => {
 
     maxHeap.removeAll('hey', comparator);
     expect(maxHeap.toString())
-    .toBe('dddd,a,bb');
+      .toBe('dddd,a,bb');
   });
 });

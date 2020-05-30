@@ -1,11 +1,13 @@
+import { getLeftChildIndex, getRightChildIndex } from '../../../utils/tree';
 import { SegmentTreeInterface } from './types';
-import {
-  getLeftChildIndex,
-  getRightChildIndex,
-} from '../../../utils/tree';
 
 function isPowerOfTwo(number: number): boolean {
   return number > 1 && Math.pow(2, Math.log2(number) | 0) === number;
+}
+
+function initSegmentTree(inputArray: number[]): number[] {
+  const length = isPowerOfTwo(inputArray.length) ? inputArray.length : Math.pow(2, 1 + Math.log2(inputArray.length) | 0);
+  return new Array((2 * length) - 1).fill(0);
 }
 
 export class SegmentTree implements SegmentTreeInterface {
@@ -14,14 +16,9 @@ export class SegmentTree implements SegmentTreeInterface {
     this.operation = operation;
     this.operationFallback = operationFallback;
 
-    this.segmentTree = this.initSegmentTree(this.inputArray);
+    this.segmentTree = initSegmentTree(this.inputArray);
 
     this.buildTreeRecursively(0, this.inputArray.length - 1, 0);
-  }
-
-  private initSegmentTree(inputArray: number[]): number[] {
-    const length = isPowerOfTwo(inputArray.length) ? inputArray.length : Math.pow(2, 1 + Math.log2(inputArray.length) | 0);
-    return new Array((2 * length) - 1).fill(0);
   }
 
   private buildTreeRecursively(leftInputIndex: number, rightInputIndex: number, position: number) {
@@ -36,7 +33,7 @@ export class SegmentTree implements SegmentTreeInterface {
 
     this.segmentTree[position] = this.operation(
       this.segmentTree[getLeftChildIndex(position)],
-      this.segmentTree[getRightChildIndex(position)],
+      this.segmentTree[getRightChildIndex(position)]
     );
   }
 
@@ -56,7 +53,7 @@ export class SegmentTree implements SegmentTreeInterface {
       queryRightIndex,
       leftIndex,
       middleIndex,
-      getLeftChildIndex(position),
+      getLeftChildIndex(position)
     );
 
     const rightOperationResult = this.rangeQueryRecursive(
@@ -64,15 +61,18 @@ export class SegmentTree implements SegmentTreeInterface {
       queryRightIndex,
       middleIndex + 1,
       rightIndex,
-      getRightChildIndex(position),
+      getRightChildIndex(position)
     );
 
     return this.operation(leftOperationResult, rightOperationResult);
   }
 
   public readonly operation: (...args: number[]) => number;
+
   public readonly operationFallback: number;
+
   public readonly inputArray: number[];
+
   public readonly segmentTree: number[];
 
   public rangeQuery(queryLeftIndex: number, queryRightIndex: number): number {
@@ -89,7 +89,7 @@ export class SegmentTree implements SegmentTreeInterface {
       queryRightIndex,
       0,
       this.inputArray.length - 1,
-      0,
+      0
     );
   }
 }

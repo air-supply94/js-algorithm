@@ -1,17 +1,17 @@
+import { Comparator } from '@/utils';
 import { BinarySearchTreeNodeInterface } from '../types';
-import { Comparator } from '../../../../utils/comparator';
 import { find } from './find';
-import { findMin } from './findMin';
 import { findMax } from './findMax';
+import { findMin } from './findMin';
 
 export function findReplaceNode<T = unknown>(
   root: null | BinarySearchTreeNodeInterface<T>,
   value: T,
   comparator: Comparator,
   isFindMin = true,
-  swap = function (
+  swap = function(
     tmpNode: BinarySearchTreeNodeInterface<T>,
-    replaceNode: BinarySearchTreeNodeInterface<T>,
+    replaceNode: BinarySearchTreeNodeInterface<T>
   ): void {
     const tmpValue = tmpNode.value;
     tmpNode.setValue(replaceNode.value);

@@ -8,82 +8,82 @@ describe('DisjointSetItem', () => {
     const itemD = new DisjointSetItem('D');
 
     expect(itemA.getRank())
-    .toBe(0);
+      .toBe(0);
     expect(itemA.getChildren())
-    .toEqual([]);
+      .toEqual([]);
     expect(itemA.getKey())
-    .toBe('A');
+      .toBe('A');
     expect(itemA.getRoot())
-    .toEqual(itemA);
+      .toEqual(itemA);
     expect(itemA.isRoot())
-    .toBe(true);
+      .toBe(true);
     expect(itemB.isRoot())
-    .toBe(true);
+      .toBe(true);
 
     itemA.addChild(itemB);
     itemC.addChild(itemD);
 
     expect(itemA.getRank())
-    .toBe(1);
+      .toBe(1);
     expect(itemC.getRank())
-    .toBe(1);
+      .toBe(1);
 
     expect(itemB.getRank())
-    .toBe(0);
+      .toBe(0);
     expect(itemD.getRank())
-    .toBe(0);
+      .toBe(0);
 
     expect(itemA.getChildren().length)
-    .toBe(1);
+      .toBe(1);
     expect(itemC.getChildren().length)
-    .toBe(1);
+      .toBe(1);
 
     expect(itemA.getChildren()[0])
-    .toEqual(itemB);
+      .toEqual(itemB);
     expect(itemC.getChildren()[0])
-    .toEqual(itemD);
+      .toEqual(itemD);
 
     expect(itemB.getChildren().length)
-    .toBe(0);
+      .toBe(0);
     expect(itemD.getChildren().length)
-    .toBe(0);
+      .toBe(0);
 
     expect(itemA.getRoot())
-    .toEqual(itemA);
+      .toEqual(itemA);
     expect(itemB.getRoot())
-    .toEqual(itemA);
+      .toEqual(itemA);
 
     expect(itemC.getRoot())
-    .toEqual(itemC);
+      .toEqual(itemC);
     expect(itemD.getRoot())
-    .toEqual(itemC);
+      .toEqual(itemC);
 
     expect(itemA.isRoot())
-    .toBe(true);
+      .toBe(true);
     expect(itemB.isRoot())
-    .toBe(false);
+      .toBe(false);
     expect(itemC.isRoot())
-    .toBe(true);
+      .toBe(true);
     expect(itemD.isRoot())
-    .toBe(false);
+      .toBe(false);
 
     itemA.addChild(itemC);
 
     expect(itemA.isRoot())
-    .toBe(true);
+      .toBe(true);
     expect(itemB.isRoot())
-    .toBe(false);
+      .toBe(false);
     expect(itemC.isRoot())
-    .toBe(false);
+      .toBe(false);
     expect(itemD.isRoot())
-    .toBe(false);
+      .toBe(false);
 
     expect(itemA.getRank())
-    .toEqual(3);
+      .toEqual(3);
     expect(itemB.getRank())
-    .toEqual(0);
+      .toEqual(0);
     expect(itemC.getRank())
-    .toEqual(1);
+      .toEqual(1);
   });
 
   it('should do basic manipulation with disjoint set item with custom key extractor', () => {
@@ -109,81 +109,81 @@ describe('DisjointSetItem', () => {
     }, keyExtractor);
 
     expect(itemA.getRank())
-    .toBe(0);
+      .toBe(0);
     expect(itemA.getChildren())
-    .toEqual([]);
+      .toEqual([]);
     expect(itemA.getKey())
-    .toBe('A');
+      .toBe('A');
     expect(itemA.getRoot())
-    .toEqual(itemA);
+      .toEqual(itemA);
     expect(itemA.isRoot())
-    .toBe(true);
+      .toBe(true);
     expect(itemB.isRoot())
-    .toBe(true);
+      .toBe(true);
 
     itemA.addChild(itemB);
     itemC.addChild(itemD);
 
     expect(itemA.getRank())
-    .toBe(1);
+      .toBe(1);
     expect(itemC.getRank())
-    .toBe(1);
+      .toBe(1);
 
     expect(itemB.getRank())
-    .toBe(0);
+      .toBe(0);
     expect(itemD.getRank())
-    .toBe(0);
+      .toBe(0);
 
     expect(itemA.getChildren().length)
-    .toBe(1);
+      .toBe(1);
     expect(itemC.getChildren().length)
-    .toBe(1);
+      .toBe(1);
 
     expect(itemA.getChildren()[0])
-    .toEqual(itemB);
+      .toEqual(itemB);
     expect(itemC.getChildren()[0])
-    .toEqual(itemD);
+      .toEqual(itemD);
 
     expect(itemB.getChildren().length)
-    .toBe(0);
+      .toBe(0);
     expect(itemD.getChildren().length)
-    .toBe(0);
+      .toBe(0);
 
     expect(itemA.getRoot())
-    .toEqual(itemA);
+      .toEqual(itemA);
     expect(itemB.getRoot())
-    .toEqual(itemA);
+      .toEqual(itemA);
 
     expect(itemC.getRoot())
-    .toEqual(itemC);
+      .toEqual(itemC);
     expect(itemD.getRoot())
-    .toEqual(itemC);
+      .toEqual(itemC);
 
     expect(itemA.isRoot())
-    .toBe(true);
+      .toBe(true);
     expect(itemB.isRoot())
-    .toBe(false);
+      .toBe(false);
     expect(itemC.isRoot())
-    .toBe(true);
+      .toBe(true);
     expect(itemD.isRoot())
-    .toBe(false);
+      .toBe(false);
 
     itemA.addChild(itemC);
 
     expect(itemA.isRoot())
-    .toBe(true);
+      .toBe(true);
     expect(itemB.isRoot())
-    .toBe(false);
+      .toBe(false);
     expect(itemC.isRoot())
-    .toBe(false);
+      .toBe(false);
     expect(itemD.isRoot())
-    .toBe(false);
+      .toBe(false);
 
     expect(itemA.getRank())
-    .toEqual(3);
+      .toEqual(3);
     expect(itemB.getRank())
-    .toEqual(0);
+      .toEqual(0);
     expect(itemC.getRank())
-    .toEqual(1);
+      .toEqual(1);
   });
 });

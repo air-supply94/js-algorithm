@@ -1,22 +1,8 @@
-import {
-  Comparator,
-  compareFunctionType,
-  getLeftChildIndex,
-  getParentIndex,
-  getRightChildIndex,
-  hasLeftChild,
-  hasParent,
-  hasRightChild,
-  leftChild,
-  parent,
-  rightChild,
-  swap,
-} from '../../utils';
+import { Comparator, compareFunctionType, getLeftChildIndex, getParentIndex, getRightChildIndex, hasLeftChild, hasParent, hasRightChild, leftChild, parent, rightChild, swap } from '../../utils';
 import { HeapInterface } from './types';
 
 export abstract class Heap<T = unknown> implements HeapInterface<T> {
-
-  get heapContainer() {
+  public get heapContainer() {
     return this._heapContainer;
   }
 
@@ -58,7 +44,7 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
   protected abstract pairIsInCorrectOrder(firstElement: T, secondElement: T): boolean;
 
   public fromArray(value: T[]): this {
-    value.forEach(item => this.add(item));
+    value.forEach((item) => this.add(item));
     return this;
   }
 
@@ -90,7 +76,7 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
   }
 
   public findIndex(item: T, comparator = this.compare, fromIndex = 0): number {
-    return this.heapContainer.findIndex(value => comparator.equal(item, value), fromIndex);
+    return this.heapContainer.findIndex((value) => comparator.equal(item, value), fromIndex);
   }
 
   public isEmpty(): boolean {

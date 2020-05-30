@@ -5,7 +5,7 @@ export function hannuo<T = unknown>(n: number, one: T, two: T, three: T) {
     console.log(`${x}--->${y}`);
   }
 
-  const stack = new Stack<{ n: number; one: T; two: T; three: T }>();
+  const stack = new Stack<{ n: number; one: T; two: T; three: T; }>();
   stack.push({
     n: n >>> 0 || 1,
     one,

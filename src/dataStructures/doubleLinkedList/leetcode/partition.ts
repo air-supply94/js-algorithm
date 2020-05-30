@@ -1,8 +1,5 @@
-import {
-  DoubleLinkedListInterface,
-  DoubleLinkedListNodeInterface,
-} from '../types';
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
+import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface } from '../types';
 
 export function partition(doubleLinkedList: DoubleLinkedListInterface, x: number): DoubleLinkedListInterface {
   const beforeHead: DoubleLinkedListNodeInterface = new DoubleLinkedListNode(null);
@@ -12,7 +9,7 @@ export function partition(doubleLinkedList: DoubleLinkedListInterface, x: number
   let head: DoubleLinkedListNodeInterface | null = null;
   let tail: DoubleLinkedListNodeInterface | null = null;
 
-  doubleLinkedList.eachFromHead(node => {
+  doubleLinkedList.eachFromHead((node) => {
     if (node.value < x) {
       before.setNext(node);
       node.setPrevious(before);
@@ -41,6 +38,6 @@ export function partition(doubleLinkedList: DoubleLinkedListInterface, x: number
   }
 
   doubleLinkedList.setHead(head)
-  .setTail(tail);
+    .setTail(tail);
   return doubleLinkedList;
 }

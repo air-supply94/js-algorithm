@@ -8,6 +8,6 @@ export function removeDuplicates(str: string): string {
   }
 
   return stack.toArray()
-  .reverse()
-  .join('');
+    .reverse()
+    .join('');
 }

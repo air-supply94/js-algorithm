@@ -1,22 +1,22 @@
-import { GraphVertex } from '../GraphVertex';
 import { GraphEdge } from '../GraphEdge';
+import { GraphVertex } from '../GraphVertex';
 
 describe('GraphVertex', () => {
   it('should create graph vertex', () => {
     const vertex = new GraphVertex('A');
 
     expect(vertex)
-    .toBeDefined();
+      .toBeDefined();
     expect(vertex.value)
-    .toBe('A');
+      .toBe('A');
     expect(vertex.toString())
-    .toBe('A');
+      .toBe('A');
     expect(vertex.value)
-    .toBe('A');
+      .toBe('A');
     expect(vertex.edges.toString())
-    .toBe('');
+      .toBe('');
     expect(vertex.getEdges())
-    .toEqual([]);
+      .toEqual([]);
   });
 
   it('should add edges to vertex and check if it exists', () => {
@@ -27,17 +27,17 @@ describe('GraphVertex', () => {
     vertexA.addEdge(edgeAB);
 
     expect(vertexA.hasEdge(edgeAB))
-    .toBe(true);
+      .toBe(true);
     expect(vertexB.hasEdge(edgeAB))
-    .toBe(false);
+      .toBe(false);
     expect(vertexA.getEdges().length)
-    .toBe(1);
+      .toBe(1);
     expect(vertexA.getEdges()[0]
       .value)
-    .toBe([
-      'A',
-      'B',
-    ].join());
+      .toBe([
+        'A',
+        'B',
+      ].join());
   });
 
   it('should delete edges from vertex', () => {
@@ -51,50 +51,50 @@ describe('GraphVertex', () => {
     vertexA.addEdge(edgeAC);
 
     expect(vertexA.hasEdge(edgeAB))
-    .toBe(true);
+      .toBe(true);
     expect(vertexB.hasEdge(edgeAB))
-    .toBe(false);
+      .toBe(false);
 
     expect(vertexA.hasEdge(edgeAC))
-    .toBe(true);
+      .toBe(true);
     expect(vertexC.hasEdge(edgeAC))
-    .toBe(false);
+      .toBe(false);
 
     expect(vertexA.getEdges().length)
-    .toBe(2);
+      .toBe(2);
 
     expect(vertexA.getEdges()[0]
       .value)
-    .toBe([
-      'A',
-      'B',
-    ].join());
+      .toBe([
+        'A',
+        'B',
+      ].join());
     expect(vertexA.getEdges()[1]
       .value)
-    .toBe([
-      'A',
-      'C',
-    ].join());
+      .toBe([
+        'A',
+        'C',
+      ].join());
 
     vertexA.deleteEdge(edgeAB);
     expect(vertexA.hasEdge(edgeAB))
-    .toBe(false);
+      .toBe(false);
     expect(vertexA.hasEdge(edgeAC))
-    .toBe(true);
+      .toBe(true);
     expect(vertexA.getEdges()[0]
       .value)
-    .toBe([
-      'A',
-      'C',
-    ].join());
+      .toBe([
+        'A',
+        'C',
+      ].join());
 
     vertexA.deleteEdge(edgeAC);
     expect(vertexA.hasEdge(edgeAB))
-    .toBe(false);
+      .toBe(false);
     expect(vertexA.hasEdge(edgeAC))
-    .toBe(false);
+      .toBe(false);
     expect(vertexA.getEdges().length)
-    .toBe(0);
+      .toBe(0);
   });
 
   it('should delete all edges from vertex', () => {
@@ -108,32 +108,32 @@ describe('GraphVertex', () => {
     vertexA.addEdge(edgeAC);
 
     expect(vertexA.hasEdge(edgeAB))
-    .toBe(true);
+      .toBe(true);
     expect(vertexB.hasEdge(edgeAB))
-    .toBe(false);
+      .toBe(false);
 
     expect(vertexA.hasEdge(edgeAC))
-    .toBe(true);
+      .toBe(true);
     expect(vertexC.hasEdge(edgeAC))
-    .toBe(false);
+      .toBe(false);
 
     expect(vertexA.getEdges().length)
-    .toBe(2);
+      .toBe(2);
 
     vertexA.deleteAllEdges();
 
     expect(vertexA.hasEdge(edgeAB))
-    .toBe(false);
+      .toBe(false);
     expect(vertexB.hasEdge(edgeAB))
-    .toBe(false);
+      .toBe(false);
 
     expect(vertexA.hasEdge(edgeAC))
-    .toBe(false);
+      .toBe(false);
     expect(vertexC.hasEdge(edgeAC))
-    .toBe(false);
+      .toBe(false);
 
     expect(vertexA.getEdges().length)
-    .toBe(0);
+      .toBe(0);
   });
 
   it('should return vertex neighbors in case if current node is start one', () => {
@@ -147,16 +147,16 @@ describe('GraphVertex', () => {
     vertexA.addEdge(edgeAC);
 
     expect(vertexB.getNeighbors())
-    .toEqual([]);
+      .toEqual([]);
 
     const neighbors = vertexA.getNeighbors();
 
     expect(neighbors.length)
-    .toBe(2);
+      .toBe(2);
     expect(neighbors[0])
-    .toEqual(vertexB);
+      .toEqual(vertexB);
     expect(neighbors[1])
-    .toEqual(vertexC);
+      .toEqual(vertexC);
   });
 
   it('should return vertex neighbors in case if current node is end one', () => {
@@ -170,16 +170,16 @@ describe('GraphVertex', () => {
     vertexA.addEdge(edgeCA);
 
     expect(vertexB.getNeighbors())
-    .toEqual([]);
+      .toEqual([]);
 
     const neighbors = vertexA.getNeighbors();
 
     expect(neighbors.length)
-    .toBe(2);
+      .toBe(2);
     expect(neighbors[0])
-    .toEqual(vertexB);
+      .toEqual(vertexB);
     expect(neighbors[1])
-    .toEqual(vertexC);
+      .toEqual(vertexC);
   });
 
   it('should check if vertex has specific neighbor', () => {
@@ -191,9 +191,9 @@ describe('GraphVertex', () => {
     vertexA.addEdge(edgeAB);
 
     expect(vertexA.hasNeighbor(vertexB))
-    .toBe(true);
+      .toBe(true);
     expect(vertexA.hasNeighbor(vertexC))
-    .toBe(false);
+      .toBe(false);
   });
 
   it('should edge by vertex', () => {
@@ -205,9 +205,9 @@ describe('GraphVertex', () => {
     vertexA.addEdge(edgeAB);
 
     expect(vertexA.findEdge(vertexB))
-    .toEqual(edgeAB);
+      .toEqual(edgeAB);
     expect(vertexA.findEdge(vertexC))
-    .toBeNull();
+      .toBeNull();
   });
 
   it('should calculate vertex degree', () => {
@@ -215,25 +215,25 @@ describe('GraphVertex', () => {
     const vertexB = new GraphVertex('B');
 
     expect(vertexA.getDegree())
-    .toBe(0);
+      .toBe(0);
 
     const edgeAB = new GraphEdge(vertexA, vertexB);
     vertexA.addEdge(edgeAB);
 
     expect(vertexA.getDegree())
-    .toBe(1);
+      .toBe(1);
 
     const edgeBA = new GraphEdge(vertexB, vertexA);
     vertexA.addEdge(edgeBA);
 
     expect(vertexA.getDegree())
-    .toBe(2);
+      .toBe(2);
 
     vertexA.addEdge(edgeAB);
     expect(vertexA.getDegree())
-    .toBe(3);
+      .toBe(3);
 
     expect(vertexA.getEdges().length)
-    .toEqual(3);
+      .toEqual(3);
   });
 });

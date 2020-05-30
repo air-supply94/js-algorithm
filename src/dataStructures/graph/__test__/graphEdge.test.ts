@@ -8,21 +8,21 @@ describe('GraphEdge', () => {
     const edge = new GraphEdge(startVertex, endVertex);
 
     expect(edge.value)
-    .toBe([
-      'A',
-      'B',
-    ].join());
+      .toBe([
+        'A',
+        'B',
+      ].join());
     expect(edge.toString())
-    .toBe([
-      'A',
-      'B',
-    ].join());
+      .toBe([
+        'A',
+        'B',
+      ].join());
     expect(edge.startVertex)
-    .toEqual(startVertex);
+      .toEqual(startVertex);
     expect(edge.endVertex)
-    .toEqual(endVertex);
+      .toEqual(endVertex);
     expect(edge.weight)
-    .toEqual(0);
+      .toEqual(0);
   });
 
   it('should create graph edge with predefined weight', () => {
@@ -31,11 +31,11 @@ describe('GraphEdge', () => {
     const edge = new GraphEdge(startVertex, endVertex, 10);
 
     expect(edge.startVertex)
-    .toEqual(startVertex);
+      .toEqual(startVertex);
     expect(edge.endVertex)
-    .toEqual(endVertex);
+      .toEqual(endVertex);
     expect(edge.weight)
-    .toEqual(10);
+      .toEqual(10);
   });
 
   it('should be possible to do edge reverse', () => {
@@ -44,19 +44,19 @@ describe('GraphEdge', () => {
     const edge = new GraphEdge(vertexA, vertexB, 10);
 
     expect(edge.startVertex)
-    .toEqual(vertexA);
+      .toEqual(vertexA);
     expect(edge.endVertex)
-    .toEqual(vertexB);
+      .toEqual(vertexB);
     expect(edge.weight)
-    .toEqual(10);
+      .toEqual(10);
 
     edge.reverse();
 
     expect(edge.startVertex)
-    .toEqual(vertexB);
+      .toEqual(vertexB);
     expect(edge.endVertex)
-    .toEqual(vertexA);
+      .toEqual(vertexA);
     expect(edge.weight)
-    .toEqual(10);
+      .toEqual(10);
   });
 });

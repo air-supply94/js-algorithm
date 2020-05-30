@@ -1,10 +1,6 @@
-import {
-  DoubleLinkedListNodeInterface,
-  toStringCallback,
-} from './types';
+import { DoubleLinkedListNodeInterface, toStringCallback } from './types';
 
 export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeInterface<T> {
-
   constructor(value: T, next = null, previous = null) {
     this._value = value;
     this._next = next;
@@ -12,10 +8,12 @@ export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeIn
   }
 
   private _value;
+
   private _next: DoubleLinkedListNodeInterface<T> | null;
+
   private _previous: DoubleLinkedListNodeInterface<T> | null;
 
-  get value() {
+  public get value() {
     return this._value;
   }
 
@@ -24,7 +22,7 @@ export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeIn
     return this;
   }
 
-  get next() {
+  public get next() {
     return this._next;
   }
 
@@ -33,7 +31,7 @@ export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeIn
     return this;
   }
 
-  get previous() {
+  public get previous() {
     return this._previous;
   }
 

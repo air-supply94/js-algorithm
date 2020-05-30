@@ -5,9 +5,9 @@ describe('Trie', () => {
     const trie = new Trie();
 
     expect(trie)
-    .toBeDefined();
+      .toBeDefined();
     expect(trie.head.toString())
-    .toBe('');
+      .toBe('');
   });
 
   it('should add words to trie', () => {
@@ -16,26 +16,26 @@ describe('Trie', () => {
     trie.addWord('cat');
 
     expect(trie.head.toString())
-    .toBe('c');
+      .toBe('c');
     expect(trie.head.getChild('c')
-    .toString())
-    .toBe('ca');
+      .toString())
+      .toBe('ca');
 
     trie.addWord('car');
     expect(trie.head.toString())
-    .toBe('c');
+      .toBe('c');
     expect(trie.head.getChild('c')
-    .toString())
-    .toBe('ca');
+      .toString())
+      .toBe('ca');
     expect(trie.head.getChild('c')
-    .getChild('a')
-    .toString())
-    .toBe('atr');
+      .getChild('a')
+      .toString())
+      .toBe('atr');
     expect(trie.head.getChild('c')
-    .getChild('a')
-    .getChild('t')
-    .toString())
-    .toBe('t');
+      .getChild('a')
+      .getChild('t')
+      .toString())
+      .toBe('t');
   });
 
   it('should delete words from trie', () => {
@@ -46,54 +46,54 @@ describe('Trie', () => {
     trie.addWord('cat');
     trie.addWord('cart');
     expect(trie.doesWordExist('carpet'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('car'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('cart'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('cat'))
-    .toBe(true);
+      .toBe(true);
 
     // Try to delete not-existing word first.
     trie.deleteWord('carpool');
     expect(trie.doesWordExist('carpet'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('car'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('cart'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('cat'))
-    .toBe(true);
+      .toBe(true);
 
     trie.deleteWord('carpet');
     expect(trie.doesWordExist('carpet'))
-    .toEqual(false);
+      .toEqual(false);
     expect(trie.doesWordExist('car'))
-    .toEqual(true);
+      .toEqual(true);
     expect(trie.doesWordExist('cart'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('cat'))
-    .toBe(true);
+      .toBe(true);
 
     trie.deleteWord('cat');
     expect(trie.doesWordExist('car'))
-    .toEqual(true);
+      .toEqual(true);
     expect(trie.doesWordExist('cart'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('cat'))
-    .toBe(false);
+      .toBe(false);
 
     trie.deleteWord('car');
     expect(trie.doesWordExist('car'))
-    .toEqual(false);
+      .toEqual(false);
     expect(trie.doesWordExist('cart'))
-    .toBe(true);
+      .toBe(true);
 
     trie.deleteWord('cart');
     expect(trie.doesWordExist('car'))
-    .toEqual(false);
+      .toEqual(false);
     expect(trie.doesWordExist('cart'))
-    .toBe(false);
+      .toBe(false);
   });
 
   it('should suggests next characters', () => {
@@ -105,15 +105,15 @@ describe('Trie', () => {
     trie.addWord('caption');
 
     expect(trie.suggestNextCharacters('ca'))
-    .toEqual([
-      't',
-      'r',
-      'p',
-    ]);
+      .toEqual([
+        't',
+        'r',
+        'p',
+      ]);
     expect(trie.suggestNextCharacters('cat'))
-    .toEqual(['s']);
+      .toEqual(['s']);
     expect(trie.suggestNextCharacters('cab'))
-    .toEqual([]);
+      .toEqual([]);
   });
 
   it('should check if word exists', () => {
@@ -126,16 +126,16 @@ describe('Trie', () => {
     trie.addWord('caption');
 
     expect(trie.doesWordExist('cat'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('cats'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('carpet'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('car'))
-    .toBe(true);
+      .toBe(true);
     expect(trie.doesWordExist('cap'))
-    .toBe(false);
+      .toBe(false);
     expect(trie.doesWordExist('call'))
-    .toBe(false);
+      .toBe(false);
   });
 });

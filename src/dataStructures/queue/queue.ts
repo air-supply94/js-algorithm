@@ -1,9 +1,5 @@
+import { DoubleLinkedList, DoubleLinkedListInterface, toStringCallback } from '../doubleLinkedList';
 import { QueueInterface } from './types';
-import {
-  DoubleLinkedList,
-  DoubleLinkedListInterface,
-  toStringCallback,
-} from '../doubleLinkedList/';
 
 export class Queue<T = unknown> implements QueueInterface<T> {
   constructor() {
@@ -12,7 +8,7 @@ export class Queue<T = unknown> implements QueueInterface<T> {
 
   private readonly doubleLinkedList: DoubleLinkedListInterface<T>;
 
-  get size(): number {
+  public get size(): number {
     return this.doubleLinkedList.size;
   }
 
@@ -22,7 +18,7 @@ export class Queue<T = unknown> implements QueueInterface<T> {
 
   public toArray(): T[] {
     const values = [];
-    this.doubleLinkedList.eachFromHead(node => {
+    this.doubleLinkedList.eachFromHead((node) => {
       values.push(node.value);
     });
     return values;

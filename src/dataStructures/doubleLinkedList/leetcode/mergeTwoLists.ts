@@ -1,8 +1,5 @@
-import {
-  DoubleLinkedListInterface,
-  DoubleLinkedListNodeInterface,
-} from '../types';
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
+import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface } from '../types';
 
 export function mergeTwoLists<T = unknown>(l1: DoubleLinkedListInterface<T>, l2: DoubleLinkedListInterface<T>): DoubleLinkedListInterface<T> {
   const preHead: DoubleLinkedListNodeInterface<T> = new DoubleLinkedListNode<T>(null);
@@ -38,6 +35,6 @@ export function mergeTwoLists<T = unknown>(l1: DoubleLinkedListInterface<T>, l2:
   }
 
   return l1.setHead(head)
-  .setTail(tail)
-  .setSize(l1.size + l2.size);
+    .setTail(tail)
+    .setSize(l1.size + l2.size);
 }

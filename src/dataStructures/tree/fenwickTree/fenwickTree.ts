@@ -5,10 +5,11 @@ export class FenwickTree implements FenwickTreeInterface {
     this.arraySize = arraySize;
 
     this.treeArray = Array(this.arraySize + 1)
-    .fill(0);
+      .fill(0);
   }
 
   private readonly arraySize: number;
+
   private readonly treeArray: number[];
 
   public increase(position: number, value: number): void {

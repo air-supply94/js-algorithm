@@ -6,75 +6,74 @@ describe('DisjointSet', () => {
     disjointSet.makeSet('a');
     disjointSet.makeSet('a');
     expect(disjointSet.union('A', 'B'))
-    .toBeNull();
+      .toBeNull();
     expect(disjointSet.inSameSet('A', 'B'))
-    .toBeFalsy();
+      .toBeFalsy();
   });
 
   it('should do basic manipulations on disjoint set', () => {
     const disjointSet = new DisjointSet();
 
     expect(disjointSet.find('A'))
-    .toBeNull();
+      .toBeNull();
     expect(disjointSet.find('B'))
-    .toBeNull();
+      .toBeNull();
 
     disjointSet.makeSet('A');
 
     expect(disjointSet.find('A'))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find('B'))
-    .toBeNull();
+      .toBeNull();
 
     disjointSet.makeSet('B');
 
     expect(disjointSet.find('A'))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find('B'))
-    .toBe('B');
+      .toBe('B');
 
     disjointSet.makeSet('C');
 
     expect(disjointSet.inSameSet('A', 'B'))
-    .toBe(false);
+      .toBe(false);
 
     disjointSet.union('A', 'B');
 
     expect(disjointSet.find('A'))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find('B'))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.inSameSet('A', 'B'))
-    .toBe(true);
+      .toBe(true);
     expect(disjointSet.inSameSet('B', 'A'))
-    .toBe(true);
+      .toBe(true);
     expect(disjointSet.inSameSet('A', 'C'))
-    .toBe(false);
+      .toBe(false);
 
     disjointSet.union('A', 'A');
 
     disjointSet.union('B', 'C');
 
     expect(disjointSet.find('A'))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find('B'))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find('C'))
-    .toBe('A');
+      .toBe('A');
 
     expect(disjointSet.inSameSet('A', 'B'))
-    .toBe(true);
+      .toBe(true);
     expect(disjointSet.inSameSet('B', 'C'))
-    .toBe(true);
+      .toBe(true);
     expect(disjointSet.inSameSet('A', 'C'))
-    .toBe(true);
+      .toBe(true);
 
-    disjointSet
-    .makeSet('E')
-    .makeSet('F')
-    .makeSet('G')
-    .makeSet('H')
-    .makeSet('I');
+    disjointSet.makeSet('E');
+    disjointSet.makeSet('F');
+    disjointSet.makeSet('G');
+    disjointSet.makeSet('H');
+    disjointSet.makeSet('I');
 
     disjointSet.union('E', 'F');
     disjointSet.union('F', 'G');
@@ -82,34 +81,33 @@ describe('DisjointSet', () => {
     disjointSet.union('H', 'I');
 
     expect(disjointSet.inSameSet('A', 'I'))
-    .toBe(false);
+      .toBe(false);
     expect(disjointSet.inSameSet('E', 'I'))
-    .toBe(true);
+      .toBe(true);
 
     disjointSet.union('I', 'C');
 
     expect(disjointSet.find('I'))
-    .toBe('E');
+      .toBe('E');
     expect(disjointSet.inSameSet('A', 'I'))
-    .toBe(true);
+      .toBe(true);
   });
 
   it('should union smaller set with bigger one making bigger one to be new root', () => {
     const disjointSet = new DisjointSet();
 
-    disjointSet
-    .makeSet('A')
-    .makeSet('B')
-    .makeSet('C');
+    disjointSet.makeSet('A');
+    disjointSet.makeSet('B');
+    disjointSet.makeSet('C');
     disjointSet.union('B', 'C');
     disjointSet.union('A', 'C');
 
     expect(disjointSet.find('A'))
-    .toBe('B');
+      .toBe('B');
   });
 
   it('should do basic manipulations on disjoint set with custom key extractor', () => {
-    const keyExtractor = value => value.key;
+    const keyExtractor = (value) => value.key;
 
     const disjointSet = new DisjointSet(keyExtractor);
 
@@ -127,56 +125,56 @@ describe('DisjointSet', () => {
     };
 
     expect(disjointSet.find(itemA))
-    .toBeNull();
+      .toBeNull();
     expect(disjointSet.find(itemB))
-    .toBeNull();
+      .toBeNull();
 
     disjointSet.makeSet(itemA);
 
     expect(disjointSet.find(itemA))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find(itemB))
-    .toBeNull();
+      .toBeNull();
 
     disjointSet.makeSet(itemB);
 
     expect(disjointSet.find(itemA))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find(itemB))
-    .toBe('B');
+      .toBe('B');
 
     disjointSet.makeSet(itemC);
 
     expect(disjointSet.inSameSet(itemA, itemB))
-    .toBe(false);
+      .toBe(false);
 
     disjointSet.union(itemA, itemB);
 
     expect(disjointSet.find(itemA))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find(itemB))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.inSameSet(itemA, itemB))
-    .toBe(true);
+      .toBe(true);
     expect(disjointSet.inSameSet(itemB, itemA))
-    .toBe(true);
+      .toBe(true);
     expect(disjointSet.inSameSet(itemA, itemC))
-    .toBe(false);
+      .toBe(false);
 
     disjointSet.union(itemA, itemC);
 
     expect(disjointSet.find(itemA))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find(itemB))
-    .toBe('A');
+      .toBe('A');
     expect(disjointSet.find(itemC))
-    .toBe('A');
+      .toBe('A');
 
     expect(disjointSet.inSameSet(itemA, itemB))
-    .toBe(true);
+      .toBe(true);
     expect(disjointSet.inSameSet(itemB, itemC))
-    .toBe(true);
+      .toBe(true);
     expect(disjointSet.inSameSet(itemA, itemC))
-    .toBe(true);
+      .toBe(true);
   });
 });
