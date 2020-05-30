@@ -25,14 +25,14 @@ export interface GraphVertexInterface {
 export interface GraphInterface {
   isDirected: boolean;
   hasVertex(vertex: GraphVertexInterface | string): boolean;
-  addVertex(vertex: GraphVertexInterface): GraphVertexInterface | null;
+  addVertex(vertex: GraphVertexInterface): GraphVertexInterface;
   getVertex(vertex: GraphVertexInterface | string): GraphVertexInterface | null;
   getNeighbors(vertex: GraphVertexInterface | string): GraphVertexInterface[];
   getAllVertices(): GraphVertexInterface[];
   getAllEdges(): GraphEdgeInterface[];
   hasEdge(edge: GraphEdgeInterface | string): boolean;
   getEdge(edge: GraphEdgeInterface | string): GraphEdgeInterface | null;
-  addEdge(edge: GraphEdgeInterface): GraphEdgeInterface | null;
+  addEdge(edge: GraphEdgeInterface): GraphEdgeInterface;
   deleteEdge(edge: GraphEdgeInterface | string): GraphEdgeInterface | null;
   findEdge(startVertex: GraphVertexInterface | string, endVertex: GraphVertexInterface | string): GraphEdgeInterface | null;
   getWeight(): number;

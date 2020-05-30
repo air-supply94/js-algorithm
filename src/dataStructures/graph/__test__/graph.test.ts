@@ -12,9 +12,9 @@ describe('Graph', () => {
     graph.addVertex(vertexA);
     graph.addVertex(vertexB);
     expect(graph.addVertex(vertexA))
-    .toBeNull();
+    .toBe(vertexA);
     expect(graph.addVertex(vertexB))
-    .toBeNull();
+    .toBe(vertexB);
 
     expect(graph.toString())
     .toBe('A,B');
@@ -191,7 +191,11 @@ describe('Graph', () => {
 
     graph.addEdge(edgeAB);
     expect(graph.addEdge(edgeAB))
-    .toBeNull();
+    .toEqual(edgeAB);
+    expect(graph.addEdge(edgeAB).startVertex)
+    .toBe(vertexA);
+    expect(graph.addEdge(edgeAB).endVertex)
+    .toBe(vertexB);
   });
 
   it('should return the list of all added edges', () => {

@@ -2,6 +2,22 @@ import { LinkedHashTable } from '../linkedHashTable';
 
 describe('HashTable', () => {
 
+  it('should test bucket', () => {
+    const hashTable = new LinkedHashTable();
+    const str1 = String.fromCodePoint(LinkedHashTable.size);
+    const str2 = String.fromCodePoint(LinkedHashTable.size * 2);
+    const str3 = String.fromCodePoint(LinkedHashTable.size * 3);
+    hashTable.set(str2, 2);
+    hashTable.set(str1, 1);
+    hashTable.set(str3, 3);
+    expect(hashTable.get(str1))
+    .toBe(1);
+    expect(hashTable.get(str2))
+    .toBe(2);
+    expect(hashTable.get(str3))
+    .toBe(3);
+  });
+
   it('should set, read and delete data with collisions', () => {
     const hashTable = new LinkedHashTable();
     const size = LinkedHashTable.size;
@@ -46,7 +62,7 @@ describe('HashTable', () => {
   });
 
   it('should be possible to add objects to hash table', () => {
-    const hashTable = new LinkedHashTable<string, { prop1: string; prop2: string }>();
+    const hashTable = new LinkedHashTable<{ prop1: string; prop2: string }>();
 
     hashTable.set('objectKey', {
       prop1: 'a',

@@ -1,7 +1,6 @@
 import {
   DoubleLinkedList,
   DoubleLinkedListInterface,
-  DoubleLinkedListNodeInterface,
 } from '../doubleLinkedList';
 import {
   LinkedHashTableInterface,
@@ -10,66 +9,62 @@ import {
 import { BKDRHash } from './utils';
 import { Comparator } from '../../utils/comparator';
 
-function hash(key: unknown): number {
-  if (typeof key === 'number' && isFinite(key) && Math.floor(key) === key) {
-    return key;
-  }
-
-  return BKDRHash(String(key));
-}
-
-function compareFunction(a: { key: unknown }, b: { key: unknown }) {
+function LinkedListCompare(a: { key: string }, b: { key: string }) {
   if (a.key === b.key) {
     return 0;
+  } else if (a.key < b.key) {
+    return -1;
   }
-
-  return a.key < b.key ? -1 : 1;
+  return 1;
 }
 
-export class LinkedHashTable<T = unknown, K = unknown> implements LinkedHashTableInterface<T, K> {
+export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T> {
   constructor(size = LinkedHashTable.size) {
-    this.compare = new Comparator(compareFunction);
+    this.LinkedListCompare = new Comparator(LinkedListCompare);
     this.buckets = new Array(size).fill(null)
-    .map(() => new DoubleLinkedList<LinkedHashTableItemInterface<T, K>>(this.compare));
+    .map(() => new DoubleLinkedList<LinkedHashTableItemInterface<T>>(this.LinkedListCompare));
   }
 
   public static size = 31;
 
-  private readonly compare: Comparator;
-  private readonly buckets: DoubleLinkedListInterface<LinkedHashTableItemInterface<T, K>>[];
+  private readonly LinkedListCompare: Comparator;
+  private readonly buckets: DoubleLinkedListInterface<LinkedHashTableItemInterface<T>>[];
 
-  private getNode(key: T): DoubleLinkedListNodeInterface<{ key: T; value: K }> | null {
-    const doubleLinkedList = this.buckets[hash(key) % LinkedHashTable.size];
-    return doubleLinkedList.find({value: {key}});
+  private getInfo(key: string | number): { key: string; hash: number; bucket: DoubleLinkedListInterface<LinkedHashTableItemInterface<T>> } {
+    key = String(key);
+    const hash = BKDRHash(key);
+    const keyHash = hash % LinkedHashTable.size;
+    const bucket = this.buckets[keyHash];
+    return {
+      key,
+      hash,
+      bucket,
+    };
   }
 
-  public set(key: T, value: K): this {
-    const hashCode = hash(key);
-    const keyHash = hashCode % LinkedHashTable.size;
-    const doubleLinkedList = this.buckets[keyHash];
-    const node = doubleLinkedList.find({
-      value: {key},
+  public set(key: string | number, value: T): T {
+    const info = this.getInfo(key);
+    const node = info.bucket.find({
+      value: {key: info.key},
     });
 
     if (!node) {
-      doubleLinkedList.append({
-        key,
+      info.bucket.append({
+        key: info.key,
         value,
-        hash: hashCode,
+        hash: info.hash,
       });
     } else {
       node.value.value = value;
     }
 
-    return this;
+    return value;
   }
 
-  public delete(key: T): K | null {
-    const hashCode = hash(key);
-    const keyHash = hashCode % LinkedHashTable.size;
-    const doubleLinkedList = this.buckets[keyHash];
-    const node = doubleLinkedList.deleteAll({
-      key,
+  public delete(key: string | number): T | null {
+    const info = this.getInfo(key);
+    const node = info.bucket.deleteAll({
+      key: info.key,
       value: null,
       hash: null,
     });
@@ -81,12 +76,14 @@ export class LinkedHashTable<T = unknown, K = unknown> implements LinkedHashTabl
     return null;
   }
 
-  public get(key: T): K | null {
-    const node = this.getNode(key);
+  public get(key: string | number): T | null {
+    const info = this.getInfo(key);
+    const node = info.bucket.find({value: {key: info.key}});
     return node ? node.value.value : null;
   }
 
-  public has(key: T): boolean {
-    return !!this.getNode(key);
+  public has(key: string | number): boolean {
+    const info = this.getInfo(key);
+    return !!info.bucket.find({value: {key: info.key}});
   }
 }

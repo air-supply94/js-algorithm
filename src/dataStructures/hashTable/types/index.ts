@@ -1,12 +1,12 @@
-export interface LinkedHashTableItemInterface<T = unknown, K = unknown> {
-  key: T;
-  value: K;
+export interface LinkedHashTableItemInterface<T = unknown> {
+  key: string;
+  value: T;
   hash: number;
 }
 
-export interface LinkedHashTableInterface<T = unknown, K = unknown> {
-  set(key: T, value: K): this;
-  delete(key: T): K | null;
-  get(key: T): K | null;
-  has(key: T): boolean;
+export interface LinkedHashTableInterface<T = unknown> {
+  set(key: string | number, value: T): T;
+  delete(key: string | number): T | null;
+  get(key: string | number): T | null;
+  has(key: string | number): boolean;
 }

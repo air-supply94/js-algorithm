@@ -16,13 +16,13 @@ export class Graph implements GraphInterface {
   private readonly edges: { [key: string]: GraphEdgeInterface };
   public readonly isDirected: boolean;
 
-  public addVertex(vertex: GraphVertexInterface): GraphVertexInterface | null {
-    if (this.hasVertex(vertex)) {
-      return null;
+  public addVertex(vertex: GraphVertexInterface): GraphVertexInterface {
+    let newVertex = this.getVertex(vertex);
+    if (!newVertex) {
+      this.vertices[vertex.value] = vertex;
+      newVertex = vertex;
     }
-
-    this.vertices[vertex.value] = vertex;
-    return vertex;
+    return newVertex;
   }
 
   public hasVertex(vertex: GraphVertexInterface | string): boolean {
@@ -34,12 +34,12 @@ export class Graph implements GraphInterface {
   }
 
   public getNeighbors(vertex: GraphVertexInterface | string): GraphVertexInterface[] {
-    if (!this.hasVertex(vertex)) {
+    const newVertex = this.getVertex(vertex);
+    if (!newVertex) {
       return [];
     }
 
-    return this.getVertex(vertex)
-    .getNeighbors();
+    return newVertex.getNeighbors();
   }
 
   public getAllVertices(): GraphVertexInterface[] {
@@ -50,7 +50,7 @@ export class Graph implements GraphInterface {
     return Object.values(this.edges);
   }
 
-  public addEdge(edge: GraphEdgeInterface): GraphEdgeInterface | null {
+  public addEdge(edge: GraphEdgeInterface): GraphEdgeInterface {
     let startVertex = this.getVertex(edge.startVertex);
     let endVertex = this.getVertex(edge.endVertex);
 
@@ -64,18 +64,17 @@ export class Graph implements GraphInterface {
       endVertex = edge.endVertex;
     }
 
-    if (this.hasEdge(edge)) {
-      return null;
-    }
+    let newEdge = this.getEdge(edge);
+    if (!newEdge) {
+      newEdge = new GraphEdge(startVertex, endVertex, edge.weight);
+      this.edges[String(edge)] = newEdge;
 
-    const newEdge = new GraphEdge(startVertex, endVertex, edge.weight);
-    this.edges[String(edge)] = newEdge;
-
-    if (this.isDirected) {
-      startVertex.addEdge(newEdge);
-    } else {
-      startVertex.addEdge(newEdge);
-      endVertex.addEdge(newEdge);
+      if (this.isDirected) {
+        startVertex.addEdge(newEdge);
+      } else {
+        startVertex.addEdge(newEdge);
+        endVertex.addEdge(newEdge);
+      }
     }
 
     return newEdge;
@@ -83,13 +82,12 @@ export class Graph implements GraphInterface {
 
   public deleteEdge(edge: GraphEdgeInterface | string): GraphEdgeInterface | null {
     const newEdge = this.getEdge(edge);
-    if (!newEdge) {
-      return null;
-    }
 
-    delete this.edges[String(edge)];
-    newEdge.startVertex.deleteEdge(newEdge);
-    newEdge.endVertex.deleteEdge(newEdge);
+    if (newEdge) {
+      delete this.edges[String(edge)];
+      newEdge.startVertex.deleteEdge(newEdge);
+      newEdge.endVertex.deleteEdge(newEdge);
+    }
 
     return newEdge;
   }
