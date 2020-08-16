@@ -7,7 +7,7 @@ function isPowerOfTwo(number: number): boolean {
 
 function initSegmentTree(inputArray: number[]): number[] {
   const length = isPowerOfTwo(inputArray.length) ? inputArray.length : Math.pow(2, 1 + Math.log2(inputArray.length) | 0);
-  return new Array((2 * length) - 1).fill(0);
+  return new Array((2 * length) - 1).fill(null);
 }
 
 export class SegmentTree implements SegmentTreeInterface {

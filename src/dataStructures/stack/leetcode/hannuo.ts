@@ -1,6 +1,6 @@
 import { Stack } from '../stack';
 
-export function hannuo<T = unknown>(n: number, one: T, two: T, three: T) {
+export function hanoi<T = unknown>(n: number, one: T, two: T, three: T) {
   function move(x: T, y: T): void {
     console.log(`${x}--->${y}`);
   }

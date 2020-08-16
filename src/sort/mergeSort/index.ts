@@ -6,9 +6,11 @@ export function mergeSort<T = unknown>(originalArray: T[], comparator?: Comparat
   if (originalArray.length <= 1) {
     return originalArray;
   }
+
   const middleIndex = Math.floor(originalArray.length / 2);
   const left = originalArray.slice(0, middleIndex);
   const right = originalArray.slice(middleIndex);
+
   return mergeSortedArrays<T>(mergeSort<T>(left, comparator), mergeSort<T>(right, comparator), comparator);
 }
 

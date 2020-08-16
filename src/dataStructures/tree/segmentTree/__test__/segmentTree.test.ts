@@ -56,8 +56,8 @@ describe('SegmentTree', () => {
         2,
         0,
         1,
-        0,
-        0,
+        null,
+        null,
       ]);
     expect(segmentTree.segmentTree.length)
       .toBe((2 * 4) - 1);
@@ -85,12 +85,12 @@ describe('SegmentTree', () => {
         1,
         -1,
         3,
-        0,
-        0,
+        null,
+        null,
         0,
         2,
-        0,
-        0,
+        null,
+        null,
       ]);
     expect(segmentTree.segmentTree.length)
       .toBe((2 * 8) - 1);

@@ -1,8 +1,6 @@
 module.exports = {
-  /*
-   * The bail config option can be used here to have Jest stop running tests after
-   * The first failure.
-   */
+  /* The bail config option can be used here to have Jest stop running tests after
+     The first failure. */
   bail: false,
 
   // Indicates whether each individual test should be reported during the run.
@@ -37,10 +35,8 @@ module.exports = {
   // The pattern Jest uses to detect test files.
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.[jt]s$',
 
-  /*
-   * This option sets the URL for the jsdom environment.
-   * It is reflected in properties such as location.href.
-   * @see: https://github.com/facebook/jest/issues/6769
-   */
+  /* This option sets the URL for the jsdom environment.
+     It is reflected in properties such as location.href.
+     @see: https://github.com/facebook/jest/issues/6769 */
   testURL: 'http://localhost:20000/',
 };
