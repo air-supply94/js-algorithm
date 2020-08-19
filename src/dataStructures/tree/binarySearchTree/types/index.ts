@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../../../utils';
 
 export type traverseCallback<T = unknown> = (node: BinarySearchTreeNodeInterface<T>) => void | boolean;
 

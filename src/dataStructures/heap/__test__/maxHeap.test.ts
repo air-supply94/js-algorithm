@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../../utils';
 import { MaxHeap } from '../maxHeap';
 
 describe('MaxHeap', () => {

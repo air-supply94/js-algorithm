@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../../../utils';
 import { BinarySearchTreeNode } from '../binarySearchTreeNode';
 import { BinarySearchTreeNodeInterface } from '../types';
 

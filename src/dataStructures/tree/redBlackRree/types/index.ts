@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../../../utils';
 import { BinarySearchTreeInterface, BinarySearchTreeNodeInterface, traverseCallback } from '../../binarySearchTree/types';
 
 export type RedBlackTreeColor = 'red' | 'black';

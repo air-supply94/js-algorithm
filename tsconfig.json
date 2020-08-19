@@ -17,10 +17,7 @@
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowJs": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "baseUrl": "."
   },
   "exclude": ["node_modules"]
 }

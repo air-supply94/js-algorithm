@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../utils';
 import { DoubleLinkedList, DoubleLinkedListInterface } from '../doubleLinkedList';
 import { LinkedHashTableInterface, LinkedHashTableItemInterface } from './types';
 import { BKDRHash } from './utils';

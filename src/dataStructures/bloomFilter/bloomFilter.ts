@@ -1,4 +1,4 @@
-import { BloomFilterInterface } from '@/dataStructures/bloomFilter/types';
+import { BloomFilterInterface } from './types';
 
 export class BloomFilter implements BloomFilterInterface {
   constructor(size = 100) {

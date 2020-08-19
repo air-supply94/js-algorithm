@@ -30,8 +30,6 @@ module.exports = {
   // If the file path matches any of the patterns, coverage information will be skipped.
   coveragePathIgnorePatterns: ['/node_modules/'],
 
-  moduleNameMapper: { '@/(.*)': '<rootDir>/src/$1' },
-
   // The pattern Jest uses to detect test files.
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.[jt]s$',
 

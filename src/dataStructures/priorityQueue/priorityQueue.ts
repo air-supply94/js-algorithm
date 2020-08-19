@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../utils';
 import { MinHeap } from '../heap';
 import { PriorityQueueInterface, PriorityQueueItem } from './types';
 

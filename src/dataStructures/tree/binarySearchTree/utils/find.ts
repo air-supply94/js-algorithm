@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../../../utils';
 import { BinarySearchTreeNodeInterface } from '../types';
 
 export function find<T = unknown>(

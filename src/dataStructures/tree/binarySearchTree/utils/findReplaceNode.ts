@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../../../utils';
 import { BinarySearchTreeNodeInterface } from '../types';
 import { find } from './find';
 import { findMax } from './findMax';

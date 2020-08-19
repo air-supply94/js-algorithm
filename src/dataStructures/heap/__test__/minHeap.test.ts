@@ -1,4 +1,4 @@
-import { Comparator } from '@/utils';
+import { Comparator } from '../../../utils';
 import { MinHeap } from '../minHeap';
 
 describe('MinHeap', () => {
