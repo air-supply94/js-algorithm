@@ -2,6 +2,7 @@ import { Comparator, compareFunctionType } from '../../utils';
 import { DoubleLinkedListNode } from './doubleLinkedListNode';
 import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface, eachCallback, FindParams, toStringCallback } from './types';
 import { reverse, get, each, formatIndex } from './utils';
+import { sort } from './utils/sort';
 
 export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<T> {
   constructor(comparatorFunction?: Comparator | compareFunctionType) {
@@ -272,5 +273,21 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
 
   public isEmpty(): boolean {
     return this.size <= 0;
+  }
+
+  public sort(): this {
+    sort(this.head, this.compare);
+
+    let head = this.head;
+    let tail = this.head;
+    while (head && head.previous) {
+      head = head.previous;
+    }
+    while (tail && tail.next) {
+      tail = tail.next;
+    }
+
+    return this.setHead(head)
+      .setTail(tail);
   }
 }

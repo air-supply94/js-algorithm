@@ -27,5 +27,7 @@ describe('countSort', () => {
         109,
         110,
       ]);
+    expect(countSort([]))
+      .toEqual([]);
   });
 });

@@ -1,4 +1,5 @@
 import { DoubleLinkedList } from '../../doubleLinkedList';
+import { mergeTwoLists } from '../../utils/mergeTwoLists';
 import { addTwoNumbers } from '../addTwoNumbers';
 import { deleteDuplicates } from '../deleteDuplicates';
 import { detectCircle } from '../detectCircle';
@@ -7,7 +8,6 @@ import { getCircleLength } from '../getCircleLength';
 import { getDecimalValue } from '../getDecimalValue';
 import { hasCircle } from '../hasCircle';
 import { isPalindrome } from '../isPalindrome';
-import { mergeTwoLists } from '../mergeTwoLists';
 import { partition } from '../partition';
 import { swapPairs } from '../swapPairs';
 
@@ -233,8 +233,8 @@ describe('leetcode DoubleLinkedList', () => {
   it('mergeTwoLists', () => {
     const doubleLinkedList1 = new DoubleLinkedList<number>();
     const doubleLinkedList2 = new DoubleLinkedList<number>();
-    expect(mergeTwoLists(doubleLinkedList1, doubleLinkedList2).size)
-      .toBe(0);
+    expect(mergeTwoLists(doubleLinkedList1.head, doubleLinkedList2.head, doubleLinkedList1.compare))
+      .toBeNull();
     doubleLinkedList1.append(1);
     doubleLinkedList1.append(3);
     doubleLinkedList1.append(5);
@@ -243,10 +243,30 @@ describe('leetcode DoubleLinkedList', () => {
     doubleLinkedList2.append(4);
     doubleLinkedList2.append(6);
 
-    mergeTwoLists<number>(doubleLinkedList1, doubleLinkedList2);
+    const resultHead = mergeTwoLists(doubleLinkedList1.head, doubleLinkedList2.head, doubleLinkedList1.compare);
+    const size = doubleLinkedList1.size + doubleLinkedList2.size;
+    let tail = doubleLinkedList1.head;
+    let head = doubleLinkedList1.head;
+    while (tail && tail.next) {
+      tail = tail.next;
+    }
+    while (head && head.previous) {
+      head = head.previous;
+    }
+    doubleLinkedList1.setHead(head)
+      .setTail(tail)
+      .setSize(size);
+    doubleLinkedList2.setHead(head)
+      .setTail(tail)
+      .setSize(size);
+
+    expect(doubleLinkedList1.head)
+      .toBe(resultHead);
+    expect(doubleLinkedList2.head)
+      .toBe(resultHead);
     expect(doubleLinkedList1.head.previous)
       .toBeNull();
-    expect(doubleLinkedList1.tail.next)
+    expect(doubleLinkedList2.tail.next)
       .toBeNull();
     expect(doubleLinkedList1.size)
       .toBe(7);

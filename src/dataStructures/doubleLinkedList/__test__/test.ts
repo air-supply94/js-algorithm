@@ -762,4 +762,25 @@ describe('Index', () => {
     expect(linkedList.deleteIndex(0).value)
       .toBe(1);
   });
+
+  it('sort number', () => {
+    const linkedList = new DoubleLinkedList();
+    linkedList.sort();
+    expect(linkedList.head)
+      .toBeNull();
+    expect(linkedList.tail)
+      .toBeNull();
+
+    linkedList.append(10);
+    linkedList.append(5);
+    linkedList.append(15);
+    linkedList.append(0);
+    linkedList.append(25);
+
+    linkedList.sort();
+    expect(linkedList.head.value)
+      .toBe(0);
+    expect(linkedList.tail.value)
+      .toBe(25);
+  });
 });

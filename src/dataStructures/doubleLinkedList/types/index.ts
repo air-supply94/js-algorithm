@@ -42,5 +42,6 @@ export interface DoubleLinkedListInterface<T = unknown> {
   setHead: (head: DoubleLinkedListNodeInterface<T> | null) => this;
   setTail: (tail: DoubleLinkedListNodeInterface<T> | null) => this;
   clear: () => this;
+  sort: () => this;
   toString: (callback?: toStringCallback<T>) => string;
 }
