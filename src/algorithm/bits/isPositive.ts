@@ -1,7 +1,9 @@
+import { getBit } from './getBit';
+
 export function isPositive(x: number): boolean {
   if (x === 0) {
     return false;
   }
 
-  return ((x >> 31) & 1) === 0;
+  return getBit(x, 31) === 0;
 }
