@@ -16,7 +16,7 @@
     "noImplicitThis": false,
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
-    "allowJs": true,
+    "allowJs": false,
     "baseUrl": "."
   },
   "exclude": ["node_modules"]
