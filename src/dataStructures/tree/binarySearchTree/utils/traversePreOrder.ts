@@ -7,12 +7,11 @@ export function traversePreOrder<T = unknown>(
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
-  // eslint-disable-next-line no-labels,no-constant-condition
-  outer: while (true) {
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
     while (currentNode) {
       if (callback(currentNode) === false) {
-        // eslint-disable-next-line no-labels
-        break outer;
+        return;
       }
 
       if (currentNode.right) {

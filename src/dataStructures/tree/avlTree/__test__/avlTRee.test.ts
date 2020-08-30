@@ -358,6 +358,8 @@ describe('AvlTree', () => {
 
   it('should remove values from the tree with right-right rotation', () => {
     const tree = new AvlTree();
+    expect(getBalanceFactor(tree.root))
+      .toBe(0);
 
     tree.insert(10);
     tree.insert(20);

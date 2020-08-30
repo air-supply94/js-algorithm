@@ -1,6 +1,6 @@
 import { Comparator } from '../../../../utils';
 
-export type traverseCallback<T = unknown> = (node: BinarySearchTreeNodeInterface<T>) => void | boolean;
+export type traverseCallback<T = unknown> = (node: BinarySearchTreeNodeInterface<T>, height?: number) => void | boolean;
 
 export interface BinarySearchTreeNodeInterface<T = unknown> {
   readonly value: T;
