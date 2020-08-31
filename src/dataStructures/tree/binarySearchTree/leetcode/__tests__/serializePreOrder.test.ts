@@ -4,6 +4,8 @@ describe('serializePreOrder', () => {
   it('should serializePreOrder', () => {
     expect(serializePreOrder([]))
       .toBeNull();
+    expect(serializePreOrder([1]).value)
+      .toBe(1);
 
     const root = serializePreOrder([
       2,
@@ -19,6 +21,10 @@ describe('serializePreOrder', () => {
       null,
     ]);
 
+    expect(root.left.value)
+      .toBe(1);
+    expect(root.right.value)
+      .toBe(4);
     expect(root.toString())
       .toBe('1,2,3,4,5');
   });
