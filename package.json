@@ -21,7 +21,7 @@
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.1",
     "typescript": "^3.9.5",
-    "zhouhaifei-code-style": "1.0.7"
+    "zhouhaifei-code-style": "1.2.1"
   },
   "scripts": {
     "test": "jest --config jest.js --color",
