@@ -1,6 +1,6 @@
 import { DoubleLinkedListInterface } from '../types';
 
-export function isPalindrome(doubleLinkedList: DoubleLinkedListInterface): boolean {
+export function isPalindrome<T = unknown>(doubleLinkedList: DoubleLinkedListInterface<T>): boolean {
   if (doubleLinkedList.size < 2) {
     return false;
   }

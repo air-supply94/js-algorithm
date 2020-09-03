@@ -39,6 +39,8 @@ export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T>
 
   public set(key: string | number, value: T): T {
     const info = this.getInfo(key);
+
+    // @ts-ignore
     const node = info.bucket.find({ value: { key: info.key }});
 
     if (!node) {
@@ -71,12 +73,16 @@ export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T>
 
   public get(key: string | number): T | null {
     const info = this.getInfo(key);
+
+    // @ts-ignore
     const node = info.bucket.find({ value: { key: info.key }});
     return node ? node.value.value : null;
   }
 
   public has(key: string | number): boolean {
     const info = this.getInfo(key);
+
+    // @ts-ignore
     return Boolean(info.bucket.find({ value: { key: info.key }}));
   }
 }

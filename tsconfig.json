@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "strict": false,
     "module": "esnext",
     "moduleResolution": "node",
     "target": "esnext",
@@ -9,15 +8,17 @@
     "isolatedModules": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noImplicitAny": false,
     "noImplicitReturns": true,
     "importHelpers": true,
     "listFiles": true,
-    "noImplicitThis": false,
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowJs": false,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "strictNullChecks": false,
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false
   },
   "exclude": ["node_modules"]
 }

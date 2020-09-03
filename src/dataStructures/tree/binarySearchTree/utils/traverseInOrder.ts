@@ -3,7 +3,7 @@ import { BinarySearchTreeNodeInterface, traverseCallback } from '../types';
 
 export function traverseInOrder<T = unknown>(
   root: null | BinarySearchTreeNodeInterface<T>,
-  callback: traverseCallback
+  callback: traverseCallback<T>
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;

@@ -3,7 +3,7 @@ import { BinarySearchTreeNodeInterface, traverseCallback } from '../types';
 
 export function traverseLevelOrder<T = unknown>(
   root: BinarySearchTreeNodeInterface<T> | null,
-  callback: traverseCallback
+  callback: traverseCallback<T>
 ): number {
   const nodeQueue = new Queue<BinarySearchTreeNodeInterface<T>>();
   let level = 0;

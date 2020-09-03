@@ -7,6 +7,8 @@ function identity(item: string): string {
 export class DisjointSetItem<T = unknown> implements DisjointSetItemInterface<T> {
   constructor(value: T, keyCallback?: (item: T) => string) {
     this.value = value;
+
+    // @ts-ignore
     this.keyCallback = keyCallback || identity;
     this._parent = null;
     this.children = {};

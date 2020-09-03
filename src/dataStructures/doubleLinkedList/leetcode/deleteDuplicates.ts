@@ -1,6 +1,6 @@
 import { DoubleLinkedListInterface } from '../types';
 
-export function deleteDuplicates(doubleLinkedList: DoubleLinkedListInterface): DoubleLinkedListInterface {
+export function deleteDuplicates<T = unknown>(doubleLinkedList: DoubleLinkedListInterface<T>): DoubleLinkedListInterface<T> {
   let currentNode = doubleLinkedList.head;
   while (currentNode && currentNode.next) {
     if (currentNode.value === currentNode.next.value) {

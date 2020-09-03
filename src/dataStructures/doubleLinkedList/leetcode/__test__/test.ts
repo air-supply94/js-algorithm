@@ -51,7 +51,7 @@ describe('leetcode DoubleLinkedList', () => {
 
   it('isPalindrome', () => {
     const doubleLinkedList = new DoubleLinkedList<number>();
-    expect(isPalindrome(doubleLinkedList))
+    expect(isPalindrome<number>(doubleLinkedList))
       .toBeFalsy();
     doubleLinkedList.fromArray([
       1,
