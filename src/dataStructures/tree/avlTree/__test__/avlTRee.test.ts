@@ -330,7 +330,7 @@ describe('AvlTree', () => {
       .toBe(3);
   });
 
-  it('should do left right rotation and keeping left right node safe', () => {
+  it('should do insert', () => {
     const tree = new AvlTree();
 
     tree.insert(30);
