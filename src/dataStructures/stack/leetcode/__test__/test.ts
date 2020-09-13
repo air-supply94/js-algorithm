@@ -2,6 +2,7 @@ import { backspaceCompare } from '../backspaceCompare';
 import { balanceSymbol } from '../balanceSymbol';
 import { calPoints } from '../calPoints';
 import { decodeString } from '../decodeString';
+import { majorityElement } from '../majorityElement';
 import { maxSlidingWindow } from '../maxSlidingWindow';
 import { postfix } from '../postfix';
 import { removeDuplicates } from '../removeDuplicates';
@@ -103,5 +104,25 @@ describe('leetcode stack', () => {
       .toBe('accaccacc');
     expect(decodeString('2[abc]3[cd]ef'))
       .toBe('abcabccdcdcdef');
+  });
+
+  it('should majorityElement', () => {
+    expect(majorityElement([
+      2,
+      3,
+      2,
+    ]))
+      .toBe(2);
+
+    expect(majorityElement([
+      2,
+      2,
+      1,
+      1,
+      1,
+      2,
+      2,
+    ]))
+      .toBe(2);
   });
 });
