@@ -1,7 +1,7 @@
 import { Comparator } from '../index';
 
 describe('Comparator', () => {
-  it('should compare with default comparator function', () => {
+  test('should compare with default comparator function', () => {
     const comparator = new Comparator();
 
     expect(comparator.equal(0, 0))
@@ -38,7 +38,7 @@ describe('Comparator', () => {
       .toBe(false);
   });
 
-  it('should compare with custom comparator function', () => {
+  test('should compare with custom comparator function', () => {
     const comparator = new Comparator((a, b) => {
       if (a.length === b.length) {
         return 0;

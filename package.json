@@ -22,7 +22,7 @@
     "zhouhaifei-test": "^1.3.2"
   },
   "scripts": {
-    "test": "zhouhaifei-test react --color",
+    "test": "zhouhaifei-test react",
     "lint-staged": "lint-staged --allow-empty",
     "lint:js": "eslint --fix --ext .js,.ts ./src",
     "prettier": "prettier -c --write \"**/*.{md,html,json}\""
