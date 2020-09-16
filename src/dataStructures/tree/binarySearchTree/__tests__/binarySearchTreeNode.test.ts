@@ -2,7 +2,7 @@ import { BinarySearchTreeNode } from '../binarySearchTreeNode';
 import { getBalanceFactor, getHeight, getUncle } from '../utils';
 
 describe('BinarySearchTreeNode', () => {
-  test('should create node', () => {
+  it('should create node', () => {
     const node = new BinarySearchTreeNode();
 
     expect(node)
@@ -31,7 +31,7 @@ describe('BinarySearchTreeNode', () => {
       .toBe(3);
   });
 
-  test('should set parent', () => {
+  it('should set parent', () => {
     const leftNode = new BinarySearchTreeNode(1);
     const rightNode = new BinarySearchTreeNode(3);
     const rootNode = new BinarySearchTreeNode(2);
@@ -52,7 +52,7 @@ describe('BinarySearchTreeNode', () => {
       .toEqual(rootNode);
   });
 
-  test('should remove child node', () => {
+  it('should remove child node', () => {
     const leftNode = new BinarySearchTreeNode(1);
     const rightNode = new BinarySearchTreeNode(3);
     const rootNode = new BinarySearchTreeNode(2);
@@ -80,7 +80,7 @@ describe('BinarySearchTreeNode', () => {
       .toBe('2');
   });
 
-  test('should replace child node', () => {
+  it('should replace child node', () => {
     const leftNode = new BinarySearchTreeNode(1);
     const rightNode = new BinarySearchTreeNode(3);
     const rootNode = new BinarySearchTreeNode(2);
@@ -126,7 +126,7 @@ describe('BinarySearchTreeNode', () => {
       .toBe(false);
   });
 
-  test('should calculate node height', () => {
+  it('should calculate node height', () => {
     const root = new BinarySearchTreeNode(1);
     const left = new BinarySearchTreeNode(3);
     const right = new BinarySearchTreeNode(2);
@@ -181,7 +181,7 @@ describe('BinarySearchTreeNode', () => {
       .toBe(2);
   });
 
-  test('should calculate node height for right nodes as well', () => {
+  it('should calculate node height for right nodes as well', () => {
     const root = new BinarySearchTreeNode(1);
     const right = new BinarySearchTreeNode(2);
 
@@ -195,7 +195,7 @@ describe('BinarySearchTreeNode', () => {
       .toBe(-1);
   });
 
-  test('should set null for left and right node', () => {
+  it('should set null for left and right node', () => {
     const root = new BinarySearchTreeNode(2);
     const left = new BinarySearchTreeNode(1);
     const right = new BinarySearchTreeNode(3);
@@ -217,7 +217,7 @@ describe('BinarySearchTreeNode', () => {
       .toBeNull();
   });
 
-  test('should be possible to create node with object as a value', () => {
+  it('should be possible to create node with object as a value', () => {
     const obj1 = {
       key: 'object_1',
       toString: () => 'object_1',
@@ -251,7 +251,7 @@ describe('BinarySearchTreeNode', () => {
       .toBe('[object Object]');
   });
 
-  test('should detect right uncle', () => {
+  it('should detect right uncle', () => {
     const grandParent = new BinarySearchTreeNode('grand-parent');
     const parent = new BinarySearchTreeNode('parent');
     const uncle = new BinarySearchTreeNode('uncle');
@@ -284,7 +284,7 @@ describe('BinarySearchTreeNode', () => {
       .toEqual(uncle);
   });
 
-  test('should detect left uncle', () => {
+  it('should detect left uncle', () => {
     const grandParent = new BinarySearchTreeNode('grand-parent');
     const parent = new BinarySearchTreeNode('parent');
     const uncle = new BinarySearchTreeNode('uncle');
@@ -317,7 +317,7 @@ describe('BinarySearchTreeNode', () => {
       .toEqual(uncle);
   });
 
-  test('should be possible to set node values', () => {
+  it('should be possible to set node values', () => {
     const node = new BinarySearchTreeNode('initial_value');
 
     expect(node.value)
@@ -329,7 +329,7 @@ describe('BinarySearchTreeNode', () => {
       .toBe('new_value');
   });
 
-  test('should be possible to copy node', () => {
+  it('should be possible to copy node', () => {
     const root = new BinarySearchTreeNode('root');
     const left = new BinarySearchTreeNode('left');
     const right = new BinarySearchTreeNode('right');
@@ -362,7 +362,7 @@ describe('BinarySearchTreeNode', () => {
       .toBe('left,root,right');
   });
 
-  test('should create binary search tree', () => {
+  it('should create binary search tree', () => {
     const bstNode = new BinarySearchTreeNode(2);
 
     expect(bstNode.value)

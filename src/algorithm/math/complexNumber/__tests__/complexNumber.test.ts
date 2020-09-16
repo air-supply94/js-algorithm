@@ -1,7 +1,7 @@
 import { ComplexNumber } from '../complexNumber';
 
 describe('ComplexNumber', () => {
-  test('should create complex numbers', () => {
+  it('should create complex numbers', () => {
     const complexNumber = new ComplexNumber({
       re: 1,
       im: 2,
@@ -21,7 +21,7 @@ describe('ComplexNumber', () => {
       .toBe(0);
   });
 
-  test('should add complex numbers', () => {
+  it('should add complex numbers', () => {
     const complexNumber1 = new ComplexNumber({
       re: 1,
       im: 2,
@@ -45,7 +45,7 @@ describe('ComplexNumber', () => {
       .toBe(2 + 8);
   });
 
-  test('should add complex and natural numbers', () => {
+  it('should add complex and natural numbers', () => {
     const complexNumber = new ComplexNumber({
       re: 1,
       im: 2,
@@ -72,7 +72,7 @@ describe('ComplexNumber', () => {
       .toBe(2);
   });
 
-  test('should subtract complex numbers', () => {
+  it('should subtract complex numbers', () => {
     const complexNumber1 = new ComplexNumber({
       re: 1,
       im: 2,
@@ -96,7 +96,7 @@ describe('ComplexNumber', () => {
       .toBe(8 - 2);
   });
 
-  test('should subtract complex and natural numbers', () => {
+  it('should subtract complex and natural numbers', () => {
     const complexNumber = new ComplexNumber({
       re: 1,
       im: 2,
@@ -123,7 +123,7 @@ describe('ComplexNumber', () => {
       .toBe(2);
   });
 
-  test('should multiply complex numbers', () => {
+  it('should multiply complex numbers', () => {
     const complexNumber1 = new ComplexNumber({
       re: 3,
       im: 2,
@@ -153,7 +153,7 @@ describe('ComplexNumber', () => {
       .toBe(10);
   });
 
-  test('should multiply complex numbers by themselves', () => {
+  it('should multiply complex numbers by themselves', () => {
     const complexNumber = new ComplexNumber({
       re: 1,
       im: 1,
@@ -167,7 +167,7 @@ describe('ComplexNumber', () => {
       .toBe(2);
   });
 
-  test('should calculate i in power of two', () => {
+  it('should calculate i in power of two', () => {
     const complexNumber = new ComplexNumber({
       re: 0,
       im: 1,
@@ -181,7 +181,7 @@ describe('ComplexNumber', () => {
       .toBe(0);
   });
 
-  test('should divide complex numbers', () => {
+  it('should divide complex numbers', () => {
     const complexNumber1 = new ComplexNumber({
       re: 2,
       im: 3,
@@ -205,7 +205,7 @@ describe('ComplexNumber', () => {
       .toBe(1.5);
   });
 
-  test('should return complex number in polar form', () => {
+  it('should return complex number in polar form', () => {
     const complexNumber1 = new ComplexNumber({
       re: 3,
       im: 3,

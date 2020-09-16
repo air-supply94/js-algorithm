@@ -1,7 +1,7 @@
 import { countSort } from '../index';
 
 describe('countSort', () => {
-  test('should sorted array', () => {
+  it('should sorted array', () => {
     const array = [
       101,
       109,

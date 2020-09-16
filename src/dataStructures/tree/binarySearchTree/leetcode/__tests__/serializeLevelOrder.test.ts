@@ -1,7 +1,7 @@
 import { serializeLevelOrder } from '../serializeLevelOrder';
 
 describe('serializeLevelOrder', () => {
-  test('should serializeLevelOrder', () => {
+  it('should serializeLevelOrder', () => {
     expect(serializeLevelOrder([]))
       .toBeNull();
     expect(serializeLevelOrder([1]).value)

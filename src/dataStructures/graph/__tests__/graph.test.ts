@@ -3,7 +3,7 @@ import { GraphEdge } from '../GraphEdge';
 import { GraphVertex } from '../GraphVertex';
 
 describe('Graph', () => {
-  test('should add vertices to graph', () => {
+  it('should add vertices to graph', () => {
     const graph = new Graph();
 
     const vertexA = new GraphVertex('A');
@@ -24,7 +24,7 @@ describe('Graph', () => {
       .toEqual(vertexB);
   });
 
-  test('should add edges to undirected graph', () => {
+  it('should add edges to undirected graph', () => {
     const graph = new Graph();
 
     const vertexA = new GraphVertex('A');
@@ -71,7 +71,7 @@ describe('Graph', () => {
       .toEqual(graphVertexA);
   });
 
-  test('should add edges to directed graph', () => {
+  it('should add edges to directed graph', () => {
     const graph = new Graph(true);
 
     const vertexA = new GraphVertex('A');
@@ -102,7 +102,7 @@ describe('Graph', () => {
       .toBe(0);
   });
 
-  test('should find edge by vertices in undirected graph', () => {
+  it('should find edge by vertices in undirected graph', () => {
     const graph = new Graph();
 
     const vertexA = new GraphVertex('A');
@@ -130,7 +130,7 @@ describe('Graph', () => {
       .toBe(10);
   });
 
-  test('should find edge by vertices in directed graph', () => {
+  it('should find edge by vertices in directed graph', () => {
     const graph = new Graph(true);
 
     const vertexA = new GraphVertex('A');
@@ -158,7 +158,7 @@ describe('Graph', () => {
       .toBe(10);
   });
 
-  test('should return vertex neighbors', () => {
+  it('should return vertex neighbors', () => {
     const graph = new Graph(true);
 
     const vertexA = new GraphVertex('A');
@@ -181,7 +181,7 @@ describe('Graph', () => {
       .toEqual(vertexC);
   });
 
-  test('should add edge twice', () => {
+  it('should add edge twice', () => {
     const graph = new Graph(true);
 
     const vertexA = new GraphVertex('A');
@@ -198,7 +198,7 @@ describe('Graph', () => {
       .toBe(vertexB);
   });
 
-  test('should return the list of all added edges', () => {
+  it('should return the list of all added edges', () => {
     const graph = new Graph(true);
 
     const vertexA = new GraphVertex('A');
@@ -221,7 +221,7 @@ describe('Graph', () => {
       .toEqual(edgeBC);
   });
 
-  test('should calculate total graph weight for default graph', () => {
+  it('should calculate total graph weight for default graph', () => {
     const graph = new Graph();
 
     const vertexA = new GraphVertex('A');
@@ -243,7 +243,7 @@ describe('Graph', () => {
       .toBe(0);
   });
 
-  test('should calculate total graph weight for weighted graph', () => {
+  it('should calculate total graph weight for weighted graph', () => {
     const graph = new Graph();
 
     const vertexA = new GraphVertex('A');
@@ -265,7 +265,7 @@ describe('Graph', () => {
       .toBe(10);
   });
 
-  test('should be possible to delete edges from graph', () => {
+  it('should be possible to delete edges from graph', () => {
     const graph = new Graph();
 
     const vertexA = new GraphVertex('A');
@@ -295,7 +295,7 @@ describe('Graph', () => {
       .toBe(edgeAC.value);
   });
 
-  test('should should throw an error when trying to delete not existing edge', () => {
+  it('should should throw an error when trying to delete not existing edge', () => {
     const graph = new Graph();
 
     const vertexA = new GraphVertex('A');
@@ -310,7 +310,7 @@ describe('Graph', () => {
       .toBeNull();
   });
 
-  test('should be possible to reverse graph', () => {
+  it('should be possible to reverse graph', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -373,7 +373,7 @@ describe('Graph', () => {
       .toBe(vertexC.value);
   });
 
-  test('should return vertices indices', () => {
+  it('should return vertices indices', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -400,7 +400,7 @@ describe('Graph', () => {
       });
   });
 
-  test('should generate adjacency matrix for undirected graph', () => {
+  it('should generate adjacency matrix for undirected graph', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -447,7 +447,7 @@ describe('Graph', () => {
       ]);
   });
 
-  test('should generate adjacency matrix for directed graph', () => {
+  it('should generate adjacency matrix for directed graph', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');

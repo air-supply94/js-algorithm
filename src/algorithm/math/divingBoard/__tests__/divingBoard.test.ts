@@ -1,6 +1,6 @@
 import { divingBoard } from '../index';
 
-test('divingBoard', () => {
+it('divingBoard', () => {
   expect(divingBoard(1, 1, 0))
     .toEqual([]);
   expect(divingBoard(1, 1, 2))

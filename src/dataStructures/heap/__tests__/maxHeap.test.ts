@@ -2,7 +2,7 @@ import { Comparator } from '../../../utils';
 import { MaxHeap } from '../maxHeap';
 
 describe('MaxHeap', () => {
-  test('should create an empty max heap', () => {
+  it('should create an empty max heap', () => {
     const maxHeap = new MaxHeap();
 
     expect(maxHeap)
@@ -13,7 +13,7 @@ describe('MaxHeap', () => {
       .toBe(true);
   });
 
-  test('should create min heap from array', () => {
+  it('should create min heap from array', () => {
     const maxHeap = new MaxHeap();
     maxHeap.fromArray([
       5,
@@ -26,7 +26,7 @@ describe('MaxHeap', () => {
       .toBe('11,10,5,3,1');
   });
 
-  test('should add items to the heap and heapify it up', () => {
+  it('should add items to the heap and heapify it up', () => {
     const maxHeap = new MaxHeap();
 
     maxHeap.add(5);
@@ -77,7 +77,7 @@ describe('MaxHeap', () => {
       .toBe('1,1');
   });
 
-  test('should poll items from the heap and heapify it down', () => {
+  it('should poll items from the heap and heapify it down', () => {
     const maxHeap = new MaxHeap();
 
     maxHeap.add(5);
@@ -120,7 +120,7 @@ describe('MaxHeap', () => {
       .toBe('');
   });
 
-  test('should heapify down through the right branch as well', () => {
+  it('should heapify down through the right branch as well', () => {
     const maxHeap = new MaxHeap();
 
     maxHeap.add(3);
@@ -140,7 +140,7 @@ describe('MaxHeap', () => {
       .toBe('11,3,10');
   });
 
-  test('should be possible to find item indices in heap', () => {
+  it('should be possible to find item indices in heap', () => {
     const maxHeap = new MaxHeap();
 
     maxHeap.add(3);
@@ -160,7 +160,7 @@ describe('MaxHeap', () => {
       .toBe(1);
   });
 
-  test('should be possible to remove items from heap with heapify down', () => {
+  it('should be possible to remove items from heap with heapify down', () => {
     const maxHeap = new MaxHeap();
 
     maxHeap.add(3);
@@ -192,7 +192,7 @@ describe('MaxHeap', () => {
       .toEqual(3);
   });
 
-  test('should be possible to remove items from heap with heapify up', () => {
+  it('should be possible to remove items from heap with heapify up', () => {
     const maxHeap = new MaxHeap();
 
     maxHeap.add(3);
@@ -246,7 +246,7 @@ describe('MaxHeap', () => {
       .toEqual('');
   });
 
-  test('should be possible to remove items from heap with custom finding comparator', () => {
+  it('should be possible to remove items from heap with custom finding comparator', () => {
     const maxHeap = new MaxHeap();
     maxHeap.add('a');
     maxHeap.add('bb');

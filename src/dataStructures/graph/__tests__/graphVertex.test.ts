@@ -2,7 +2,7 @@ import { GraphEdge } from '../GraphEdge';
 import { GraphVertex } from '../GraphVertex';
 
 describe('GraphVertex', () => {
-  test('should create graph vertex', () => {
+  it('should create graph vertex', () => {
     const vertex = new GraphVertex('A');
 
     expect(vertex)
@@ -19,7 +19,7 @@ describe('GraphVertex', () => {
       .toEqual([]);
   });
 
-  test('should add edges to vertex and check if it exists', () => {
+  it('should add edges to vertex and check if it exists', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
 
@@ -40,7 +40,7 @@ describe('GraphVertex', () => {
       ].join());
   });
 
-  test('should delete edges from vertex', () => {
+  it('should delete edges from vertex', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -97,7 +97,7 @@ describe('GraphVertex', () => {
       .toBe(0);
   });
 
-  test('should delete all edges from vertex', () => {
+  it('should delete all edges from vertex', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -136,7 +136,7 @@ describe('GraphVertex', () => {
       .toBe(0);
   });
 
-  test('should return vertex neighbors in case if current node is start one', () => {
+  it('should return vertex neighbors in case if current node is start one', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -159,7 +159,7 @@ describe('GraphVertex', () => {
       .toEqual(vertexC);
   });
 
-  test('should return vertex neighbors in case if current node is end one', () => {
+  it('should return vertex neighbors in case if current node is end one', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -182,7 +182,7 @@ describe('GraphVertex', () => {
       .toEqual(vertexC);
   });
 
-  test('should check if vertex has specific neighbor', () => {
+  it('should check if vertex has specific neighbor', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -196,7 +196,7 @@ describe('GraphVertex', () => {
       .toBe(false);
   });
 
-  test('should edge by vertex', () => {
+  it('should edge by vertex', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -210,7 +210,7 @@ describe('GraphVertex', () => {
       .toBeNull();
   });
 
-  test('should calculate vertex degree', () => {
+  it('should calculate vertex degree', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
 

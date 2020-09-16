@@ -1,7 +1,7 @@
 import { SegmentTree } from '../segmentTree';
 
 describe('SegmentTree', () => {
-  test('should build tree for input array #0 with length of power of two', () => {
+  it('should build tree for input array #0 with length of power of two', () => {
     const array = [
       -1,
       2,
@@ -18,7 +18,7 @@ describe('SegmentTree', () => {
       .toBe((2 * array.length) - 1);
   });
 
-  test('should build tree for input array #1 with length of power of two', () => {
+  it('should build tree for input array #1 with length of power of two', () => {
     const array = [
       -1,
       2,
@@ -41,7 +41,7 @@ describe('SegmentTree', () => {
       .toBe((2 * array.length) - 1);
   });
 
-  test('should build tree for input array #0 with length not of power of two', () => {
+  it('should build tree for input array #0 with length not of power of two', () => {
     const array = [
       0,
       1,
@@ -63,7 +63,7 @@ describe('SegmentTree', () => {
       .toBe((2 * 4) - 1);
   });
 
-  test('should build tree for input array #1 with length not of power of two', () => {
+  it('should build tree for input array #1 with length not of power of two', () => {
     const array = [
       -1,
       3,
@@ -96,7 +96,7 @@ describe('SegmentTree', () => {
       .toBe((2 * 8) - 1);
   });
 
-  test('should build max array', () => {
+  it('should build max array', () => {
     const array = [
       -1,
       2,
@@ -119,7 +119,7 @@ describe('SegmentTree', () => {
       .toBe((2 * array.length) - 1);
   });
 
-  test('should build sum array', () => {
+  it('should build sum array', () => {
     const array = [
       -1,
       2,
@@ -142,7 +142,7 @@ describe('SegmentTree', () => {
       .toBe((2 * array.length) - 1);
   });
 
-  test('should do min range query on power of two length array', () => {
+  it('should do min range query on power of two length array', () => {
     const array = [
       -1,
       3,
@@ -167,7 +167,7 @@ describe('SegmentTree', () => {
       .toBe(4);
   });
 
-  test('should do min range query on not power of two length array', () => {
+  it('should do min range query on not power of two length array', () => {
     const array = [
       -1,
       2,
@@ -190,7 +190,7 @@ describe('SegmentTree', () => {
       .toBe(4);
   });
 
-  test('should do max range query', () => {
+  it('should do max range query', () => {
     const array = [
       -1,
       3,
@@ -215,7 +215,7 @@ describe('SegmentTree', () => {
       .toBe(0);
   });
 
-  test('should do sum range query', () => {
+  it('should do sum range query', () => {
     const array = [
       -1,
       3,

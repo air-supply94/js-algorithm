@@ -1,7 +1,7 @@
 import { Stack } from '../stack';
 
 describe('Stack', () => {
-  test('should create empty stack', () => {
+  it('should create empty stack', () => {
     const stack = new Stack();
     expect(stack)
       .not
@@ -19,7 +19,7 @@ describe('Stack', () => {
       .toBeFalsy();
   });
 
-  test('should stack data to stack', () => {
+  it('should stack data to stack', () => {
     const stack = new Stack();
 
     stack.push(1);
@@ -31,7 +31,7 @@ describe('Stack', () => {
       .toBe('1,2');
   });
 
-  test('should peek data from stack', () => {
+  it('should peek data from stack', () => {
     const stack = new Stack();
 
     expect(stack.peek())
@@ -46,7 +46,7 @@ describe('Stack', () => {
       .toBe(2);
   });
 
-  test('should check if stack is empty', () => {
+  it('should check if stack is empty', () => {
     const stack = new Stack();
 
     expect(stack.isEmpty())
@@ -58,7 +58,7 @@ describe('Stack', () => {
       .toBe(false);
   });
 
-  test('should pop data from stack', () => {
+  it('should pop data from stack', () => {
     const stack = new Stack();
 
     stack.push(1);
@@ -80,7 +80,7 @@ describe('Stack', () => {
       .toBe(true);
   });
 
-  test('should be possible to push/pop objects', () => {
+  it('should be possible to push/pop objects', () => {
     const stack = new Stack<{ value: string; key: string; }>();
 
     stack.push({
@@ -102,7 +102,7 @@ describe('Stack', () => {
       .toBe('test1');
   });
 
-  test('should be possible to convert stack to array', () => {
+  it('should be possible to convert stack to array', () => {
     const stack = new Stack();
 
     expect(stack.peek())
@@ -120,7 +120,7 @@ describe('Stack', () => {
       ]);
   });
 
-  test('add undefined value', () => {
+  it('add undefined value', () => {
     const stack = new Stack();
 
     expect(stack.peek())

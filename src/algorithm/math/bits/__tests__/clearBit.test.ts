@@ -1,7 +1,7 @@
 import { clearBit } from '../clearBit';
 
 describe('clearBit', () => {
-  test('should clear bit at specific position', () => {
+  it('should clear bit at specific position', () => {
     // 1 = 0b0001
     expect(clearBit(1, 0))
       .toBe(0);

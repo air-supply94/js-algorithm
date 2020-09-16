@@ -1,6 +1,6 @@
 import { tribonacci } from '../index';
 
-test('tribonacci', () => {
+it('tribonacci', () => {
   expect(tribonacci(0))
     .toBe(0);
   expect(tribonacci(1))

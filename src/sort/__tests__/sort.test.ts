@@ -18,7 +18,8 @@ describe('sort', () => {
     shellSort,
     quickSortInPlace,
   ];
-  sortCollection.forEach((sort) => {
+
+  for (const sort of sortCollection) {
     it(`sort ${sort.toString()} comparator`, () => {
       expect(sort([
         3,
@@ -134,5 +135,5 @@ describe('sort', () => {
           ]
         );
     });
-  });
+  }
 });

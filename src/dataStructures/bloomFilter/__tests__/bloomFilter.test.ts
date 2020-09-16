@@ -12,14 +12,14 @@ describe('BloomFilter', () => {
     bloomFilter = new BloomFilter();
   });
 
-  test('should have methods named "insert" and "contain"', () => {
+  it('should have methods named "insert" and "contain"', () => {
     expect(typeof bloomFilter.insert)
       .toBe('function');
     expect(typeof bloomFilter.contain)
       .toBe('function');
   });
 
-  test('should hash deterministically wtesth all 3 hash functions', () => {
+  it('should hash deterministically wtesth all 3 hash functions', () => {
     const str1 = 'apple';
 
     expect(bloomFilter.hash1(str1))
@@ -53,7 +53,7 @@ describe('BloomFilter', () => {
       .toBe(10);
   });
 
-  test('should create an array wtesth 3 hash values', () => {
+  it('should create an array wtesth 3 hash values', () => {
     expect(bloomFilter.getHashValues('abc').length)
       .toBe(3);
     expect(bloomFilter.getHashValues('abc'))
@@ -64,7 +64,7 @@ describe('BloomFilter', () => {
       ]);
   });
 
-  test('should insert strings correctly and return true when checking for inserted values', () => {
+  it('should insert strings correctly and return true when checking for inserted values', () => {
     people.forEach((person) => bloomFilter.insert(person));
 
     expect(bloomFilter.contain('Bruce Wayne'))

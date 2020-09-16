@@ -1,7 +1,7 @@
 import { DisjointSetItem } from '../disjointSetItem';
 
 describe('DisjointSetItem', () => {
-  test('should do basic manipulation with disjoint set item', () => {
+  it('should do basic manipulation with disjoint set item', () => {
     const itemA = new DisjointSetItem('A');
     const itemB = new DisjointSetItem('B');
     const itemC = new DisjointSetItem('C');
@@ -86,7 +86,7 @@ describe('DisjointSetItem', () => {
       .toEqual(1);
   });
 
-  test('should do basic manipulation with disjoint set item with custom key extractor', () => {
+  it('should do basic manipulation with disjoint set item with custom key extractor', () => {
     const keyExtractor = (value) => {
       return value.key;
     };

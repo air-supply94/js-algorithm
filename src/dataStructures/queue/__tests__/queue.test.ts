@@ -1,7 +1,7 @@
 import { Queue } from '../queue';
 
 describe('Index', () => {
-  test('should create empty queue', () => {
+  it('should create empty queue', () => {
     const queue = new Queue();
     expect(queue.dequeue())
       .toBeNull();
@@ -22,7 +22,7 @@ describe('Index', () => {
       .toBeFalsy();
   });
 
-  test('should enqueue data to queue', () => {
+  it('should enqueue data to queue', () => {
     const queue = new Queue();
 
     queue.enqueue(1);
@@ -32,7 +32,7 @@ describe('Index', () => {
       .toBe('1,2');
   });
 
-  test('should be possible to enqueue/dequeue objects', () => {
+  it('should be possible to enqueue/dequeue objects', () => {
     const queue = new Queue<{ value: string; key: string; }>();
 
     queue.enqueue({
@@ -54,7 +54,7 @@ describe('Index', () => {
       .toBe('test2');
   });
 
-  test('should peek data from queue', () => {
+  it('should peek data from queue', () => {
     const queue = new Queue();
 
     queue.enqueue(1);
@@ -66,7 +66,7 @@ describe('Index', () => {
       .toBe(1);
   });
 
-  test('should check if queue is empty', () => {
+  it('should check if queue is empty', () => {
     const queue = new Queue();
 
     expect(queue.isEmpty())
@@ -78,7 +78,7 @@ describe('Index', () => {
       .toBe(false);
   });
 
-  test('should dequeue from queue in FIFO order', () => {
+  it('should dequeue from queue in FIFO order', () => {
     const queue = new Queue();
 
     queue.enqueue(1);
@@ -92,7 +92,7 @@ describe('Index', () => {
       .toBe(true);
   });
 
-  test('had undefined', () => {
+  it('had undefined', () => {
     const queue = new Queue();
 
     queue.enqueue(1);
