@@ -8,7 +8,7 @@ import { postfix } from '../postfix';
 import { removeDuplicates } from '../removeDuplicates';
 
 describe('leetcode stack', () => {
-  it('balanceSymbol', () => {
+  test('balanceSymbol', () => {
     expect(balanceSymbol('(aaa)[]['))
       .toBeFalsy();
     expect(balanceSymbol('[aaa)[]]'))
@@ -19,7 +19,7 @@ describe('leetcode stack', () => {
       .toBeTruthy();
   });
 
-  it('postfix', () => {
+  test('postfix', () => {
     expect(postfix([
       6,
       5,
@@ -37,7 +37,7 @@ describe('leetcode stack', () => {
       .toBe(9);
   });
 
-  it('calPoints', () => {
+  test('calPoints', () => {
     expect(calPoints([
       5,
       -2,
@@ -52,19 +52,19 @@ describe('leetcode stack', () => {
       .toBe(27);
   });
 
-  it('backspaceCompare', () => {
+  test('backspaceCompare', () => {
     expect(backspaceCompare('ab#c', 'ad#c'))
       .toBeTruthy();
     expect(backspaceCompare('ab##', 'c#d#'))
       .toBeTruthy();
   });
 
-  it('removeDuplicates', () => {
+  test('removeDuplicates', () => {
     expect(removeDuplicates('abbaca'))
       .toBe('ca');
   });
 
-  it('maxSlidingWindow', () => {
+  test('maxSlidingWindow', () => {
     expect(maxSlidingWindow([], 10)
       .toString())
       .toBe('');
@@ -90,7 +90,7 @@ describe('leetcode stack', () => {
       .toBe('3,3,5,5,6,7');
   });
 
-  it('decodeString', () => {
+  test('decodeString', () => {
     expect(decodeString('[]'))
       .toBe('');
     expect(decodeString('a[]'))
@@ -106,7 +106,7 @@ describe('leetcode stack', () => {
       .toBe('abcabccdcdcdef');
   });
 
-  it('should majorityElement', () => {
+  test('should majorityElement', () => {
     expect(majorityElement([
       2,
       3,

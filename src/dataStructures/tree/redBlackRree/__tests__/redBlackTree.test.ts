@@ -11,7 +11,7 @@ function redBlackTreeCompare(a, b) {
 }
 
 describe('RedBlackTree', () => {
-  it('should always color first inserted node as black', () => {
+  test('should always color first inserted node as black', () => {
     const tree = new RedBlackTree(redBlackTreeCompare);
 
     const firstInsertedNode = tree.insert(10);
@@ -31,7 +31,7 @@ describe('RedBlackTree', () => {
       .toBe(0);
   });
 
-  it('should always color new leaf node as red', () => {
+  test('should always color new leaf node as red', () => {
     const tree = new RedBlackTree(redBlackTreeCompare);
 
     const firstInsertedNode = tree.insert(10);
@@ -64,7 +64,7 @@ describe('RedBlackTree', () => {
       .toBe(1);
   });
 
-  it('should balance itself', () => {
+  test('should balance itself', () => {
     const tree = new RedBlackTree(redBlackTreeCompare);
 
     tree.insert(5);
@@ -80,7 +80,7 @@ describe('RedBlackTree', () => {
       .toBe(3);
   });
 
-  it('should balance itself when parent is black', () => {
+  test('should balance itself when parent is black', () => {
     const tree = new RedBlackTree();
 
     const node1 = tree.insert(10);
@@ -174,7 +174,7 @@ describe('RedBlackTree', () => {
       .toBe(true);
   });
 
-  it('should balance itself when uncle is red', () => {
+  test('should balance itself when uncle is red', () => {
     const tree = new RedBlackTree();
 
     const node1 = tree.insert(10);
@@ -250,7 +250,7 @@ describe('RedBlackTree', () => {
       .toBe(25);
   });
 
-  it('should do left-left rotation', () => {
+  test('should do left-left rotation', () => {
     const tree = new RedBlackTree();
 
     const node1 = tree.insert(10);
@@ -295,7 +295,7 @@ describe('RedBlackTree', () => {
       .toBe(true);
   });
 
-  it('should do left-right rotation', () => {
+  test('should do left-right rotation', () => {
     const tree = new RedBlackTree();
 
     const node1 = tree.insert(10);
@@ -340,7 +340,7 @@ describe('RedBlackTree', () => {
       .toBe(true);
   });
 
-  it('should do recoloring, left-left and left-right rotation', () => {
+  test('should do recoloring, left-left and left-right rotation', () => {
     const tree = new RedBlackTree();
 
     const node1 = tree.insert(10);
@@ -385,7 +385,7 @@ describe('RedBlackTree', () => {
       .toBe(3);
   });
 
-  it('should do right-left rotation', () => {
+  test('should do right-left rotation', () => {
     const tree = new RedBlackTree();
 
     const node1 = tree.insert(10);
@@ -447,7 +447,7 @@ describe('RedBlackTree', () => {
       .toBe(true);
   });
 
-  it('should do left-left rotation with left grand-parent', () => {
+  test('should do left-left rotation with left grand-parent', () => {
     const tree = new RedBlackTree();
 
     tree.insert(20);
@@ -462,7 +462,7 @@ describe('RedBlackTree', () => {
       .toBe(2);
   });
 
-  it('should do right-right rotation with left grand-parent', () => {
+  test('should do right-right rotation with left grand-parent', () => {
     const tree = new RedBlackTree();
 
     tree.insert(20);
@@ -477,7 +477,7 @@ describe('RedBlackTree', () => {
       .toBe(2);
   });
 
-  it('should insert and remove object item', () => {
+  test('should insert and remove object item', () => {
     function compare(a, b) {
       if (a.value.key === b.value.key) {
         return 0;
@@ -571,7 +571,7 @@ describe('RedBlackTree', () => {
       .toBe('');
   });
 
-  it('should do remove base', () => {
+  test('should do remove base', () => {
     const tree = new RedBlackTree<number>();
 
     expect(tree.remove(1))
@@ -623,7 +623,7 @@ describe('RedBlackTree', () => {
       .toBe('');
   });
 
-  it('should do remove right', () => {
+  test('should do remove right', () => {
     const tree = new RedBlackTree<number>();
 
     testData()
@@ -660,7 +660,7 @@ describe('RedBlackTree', () => {
       .toBe('40,20,95,30,90,100');
   });
 
-  it('should do remove left', () => {
+  test('should do remove left', () => {
     const tree = new RedBlackTree<number>();
 
     testData()

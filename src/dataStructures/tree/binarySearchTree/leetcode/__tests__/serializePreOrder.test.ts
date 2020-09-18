@@ -1,7 +1,7 @@
 import { serializePreOrder } from '../serializePreOrder';
 
 describe('serializePreOrder', () => {
-  it('should serializePreOrder', () => {
+  test('should serializePreOrder', () => {
     expect(serializePreOrder([]))
       .toBeNull();
     expect(serializePreOrder([1]).value)

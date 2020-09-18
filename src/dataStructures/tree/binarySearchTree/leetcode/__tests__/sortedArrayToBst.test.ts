@@ -1,7 +1,7 @@
 import { sortedArrayToBst } from '../sortedArrayToBst';
 
 describe('sortedArrayToBst', () => {
-  it('should sortedArrayToBst', () => {
+  test('should sortedArrayToBst', () => {
     expect(sortedArrayToBst([]))
       .toBeNull();
 

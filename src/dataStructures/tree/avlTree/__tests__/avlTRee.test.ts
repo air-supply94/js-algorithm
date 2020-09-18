@@ -2,7 +2,7 @@ import { getBalanceFactor, getHeight } from '../../binarySearchTree/utils';
 import { AvlTree } from '../avlTree';
 
 describe('AvlTree', () => {
-  it('should do special case', () => {
+  test('should do special case', () => {
     const tree = new AvlTree();
     tree.binarySearchTree.insert(1);
     tree.binarySearchTree.insert(3);
@@ -19,7 +19,7 @@ describe('AvlTree', () => {
     tree.binarySearchTree.setRoot(null);
   });
 
-  it('should do simple left-left rotation', () => {
+  test('should do simple left-left rotation', () => {
     function callback(node) {
       // nothing
     }
@@ -86,7 +86,7 @@ describe('AvlTree', () => {
       .toBe(2);
   });
 
-  it('should do complex left-left rotation', () => {
+  test('should do complex left-left rotation', () => {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -118,7 +118,7 @@ describe('AvlTree', () => {
       .toBe('5,10,20,25,30,40');
   });
 
-  it('should do simple right-right rotation', () => {
+  test('should do simple right-right rotation', () => {
     const tree = new AvlTree();
 
     tree.insert(2);
@@ -153,7 +153,7 @@ describe('AvlTree', () => {
       .toBe(2);
   });
 
-  it('should do complex right-right rotation', () => {
+  test('should do complex right-right rotation', () => {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -185,7 +185,7 @@ describe('AvlTree', () => {
       .toBe('20,30,35,40,50,55');
   });
 
-  it('should do left-right rotation', () => {
+  test('should do left-right rotation', () => {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -200,7 +200,7 @@ describe('AvlTree', () => {
       .toBe('20,25,30');
   });
 
-  it('should do right-left rotation', () => {
+  test('should do right-left rotation', () => {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -215,7 +215,7 @@ describe('AvlTree', () => {
       .toBe('30,35,40');
   });
 
-  it('should create balanced tree: case #1', () => {
+  test('should create balanced tree: case #1', () => {
     // @see: https://www.youtube.com/watch?v=rbg7Qf8GkQ4&t=839s
     const tree = new AvlTree();
 
@@ -276,7 +276,7 @@ describe('AvlTree', () => {
       .toBe('-8,-5,-2,1,2,3,6,15');
   });
 
-  it('should create balanced tree: case #2', () => {
+  test('should create balanced tree: case #2', () => {
     // @see https://www.youtube.com/watch?v=7m94k2Qhg68
     const tree = new AvlTree();
 
@@ -304,7 +304,7 @@ describe('AvlTree', () => {
       .toBe('6,8,9,18,21,22,43');
   });
 
-  it('should do left right rotation and keeping left right node safe', () => {
+  test('should do left right rotation and keeping left right node safe', () => {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -330,7 +330,7 @@ describe('AvlTree', () => {
       .toBe(3);
   });
 
-  it('should do insert', () => {
+  test('should do insert', () => {
     const tree = new AvlTree();
 
     tree.insert(30);
@@ -356,7 +356,7 @@ describe('AvlTree', () => {
       .toBe(3);
   });
 
-  it('should remove values from the tree with right-right rotation', () => {
+  test('should remove values from the tree with right-right rotation', () => {
     const tree = new AvlTree();
     expect(getBalanceFactor(tree.root))
       .toBe(0);
@@ -383,7 +383,7 @@ describe('AvlTree', () => {
       .toBe(0);
   });
 
-  it('should remove values from the tree with left-left rotation', () => {
+  test('should remove values from the tree with left-left rotation', () => {
     const tree = new AvlTree();
 
     tree.insert(10);
@@ -408,7 +408,7 @@ describe('AvlTree', () => {
       .toBe(0);
   });
 
-  it('should keep balance after removal', () => {
+  test('should keep balance after removal', () => {
     const tree = new AvlTree();
 
     tree.insert(1);

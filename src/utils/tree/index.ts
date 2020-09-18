@@ -7,7 +7,7 @@ export function getRightChildIndex(parentIndex: number): number {
 }
 
 export function getParentIndex(childIndex: number): number {
-  return Math.floor((childIndex - 1) / 2);
+  return (childIndex - 1) >>> 1;
 }
 
 export function hasParent<T = unknown>(container: T[], childIndex: number): boolean {

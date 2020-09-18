@@ -1,7 +1,7 @@
 import { Trie } from '../trie';
 
 describe('Trie', () => {
-  it('should create trie', () => {
+  test('should create trie', () => {
     const trie = new Trie();
 
     expect(trie)
@@ -10,7 +10,7 @@ describe('Trie', () => {
       .toBe('');
   });
 
-  it('should add words to trie', () => {
+  test('should add words to trie', () => {
     const trie = new Trie();
 
     trie.addWord('cat');
@@ -38,7 +38,7 @@ describe('Trie', () => {
       .toBe('t');
   });
 
-  it('should delete words from trie', () => {
+  test('should delete words from trie', () => {
     const trie = new Trie();
 
     trie.addWord('carpet');
@@ -96,7 +96,7 @@ describe('Trie', () => {
       .toBe(false);
   });
 
-  it('should suggests next characters', () => {
+  test('should suggests next characters', () => {
     const trie = new Trie();
 
     trie.addWord('cat');
@@ -116,7 +116,7 @@ describe('Trie', () => {
       .toEqual([]);
   });
 
-  it('should check if word exists', () => {
+  test('should check if word exists', () => {
     const trie = new Trie();
 
     trie.addWord('cat');

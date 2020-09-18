@@ -2,7 +2,7 @@ import { GraphEdge } from '../GraphEdge';
 import { GraphVertex } from '../GraphVertex';
 
 describe('GraphEdge', () => {
-  it('should create graph edge with default weight', () => {
+  test('should create graph edge with default weight', () => {
     const startVertex = new GraphVertex('A');
     const endVertex = new GraphVertex('B');
     const edge = new GraphEdge(startVertex, endVertex);
@@ -25,7 +25,7 @@ describe('GraphEdge', () => {
       .toEqual(0);
   });
 
-  it('should create graph edge with predefined weight', () => {
+  test('should create graph edge with predefined weight', () => {
     const startVertex = new GraphVertex('A');
     const endVertex = new GraphVertex('B');
     const edge = new GraphEdge(startVertex, endVertex, 10);
@@ -38,7 +38,7 @@ describe('GraphEdge', () => {
       .toEqual(10);
   });
 
-  it('should be possible to do edge reverse', () => {
+  test('should be possible to do edge reverse', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const edge = new GraphEdge(vertexA, vertexB, 10);

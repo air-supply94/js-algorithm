@@ -6,18 +6,23 @@ export function quickSortExchange<T = unknown>(originalArray: T[], comparator: C
     return originalArray;
   }
 
-  const pivotElement = originalArray.splice(originalArray.length / 2 | 0, 1)[0];
+  const middle = originalArray.length >>> 1;
+  const pivotElement = originalArray[middle];
   const center = [pivotElement];
   const left = [];
   const right = [];
-  while (originalArray.length) {
-    const currentElement = originalArray.shift();
-    if (comparator.equal(currentElement, pivotElement)) {
-      center.push(currentElement);
-    } else if (comparator.lessThan(currentElement, pivotElement)) {
-      left.push(currentElement);
+
+  for (let i = 0; i < originalArray.length; i++) {
+    if (i === middle) {
+      continue;
+    }
+
+    if (comparator.equal(originalArray[i], pivotElement)) {
+      center.push(originalArray[i]);
+    } else if (comparator.lessThan(originalArray[i], pivotElement)) {
+      left.push(originalArray[i]);
     } else {
-      right.push(currentElement);
+      right.push(originalArray[i]);
     }
   }
 

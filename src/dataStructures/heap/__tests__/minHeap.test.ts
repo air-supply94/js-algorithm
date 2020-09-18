@@ -2,7 +2,7 @@ import { Comparator } from '../../../utils';
 import { MinHeap } from '../minHeap';
 
 describe('MinHeap', () => {
-  it('should create an empty min heap', () => {
+  test('should create an empty min heap', () => {
     const minHeap = new MinHeap();
     expect(minHeap)
       .toBeDefined();
@@ -12,7 +12,7 @@ describe('MinHeap', () => {
       .toBe(true);
   });
 
-  it('remove and up', () => {
+  test('remove and up', () => {
     const minHeap = new MinHeap();
     minHeap.add(1)
       .add(5)
@@ -26,7 +26,7 @@ describe('MinHeap', () => {
       .toBe('1,4,3,6,5,8');
   });
 
-  it('should create min heap from array', () => {
+  test('should create min heap from array', () => {
     const minHeap = new MinHeap();
     minHeap.fromArray([
       5,
@@ -39,7 +39,7 @@ describe('MinHeap', () => {
       .toBe('1,3,10,11,5');
   });
 
-  it('should add items to the heap and heapify it up', () => {
+  test('should add items to the heap and heapify it up', () => {
     const minHeap = new MinHeap();
 
     minHeap.add(5);
@@ -90,7 +90,7 @@ describe('MinHeap', () => {
       .toBe('5,10');
   });
 
-  it('should poll items from the heap and heapify it down', () => {
+  test('should poll items from the heap and heapify it down', () => {
     const minHeap = new MinHeap();
 
     minHeap.add(5);
@@ -133,7 +133,7 @@ describe('MinHeap', () => {
       .toBe('');
   });
 
-  it('should heapify down through the right branch as well', () => {
+  test('should heapify down through the right branch as well', () => {
     const minHeap = new MinHeap();
 
     minHeap.add(3);
@@ -153,7 +153,7 @@ describe('MinHeap', () => {
       .toBe('10,11,12');
   });
 
-  it('should be possible to find item indices in heap', () => {
+  test('should be possible to find item indices in heap', () => {
     const minHeap = new MinHeap();
 
     minHeap.add(3);
@@ -173,7 +173,7 @@ describe('MinHeap', () => {
       .toBe(1);
   });
 
-  it('should be possible to remove items from heap with heapify down', () => {
+  test('should be possible to remove items from heap with heapify down', () => {
     const minHeap = new MinHeap();
 
     minHeap.add(3);
@@ -209,7 +209,7 @@ describe('MinHeap', () => {
       .toEqual(10);
   });
 
-  it('should be possible to remove items from heap with heapify up', () => {
+  test('should be possible to remove items from heap with heapify up', () => {
     const minHeap = new MinHeap();
 
     minHeap.add(3);
@@ -278,7 +278,7 @@ describe('MinHeap', () => {
       .toEqual('');
   });
 
-  it('should be possible to remove items from heap with custom finding comparator', () => {
+  test('should be possible to remove items from heap with custom finding comparator', () => {
     const minHeap = new MinHeap();
     minHeap.add('dddd');
     minHeap.add('ccc');
@@ -301,7 +301,7 @@ describe('MinHeap', () => {
       .toBe('a,bb,dddd');
   });
 
-  it('should remove values from heap and correctly re-order the tree', () => {
+  test('should remove values from heap and correctly re-order the tree', () => {
     const minHeap = new MinHeap();
 
     minHeap.add(1);
@@ -326,7 +326,7 @@ describe('MinHeap', () => {
       .toBe('1,5,3,8,9,6,7');
   });
 
-  it('sort number', () => {
+  test('sort number', () => {
     const minHeap = new MinHeap();
     minHeap.fromArray([
       3,
@@ -355,7 +355,7 @@ describe('MinHeap', () => {
       ]);
   });
 
-  it('sort string', () => {
+  test('sort string', () => {
     const minHeap = new MinHeap();
     minHeap.fromArray([
       3,
@@ -385,7 +385,7 @@ describe('MinHeap', () => {
       ].map((value) => String(value)));
   });
 
-  it('sort object', () => {
+  test('sort object', () => {
     const arr = [
       { age: 1 },
       { age: 30 },

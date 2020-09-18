@@ -1,7 +1,7 @@
 import { pascalTriangle } from '../index';
 
 describe('pascalTriangle', () => {
-  it('should calculate Pascal Triangle coefficients for specific line number', () => {
+  test('should calculate Pascal Triangle coefficients for specific line number', () => {
     expect(pascalTriangle(0))
       .toEqual([1]);
     expect(pascalTriangle(1))

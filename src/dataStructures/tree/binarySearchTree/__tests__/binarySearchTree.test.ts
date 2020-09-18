@@ -3,7 +3,7 @@ import { BinarySearchTreeNodeInterface } from '../types';
 import { getHeight, insert, findReplaceNode } from '../utils';
 
 describe('BinarySearchTree', () => {
-  it('should create binary search tree', () => {
+  test('should create binary search tree', () => {
     const bst = new BinarySearchTree();
 
     expect(bst)
@@ -18,7 +18,7 @@ describe('BinarySearchTree', () => {
       .toBe(2);
   });
 
-  it('should insert values', () => {
+  test('should insert values', () => {
     const bst = new BinarySearchTree();
 
     const insertedNode1 = bst.insert(10);
@@ -33,7 +33,7 @@ describe('BinarySearchTree', () => {
       .toBe(20);
   });
 
-  it('should check if value exists', () => {
+  test('should check if value exists', () => {
     const bst = new BinarySearchTree();
 
     bst.insert(10);
@@ -46,7 +46,7 @@ describe('BinarySearchTree', () => {
       .toBe(false);
   });
 
-  it('should remove nodes', () => {
+  test('should remove nodes', () => {
     const bst = new BinarySearchTree();
 
     bst.insert(10);
@@ -79,7 +79,7 @@ describe('BinarySearchTree', () => {
       .toBe(20);
   });
 
-  it('should insert object values', () => {
+  test('should insert object values', () => {
     const nodeValueCompareFunction = (a, b) => {
       const normalizedA = a || { value: null };
       const normalizedB = b || { value: null };
@@ -117,7 +117,7 @@ describe('BinarySearchTree', () => {
       .toBe('obj1,obj2,obj3');
   });
 
-  it('should be traversed to sorted array', () => {
+  test('should be traversed to sorted array', () => {
     const bst = new BinarySearchTree();
     expect(bst.find(1))
       .toBeNull();
@@ -158,7 +158,7 @@ describe('BinarySearchTree', () => {
       .toBe(3);
   });
 
-  it('should insert in itself if it is empty', () => {
+  test('should insert in itself if it is empty', () => {
     const bstNode = new BinarySearchTree();
     bstNode.insert(1);
 
@@ -170,7 +170,7 @@ describe('BinarySearchTree', () => {
       .toBeNull();
   });
 
-  it('should insert nodes in correct order', () => {
+  test('should insert nodes in correct order', () => {
     const bstNode = new BinarySearchTree();
     bstNode.insert(2);
     const insertedNode1 = bstNode.insert(1);
@@ -223,7 +223,7 @@ describe('BinarySearchTree', () => {
       .toBe(false);
   });
 
-  it('should not insert duplicates', () => {
+  test('should not insert duplicates', () => {
     const bstNode = new BinarySearchTree();
     bstNode.insert(2);
     bstNode.insert(1);
@@ -245,7 +245,7 @@ describe('BinarySearchTree', () => {
       .toBe(false);
   });
 
-  it('should find min node', () => {
+  test('should find min node', () => {
     const node = new BinarySearchTree();
     node.insert(10);
     node.insert(20);
@@ -261,7 +261,7 @@ describe('BinarySearchTree', () => {
       .toBe(1);
   });
 
-  it('should find node', () => {
+  test('should find node', () => {
     const node = new BinarySearchTree();
     node.insert(10);
     node.insert(20);
@@ -279,7 +279,7 @@ describe('BinarySearchTree', () => {
       .toBe(5);
   });
 
-  it('should remove leaf nodes', () => {
+  test('should remove leaf nodes', () => {
     const bstRootNode = new BinarySearchTree();
 
     bstRootNode.insert(10);
@@ -302,7 +302,7 @@ describe('BinarySearchTree', () => {
       .toBe(20);
   });
 
-  it('should remove nodes with one child', () => {
+  test('should remove nodes with one child', () => {
     const bstRootNode = new BinarySearchTree();
 
     bstRootNode.insert(10);
@@ -326,7 +326,7 @@ describe('BinarySearchTree', () => {
       .toBe('1,10,30');
   });
 
-  it('should remove nodes with two children', () => {
+  test('should remove nodes with two children', () => {
     const bstRootNode = new BinarySearchTree();
 
     bstRootNode.insert(10);
@@ -377,7 +377,7 @@ describe('BinarySearchTree', () => {
       .toBe('30');
   });
 
-  it('should remove node with no parent', () => {
+  test('should remove node with no parent', () => {
     const bstRootNode = new BinarySearchTree();
     expect(bstRootNode.toString())
       .toBe('');
@@ -396,7 +396,7 @@ describe('BinarySearchTree', () => {
       .toBe('');
   });
 
-  it('should throw error when trying to remove not existing node', () => {
+  test('should throw error when trying to remove not existing node', () => {
     const bstRootNode = new BinarySearchTree();
 
     bstRootNode.insert(10);
@@ -406,7 +406,7 @@ describe('BinarySearchTree', () => {
       .toBeFalsy();
   });
 
-  it('should be possible to use objects as node values', () => {
+  test('should be possible to use objects as node values', () => {
     const nodeValueComparatorCallback = (a, b) => {
       const normalizedA = a || { value: null };
       const normalizedB = b || { value: null };
@@ -456,7 +456,7 @@ describe('BinarySearchTree', () => {
       .toEqual(obj1);
   });
 
-  it('should traverse node', () => {
+  test('should traverse node', () => {
     const bst = new BinarySearchTree();
     expect(bst.traversePreOrder()
       .join())

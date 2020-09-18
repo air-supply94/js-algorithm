@@ -2,7 +2,7 @@ import { Comparator } from '../../../utils';
 import { linearSearch } from '../index';
 
 describe('linearSearch', () => {
-  it('should search all numbers in array', () => {
+  test('should search all numbers in array', () => {
     const array = [
       1,
       2,
@@ -22,7 +22,7 @@ describe('linearSearch', () => {
       ]);
   });
 
-  it('should search all strings in array', () => {
+  test('should search all strings in array', () => {
     const array = [
       'a',
       'b',
@@ -40,7 +40,7 @@ describe('linearSearch', () => {
       ]);
   });
 
-  it('should search through objects as well', () => {
+  test('should search through objects as well', () => {
     const comparatorCallback = (a, b) => {
       if (a.key === b.key) {
         return 0;

@@ -4,7 +4,7 @@ import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { hasCircle } from '../leetcode/hasCircle';
 
 describe('DoubleLinkedListNode', () => {
-  it('should create list node with value', () => {
+  test('should create list node with value', () => {
     const node = new DoubleLinkedListNode(1);
 
     expect(node.value)
@@ -15,7 +15,7 @@ describe('DoubleLinkedListNode', () => {
       .toBeNull();
   });
 
-  it('should create list node with object as a value', () => {
+  test('should create list node with object as a value', () => {
     const nodeValue = {
       value: 1,
       key: 'test',
@@ -32,7 +32,7 @@ describe('DoubleLinkedListNode', () => {
       .toBeNull();
   });
 
-  it('should link nodes together', () => {
+  test('should link nodes together', () => {
     const node2 = new DoubleLinkedListNode(2);
     const node1 = new DoubleLinkedListNode(1, node2);
     const node3 = new DoubleLinkedListNode(10, node1, node2);
@@ -59,7 +59,7 @@ describe('DoubleLinkedListNode', () => {
       .toBe(2);
   });
 
-  it('should convert node to string', () => {
+  test('should convert node to string', () => {
     const node = new DoubleLinkedListNode('1');
 
     expect(node.toString())
@@ -70,7 +70,7 @@ describe('DoubleLinkedListNode', () => {
       .toBe('string value');
   });
 
-  it('should convert node to string with custom stringifier', () => {
+  test('should convert node to string with custom stringifier', () => {
     const nodeValue = {
       value: 1,
       key: 'test',
@@ -83,7 +83,7 @@ describe('DoubleLinkedListNode', () => {
 });
 
 describe('Index', () => {
-  it('should create empty linked list', () => {
+  test('should create empty linked list', () => {
     const linkedList = new DoubleLinkedList(new Comparator());
     linkedList.append(1);
 
@@ -103,7 +103,7 @@ describe('Index', () => {
       .toBeTruthy();
   });
 
-  it('should append node to linked list', () => {
+  test('should append node to linked list', () => {
     const linkedList = new DoubleLinkedList();
 
     expect(linkedList.head)
@@ -124,7 +124,7 @@ describe('Index', () => {
       .toBe('1,2');
   });
 
-  it('should prepend node to linked list', () => {
+  test('should prepend node to linked list', () => {
     const linkedList = new DoubleLinkedList();
 
     linkedList.prepend(2);
@@ -150,7 +150,7 @@ describe('Index', () => {
       .toBe('3,2,1');
   });
 
-  it('should create linked list from array', () => {
+  test('should create linked list from array', () => {
     const linkedList = new DoubleLinkedList();
     linkedList.fromArray([
       1,
@@ -169,7 +169,7 @@ describe('Index', () => {
       .toBe('1,1,2,3,3,3,4,5');
   });
 
-  it('should create linked eachFromHead', () => {
+  test('should create linked eachFromHead', () => {
     const linkedList = new DoubleLinkedList();
     linkedList.fromArray([
       1,
@@ -194,7 +194,7 @@ describe('Index', () => {
       .toBe('1,1');
   });
 
-  it('should create linked eachFromTail', () => {
+  test('should create linked eachFromTail', () => {
     const linkedList = new DoubleLinkedList();
     linkedList.fromArray([
       1,
@@ -224,7 +224,7 @@ describe('Index', () => {
       .toBe('1,1,2,3,3,4,5');
   });
 
-  it('should reverse linked list', () => {
+  test('should reverse linked list', () => {
     const linkedList = new DoubleLinkedList();
 
     linkedList.append(1);
@@ -260,7 +260,7 @@ describe('Index', () => {
       .toBe(1);
   });
 
-  it('should delete node by value from linked list', () => {
+  test('should delete node by value from linked list', () => {
     const linkedList = new DoubleLinkedList();
 
     expect(linkedList.deleteAll(4))
@@ -344,7 +344,7 @@ describe('Index', () => {
       .toBe('');
   });
 
-  it('should delete linked list tail', () => {
+  test('should delete linked list tail', () => {
     const linkedList = new DoubleLinkedList();
 
     expect(linkedList.deleteTail())
@@ -401,7 +401,7 @@ describe('Index', () => {
       .toBeNull();
   });
 
-  it('should delete linked list head', () => {
+  test('should delete linked list head', () => {
     const linkedList = new DoubleLinkedList();
 
     expect(linkedList.deleteHead())
@@ -446,7 +446,7 @@ describe('Index', () => {
       .toBeNull();
   });
 
-  it('should delete linked head and tail', () => {
+  test('should delete linked head and tail', () => {
     const linkedList = new DoubleLinkedList();
     linkedList.append(1);
     linkedList.append(1);
@@ -471,7 +471,7 @@ describe('Index', () => {
       .toBeNull();
   });
 
-  it('should delete linked head and tail111', () => {
+  test('should delete linked head and tail111', () => {
     const linkedList = new DoubleLinkedList();
     linkedList.append(1);
     linkedList.append(1);
@@ -503,7 +503,7 @@ describe('Index', () => {
       .toBeNull();
   });
 
-  it('should be possible to store objects in the list and to print them out', () => {
+  test('should be possible to store objects in the list and to print them out', () => {
     const linkedList = new DoubleLinkedList();
 
     const nodeValue1 = {
@@ -526,7 +526,7 @@ describe('Index', () => {
       .toBe('key2:2,key1:1');
   });
 
-  it('should find node by value', () => {
+  test('should find node by value', () => {
     const linkedList = new DoubleLinkedList();
 
     expect(linkedList.find({ value: 5 }))
@@ -547,7 +547,7 @@ describe('Index', () => {
       .toBeNull();
   });
 
-  it('should find node by callback', () => {
+  test('should find node by callback', () => {
     const linkedList = new DoubleLinkedList<{ value: number; key: string; }>();
 
     linkedList.append({
@@ -575,7 +575,7 @@ describe('Index', () => {
       .toBeNull();
   });
 
-  it('should find node by means of custom compare function', () => {
+  test('should find node by means of custom compare function', () => {
     const comparatorFunction = (a, b) => {
       if (a.customValue === b.customValue) {
         return 0;
@@ -621,7 +621,7 @@ describe('Index', () => {
       .toBeNull();
   });
 
-  it('add undefined', () => {
+  test('add undefined', () => {
     const linkedList = new DoubleLinkedList();
 
     expect(linkedList.find({ value: 5 }))
@@ -636,7 +636,7 @@ describe('Index', () => {
       .toBe(true);
   });
 
-  it('connect', () => {
+  test('connect', () => {
     const linkedList1 = new DoubleLinkedList();
     linkedList1.fromArray([
       1,
@@ -677,7 +677,7 @@ describe('Index', () => {
       .toBe('1,2,3,4,5,6,7,8,9');
   });
 
-  it('get item', () => {
+  test('get item', () => {
     const linkedList = new DoubleLinkedList();
 
     expect(linkedList.get(0))
@@ -705,7 +705,7 @@ describe('Index', () => {
       .toBeNull();
   });
 
-  it('insert item', () => {
+  test('insert item', () => {
     const linkedList = new DoubleLinkedList();
     linkedList.fromArray([
       1,
@@ -735,7 +735,7 @@ describe('Index', () => {
       .toBeFalsy();
   });
 
-  it('deleteIndex', () => {
+  test('deleteIndex', () => {
     const linkedList = new DoubleLinkedList();
     expect(linkedList.deleteIndex(0))
       .toBeNull();
@@ -763,7 +763,7 @@ describe('Index', () => {
       .toBe(1);
   });
 
-  it('sort number', () => {
+  test('sort number', () => {
     const linkedList = new DoubleLinkedList();
     linkedList.sort();
     expect(linkedList.head)

@@ -1,7 +1,7 @@
 import { DisjointSet } from '../disjointSet';
 
 describe('DisjointSet', () => {
-  it('should throw error when trying to union and check not existing sets', () => {
+  test('should throw error when trying to union and check not existing sets', () => {
     const disjointSet = new DisjointSet();
     disjointSet.makeSet('a');
     disjointSet.makeSet('a');
@@ -11,7 +11,7 @@ describe('DisjointSet', () => {
       .toBeFalsy();
   });
 
-  it('should do basic manipulations on disjoint set', () => {
+  test('should do basic manipulations on disjoint set', () => {
     const disjointSet = new DisjointSet();
 
     expect(disjointSet.find('A'))
@@ -93,7 +93,7 @@ describe('DisjointSet', () => {
       .toBe(true);
   });
 
-  it('should union smaller set with bigger one making bigger one to be new root', () => {
+  test('should union smaller set with bigger one making bigger one to be new root', () => {
     const disjointSet = new DisjointSet();
 
     disjointSet.makeSet('A');
@@ -106,7 +106,7 @@ describe('DisjointSet', () => {
       .toBe('B');
   });
 
-  it('should do basic manipulations on disjoint set with custom key extractor', () => {
+  test('should do basic manipulations on disjoint set with custom key extractor', () => {
     const keyExtractor = (value) => value.key;
 
     const disjointSet = new DisjointSet(keyExtractor);

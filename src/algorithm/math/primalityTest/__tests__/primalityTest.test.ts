@@ -1,7 +1,7 @@
 import { primalityTest } from '../index';
 
 describe('trialDivision', () => {
-  it('should detect prime numbers', () => {
+  test('should detect prime numbers', () => {
     expect(primalityTest(1))
       .toBe(false);
     expect(primalityTest(2))

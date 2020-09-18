@@ -1,7 +1,7 @@
 import { getBit } from '../getBit';
 
 describe('getBit', () => {
-  it('should get bit at specific position', () => {
+  test('should get bit at specific position', () => {
     // 1 = 0b0001
     expect(getBit(1, 0))
       .toBe(1);

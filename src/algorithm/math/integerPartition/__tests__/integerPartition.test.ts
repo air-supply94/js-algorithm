@@ -1,7 +1,7 @@
 import { integerPartition } from '../index';
 
 describe('integerPartition', () => {
-  it('should partition the number', () => {
+  test('should partition the number', () => {
     expect(integerPartition(1))
       .toBe(1);
     expect(integerPartition(2))

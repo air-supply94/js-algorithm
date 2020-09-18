@@ -12,14 +12,14 @@ function LinkedListCompare(a: { key: string; }, b: { key: string; }) {
   return 1;
 }
 
+export const defaultSize = 31;
+
 export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T> {
-  constructor(size = LinkedHashTable.size) {
+  constructor(size = defaultSize) {
     this.LinkedListCompare = new Comparator(LinkedListCompare);
     this.buckets = new Array(size).fill(null)
       .map(() => new DoubleLinkedList<LinkedHashTableItemInterface<T>>(this.LinkedListCompare));
   }
-
-  public static size = 31;
 
   private readonly LinkedListCompare: Comparator;
 
@@ -28,7 +28,7 @@ export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T>
   private getInfo(key: string | number): { key: string; hash: number; bucket: DoubleLinkedListInterface<LinkedHashTableItemInterface<T>>; } {
     key = String(key);
     const hash = BKDRHash(key);
-    const keyHash = hash % LinkedHashTable.size;
+    const keyHash = hash % this.buckets.length;
     const bucket = this.buckets[keyHash];
     return {
       key,

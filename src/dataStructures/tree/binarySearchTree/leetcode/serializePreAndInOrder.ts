@@ -7,7 +7,8 @@ export function serializePreAndInOrder<T = unknown>(preorder: T[], inorder: T[])
 
   function build(stop?: T): BinarySearchTreeNodeInterface<T> | null {
     if (inorder[i] != stop) {
-      const root = new BinarySearchTreeNode<T>(preorder[pre++]);
+      const root = new BinarySearchTreeNode<T>(preorder[pre]);
+      pre++;
       root.setLeft(build(root.value));
       i++;
       root.setRight(build(stop));

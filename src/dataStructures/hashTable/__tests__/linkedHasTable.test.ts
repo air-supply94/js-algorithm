@@ -1,11 +1,11 @@
-import { LinkedHashTable } from '../linkedHashTable';
+import { LinkedHashTable, defaultSize } from '../linkedHashTable';
 
 describe('HashTable', () => {
-  it('should test bucket', () => {
+  test('should test bucket', () => {
     const hashTable = new LinkedHashTable();
-    const str1 = String.fromCodePoint(LinkedHashTable.size);
-    const str2 = String.fromCodePoint(LinkedHashTable.size * 2);
-    const str3 = String.fromCodePoint(LinkedHashTable.size * 3);
+    const str1 = String.fromCodePoint(defaultSize);
+    const str2 = String.fromCodePoint(defaultSize * 2);
+    const str3 = String.fromCodePoint(defaultSize * 3);
     hashTable.set(str2, 2);
     hashTable.set(str1, 1);
     hashTable.set(str3, 3);
@@ -17,9 +17,9 @@ describe('HashTable', () => {
       .toBe(3);
   });
 
-  it('should set, read and delete data with collisions', () => {
+  test('should set, read and delete data with collisions', () => {
     const hashTable = new LinkedHashTable();
-    const size = LinkedHashTable.size;
+    const size = defaultSize;
 
     hashTable.set(size + 1, 'sky-old');
     hashTable.set(size + 1, 'sky');
@@ -60,7 +60,7 @@ describe('HashTable', () => {
       .toBe('ocean-new');
   });
 
-  it('should be possible to add objects to hash table', () => {
+  test('should be possible to add objects to hash table', () => {
     const hashTable = new LinkedHashTable<{ prop1: string; prop2: string; }>();
 
     hashTable.set('objectKey', {
@@ -77,7 +77,7 @@ describe('HashTable', () => {
       .toBe('b');
   });
 
-  it('should track actual keys', () => {
+  test('should track actual keys', () => {
     const hashTable = new LinkedHashTable();
 
     hashTable.set('a', 'sky-old');

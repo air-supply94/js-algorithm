@@ -22,11 +22,11 @@ export function mergeTwoLists<T = unknown>(firstHead: DoubleLinkedListNodeInterf
     currentNode = currentNode.next;
   }
 
-  const resetNode = firstHeadNode || secondHeadNode;
-  if (resetNode) {
-    resetNode.setPrevious(currentNode);
+  const restNode = firstHeadNode || secondHeadNode;
+  if (restNode) {
+    restNode.setPrevious(currentNode);
   }
-  currentNode.setNext(resetNode);
+  currentNode.setNext(restNode);
 
   const resultNode = head.next;
   if (resultNode) {

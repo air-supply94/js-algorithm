@@ -1,7 +1,7 @@
 import { TrieNode } from '../trieNode';
 
 describe('TrieNode', () => {
-  it('should create trie node', () => {
+  test('should create trie node', () => {
     const trieNode = new TrieNode('c', true);
 
     expect(trieNode.character)
@@ -12,7 +12,7 @@ describe('TrieNode', () => {
       .toBe('c');
   });
 
-  it('should add child nodes', () => {
+  test('should add child nodes', () => {
     const trieNode = new TrieNode('c');
 
     trieNode.addChild('a', true);
@@ -22,7 +22,7 @@ describe('TrieNode', () => {
       .toBe('cao');
   });
 
-  it('should get child nodes', () => {
+  test('should get child nodes', () => {
     const trieNode = new TrieNode('c');
 
     trieNode.addChild('a');
@@ -40,7 +40,7 @@ describe('TrieNode', () => {
       .toBeUndefined();
   });
 
-  it('should check if node has children', () => {
+  test('should check if node has children', () => {
     const trieNode = new TrieNode('c');
 
     expect(trieNode.hasChildren())
@@ -52,7 +52,7 @@ describe('TrieNode', () => {
       .toBe(true);
   });
 
-  it('should check if node has specific child', () => {
+  test('should check if node has specific child', () => {
     const trieNode = new TrieNode('c');
 
     trieNode.addChild('a');
@@ -66,7 +66,7 @@ describe('TrieNode', () => {
       .toBe(false);
   });
 
-  it('should suggest next children', () => {
+  test('should suggest next children', () => {
     const trieNode = new TrieNode('c');
 
     trieNode.addChild('a');
@@ -79,7 +79,7 @@ describe('TrieNode', () => {
       ]);
   });
 
-  it('should delete child node if the child node has NO children', () => {
+  test('should delete child node if the child node has NO children', () => {
     const trieNode = new TrieNode('c');
     trieNode.addChild('a');
     expect(trieNode.hasChild('a'))
@@ -90,7 +90,7 @@ describe('TrieNode', () => {
       .toBe(false);
   });
 
-  it('should NOT delete child node if the child node has children', () => {
+  test('should NOT delete child node if the child node has children', () => {
     const trieNode = new TrieNode('c');
     trieNode.addChild('a');
     const childNode = trieNode.getChild('a');
@@ -101,7 +101,7 @@ describe('TrieNode', () => {
       .toEqual(true);
   });
 
-  it('should NOT delete child node if the child node completes a word', () => {
+  test('should NOT delete child node if the child node completes a word', () => {
     const trieNode = new TrieNode('c');
     const IS_COMPLETE_WORD = true;
     trieNode.addChild('a', IS_COMPLETE_WORD);

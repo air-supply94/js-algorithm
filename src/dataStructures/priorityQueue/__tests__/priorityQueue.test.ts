@@ -1,7 +1,7 @@
 import { PriorityQueue } from '../priorityQueue';
 
 describe('PriorityQueue', () => {
-  it('should create default priority queue', () => {
+  test('should create default priority queue', () => {
     const priorityQueue = new PriorityQueue();
 
     expect(priorityQueue)
@@ -12,7 +12,7 @@ describe('PriorityQueue', () => {
       .toBeTruthy();
   });
 
-  it('should insert items to the queue and respect priorities', () => {
+  test('should insert items to the queue and respect priorities', () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -42,7 +42,7 @@ describe('PriorityQueue', () => {
       .toBeUndefined();
   });
 
-  it('should poll from queue with respect to priorities', () => {
+  test('should poll from queue with respect to priorities', () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -60,7 +60,7 @@ describe('PriorityQueue', () => {
       .toBe(5);
   });
 
-  it('should be possible to change priority of internal nodes', () => {
+  test('should be possible to change priority of internal nodes', () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -80,7 +80,7 @@ describe('PriorityQueue', () => {
       .toBe(10);
   });
 
-  it('should be possible to change priority of head node', () => {
+  test('should be possible to change priority of head node', () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -101,7 +101,7 @@ describe('PriorityQueue', () => {
       .toBe(10);
   });
 
-  it('should be possible to change priority along with node addition', () => {
+  test('should be possible to change priority along with node addition', () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -127,7 +127,7 @@ describe('PriorityQueue', () => {
       .toBe(10);
   });
 
-  it('should be possible to search in priority queue by value', () => {
+  test('should be possible to search in priority queue by value', () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);

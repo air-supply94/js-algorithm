@@ -1,7 +1,7 @@
 import { sieve } from '../index';
 
 describe('sieveOfEratosthenes', () => {
-  it('should find all primes less than or equal to n', () => {
+  test('should find all primes less than or equal to n', () => {
     expect(sieve(5))
       .toEqual([
         2,

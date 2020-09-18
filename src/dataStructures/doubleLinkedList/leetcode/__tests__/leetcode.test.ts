@@ -12,7 +12,7 @@ import { partition } from '../partition';
 import { swapPairs } from '../swapPairs';
 
 describe('leetcode DoubleLinkedList', () => {
-  it('deleteDuplicates', () => {
+  test('deleteDuplicates', () => {
     const doubleLinkedList = new DoubleLinkedList();
     deleteDuplicates(doubleLinkedList);
     doubleLinkedList.fromArray([
@@ -34,7 +34,7 @@ describe('leetcode DoubleLinkedList', () => {
       .toBeFalsy();
   });
 
-  it('getDecimalValue', () => {
+  test('getDecimalValue', () => {
     const doubleLinkedList = new DoubleLinkedList<number>();
     doubleLinkedList.fromArray([
       1,
@@ -49,7 +49,7 @@ describe('leetcode DoubleLinkedList', () => {
       .toBe(30);
   });
 
-  it('isPalindrome', () => {
+  test('isPalindrome', () => {
     const doubleLinkedList = new DoubleLinkedList<number>();
     expect(isPalindrome<number>(doubleLinkedList))
       .toBeFalsy();
@@ -69,7 +69,7 @@ describe('leetcode DoubleLinkedList', () => {
       .toBeTruthy();
   });
 
-  it('addTwoNumbers', () => {
+  test('addTwoNumbers', () => {
     const doubleLinkedList1 = new DoubleLinkedList<number>();
     const doubleLinkedList2 = new DoubleLinkedList<number>();
     expect(addTwoNumbers(doubleLinkedList1, doubleLinkedList2).size)
@@ -97,7 +97,7 @@ describe('leetcode DoubleLinkedList', () => {
       .toBe('5,9,2,1,2');
   });
 
-  it('swapPairs', () => {
+  test('swapPairs', () => {
     const doubleLinkedList = new DoubleLinkedList();
     doubleLinkedList.fromArray([
       1,
@@ -125,7 +125,7 @@ describe('leetcode DoubleLinkedList', () => {
       .toBeFalsy();
   });
 
-  it('partition', () => {
+  test('partition', () => {
     const doubleLinkedList = new DoubleLinkedList();
     doubleLinkedList.fromArray([
       2,
@@ -156,7 +156,7 @@ describe('leetcode DoubleLinkedList', () => {
       .toBeNull();
   });
 
-  it('hasCircle and detectCircle and getCircleLength', () => {
+  test('hasCircle and detectCircle and getCircleLength', () => {
     const linkedList = new DoubleLinkedList();
     expect(hasCircle(linkedList))
       .toBeFalsy();
@@ -186,7 +186,7 @@ describe('leetcode DoubleLinkedList', () => {
       .toBeTruthy();
   });
 
-  it('flatten', () => {
+  test('flatten', () => {
     const node1 = new FlattenDoubleLinkedListNode(1);
     const node2 = new FlattenDoubleLinkedListNode(2);
     const node3 = new FlattenDoubleLinkedListNode(3);
@@ -230,7 +230,7 @@ describe('leetcode DoubleLinkedList', () => {
       .toBe('1,2,3,4,5,6');
   });
 
-  it('mergeTwoLists', () => {
+  test('mergeTwoLists', () => {
     const doubleLinkedList1 = new DoubleLinkedList<number>();
     const doubleLinkedList2 = new DoubleLinkedList<number>();
     expect(mergeTwoLists(doubleLinkedList1.head, doubleLinkedList2.head, doubleLinkedList1.compare))

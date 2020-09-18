@@ -1,7 +1,7 @@
 import { serializePreAndInOrder } from '../serializePreAndInOrder';
 
 describe('serializePreAndInOrder', () => {
-  it('should serializePreAndInOrder', () => {
+  test('should serializePreAndInOrder', () => {
     expect(serializePreAndInOrder([], []))
       .toBeNull();
     expect(serializePreAndInOrder([1], [1]).value)

@@ -1,7 +1,7 @@
 import { FenwickTree } from '../fenwickTree';
 
 describe('FenwickTree', () => {
-  it('should create correct fenwick tree', () => {
+  test('should create correct fenwick tree', () => {
     const inputArray = [
       3,
       2,
@@ -89,7 +89,7 @@ describe('FenwickTree', () => {
       .toBe(11);
   });
 
-  it('should correctly execute queries', () => {
+  test('should correctly execute queries', () => {
     const tree = new FenwickTree(5);
 
     tree.increase(1, 4);
@@ -117,7 +117,7 @@ describe('FenwickTree', () => {
       .toBe(19);
   });
 
-  it('should throw exceptions', () => {
+  test('should throw exceptions', () => {
     const tree = new FenwickTree(5);
 
     expect(tree.increase(0, 1))

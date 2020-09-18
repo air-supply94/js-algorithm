@@ -2,7 +2,7 @@ import { Comparator } from '../../../utils';
 import { binarySearch } from '../index';
 
 describe('binarySearch', () => {
-  it('should search number in sorted array', () => {
+  test('should search number in sorted array', () => {
     expect(binarySearch([], 1, new Comparator()))
       .toBe(-1);
     expect(binarySearch([1], 1))
@@ -70,7 +70,7 @@ describe('binarySearch', () => {
       .toBe(-1);
   });
 
-  it('should search object in sorted array', () => {
+  test('should search object in sorted array', () => {
     const sortedArrayOfObjects = [
       {
         key: 1,
