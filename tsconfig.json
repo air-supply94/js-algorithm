@@ -1,24 +1,28 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "module": "esnext",
+    "target": "es5",
+    "module": "es6",
+    "allowJs": false,
+    "jsx": "preserve",
+    "declaration": true,
+    "sourceMap": false,
+    "outDir": "./lib",
     "moduleResolution": "node",
-    "target": "esnext",
     "allowSyntheticDefaultImports": true,
     "isolatedModules": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noImplicitReturns": true,
     "importHelpers": true,
     "listFiles": true,
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
-    "allowJs": false,
     "baseUrl": ".",
     "strictNullChecks": false,
     "strict": true,
     "noImplicitAny": false,
-    "noImplicitThis": false
+    "noImplicitThis": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "lib", "coverage", "**/__tests__/"]
 }
