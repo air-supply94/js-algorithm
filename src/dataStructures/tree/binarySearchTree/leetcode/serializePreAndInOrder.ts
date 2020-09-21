@@ -3,7 +3,7 @@ import { BinarySearchTreeNode } from '../binarySearchTreeNode';
 import { BinarySearchTreeNodeInterface } from '../types';
 
 export function serializePreAndInOrder<T = unknown>(preorder: T[], inorder: T[]): BinarySearchTreeNodeInterface<T> | null {
-  if (preorder == null || preorder.length == 0) {
+  if (preorder.length == 0) {
     return null;
   }
 
@@ -31,6 +31,7 @@ export function serializePreAndInOrder<T = unknown>(preorder: T[], inorder: T[])
   return root;
 }
 
+/*
 export function build<T = unknown>(preorder: T[], inorder: T[]): BinarySearchTreeNodeInterface<T> | null {
   let pre = 0;
   let i = 0;
@@ -49,3 +50,4 @@ export function build<T = unknown>(preorder: T[], inorder: T[]): BinarySearchTre
 
   return build(undefined);
 }
+*/

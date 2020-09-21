@@ -18,7 +18,7 @@ export function quickSortInPlace<T = unknown>(originalArray: T[], compareCallbac
 }
 
 function partitionArray(originalArray, comparator: Comparator, left: number, right: number): number {
-  const pivotElement = originalArray[(left + right) / 2 | 0];
+  const pivotElement = originalArray[(left + right) >>> 1];
   let i = left;
   let j = right;
 

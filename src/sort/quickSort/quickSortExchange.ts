@@ -8,15 +8,11 @@ export function quickSortExchange<T = unknown>(originalArray: T[], comparator: C
 
   const middle = originalArray.length >>> 1;
   const pivotElement = originalArray[middle];
-  const center = [pivotElement];
+  const center = [];
   const left = [];
   const right = [];
 
   for (let i = 0; i < originalArray.length; i++) {
-    if (i === middle) {
-      continue;
-    }
-
     if (comparator.equal(originalArray[i], pivotElement)) {
       center.push(originalArray[i]);
     } else if (comparator.lessThan(originalArray[i], pivotElement)) {
