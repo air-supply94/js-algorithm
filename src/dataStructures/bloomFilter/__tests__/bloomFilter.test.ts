@@ -13,6 +13,8 @@ describe('BloomFilter', () => {
   });
 
   test('should have methods named "insert" and "contain"', () => {
+    expect(new BloomFilter(100))
+      .toBeDefined();
     expect(typeof bloomFilter.insert)
       .toBe('function');
     expect(typeof bloomFilter.contain)

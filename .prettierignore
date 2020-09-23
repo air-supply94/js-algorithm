@@ -3,6 +3,7 @@
 **/*.jsx
 **.ts
 **.tsx
+coverage
 package.json
 public
 dist
