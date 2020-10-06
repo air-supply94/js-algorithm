@@ -1,18 +1,18 @@
 import { ComparatorInterface, compareFunctionType } from './types';
 
+function defaultCompareFunction(a, b) {
+  if (a === b) {
+    return 0;
+  }
+  return a < b ? -1 : 1;
+}
+
 export class Comparator implements ComparatorInterface {
-  constructor(comparatorFunction: Comparator | compareFunctionType = Comparator.defaultCompareFunction) {
+  constructor(comparatorFunction: Comparator | compareFunctionType = defaultCompareFunction) {
     if (comparatorFunction instanceof Comparator) {
       return comparatorFunction;
     }
     this.compare = comparatorFunction;
-  }
-
-  public static defaultCompareFunction(a, b) {
-    if (a === b) {
-      return 0;
-    }
-    return a < b ? -1 : 1;
   }
 
   private compare: compareFunctionType;

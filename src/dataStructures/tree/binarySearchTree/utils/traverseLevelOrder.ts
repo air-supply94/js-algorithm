@@ -13,10 +13,8 @@ export function traverseLevelOrder<T = unknown>(
 
   while (!nodeQueue.isEmpty()) {
     level++;
-    let i = 0;
     const size = nodeQueue.size;
-
-    while (i < size) {
+    for (let i = 0; i < size; i++) {
       const currentNode = nodeQueue.dequeue();
       if (callback(currentNode, level) === false) {
         return level;
@@ -29,7 +27,6 @@ export function traverseLevelOrder<T = unknown>(
       if (currentNode.right) {
         nodeQueue.enqueue(currentNode.right);
       }
-      i++;
     }
   }
 

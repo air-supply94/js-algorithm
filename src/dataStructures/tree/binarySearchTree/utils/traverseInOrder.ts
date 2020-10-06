@@ -15,12 +15,12 @@ export function traverseInOrder<T = unknown>(
     }
 
     if (nodeStack.isEmpty()) {
-      break;
+      return;
     }
 
     currentNode = nodeStack.pop();
     if (callback(currentNode) === false) {
-      break;
+      return;
     }
     currentNode = currentNode.right;
   }

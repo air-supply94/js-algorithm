@@ -8,23 +8,21 @@ export function serializePreAndInOrder<T = unknown>(preorder: T[], inorder: T[])
   }
 
   const root = new BinarySearchTreeNode<T>(preorder[0]);
-  const length = preorder.length;
   const stack = new Stack<BinarySearchTreeNodeInterface<T>>();
   stack.push(root);
   let inorderIndex = 0;
 
-  for (let i = 1; i < length; i++) {
-    const preorderVal = preorder[i];
+  for (let i = 1; i < preorder.length; i++) {
     let node = stack.peek();
     if (node.value != inorder[inorderIndex]) {
-      node.setLeft(new BinarySearchTreeNode<T>(preorderVal));
+      node.setLeft(new BinarySearchTreeNode<T>(preorder[i]));
       stack.push(node.left);
     } else {
       while (!stack.isEmpty() && stack.peek().value == inorder[inorderIndex]) {
         node = stack.pop();
         inorderIndex++;
       }
-      node.setRight(new BinarySearchTreeNode<T>(preorderVal));
+      node.setRight(new BinarySearchTreeNode<T>(preorder[i]));
       stack.push(node.right);
     }
   }

@@ -93,15 +93,15 @@ describe('binarySearch', () => {
       return a.key < b.key ? -1 : 1;
     };
 
-    expect(binarySearch([], { key: 1 }, comparator))
+    expect(binarySearch<{ key: number; }>([], { key: 1 }, comparator))
       .toBe(-1);
-    expect(binarySearch(sortedArrayOfObjects, { key: 4 }, comparator))
+    expect(binarySearch<{ key: number; }>(sortedArrayOfObjects, { key: 4 }, comparator))
       .toBe(-1);
-    expect(binarySearch(sortedArrayOfObjects, { key: 1 }, comparator))
+    expect(binarySearch<{ key: number; }>(sortedArrayOfObjects, { key: 1 }, comparator))
       .toBe(0);
-    expect(binarySearch(sortedArrayOfObjects, { key: 2 }, comparator))
+    expect(binarySearch<{ key: number; }>(sortedArrayOfObjects, { key: 2 }, comparator))
       .toBe(1);
-    expect(binarySearch(sortedArrayOfObjects, { key: 3 }, comparator))
+    expect(binarySearch<{ key: number; }>(sortedArrayOfObjects, { key: 3 }, comparator))
       .toBe(2);
   });
 });

@@ -7,18 +7,17 @@ export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNo
     return null;
   }
 
-  const root = new BinarySearchTreeNode<T>(array.shift());
+  let i = 0;
+  const root = new BinarySearchTreeNode<T>(array[i]);
+  i++;
   const queue = new Queue<BinarySearchTreeNodeInterface<T>>();
   queue.enqueue(root);
 
-  while (!queue.isEmpty()) {
+  while (!queue.isEmpty() && i < array.length) {
     const currentNode = queue.dequeue();
 
-    if (!array.length) {
-      break;
-    }
-
-    const leftValue = array.shift();
+    const leftValue = array[i];
+    i++;
     if (leftValue === null) {
       currentNode.setLeft(null);
     } else {
@@ -27,11 +26,12 @@ export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNo
       queue.enqueue(leftNode);
     }
 
-    if (!array.length) {
+    if (i >= array.length) {
       break;
     }
 
-    const rightValue = array.shift();
+    const rightValue = array[i];
+    i++;
     if (rightValue === null) {
       currentNode.setRight(null);
     } else {

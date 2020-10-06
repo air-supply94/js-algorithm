@@ -30,7 +30,7 @@ export function traverseAfterOrder<T = unknown>(
 
     currentNode = nodeStack.pop();
     if (callback(currentNode) === false) {
-      break;
+      return;
     }
   }
 }

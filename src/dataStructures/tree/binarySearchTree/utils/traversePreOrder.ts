@@ -22,7 +22,7 @@ export function traversePreOrder<T = unknown>(
     }
 
     if (nodeStack.isEmpty()) {
-      break;
+      return;
     }
 
     currentNode = nodeStack.pop();
