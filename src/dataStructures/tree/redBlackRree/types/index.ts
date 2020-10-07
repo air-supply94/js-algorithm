@@ -1,7 +1,7 @@
 import { Comparator } from '../../../../utils';
 import { BinarySearchTreeInterface, BinarySearchTreeNodeInterface, traverseCallback } from '../../binarySearchTree/types';
 
-export type RedBlackTreeColor = 'red' | 'black';
+export type RedBlackTreeColor = 'r' | 'b';
 export type CompleteRedBlackTreeNode<T = unknown> = BinarySearchTreeNodeInterface<RedBlackTreeNodeInterface<T>>;
 
 export interface RedBlackTreeNodeInterface<T = unknown> {
