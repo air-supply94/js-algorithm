@@ -20,7 +20,7 @@ describe('sort', () => {
   ];
 
   for (const sort of sortCollection) {
-    it(`sort ${sort.toString()} comparator`, () => {
+    test(`sort ${sort.toString()} comparator`, () => {
       expect(sort([
         3,
         4,
@@ -47,12 +47,12 @@ describe('sort', () => {
         ]);
     });
 
-    it(`sort ${sort.toString()} small length`, () => {
+    test(`sort ${sort.toString()} small length`, () => {
       expect(sort([1]))
         .toEqual([1]);
     });
 
-    it(`sort ${sort.toString()} number`, () => {
+    test(`sort ${sort.toString()} number`, () => {
       expect(sort([
         3,
         4,
@@ -79,7 +79,7 @@ describe('sort', () => {
         ]);
     });
 
-    it(`sort ${sort.toString()} string`, () => {
+    test(`sort ${sort.toString()} string`, () => {
       expect(sort([
         3,
         4,
@@ -106,7 +106,7 @@ describe('sort', () => {
         ].map((value) => String(value)));
     });
 
-    it(`sort ${sort.toString()} object`, () => {
+    test(`sort ${sort.toString()} object`, () => {
       const arr = [
         { age: 1 },
         { age: 30 },
