@@ -13,11 +13,11 @@ export function serializePreAndInOrder<T = unknown>(preorder: T[], inorder: T[])
   let inorderIndex = 0;
 
   for (let i = 1; i < preorder.length; i++) {
-    let node = stack.peek();
-    if (node.value != inorder[inorderIndex]) {
-      node.setLeft(new BinarySearchTreeNode<T>(preorder[i]));
-      stack.push(node.left);
+    if (stack.peek().value != inorder[inorderIndex]) {
+      stack.peek().setLeft(new BinarySearchTreeNode<T>(preorder[i]));
+      stack.push(stack.peek().left);
     } else {
+      let node = stack.peek();
       while (!stack.isEmpty() && stack.peek().value == inorder[inorderIndex]) {
         node = stack.pop();
         inorderIndex++;
