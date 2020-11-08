@@ -12,10 +12,8 @@ export function bfRainTerraces(terraces: number[]): number {
       rightHighestLevel = Math.max(rightHighestLevel, terraces[rightIndex]);
     }
 
-    const terraceBoundaryLevel = Math.min(leftHighestLevel, rightHighestLevel);
-    if (terraceBoundaryLevel > terraces[terraceIndex]) {
-      waterAmount += Math.min(leftHighestLevel, rightHighestLevel) - terraces[terraceIndex];
-    }
+    const addLength = Math.min(leftHighestLevel, rightHighestLevel) - terraces[terraceIndex];
+    waterAmount += addLength > 0 ? addLength : 0;
   }
 
   return waterAmount;
