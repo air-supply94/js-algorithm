@@ -1,68 +1,80 @@
+import { Queue } from '../../queue';
 import { TrieNode } from './trieNode';
 import { TrieInterface, TrieNodeInterface } from './types';
 
-const HEAD_CHARACTER = '';
+function getLastCharacterNode(root: TrieNodeInterface, word: string): TrieNodeInterface | undefined {
+  let currentNode = root;
+  for (const character of word) {
+    if (!currentNode.hasChild(character)) {
+      return undefined;
+    }
+
+    currentNode = currentNode.getChild(character);
+  }
+
+  return currentNode;
+}
 
 export class Trie implements TrieInterface {
   constructor() {
-    this.head = new TrieNode(HEAD_CHARACTER);
+    this.root = new TrieNode('');
   }
 
-  private getLastCharacterNode(word: string): TrieNodeInterface | undefined {
-    let currentNode = this.head;
-    for (const character of word) {
-      if (!currentNode.hasChild(character)) {
-        return undefined;
-      }
-      currentNode = currentNode.getChild(character);
-    }
-
-    return currentNode;
-  }
-
-  public readonly head: TrieNodeInterface;
+  public readonly root: TrieNodeInterface;
 
   public addWord(word: string): this {
-    let currentNode = this.head;
+    let currentNode = this.root;
     for (const character of word) {
       currentNode = currentNode.addChild(character);
+      currentNode.prefixCount++;
     }
 
-    currentNode.setIsCompleteWord(true);
-    this.head.setIsCompleteWord(false);
+    currentNode.wordCount++;
+    currentNode.isCompleteWord = true;
+    this.root.isCompleteWord = false;
     return this;
   }
 
-  public deleteWord(word: string): this {
-    const str: string[] = Array.from(word);
+  public findWordsCount(word: string): number {
+    const lastCharacter = getLastCharacterNode(this.root, word);
+    return lastCharacter ? lastCharacter.wordCount : 0;
+  }
 
-    function depthFirstDelete(currentNode: TrieNodeInterface, charIndex = 0) {
-      if (charIndex >= str.length) {
-        return;
+  public findPrefixCount(word: string): number {
+    const lastCharacter = getLastCharacterNode(this.root, word);
+    return lastCharacter ? lastCharacter.prefixCount : 0;
+  }
+
+  public wordFrequency(): { [key in string]: number } {
+    const result = {};
+    const queue = new Queue<{node: TrieNodeInterface;word: string;}>();
+
+    Object.values(this.root.children)
+      .forEach((trieNode) => queue.enqueue({
+        node: trieNode,
+        word: '',
+      }));
+
+    while (!queue.isEmpty()) {
+      const item = queue.dequeue();
+      const node = item.node;
+
+      if (node.isCompleteWord) {
+        result[`${item.word}${node.character}`] = node.wordCount;
       }
 
-      const nextNode = currentNode.getChild(str[charIndex]);
-
-      if (!nextNode) {
-        return;
-      }
-
-      depthFirstDelete(nextNode, charIndex + 1);
-
-      if (charIndex === (word.length - 1)) {
-        nextNode.setIsCompleteWord(false);
-      }
-
-      currentNode.removeChild(str[charIndex]);
+      Object.values(node.children)
+        .forEach((trieNode) => queue.enqueue({
+          node: trieNode,
+          word: `${item.word}${node.character}`,
+        }));
     }
 
-    depthFirstDelete(this.head);
-
-    return this;
+    return result;
   }
 
   public suggestNextCharacters(word: string): string[] {
-    const lastCharacter = this.getLastCharacterNode(word);
+    const lastCharacter = getLastCharacterNode(this.root, word);
 
     if (!lastCharacter) {
       return [];
@@ -72,7 +84,7 @@ export class Trie implements TrieInterface {
   }
 
   public doesWordExist(word: string): boolean {
-    const lastCharacter = this.getLastCharacterNode(word);
+    const lastCharacter = getLastCharacterNode(this.root, word);
 
     return Boolean(lastCharacter) && lastCharacter.isCompleteWord;
   }

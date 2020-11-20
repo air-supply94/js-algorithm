@@ -40,18 +40,6 @@ describe('TrieNode', () => {
       .toBeUndefined();
   });
 
-  test('should check if node has children', () => {
-    const trieNode = new TrieNode('c');
-
-    expect(trieNode.hasChildren())
-      .toBe(false);
-
-    trieNode.addChild('a');
-
-    expect(trieNode.hasChildren())
-      .toBe(true);
-  });
-
   test('should check if node has specific child', () => {
     const trieNode = new TrieNode('c');
 
@@ -77,37 +65,5 @@ describe('TrieNode', () => {
         'a',
         'o',
       ]);
-  });
-
-  test('should delete child node if the child node has NO children', () => {
-    const trieNode = new TrieNode('c');
-    trieNode.addChild('a');
-    expect(trieNode.hasChild('a'))
-      .toBe(true);
-
-    trieNode.removeChild('a');
-    expect(trieNode.hasChild('a'))
-      .toBe(false);
-  });
-
-  test('should NOT delete child node if the child node has children', () => {
-    const trieNode = new TrieNode('c');
-    trieNode.addChild('a');
-    const childNode = trieNode.getChild('a');
-    childNode.addChild('r');
-
-    trieNode.removeChild('a');
-    expect(trieNode.hasChild('a'))
-      .toEqual(true);
-  });
-
-  test('should NOT delete child node if the child node completes a word', () => {
-    const trieNode = new TrieNode('c');
-    const IS_COMPLETE_WORD = true;
-    trieNode.addChild('a', IS_COMPLETE_WORD);
-
-    trieNode.removeChild('a');
-    expect(trieNode.hasChild('a'))
-      .toEqual(true);
   });
 });
