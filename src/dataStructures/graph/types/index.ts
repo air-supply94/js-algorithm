@@ -1,24 +1,24 @@
 import { DoubleLinkedListInterface } from '../../doubleLinkedList/types';
 
-export interface GraphEdgeInterface {
-  startVertex: GraphVertexInterface;
-  endVertex: GraphVertexInterface;
-  weight: number;
+export interface GraphEdgeInterface<T = string> {
+  startVertex: GraphVertexInterface<T>;
+  endVertex: GraphVertexInterface<T>;
+  readonly weight: number;
   readonly value: string;
   reverse: () => this;
 }
 
-export interface GraphVertexInterface {
-  value: string;
-  edges: DoubleLinkedListInterface<GraphEdgeInterface>;
-  addEdge: (edge: GraphEdgeInterface) => GraphEdgeInterface;
-  deleteEdge: (edge: GraphEdgeInterface) => null | GraphEdgeInterface;
-  getNeighbors: () => GraphVertexInterface[];
-  getEdges: () => GraphEdgeInterface[];
+export interface GraphVertexInterface<T = string> {
+  readonly value: T;
+  readonly edges: DoubleLinkedListInterface<GraphEdgeInterface<T>>;
+  addEdge: (edge: GraphEdgeInterface<T>) => GraphEdgeInterface<T>;
+  deleteEdge: (edge: GraphEdgeInterface<T>) => null | GraphEdgeInterface<T>;
+  getNeighbors: () => Array<GraphVertexInterface<T>>;
+  getEdges: () => Array<GraphEdgeInterface<T>>;
   getDegree: () => number;
-  hasEdge: (requiredEdge: GraphEdgeInterface) => boolean;
-  hasNeighbor: (vertex: GraphVertexInterface) => boolean;
-  findEdge: (vertex: GraphVertexInterface) => GraphEdgeInterface | null;
+  hasEdge: (requiredEdge: GraphEdgeInterface<T>) => boolean;
+  hasNeighbor: (vertex: GraphVertexInterface<T>) => boolean;
+  findEdge: (vertex: GraphVertexInterface<T>) => GraphEdgeInterface<T> | null;
   deleteAllEdges: () => void;
 }
 

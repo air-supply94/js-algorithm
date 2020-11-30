@@ -10,19 +10,19 @@ export function integerPartition(number: number): number {
     partitionMatrix[0][numberIndex] = 0;
   }
 
-  for (let summandIndex = 0; summandIndex <= number; summandIndex += 1) {
-    partitionMatrix[summandIndex][0] = 1;
+  for (let i = 0; i <= number; i += 1) {
+    partitionMatrix[i][0] = 1;
   }
 
-  for (let summandIndex = 1; summandIndex <= number; summandIndex += 1) {
-    for (let numberIndex = 1; numberIndex <= number; numberIndex += 1) {
-      if (summandIndex > numberIndex) {
-        partitionMatrix[summandIndex][numberIndex] = partitionMatrix[summandIndex - 1][numberIndex];
+  for (let i = 1; i <= number; i += 1) {
+    for (let j = 1; j <= number; j += 1) {
+      if (i > j) {
+        partitionMatrix[i][j] = partitionMatrix[i - 1][j];
       } else {
-        const combosWithoutSummand = partitionMatrix[summandIndex - 1][numberIndex];
-        const combosWithSummand = partitionMatrix[summandIndex][numberIndex - summandIndex];
+        const combosWithoutSum = partitionMatrix[i - 1][j];
+        const combosWithSum = partitionMatrix[i][j - i];
 
-        partitionMatrix[summandIndex][numberIndex] = combosWithoutSummand + combosWithSummand;
+        partitionMatrix[i][j] = combosWithoutSum + combosWithSum;
       }
     }
   }

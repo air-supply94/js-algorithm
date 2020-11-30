@@ -1,39 +1,39 @@
-import { DoubleLinkedList, DoubleLinkedListInterface, DoubleLinkedListNodeInterface } from '../doubleLinkedList';
+import { DoubleLinkedList, DoubleLinkedListInterface } from '../doubleLinkedList';
 import { GraphEdgeInterface, GraphVertexInterface } from './types';
 
-export class GraphVertex implements GraphVertexInterface {
-  constructor(value: string) {
-    function edgeComparator(edgeA: GraphEdgeInterface, edgeB: GraphEdgeInterface) {
-      if (edgeA.value === edgeB.value) {
-        return 0;
-      }
-
-      return edgeA.value < edgeB.value ? -1 : 1;
-    }
-
-    this.value = value;
-    this.edges = new DoubleLinkedList<GraphEdgeInterface>(edgeComparator);
+function edgeComparator<T>(edgeA: GraphEdgeInterface<T>, edgeB: GraphEdgeInterface<T>) {
+  if (edgeA.value === edgeB.value) {
+    return 0;
   }
 
-  public readonly value: string;
+  return edgeA.value < edgeB.value ? -1 : 1;
+}
 
-  public edges: DoubleLinkedListInterface<GraphEdgeInterface>;
+export class GraphVertex<T = string> implements GraphVertexInterface<T> {
+  constructor(value: T) {
+    this.value = value;
+    this.edges = new DoubleLinkedList<GraphEdgeInterface<T>>(edgeComparator);
+  }
 
-  public addEdge(edge: GraphEdgeInterface): GraphEdgeInterface {
+  public readonly value: T;
+
+  public readonly edges: DoubleLinkedListInterface<GraphEdgeInterface<T>>;
+
+  public addEdge(edge: GraphEdgeInterface<T>): GraphEdgeInterface<T> {
     return this.edges.append(edge).value;
   }
 
-  public deleteEdge(edge: GraphEdgeInterface): null | GraphEdgeInterface {
+  public deleteEdge(edge: GraphEdgeInterface<T>): null | GraphEdgeInterface<T> {
     const node = this.edges.delete(edge);
     return node ? node.value : null;
   }
 
-  public getNeighbors(): GraphVertexInterface[] {
+  public getNeighbors(): Array<GraphVertexInterface<T>> {
     return this.edges.toArray()
-      .map((node: DoubleLinkedListNodeInterface<GraphEdgeInterface>) => (node.value.startVertex === this ? node.value.endVertex : node.value.startVertex));
+      .map((node) => (node.value.startVertex === this ? node.value.endVertex : node.value.startVertex));
   }
 
-  public getEdges(): GraphEdgeInterface[] {
+  public getEdges(): Array<GraphEdgeInterface<T>> {
     return this.edges.toArray()
       .map((linkedListNode) => linkedListNode.value);
   }
@@ -42,21 +42,17 @@ export class GraphVertex implements GraphVertexInterface {
     return this.edges.size;
   }
 
-  public hasEdge(requiredEdge: GraphEdgeInterface): boolean {
+  public hasEdge(requiredEdge: GraphEdgeInterface<T>): boolean {
     return Boolean(this.edges.find({ value: requiredEdge }));
   }
 
-  public hasNeighbor(vertex: GraphVertexInterface): boolean {
-    return Boolean(this.edges.find({
-      callback(edge: GraphEdgeInterface) {
-        return edge.startVertex === vertex || edge.endVertex === vertex;
-      },
-    }));
+  public hasNeighbor(vertex: GraphVertexInterface<T>): boolean {
+    return Boolean(this.findEdge(vertex));
   }
 
-  public findEdge(vertex: GraphVertex): GraphEdgeInterface | null {
+  public findEdge(vertex: GraphVertexInterface<T>): GraphEdgeInterface<T> | null {
     const edge = this.edges.find({
-      callback: (edge: GraphEdgeInterface) => {
+      callback: (edge) => {
         return edge.startVertex === vertex || edge.endVertex === vertex;
       },
     });
@@ -69,6 +65,6 @@ export class GraphVertex implements GraphVertexInterface {
   }
 
   public toString() {
-    return this.value;
+    return String(this.value);
   }
 }
