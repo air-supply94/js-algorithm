@@ -64,11 +64,7 @@ export class LinkedHashTable<T = unknown> implements LinkedHashTableInterface<T>
       hash: null,
     });
 
-    if (node) {
-      return node.value.value;
-    }
-
-    return null;
+    return node ? node.value.value : null;
   }
 
   public get(key: string | number): T | null {

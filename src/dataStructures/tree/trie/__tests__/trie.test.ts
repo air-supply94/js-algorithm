@@ -88,11 +88,15 @@ describe('Trie', () => {
       .filter((item) => item)
       .forEach((item) => trie.addWord(item));
 
+    expect(trie.findWordsCount('xxx'))
+      .toBe(0);
     expect(trie.findWordsCount('banana'))
       .toBe(1);
     expect(trie.findWordsCount('apple'))
       .toBe(4);
 
+    expect(trie.findPrefixCount('xxx'))
+      .toBe(0);
     expect(trie.findPrefixCount('ba'))
       .toBe(1);
     expect(trie.findPrefixCount('t'))

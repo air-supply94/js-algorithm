@@ -1,9 +1,18 @@
+import { Comparator } from '../../../../utils';
+import { BinarySearchTreeNodeInterface } from '../../binarySearchTree';
 import { getBalanceFactor, getHeight } from '../../binarySearchTree/utils';
 import { AvlTree } from '../avlTree';
 
 describe('AvlTree', () => {
   test('should do special case', () => {
-    const tree = new AvlTree();
+    const tree = new AvlTree(new Comparator(), ((
+      tmpNode: BinarySearchTreeNodeInterface,
+      replaceNode: BinarySearchTreeNodeInterface
+    ): void => {
+      const tmpValue = tmpNode.value;
+      tmpNode.setValue(replaceNode.value);
+      replaceNode.setValue(tmpValue);
+    }));
     tree.binarySearchTree.insert(1);
     tree.binarySearchTree.insert(3);
     tree.binarySearchTree.insert(4);

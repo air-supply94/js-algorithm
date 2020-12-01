@@ -63,7 +63,6 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         .value
         .makeBlack();
       node.parent.parent.value.makeRed();
-      // eslint-disable-next-line consistent-return
       return this.insertBalance(node.parent.parent);
     }
 
@@ -72,7 +71,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
         rotateLeftLeft<RedBlackTreeNodeInterface<T>>(node.parent.parent, this.setRoot);
-      } else if (node === node.parent.right) {
+      } else {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
         rotateLeftRight<RedBlackTreeNodeInterface<T>>(node.parent.parent);
@@ -83,7 +82,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
         rotateRightRight<RedBlackTreeNodeInterface<T>>(node.parent.parent, this.setRoot);
-      } else if (node === node.parent.left) {
+      } else {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
         rotateRightLeft<RedBlackTreeNodeInterface<T>>(node.parent.parent);
@@ -129,7 +128,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
           sibling.value.makeRed();
           rotateRightLeft<RedBlackTreeNodeInterface<T>>(currentNode.parent);
         }
-      } else if (currentNode === currentNode.parent.right) {
+      } else {
         const sibling = currentNode.parent.left;
 
         if (sibling && sibling.value.isRed) {

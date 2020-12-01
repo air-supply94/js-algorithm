@@ -76,11 +76,7 @@ export class Trie implements TrieInterface {
   public suggestNextCharacters(word: string): string[] {
     const lastCharacter = getLastCharacterNode(this.root, word);
 
-    if (!lastCharacter) {
-      return [];
-    }
-
-    return lastCharacter.suggestChildren();
+    return lastCharacter ? lastCharacter.suggestChildren() : [];
   }
 
   public doesWordExist(word: string): boolean {

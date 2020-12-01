@@ -44,27 +44,27 @@ export class SegmentTree implements SegmentTreeInterface {
 
     if (queryLeftIndex > rightIndex || queryRightIndex < leftIndex) {
       return this.operationFallback;
+    } else {
+      const middleIndex = Math.floor((leftIndex + rightIndex) / 2);
+
+      const leftOperationResult = this.rangeQueryRecursive(
+        queryLeftIndex,
+        queryRightIndex,
+        leftIndex,
+        middleIndex,
+        getLeftChildIndex(position)
+      );
+
+      const rightOperationResult = this.rangeQueryRecursive(
+        queryLeftIndex,
+        queryRightIndex,
+        middleIndex + 1,
+        rightIndex,
+        getRightChildIndex(position)
+      );
+
+      return this.operation(leftOperationResult, rightOperationResult);
     }
-
-    const middleIndex = Math.floor((leftIndex + rightIndex) / 2);
-
-    const leftOperationResult = this.rangeQueryRecursive(
-      queryLeftIndex,
-      queryRightIndex,
-      leftIndex,
-      middleIndex,
-      getLeftChildIndex(position)
-    );
-
-    const rightOperationResult = this.rangeQueryRecursive(
-      queryLeftIndex,
-      queryRightIndex,
-      middleIndex + 1,
-      rightIndex,
-      getRightChildIndex(position)
-    );
-
-    return this.operation(leftOperationResult, rightOperationResult);
   }
 
   public readonly operation: (...args: number[]) => number;

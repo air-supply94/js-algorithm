@@ -8,9 +8,5 @@ export function getHeight<T = unknown>(root: BinarySearchTreeNodeInterface<T>): 
 }
 
 export function getBalanceFactor<T = unknown>(root: BinarySearchTreeNodeInterface<T>): number {
-  if (!root) {
-    return 0;
-  }
-
-  return traverseLevelOrder(root.left, (x) => true) - traverseLevelOrder(root.right, (x) => true);
+  return root ? traverseLevelOrder(root.left, (x) => true) - traverseLevelOrder(root.right, (x) => true) : 0;
 }

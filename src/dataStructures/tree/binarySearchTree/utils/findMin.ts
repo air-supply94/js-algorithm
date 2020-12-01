@@ -5,9 +5,5 @@ export function findMin<T = unknown>(root: null | BinarySearchTreeNodeInterface<
     return null;
   }
 
-  if (!root.left) {
-    return root;
-  }
-
-  return findMin<T>(root.left);
+  return root.left ? findMin<T>(root.left) : root;
 }

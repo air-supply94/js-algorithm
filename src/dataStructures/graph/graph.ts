@@ -1,71 +1,56 @@
 import { GraphEdge } from './graphEdge';
 import { GraphEdgeInterface, GraphInterface, GraphVertexInterface } from './types';
 
-export class Graph implements GraphInterface {
+export class Graph<T = string> implements GraphInterface<T> {
   constructor(isDirected = false) {
     this.vertices = {};
     this.edges = {};
     this.isDirected = isDirected;
   }
 
-  private readonly vertices: { [key: string]: GraphVertexInterface; };
+  private readonly vertices: { [key: string]: GraphVertexInterface<T>; };
 
-  private readonly edges: { [key: string]: GraphEdgeInterface; };
+  private readonly edges: { [key: string]: GraphEdgeInterface<T>; };
 
   public readonly isDirected: boolean;
 
-  public addVertex(vertex: GraphVertexInterface): GraphVertexInterface {
-    let newVertex = this.getVertex(vertex);
-    if (!newVertex) {
-      this.vertices[vertex.value] = vertex;
-      newVertex = vertex;
+  public addVertex(vertex: GraphVertexInterface<T>): GraphVertexInterface<T> {
+    if (this.hasVertex(vertex)) {
+      return this.getVertex(vertex);
+    } else {
+      this.vertices[String(vertex)] = vertex;
+      return vertex;
     }
-    return newVertex;
   }
 
-  public hasVertex(vertex: GraphVertexInterface | string): boolean {
+  public hasVertex(vertex: GraphVertexInterface<T> | string): boolean {
     return Object.prototype.hasOwnProperty.call(this.vertices, String(vertex));
   }
 
-  public getVertex(vertex: string | GraphVertexInterface): GraphVertexInterface | null {
+  public getVertex(vertex: string | GraphVertexInterface<T>): GraphVertexInterface<T> | null {
     return this.hasVertex(vertex) ? this.vertices[String(vertex)] : null;
   }
 
-  public getNeighbors(vertex: GraphVertexInterface | string): GraphVertexInterface[] {
-    const newVertex = this.getVertex(vertex);
-    if (!newVertex) {
-      return [];
-    }
-
-    return newVertex.getNeighbors();
+  public getNeighbors(vertex: GraphVertexInterface<T> | string): Array<GraphVertexInterface<T>> {
+    return this.hasVertex(vertex) ? this.getVertex(vertex)
+      .getNeighbors() : [];
   }
 
-  public getAllVertices(): GraphVertexInterface[] {
+  public getAllVertices(): Array<GraphVertexInterface<T>> {
     return Object.values(this.vertices);
   }
 
-  public getAllEdges(): GraphEdgeInterface[] {
+  public getAllEdges(): Array<GraphEdgeInterface<T>> {
     return Object.values(this.edges);
   }
 
-  public addEdge(edge: GraphEdgeInterface): GraphEdgeInterface {
-    let startVertex = this.getVertex(edge.startVertex);
-    let endVertex = this.getVertex(edge.endVertex);
+  public addEdge(edge: GraphEdgeInterface<T>): GraphEdgeInterface<T> {
+    const startVertex = this.addVertex(edge.startVertex);
+    const endVertex = this.addVertex(edge.endVertex);
 
-    if (!startVertex) {
-      this.addVertex(edge.startVertex);
-      startVertex = edge.startVertex;
-    }
-
-    if (!endVertex) {
-      this.addVertex(edge.endVertex);
-      endVertex = edge.endVertex;
-    }
-
-    let newEdge = this.getEdge(edge);
-    if (!newEdge) {
-      newEdge = new GraphEdge(startVertex, endVertex, edge.weight);
-      this.edges[String(edge)] = newEdge;
+    if (!this.hasEdge(edge)) {
+      const newEdge = new GraphEdge<T>(startVertex, endVertex, edge.weight);
+      this.edges[String(newEdge)] = newEdge;
 
       if (this.isDirected) {
         startVertex.addEdge(newEdge);
@@ -73,54 +58,47 @@ export class Graph implements GraphInterface {
         startVertex.addEdge(newEdge);
         endVertex.addEdge(newEdge);
       }
+      return newEdge;
+    } else {
+      return this.getEdge(edge);
     }
-
-    return newEdge;
   }
 
-  public deleteEdge(edge: GraphEdgeInterface | string): GraphEdgeInterface | null {
-    const newEdge = this.getEdge(edge);
-
-    if (newEdge) {
-      delete this.edges[String(edge)];
+  public deleteEdge(edge: GraphEdgeInterface<T> | string): GraphEdgeInterface<T> | null {
+    if (this.hasEdge(edge)) {
+      const newEdge = this.getEdge(edge);
+      delete this.edges[String(newEdge)];
       newEdge.startVertex.deleteEdge(newEdge);
       newEdge.endVertex.deleteEdge(newEdge);
+      return newEdge;
+    } else {
+      return null;
     }
-
-    return newEdge;
   }
 
-  public hasEdge(edge: GraphEdgeInterface | string): boolean {
+  public hasEdge(edge: GraphEdgeInterface<T> | string): boolean {
     return Object.prototype.hasOwnProperty.call(this.edges, String(edge));
   }
 
-  public getEdge(edge: GraphEdgeInterface | string): GraphEdgeInterface | null {
-    if (!this.hasEdge(edge)) {
-      return null;
-    }
-
-    return this.edges[String(edge)];
+  public getEdge(edge: GraphEdgeInterface<T> | string): GraphEdgeInterface<T> | null {
+    return this.hasEdge(edge) ? this.edges[String(edge)] : null;
   }
 
-  public findEdge(startVertex: GraphVertexInterface | string, endVertex: GraphVertexInterface | string): GraphEdgeInterface | null {
+  public findEdge(startVertex: GraphVertexInterface<T> | string, endVertex: GraphVertexInterface<T> | string): GraphEdgeInterface<T> | null {
     const newStartVertex = this.getVertex(startVertex);
     const newEndVertex = this.getVertex(endVertex);
 
-    if (!newStartVertex || !newEndVertex) {
-      return null;
-    }
-
-    return newStartVertex.findEdge(newEndVertex);
+    return newStartVertex && newEndVertex ? newStartVertex.findEdge(newEndVertex) : null;
   }
 
   public getWeight(): number {
     return this.getAllEdges()
-      .reduce((weight, graphEdge: GraphEdgeInterface) => weight + graphEdge.weight, 0);
+      .reduce((weight, graphEdge) => weight + graphEdge.weight, 0);
   }
 
   public reverse(): this {
     this.getAllEdges()
-      .forEach((edge: GraphEdgeInterface) => {
+      .forEach((edge) => {
         this.deleteEdge(edge);
         edge.reverse();
         this.addEdge(edge);
@@ -131,13 +109,13 @@ export class Graph implements GraphInterface {
 
   public getVerticesIndices(): { [key: string]: number; } {
     return this.getAllVertices()
-      .reduce((prev, vertex: GraphVertexInterface, index) => {
-        prev[vertex.value] = index;
+      .reduce((prev, vertex, index) => {
+        prev[String(vertex)] = index;
         return prev;
       }, {});
   }
 
-  public getAdjacencyMatrix(): any[] {
+  public getAdjacencyMatrix(): number[][] {
     const vertices = this.getAllVertices();
     const verticesIndices = this.getVerticesIndices();
 
@@ -146,10 +124,10 @@ export class Graph implements GraphInterface {
       .map(() => Array(vertices.length)
         .fill(Infinity));
 
-    vertices.forEach((vertex: GraphVertexInterface, vertexIndex) => {
+    vertices.forEach((vertex, vertexIndex) => {
       vertex.getNeighbors()
         .forEach((neighbor) => {
-          const neighborIndex = verticesIndices[neighbor.value];
+          const neighborIndex = verticesIndices[String(neighbor)];
           adjacencyMatrix[vertexIndex][neighborIndex] = this.findEdge(vertex, neighbor).weight;
         });
     });
@@ -157,8 +135,8 @@ export class Graph implements GraphInterface {
     return adjacencyMatrix;
   }
 
-  public toString() {
+  public toString(): string {
     return Object.keys(this.vertices)
-      .toString();
+      .join(',');
   }
 }

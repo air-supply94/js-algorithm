@@ -1,6 +1,15 @@
 import { getHeight } from '../../binarySearchTree/utils';
 import { RedBlackTree } from '../redBlackTree';
-import { RedBlackTreeNodeInterface } from '../types';
+import { CompleteRedBlackTreeNode, RedBlackTreeNodeInterface } from '../types';
+
+function swap(
+  tmpNode: CompleteRedBlackTreeNode,
+  replaceNode: CompleteRedBlackTreeNode
+): void {
+  const tmpValue = tmpNode.value.value;
+  tmpNode.value.setValue(replaceNode.value.value);
+  replaceNode.value.setValue(tmpValue);
+}
 
 function redBlackTreeCompare(a, b) {
   if (a.value === b.value) {
@@ -12,7 +21,7 @@ function redBlackTreeCompare(a, b) {
 
 describe('RedBlackTree', () => {
   test('should always color first inserted node as black', () => {
-    const tree = new RedBlackTree(redBlackTreeCompare);
+    const tree = new RedBlackTree(redBlackTreeCompare, swap);
 
     const firstInsertedNode = tree.insert(10);
     tree.insert(10);

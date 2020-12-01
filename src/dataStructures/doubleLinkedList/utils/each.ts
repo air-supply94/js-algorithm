@@ -8,12 +8,8 @@ export function each<T = unknown>(
 ): void {
   let i = 0;
   let currentNode = startNode;
-  while (i < size && currentNode) {
-    const next = currentNode[propertyKey];
-    if (callback(currentNode) === false) {
-      break;
-    }
-    currentNode = next;
+  while (i < size && currentNode && callback(currentNode) !== false) {
+    currentNode = currentNode[propertyKey];
     i++;
   }
 }

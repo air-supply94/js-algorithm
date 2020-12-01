@@ -15,8 +15,8 @@ export class GraphEdge<T = string> implements GraphEdgeInterface<T> {
 
   public get value(): string {
     return [
-      (this.startVertex.value),
-      (this.endVertex.value),
+      this.startVertex,
+      this.endVertex,
     ].join(',');
   }
 
@@ -28,7 +28,7 @@ export class GraphEdge<T = string> implements GraphEdgeInterface<T> {
     return this;
   }
 
-  public toString() {
+  public toString(): string {
     return this.value;
   }
 }

@@ -64,7 +64,7 @@ export class GraphVertex<T = string> implements GraphVertexInterface<T> {
     this.edges.clear();
   }
 
-  public toString() {
+  public toString(): string {
     return String(this.value);
   }
 }

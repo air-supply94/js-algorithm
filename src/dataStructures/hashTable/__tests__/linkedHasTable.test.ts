@@ -2,7 +2,7 @@ import { LinkedHashTable, defaultSize } from '../linkedHashTable';
 
 describe('HashTable', () => {
   test('should test bucket', () => {
-    const hashTable = new LinkedHashTable();
+    const hashTable = new LinkedHashTable(defaultSize);
     const str1 = String.fromCodePoint(defaultSize);
     const str2 = String.fromCodePoint(defaultSize * 2);
     const str3 = String.fromCodePoint(defaultSize * 3);

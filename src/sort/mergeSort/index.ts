@@ -1,11 +1,11 @@
 import { Comparator, compareFunctionType, ComparatorInterface } from '../../utils';
 
 export function mergeSort<T = unknown>(originalArray: T[], comparator?: Comparator | compareFunctionType): T[] {
-  comparator = new Comparator(comparator);
-
   if (originalArray.length <= 1) {
     return originalArray;
   }
+
+  comparator = new Comparator(comparator);
 
   const middleIndex = originalArray.length >>> 1;
   const left = originalArray.slice(0, middleIndex);

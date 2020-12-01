@@ -12,7 +12,7 @@ export function rotateLeftLeft<T = unknown>(
     setRoot(leftNode);
   } else if (rootNode.parent.left === rootNode) {
     rootNode.parent.setLeft(leftNode);
-  } else if (rootNode.parent.right === rootNode) {
+  } else {
     rootNode.parent.setRight(leftNode);
   }
 
@@ -73,7 +73,7 @@ export function rotateRightRight<T = unknown>(
     setRoot(rightNode);
   } else if (rootNode.parent.right === rootNode) {
     rootNode.parent.setRight(rightNode);
-  } else if (rootNode.parent.left === rootNode) {
+  } else {
     rootNode.parent.setLeft(rightNode);
   }
 

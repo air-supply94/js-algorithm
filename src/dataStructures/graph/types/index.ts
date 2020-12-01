@@ -22,19 +22,19 @@ export interface GraphVertexInterface<T = string> {
   deleteAllEdges: () => void;
 }
 
-export interface GraphInterface {
-  isDirected: boolean;
-  hasVertex: (vertex: GraphVertexInterface | string) => boolean;
-  addVertex: (vertex: GraphVertexInterface) => GraphVertexInterface;
-  getVertex: (vertex: GraphVertexInterface | string) => GraphVertexInterface | null;
-  getNeighbors: (vertex: GraphVertexInterface | string) => GraphVertexInterface[];
-  getAllVertices: () => GraphVertexInterface[];
-  getAllEdges: () => GraphEdgeInterface[];
-  hasEdge: (edge: GraphEdgeInterface | string) => boolean;
-  getEdge: (edge: GraphEdgeInterface | string) => GraphEdgeInterface | null;
-  addEdge: (edge: GraphEdgeInterface) => GraphEdgeInterface;
-  deleteEdge: (edge: GraphEdgeInterface | string) => GraphEdgeInterface | null;
-  findEdge: (startVertex: GraphVertexInterface | string, endVertex: GraphVertexInterface | string) => GraphEdgeInterface | null;
+export interface GraphInterface<T = string> {
+  readonly isDirected: boolean;
+  hasVertex: (vertex: GraphVertexInterface<T> | string) => boolean;
+  addVertex: (vertex: GraphVertexInterface<T>) => GraphVertexInterface<T>;
+  getVertex: (vertex: GraphVertexInterface<T> | string) => GraphVertexInterface<T> | null;
+  getNeighbors: (vertex: GraphVertexInterface<T> | string) => Array<GraphVertexInterface<T>>;
+  getAllVertices: () => Array<GraphVertexInterface<T>>;
+  getAllEdges: () => Array<GraphEdgeInterface<T>>;
+  hasEdge: (edge: GraphEdgeInterface<T> | string) => boolean;
+  getEdge: (edge: GraphEdgeInterface<T> | string) => GraphEdgeInterface<T> | null;
+  addEdge: (edge: GraphEdgeInterface<T>) => GraphEdgeInterface<T>;
+  deleteEdge: (edge: GraphEdgeInterface<T> | string) => GraphEdgeInterface<T> | null;
+  findEdge: (startVertex: GraphVertexInterface<T> | string, endVertex: GraphVertexInterface<T> | string) => GraphEdgeInterface<T> | null;
   getWeight: () => number;
   reverse: () => this;
   getVerticesIndices: () => { [key: string]: number; };

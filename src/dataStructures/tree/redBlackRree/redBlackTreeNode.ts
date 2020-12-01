@@ -51,7 +51,7 @@ export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<
     return this;
   }
 
-  public toString() {
+  public toString(): string {
     return String(this.value);
   }
 }

@@ -5,7 +5,8 @@ import { GraphVertex } from '../GraphVertex';
 describe('Graph', () => {
   test('should add vertices to graph', () => {
     const graph = new Graph();
-
+    expect(graph.getNeighbors('aaa')).toEqual([]);
+    expect(graph.getEdge('aaa')).toBeNull();
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
 

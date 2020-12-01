@@ -72,17 +72,19 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
   }
 
   public removeChild(nodeToRemove: BinarySearchTreeNodeInterface<T>): boolean {
-    if (this.left && nodeToRemove === this.left) {
+    if (!nodeToRemove) {
+      return false;
+    }
+
+    if (nodeToRemove === this.left) {
       this.setLeft(null);
       return true;
-    }
-
-    if (this.right && nodeToRemove === this.right) {
+    } else if (nodeToRemove === this.right) {
       this.setRight(null);
       return true;
+    } else {
+      return false;
     }
-
-    return false;
   }
 
   public replaceChild(
@@ -93,17 +95,15 @@ export class BinarySearchTreeNode<T = unknown> implements BinarySearchTreeNodeIn
       return false;
     }
 
-    if (this.left && this.left === nodeToReplace) {
+    if (this.left === nodeToReplace) {
       this.setLeft(replacementNode);
       return true;
-    }
-
-    if (this.right && this.right === nodeToReplace) {
+    } else if (this.right === nodeToReplace) {
       this.setRight(replacementNode);
       return true;
+    } else {
+      return false;
     }
-
-    return false;
   }
 
   public toString(): string {

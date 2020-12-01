@@ -25,9 +25,7 @@ export function insert<T = unknown>(
     root.setLeft(newNode);
 
     return newNode;
-  }
-
-  if (comparator.greaterThan(value, root.value)) {
+  } else if (comparator.greaterThan(value, root.value)) {
     if (root.right) {
       return insert<T>(root.right, value, comparator);
     }
@@ -36,7 +34,7 @@ export function insert<T = unknown>(
     root.setRight(newNode);
 
     return newNode;
+  } else {
+    return null;
   }
-
-  return null;
 }

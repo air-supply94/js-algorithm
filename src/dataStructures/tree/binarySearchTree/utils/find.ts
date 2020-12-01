@@ -12,15 +12,11 @@ export function find<T = unknown>(
 
   if (comparator.equal(value, root.value)) {
     return root;
-  }
-
-  if (root.left && comparator.lessThan(value, root.value)) {
+  } else if (root.left && comparator.lessThan(value, root.value)) {
     return find<T>(root.left, value, comparator);
-  }
-
-  if (root.right && comparator.greaterThan(value, root.value)) {
+  } else if (root.right && comparator.greaterThan(value, root.value)) {
     return find<T>(root.right, value, comparator);
+  } else {
+    return null;
   }
-
-  return null;
 }

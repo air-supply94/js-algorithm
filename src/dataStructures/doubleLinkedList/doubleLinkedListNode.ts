@@ -13,7 +13,7 @@ export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeIn
 
   private _previous: DoubleLinkedListNodeInterface<T> | null;
 
-  public get value() {
+  public get value(): T {
     return this._value;
   }
 
@@ -22,7 +22,7 @@ export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeIn
     return this;
   }
 
-  public get next() {
+  public get next(): DoubleLinkedListNodeInterface<T> | null {
     return this._next;
   }
 
@@ -31,7 +31,7 @@ export class DoubleLinkedListNode<T = unknown> implements DoubleLinkedListNodeIn
     return this;
   }
 
-  public get previous() {
+  public get previous(): DoubleLinkedListNodeInterface<T> | null {
     return this._previous;
   }
 

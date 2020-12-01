@@ -2,7 +2,7 @@ import { Comparator, compareFunctionType, getLeftChildIndex, getParentIndex, get
 import { HeapInterface } from './types';
 
 export abstract class Heap<T = unknown> implements HeapInterface<T> {
-  public get heapContainer() {
+  public get heapContainer(): T[] {
     return this._heapContainer;
   }
 
@@ -23,18 +23,18 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
 
       if (removeIndex === this.heapContainer.length - 1) {
         this.heapContainer.pop();
-        break;
-      }
-
-      this.heapContainer[removeIndex] = this.heapContainer.pop();
-      if (!hasParent(this.heapContainer, removeIndex) || this.pairIsInCorrectOrder(parent(this.heapContainer, removeIndex), this.heapContainer[removeIndex])) {
-        this.down(removeIndex);
+        return result;
       } else {
-        this.up(removeIndex);
-      }
+        this.heapContainer[removeIndex] = this.heapContainer.pop();
+        if (!hasParent(this.heapContainer, removeIndex) || this.pairIsInCorrectOrder(parent(this.heapContainer, removeIndex), this.heapContainer[removeIndex])) {
+          this.down(removeIndex);
+        } else {
+          this.up(removeIndex);
+        }
 
-      i++;
-      removeIndex = this.findIndex(item, comparator, removeIndex);
+        i++;
+        removeIndex = this.findIndex(item, comparator, removeIndex);
+      }
     }
     return result;
   }
@@ -63,11 +63,12 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
   public poll(): T | undefined {
     if (this.heapContainer.length <= 1) {
       return this.heapContainer.pop();
+    } else {
+      const item = this.heapContainer[0];
+      this.heapContainer[0] = this.heapContainer.pop();
+      this.down();
+      return item;
     }
-    const item = this.heapContainer[0];
-    this.heapContainer[0] = this.heapContainer.pop();
-    this.down();
-    return item;
   }
 
   public add(item: T): this {
@@ -110,7 +111,7 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
         : getLeftChildIndex(customStartIndex);
 
       if (this.pairIsInCorrectOrder(this.heapContainer[customStartIndex], this.heapContainer[nextIndex])) {
-        break;
+        return this;
       }
 
       swap(this.heapContainer, customStartIndex, nextIndex);
