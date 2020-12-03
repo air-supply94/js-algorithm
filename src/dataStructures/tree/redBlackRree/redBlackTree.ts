@@ -77,7 +77,8 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         rotateLeftRight<RedBlackTreeNodeInterface<T>>(node.parent.parent);
         rotateLeftLeft<RedBlackTreeNodeInterface<T>>(node.parent, this.setRoot);
       }
-    } else if (node.parent === node.parent.parent.right) {
+    } else {
+      // eslint-disable-next-line no-lonely-if
       if (node === node.parent.right) {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
