@@ -2,7 +2,7 @@ import { Comparator, compareFunctionType, swap } from '../../utils';
 
 export function shellSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);
-  let gap = originalArray.length / 2 | 0;
+  let gap = originalArray.length >>> 1;
 
   while (gap > 0) {
     for (let i = 0; i < (originalArray.length - gap); i++) {

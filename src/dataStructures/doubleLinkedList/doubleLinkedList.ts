@@ -246,12 +246,15 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return newNode;
   }
 
-  public reverse(): this {
-    const current = this.head;
-    this.setHead(this.tail);
-    this.setTail(current);
-    reverse<T>(current);
-    return this;
+  public reverse(m = 1, n = this.size): this {
+    const head = reverse<T>(this.head, m, n);
+    let tail = head;
+    while (tail && tail.next) {
+      tail = tail.next;
+    }
+
+    return this.setHead(head)
+      .setTail(tail);
   }
 
   public connect(...arg: Array<DoubleLinkedListInterface<T>>): this {

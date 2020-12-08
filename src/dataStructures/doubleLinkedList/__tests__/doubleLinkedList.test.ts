@@ -226,9 +226,9 @@ describe('Index', () => {
 
   test('should reverse linked list', () => {
     const linkedList = new DoubleLinkedList();
-
-    linkedList.append(1);
     linkedList.reverse();
+    linkedList.append(1);
+    linkedList.reverse(1, 1);
     expect(linkedList.tail.next)
       .toBeNull();
     expect(linkedList.head.previous)
@@ -258,6 +258,40 @@ describe('Index', () => {
       .toBe(1);
     expect(linkedList.size)
       .toBe(1);
+  });
+
+  test('should reverse between', () => {
+    function getList() {
+      const linkedList = new DoubleLinkedList();
+      linkedList.append(1);
+      linkedList.append(2);
+      linkedList.append(3);
+      linkedList.append(4);
+      linkedList.append(5);
+      return linkedList;
+    }
+
+    let list = getList();
+    list.reverse(2, 4);
+    expect(list.toString())
+      .toBe('1,4,3,2,5');
+    expect(list.head.value)
+      .toBe(1);
+    expect(list.tail.value)
+      .toBe(5);
+    expect(hasCircle(list))
+      .toBeFalsy();
+
+    list = getList();
+    list.reverse(2, 10);
+    expect(list.toString())
+      .toBe('1,5,4,3,2');
+    expect(list.head.value)
+      .toBe(1);
+    expect(list.tail.value)
+      .toBe(2);
+    expect(hasCircle(list))
+      .toBeFalsy();
   });
 
   test('should delete node by value from linked list', () => {

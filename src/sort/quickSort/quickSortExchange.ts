@@ -6,8 +6,7 @@ export function quickSortExchange<T = unknown>(originalArray: T[], comparator: C
     return originalArray;
   }
 
-  const middle = originalArray.length >>> 1;
-  const pivotElement = originalArray[middle];
+  const pivotElement = originalArray[originalArray.length >>> 1];
   const center = [];
   const left = [];
   const right = [];

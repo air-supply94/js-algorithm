@@ -9,7 +9,7 @@ export function sort<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null,
 
   let slow = head;
   let fast = head;
-  while (slow.next && fast.next && fast.next.next) {
+  while (fast && fast.next && fast.next.next) {
     slow = slow.next;
     fast = fast.next.next;
   }

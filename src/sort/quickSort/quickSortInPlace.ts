@@ -2,7 +2,7 @@ import { Comparator, swap, compareFunctionType } from '../../utils';
 
 export function quickSortInPlace<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType, left = 0, right: number = originalArray.length - 1): T[] {
   const comparator = new Comparator(compareCallback);
-  if (originalArray.length > 1) {
+  if (originalArray.length > 1 && left < right) {
     const partitionIndex = partitionArray(originalArray, comparator, left, right);
 
     if (left < partitionIndex - 1) {

@@ -12,8 +12,8 @@ export function countSort(originalArray: number[]): number[] {
     count[item - min]++;
   });
 
-  for (let index = 1; index < count.length; index++) {
-    count[index] += count[index - 1];
+  for (let i = 1; i < count.length; i++) {
+    count[i] += count[i - 1];
   }
 
   const result = Array(originalArray.length);
