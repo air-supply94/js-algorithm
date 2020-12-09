@@ -14,7 +14,9 @@ export function insert<T = unknown>(
       emptyRootCallback(newNode);
     }
     return newNode;
-  } else if (comparator.lessThan(value, root.value)) {
+  }
+
+  if (comparator.lessThan(value, root.value)) {
     if (root.left) {
       return insert<T>(root.left, value, comparator);
     }

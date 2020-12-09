@@ -26,8 +26,10 @@ export function findReplaceNode<T = unknown>(
   while (replaceNode.left || replaceNode.right) {
     if (replaceNode.left && replaceNode.right) {
       replaceNode = isFindMin ? findMin<T>(replaceNode.right) : findMax<T>(replaceNode.left);
+    } else if (replaceNode.left) {
+      replaceNode = replaceNode.left;
     } else {
-      replaceNode = replaceNode.left || replaceNode.right;
+      replaceNode = replaceNode.right;
     }
 
     swap(tmpNode, replaceNode);

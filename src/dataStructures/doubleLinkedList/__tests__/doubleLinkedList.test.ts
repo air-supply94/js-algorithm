@@ -2,6 +2,7 @@ import { Comparator } from '../../../utils';
 import { DoubleLinkedList } from '../doubleLinkedList';
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { hasCircle } from '../leetcode/hasCircle';
+import { reverse } from '../utils';
 
 describe('DoubleLinkedListNode', () => {
   test('should create list node with value', () => {
@@ -272,9 +273,10 @@ describe('Index', () => {
     }
 
     let list = getList();
-    list.reverse(2, 4);
+    expect(reverse(list.head, 3, 4).value)
+      .toBe(1);
     expect(list.toString())
-      .toBe('1,4,3,2,5');
+      .toBe('1,2,4,3,5');
     expect(list.head.value)
       .toBe(1);
     expect(list.tail.value)

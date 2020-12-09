@@ -8,24 +8,23 @@ export function traverseAfterOrder<T = unknown>(
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
   if (root) {
-    nodeStack.push(currentNode);
+    nodeStack.push(root);
   }
 
   while (!nodeStack.isEmpty()) {
     let peekNode = nodeStack.peek();
     if (peekNode !== currentNode.parent) {
-      while (peekNode) {
-        if (peekNode.left) {
-          if (peekNode.right) {
-            nodeStack.push(peekNode.right);
-          }
-          nodeStack.push(peekNode.left);
-        } else {
+      while (peekNode.left || peekNode.right) {
+        if (peekNode.left && peekNode.right) {
           nodeStack.push(peekNode.right);
+          nodeStack.push(peekNode.left);
+        } else if (peekNode.right) {
+          nodeStack.push(peekNode.right);
+        } else {
+          nodeStack.push(peekNode.left);
         }
         peekNode = nodeStack.peek();
       }
-      nodeStack.pop();
     }
 
     currentNode = nodeStack.pop();

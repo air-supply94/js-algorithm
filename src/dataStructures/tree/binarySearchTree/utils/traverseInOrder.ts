@@ -7,21 +7,17 @@ export function traverseInOrder<T = unknown>(
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    while (currentNode) {
+
+  while (currentNode || !nodeStack.isEmpty()) {
+    if (currentNode) {
       nodeStack.push(currentNode);
       currentNode = currentNode.left;
+    } else {
+      const tmpNode = nodeStack.pop();
+      if (callback(tmpNode) === false) {
+        return;
+      }
+      currentNode = tmpNode.right;
     }
-
-    if (nodeStack.isEmpty()) {
-      return;
-    }
-
-    currentNode = nodeStack.pop();
-    if (callback(currentNode) === false) {
-      return;
-    }
-    currentNode = currentNode.right;
   }
 }

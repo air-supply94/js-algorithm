@@ -8,9 +8,9 @@ function initTreeNodes<T = unknown>(array: T[], start: number, end: number): Bin
     node.setLeft(initTreeNodes(array, start, middle - 1));
     node.setRight(initTreeNodes(array, middle + 1, end));
     return node;
+  } else {
+    return null;
   }
-
-  return null;
 }
 
 export function sortedArrayToBst<T = unknown>(array: T[]): BinarySearchTreeNodeInterface<T> {

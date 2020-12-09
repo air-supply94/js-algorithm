@@ -27,7 +27,7 @@ export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNo
     }
 
     if (i >= array.length) {
-      break;
+      return root;
     }
 
     const rightValue = array[i];

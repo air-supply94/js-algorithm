@@ -74,7 +74,7 @@ export function reverse<T = unknown>(head: DoubleLinkedListNodeInterface<T> | nu
       thirdHead.setPrevious(secondHead);
     }
 
-    return firstTail ? firstTail : secondTail;
+    return firstTail ? head : secondTail;
   } else {
     return null;
   }

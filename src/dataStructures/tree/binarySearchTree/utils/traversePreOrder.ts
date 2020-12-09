@@ -6,25 +6,22 @@ export function traversePreOrder<T = unknown>(
   callback: traverseCallback<T>
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
-  let currentNode = root;
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    while (currentNode) {
-      if (callback(currentNode) === false) {
-        return;
-      }
+  if (root) {
+    nodeStack.push(root);
+  }
 
-      if (currentNode.right) {
-        nodeStack.push(currentNode.right);
-      }
-
-      currentNode = currentNode.left;
-    }
-
-    if (nodeStack.isEmpty()) {
+  while (!nodeStack.isEmpty()) {
+    const currentNode = nodeStack.pop();
+    if (callback(currentNode) === false) {
       return;
     }
 
-    currentNode = nodeStack.pop();
+    if (currentNode.right) {
+      nodeStack.push(currentNode.right);
+    }
+
+    if (currentNode.left) {
+      nodeStack.push(currentNode.left);
+    }
   }
 }
