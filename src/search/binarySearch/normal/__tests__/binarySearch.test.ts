@@ -1,4 +1,4 @@
-import { Comparator } from '../../../utils';
+import { Comparator } from '../../../../utils';
 import { binarySearch } from '../index';
 
 describe('binarySearch', () => {
