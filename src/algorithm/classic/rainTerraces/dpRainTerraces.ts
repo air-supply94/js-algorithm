@@ -1,35 +1,30 @@
 export function dpRainTerraces(terraces: number[]): number {
-  let waterAmount = 0;
+  let amount = 0;
 
-  const leftMaxLevels = new Array(terraces.length).fill(0);
-  const rightMaxLevels = new Array(terraces.length).fill(0);
+  const leftMax = new Array(terraces.length).fill(0);
+  const rightMax = new Array(terraces.length).fill(0);
 
-  leftMaxLevels[0] = terraces[0];
-  for (let terraceIndex = 1; terraceIndex < terraces.length; terraceIndex++) {
-    leftMaxLevels[terraceIndex] = Math.max(
-      terraces[terraceIndex],
-      leftMaxLevels[terraceIndex - 1]
+  let leftTmp = 0;
+  for (let i = 0; i < terraces.length; i++) {
+    leftTmp = leftMax[i] = Math.max(
+      terraces[i],
+      leftTmp
     );
   }
 
-  rightMaxLevels[terraces.length - 1] = terraces[terraces.length - 1];
-  for (let terraceIndex = terraces.length - 2; terraceIndex >= 0; terraceIndex--) {
-    rightMaxLevels[terraceIndex] = Math.max(
-      terraces[terraceIndex],
-      rightMaxLevels[terraceIndex + 1]
+  let rightTmp = 0;
+  for (let i = terraces.length - 1; i >= 0; i--) {
+    rightTmp = rightMax[i] = Math.max(
+      terraces[i],
+      rightTmp
     );
   }
 
-  for (let terraceIndex = 0; terraceIndex < terraces.length; terraceIndex++) {
-    const currentTerraceBoundary = Math.min(
-      leftMaxLevels[terraceIndex],
-      rightMaxLevels[terraceIndex]
-    );
+  for (let i = 0; i < terraces.length; i++) {
+    const dx = Math.min(leftMax[i], rightMax[i]) - terraces[i];
 
-    if (currentTerraceBoundary > terraces[terraceIndex]) {
-      waterAmount += currentTerraceBoundary - terraces[terraceIndex];
-    }
+    amount += dx > 0 ? dx : 0;
   }
 
-  return waterAmount;
+  return amount;
 }

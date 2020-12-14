@@ -1,24 +1,13 @@
-export function dpUniquePaths(width: number, height: number): number {
-  const board = Array(height)
-    .fill(null)
-    .map(() => Array(width)
-      .fill(0));
+export function dpUniquePaths(w: number, h: number): number {
+  const dp = Array(w)
+    .fill(1);
 
-  for (let rowIndex = 0; rowIndex < height; rowIndex += 1) {
-    for (let columnIndex = 0; columnIndex < width; columnIndex += 1) {
-      if (rowIndex === 0 || columnIndex === 0) {
-        board[rowIndex][columnIndex] = 1;
-      }
+  for (let i = 1; i < h; i++) {
+    dp[0] = 1;
+    for (let j = 1; j < w; j++) {
+      dp[j] += dp[j - 1];
     }
   }
 
-  for (let rowIndex = 1; rowIndex < height; rowIndex += 1) {
-    for (let columnIndex = 1; columnIndex < width; columnIndex += 1) {
-      const uniquesFromTop = board[rowIndex - 1][columnIndex];
-      const uniquesFromLeft = board[rowIndex][columnIndex - 1];
-      board[rowIndex][columnIndex] = uniquesFromTop + uniquesFromLeft;
-    }
-  }
-
-  return board[height - 1][width - 1];
+  return dp[w - 1];
 }
