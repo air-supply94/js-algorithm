@@ -1,4 +1,3 @@
-
 export function generateParenthesis(n: number): string[] {
   const result = [];
   function recursion(tempString = '', left = 0, right = 0) {
