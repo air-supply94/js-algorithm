@@ -3,11 +3,11 @@ export function maxSubArray(nums: number[]): number {
     return 0;
   }
 
-  let pre = nums[0];
+  let current = nums[0];
   let max = nums[0];
   for (let i = 1; i < nums.length; i++) {
-    pre = Math.max(pre + nums[i], nums[i]);
-    max = Math.max(max, pre);
+    current = Math.max(current + nums[i], nums[i]);
+    max = Math.max(max, current);
   }
 
   return max;
