@@ -1,0 +1,54 @@
+import { maximalSquare } from '../maximalSquare';
+
+describe('maximalSquare', () => {
+  test('find max area in the matrix', () => {
+    expect(maximalSquare(
+      [
+        [
+          1,
+          0,
+          1,
+          0,
+          0,
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          1,
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+        ],
+      ]
+    ))
+      .toBe(4);
+    expect(maximalSquare(
+      [
+        [
+          0,
+          1,
+        ],
+        [
+          1,
+          0,
+        ],
+      ]
+    ))
+      .toBe(1);
+    expect(maximalSquare([[0]]))
+      .toBe(0);
+  });
+});
