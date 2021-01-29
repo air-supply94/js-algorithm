@@ -20,9 +20,9 @@ export function add(num1: unknown, num2: unknown): number {
   }
 
   const maxDecimalLength = Math.max(decimalLength1, decimalLength2);
-  const newNumb1 = Number(s1.replace('.', '')) * Math.pow(10, maxDecimalLength - decimalLength1);
-  const newNumb2 = Number(s2.replace('.', '')) * Math.pow(10, maxDecimalLength - decimalLength2);
-  return (newNumb1 + newNumb2) / Math.pow(10, maxDecimalLength);
+  const newNum1 = Number(s1.replace('.', '')) * Math.pow(10, maxDecimalLength - decimalLength1);
+  const newNum2 = Number(s2.replace('.', '')) * Math.pow(10, maxDecimalLength - decimalLength2);
+  return (newNum1 + newNum2) / Math.pow(10, maxDecimalLength);
 }
 
 export function subtract(num1: unknown, num2: unknown): number {

@@ -1,4 +1,4 @@
-# 0.0.0 (2020-12-29)
+# 0.0.0 (2021-02-09)
 
 ### Bug Fixes
 
@@ -11,6 +11,7 @@
 - remove DoubleLinkedList reverse extra code ([4130002](https://github.com/air-supply94/algorithm_exercise/commit/413000283cc5024e481819919811bc4806cd5bf8))
 - rename file ([b03f0d1](https://github.com/air-supply94/algorithm_exercise/commit/b03f0d15ca04ebbfeb0f6a54aa3e1a0c4785e768))
 - rename test filename ([8369baf](https://github.com/air-supply94/algorithm_exercise/commit/8369baf3707d50382d3d85cd2131eedf7e16ede5))
+- test ([41eb91e](https://github.com/air-supply94/algorithm_exercise/commit/41eb91e45531ca22e86c285142cdd8f059bf49d7))
 - update code-style package ([bc71131](https://github.com/air-supply94/algorithm_exercise/commit/bc7113122ac26a5f097fb3490505b8ff0433589a))
 - update config ([ddef9b6](https://github.com/air-supply94/algorithm_exercise/commit/ddef9b6a41f76289a091972110c23a1a75d68968))
 - update package ([46ce8d7](https://github.com/air-supply94/algorithm_exercise/commit/46ce8d7a26290a0f61c37ae8242f5ae4c1248005))
@@ -98,7 +99,8 @@
 - **math/bits:** test ([3de3260](https://github.com/air-supply94/algorithm_exercise/commit/3de32608ced958befed76d42b1e8052c2fa6f6cc))
 - **mergeSort:** 更新 mergeSortedArrays concat 方式 ([8baf586](https://github.com/air-supply94/algorithm_exercise/commit/8baf5861287c1e603d619609628544db119c6781))
 - **nQueens:** add bf ([abb3529](https://github.com/air-supply94/algorithm_exercise/commit/abb3529939a93661f6660a51c47ae49ff98bc932))
-- **package.json:** add validate-commit-msg and cz ([2c9eb5e](https://github.com/air-supply94/algorithm_exercise/commit/2c9eb5e5ca5377aa90a1cb90779c50d7aaa35a8a))
+- **package.json:** add validate-commit-msg and cz ([273c6c8](https://github.com/air-supply94/algorithm_exercise/commit/273c6c8b081693a6b0030a362662ca0bf1f4c579))
+- **price:** add add、subtract、multiple toFixed thousandthSeparator method ([78ade6c](https://github.com/air-supply94/algorithm_exercise/commit/78ade6c6af34edcbc58c82f1b22b249f71b90f90))
 - **queue:** add interface ([af79386](https://github.com/air-supply94/algorithm_exercise/commit/af79386ea74a3d6992c2489ac46925931558b654))
 - **quickSortInPlace:** 增加排序 ([e714bd2](https://github.com/air-supply94/algorithm_exercise/commit/e714bd23ed956ab4187787c41cb3d80a14b0c1e8))
 - **red-black-tree:** 颜色类型错误 ([b39c783](https://github.com/air-supply94/algorithm_exercise/commit/b39c783bf631eec0313d172690f75a4a849d439c))

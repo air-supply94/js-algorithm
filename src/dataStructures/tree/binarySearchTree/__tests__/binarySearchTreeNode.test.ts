@@ -257,6 +257,8 @@ describe('BinarySearchTreeNode', () => {
     const uncle = new BinarySearchTreeNode('uncle');
     const child = new BinarySearchTreeNode('child');
 
+    expect(getUncle(null))
+      .toBeNull();
     expect(getUncle(grandParent))
       .toBeNull();
     expect(getUncle(parent))
