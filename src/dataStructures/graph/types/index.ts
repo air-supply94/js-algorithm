@@ -23,8 +23,8 @@ export interface GraphVertexInterface<T = string> {
 }
 
 export interface GraphInterface<T = string> {
-  readonly vertices: { [key: string]: GraphVertexInterface<T>; };
-  readonly edges: { [key: string]: GraphEdgeInterface<T>; };
+  readonly vertices: {[key: string]: GraphVertexInterface<T>; };
+  readonly edges: {[key: string]: GraphEdgeInterface<T>; };
   readonly isDirected: boolean;
   hasVertex: (vertex: GraphVertexInterface<T> | string) => boolean;
   addVertex: (vertex: GraphVertexInterface<T>) => GraphVertexInterface<T>;
@@ -39,6 +39,6 @@ export interface GraphInterface<T = string> {
   findEdge: (startVertex: GraphVertexInterface<T> | string, endVertex: GraphVertexInterface<T> | string) => GraphEdgeInterface<T> | null;
   getWeight: () => number;
   reverse: () => this;
-  getVerticesIndices: () => { [key: string]: number; };
+  getVerticesIndices: () => {[key: string]: number; };
   getAdjacencyMatrix: () => number[][];
 }

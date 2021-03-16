@@ -10,7 +10,7 @@ export interface TrieNodeInterface {
   prefixCount: number;
   isCompleteWord: boolean;
   character: string;
-  children: { [key: string]: TrieNodeInterface; };
+  children: {[key: string]: TrieNodeInterface; };
   getChild: (character: string) => TrieNodeInterface | undefined;
   addChild: (character: string, isCompleteWord?: boolean) => TrieNodeInterface;
   hasChild: (character: string) => boolean;

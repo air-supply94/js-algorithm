@@ -42,40 +42,40 @@ export function reverse<T = unknown>(head: DoubleLinkedListNodeInterface<T> | nu
     j--;
   }
 
-  if (secondHead) {
-    const firstTail = secondHead.previous;
-    if (firstTail) {
-      firstTail.setNext(null);
-    }
-    secondHead.setPrevious(null);
-
-    let secondTail = secondHead;
-    while (j > 1 && secondTail && secondTail.next) {
-      secondTail = secondTail.next;
-      j--;
-    }
-
-    const thirdHead = secondTail.next;
-    if (thirdHead) {
-      thirdHead.previous.setNext(null);
-      thirdHead.setPrevious(null);
-    }
-
-    reverseBase<T>(secondHead);
-
-    if (firstTail) {
-      firstTail.setNext(secondTail);
-    }
-
-    secondHead.setNext(thirdHead);
-    secondTail.setPrevious(firstTail);
-
-    if (thirdHead) {
-      thirdHead.setPrevious(secondHead);
-    }
-
-    return firstTail ? head : secondTail;
-  } else {
+  if (!secondHead) {
     return null;
   }
+
+  const firstTail = secondHead.previous;
+  if (firstTail) {
+    firstTail.setNext(null);
+  }
+  secondHead.setPrevious(null);
+
+  let secondTail = secondHead;
+  while (j > 1 && secondTail && secondTail.next) {
+    secondTail = secondTail.next;
+    j--;
+  }
+
+  const thirdHead = secondTail.next;
+  if (thirdHead) {
+    thirdHead.previous.setNext(null);
+    thirdHead.setPrevious(null);
+  }
+
+  reverseBase<T>(secondHead);
+
+  if (firstTail) {
+    firstTail.setNext(secondTail);
+  }
+
+  secondHead.setNext(thirdHead);
+  secondTail.setPrevious(firstTail);
+
+  if (thirdHead) {
+    thirdHead.setPrevious(secondHead);
+  }
+
+  return firstTail ? head : secondTail;
 }

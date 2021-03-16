@@ -1,38 +1,14 @@
 import { DoubleLinkedList } from '../../doubleLinkedList';
 import { mergeTwoLists } from '../../utils/mergeTwoLists';
 import { addTwoNumbers } from '../addTwoNumbers';
-import { deleteDuplicates } from '../deleteDuplicates';
 import { detectCircle } from '../detectCircle';
 import { getCircleLength } from '../getCircleLength';
 import { getDecimalValue } from '../getDecimalValue';
 import { hasCircle } from '../hasCircle';
 import { isPalindrome } from '../isPalindrome';
 import { partition } from '../partition';
-import { swapPairs } from '../swapPairs';
 
 describe('leetcode DoubleLinkedList', () => {
-  test('deleteDuplicates', () => {
-    const doubleLinkedList = new DoubleLinkedList();
-    deleteDuplicates(doubleLinkedList);
-    doubleLinkedList.fromArray([
-      1,
-      1,
-      2,
-      2,
-      3,
-      4,
-      4,
-    ]);
-    deleteDuplicates(doubleLinkedList);
-
-    expect(doubleLinkedList.toString())
-      .toBe('1,2,3,4');
-    expect(doubleLinkedList.size)
-      .toBe(4);
-    expect(hasCircle(doubleLinkedList))
-      .toBeFalsy();
-  });
-
   test('getDecimalValue', () => {
     const doubleLinkedList = new DoubleLinkedList<number>();
     doubleLinkedList.fromArray([
@@ -96,36 +72,10 @@ describe('leetcode DoubleLinkedList', () => {
       .toBe('5,9,2,1,2');
   });
 
-  test('swapPairs', () => {
-    const doubleLinkedList = new DoubleLinkedList();
-    doubleLinkedList.fromArray([
-      1,
-      2,
-    ]);
-
-    expect(swapPairs(doubleLinkedList)
-      .toString())
-      .toBe('2,1');
-
-    doubleLinkedList.append(4);
-    expect(swapPairs(doubleLinkedList)
-      .toString())
-      .toBe('1,2,4');
-    expect(hasCircle(doubleLinkedList))
-      .toBeFalsy();
-
-    doubleLinkedList.append(3);
-    doubleLinkedList.append(5);
-    doubleLinkedList.append(6);
-    expect(swapPairs(doubleLinkedList)
-      .toString())
-      .toBe('2,1,3,4,6,5');
-    expect(hasCircle(doubleLinkedList))
-      .toBeFalsy();
-  });
-
   test('partition', () => {
     const doubleLinkedList = new DoubleLinkedList();
+    expect(partition(doubleLinkedList, 0).size)
+      .toBe(0);
     doubleLinkedList.fromArray([
       2,
       1,

@@ -47,7 +47,7 @@ export class Trie implements TrieInterface {
 
   public wordFrequency(): { [key in string]: number } {
     const result = {};
-    const queue = new Queue<{node: TrieNodeInterface;word: string;}>();
+    const queue = new Queue<{ node: TrieNodeInterface;word: string; }>();
 
     Object.values(this.root.children)
       .forEach((trieNode) => queue.enqueue({

@@ -3,11 +3,10 @@ import { DoubleLinkedListNodeInterface } from '../types';
 export function detectCircle<T = unknown>(startNode: DoubleLinkedListNodeInterface<T>, property: 'next' | 'previous'): null | DoubleLinkedListNodeInterface<T> {
   let slow = startNode;
   let fast = startNode;
-
   while (fast && fast[property]) {
     slow = slow[property];
     fast = fast[property][property];
-    if (fast === slow) {
+    if (slow === fast) {
       break;
     }
   }
@@ -16,10 +15,11 @@ export function detectCircle<T = unknown>(startNode: DoubleLinkedListNodeInterfa
     return null;
   }
 
-  slow = startNode;
-  while (slow !== fast) {
+  let head = startNode;
+  while (head !== slow) {
+    head = head[property];
     slow = slow[property];
-    fast = fast[property];
   }
-  return slow;
+
+  return head;
 }

@@ -17,7 +17,7 @@ export class TrieNode implements TrieNodeInterface {
 
   public readonly character: string;
 
-  public children: { [key: string]: TrieNodeInterface; };
+  public children: {[key: string]: TrieNodeInterface; };
 
   public getChild(character: string): TrieNodeInterface | undefined {
     return this.children[character];

@@ -9,36 +9,34 @@ export function get<T = unknown>(
   tail: null | DoubleLinkedListNodeInterface<T>
 ): null | DoubleLinkedListNodeInterface<T> {
   const position = formatIndex(index, size);
-
   if (position < 0 || position >= size) {
     return null;
   }
 
-  if (position >= size / 2 >>> 0) {
-    let i = 0;
+  if (position <= (size >>> 1)) {
     let findNode = null;
-
-    each<T>(tail, size, 'previous', (node) => {
-      if (size - 1 - i === position) {
-        findNode = node;
-        return false;
-      }
-      ++i;
-      return true;
-    });
-
-    return findNode;
-  } else {
     let i = 0;
-    let findNode = null;
-
     each<T>(head, size, 'next', (node) => {
       if (i === position) {
         findNode = node;
         return false;
+      } else {
+        i++;
+        return true;
       }
-      i++;
-      return true;
+    });
+    return findNode;
+  } else {
+    let findNode = null;
+    let i = 0;
+    each<T>(tail, size, 'previous', (node) => {
+      if (i + 1 + position === size) {
+        findNode = node;
+        return false;
+      } else {
+        i++;
+        return true;
+      }
     });
     return findNode;
   }

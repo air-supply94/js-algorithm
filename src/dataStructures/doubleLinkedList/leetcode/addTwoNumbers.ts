@@ -9,9 +9,8 @@ export function addTwoNumbers(l1: DoubleLinkedListInterface<number>, l2: DoubleL
 
   while (p1 || p2) {
     const sum = (p1 ? p1.value : 0) + (p2 ? p2.value : 0) + carry;
-    const resultValue = sum % 10;
-    carry = sum / 10 | 0;
-    resultDoubleLinkedList.append(resultValue);
+    carry = (sum / 10) | 0;
+    resultDoubleLinkedList.append(sum % 10);
     p1 = p1 ? p1.next : p1;
     p2 = p2 ? p2.next : p2;
   }

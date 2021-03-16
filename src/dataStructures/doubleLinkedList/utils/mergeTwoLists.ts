@@ -1,12 +1,12 @@
-import { Comparator } from '../../../utils/comparator';
+import { Comparator } from '../../../utils';
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { DoubleLinkedListNodeInterface } from '../types';
 
 export function mergeTwoLists<T = unknown>(firstHead: DoubleLinkedListNodeInterface<T> | null, secondHead: DoubleLinkedListNodeInterface<T> | null, comparator: Comparator): DoubleLinkedListNodeInterface<T> | null {
-  const head: DoubleLinkedListNodeInterface<T> = new DoubleLinkedListNode<T>(null);
+  const deathHead: DoubleLinkedListNodeInterface<T> = new DoubleLinkedListNode<T>(null);
   let firstHeadNode = firstHead;
   let secondHeadNode = secondHead;
-  let currentNode: DoubleLinkedListNodeInterface<T> = head;
+  let currentNode: DoubleLinkedListNodeInterface<T> = deathHead;
 
   while (firstHeadNode && secondHeadNode) {
     if (comparator.lessThanOrEqual(firstHeadNode.value, secondHeadNode.value)) {
@@ -22,16 +22,15 @@ export function mergeTwoLists<T = unknown>(firstHead: DoubleLinkedListNodeInterf
     currentNode = currentNode.next;
   }
 
-  const restNode = firstHeadNode || secondHeadNode;
-  if (restNode) {
-    restNode.setPrevious(currentNode);
+  if (firstHeadNode || secondHeadNode) {
+    currentNode.setNext(firstHeadNode || secondHeadNode);
+    currentNode.next.setPrevious(currentNode);
   }
-  currentNode.setNext(restNode);
 
-  const resultNode = head.next;
-  if (resultNode) {
-    resultNode.setPrevious(null);
+  const head = deathHead.next;
+  if (head) {
+    head.setPrevious(null);
   }
-  head.setNext(null);
-  return resultNode;
+  deathHead.setNext(null);
+  return head;
 }

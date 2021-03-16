@@ -8,9 +8,9 @@ export class Graph<T = string> implements GraphInterface<T> {
     this.isDirected = isDirected;
   }
 
-  public readonly vertices: { [key: string]: GraphVertexInterface<T>; };
+  public readonly vertices: {[key: string]: GraphVertexInterface<T>; };
 
-  public readonly edges: { [key: string]: GraphEdgeInterface<T>; };
+  public readonly edges: {[key: string]: GraphEdgeInterface<T>; };
 
   public readonly isDirected: boolean;
 
@@ -107,7 +107,7 @@ export class Graph<T = string> implements GraphInterface<T> {
     return this;
   }
 
-  public getVerticesIndices(): { [key: string]: number; } {
+  public getVerticesIndices(): {[key: string]: number; } {
     return this.getAllVertices()
       .reduce((prev, vertex, index) => {
         prev[String(vertex)] = index;

@@ -1,4 +1,4 @@
-# 0.0.0 (2021-02-09)
+# 0.0.0 (2021-03-17)
 
 ### Bug Fixes
 
@@ -11,9 +11,9 @@
 - remove DoubleLinkedList reverse extra code ([4130002](https://github.com/air-supply94/algorithm_exercise/commit/413000283cc5024e481819919811bc4806cd5bf8))
 - rename file ([b03f0d1](https://github.com/air-supply94/algorithm_exercise/commit/b03f0d15ca04ebbfeb0f6a54aa3e1a0c4785e768))
 - rename test filename ([8369baf](https://github.com/air-supply94/algorithm_exercise/commit/8369baf3707d50382d3d85cd2131eedf7e16ede5))
-- test ([41eb91e](https://github.com/air-supply94/algorithm_exercise/commit/41eb91e45531ca22e86c285142cdd8f059bf49d7))
 - update code-style package ([bc71131](https://github.com/air-supply94/algorithm_exercise/commit/bc7113122ac26a5f097fb3490505b8ff0433589a))
 - update config ([ddef9b6](https://github.com/air-supply94/algorithm_exercise/commit/ddef9b6a41f76289a091972110c23a1a75d68968))
+- update package ([2e5aeff](https://github.com/air-supply94/algorithm_exercise/commit/2e5aeff48d3c0579c49f9efceb2fd2a6b657c59b))
 - update package ([46ce8d7](https://github.com/air-supply94/algorithm_exercise/commit/46ce8d7a26290a0f61c37ae8242f5ae4c1248005))
 - update package ([91c1628](https://github.com/air-supply94/algorithm_exercise/commit/91c1628d2f8a5a2a1e8f7a828ec52546c4040934))
 - 减少函数副作用 ([7b2656c](https://github.com/air-supply94/algorithm_exercise/commit/7b2656c3be5313eeb2b25b3a8af96546109b1e93))
@@ -51,6 +51,7 @@
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/algorithm_exercise/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
 - **double-linked-list:** remove flatten ([928a4d6](https://github.com/air-supply94/algorithm_exercise/commit/928a4d6e08527d719c2c548a5ea955a9654a4e9b))
 - **double-linked-list:** 增加排序 ([94af395](https://github.com/air-supply94/algorithm_exercise/commit/94af395a7a0085f805427b45864883f42e247350))
+- **doubleLinkedList:** remove deleteDumplicates swapPairs ([a1b08b2](https://github.com/air-supply94/algorithm_exercise/commit/a1b08b2442078ad376615f0e096c047bbe8babde))
 - **doubleLinkedList:** update reverse ([0f3f7ef](https://github.com/air-supply94/algorithm_exercise/commit/0f3f7ef605953d15c7b844e478a9795d20802e27))
 - **doubleLinkedList:** 修改 delete ([d0ac1c4](https://github.com/air-supply94/algorithm_exercise/commit/d0ac1c4f2a2721bdc15ba784c96fd0a8c33037ea))
 - **doubleLinkedList:** 增加 deleteIndex ([06fdb35](https://github.com/air-supply94/algorithm_exercise/commit/06fdb3547472ae15e60fc516b3875a9c5be41729))

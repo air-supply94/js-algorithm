@@ -3,38 +3,54 @@ import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface } from '../typ
 
 export function partition(doubleLinkedList: DoubleLinkedListInterface, x: number): DoubleLinkedListInterface {
   const beforeHead: DoubleLinkedListNodeInterface = new DoubleLinkedListNode(null);
-  let before: DoubleLinkedListNodeInterface = beforeHead;
+  let beforeCurrent: DoubleLinkedListNodeInterface = beforeHead;
   const afterHead: DoubleLinkedListNodeInterface = new DoubleLinkedListNode(null);
-  let after: DoubleLinkedListNodeInterface = afterHead;
-  let head: DoubleLinkedListNodeInterface | null = null;
-  let tail: DoubleLinkedListNodeInterface | null = null;
+  let afterCurrent: DoubleLinkedListNodeInterface = afterHead;
 
   doubleLinkedList.eachFromHead((node) => {
     if (node.value < x) {
-      before.setNext(node);
-      node.setPrevious(before);
-      before = node;
+      beforeCurrent.setNext(node);
+      node.setPrevious(beforeCurrent);
+      beforeCurrent = node;
     } else {
-      after.setNext(node);
-      node.setPrevious(after);
-      after = node;
+      afterCurrent.setNext(node);
+      node.setPrevious(afterCurrent);
+      afterCurrent = node;
     }
   });
 
-  if (beforeHead.next) {
-    head = beforeHead.next;
-    head.setPrevious(null);
-    tail = before;
-    tail.setNext(afterHead.next);
+  const head1 = beforeHead.next;
+  let tail1 = null;
+  if (head1) {
+    head1.setPrevious(null);
+    tail1 = beforeCurrent;
+    tail1.setNext(null);
   }
 
-  if (afterHead.next) {
-    afterHead.next.setPrevious(tail);
-    if (!head) {
-      head = afterHead.next;
-    }
-    afterHead.setNext(null);
-    tail = after;
+  const head2 = afterHead.next;
+  let tail2 = null;
+  if (head2) {
+    head2.setPrevious(null);
+    tail2 = afterCurrent;
+    tail2.setNext(null);
+  }
+
+  let head: DoubleLinkedListNodeInterface | null;
+  let tail: DoubleLinkedListNodeInterface | null;
+  if (head1 && head2) {
+    head = head1;
+    tail = tail2;
+    tail1.setNext(head2);
+    head2.setPrevious(tail1);
+  } else if (head1) {
+    head = head1;
+    tail = tail1;
+  } else if (head2) {
+    head = head2;
+    tail = tail2;
+  } else {
+    head = null;
+    tail = null;
   }
 
   doubleLinkedList.setHead(head)

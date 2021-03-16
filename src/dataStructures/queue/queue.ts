@@ -1,4 +1,5 @@
-import { DoubleLinkedList, DoubleLinkedListInterface, toStringCallback } from '../doubleLinkedList';
+import { DoubleLinkedList } from '../doubleLinkedList';
+import { DoubleLinkedListInterface, toStringCallback } from '../doubleLinkedList/types';
 import { QueueInterface } from './types';
 
 export class Queue<T = unknown> implements QueueInterface<T> {

@@ -1,4 +1,4 @@
-import { Comparator } from '../../../utils/comparator';
+import { Comparator } from '../../../utils';
 import { DoubleLinkedListNodeInterface } from '../types';
 import { mergeTwoLists } from './mergeTwoLists';
 

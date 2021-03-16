@@ -4,7 +4,7 @@ import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { hasCircle } from '../leetcode/hasCircle';
 import { reverse } from '../utils';
 
-describe('DoubleLinkedListNode', () => {
+describe('DoubleLinkedList', () => {
   test('should create list node with value', () => {
     const node = new DoubleLinkedListNode(1);
 
@@ -750,20 +750,24 @@ describe('Index', () => {
     ]);
 
     linkedList.insert(0, -10);
-    expect(linkedList.toString())
-      .toBe('0,1,2,3');
     expect(linkedList.size)
       .toBe(4);
+    expect(linkedList.toString())
+      .toBe('0,1,2,3');
     expect(hasCircle(linkedList))
       .toBeFalsy();
 
     linkedList.insert(4, 10);
+    expect(linkedList.size)
+      .toBe(5);
     expect(linkedList.toString())
       .toBe('0,1,2,3,4');
     expect(hasCircle(linkedList))
       .toBeFalsy();
 
     linkedList.insert(10, 2);
+    expect(linkedList.size)
+      .toBe(6);
     expect(linkedList.toString())
       .toBe('0,1,10,2,3,4');
 
@@ -807,16 +811,22 @@ describe('Index', () => {
     expect(linkedList.tail)
       .toBeNull();
 
-    linkedList.append(10);
     linkedList.append(5);
-    linkedList.append(15);
-    linkedList.append(0);
-    linkedList.append(25);
+    linkedList.append(6);
+    linkedList.append(7);
+    linkedList.append(8);
+    linkedList.append(9);
+    linkedList.append(4);
+    linkedList.append(3);
+    linkedList.append(2);
+    linkedList.append(1);
 
     linkedList.sort();
     expect(linkedList.head.value)
-      .toBe(0);
+      .toBe(1);
     expect(linkedList.tail.value)
-      .toBe(25);
+      .toBe(9);
+    expect(linkedList.toString())
+      .toBe('1,2,3,4,5,6,7,8,9');
   });
 });
