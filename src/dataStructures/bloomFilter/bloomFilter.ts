@@ -6,12 +6,12 @@ export class BloomFilter implements BloomFilterInterface {
       .fill(0);
   }
 
-  private readonly data: number[];
+  private readonly data: boolean[];
 
   public insert(item: string): void {
     this.getHashValues(item)
       .forEach((val) => {
-        this.data[val] = 1;
+        this.data[val] = true;
       });
   }
 

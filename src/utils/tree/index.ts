@@ -10,16 +10,16 @@ export function getParentIndex(childIndex: number): number {
   return Math.floor((childIndex - 1) / 2);
 }
 
-export function hasParent<T = unknown>(container: T[], childIndex: number): boolean {
-  return getParentIndex(childIndex) > -1 && getParentIndex(childIndex) < container.length;
+export function hasParent(childIndex: number, length: number): boolean {
+  return getParentIndex(childIndex) > -1 && getParentIndex(childIndex) < length;
 }
 
-export function hasLeftChild<T = unknown>(container: T[], parentIndex: number): boolean {
-  return getLeftChildIndex(parentIndex) > -1 && getLeftChildIndex(parentIndex) < container.length;
+export function hasLeftChild(parentIndex: number, length: number): boolean {
+  return getLeftChildIndex(parentIndex) > -1 && getLeftChildIndex(parentIndex) < length;
 }
 
-export function hasRightChild<T = unknown>(container: T[], parentIndex: number): boolean {
-  return getRightChildIndex(parentIndex) > -1 && getRightChildIndex(parentIndex) < container.length;
+export function hasRightChild(parentIndex: number, length: number): boolean {
+  return getRightChildIndex(parentIndex) > -1 && getRightChildIndex(parentIndex) < length;
 }
 
 export function leftChild<T = unknown>(container: T[], parentIndex: number): T | undefined {

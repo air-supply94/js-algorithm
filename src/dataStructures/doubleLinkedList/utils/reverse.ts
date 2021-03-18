@@ -35,7 +35,6 @@ export function reverse<T = unknown>(head: DoubleLinkedListNodeInterface<T> | nu
   let secondHead = head;
   let i = m;
   let j = n;
-
   while (i > 1 && secondHead) {
     secondHead = secondHead.next;
     i--;
@@ -43,7 +42,7 @@ export function reverse<T = unknown>(head: DoubleLinkedListNodeInterface<T> | nu
   }
 
   if (!secondHead) {
-    return null;
+    return head;
   }
 
   const firstTail = secondHead.previous;
@@ -60,19 +59,18 @@ export function reverse<T = unknown>(head: DoubleLinkedListNodeInterface<T> | nu
 
   const thirdHead = secondTail.next;
   if (thirdHead) {
-    thirdHead.previous.setNext(null);
     thirdHead.setPrevious(null);
   }
+  secondTail.setNext(null);
 
   reverseBase<T>(secondHead);
 
+  secondTail.setPrevious(firstTail);
   if (firstTail) {
     firstTail.setNext(secondTail);
   }
 
   secondHead.setNext(thirdHead);
-  secondTail.setPrevious(firstTail);
-
   if (thirdHead) {
     thirdHead.setPrevious(secondHead);
   }

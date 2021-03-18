@@ -7,14 +7,14 @@ export function shellSort<T = unknown>(originalArray: T[], compareCallback?: Com
   while (gap > 0) {
     for (let i = 0; i < (originalArray.length - gap); i++) {
       let currentIndex = i;
-      let gapShiftedIndex = i + gap;
+      let nextIndex = i + gap;
 
       while (currentIndex >= 0) {
-        if (comparator.lessThan(originalArray[gapShiftedIndex], originalArray[currentIndex])) {
-          swap(originalArray, currentIndex, gapShiftedIndex);
+        if (comparator.lessThan(originalArray[nextIndex], originalArray[currentIndex])) {
+          swap(originalArray, currentIndex, nextIndex);
         }
 
-        gapShiftedIndex -= gap;
+        nextIndex -= gap;
         currentIndex -= gap;
       }
     }

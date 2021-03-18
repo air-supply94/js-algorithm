@@ -247,7 +247,7 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
 
   public reverse(m = 1, n = this.size): this {
     const head = reverse<T>(this.head, m, n);
-    let tail = head;
+    let tail = this.tail;
     while (tail && tail.next) {
       tail = tail.next;
     }

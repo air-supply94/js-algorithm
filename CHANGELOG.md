@@ -1,4 +1,4 @@
-# 0.0.0 (2021-03-17)
+# 0.0.0 (2021-03-21)
 
 ### Bug Fixes
 
@@ -51,7 +51,8 @@
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/algorithm_exercise/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
 - **double-linked-list:** remove flatten ([928a4d6](https://github.com/air-supply94/algorithm_exercise/commit/928a4d6e08527d719c2c548a5ea955a9654a4e9b))
 - **double-linked-list:** 增加排序 ([94af395](https://github.com/air-supply94/algorithm_exercise/commit/94af395a7a0085f805427b45864883f42e247350))
-- **doubleLinkedList:** remove deleteDumplicates swapPairs ([a1b08b2](https://github.com/air-supply94/algorithm_exercise/commit/a1b08b2442078ad376615f0e096c047bbe8babde))
+- **doubleLinkedList:** remove deleteDumplicates swapPairs partion ([3fc6d5a](https://github.com/air-supply94/algorithm_exercise/commit/3fc6d5ad521bab55be4bf9e4f06d6a03c1bf9391))
+- **doubleLinkedList:** update reverse ([3e27859](https://github.com/air-supply94/algorithm_exercise/commit/3e27859e0413bbfcece27e8692f7fdd850f83399))
 - **doubleLinkedList:** update reverse ([0f3f7ef](https://github.com/air-supply94/algorithm_exercise/commit/0f3f7ef605953d15c7b844e478a9795d20802e27))
 - **doubleLinkedList:** 修改 delete ([d0ac1c4](https://github.com/air-supply94/algorithm_exercise/commit/d0ac1c4f2a2721bdc15ba784c96fd0a8c33037ea))
 - **doubleLinkedList:** 增加 deleteIndex ([06fdb35](https://github.com/air-supply94/algorithm_exercise/commit/06fdb3547472ae15e60fc516b3875a9c5be41729))

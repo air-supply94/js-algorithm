@@ -5,13 +5,13 @@ export function mergeSort<T = unknown>(originalArray: T[], comparator?: Comparat
     return originalArray;
   }
 
-  comparator = new Comparator(comparator);
+  const newComparator = new Comparator(comparator);
 
   const middleIndex = originalArray.length >>> 1;
   const left = originalArray.slice(0, middleIndex);
   const right = originalArray.slice(middleIndex);
 
-  return mergeSortedArrays<T>(mergeSort<T>(left, comparator), mergeSort<T>(right, comparator), comparator);
+  return mergeSortedArrays<T>(mergeSort<T>(left, newComparator), mergeSort<T>(right, newComparator), newComparator);
 }
 
 function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: ComparatorInterface): T[] {
@@ -20,14 +20,14 @@ function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: Compa
   let j = 0;
   let k = 0;
   while (i < leftArray.length && j < rightArray.length) {
-    if (comparator.lessThanOrEqual(leftArray[i], rightArray[j])) {
-      result[k] = leftArray[i];
-      k++;
-      i++;
-    } else {
+    if (comparator.lessThan(rightArray[j], leftArray[i])) {
       result[k] = rightArray[j];
       k++;
       j++;
+    } else {
+      result[k] = leftArray[i];
+      k++;
+      i++;
     }
   }
 

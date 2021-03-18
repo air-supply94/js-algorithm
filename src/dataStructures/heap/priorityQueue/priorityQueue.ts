@@ -1,5 +1,5 @@
-import { Comparator } from '../../utils';
-import { MinHeap } from '../heap';
+import { Comparator } from '../../../utils';
+import { MinHeap } from '../index';
 import { PriorityQueueInterface, PriorityQueueItem } from './types';
 
 function valueCompare(a: Pick<PriorityQueueItem, 'value'>, b: Pick<PriorityQueueItem, 'value'>) {

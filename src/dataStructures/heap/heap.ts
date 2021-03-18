@@ -26,7 +26,7 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
         return result;
       } else {
         this.heapContainer[removeIndex] = this.heapContainer.pop();
-        if (!hasParent(this.heapContainer, removeIndex) || this.pairIsInCorrectOrder(parent(this.heapContainer, removeIndex), this.heapContainer[removeIndex])) {
+        if (!hasParent(removeIndex, this.heapContainer.length) || this.pairIsInCorrectOrder(parent(this.heapContainer, removeIndex), this.heapContainer[removeIndex])) {
           this.down(removeIndex);
         } else {
           this.up(removeIndex);
@@ -49,11 +49,11 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
   }
 
   public sort(): T[] {
-    const sortArray = [];
+    const result = [];
     while (!this.isEmpty()) {
-      sortArray.push(this.poll());
+      result.push(this.poll());
     }
-    return sortArray;
+    return result;
   }
 
   public peek(): T | undefined {
@@ -96,26 +96,28 @@ export abstract class Heap<T = unknown> implements HeapInterface<T> {
     return this.removeValueBase(item, 1, comparator);
   }
 
-  public up(customStartIndex = this.heapContainer.length - 1): this {
-    while (hasParent(this.heapContainer, customStartIndex) && !this.pairIsInCorrectOrder(parent(this.heapContainer, customStartIndex), this.heapContainer[customStartIndex])) {
-      swap(this.heapContainer, getParentIndex(customStartIndex), customStartIndex);
-      customStartIndex = getParentIndex(customStartIndex);
+  public up(startIndex = this.heapContainer.length - 1): this {
+    let i = startIndex;
+    while (hasParent(i, this.heapContainer.length) && !this.pairIsInCorrectOrder(parent(this.heapContainer, i), this.heapContainer[i])) {
+      swap(this.heapContainer, i, getParentIndex(i));
+      i = getParentIndex(i);
     }
     return this;
   }
 
-  public down(customStartIndex = 0): this {
-    while (hasLeftChild(this.heapContainer, customStartIndex)) {
-      const nextIndex = hasRightChild(this.heapContainer, customStartIndex) && this.pairIsInCorrectOrder(rightChild(this.heapContainer, customStartIndex), leftChild(this.heapContainer, customStartIndex))
-        ? getRightChildIndex(customStartIndex)
-        : getLeftChildIndex(customStartIndex);
+  public down(startIndex = 0): this {
+    let i = startIndex;
+    while (hasLeftChild(i, this.heapContainer.length)) {
+      const nextIndex = hasRightChild(i, this.heapContainer.length) && this.pairIsInCorrectOrder(rightChild(this.heapContainer, i), leftChild(this.heapContainer, i))
+        ? getRightChildIndex(i)
+        : getLeftChildIndex(i);
 
-      if (this.pairIsInCorrectOrder(this.heapContainer[customStartIndex], this.heapContainer[nextIndex])) {
+      if (this.pairIsInCorrectOrder(this.heapContainer[i], this.heapContainer[nextIndex])) {
         return this;
       }
 
-      swap(this.heapContainer, customStartIndex, nextIndex);
-      customStartIndex = nextIndex;
+      swap(this.heapContainer, i, nextIndex);
+      i = nextIndex;
     }
     return this;
   }
