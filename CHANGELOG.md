@@ -1,4 +1,4 @@
-# 0.0.0 (2021-03-22)
+# 0.0.0 (2021-03-24)
 
 ### Bug Fixes
 
@@ -103,6 +103,8 @@
 - **nQueens:** add bf ([abb3529](https://github.com/air-supply94/algorithm_exercise/commit/abb3529939a93661f6660a51c47ae49ff98bc932))
 - **package.json:** add validate-commit-msg and cz ([273c6c8](https://github.com/air-supply94/algorithm_exercise/commit/273c6c8b081693a6b0030a362662ca0bf1f4c579))
 - **price:** add add、subtract、multiple toFixed thousandthSeparator method ([78ade6c](https://github.com/air-supply94/algorithm_exercise/commit/78ade6c6af34edcbc58c82f1b22b249f71b90f90))
+- **queue:** add circularQueue ([c969e08](https://github.com/air-supply94/algorithm_exercise/commit/c969e08ae58bbbca76cb6d961886af468cfa0656))
+- **queue:** add circularQueue ([e4060f4](https://github.com/air-supply94/algorithm_exercise/commit/e4060f4ef9d30b89315955c461c85d0d32e0716c))
 - **queue:** add interface ([af79386](https://github.com/air-supply94/algorithm_exercise/commit/af79386ea74a3d6992c2489ac46925931558b654))
 - **quickSortInPlace:** 增加排序 ([e714bd2](https://github.com/air-supply94/algorithm_exercise/commit/e714bd23ed956ab4187787c41cb3d80a14b0c1e8))
 - **red-black-tree:** 颜色类型错误 ([b39c783](https://github.com/air-supply94/algorithm_exercise/commit/b39c783bf631eec0313d172690f75a4a849d439c))

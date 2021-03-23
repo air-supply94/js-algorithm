@@ -1,5 +1,5 @@
-export class CircularQueue<T = unknown> {
-  private data: T[];
+export class CircularQueue {
+  private data: number[];
 
   private cap: number;
 
@@ -14,7 +14,7 @@ export class CircularQueue<T = unknown> {
     this.tail = 0;
   }
 
-  public enQueue(value: T): boolean {
+  public enQueue(value: number): boolean {
     if (this.isFull()) {
       return false;
     } else {
@@ -33,7 +33,7 @@ export class CircularQueue<T = unknown> {
     }
   }
 
-  public front(): T | null {
+  public front(): number | null {
     if (this.isEmpty()) {
       return null;
     } else {
@@ -41,7 +41,7 @@ export class CircularQueue<T = unknown> {
     }
   }
 
-  public rear(): T {
+  public rear(): number {
     if (this.isEmpty()) {
       return null;
     } else {
