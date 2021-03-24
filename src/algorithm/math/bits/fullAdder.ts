@@ -7,10 +7,9 @@ export function fullAdder(a: number, b: number): number {
   for (let i = 0; i < 32; i++) {
     const ai = getBit(a, i);
     const bi = getBit(b, i);
-    const aiPlusBi = ai ^ bi;
-    const bitSum = aiPlusBi ^ rest;
+    const bitSum = ai ^ bi ^ rest;
 
-    rest = (aiPlusBi & rest) | (ai & bi);
+    rest = rest ? ai | bi : ai & bi;
 
     result |= bitSum << i;
   }
