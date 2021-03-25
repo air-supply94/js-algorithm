@@ -2,7 +2,7 @@
   "name": "algorithm_exercise",
   "version": "0.0.0",
   "author": "zhouhaifei <zhouhaifei1994@sina.com>",
-  "description": "algorithm_exercise ",
+  "description": "js-algorithm",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -22,7 +22,7 @@
     "prettier": "^2.2.1",
     "typescript": "^4.1.3",
     "validate-commit-msg": "^2.14.0",
-    "zhouhaifei-code-style": "2.9.11",
+    "zhouhaifei-code-style": "2.9.21",
     "zhouhaifei-test": "2.9.0"
   },
   "config": {
@@ -51,12 +51,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/air-supply94/algorithm_exercise.git"
+    "url": "https://github.com/air-supply94/js-algorithm.git"
   },
   "bugs": {
-    "url": "https://github.com/air-supply94/algorithm_exercise/issues"
+    "url": "https://github.com/air-supply94/js-algorithm/issues"
   },
-  "homepage": "https://github.com/air-supply94/algorithm_exercise",
+  "homepage": "https://github.com/air-supply94/js-algorithm",
   "license": "MIT",
   "scripts": {
     "commit": "cz",
