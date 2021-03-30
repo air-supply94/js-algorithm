@@ -22,7 +22,7 @@
     "prettier": "^2.2.1",
     "typescript": "^4.1.3",
     "validate-commit-msg": "^2.14.0",
-    "zhouhaifei-code-style": "2.9.21",
+    "zhouhaifei-code-style": "2.10.1",
     "zhouhaifei-test": "2.9.0"
   },
   "config": {

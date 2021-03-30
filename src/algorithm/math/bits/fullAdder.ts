@@ -11,7 +11,7 @@ export function fullAdder(a: number, b: number): number {
 
     rest = rest ? ai | bi : ai & bi;
 
-    result |= bitSum << i;
+    result |= (bitSum << i);
   }
 
   return result;

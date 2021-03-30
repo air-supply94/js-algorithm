@@ -1,4 +1,4 @@
-# 0.0.0 (2021-03-25)
+# 0.0.0 (2021-03-30)
 
 ### Bug Fixes
 
@@ -10,7 +10,7 @@
 - delete stylelint ([b84d971](https://github.com/air-supply94/js-algorithm/commit/b84d97118b65bc9769a739917b4718444e287e9f))
 - remove DoubleLinkedList reverse extra code ([4130002](https://github.com/air-supply94/js-algorithm/commit/413000283cc5024e481819919811bc4806cd5bf8))
 - rename file ([b03f0d1](https://github.com/air-supply94/js-algorithm/commit/b03f0d15ca04ebbfeb0f6a54aa3e1a0c4785e768))
-- rename project ([6a848a1](https://github.com/air-supply94/js-algorithm/commit/6a848a1ce089c4c805c7a3a70ef0b44b5e481427))
+- rename project ([42f990d](https://github.com/air-supply94/js-algorithm/commit/42f990deb5659630681bfea763aca02cb80517fa))
 - rename test filename ([8369baf](https://github.com/air-supply94/js-algorithm/commit/8369baf3707d50382d3d85cd2131eedf7e16ede5))
 - update code-style package ([bc71131](https://github.com/air-supply94/js-algorithm/commit/bc7113122ac26a5f097fb3490505b8ff0433589a))
 - update config ([ddef9b6](https://github.com/air-supply94/js-algorithm/commit/ddef9b6a41f76289a091972110c23a1a75d68968))
@@ -75,6 +75,7 @@
 - **FenwickTree、binarySearchTreeNode:** add FenwickTree remove binarySearchTreeNode height leftHeight rightHeight banlanceFactory ([7d3763b](https://github.com/air-supply94/js-algorithm/commit/7d3763ba2f08fe52c27f8fe985570bf6e961390d))
 - **gcd:** 增加欧几里得算法 ([e1231c9](https://github.com/air-supply94/js-algorithm/commit/e1231c9096295cf52dde5e20c4fdf1690e093904))
 - **generate-parenthesis:** add ([b38549c](https://github.com/air-supply94/js-algorithm/commit/b38549c965a7e076f95e552c0bde7854ac964e37))
+- **getUpMedian:** add ([dd6e82e](https://github.com/air-supply94/js-algorithm/commit/dd6e82e83267db333ca9de3cb21783cbae8c8190))
 - **graph:** add bfs、dfs ([e22b2da](https://github.com/air-supply94/js-algorithm/commit/e22b2da5d57cd3262982b4d8df2e50ea6fc04a35))
 - **graph:** add graph ([8447530](https://github.com/air-supply94/js-algorithm/commit/844753025463ee1cfb843939945607892c63c4ec))
 - **graph:** update graph ([160c590](https://github.com/air-supply94/js-algorithm/commit/160c590cdc2de8e26096cb01d6d70b2f0e8370a5))

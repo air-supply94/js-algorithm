@@ -3,7 +3,7 @@ export function countSetBits(x: number): number {
   let number = x;
 
   while (number) {
-    setBitsCount += number & 1;
+    setBitsCount += (number & 1);
     number >>= 1;
   }
 

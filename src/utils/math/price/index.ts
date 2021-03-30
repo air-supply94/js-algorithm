@@ -73,5 +73,5 @@ export function formatPrice(price: unknown, radix = 2): number {
 
 export function thousandthSeparator(num: unknown): string {
   return String(num)
-    .replace(/\d+/, (n) => n.replace(/\d(?=(\d{3})+$)/g, '$&,'));
+    .replace(/\d+/, (n) => n.replace(/(?!^)(?=(\d{3})+$)/g, ','));
 }

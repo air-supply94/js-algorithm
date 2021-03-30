@@ -1,4 +1,5 @@
-import { DoubleLinkedList, DoubleLinkedListInterface, toStringCallback } from '../doubleLinkedList';
+import { DoubleLinkedList } from '../doubleLinkedList';
+import { DoubleLinkedListInterface, toStringCallback } from '../doubleLinkedList/types';
 import { StackInterface } from './types';
 
 export class Stack<T = unknown> implements StackInterface<T> {
