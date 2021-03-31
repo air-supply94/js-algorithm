@@ -1,4 +1,4 @@
-# 0.0.0 (2021-03-30)
+# 0.0.0 (2021-04-01)
 
 ### Bug Fixes
 
@@ -73,9 +73,10 @@
 - **DoubleLinkedList、heap:** 更改删除返回类型 ([9e3e25e](https://github.com/air-supply94/js-algorithm/commit/9e3e25e1eee6b91a1a90d0389e63611f7fcb1ffc))
 - **DounleLinkedList:** 更换 reverse 算法 ([3f9d0ba](https://github.com/air-supply94/js-algorithm/commit/3f9d0ba60fc8193d63481cc3864abdb4a692708f))
 - **FenwickTree、binarySearchTreeNode:** add FenwickTree remove binarySearchTreeNode height leftHeight rightHeight banlanceFactory ([7d3763b](https://github.com/air-supply94/js-algorithm/commit/7d3763ba2f08fe52c27f8fe985570bf6e961390d))
+- **findKthMin:** add ([855ce52](https://github.com/air-supply94/js-algorithm/commit/855ce52ee9d316311c592c10fc19ceba31c48ace))
 - **gcd:** 增加欧几里得算法 ([e1231c9](https://github.com/air-supply94/js-algorithm/commit/e1231c9096295cf52dde5e20c4fdf1690e093904))
 - **generate-parenthesis:** add ([b38549c](https://github.com/air-supply94/js-algorithm/commit/b38549c965a7e076f95e552c0bde7854ac964e37))
-- **getUpMedian:** add ([dd6e82e](https://github.com/air-supply94/js-algorithm/commit/dd6e82e83267db333ca9de3cb21783cbae8c8190))
+- **getUpMedian:** add ([c9de684](https://github.com/air-supply94/js-algorithm/commit/c9de684d083cb46488c443b5fa67cd075de8560d))
 - **graph:** add bfs、dfs ([e22b2da](https://github.com/air-supply94/js-algorithm/commit/e22b2da5d57cd3262982b4d8df2e50ea6fc04a35))
 - **graph:** add graph ([8447530](https://github.com/air-supply94/js-algorithm/commit/844753025463ee1cfb843939945607892c63c4ec))
 - **graph:** update graph ([160c590](https://github.com/air-supply94/js-algorithm/commit/160c590cdc2de8e26096cb01d6d70b2f0e8370a5))

@@ -14,7 +14,6 @@ export function rotateSearch<T = unknown>(rotateArray: T[], seekElement: T): num
         left = middleIndex + 1;
       }
     } else {
-      // eslint-disable-next-line no-lonely-if
       if (rotateArray[middleIndex] < seekElement && seekElement <= rotateArray[right]) {
         left = middleIndex + 1;
       } else {
