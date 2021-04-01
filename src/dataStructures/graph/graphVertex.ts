@@ -1,4 +1,5 @@
-import { DoubleLinkedList, DoubleLinkedListInterface } from '../doubleLinkedList';
+import { DoubleLinkedList } from '../doubleLinkedList';
+import { DoubleLinkedListInterface } from '../doubleLinkedList/types';
 import { GraphEdgeInterface, GraphVertexInterface } from './types';
 
 function edgeComparator<T>(edgeA: GraphEdgeInterface<T>, edgeB: GraphEdgeInterface<T>) {
