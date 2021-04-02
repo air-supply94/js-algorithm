@@ -1,41 +1,27 @@
 export function findKthMin(arr1: number[], arr2: number[], n: number): number {
-  if (arr1.length < 1) {
-    return arr2[n - 1];
+  return getKth(arr1, 0, arr1.length - 1, arr2, 0, arr2.length - 1, n);
+}
+
+function getKth(arr1: number[], l1: number, r1: number, arr2: number[], l2: number, r2: number, k: number): number {
+  const len1 = r1 - l1 + 1;
+  const len2 = r2 - l2 + 1;
+  if (len1 > len2) {
+    return getKth(arr2, l2, r2, arr1, l1, r1, k);
   }
 
-  if (arr2.length < 1) {
-    return arr1[n - 1];
+  if (len1 === 0) {
+    return arr2[l2 + k - 1];
   }
 
-  let l1 = 0;
-  const r1 = arr1.length - 1;
-  let l2 = 0;
-  const r2 = arr2.length - 1;
-  let md1 = 0;
-  let md2 = 0;
-  let k = n - 1;
-  let tmp = 0;
-
-  while (l1 <= r1 && l2 <= r2 && k !== 0) {
-    tmp = k >>> 1;
-    md1 = l1 + tmp < r1 ? l1 + tmp : r1;
-    md2 = l2 + tmp < (r2 - l1) ? l2 + tmp : r2;
-    if (arr1[md1] < arr2[md2]) {
-      l1 = md1 + 1;
-      k = tmp - 1;
-    } else if (arr1[md1] > arr2[md2]) {
-      l2 = md2 + 1;
-      k = tmp - 1;
-    } else {
-      return arr1[md1];
-    }
-  }
-
-  if (l1 > r1) {
-    return arr2[l2 + k];
-  } else if (l2 > r2) {
-    return arr1[l1 + k];
-  } else {
+  if (k === 1) {
     return Math.min(arr1[l1], arr2[l2]);
+  }
+
+  const i = l1 + Math.min(len1, k >>> 1) - 1;
+  const j = l2 + Math.min(len2, k >>> 1) - 1;
+  if (arr1[i] > arr2[j]) {
+    return getKth(arr1, l1, r1, arr2, j + 1, r2, k - (j - l2 + 1));
+  } else {
+    return getKth(arr1, i + 1, r1, arr2, l2, r2, k - (i - l1 + 1));
   }
 }

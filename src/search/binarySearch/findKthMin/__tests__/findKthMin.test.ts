@@ -49,13 +49,23 @@ test('findKthMin', () => {
   expect(findKthMin(
     arr2,
     arr1,
-    10))
+    7))
+    .toBe(6);
+  expect(findKthMin(
+    arr2,
+    arr1,
+    8))
+    .toBeUndefined();
+  expect(findKthMin(
+    arr1,
+    arr2,
+    7))
     .toBe(6);
   expect(findKthMin(
     arr1,
     arr2,
-    10))
-    .toBe(6);
+    8))
+    .toBeUndefined();
 
   expect(findKthMin(
     [
