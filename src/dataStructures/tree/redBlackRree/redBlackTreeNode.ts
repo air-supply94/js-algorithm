@@ -1,14 +1,14 @@
 import { RedBlackTreeColor, RedBlackTreeNodeInterface } from './types';
 
-export const RED_BLACK_TREE_COLORS = {
-  red: 'r',
-  black: 'b',
-};
+enum RED_BLACK_TREE_COLORS {
+  red = 'r',
+  black = 'b',
+}
 
 export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<T> {
   constructor(value: T) {
     this._value = value;
-    this._color = RED_BLACK_TREE_COLORS.red as RedBlackTreeColor;
+    this._color = RED_BLACK_TREE_COLORS.red;
   }
 
   private _color: RedBlackTreeColor;
@@ -42,12 +42,12 @@ export class RedBlackTreeNode<T = unknown> implements RedBlackTreeNodeInterface<
   }
 
   public makeRed(): this {
-    this.setColor(RED_BLACK_TREE_COLORS.red as RedBlackTreeColor);
+    this.setColor(RED_BLACK_TREE_COLORS.red);
     return this;
   }
 
   public makeBlack(): this {
-    this.setColor(RED_BLACK_TREE_COLORS.black as RedBlackTreeColor);
+    this.setColor(RED_BLACK_TREE_COLORS.black);
     return this;
   }
 

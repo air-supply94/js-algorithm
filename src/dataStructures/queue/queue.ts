@@ -26,7 +26,11 @@ export class Queue<T = unknown> implements QueueInterface<T> {
   }
 
   public dequeue(): T | null {
-    return this.isEmpty() ? null : this.doubleLinkedList.deleteHead().value;
+    if (this.isEmpty()) {
+      return null;
+    } else {
+      return this.doubleLinkedList.deleteHead().value;
+    }
   }
 
   public enqueue(value: T): T {
@@ -34,7 +38,11 @@ export class Queue<T = unknown> implements QueueInterface<T> {
   }
 
   public peek(): T | null {
-    return this.isEmpty() ? null : this.doubleLinkedList.head.value;
+    if (this.isEmpty()) {
+      return null;
+    } else {
+      return this.doubleLinkedList.head.value;
+    }
   }
 
   public clear(): this {

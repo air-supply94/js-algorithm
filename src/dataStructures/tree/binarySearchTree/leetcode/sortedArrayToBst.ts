@@ -3,7 +3,7 @@ import { BinarySearchTreeNodeInterface } from '../types';
 
 function initTreeNodes<T = unknown>(array: T[], start: number, end: number): BinarySearchTreeNodeInterface<T> {
   if (start <= end) {
-    const middle = (start + (end - start) / 2) >>> 0;
+    const middle = start + Math.floor((end - start) / 2);
     const node = new BinarySearchTreeNode<T>(array[middle]);
     node.setLeft(initTreeNodes(array, start, middle - 1));
     node.setRight(initTreeNodes(array, middle + 1, end));

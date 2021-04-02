@@ -7,13 +7,14 @@ export function traverseInOrder<T = unknown>(
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
+  let tmpNode;
 
   while (currentNode || !nodeStack.isEmpty()) {
     if (currentNode) {
       nodeStack.push(currentNode);
       currentNode = currentNode.left;
     } else {
-      const tmpNode = nodeStack.pop();
+      tmpNode = nodeStack.pop();
       if (callback(tmpNode) === false) {
         return;
       }

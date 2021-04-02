@@ -26,7 +26,11 @@ export class Stack<T = unknown> implements StackInterface<T> {
   }
 
   public pop(): T | null {
-    return this.isEmpty() ? null : this.doubleLinkedList.deleteTail().value;
+    if (this.isEmpty()) {
+      return null;
+    } else {
+      return this.doubleLinkedList.deleteTail().value;
+    }
   }
 
   public push(value: T): T {
@@ -34,7 +38,11 @@ export class Stack<T = unknown> implements StackInterface<T> {
   }
 
   public peek(): T | null {
-    return this.isEmpty() ? null : this.doubleLinkedList.tail.value;
+    if (this.isEmpty()) {
+      return null;
+    } else {
+      return this.doubleLinkedList.tail.value;
+    }
   }
 
   public clear(): this {

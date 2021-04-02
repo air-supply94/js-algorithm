@@ -47,7 +47,7 @@ export class Trie implements TrieInterface {
 
   public wordFrequency(): { [key in string]: number } {
     const result = {};
-    const queue = new Queue<{ node: TrieNodeInterface;word: string; }>();
+    const queue = new Queue<{ node: TrieNodeInterface; word: string; }>();
 
     Object.values(this.root.children)
       .forEach((trieNode) => queue.enqueue({
@@ -75,13 +75,19 @@ export class Trie implements TrieInterface {
 
   public suggestNextCharacters(word: string): string[] {
     const lastCharacter = getLastCharacterNode(this.root, word);
-
-    return lastCharacter ? lastCharacter.suggestChildren() : [];
+    if (lastCharacter) {
+      return lastCharacter.suggestChildren();
+    } else {
+      return [];
+    }
   }
 
   public doesWordExist(word: string): boolean {
     const lastCharacter = getLastCharacterNode(this.root, word);
-
-    return Boolean(lastCharacter) && lastCharacter.isCompleteWord;
+    if (lastCharacter && lastCharacter.isCompleteWord) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

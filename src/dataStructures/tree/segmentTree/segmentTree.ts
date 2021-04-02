@@ -1,4 +1,4 @@
-import { getLeftChildIndex, getRightChildIndex } from '../../../utils/tree';
+import { getLeftChildIndex, getRightChildIndex } from '../../../utils';
 import { SegmentTreeInterface } from './types';
 
 function isPowerOfTwo(number: number): boolean {

@@ -11,15 +11,7 @@ function isSameLeftAndRight<T = unknown>(left: BinarySearchTreeNodeInterface<T> 
 
   if (left.value !== right.value) {
     return false;
+  } else {
+    return isSameLeftAndRight<T>(left.left, right.right) && isSameLeftAndRight<T>(left.right, right.left);
   }
-
-  return isSameLeftAndRight<T>(left.left, right.right) && isSameLeftAndRight<T>(left.right, right.left);
-}
-
-export function isSymmetric<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): boolean {
-  if (!root) {
-    return true;
-  }
-
-  return isSameLeftAndRight<T>(root.left, root.right);
 }

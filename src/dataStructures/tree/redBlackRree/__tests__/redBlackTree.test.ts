@@ -1,4 +1,4 @@
-import { getHeight } from '../../binarySearchTree/utils';
+import { getHeight } from '../../binarySearchTree';
 import { RedBlackTree } from '../redBlackTree';
 import { CompleteRedBlackTreeNode, RedBlackTreeNodeInterface } from '../types';
 

@@ -1,6 +1,6 @@
 import { Comparator } from '../../../../utils';
-import { BinarySearchTreeNodeInterface } from '../../binarySearchTree';
-import { getBalanceFactor, getHeight } from '../../binarySearchTree/utils';
+import { getBalanceFactor, getHeight } from '../../binarySearchTree';
+import { BinarySearchTreeNodeInterface } from '../../binarySearchTree/types';
 import { AvlTree } from '../avlTree';
 
 describe('AvlTree', () => {

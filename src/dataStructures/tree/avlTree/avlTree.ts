@@ -1,5 +1,6 @@
 import { Comparator, compareFunctionType } from '../../../utils';
-import { BinarySearchTree, BinarySearchTreeInterface, BinarySearchTreeNodeInterface, getBalanceFactor, traverseCallback, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
+import { BinarySearchTree, getBalanceFactor, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
+import { BinarySearchTreeInterface, BinarySearchTreeNodeInterface, traverseCallback } from '../binarySearchTree/types';
 import { AvlTreeInterface } from './types';
 
 export class AvlTree<T = unknown> implements AvlTreeInterface<T> {

@@ -7,13 +7,14 @@ export function traverseAfterOrder<T = unknown>(
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
   let currentNode = root;
+  let peekNode;
   if (root) {
     nodeStack.push(root);
   }
 
   while (!nodeStack.isEmpty()) {
-    let peekNode = nodeStack.peek();
-    if (peekNode !== currentNode.parent) {
+    if (nodeStack.peek() !== currentNode.parent) {
+      peekNode = nodeStack.peek();
       while (peekNode.left || peekNode.right) {
         if (peekNode.left && peekNode.right) {
           nodeStack.push(peekNode.right);

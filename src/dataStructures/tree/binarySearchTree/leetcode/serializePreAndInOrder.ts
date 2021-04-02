@@ -11,41 +11,20 @@ export function serializePreAndInOrder<T = unknown>(preorder: T[], inorder: T[])
   const stack = new Stack<BinarySearchTreeNodeInterface<T>>();
   stack.push(root);
   let inorderIndex = 0;
-
+  let currentNode: BinarySearchTreeNodeInterface<T>;
   for (let i = 1; i < preorder.length; i++) {
     if (stack.peek().value != inorder[inorderIndex]) {
       stack.peek().setLeft(new BinarySearchTreeNode<T>(preorder[i]));
       stack.push(stack.peek().left);
     } else {
-      let node = stack.peek();
+      currentNode = stack.peek();
       while (!stack.isEmpty() && stack.peek().value == inorder[inorderIndex]) {
-        node = stack.pop();
+        currentNode = stack.pop();
         inorderIndex++;
       }
-      node.setRight(new BinarySearchTreeNode<T>(preorder[i]));
-      stack.push(node.right);
+      currentNode.setRight(new BinarySearchTreeNode<T>(preorder[i]));
+      stack.push(currentNode.right);
     }
   }
   return root;
 }
-
-/*
-export function build<T = unknown>(preorder: T[], inorder: T[]): BinarySearchTreeNodeInterface<T> | null {
-  let pre = 0;
-  let i = 0;
-
-  function build(stop?: T): BinarySearchTreeNodeInterface<T> | null {
-    if (inorder[i] != stop) {
-      const root = new BinarySearchTreeNode<T>(preorder[pre]);
-      pre++;
-      root.setLeft(build(root.value));
-      i++;
-      root.setRight(build(stop));
-      return root;
-    }
-    return null;
-  }
-
-  return build(undefined);
-}
-*/

@@ -12,33 +12,26 @@ export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNo
   i++;
   const queue = new Queue<BinarySearchTreeNodeInterface<T>>();
   queue.enqueue(root);
+  let currentNode: BinarySearchTreeNodeInterface<T>;
 
   while (!queue.isEmpty() && i < array.length) {
-    const currentNode = queue.dequeue();
+    currentNode = queue.dequeue();
 
-    const leftValue = array[i];
-    i++;
-    if (leftValue === null) {
-      currentNode.setLeft(null);
-    } else {
-      const leftNode = new BinarySearchTreeNode<T>(leftValue);
-      currentNode.setLeft(leftNode);
-      queue.enqueue(leftNode);
+    if (array[i] != null) {
+      currentNode.setLeft(new BinarySearchTreeNode<T>(array[i]));
+      queue.enqueue(currentNode.left);
     }
+    i++;
 
     if (i >= array.length) {
       return root;
     }
 
-    const rightValue = array[i];
-    i++;
-    if (rightValue === null) {
-      currentNode.setRight(null);
-    } else {
-      const rightNode = new BinarySearchTreeNode<T>(rightValue);
-      currentNode.setRight(rightNode);
-      queue.enqueue(rightNode);
+    if (array[i] != null) {
+      currentNode.setRight(new BinarySearchTreeNode<T>(array[i]));
+      queue.enqueue(currentNode.right);
     }
+    i++;
   }
 
   return root;

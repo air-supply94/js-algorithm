@@ -1,4 +1,4 @@
-# 0.0.0 (2021-04-02)
+# 0.0.0 (2021-04-07)
 
 ### Bug Fixes
 
@@ -12,6 +12,7 @@
 - rename file ([b03f0d1](https://github.com/air-supply94/js-algorithm/commit/b03f0d15ca04ebbfeb0f6a54aa3e1a0c4785e768))
 - rename project ([42f990d](https://github.com/air-supply94/js-algorithm/commit/42f990deb5659630681bfea763aca02cb80517fa))
 - rename test filename ([8369baf](https://github.com/air-supply94/js-algorithm/commit/8369baf3707d50382d3d85cd2131eedf7e16ede5))
+- test ([73ec2ff](https://github.com/air-supply94/js-algorithm/commit/73ec2ff419b4f5c8b3cc5749e1da7c72b8be5a1f))
 - update code-style package ([bc71131](https://github.com/air-supply94/js-algorithm/commit/bc7113122ac26a5f097fb3490505b8ff0433589a))
 - update config ([ddef9b6](https://github.com/air-supply94/js-algorithm/commit/ddef9b6a41f76289a091972110c23a1a75d68968))
 - update package ([2e5aeff](https://github.com/air-supply94/js-algorithm/commit/2e5aeff48d3c0579c49f9efceb2fd2a6b657c59b))
@@ -74,6 +75,7 @@
 - **DounleLinkedList:** 更换 reverse 算法 ([3f9d0ba](https://github.com/air-supply94/js-algorithm/commit/3f9d0ba60fc8193d63481cc3864abdb4a692708f))
 - **FenwickTree、binarySearchTreeNode:** add FenwickTree remove binarySearchTreeNode height leftHeight rightHeight banlanceFactory ([7d3763b](https://github.com/air-supply94/js-algorithm/commit/7d3763ba2f08fe52c27f8fe985570bf6e961390d))
 - **findFirstLarge:** add ([90d3278](https://github.com/air-supply94/js-algorithm/commit/90d3278da4215456f0e598654e271dfb2327ae35))
+- **findKthMin:** add ([91879e9](https://github.com/air-supply94/js-algorithm/commit/91879e9a1a5970e46531a1e62833c17efaf6c8e8))
 - **findKthMin:** add ([6b199a5](https://github.com/air-supply94/js-algorithm/commit/6b199a5d76305fde700a902415f3ae7ccbb5c830))
 - **gcd:** 增加欧几里得算法 ([e1231c9](https://github.com/air-supply94/js-algorithm/commit/e1231c9096295cf52dde5e20c4fdf1690e093904))
 - **generate-parenthesis:** add ([b38549c](https://github.com/air-supply94/js-algorithm/commit/b38549c965a7e076f95e552c0bde7854ac964e37))
