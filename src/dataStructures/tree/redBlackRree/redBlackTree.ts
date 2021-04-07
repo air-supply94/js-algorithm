@@ -49,7 +49,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       return;
     }
 
-    if (node === this.root) {
+    if (!node.parent) {
       node.value.makeBlack();
       return;
     }
@@ -71,23 +71,23 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       if (node === node.parent.left) {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateLeftLeft<RedBlackTreeNodeInterface<T>>(node.parent.parent, this.setRoot);
+        rotateLeftLeft(node.parent.parent, this.setRoot);
       } else {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateLeftRight<RedBlackTreeNodeInterface<T>>(node.parent.parent);
-        rotateLeftLeft<RedBlackTreeNodeInterface<T>>(node.parent, this.setRoot);
+        rotateLeftRight(node.parent.parent);
+        rotateLeftLeft(node.parent, this.setRoot);
       }
     } else {
       if (node === node.parent.right) {
         node.parent.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateRightRight<RedBlackTreeNodeInterface<T>>(node.parent.parent, this.setRoot);
+        rotateRightRight(node.parent.parent, this.setRoot);
       } else {
         node.value.makeBlack();
         node.parent.parent.value.makeRed();
-        rotateRightLeft<RedBlackTreeNodeInterface<T>>(node.parent.parent);
-        rotateRightRight<RedBlackTreeNodeInterface<T>>(node.parent, this.setRoot);
+        rotateRightLeft(node.parent.parent);
+        rotateRightRight(node.parent, this.setRoot);
       }
     }
   }
@@ -101,23 +101,20 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         if (sibling.value.isRed) {
           currentNode.parent.value.makeRed();
           sibling.value.makeBlack();
-          rotateRightRight<RedBlackTreeNodeInterface<T>>(currentNode.parent, this.setRoot);
-        } else if (!sibling.left && !sibling.right) {
-          sibling.value.makeRed();
-          currentNode = currentNode.parent;
-        } else if (sibling.left && sibling.right && sibling.left.value.isBlack && sibling.right.value.isBlack) {
+          rotateRightRight(currentNode.parent, this.setRoot);
+        } else if ((!sibling.left && !sibling.right) || (sibling.left && sibling.right && sibling.left.value.isBlack && sibling.right.value.isBlack)) {
           sibling.value.makeRed();
           currentNode = currentNode.parent;
         } else if (sibling.right && sibling.right.value.isRed) {
           sibling.value.setColor(currentNode.parent.value.color);
           currentNode.parent.value.makeBlack();
           sibling.right.value.makeBlack();
-          rotateRightRight<RedBlackTreeNodeInterface<T>>(currentNode.parent, this.setRoot);
+          rotateRightRight(currentNode.parent, this.setRoot);
           currentNode = this.root;
         } else {
           sibling.left.value.makeBlack();
           sibling.value.makeRed();
-          rotateRightLeft<RedBlackTreeNodeInterface<T>>(currentNode.parent);
+          rotateRightLeft(currentNode.parent);
         }
       } else {
         const sibling = currentNode.parent.left;
@@ -125,23 +122,20 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
         if (sibling.value.isRed) {
           currentNode.parent.value.makeRed();
           sibling.value.makeBlack();
-          rotateLeftLeft<RedBlackTreeNodeInterface<T>>(currentNode.parent, this.setRoot);
-        } else if (!sibling.left && !sibling.right) {
-          sibling.value.makeRed();
-          currentNode = currentNode.parent;
-        } else if (sibling.left && sibling.right && sibling.left.value.isBlack && sibling.right.value.isBlack) {
+          rotateLeftLeft(currentNode.parent, this.setRoot);
+        } else if ((!sibling.left && !sibling.right) || (sibling.left && sibling.right && sibling.left.value.isBlack && sibling.right.value.isBlack)) {
           sibling.value.makeRed();
           currentNode = currentNode.parent;
         } else if (sibling.left && sibling.left.value.isRed) {
           sibling.value.setColor(currentNode.parent.value.color);
           currentNode.parent.value.makeBlack();
           sibling.left.value.makeBlack();
-          rotateLeftLeft<RedBlackTreeNodeInterface<T>>(currentNode.parent, this.setRoot);
+          rotateLeftLeft(currentNode.parent, this.setRoot);
           currentNode = this.root;
         } else {
           sibling.right.value.makeBlack();
           sibling.value.makeRed();
-          rotateLeftRight<RedBlackTreeNodeInterface<T>>(currentNode.parent);
+          rotateLeftRight(currentNode.parent);
         }
       }
     }

@@ -1,4 +1,4 @@
-import { swap } from '../../../utils/swap';
+import { swap } from '../../../utils/helper';
 
 export function rotate<T = unknown>(array: T[], k: number): T[] {
   const count = (k >>> 0) % array.length;

@@ -1,4 +1,3 @@
 export * from './comparator';
-export * from './swap';
-export * from './math';
+export * from './helper';
 export * from './tree';

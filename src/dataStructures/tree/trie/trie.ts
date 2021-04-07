@@ -45,7 +45,7 @@ export class Trie implements TrieInterface {
     return lastCharacter ? lastCharacter.prefixCount : 0;
   }
 
-  public wordFrequency(): { [key in string]: number } {
+  public wordFrequency(): {[key in string]: number } {
     const result = {};
     const queue = new Queue<{ node: TrieNodeInterface; word: string; }>();
 

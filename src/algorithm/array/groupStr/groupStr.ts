@@ -1,6 +1,6 @@
 export function groupStr(array: string[]): string[][] {
   const result = [];
-  const sortStr: { [key in string]: number } = {};
+  const sortStr: {[key in string]: number } = {};
 
   array.forEach((item) => {
     const str = item.split('')

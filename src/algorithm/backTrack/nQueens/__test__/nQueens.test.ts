@@ -2,21 +2,21 @@ import { nQueens } from '../nQueens';
 
 describe('nQueens', () => {
   it('should have solutions for 4 to N queens', () => {
-    expect(nQueens(4).length)
+    expect(nQueens(4))
       .toBe(2);
-    expect(nQueens(5).length)
+    expect(nQueens(5))
       .toBe(10);
-    expect(nQueens(6).length)
+    expect(nQueens(6))
       .toBe(4);
-    expect(nQueens(7).length)
+    expect(nQueens(7))
       .toBe(40);
-    expect(nQueens(8).length)
+    expect(nQueens(8))
       .toBe(92);
-    expect(nQueens(9).length)
+    expect(nQueens(9))
       .toBe(352);
-    expect(nQueens(10).length)
+    expect(nQueens(10))
       .toBe(724);
-    expect(nQueens(11).length)
+    expect(nQueens(11))
       .toBe(2680);
   });
 });

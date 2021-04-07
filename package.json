@@ -1,5 +1,5 @@
 {
-  "name": "algorithm_exercise",
+  "name": "js-algorithm",
   "version": "0.0.0",
   "author": "zhouhaifei <zhouhaifei1994@sina.com>",
   "description": "js-algorithm",
@@ -16,13 +16,13 @@
     "commitizen": "^4.2.2",
     "conventional-changelog-cli": "^2.1.1",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "7.15.0",
+    "eslint": "7.23.0",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
-    "typescript": "^4.1.3",
+    "typescript": "4.2.4",
     "validate-commit-msg": "^2.14.0",
-    "zhouhaifei-code-style": "2.10.1",
+    "zhouhaifei-code-style": "2.10.7",
     "zhouhaifei-test": "2.9.0"
   },
   "config": {

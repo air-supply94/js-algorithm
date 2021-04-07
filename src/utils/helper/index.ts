@@ -75,3 +75,9 @@ export function thousandthSeparator(num: unknown): string {
   return String(num)
     .replace(/\d+/, (n) => n.replace(/(?!^)(?=(\d{3})+$)/g, ','));
 }
+
+export function swap(data: unknown[], first: number, second: number): void {
+  const t = data[first];
+  data[first] = data[second];
+  data[second] = t;
+}

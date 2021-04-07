@@ -1,5 +1,8 @@
-import { add } from '../../../utils';
 import { Stack } from '../stack';
+
+function add(x: number, y: number): number {
+  return x + y;
+}
 
 export function calPoints(options: Array<string | number>): number {
   const stack = new Stack<number>();

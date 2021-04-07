@@ -1,4 +1,4 @@
-# 0.0.0 (2021-04-07)
+# 0.0.0 (2021-04-09)
 
 ### Bug Fixes
 
@@ -12,7 +12,6 @@
 - rename file ([b03f0d1](https://github.com/air-supply94/js-algorithm/commit/b03f0d15ca04ebbfeb0f6a54aa3e1a0c4785e768))
 - rename project ([42f990d](https://github.com/air-supply94/js-algorithm/commit/42f990deb5659630681bfea763aca02cb80517fa))
 - rename test filename ([8369baf](https://github.com/air-supply94/js-algorithm/commit/8369baf3707d50382d3d85cd2131eedf7e16ede5))
-- test ([73ec2ff](https://github.com/air-supply94/js-algorithm/commit/73ec2ff419b4f5c8b3cc5749e1da7c72b8be5a1f))
 - update code-style package ([bc71131](https://github.com/air-supply94/js-algorithm/commit/bc7113122ac26a5f097fb3490505b8ff0433589a))
 - update config ([ddef9b6](https://github.com/air-supply94/js-algorithm/commit/ddef9b6a41f76289a091972110c23a1a75d68968))
 - update package ([2e5aeff](https://github.com/air-supply94/js-algorithm/commit/2e5aeff48d3c0579c49f9efceb2fd2a6b657c59b))
@@ -23,9 +22,11 @@
 - 增加 trie ([605372a](https://github.com/air-supply94/js-algorithm/commit/605372afa097d3c4d0aebbda3f337b08ce07f69c))
 - 增加测试覆盖 ([acb452b](https://github.com/air-supply94/js-algorithm/commit/acb452bcbbb5be7d1801c8ce63581873f80e1830))
 - 增加跳跃游戏、雨滴问题 ([4a0523e](https://github.com/air-supply94/js-algorithm/commit/4a0523ee3728ad5004412c07e78be3b86fea0932))
+- 简单重构 ([94b454e](https://github.com/air-supply94/js-algorithm/commit/94b454edea13c9e781008584280de4841845cb4f))
 - 限制 BST 访问 ([26941af](https://github.com/air-supply94/js-algorithm/commit/26941af4a0b513d42ae9ea7dc597967097570738))
 - 限制链表 node 的访问 ([6879acc](https://github.com/air-supply94/js-algorithm/commit/6879acc3d93cf753b4bf92efefa15e2142076738))
 - 限制链表的访问 ([77b4fe2](https://github.com/air-supply94/js-algorithm/commit/77b4fe2ad72600fdbfaeb16955fe9dedec6951c3))
+- **algorithm:** category ([4b6df6f](https://github.com/air-supply94/js-algorithm/commit/4b6df6f52af25314970a0df710cc297dcdb21305))
 - **algorithm/classic:** add coinChange ([4c2b923](https://github.com/air-supply94/js-algorithm/commit/4c2b92300783066c27c01ce3f79989fbdfcf0314))
 - **algorithm/classic:** add maximalSquare ([82da714](https://github.com/air-supply94/js-algorithm/commit/82da714f99bc9b61b8b2498c1bac7e0900b08540))
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
