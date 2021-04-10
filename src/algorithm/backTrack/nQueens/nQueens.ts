@@ -1,7 +1,7 @@
 export function nQueens(n: number): number {
-  const cols = new Set<number>();
-  const addVector = new Set<number>();
-  const subtractVector = new Set<number>();
+  const cols = new Map<number, boolean>();
+  const addVector = new Map<number, boolean>();
+  const subtractVector = new Map<number, boolean>();
   let result = 0;
 
   function isValid(row: number, col: number) {
@@ -23,9 +23,9 @@ export function nQueens(n: number): number {
 
     for (let col = 0; col < n; ++col) {
       if (isValid(row, col)) {
-        cols.add(col);
-        addVector.add(row + col);
-        subtractVector.add(row - col);
+        cols.set(col, true);
+        addVector.set(row + col, true);
+        subtractVector.set(row - col, true);
         recursion(row + 1, path.concat(col));
         cols.delete(col);
         addVector.delete(row + col);

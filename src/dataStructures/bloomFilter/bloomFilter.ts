@@ -1,17 +1,15 @@
-import { BloomFilterInterface } from './types';
-
-export class BloomFilter implements BloomFilterInterface {
+export class BloomFilter {
   constructor(size = 100) {
     this.data = Array(size)
       .fill(0);
   }
 
-  private readonly data: boolean[];
+  private readonly data: number[];
 
   public insert(item: string): void {
     this.getHashValues(item)
       .forEach((val) => {
-        this.data[val] = true;
+        this.data[val] = 1;
       });
   }
 

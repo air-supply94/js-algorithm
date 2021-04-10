@@ -1,39 +1,35 @@
 function combinationSumRecursive(
-  candidates: number[],
-  remainingSum: number,
-  finalCombinations: number[][] = [],
-  currentCombination: number[] = [],
-  startFrom = 0
+  result: number[][],
+  choice: number[],
+  currentPath: number[],
+  target: number
 ): number[][] {
-  if (remainingSum < 0) {
-    return finalCombinations;
+  if (target < 0) {
+    return result;
   }
 
-  if (remainingSum === 0) {
-    finalCombinations.push(currentCombination.slice());
+  if (target === 0) {
+    result.push(currentPath.slice());
 
-    return finalCombinations;
+    return result;
   }
 
-  for (let candidateIndex = startFrom; candidateIndex < candidates.length; candidateIndex++) {
-    const currentCandidate = candidates[candidateIndex];
-
-    currentCombination.push(currentCandidate);
+  for (let i = 0; i < choice.length; i++) {
+    currentPath.push(choice[i]);
 
     combinationSumRecursive(
-      candidates,
-      remainingSum - currentCandidate,
-      finalCombinations,
-      currentCombination,
-      candidateIndex
+      result,
+      choice.slice(i),
+      currentPath,
+      target - choice[i]
     );
 
-    currentCombination.pop();
+    currentPath.pop();
   }
 
-  return finalCombinations;
+  return result;
 }
 
 export function combinationSum(candidates: number[], target: number): number[][] {
-  return combinationSumRecursive(candidates, target);
+  return combinationSumRecursive([], candidates, [], target);
 }

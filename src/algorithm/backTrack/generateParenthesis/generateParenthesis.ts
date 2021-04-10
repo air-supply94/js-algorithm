@@ -1,21 +1,20 @@
 export function generateParenthesis(n: number): string[] {
-  const result = [];
-  function recursion(tempString = '', left = 0, right = 0) {
-    if (left === n && right === n) {
-      result.push(tempString);
-      return;
-    }
+  return recursion([], '', 0, 0, n);
+}
 
-    if (left < n) {
-      recursion(`${tempString}(`, left + 1, right);
-    }
-
-    if (left > right && right < n) {
-      recursion(`${tempString})`, left, right + 1);
-    }
+function recursion(result: string[], path: string, left: number, right: number, n: number): string[] {
+  if (left === n && right === n) {
+    result.push(path);
+    return result;
   }
 
-  recursion();
+  if (left < n) {
+    recursion(result, `${path}(`, left + 1, right, n);
+  }
+
+  if (left > right) {
+    recursion(result, `${path})`, left, right + 1, n);
+  }
 
   return result;
 }

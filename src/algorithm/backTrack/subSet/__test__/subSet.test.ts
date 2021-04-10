@@ -1,14 +1,14 @@
-import { btSubSet } from '../btSubSet';
+import { subSet } from '../subSet';
 
 describe('btPowerSet', () => {
   it('should calculate power set of given set using backtracking approach', () => {
-    expect(btSubSet([1]))
+    expect(subSet([1]))
       .toEqual([
         [],
         [1],
       ]);
 
-    expect(btSubSet([
+    expect(subSet([
       1,
       2,
       3,

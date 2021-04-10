@@ -1,4 +1,4 @@
-# 0.0.0 (2021-04-09)
+# 0.0.0 (2021-04-11)
 
 ### Bug Fixes
 
@@ -26,7 +26,7 @@
 - 限制 BST 访问 ([26941af](https://github.com/air-supply94/js-algorithm/commit/26941af4a0b513d42ae9ea7dc597967097570738))
 - 限制链表 node 的访问 ([6879acc](https://github.com/air-supply94/js-algorithm/commit/6879acc3d93cf753b4bf92efefa15e2142076738))
 - 限制链表的访问 ([77b4fe2](https://github.com/air-supply94/js-algorithm/commit/77b4fe2ad72600fdbfaeb16955fe9dedec6951c3))
-- **algorithm:** category ([4b6df6f](https://github.com/air-supply94/js-algorithm/commit/4b6df6f52af25314970a0df710cc297dcdb21305))
+- **algorithm:** category ([bc1726f](https://github.com/air-supply94/js-algorithm/commit/bc1726fe8bad0c41b79600ade1c12c98052e1b20))
 - **algorithm/classic:** add coinChange ([4c2b923](https://github.com/air-supply94/js-algorithm/commit/4c2b92300783066c27c01ce3f79989fbdfcf0314))
 - **algorithm/classic:** add maximalSquare ([82da714](https://github.com/air-supply94/js-algorithm/commit/82da714f99bc9b61b8b2498c1bac7e0900b08540))
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
@@ -51,6 +51,7 @@
 - **BST:** 增加后序遍历的迭代版 ([48a8015](https://github.com/air-supply94/js-algorithm/commit/48a80158438dadb469d72bbb3f5bde0deab584ee))
 - **Comparator:** 更新导出方式和访问限制 ([ef485dd](https://github.com/air-supply94/js-algorithm/commit/ef485ddc67e6743f500e1ab0e8cec6f876ad1555))
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
+- **dataStructure:** add bitMap ([3b2432c](https://github.com/air-supply94/js-algorithm/commit/3b2432c36cfc3ee5b60bb30a71ba8bce6dcada9c))
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/js-algorithm/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
 - **double-linked-list:** remove flatten ([928a4d6](https://github.com/air-supply94/js-algorithm/commit/928a4d6e08527d719c2c548a5ea955a9654a4e9b))
 - **double-linked-list:** 增加排序 ([94af395](https://github.com/air-supply94/js-algorithm/commit/94af395a7a0085f805427b45864883f42e247350))
