@@ -1,18 +1,18 @@
-import { dpBottomUpJumpGame } from '../dpBottomUpJumpGame';
+import { jumpGame } from '../jumpGame';
 
-describe('dpBottomUpJumpGame', () => {
-  test('should solve Jump Game problem in bottom-up dynamic programming manner', () => {
-    expect(dpBottomUpJumpGame([
+describe('backtrackingJumpGame', () => {
+  test('should solve Jump Game problem in backtracking manner', () => {
+    expect(jumpGame([
       1,
       0,
     ]))
       .toBe(true);
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       100,
       0,
     ]))
       .toBe(true);
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       2,
       3,
       1,
@@ -20,7 +20,7 @@ describe('dpBottomUpJumpGame', () => {
       4,
     ]))
       .toBe(true);
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       1,
       1,
       1,
@@ -28,7 +28,7 @@ describe('dpBottomUpJumpGame', () => {
       1,
     ]))
       .toBe(true);
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       1,
       1,
       1,
@@ -36,7 +36,7 @@ describe('dpBottomUpJumpGame', () => {
       1,
     ]))
       .toBe(true);
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       1,
       5,
       2,
@@ -47,13 +47,13 @@ describe('dpBottomUpJumpGame', () => {
     ]))
       .toBe(true);
 
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       1,
       0,
       1,
     ]))
       .toBe(false);
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       3,
       2,
       1,
@@ -61,7 +61,7 @@ describe('dpBottomUpJumpGame', () => {
       4,
     ]))
       .toBe(false);
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       0,
       0,
       0,
@@ -69,7 +69,7 @@ describe('dpBottomUpJumpGame', () => {
       0,
     ]))
       .toBe(false);
-    expect(dpBottomUpJumpGame([
+    expect(jumpGame([
       5,
       4,
       3,

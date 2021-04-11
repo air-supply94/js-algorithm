@@ -1,4 +1,4 @@
-export function greedyJumpGame(numbers: number[]): boolean {
+export function jumpGame(numbers: number[]): boolean {
   let k = 0;
   for (let i = 0; i < numbers.length; i++) {
     if (i > k) {

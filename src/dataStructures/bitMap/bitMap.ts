@@ -13,7 +13,7 @@ export class BitMap {
   }
 
   public contain(item: number): boolean {
-    const arrayIndex = Math.floor(item >>> 5);
+    const arrayIndex = Math.floor(item / 32);
     const bitIndex = item % 32;
     return Boolean(this.data[arrayIndex] & (1 << bitIndex));
   }

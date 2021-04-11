@@ -15,6 +15,8 @@ export function maximalSquare(matrix: number[][]): number {
       if (matrix[i - 1][j - 1]) {
         dp[j] = Math.min(pre, dp[j - 1], dp[j]) + 1;
         max = Math.max(max, dp[j]);
+      } else {
+        dp[j] = 0;
       }
     }
   }

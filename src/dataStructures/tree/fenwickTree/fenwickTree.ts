@@ -21,20 +21,20 @@ export class FenwickTree {
   public query(position: number): number {
     if (position < 1 || position > this.arraySize) {
       return 0;
-    } else {
-      let sum = 0;
-      for (let i = position; i > 0; i -= i & -i) {
-        sum += this.treeArray[i];
-      }
-      return sum;
     }
+
+    let sum = 0;
+    for (let i = position; i > 0; i -= i & -i) {
+      sum += this.treeArray[i];
+    }
+    return sum;
   }
 
   public queryRange(leftIndex: number, rightIndex: number): number {
     if (leftIndex > rightIndex) {
       return 0;
-    } else {
-      return this.query(rightIndex) - this.query(leftIndex - 1);
     }
+
+    return this.query(rightIndex) - this.query(leftIndex - 1);
   }
 }

@@ -4,12 +4,10 @@ import { TrieInterface, TrieNodeInterface } from './types';
 
 function getLastCharacterNode(root: TrieNodeInterface, word: string): TrieNodeInterface | undefined {
   let currentNode = root;
-  for (const character of word) {
-    if (!currentNode.hasChild(character)) {
-      return undefined;
-    }
-
-    currentNode = currentNode.getChild(character);
+  let i = 0;
+  while (i < word.length && currentNode) {
+    currentNode = currentNode.getChild(word[i]);
+    i++;
   }
 
   return currentNode;
@@ -24,25 +22,35 @@ export class Trie implements TrieInterface {
 
   public addWord(word: string): this {
     let currentNode = this.root;
-    for (const character of word) {
-      currentNode = currentNode.addChild(character);
+    for (let i = 0; i < word.length; i++) {
+      currentNode = currentNode.addChild(word[i]);
       currentNode.prefixCount++;
     }
 
     currentNode.wordCount++;
     currentNode.isCompleteWord = true;
     this.root.isCompleteWord = false;
+    this.root.wordCount = 0;
+    this.root.prefixCount = 0;
     return this;
   }
 
   public findWordsCount(word: string): number {
     const lastCharacter = getLastCharacterNode(this.root, word);
-    return lastCharacter ? lastCharacter.wordCount : 0;
+    if (lastCharacter) {
+      return lastCharacter.wordCount;
+    } else {
+      return 0;
+    }
   }
 
   public findPrefixCount(word: string): number {
     const lastCharacter = getLastCharacterNode(this.root, word);
-    return lastCharacter ? lastCharacter.prefixCount : 0;
+    if (lastCharacter) {
+      return lastCharacter.prefixCount;
+    } else {
+      return 0;
+    }
   }
 
   public wordFrequency(): {[key in string]: number } {
@@ -84,8 +92,8 @@ export class Trie implements TrieInterface {
 
   public doesWordExist(word: string): boolean {
     const lastCharacter = getLastCharacterNode(this.root, word);
-    if (lastCharacter && lastCharacter.isCompleteWord) {
-      return true;
+    if (lastCharacter) {
+      return lastCharacter.isCompleteWord;
     } else {
       return false;
     }

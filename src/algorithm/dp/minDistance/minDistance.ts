@@ -1,20 +1,16 @@
 export function minDistance(str1: string, str2: string): number {
-  const w = str1.length;
-  const h = str2.length;
+  const width = str1.length;
+  const height = str2.length;
 
-  if (w * h == 0) {
-    return w + h;
-  }
-
-  const dp = Array(w + 1);
-  for (let i = 0; i < w + 1; i++) {
+  const dp = Array(width + 1);
+  for (let i = 0; i < width + 1; i++) {
     dp[i] = i;
   }
 
-  for (let i = 1; i < h + 1; i++) {
+  for (let i = 1; i < height + 1; i++) {
     let tmp = dp[0];
     dp[0] = i;
-    for (let j = 1; j < w + 1; j++) {
+    for (let j = 1; j < width + 1; j++) {
       const pre = tmp;
       tmp = dp[j];
       if (str1[j - 1] === str2[i - 1]) {
@@ -25,5 +21,5 @@ export function minDistance(str1: string, str2: string): number {
     }
   }
 
-  return dp[w];
+  return dp[width];
 }

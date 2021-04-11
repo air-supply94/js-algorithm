@@ -2,17 +2,17 @@ export function bfRainTerraces(terraces: number[]): number {
   let amount = 0;
 
   for (let i = 0; i < terraces.length; i++) {
-    let leftMax = 0;
+    let leftMaxPrevious = 0;
     for (let j = 0; j <= i; j++) {
-      leftMax = Math.max(leftMax, terraces[j]);
+      leftMaxPrevious = Math.max(leftMaxPrevious, terraces[j]);
     }
 
-    let rightMax = 0;
+    let rightMaxPrevious = 0;
     for (let j = i; j < terraces.length; j++) {
-      rightMax = Math.max(rightMax, terraces[j]);
+      rightMaxPrevious = Math.max(rightMaxPrevious, terraces[j]);
     }
 
-    const dx = Math.min(leftMax, rightMax) - terraces[i];
+    const dx = Math.min(leftMaxPrevious, rightMaxPrevious) - terraces[i];
     amount += dx > 0 ? dx : 0;
   }
 
