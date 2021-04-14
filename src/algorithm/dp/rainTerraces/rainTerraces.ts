@@ -1,4 +1,4 @@
-export function dpRainTerraces(terraces: number[]): number {
+export function rainTerraces(terraces: number[]): number {
   let amount = 0;
   const dpLeftMax = Array(terraces.length).fill(0);
   const dpRightMax = Array(terraces.length).fill(0);

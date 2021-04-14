@@ -63,7 +63,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "test": "zhouhaifei-test react",
     "lint-staged": "lint-staged --allow-empty",
-    "lint:js": "eslint --fix --ext .js,.ts ./src",
+    "lint:js": "eslint --fix --quiet --ext .js,.ts ./src",
     "prettier": "prettier -c --write \"**/*.{md,html,json}\""
   }
 }

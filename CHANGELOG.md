@@ -1,4 +1,4 @@
-# 0.0.0 (2021-04-13)
+# 0.0.0 (2021-04-14)
 
 ### Bug Fixes
 
@@ -26,7 +26,8 @@
 - 限制 BST 访问 ([26941af](https://github.com/air-supply94/js-algorithm/commit/26941af4a0b513d42ae9ea7dc597967097570738))
 - 限制链表 node 的访问 ([6879acc](https://github.com/air-supply94/js-algorithm/commit/6879acc3d93cf753b4bf92efefa15e2142076738))
 - 限制链表的访问 ([77b4fe2](https://github.com/air-supply94/js-algorithm/commit/77b4fe2ad72600fdbfaeb16955fe9dedec6951c3))
-- **algorithm:** add maximumSubarray ([126574a](https://github.com/air-supply94/js-algorithm/commit/126574a797a8838c3bd608e2220ba4ab330a9099))
+- **algorithm:** add longestIncreasingSubsequence ([09c1817](https://github.com/air-supply94/js-algorithm/commit/09c1817c0bcd3a2ad8703d046b1ccb0077b97893))
+- **algorithm:** add maximumSubarray ([da7ca8e](https://github.com/air-supply94/js-algorithm/commit/da7ca8ebb9dc3d9f509bca8cb4248d20da4edc54))
 - **algorithm:** category ([bc1726f](https://github.com/air-supply94/js-algorithm/commit/bc1726fe8bad0c41b79600ade1c12c98052e1b20))
 - **algorithm/classic:** add coinChange ([4c2b923](https://github.com/air-supply94/js-algorithm/commit/4c2b92300783066c27c01ce3f79989fbdfcf0314))
 - **algorithm/classic:** add maximalSquare ([82da714](https://github.com/air-supply94/js-algorithm/commit/82da714f99bc9b61b8b2498c1bac7e0900b08540))
