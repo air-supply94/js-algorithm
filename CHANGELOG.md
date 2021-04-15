@@ -1,4 +1,4 @@
-# 0.0.0 (2021-04-15)
+# 0.0.0 (2021-04-16)
 
 ### Bug Fixes
 
@@ -28,8 +28,9 @@
 - 限制链表的访问 ([77b4fe2](https://github.com/air-supply94/js-algorithm/commit/77b4fe2ad72600fdbfaeb16955fe9dedec6951c3))
 - **algorithm:** add longestIncreasingSubsequence ([84764bb](https://github.com/air-supply94/js-algorithm/commit/84764bb5e1ff525d1177c026c1383b6230746e04))
 - **algorithm:** add maximumSubarray ([da7ca8e](https://github.com/air-supply94/js-algorithm/commit/da7ca8ebb9dc3d9f509bca8cb4248d20da4edc54))
+- **algorithm:** add maxProfitCount1 ([6b405fc](https://github.com/air-supply94/js-algorithm/commit/6b405fc4b1326a782cb6d1281e57bc4bcf282555))
 - **algorithm:** add rubberHouseEasy ([20f2c1d](https://github.com/air-supply94/js-algorithm/commit/20f2c1d0be6437178c25775c8a149e878de2cdf3))
-- **algorithm:** add rubberHouseHard ([dd6626b](https://github.com/air-supply94/js-algorithm/commit/dd6626b5a72cdfa7a3a926adfff9c28b8ae5be4b))
+- **algorithm:** add rubberHouseHard ([6fe1902](https://github.com/air-supply94/js-algorithm/commit/6fe19027463070680eea73253228592826ac3952))
 - **algorithm:** add rubberHouseMedium ([01e2961](https://github.com/air-supply94/js-algorithm/commit/01e29612830f13179c3285558ab44f7565348289))
 - **algorithm:** category ([bc1726f](https://github.com/air-supply94/js-algorithm/commit/bc1726fe8bad0c41b79600ade1c12c98052e1b20))
 - **algorithm/classic:** add coinChange ([4c2b923](https://github.com/air-supply94/js-algorithm/commit/4c2b92300783066c27c01ce3f79989fbdfcf0314))
