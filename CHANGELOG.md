@@ -28,7 +28,7 @@
 - 限制链表的访问 ([77b4fe2](https://github.com/air-supply94/js-algorithm/commit/77b4fe2ad72600fdbfaeb16955fe9dedec6951c3))
 - **algorithm:** add longestIncreasingSubsequence ([84764bb](https://github.com/air-supply94/js-algorithm/commit/84764bb5e1ff525d1177c026c1383b6230746e04))
 - **algorithm:** add maximumSubarray ([da7ca8e](https://github.com/air-supply94/js-algorithm/commit/da7ca8ebb9dc3d9f509bca8cb4248d20da4edc54))
-- **algorithm:** add rubberHouseEasy ([2ace9c4](https://github.com/air-supply94/js-algorithm/commit/2ace9c48041fb8f3ab6d4ab31cc7a63f18b63976))
+- **algorithm:** add rubberHouseEasy ([20f2c1d](https://github.com/air-supply94/js-algorithm/commit/20f2c1d0be6437178c25775c8a149e878de2cdf3))
 - **algorithm:** category ([bc1726f](https://github.com/air-supply94/js-algorithm/commit/bc1726fe8bad0c41b79600ade1c12c98052e1b20))
 - **algorithm/classic:** add coinChange ([4c2b923](https://github.com/air-supply94/js-algorithm/commit/4c2b92300783066c27c01ce3f79989fbdfcf0314))
 - **algorithm/classic:** add maximalSquare ([82da714](https://github.com/air-supply94/js-algorithm/commit/82da714f99bc9b61b8b2498c1bac7e0900b08540))
