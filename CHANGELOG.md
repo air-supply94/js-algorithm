@@ -30,6 +30,7 @@
 - **algorithm:** add maximumSubarray ([da7ca8e](https://github.com/air-supply94/js-algorithm/commit/da7ca8ebb9dc3d9f509bca8cb4248d20da4edc54))
 - **algorithm:** add maxProfitCount1 ([d9d7d96](https://github.com/air-supply94/js-algorithm/commit/d9d7d96d82ae3eef4fd3e7419e2910072d483dfb))
 - **algorithm:** add maxProfitCountInfinity ([489aff7](https://github.com/air-supply94/js-algorithm/commit/489aff75c98c0dafc248890eb5563e52c0a14ed6))
+- **algorithm:** add maxProfitCountInfinityAndCoolDown ([bfc341d](https://github.com/air-supply94/js-algorithm/commit/bfc341d527c5cada015a2cbc76b249bce53f32a9))
 - **algorithm:** add rubberHouseEasy ([20f2c1d](https://github.com/air-supply94/js-algorithm/commit/20f2c1d0be6437178c25775c8a149e878de2cdf3))
 - **algorithm:** add rubberHouseHard ([6fe1902](https://github.com/air-supply94/js-algorithm/commit/6fe19027463070680eea73253228592826ac3952))
 - **algorithm:** add rubberHouseMedium ([01e2961](https://github.com/air-supply94/js-algorithm/commit/01e29612830f13179c3285558ab44f7565348289))
