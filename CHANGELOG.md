@@ -29,7 +29,7 @@
 - **algorithm:** add longestIncreasingSubsequence ([84764bb](https://github.com/air-supply94/js-algorithm/commit/84764bb5e1ff525d1177c026c1383b6230746e04))
 - **algorithm:** add maximumSubarray ([da7ca8e](https://github.com/air-supply94/js-algorithm/commit/da7ca8ebb9dc3d9f509bca8cb4248d20da4edc54))
 - **algorithm:** add maxProfitCount1 ([d9d7d96](https://github.com/air-supply94/js-algorithm/commit/d9d7d96d82ae3eef4fd3e7419e2910072d483dfb))
-- **algorithm:** add maxProfitCount2 ([27b48da](https://github.com/air-supply94/js-algorithm/commit/27b48daa563dd793a8686eb86ad7535704f4fbd0))
+- **algorithm:** add maxProfitCount2 ([07c9683](https://github.com/air-supply94/js-algorithm/commit/07c96833ea63fe2656f9478b494cd8c0ef913b4e))
 - **algorithm:** add maxProfitCountInfinity ([489aff7](https://github.com/air-supply94/js-algorithm/commit/489aff75c98c0dafc248890eb5563e52c0a14ed6))
 - **algorithm:** add maxProfitCountInfinityAndCoolDown ([bfc341d](https://github.com/air-supply94/js-algorithm/commit/bfc341d527c5cada015a2cbc76b249bce53f32a9))
 - **algorithm:** add maxProfitCountInfinityAndFee ([e0c5e4f](https://github.com/air-supply94/js-algorithm/commit/e0c5e4fc503fd4b9d2509c5a698c5a3b64be9131))
