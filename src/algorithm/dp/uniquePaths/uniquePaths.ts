@@ -2,10 +2,10 @@ export function uniquePaths(width: number, height: number): number {
   const dp = Array(width)
     .fill(1);
 
-  for (let i = 1; i < height; i++) {
+  for (let h = 1; h < height; h++) {
     dp[0] = 1;
-    for (let j = 1; j < width; j++) {
-      dp[j] += dp[j - 1];
+    for (let w = 1; w < width; w++) {
+      dp[w] += dp[w - 1];
     }
   }
 

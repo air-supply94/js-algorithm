@@ -4,32 +4,29 @@ export function nQueens(n: number): number {
   const subtractVector = new Map<number, boolean>();
   let result = 0;
 
-  function isValid(row: number, col: number) {
-    if (!cols.has(col)) {
-      if (!addVector.has(row + col)) {
-        if (!subtractVector.has(row - col)) {
-          return true;
-        }
-      }
-    }
-    return false;
+  function isValid(h: number, w: number) {
+    return !cols.has(w) && !addVector.has(h + w) && !subtractVector.has(h - w);
   }
 
-  function recursion(row: number, path: number[]): void {
-    if (row === n) {
+  function recursion(h: number, path: number[]): void {
+    if (h === n) {
       result++;
       return;
     }
 
-    for (let col = 0; col < n; ++col) {
-      if (isValid(row, col)) {
-        cols.set(col, true);
-        addVector.set(row + col, true);
-        subtractVector.set(row - col, true);
-        recursion(row + 1, path.concat(col));
-        cols.delete(col);
-        addVector.delete(row + col);
-        subtractVector.delete(row - col);
+    for (let i = 0; i < n; i++) {
+      if (isValid(h, i)) {
+        path.push(i);
+        cols.set(i, true);
+        addVector.set(h + i, true);
+        subtractVector.set(h - i, true);
+
+        recursion(h + 1, path.concat(i));
+
+        path.pop();
+        cols.delete(i);
+        addVector.delete(h + i);
+        subtractVector.delete(h - i);
       }
     }
   }

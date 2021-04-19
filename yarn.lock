@@ -9175,9 +9175,9 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zhouhaifei-code-style@2.10.7:
+zhouhaifei-code-style@^2.10.7:
   version "2.10.7"
-  resolved "https://registry.npm.taobao.org/zhouhaifei-code-style/download/zhouhaifei-code-style-2.10.7.tgz#1eae6516b8856c019a77cf92a833e424652e905c"
+  resolved "https://registry.nlark.com/zhouhaifei-code-style/download/zhouhaifei-code-style-2.10.7.tgz#1eae6516b8856c019a77cf92a833e424652e905c"
   integrity sha1-Hq5lFriFbAGad8+SqDPkJGUukFw=
   dependencies:
     "@commitlint/config-conventional" "^12.1.1"
@@ -9196,9 +9196,9 @@ zhouhaifei-code-style@2.10.7:
     stylelint-declaration-block-no-ignored-properties "^2.3.0"
     stylelint-order "^4.1.0"
 
-zhouhaifei-test@2.9.0:
+zhouhaifei-test@^2.9.0:
   version "2.9.0"
-  resolved "https://registry.npm.taobao.org/zhouhaifei-test/download/zhouhaifei-test-2.9.0.tgz#007cd52139bb6074ad20e5318ab148dcde8951a0"
+  resolved "https://registry.nlark.com/zhouhaifei-test/download/zhouhaifei-test-2.9.0.tgz#007cd52139bb6074ad20e5318ab148dcde8951a0"
   integrity sha1-AHzVITm7YHStIOUxirFI3N6JUaA=
   dependencies:
     babel-jest "^26.6.3"

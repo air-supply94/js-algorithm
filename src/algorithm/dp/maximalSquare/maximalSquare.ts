@@ -6,17 +6,17 @@ export function maximalSquare(matrix: number[][]): number {
     .fill(0);
   let max = 0;
 
-  for (let i = 1; i < height + 1; i++) {
+  for (let h = 1; h < height + 1; h++) {
     let tmp = dp[0];
     dp[0] = 0;
-    for (let j = 1; j < width + 1; j++) {
+    for (let w = 1; w < width + 1; w++) {
       const pre = tmp;
-      tmp = dp[j];
-      if (matrix[i - 1][j - 1] === 0) {
-        dp[j] = 0;
+      tmp = dp[w];
+      if (matrix[h - 1][w - 1] === 0) {
+        dp[w] = 0;
       } else {
-        dp[j] = Math.min(pre, dp[j - 1], dp[j]) + 1;
-        max = Math.max(max, dp[j]);
+        dp[w] = Math.min(pre, dp[w - 1], dp[w]) + 1;
+        max = Math.max(max, dp[w]);
       }
     }
   }

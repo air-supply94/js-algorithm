@@ -30,6 +30,6 @@ function combinationSumRecursive(
   return result;
 }
 
-export function combinationSum(candidates: number[], target: number): number[][] {
-  return combinationSumRecursive([], candidates, [], target);
+export function combinationSum(choices: number[], target: number): number[][] {
+  return combinationSumRecursive([], choices, [], target);
 }
