@@ -5,31 +5,28 @@ export function traverseLevelOrder<T = unknown>(
   root: BinarySearchTreeNodeInterface<T> | null,
   callback: traverseCallback<T>
 ): number {
-  const nodeQueue = new Queue<BinarySearchTreeNodeInterface<T>>();
+  const queue = new Queue<BinarySearchTreeNodeInterface<T>>();
   let level = 0;
-  let i = 0;
-  let currentNode;
   if (root) {
-    nodeQueue.enqueue(root);
+    queue.enqueue(root);
   }
 
-  while (!nodeQueue.isEmpty()) {
+  while (!queue.isEmpty()) {
+    const size = queue.size;
     level++;
-    i = nodeQueue.size;
-    while (i > 0) {
-      currentNode = nodeQueue.dequeue();
-      if (callback(currentNode, level) === false) {
+    for (let i = 0; i < size; i++) {
+      const tmpNode = queue.dequeue();
+      if (callback(tmpNode, level) === false) {
         return level;
       }
 
-      if (currentNode.left) {
-        nodeQueue.enqueue(currentNode.left);
+      if (tmpNode.left) {
+        queue.enqueue(tmpNode.left);
       }
 
-      if (currentNode.right) {
-        nodeQueue.enqueue(currentNode.right);
+      if (tmpNode.right) {
+        queue.enqueue(tmpNode.right);
       }
-      i--;
     }
   }
 

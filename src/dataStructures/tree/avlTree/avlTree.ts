@@ -27,7 +27,7 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
     this.setRoot = this.setRoot.bind(this);
   }
 
-  public readonly binarySearchTree: BinarySearchTreeInterface<T>;
+  private readonly binarySearchTree: BinarySearchTreeInterface<T>;
 
   public setRoot(root: BinarySearchTreeNodeInterface<T> | null): this {
     this.binarySearchTree.setRoot(root);

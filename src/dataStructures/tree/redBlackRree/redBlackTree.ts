@@ -142,7 +142,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
     currentNode.value.makeBlack();
   }
 
-  public readonly binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
+  private readonly binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
 
   public setRoot(root: CompleteRedBlackTreeNode<T> | null): this {
     this.binarySearchTree.setRoot(root);

@@ -1,37 +1,28 @@
-import { connectNodeNext } from '../connectNodeNext';
-import { serializeLevelOrder } from '../serializeLevelOrder';
+import { constructMaximumTree } from '../constructMaximumTree';
 
-test('connectNodeNext', () => {
-  expect(connectNodeNext(serializeLevelOrder([])))
+test('constructMaximumTree', () => {
+  expect(constructMaximumTree([]))
     .toBeNull();
 
-  const root1: any = connectNodeNext(serializeLevelOrder([
-    1,
-    2,
+  const root = constructMaximumTree([
     3,
-    4,
-    5,
+    2,
+    1,
     6,
-    7,
-  ]));
-  expect(root1.left._next.value)
-    .toBe(3);
-  expect(root1.left.left._next.value)
-    .toBe(5);
-  expect(root1.left.left._next._next.value)
-    .toBe(6);
-  expect(root1.left.left._next._next._next.value)
-    .toBe(7);
+    0,
+    5,
+  ]);
 
-  const root2: any = connectNodeNext(serializeLevelOrder([
-    1,
-    2,
-    3,
-    4,
-    null,
-    null,
-    7,
-  ]));
-  expect(root2.left.left._next.value)
-    .toBe(7);
+  expect(root.value)
+    .toBe(6);
+  expect(root.left.value)
+    .toBe(3);
+  expect(root.right.value)
+    .toBe(5);
+  expect(root.left.right.value)
+    .toBe(2);
+  expect(root.right.left.value)
+    .toBe(0);
+  expect(root.left.right.right.value)
+    .toBe(1);
 });
