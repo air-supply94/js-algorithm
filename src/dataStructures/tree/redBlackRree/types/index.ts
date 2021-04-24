@@ -16,6 +16,7 @@ export interface RedBlackTreeNodeInterface<T = unknown> {
 }
 
 export interface RedBlackTreeInterface<T = unknown> {
+  readonly binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
   readonly comparator: Comparator;
   readonly root: CompleteRedBlackTreeNode<T> | null;
   setRoot: (root: CompleteRedBlackTreeNode<T> | null) => this;
