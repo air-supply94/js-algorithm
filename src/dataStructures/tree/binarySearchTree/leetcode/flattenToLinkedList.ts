@@ -1,6 +1,6 @@
 import { BinarySearchTreeNodeInterface } from '../types';
 
-export function flattenToLinkedList<T=unknown>(root: BinarySearchTreeNodeInterface<T>) {
+export function flattenToLinkedList<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): BinarySearchTreeNodeInterface<T> | null {
   if (!root) {
     return null;
   }

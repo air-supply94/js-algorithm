@@ -2,11 +2,7 @@ import { BinarySearchTreeNode } from '../binarySearchTreeNode';
 import { BinarySearchTreeNodeInterface } from '../types';
 
 export function serializePreOrder<T = unknown>(array: T[]): BinarySearchTreeNodeInterface<T> | null {
-  if (!array.length) {
-    return null;
-  }
   let i = 0;
-
   function serialize(): BinarySearchTreeNodeInterface<T> | null {
     if (i >= array.length) {
       return null;

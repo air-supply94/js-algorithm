@@ -1,30 +1,20 @@
-import { Stack } from '../../../stack';
 import { BinarySearchTreeNode } from '../binarySearchTreeNode';
 import { BinarySearchTreeNodeInterface } from '../types';
 
 export function serializePreAndInOrder<T = unknown>(preorder: T[], inorder: T[]): BinarySearchTreeNodeInterface<T> | null {
-  if (preorder.length == 0) {
+  return recursion(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
+}
+
+function recursion<T = unknown>(preorder: T[], preStartIndex: number, preEndIndex: number, inorder: T[], inStartIndex: number, inEndIndex: number) {
+  if (preStartIndex > preEndIndex) {
     return null;
   }
 
-  const root = new BinarySearchTreeNode<T>(preorder[0]);
-  const stack = new Stack<BinarySearchTreeNodeInterface<T>>();
-  stack.push(root);
-  let inorderIndex = 0;
-  let currentNode: BinarySearchTreeNodeInterface<T>;
-  for (let i = 1; i < preorder.length; i++) {
-    if (stack.peek().value != inorder[inorderIndex]) {
-      stack.peek().setLeft(new BinarySearchTreeNode<T>(preorder[i]));
-      stack.push(stack.peek().left);
-    } else {
-      currentNode = stack.peek();
-      while (!stack.isEmpty() && stack.peek().value == inorder[inorderIndex]) {
-        currentNode = stack.pop();
-        inorderIndex++;
-      }
-      currentNode.setRight(new BinarySearchTreeNode<T>(preorder[i]));
-      stack.push(currentNode.right);
-    }
-  }
+  const rootValue = preorder[preStartIndex];
+  const equalIndex = inorder.findIndex((item) => item === rootValue, inStartIndex);
+  const size = equalIndex - inStartIndex;
+  const root = new BinarySearchTreeNode<T>(rootValue);
+  root.setLeft(recursion(preorder, preStartIndex + 1, preStartIndex + size, inorder, inStartIndex, equalIndex - 1));
+  root.setRight(recursion(preorder, preStartIndex + size + 1, preEndIndex, inorder, equalIndex + 1, inEndIndex));
   return root;
 }

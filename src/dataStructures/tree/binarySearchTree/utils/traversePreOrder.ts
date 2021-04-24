@@ -6,14 +6,12 @@ export function traversePreOrder<T = unknown>(
   callback: traverseCallback<T>
 ): void {
   const nodeStack = new Stack<BinarySearchTreeNodeInterface<T>>();
-  let currentNode;
-
   if (root) {
     nodeStack.push(root);
   }
 
   while (!nodeStack.isEmpty()) {
-    currentNode = nodeStack.pop();
+    const currentNode = nodeStack.pop();
     if (callback(currentNode) === false) {
       return;
     }
