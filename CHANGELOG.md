@@ -63,6 +63,7 @@
 - **BST:** 增加后序遍历的迭代版 ([48a8015](https://github.com/air-supply94/js-algorithm/commit/48a80158438dadb469d72bbb3f5bde0deab584ee))
 - **bst/leetcode:** add connectNodeNext ([1115283](https://github.com/air-supply94/js-algorithm/commit/11152831b8cdb1f17ad70e867267c5062c2bab53))
 - **bst/leetcode:** add constructMaximumTree ([a342aaf](https://github.com/air-supply94/js-algorithm/commit/a342aaf0668ccd6c9b8f859e05e2107c9e0529e3))
+- **bst/leetcode:** add findDuplicateSubtree ([27a161c](https://github.com/air-supply94/js-algorithm/commit/27a161c3932a27855b82499bb53c5cf2f1a1288a))
 - **bst/leetcode:** add flattenToLinkedList ([eb61761](https://github.com/air-supply94/js-algorithm/commit/eb617614ab93723a000004e5f7b462fa89d96272))
 - **bst/leetcode:** add invertTree ([d06b1ff](https://github.com/air-supply94/js-algorithm/commit/d06b1ffd483d99e332e2fa31ad207c375cede0c6))
 - **bst/leetcode:** add isSameMetric ([ba0a053](https://github.com/air-supply94/js-algorithm/commit/ba0a0536fd76b4d069c254857b383939341f716e))
