@@ -5,5 +5,9 @@ export function findMax<T = unknown>(root: null | BinarySearchTreeNodeInterface<
     return null;
   }
 
-  return root.right ? findMax<T>(root.right) : root;
+  if (root.right) {
+    return findMax<T>(root.right);
+  } else {
+    return root;
+  }
 }

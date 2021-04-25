@@ -8,7 +8,7 @@ export function findReplaceNode<T = unknown>(
   root: null | BinarySearchTreeNodeInterface<T>,
   value: T,
   comparator: Comparator,
-  isFindMin = true,
+  isFindRightMin = true,
   swap = function(
     tmpNode: BinarySearchTreeNodeInterface<T>,
     replaceNode: BinarySearchTreeNodeInterface<T>
@@ -25,7 +25,7 @@ export function findReplaceNode<T = unknown>(
 
   while (replaceNode.left || replaceNode.right) {
     if (replaceNode.left && replaceNode.right) {
-      replaceNode = isFindMin ? findMin<T>(replaceNode.right) : findMax<T>(replaceNode.left);
+      replaceNode = isFindRightMin ? findMin<T>(replaceNode.right) : findMax<T>(replaceNode.left);
     } else if (replaceNode.left) {
       replaceNode = replaceNode.left;
     } else {

@@ -19,21 +19,19 @@ export function insert<T = unknown>(
   if (comparator.lessThan(value, root.value)) {
     if (root.left) {
       return insert<T>(root.left, value, comparator);
+    } else {
+      const newNode = new BinarySearchTreeNode<T>(value);
+      root.setLeft(newNode);
+      return newNode;
     }
-
-    const newNode = new BinarySearchTreeNode<T>(value);
-    root.setLeft(newNode);
-
-    return newNode;
   } else if (comparator.greaterThan(value, root.value)) {
     if (root.right) {
       return insert<T>(root.right, value, comparator);
+    } else {
+      const newNode = new BinarySearchTreeNode<T>(value);
+      root.setRight(newNode);
+      return newNode;
     }
-
-    const newNode = new BinarySearchTreeNode<T>(value);
-    root.setRight(newNode);
-
-    return newNode;
   } else {
     return null;
   }
