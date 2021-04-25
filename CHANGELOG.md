@@ -1,4 +1,4 @@
-# 0.0.0 (2021-04-24)
+# 0.0.0 (2021-04-25)
 
 ### Bug Fixes
 
@@ -66,6 +66,7 @@
 - **bst/leetcode:** add flattenToLinkedList ([eb61761](https://github.com/air-supply94/js-algorithm/commit/eb617614ab93723a000004e5f7b462fa89d96272))
 - **bst/leetcode:** add invertTree ([d06b1ff](https://github.com/air-supply94/js-algorithm/commit/d06b1ffd483d99e332e2fa31ad207c375cede0c6))
 - **bst/leetcode:** add isSameMetric ([ba0a053](https://github.com/air-supply94/js-algorithm/commit/ba0a0536fd76b4d069c254857b383939341f716e))
+- **bst/leetcode:** add serializePostAndInOrder ([8a7230d](https://github.com/air-supply94/js-algorithm/commit/8a7230d7bc79372bf678f586a51bb7fdb5f3196f))
 - **bst/leetcode:** add serializePreAndInOrder ([3504aff](https://github.com/air-supply94/js-algorithm/commit/3504affb9f63de05912046066d8c12fe8bffe000))
 - **Comparator:** 更新导出方式和访问限制 ([ef485dd](https://github.com/air-supply94/js-algorithm/commit/ef485ddc67e6743f500e1ab0e8cec6f876ad1555))
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
