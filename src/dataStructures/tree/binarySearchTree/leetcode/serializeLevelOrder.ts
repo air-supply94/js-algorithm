@@ -22,7 +22,7 @@ export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNo
       queue.enqueue(currentNode.left);
     }
 
-    if (i >= array.length || queue.isEmpty()) {
+    if (i >= array.length) {
       return root;
     }
 
