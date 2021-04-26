@@ -12,60 +12,6 @@ describe('BloomFilter', () => {
     bloomFilter = new BloomFilter();
   });
 
-  test('should have methods named "insert" and "contain"', () => {
-    expect(new BloomFilter(100))
-      .toBeDefined();
-    expect(typeof bloomFilter.insert)
-      .toBe('function');
-    expect(typeof bloomFilter.contain)
-      .toBe('function');
-  });
-
-  test('should hash deterministically wtesth all 3 hash functions', () => {
-    const str1 = 'apple';
-
-    expect(bloomFilter.hash1(str1))
-      .toEqual(bloomFilter.hash1(str1));
-    expect(bloomFilter.hash2(str1))
-      .toEqual(bloomFilter.hash2(str1));
-    expect(bloomFilter.hash3(str1))
-      .toEqual(bloomFilter.hash3(str1));
-
-    expect(bloomFilter.hash1(str1))
-      .toBe(14);
-    expect(bloomFilter.hash2(str1))
-      .toBe(43);
-    expect(bloomFilter.hash3(str1))
-      .toBe(10);
-
-    const str2 = 'orange';
-
-    expect(bloomFilter.hash1(str2))
-      .toEqual(bloomFilter.hash1(str2));
-    expect(bloomFilter.hash2(str2))
-      .toEqual(bloomFilter.hash2(str2));
-    expect(bloomFilter.hash3(str2))
-      .toEqual(bloomFilter.hash3(str2));
-
-    expect(bloomFilter.hash1(str2))
-      .toBe(0);
-    expect(bloomFilter.hash2(str2))
-      .toBe(61);
-    expect(bloomFilter.hash3(str2))
-      .toBe(10);
-  });
-
-  test('should create an array wtesth 3 hash values', () => {
-    expect(bloomFilter.getHashValues('abc').length)
-      .toBe(3);
-    expect(bloomFilter.getHashValues('abc'))
-      .toEqual([
-        66,
-        63,
-        54,
-      ]);
-  });
-
   test('should insert strings correctly and return true when checking for inserted values', () => {
     people.forEach((person) => bloomFilter.insert(person));
 
