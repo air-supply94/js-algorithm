@@ -8,7 +8,7 @@ export function isSameMetric<T = unknown>(root: BinarySearchTreeNodeInterface<T>
   return isSameLeftAndRight<T>(root.left, root.right);
 }
 
-function isSameLeftAndRight<T = unknown>(left: BinarySearchTreeNodeInterface<T> | null, right: BinarySearchTreeNodeInterface<T> | null): boolean {
+export function isSameLeftAndRight<T = unknown>(left: BinarySearchTreeNodeInterface<T> | null, right: BinarySearchTreeNodeInterface<T> | null): boolean {
   if (left == null) {
     return right == null;
   }

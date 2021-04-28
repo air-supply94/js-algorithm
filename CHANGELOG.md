@@ -55,6 +55,7 @@
 - **binarySearchNode:** 重构该类 ([4f2d1cb](https://github.com/air-supply94/js-algorithm/commit/4f2d1cba7cdb5c8aba537194b1921de4c76405a7))
 - **BinaryTreeNode:** 去除 implements ([e4c9f4f](https://github.com/air-supply94/js-algorithm/commit/e4c9f4f19bc79e13b32c56e9222ae3c3941a55ae))
 - **bloom-filter:** add ([3240ac6](https://github.com/air-supply94/js-algorithm/commit/3240ac6e61518c4ecdf8b7d09e41c8a98fb074c5))
+- **bloomFilter:** update implement ([597ee06](https://github.com/air-supply94/js-algorithm/commit/597ee066e1527123becec1d179722983df4d595c))
 - **bs:** add rotateSearch ([b25fbec](https://github.com/air-supply94/js-algorithm/commit/b25fbecfc4498d6804297f7a8dedb4b7bae4f2be))
 - **bst:** add initTreeNodes isSymmetric ([56fef5e](https://github.com/air-supply94/js-algorithm/commit/56fef5e577c293ae9e2564565f2b2736fc0261ba))
 - **bst:** update traversePreOrder traverseInOrder traverseAfterOrder ([300c6d8](https://github.com/air-supply94/js-algorithm/commit/300c6d8acb8115efd7db7477aa3f34fc9fcbd823))
