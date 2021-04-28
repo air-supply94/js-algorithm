@@ -73,7 +73,7 @@
 - **bst/leetcode:** add serializePostAndInOrder ([8a7230d](https://github.com/air-supply94/js-algorithm/commit/8a7230d7bc79372bf678f586a51bb7fdb5f3196f))
 - **bst/leetcode:** add serializePostOrder ([86d2bba](https://github.com/air-supply94/js-algorithm/commit/86d2bba87b10dc35c6c216b3e0ec88f8ed2cf86d))
 - **bst/leetcode:** add serializePreAndInOrder ([3504aff](https://github.com/air-supply94/js-algorithm/commit/3504affb9f63de05912046066d8c12fe8bffe000))
-- **bst/leetcode:** update lowestCommonAncestor ([1cd77b7](https://github.com/air-supply94/js-algorithm/commit/1cd77b7fe533d187906aad1098d39c6d9b157572))
+- **bst/leetcode:** update lowestCommonAncestor ([d2cecad](https://github.com/air-supply94/js-algorithm/commit/d2cecad5356c2e460b25fe30dfe1125346e20b6d))
 - **Comparator:** 更新导出方式和访问限制 ([ef485dd](https://github.com/air-supply94/js-algorithm/commit/ef485ddc67e6743f500e1ab0e8cec6f876ad1555))
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
