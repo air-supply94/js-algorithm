@@ -1,4 +1,4 @@
-# 0.0.0 (2021-04-28)
+# 0.0.0 (2021-04-29)
 
 ### Bug Fixes
 
@@ -63,6 +63,7 @@
 - **BST:** 增加先序、后序、层序遍历 ([488b4a8](https://github.com/air-supply94/js-algorithm/commit/488b4a8408fd8a40aec420f0ce8a32b3b17c9bce))
 - **BST:** 增加后序遍历的迭代版 ([48a8015](https://github.com/air-supply94/js-algorithm/commit/48a80158438dadb469d72bbb3f5bde0deab584ee))
 - **bst/leetcode:** add bstToGst ([647a319](https://github.com/air-supply94/js-algorithm/commit/647a3192c71b129ded763463fd5ea6c932ca8679))
+- **bst/leetcode:** add checkSubTree ([17fedf7](https://github.com/air-supply94/js-algorithm/commit/17fedf744a335216933655d0dd0e77cd1b5805ad))
 - **bst/leetcode:** add connectNodeNext ([1115283](https://github.com/air-supply94/js-algorithm/commit/11152831b8cdb1f17ad70e867267c5062c2bab53))
 - **bst/leetcode:** add constructMaximumTree ([a342aaf](https://github.com/air-supply94/js-algorithm/commit/a342aaf0668ccd6c9b8f859e05e2107c9e0529e3))
 - **bst/leetcode:** add findDuplicateSubtree ([27a161c](https://github.com/air-supply94/js-algorithm/commit/27a161c3932a27855b82499bb53c5cf2f1a1288a))
@@ -71,6 +72,7 @@
 - **bst/leetcode:** add isSameMetric ([ba0a053](https://github.com/air-supply94/js-algorithm/commit/ba0a0536fd76b4d069c254857b383939341f716e))
 - **bst/leetcode:** add isValid ([3c9f48a](https://github.com/air-supply94/js-algorithm/commit/3c9f48a8cd63ed54d0203e799b63d0ad014181d4))
 - **bst/leetcode:** add maxSumTree ([3364bd4](https://github.com/air-supply94/js-algorithm/commit/3364bd4fb63abd67a3519ca0291eff50fbd125c5))
+- **bst/leetcode:** add pathSum ([d482ddf](https://github.com/air-supply94/js-algorithm/commit/d482ddf588edf5d878feefeb01c1175f8fc916b5))
 - **bst/leetcode:** add serializePostAndInOrder ([8a7230d](https://github.com/air-supply94/js-algorithm/commit/8a7230d7bc79372bf678f586a51bb7fdb5f3196f))
 - **bst/leetcode:** add serializePostOrder ([86d2bba](https://github.com/air-supply94/js-algorithm/commit/86d2bba87b10dc35c6c216b3e0ec88f8ed2cf86d))
 - **bst/leetcode:** add serializePreAndInOrder ([3504aff](https://github.com/air-supply94/js-algorithm/commit/3504affb9f63de05912046066d8c12fe8bffe000))

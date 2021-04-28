@@ -17,13 +17,13 @@ export function findReplaceNode<T = unknown>(
     tmpNode.setValue(replaceNode.value);
     replaceNode.setValue(tmpValue);
   }): null | BinarySearchTreeNodeInterface<T> {
-  let tmpNode = find<T>(root, value, comparator);
-  let replaceNode = tmpNode;
-  if (!tmpNode) {
-    return tmpNode;
+  let replaceNode = find<T>(root, value, comparator);
+  if (!replaceNode) {
+    return null;
   }
 
   while (replaceNode.left || replaceNode.right) {
+    const tmpNode = replaceNode;
     if (replaceNode.left && replaceNode.right) {
       replaceNode = isFindRightMin ? findMin<T>(replaceNode.right) : findMax<T>(replaceNode.left);
     } else if (replaceNode.left) {
@@ -33,7 +33,6 @@ export function findReplaceNode<T = unknown>(
     }
 
     swap(tmpNode, replaceNode);
-    tmpNode = replaceNode;
   }
 
   return replaceNode;

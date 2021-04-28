@@ -1,4 +1,4 @@
-import { checkSubTree } from '../checkSubTree';
+import { checkSubTree, pathSum } from '../checkSubTree';
 import { serializeLevelOrder } from '../serializeLevelOrder';
 
 test('checkSubTree', () => {
@@ -30,4 +30,25 @@ test('checkSubTree', () => {
       1,
     ])))
     .toBeTruthy();
+});
+
+test('pathSum', () => {
+  expect(pathSum(null, 0))
+    .toBe(0);
+  expect(pathSum(serializeLevelOrder([
+    5,
+    4,
+    8,
+    11,
+    null,
+    13,
+    4,
+    7,
+    2,
+    null,
+    null,
+    5,
+    1,
+  ]), 22))
+    .toBe(3);
 });
