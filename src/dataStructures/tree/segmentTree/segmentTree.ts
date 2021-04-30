@@ -50,23 +50,10 @@ export class SegmentTree {
     }
 
     const middleIndex = leftIndex + Math.floor((rightIndex - leftIndex) / 2);
+    const left = this.rangeQueryRecursive(queryLeftIndex, queryRightIndex, leftIndex, middleIndex, getLeftChildIndex(position));
+    const right = this.rangeQueryRecursive(queryLeftIndex, queryRightIndex, middleIndex + 1, rightIndex, getRightChildIndex(position));
 
-    return this.operation(
-      this.rangeQueryRecursive(
-        queryLeftIndex,
-        queryRightIndex,
-        leftIndex,
-        middleIndex,
-        getLeftChildIndex(position)
-      ),
-      this.rangeQueryRecursive(
-        queryLeftIndex,
-        queryRightIndex,
-        middleIndex + 1,
-        rightIndex,
-        getRightChildIndex(position)
-      )
-    );
+    return this.operation(left, right);
   }
 
   public rangeQuery(queryLeftIndex: number, queryRightIndex: number): number {

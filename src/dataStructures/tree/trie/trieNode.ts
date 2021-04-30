@@ -6,7 +6,7 @@ export class TrieNode implements TrieNodeInterface {
     this.isCompleteWord = isCompleteWord;
     this.wordCount = 0;
     this.prefixCount = 0;
-    this.children = {};
+    this.children = Object.create(null);
   }
 
   public wordCount: number;

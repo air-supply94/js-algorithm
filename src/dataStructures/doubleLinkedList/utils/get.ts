@@ -13,7 +13,8 @@ export function get<T = unknown>(
     return null;
   }
 
-  if (position <= (size >>> 1)) {
+  const middleIndex = size >>> 1;
+  if (position <= middleIndex) {
     let findNode = null;
     let i = 0;
     each<T>(head, size, 'next', (node) => {
@@ -28,13 +29,13 @@ export function get<T = unknown>(
     return findNode;
   } else {
     let findNode = null;
-    let i = 0;
+    let i = size - 1;
     each<T>(tail, size, 'previous', (node) => {
-      if (i + 1 + position === size) {
+      if (i === position) {
         findNode = node;
         return false;
       } else {
-        i++;
+        i--;
         return true;
       }
     });

@@ -1,4 +1,4 @@
-# 0.0.0 (2021-04-29)
+# 0.0.0 (2021-05-06)
 
 ### Bug Fixes
 
@@ -72,10 +72,11 @@
 - **bst/leetcode:** add isSameMetric ([ba0a053](https://github.com/air-supply94/js-algorithm/commit/ba0a0536fd76b4d069c254857b383939341f716e))
 - **bst/leetcode:** add isValid ([3c9f48a](https://github.com/air-supply94/js-algorithm/commit/3c9f48a8cd63ed54d0203e799b63d0ad014181d4))
 - **bst/leetcode:** add maxSumTree ([3364bd4](https://github.com/air-supply94/js-algorithm/commit/3364bd4fb63abd67a3519ca0291eff50fbd125c5))
-- **bst/leetcode:** add pathSum ([d482ddf](https://github.com/air-supply94/js-algorithm/commit/d482ddf588edf5d878feefeb01c1175f8fc916b5))
+- **bst/leetcode:** add pathSum ([085f0e1](https://github.com/air-supply94/js-algorithm/commit/085f0e18576397c55892cedc379540820c1d9135))
 - **bst/leetcode:** add serializePostAndInOrder ([8a7230d](https://github.com/air-supply94/js-algorithm/commit/8a7230d7bc79372bf678f586a51bb7fdb5f3196f))
 - **bst/leetcode:** add serializePostOrder ([86d2bba](https://github.com/air-supply94/js-algorithm/commit/86d2bba87b10dc35c6c216b3e0ec88f8ed2cf86d))
 - **bst/leetcode:** add serializePreAndInOrder ([3504aff](https://github.com/air-supply94/js-algorithm/commit/3504affb9f63de05912046066d8c12fe8bffe000))
+- **bst/leetcode:** add test ([8099653](https://github.com/air-supply94/js-algorithm/commit/8099653d0b3c029d60a56d28be9f6e86b6239679))
 - **bst/leetcode:** update lowestCommonAncestor ([d2cecad](https://github.com/air-supply94/js-algorithm/commit/d2cecad5356c2e460b25fe30dfe1125346e20b6d))
 - **Comparator:** 更新导出方式和访问限制 ([ef485dd](https://github.com/air-supply94/js-algorithm/commit/ef485ddc67e6743f500e1ab0e8cec6f876ad1555))
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))

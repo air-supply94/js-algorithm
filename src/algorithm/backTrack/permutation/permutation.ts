@@ -8,7 +8,7 @@ function recursion(result: number[][], choice: number[], path: number[]): number
 
   for (let i = 0; i < choice.length; i++) {
     path.push(choice[i]);
-    recursion(result, choice.filter((item) => item !== choice[i]), path);
+    recursion(result, choice.filter((_, index) => index !== i), path);
     path.pop();
   }
 
