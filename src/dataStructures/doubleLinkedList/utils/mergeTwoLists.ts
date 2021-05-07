@@ -13,24 +13,31 @@ export function mergeTwoLists<T = unknown>(firstHead: DoubleLinkedListNodeInterf
       currentNode.setNext(firstHeadNode);
       firstHeadNode.setPrevious(currentNode);
       firstHeadNode = firstHeadNode.next;
+      currentNode = currentNode.next;
     } else {
       currentNode.setNext(secondHeadNode);
       secondHeadNode.setPrevious(currentNode);
       secondHeadNode = secondHeadNode.next;
+      currentNode = currentNode.next;
     }
-
-    currentNode = currentNode.next;
   }
 
-  if (firstHeadNode || secondHeadNode) {
-    currentNode.setNext(firstHeadNode || secondHeadNode);
-    currentNode.next.setPrevious(currentNode);
+  if (firstHeadNode) {
+    currentNode.setNext(firstHeadNode);
+    firstHeadNode.setPrevious(currentNode);
   }
 
-  const head = deathHead.next;
-  if (head) {
+  if (secondHeadNode) {
+    currentNode.setNext(secondHeadNode);
+    secondHeadNode.setPrevious(currentNode);
+  }
+
+  if (deathHead.next) {
+    const head = deathHead.next;
     head.setPrevious(null);
+    deathHead.setNext(null);
+    return head;
+  } else {
+    return null;
   }
-  deathHead.setNext(null);
-  return head;
 }

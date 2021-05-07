@@ -311,7 +311,7 @@ describe('Graph', () => {
       .toBeNull();
   });
 
-  test('should be possible to reverse graph', () => {
+  test('should be possible to reverseBetween graph', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');

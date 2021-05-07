@@ -19,6 +19,7 @@ function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: Compa
   let i = 0;
   let j = 0;
   let k = 0;
+
   while (i < leftArray.length && j < rightArray.length) {
     if (comparator.lessThan(rightArray[j], leftArray[i])) {
       result[k] = rightArray[j];

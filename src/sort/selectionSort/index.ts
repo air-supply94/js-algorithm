@@ -1,5 +1,4 @@
-import { compareFunctionType, Comparator } from '../../utils';
-import { swap } from '../../utils/helper';
+import { compareFunctionType, Comparator, swap } from '../../utils';
 
 export function selectionSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);

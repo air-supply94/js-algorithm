@@ -2,7 +2,7 @@ import { Comparator } from '../../../utils';
 import { DoubleLinkedList } from '../doubleLinkedList';
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { hasCircle } from '../leetcode/hasCircle';
-import { reverse } from '../utils';
+import { reverseBetween, reverseCount } from '../utils';
 
 describe('DoubleLinkedList', () => {
   test('should create list node with value', () => {
@@ -225,11 +225,12 @@ describe('Index', () => {
       .toBe('1,1,2,3,3,4,5');
   });
 
-  test('should reverse linked list', () => {
+  test('reverse base', () => {
     const linkedList = new DoubleLinkedList();
-    linkedList.reverse();
+    linkedList.reverseBetween();
+    reverseCount(linkedList.head, 100);
     linkedList.append(1);
-    linkedList.reverse(1, 1);
+    linkedList.reverseBetween(1, 1);
     expect(linkedList.tail.next)
       .toBeNull();
     expect(linkedList.head.previous)
@@ -261,7 +262,7 @@ describe('Index', () => {
       .toBe(1);
   });
 
-  test('should reverse between', () => {
+  test('should reverseBetween between', () => {
     function getList() {
       const linkedList = new DoubleLinkedList();
       linkedList.append(1);
@@ -273,7 +274,7 @@ describe('Index', () => {
     }
 
     let list = getList();
-    expect(reverse(list.head, 3, 4).value)
+    expect(reverseBetween(list.head, 3, 4).value)
       .toBe(1);
     expect(list.toString())
       .toBe('1,2,4,3,5');
@@ -285,13 +286,35 @@ describe('Index', () => {
       .toBeFalsy();
 
     list = getList();
-    list.reverse(2, 10);
+    list.reverseBetween(2, 5);
     expect(list.toString())
       .toBe('1,5,4,3,2');
     expect(list.head.value)
       .toBe(1);
     expect(list.tail.value)
       .toBe(2);
+    expect(hasCircle(list))
+      .toBeFalsy();
+
+    list = getList();
+    list.reverseBetween(1, 5);
+    expect(list.toString())
+      .toBe('5,4,3,2,1');
+    expect(list.head.value)
+      .toBe(5);
+    expect(list.tail.value)
+      .toBe(1);
+    expect(hasCircle(list))
+      .toBeFalsy();
+
+    list = getList();
+    list.reverseBetween(7, 10);
+    expect(list.toString())
+      .toBe('1,2,3,4,5');
+    expect(list.head.value)
+      .toBe(1);
+    expect(list.tail.value)
+      .toBe(5);
     expect(hasCircle(list))
       .toBeFalsy();
   });

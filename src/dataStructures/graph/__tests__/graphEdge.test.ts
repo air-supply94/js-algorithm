@@ -38,7 +38,7 @@ describe('GraphEdge', () => {
       .toEqual(10);
   });
 
-  test('should be possible to do edge reverse', () => {
+  test('should be possible to do edge reverseBetween', () => {
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const edge = new GraphEdge(vertexA, vertexB, 10);

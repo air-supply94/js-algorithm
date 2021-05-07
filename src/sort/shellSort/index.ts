@@ -1,21 +1,15 @@
-import { Comparator, compareFunctionType } from '../../utils';
-import { swap } from '../../utils/helper';
+import { Comparator, compareFunctionType, swap } from '../../utils';
 
 export function shellSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
   const comparator = new Comparator(compareCallback);
   let gap = originalArray.length >>> 1;
 
   while (gap > 0) {
-    for (let i = 0; i < (originalArray.length - gap); i++) {
+    for (let i = 0; i < originalArray.length - gap; i++) {
       let currentIndex = i;
-      let nextIndex = i + gap;
 
-      while (currentIndex >= 0) {
-        if (comparator.lessThan(originalArray[nextIndex], originalArray[currentIndex])) {
-          swap(originalArray, currentIndex, nextIndex);
-        }
-
-        nextIndex -= gap;
+      while (currentIndex >= 0 && comparator.lessThan(originalArray[currentIndex + gap], originalArray[currentIndex])) {
+        swap(originalArray, currentIndex, currentIndex + gap);
         currentIndex -= gap;
       }
     }

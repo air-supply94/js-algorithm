@@ -36,6 +36,7 @@ export interface DoubleLinkedListInterface<T = unknown> {
   has: (value?: T) => boolean;
   isEmpty: () => boolean;
   reverse: () => this;
+  reverseBetween: () => this;
   connect: (...args: Array<DoubleLinkedListInterface<T>>) => this;
   deleteIndex: (index: number) => null | DoubleLinkedListNodeInterface<T>;
   setSize: (size: number) => this;

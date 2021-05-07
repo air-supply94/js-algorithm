@@ -16,64 +16,59 @@ export function reverseBase<T = unknown>(head: DoubleLinkedListNodeInterface<T> 
   return previous;
 }
 
-/*
-export function reverseBase<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null): DoubleLinkedListNodeInterface<T> | null {
-  if (!head || !head.next) {
+export function reverseCount<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null, n: number): DoubleLinkedListNodeInterface<T> | null {
+  if (!head) {
     return head;
-  } else {
-    const newHead = reverseBase<T>(head.next);
-    newHead.setPrevious(null);
-    head.setPrevious(head.next);
-    head.next.setNext(head);
-    head.setNext(null);
+  }
+
+  let firstTail = head;
+  let count = n;
+  while (firstTail.next && count > 1) {
+    firstTail = firstTail.next;
+    count--;
+  }
+
+  const secondHead = firstTail.next;
+  if (secondHead) {
+    firstTail.setNext(null);
+    secondHead.setPrevious(null);
+
+    const newHead = reverseBase(head);
+
+    head.setNext(secondHead);
+    secondHead.setPrevious(head);
     return newHead;
+  } else {
+    return reverseBase(head);
   }
 }
-*/
 
-export function reverse<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null, m: number, n: number): DoubleLinkedListNodeInterface<T> | null {
-  let secondHead = head;
-  let i = m;
-  let j = n;
-  while (i > 1 && secondHead) {
-    secondHead = secondHead.next;
-    i--;
-    j--;
-  }
-
-  if (!secondHead) {
+export function reverseBetween<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null, m: number, n: number): DoubleLinkedListNodeInterface<T> | null {
+  if (!head) {
     return head;
   }
 
-  const firstTail = secondHead.previous;
-  if (firstTail) {
+  if (m === 1) {
+    return reverseCount(head, n);
+  }
+
+  let firstTail = head;
+  let count = m - 1;
+  while (firstTail.next && count > 1) {
+    firstTail = firstTail.next;
+    count--;
+  }
+
+  const secondHead = firstTail.next;
+  if (secondHead) {
     firstTail.setNext(null);
+    secondHead.setPrevious(null);
+
+    const newSecondHead = reverseCount(secondHead, n - m + 1);
+    firstTail.setNext(newSecondHead);
+    newSecondHead.setPrevious(firstTail);
+    return head;
+  } else {
+    return head;
   }
-  secondHead.setPrevious(null);
-
-  let secondTail = secondHead;
-  while (j > 1 && secondTail && secondTail.next) {
-    secondTail = secondTail.next;
-    j--;
-  }
-
-  const thirdHead = secondTail.next;
-  if (thirdHead) {
-    thirdHead.setPrevious(null);
-  }
-  secondTail.setNext(null);
-
-  reverseBase<T>(secondHead);
-
-  secondTail.setPrevious(firstTail);
-  if (firstTail) {
-    firstTail.setNext(secondTail);
-  }
-
-  secondHead.setNext(thirdHead);
-  if (thirdHead) {
-    thirdHead.setPrevious(secondHead);
-  }
-
-  return firstTail ? head : secondTail;
 }

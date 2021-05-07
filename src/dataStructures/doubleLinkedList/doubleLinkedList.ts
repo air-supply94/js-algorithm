@@ -1,7 +1,7 @@
 import { Comparator, compareFunctionType } from '../../utils';
 import { DoubleLinkedListNode } from './doubleLinkedListNode';
 import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface, eachCallback, FindParams, toStringCallback } from './types';
-import { reverse, get, each, formatIndex } from './utils';
+import { reverseBetween, get, each, formatIndex, reverseBase } from './utils';
 import { sort } from './utils/sort';
 
 export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<T> {
@@ -251,8 +251,17 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return node;
   }
 
-  public reverse(m = 1, n = this.size): this {
-    const head = reverse<T>(this.head, m, n);
+  public reverse(): this {
+    const head = this.head;
+    const tail = this.tail;
+    reverseBase<T>(head);
+
+    return this.setHead(tail)
+      .setTail(head);
+  }
+
+  public reverseBetween(m = 1, n = this.size): this {
+    const head = reverseBetween<T>(this.head, m, n);
     let tail = this.tail;
     while (tail && tail.next) {
       tail = tail.next;
