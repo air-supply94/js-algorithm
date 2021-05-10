@@ -2,7 +2,7 @@ import { Comparator } from '../../../utils';
 import { DoubleLinkedList } from '../doubleLinkedList';
 import { DoubleLinkedListNode } from '../doubleLinkedListNode';
 import { hasCircle } from '../leetcode/hasCircle';
-import { reverseBetween, reverseCount } from '../utils';
+import { reverseBetween, reverseCount, reverseCountGroup } from '../utils';
 
 describe('DoubleLinkedList', () => {
   test('should create list node with value', () => {
@@ -262,7 +262,7 @@ describe('Index', () => {
       .toBe(1);
   });
 
-  test('should reverseBetween between', () => {
+  test('reverseBetween', () => {
     function getList() {
       const linkedList = new DoubleLinkedList();
       linkedList.append(1);
@@ -317,6 +317,47 @@ describe('Index', () => {
       .toBe(5);
     expect(hasCircle(list))
       .toBeFalsy();
+  });
+
+  test('reverseCountGroup', () => {
+    function getList() {
+      const linkedList = new DoubleLinkedList();
+      linkedList.append(1);
+      linkedList.append(2);
+      linkedList.append(3);
+      linkedList.append(4);
+      linkedList.append(5);
+      return linkedList;
+    }
+
+    expect(reverseCountGroup(null, 2))
+      .toBeNull();
+
+    let list = getList();
+    const head1 = reverseCountGroup(list.head, 2);
+    list.setHead(head1);
+    expect(list.toString())
+      .toBe('2,1,4,3,5');
+    expect(list.head.value)
+      .toBe(2);
+    expect(hasCircle(list))
+      .toBeFalsy();
+
+    list = getList();
+    list.append(6);
+    list.setHead(reverseCountGroup(list.head, 2));
+    expect(list.toString())
+      .toBe('2,1,4,3,6,5');
+
+    list = getList();
+    list.setHead(reverseCountGroup(list.head, 3));
+    expect(list.toString())
+      .toBe('3,2,1,4,5');
+
+    list = getList();
+    list.setHead(reverseCountGroup(list.head, 1));
+    expect(list.toString())
+      .toBe('1,2,3,4,5');
   });
 
   test('should delete node by value from linked list', () => {

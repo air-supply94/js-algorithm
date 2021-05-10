@@ -8,8 +8,7 @@ import { selectionSort } from '../selectionSort';
 import { shellSort } from '../shellSort';
 
 describe('sort', () => {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  const sortCollection: Function[] = [
+  const sortCollection = [
     bubbleSort,
     insertionSort,
     mergeSort,

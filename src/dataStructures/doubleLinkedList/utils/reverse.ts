@@ -17,7 +17,7 @@ export function reverseBase<T = unknown>(head: DoubleLinkedListNodeInterface<T> 
 }
 
 export function reverseCount<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null, n: number): DoubleLinkedListNodeInterface<T> | null {
-  if (!head) {
+  if (!head || !head.next) {
     return head;
   }
 
@@ -44,7 +44,7 @@ export function reverseCount<T = unknown>(head: DoubleLinkedListNodeInterface<T>
 }
 
 export function reverseBetween<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null, m: number, n: number): DoubleLinkedListNodeInterface<T> | null {
-  if (!head) {
+  if (!head || !head.next) {
     return head;
   }
 
@@ -70,5 +70,38 @@ export function reverseBetween<T = unknown>(head: DoubleLinkedListNodeInterface<
     return head;
   } else {
     return head;
+  }
+}
+
+export function reverseCountGroup<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null, n: number): DoubleLinkedListNodeInterface<T> | null {
+  if (!head || !head.next) {
+    return head;
+  }
+
+  let count = n;
+  let firstTail = head;
+  while (firstTail.next && count > 1) {
+    firstTail = firstTail.next;
+    count--;
+  }
+
+  if (count !== 1) {
+    return head;
+  }
+
+  const next = firstTail.next;
+
+  if (next) {
+    firstTail.setNext(null);
+    next.setPrevious(null);
+
+    reverseBase(head);
+    const nextHead = reverseCountGroup(next, n);
+
+    head.setNext(nextHead);
+    nextHead.setPrevious(head);
+    return firstTail;
+  } else {
+    return reverseBase(head);
   }
 }
