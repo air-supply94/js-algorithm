@@ -5,7 +5,7 @@ export function isPalindrome<T = unknown>(doubleLinkedList: DoubleLinkedListInte
     return false;
   }
 
-  let rightNode = doubleLinkedList.get((doubleLinkedList.size / 2) | 0);
+  let rightNode = doubleLinkedList.get(doubleLinkedList.size >>> 1);
   let leftNode = doubleLinkedList.size % 2 === 0 ? rightNode.previous : rightNode;
 
   while (leftNode && rightNode) {

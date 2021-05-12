@@ -1,7 +1,8 @@
-export function rotateSearch<T = unknown>(rotateArray: T[], seekElement: T): number {
+export function rotateSearchElement(rotateArray: number[], seekElement: number): number {
   let left = 0;
   let right = rotateArray.length - 1;
   let middleIndex = 0;
+
   while (left <= right) {
     middleIndex = left + Math.floor((right - left) / 2);
     if (seekElement === rotateArray[middleIndex]) {
@@ -22,4 +23,23 @@ export function rotateSearch<T = unknown>(rotateArray: T[], seekElement: T): num
   }
 
   return -1;
+}
+
+export function rotateSearchMin(rotateArray: number[]): number {
+  let left = 0;
+  let right = rotateArray.length - 1;
+  let middle: number;
+
+  while (left <= right) {
+    middle = left + Math.floor((right - left) / 2);
+    if (rotateArray[middle] > rotateArray[right]) {
+      left = middle + 1;
+    } else if (rotateArray[middle] < rotateArray[left]) {
+      right = middle - 1;
+    } else {
+      right--;
+    }
+  }
+
+  return rotateArray[left];
 }
