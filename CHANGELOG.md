@@ -149,7 +149,7 @@
 - **redBlackTree、AvlTree:** 1 增加红黑树的 insert（delete 暂时无法完成）2 重构 AvlTree，以继承代替组合 ([c74b447](https://github.com/air-supply94/js-algorithm/commit/c74b4479b2b77e00471a2cd7cc66ba8c87b82f95))
 - **redBlackTree、AvlTree:** 以组合代替继承，继承太麻烦 ([8058567](https://github.com/air-supply94/js-algorithm/commit/80585670dc9d680bbca539bbff39f33ecbf50089))
 - **RedBlackTree),fix(rotate:** add RedBlackTree test, 解决旋转 node parent 丢失问题 ([f70663a](https://github.com/air-supply94/js-algorithm/commit/f70663abb56135f8244d953cb26cb72b2b5d9bb5))
-- **search:** add missingNumber ([fc9ec30](https://github.com/air-supply94/js-algorithm/commit/fc9ec3066bb0d0344de3ab726b54d6e62f472436))
+- **search:** add missingNumber ([d3a3444](https://github.com/air-supply94/js-algorithm/commit/d3a3444ad2d02fb5d6eac769e6d3d35b3e95edaa))
 - **search:** add rotateSearchMin ([4b5e7f7](https://github.com/air-supply94/js-algorithm/commit/4b5e7f772d9f9c3b9d9c861fe123025761636ec3))
 - **search-word:** add ([6c387cb](https://github.com/air-supply94/js-algorithm/commit/6c387cbeba7c7539dd6a3d4d36e5103a86b170d6))
 - **serialize-level-order:** add ([e4ff9f5](https://github.com/air-supply94/js-algorithm/commit/e4ff9f53981172be1ca5a558f67285ccf41d1368))
