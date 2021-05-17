@@ -4,17 +4,51 @@ export function longestIncreasingSubsequence(numbers: number[]): number {
   }
 
   const dp = Array(numbers.length)
-    .fill(0);
+    .fill(1);
 
   for (let i = 0; i < numbers.length; i++) {
     for (let j = 0; j < i; j++) {
       if (numbers[i] > numbers[j]) {
         dp[i] = Math.max(dp[i], dp[j] + 1);
-      } else {
-        dp[i] = Math.max(dp[j], 1);
       }
     }
   }
 
-  return dp[numbers.length - 1];
+  return Math.max.apply(null, dp);
+}
+
+export function longestIncreasingSubsequenceBs(numbers: number[]): number {
+  if (numbers.length <= 1) {
+    return numbers.length;
+  }
+
+  const piles: number[][] = [];
+  piles[0] = [numbers[0]];
+
+  for (let i = 1; i < numbers.length; i++) {
+    const currentValue = numbers[i];
+    let left = 0;
+    let right = piles.length - 1;
+
+    while (left <= right) {
+      const middleIndex = left + Math.floor((right - left) / 2);
+      const middleTopValue = piles[middleIndex][piles[middleIndex].length - 1];
+
+      if (currentValue < middleTopValue) {
+        right = middleIndex - 1;
+      } else if (middleTopValue === currentValue) {
+        right = middleIndex - 1;
+      } else {
+        left = middleIndex + 1;
+      }
+    }
+
+    if (left <= piles.length - 1 && piles[left][piles[left].length - 1] >= currentValue) {
+      piles[left].push(currentValue);
+    } else {
+      piles.push([currentValue]);
+    }
+  }
+
+  return piles.length;
 }

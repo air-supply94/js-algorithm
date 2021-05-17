@@ -1,4 +1,4 @@
-# 0.0.0 (2021-05-15)
+# 0.0.0 (2021-05-24)
 
 ### Bug Fixes
 
@@ -17,6 +17,7 @@
 - update package ([2e5aeff](https://github.com/air-supply94/js-algorithm/commit/2e5aeff48d3c0579c49f9efceb2fd2a6b657c59b))
 - update package ([46ce8d7](https://github.com/air-supply94/js-algorithm/commit/46ce8d7a26290a0f61c37ae8242f5ae4c1248005))
 - update package ([91c1628](https://github.com/air-supply94/js-algorithm/commit/91c1628d2f8a5a2a1e8f7a828ec52546c4040934))
+- update packages ([43b316e](https://github.com/air-supply94/js-algorithm/commit/43b316ee41dfe46f1d00fd9adbed680797765097))
 - 减少函数副作用 ([7b2656c](https://github.com/air-supply94/js-algorithm/commit/7b2656c3be5313eeb2b25b3a8af96546109b1e93))
 - 减少副作用 ([cf3957d](https://github.com/air-supply94/js-algorithm/commit/cf3957dd24d8fa3a5b603e95eb2befbe06900cd5))
 - 增加 trie ([605372a](https://github.com/air-supply94/js-algorithm/commit/605372afa097d3c4d0aebbda3f337b08ce07f69c))
@@ -149,6 +150,7 @@
 - **redBlackTree、AvlTree:** 1 增加红黑树的 insert（delete 暂时无法完成）2 重构 AvlTree，以继承代替组合 ([c74b447](https://github.com/air-supply94/js-algorithm/commit/c74b4479b2b77e00471a2cd7cc66ba8c87b82f95))
 - **redBlackTree、AvlTree:** 以组合代替继承，继承太麻烦 ([8058567](https://github.com/air-supply94/js-algorithm/commit/80585670dc9d680bbca539bbff39f33ecbf50089))
 - **RedBlackTree),fix(rotate:** add RedBlackTree test, 解决旋转 node parent 丢失问题 ([f70663a](https://github.com/air-supply94/js-algorithm/commit/f70663abb56135f8244d953cb26cb72b2b5d9bb5))
+- **search:** add findKthMin.png ([73d49f7](https://github.com/air-supply94/js-algorithm/commit/73d49f79d43eb68905b2026480fb017769f2e03c))
 - **search:** add missingNumber ([d3a3444](https://github.com/air-supply94/js-algorithm/commit/d3a3444ad2d02fb5d6eac769e6d3d35b3e95edaa))
 - **search:** add rotateSearchMin ([4b5e7f7](https://github.com/air-supply94/js-algorithm/commit/4b5e7f772d9f9c3b9d9c861fe123025761636ec3))
 - **search-word:** add ([6c387cb](https://github.com/air-supply94/js-algorithm/commit/6c387cbeba7c7539dd6a3d4d36e5103a86b170d6))

@@ -10,11 +10,12 @@ function recursion<T = unknown>(preorder: T[], preStartIndex: number, preEndInde
     return null;
   }
 
-  const rootValue = preorder[preStartIndex];
-  const equalIndex = inorder.findIndex((item) => item === rootValue, inStartIndex);
-  const size = equalIndex - inStartIndex;
-  const root = new BinarySearchTreeNode<T>(rootValue);
-  root.setLeft(recursion(preorder, preStartIndex + 1, preStartIndex + size, inorder, inStartIndex, equalIndex - 1));
-  root.setRight(recursion(preorder, preStartIndex + size + 1, preEndIndex, inorder, equalIndex + 1, inEndIndex));
+  const equalValue = preorder[preStartIndex];
+  const equalIndex = inorder.findIndex((item) => item === equalValue, inStartIndex);
+  const root = new BinarySearchTreeNode<T>(equalValue);
+  const size = equalIndex - inStartIndex + 1;
+
+  root.setLeft(recursion(preorder, preStartIndex + 1, size + preStartIndex - 1, inorder, inStartIndex, equalIndex - 1));
+  root.setRight(recursion(preorder, size + preStartIndex, preEndIndex, inorder, equalIndex + 1, inEndIndex));
   return root;
 }
