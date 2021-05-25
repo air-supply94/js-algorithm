@@ -3,20 +3,15 @@ export function maximumSubarray(numbers: number[]): number {
     return 0;
   }
 
-  let maxSum = numbers[0];
-  let currentSum = numbers[0];
+  let dp_0 = numbers[0];
+  let dp_1 = 0;
+  let result = dp_0;
 
   for (let i = 1; i < numbers.length; i++) {
-    if (currentSum > 0) {
-      currentSum += numbers[i];
-    } else {
-      currentSum = numbers[i];
-    }
-
-    if (currentSum > maxSum) {
-      maxSum = currentSum;
-    }
+    dp_1 = Math.max(numbers[i], dp_0 + numbers[i]);
+    dp_0 = dp_1;
+    result = Math.max(result, dp_1);
   }
 
-  return maxSum;
+  return result;
 }

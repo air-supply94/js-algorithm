@@ -22,31 +22,31 @@ export function longestIncreasingSubsequenceBs(numbers: number[]): number {
     return numbers.length;
   }
 
-  const piles: number[][] = [];
-  piles[0] = [numbers[0]];
+  const piles: number[] = [];
+  piles[0] = numbers[0];
 
   for (let i = 1; i < numbers.length; i++) {
-    const currentValue = numbers[i];
     let left = 0;
     let right = piles.length - 1;
+    const currentValue = numbers[i];
 
     while (left <= right) {
       const middleIndex = left + Math.floor((right - left) / 2);
-      const middleTopValue = piles[middleIndex][piles[middleIndex].length - 1];
+      const middleValue = piles[middleIndex];
 
-      if (currentValue < middleTopValue) {
+      if (currentValue < middleValue) {
         right = middleIndex - 1;
-      } else if (middleTopValue === currentValue) {
+      } else if (currentValue === middleValue) {
         right = middleIndex - 1;
       } else {
         left = middleIndex + 1;
       }
     }
 
-    if (left <= piles.length - 1 && piles[left][piles[left].length - 1] >= currentValue) {
-      piles[left].push(currentValue);
+    if (left < piles.length && piles[left] >= currentValue) {
+      piles[left] = currentValue;
     } else {
-      piles.push([currentValue]);
+      piles.push(currentValue);
     }
   }
 

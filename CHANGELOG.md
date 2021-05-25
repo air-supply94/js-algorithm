@@ -1,4 +1,4 @@
-# 0.0.0 (2021-05-24)
+# 0.0.0 (2021-05-25)
 
 ### Bug Fixes
 
@@ -17,7 +17,7 @@
 - update package ([2e5aeff](https://github.com/air-supply94/js-algorithm/commit/2e5aeff48d3c0579c49f9efceb2fd2a6b657c59b))
 - update package ([46ce8d7](https://github.com/air-supply94/js-algorithm/commit/46ce8d7a26290a0f61c37ae8242f5ae4c1248005))
 - update package ([91c1628](https://github.com/air-supply94/js-algorithm/commit/91c1628d2f8a5a2a1e8f7a828ec52546c4040934))
-- update packages ([43b316e](https://github.com/air-supply94/js-algorithm/commit/43b316ee41dfe46f1d00fd9adbed680797765097))
+- update packages ([db041ba](https://github.com/air-supply94/js-algorithm/commit/db041ba79fd9e61f485e58484cf9ad5d3a27f57b))
 - 减少函数副作用 ([7b2656c](https://github.com/air-supply94/js-algorithm/commit/7b2656c3be5313eeb2b25b3a8af96546109b1e93))
 - 减少副作用 ([cf3957d](https://github.com/air-supply94/js-algorithm/commit/cf3957dd24d8fa3a5b603e95eb2befbe06900cd5))
 - 增加 trie ([605372a](https://github.com/air-supply94/js-algorithm/commit/605372afa097d3c4d0aebbda3f337b08ce07f69c))
@@ -104,6 +104,7 @@
 - **doubleLinkedList:** 更新 get，支持负数 ([09b1f00](https://github.com/air-supply94/js-algorithm/commit/09b1f00553693ca5db6bd2a04c9f4d04f1bb520d))
 - **DoubleLinkedList、heap:** 更改删除返回类型 ([9e3e25e](https://github.com/air-supply94/js-algorithm/commit/9e3e25e1eee6b91a1a90d0389e63611f7fcb1ffc))
 - **DounleLinkedList:** 更换 reverse 算法 ([3f9d0ba](https://github.com/air-supply94/js-algorithm/commit/3f9d0ba60fc8193d63481cc3864abdb4a692708f))
+- **dp/longestCreasingSubsequence:** add bs ([41c2be0](https://github.com/air-supply94/js-algorithm/commit/41c2be08eb5f35fdf020e9c51292cf96c35c9100))
 - **FenwickTree、binarySearchTreeNode:** add FenwickTree remove binarySearchTreeNode height leftHeight rightHeight banlanceFactory ([7d3763b](https://github.com/air-supply94/js-algorithm/commit/7d3763ba2f08fe52c27f8fe985570bf6e961390d))
 - **findFirstLarge:** add ([90d3278](https://github.com/air-supply94/js-algorithm/commit/90d3278da4215456f0e598654e271dfb2327ae35))
 - **findKthMin:** add ([91879e9](https://github.com/air-supply94/js-algorithm/commit/91879e9a1a5970e46531a1e62833c17efaf6c8e8))
