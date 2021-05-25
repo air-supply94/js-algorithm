@@ -27,5 +27,29 @@ export function longestCommonSubsequenceRecursion(str1: string, str2: string): n
 }
 
 export function longestCommonSubsequenceDp(str1: string, str2: string): number {
-  return 0;
+  if (!str1.length || !str2.length) {
+    return 0;
+  }
+
+  const height = str2.length;
+  const width = str1.length;
+  const dp: number[] = Array(width + 1)
+    .fill(0);
+
+  for (let i = 1; i <= height; i++) {
+    let tmp = dp[0];
+    dp[0] = 0;
+    for (let j = 1; j <= width; j++) {
+      const pre = tmp;
+      tmp = dp[j];
+
+      if (str2[i - 1] === str1[j - 1]) {
+        dp[j] = 1 + pre;
+      } else {
+        dp[j] = Math.max(dp[j], dp[j - 1]);
+      }
+    }
+  }
+
+  return dp[str1.length];
 }
