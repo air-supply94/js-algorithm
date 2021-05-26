@@ -13,10 +13,7 @@ function recursion(val1: string, i: number, val2: string, j: number, cache: Map<
     cache.set(key, result);
     return result;
   } else {
-    const result = Math.max(
-      recursion(val1, i + 1, val2, j, cache),
-      recursion(val1, i, val2, j + 1, cache)
-    );
+    const result = Math.max(recursion(val1, i + 1, val2, j, cache), recursion(val1, i, val2, j + 1, cache));
     cache.set(key, result);
     return result;
   }
@@ -46,7 +43,7 @@ export function longestCommonSubsequenceDp(str1: string, str2: string): number {
       if (str2[i - 1] === str1[j - 1]) {
         dp[j] = 1 + pre;
       } else {
-        dp[j] = Math.max(dp[j], dp[j - 1]);
+        dp[j] = Math.max(dp[j - 1], dp[j]);
       }
     }
   }

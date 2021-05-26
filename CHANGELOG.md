@@ -1,4 +1,4 @@
-# 0.0.0 (2021-05-25)
+# 0.0.0 (2021-05-26)
 
 ### Bug Fixes
 
@@ -103,8 +103,9 @@
 - **doubleLinkedList:** 更新 get，支持负数 ([09b1f00](https://github.com/air-supply94/js-algorithm/commit/09b1f00553693ca5db6bd2a04c9f4d04f1bb520d))
 - **DoubleLinkedList、heap:** 更改删除返回类型 ([9e3e25e](https://github.com/air-supply94/js-algorithm/commit/9e3e25e1eee6b91a1a90d0389e63611f7fcb1ffc))
 - **DounleLinkedList:** 更换 reverse 算法 ([3f9d0ba](https://github.com/air-supply94/js-algorithm/commit/3f9d0ba60fc8193d63481cc3864abdb4a692708f))
-- **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([79f7b24](https://github.com/air-supply94/js-algorithm/commit/79f7b242b935552470aa7387e811b37e70e228ac))
+- **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceRecursion ([cdf29e3](https://github.com/air-supply94/js-algorithm/commit/cdf29e3f364c3cccdd0632817995c09945e81f44))
+- **dp/longestCommonSubstring:** add longestCommonSubstring ([232c741](https://github.com/air-supply94/js-algorithm/commit/232c741ff246b28d8661805cfba1bc5c6981a556))
 - **dp/longestCreasingSubsequence:** add bs ([41c2be0](https://github.com/air-supply94/js-algorithm/commit/41c2be08eb5f35fdf020e9c51292cf96c35c9100))
 - **FenwickTree、binarySearchTreeNode:** add FenwickTree remove binarySearchTreeNode height leftHeight rightHeight banlanceFactory ([7d3763b](https://github.com/air-supply94/js-algorithm/commit/7d3763ba2f08fe52c27f8fe985570bf6e961390d))
 - **findFirstLarge:** add ([90d3278](https://github.com/air-supply94/js-algorithm/commit/90d3278da4215456f0e598654e271dfb2327ae35))
