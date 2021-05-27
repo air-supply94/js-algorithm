@@ -1,6 +1,6 @@
-function getLongestPalindrome(s: string, leftIndex: number, rightIndex: number): string {
-  let left = leftIndex;
-  let right = rightIndex;
+function getLongestPalindrome(s: string, leftStart: number, rightStart: number): string {
+  let left = leftStart;
+  let right = rightStart;
 
   while (left >= 0 && right < s.length && s[left] === s[right]) {
     left--;

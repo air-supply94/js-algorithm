@@ -1,16 +1,18 @@
 import { jumpGame } from '../jumpGame';
 
-test('should solve Jump Game problem in backtracking manner', () => {
+test('jumpGame', () => {
   expect(jumpGame([
     1,
     0,
   ]))
     .toBe(true);
+
   expect(jumpGame([
     100,
     0,
   ]))
     .toBe(true);
+
   expect(jumpGame([
     2,
     3,
@@ -19,6 +21,7 @@ test('should solve Jump Game problem in backtracking manner', () => {
     4,
   ]))
     .toBe(true);
+
   expect(jumpGame([
     1,
     1,
@@ -27,6 +30,7 @@ test('should solve Jump Game problem in backtracking manner', () => {
     1,
   ]))
     .toBe(true);
+
   expect(jumpGame([
     1,
     1,
@@ -35,6 +39,7 @@ test('should solve Jump Game problem in backtracking manner', () => {
     1,
   ]))
     .toBe(true);
+
   expect(jumpGame([
     1,
     5,
@@ -52,6 +57,7 @@ test('should solve Jump Game problem in backtracking manner', () => {
     1,
   ]))
     .toBe(false);
+
   expect(jumpGame([
     3,
     2,
@@ -60,6 +66,7 @@ test('should solve Jump Game problem in backtracking manner', () => {
     4,
   ]))
     .toBe(false);
+
   expect(jumpGame([
     0,
     0,
@@ -68,6 +75,7 @@ test('should solve Jump Game problem in backtracking manner', () => {
     0,
   ]))
     .toBe(false);
+
   expect(jumpGame([
     5,
     4,

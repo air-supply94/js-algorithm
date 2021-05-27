@@ -27,17 +27,11 @@ export function longestCommonSubstring(string1: string, string2: string): string
     }
   }
 
-  if (maxLength === 0) {
-    return '';
-  }
-
   let result = '';
-
   while (dp[h][w] > 0) {
     result = `${s1[w - 1]}${result}`;
     h--;
     w--;
   }
-
   return result;
 }
