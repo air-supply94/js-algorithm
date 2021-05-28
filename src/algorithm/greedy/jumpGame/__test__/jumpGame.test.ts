@@ -1,4 +1,4 @@
-import { jumpGame } from '../jumpGame';
+import { jumpGame, jumpGameFast } from '../jumpGame';
 
 test('jumpGame', () => {
   expect(jumpGame([
@@ -86,4 +86,24 @@ test('jumpGame', () => {
     0,
   ]))
     .toBe(false);
+});
+
+test('jumpGameFast', () => {
+  expect(jumpGameFast([
+    2,
+    3,
+    1,
+    1,
+    4,
+  ]))
+    .toBe(2);
+
+  expect(jumpGameFast([
+    2,
+    3,
+    0,
+    1,
+    4,
+  ]))
+    .toBe(2);
 });

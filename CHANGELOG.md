@@ -1,4 +1,4 @@
-# 0.0.0 (2021-05-27)
+# 0.0.0 (2021-05-28)
 
 ### Bug Fixes
 
@@ -103,6 +103,7 @@
 - **doubleLinkedList:** 更新 get，支持负数 ([09b1f00](https://github.com/air-supply94/js-algorithm/commit/09b1f00553693ca5db6bd2a04c9f4d04f1bb520d))
 - **DoubleLinkedList、heap:** 更改删除返回类型 ([9e3e25e](https://github.com/air-supply94/js-algorithm/commit/9e3e25e1eee6b91a1a90d0389e63611f7fcb1ffc))
 - **DounleLinkedList:** 更换 reverse 算法 ([3f9d0ba](https://github.com/air-supply94/js-algorithm/commit/3f9d0ba60fc8193d63481cc3864abdb4a692708f))
+- **dp:** add intervalSchedule ([4be1285](https://github.com/air-supply94/js-algorithm/commit/4be128569f3fb7ffcf59bee3e2c8ee73db815276))
 - **dp:** add longestPalindromeSubsequence ([87e6616](https://github.com/air-supply94/js-algorithm/commit/87e66160c61ac80386d3e80684e8266a60941493))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceRecursion ([cdf29e3](https://github.com/air-supply94/js-algorithm/commit/cdf29e3f364c3cccdd0632817995c09945e81f44))
