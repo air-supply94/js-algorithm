@@ -11,10 +11,6 @@ function getLongestPalindrome(s: string, leftStart: number, rightStart: number):
 }
 
 export function longestPalindrome(str: string): string {
-  if (str.length < 1) {
-    return '';
-  }
-
   let result = '';
   for (let i = 0; i < str.length; i++) {
     const str1 = getLongestPalindrome(str, i, i);
