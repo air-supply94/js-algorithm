@@ -104,7 +104,7 @@
 - **DoubleLinkedList、heap:** 更改删除返回类型 ([9e3e25e](https://github.com/air-supply94/js-algorithm/commit/9e3e25e1eee6b91a1a90d0389e63611f7fcb1ffc))
 - **DounleLinkedList:** 更换 reverse 算法 ([3f9d0ba](https://github.com/air-supply94/js-algorithm/commit/3f9d0ba60fc8193d63481cc3864abdb4a692708f))
 - **dp:** add intervalSchedule ([4be1285](https://github.com/air-supply94/js-algorithm/commit/4be128569f3fb7ffcf59bee3e2c8ee73db815276))
-- **dp:** add knapsack01 ([692d819](https://github.com/air-supply94/js-algorithm/commit/692d819e60814277387a0f62cf1e8e78d30f1ad7))
+- **dp:** add knapsack01 ([f68a4f3](https://github.com/air-supply94/js-algorithm/commit/f68a4f32c7abdf13ed9b3084f3372bd0fa2ae445))
 - **dp:** add longestPalindromeSubsequence ([87e6616](https://github.com/air-supply94/js-algorithm/commit/87e66160c61ac80386d3e80684e8266a60941493))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceRecursion ([cdf29e3](https://github.com/air-supply94/js-algorithm/commit/cdf29e3f364c3cccdd0632817995c09945e81f44))
