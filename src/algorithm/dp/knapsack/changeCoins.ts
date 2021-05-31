@@ -1,23 +1,20 @@
-export function canPartition(weightList: number[]): boolean {
-  const sum = weightList.reduce((prev, current) => prev + current, 0);
-  if (sum % 2 !== 0) {
-    return false;
-  }
-
+export function changeCoins(amount: number, weightList: number[]): number {
   const count = weightList.length;
-  const weight = Math.floor(sum / 2);
+  const weight = amount;
+
   const dp = Array(count + 1)
     .fill(null)
     .map(() => Array(weight + 1)
-      .fill(false));
+      .fill(0));
+
   for (let i = 0; i <= count; i++) {
-    dp[i][0] = true;
+    dp[i][0] = 1;
   }
 
   for (let i = 1; i <= count; i++) {
     for (let w = 1; w <= weight; w++) {
       if (w - weightList[i - 1] >= 0) {
-        dp[i][w] = dp[i - 1][w] || dp[i - 1][w - weightList[i - 1]];
+        dp[i][w] = dp[i - 1][w] + dp[i][w - weightList[i - 1]];
       } else {
         dp[i][w] = dp[i - 1][w];
       }

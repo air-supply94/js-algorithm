@@ -103,6 +103,8 @@
 - **doubleLinkedList:** 更新 get，支持负数 ([09b1f00](https://github.com/air-supply94/js-algorithm/commit/09b1f00553693ca5db6bd2a04c9f4d04f1bb520d))
 - **DoubleLinkedList、heap:** 更改删除返回类型 ([9e3e25e](https://github.com/air-supply94/js-algorithm/commit/9e3e25e1eee6b91a1a90d0389e63611f7fcb1ffc))
 - **DounleLinkedList:** 更换 reverse 算法 ([3f9d0ba](https://github.com/air-supply94/js-algorithm/commit/3f9d0ba60fc8193d63481cc3864abdb4a692708f))
+- **dp:** add canPartition ([203d2f9](https://github.com/air-supply94/js-algorithm/commit/203d2f965d48461c9bb769426500176db211e324))
+- **dp:** add changeCoins ([9fdf043](https://github.com/air-supply94/js-algorithm/commit/9fdf0438c0fc97bc79194c6fd8d34b037aec4ff4))
 - **dp:** add intervalSchedule ([4be1285](https://github.com/air-supply94/js-algorithm/commit/4be128569f3fb7ffcf59bee3e2c8ee73db815276))
 - **dp:** add knapsack01 ([f68a4f3](https://github.com/air-supply94/js-algorithm/commit/f68a4f32c7abdf13ed9b3084f3372bd0fa2ae445))
 - **dp:** add longestPalindromeSubsequence ([87e6616](https://github.com/air-supply94/js-algorithm/commit/87e66160c61ac80386d3e80684e8266a60941493))
