@@ -1,13 +1,13 @@
 export function rubberHouseEasy(numbers: number[], startIndex = 0, endIndex = numbers.length - 1): number {
-  let first = 0;
-  let second = 0;
-  let current = 0;
+  let dp_i2 = 0;
+  let dp_i1 = 0;
+  let dp_i = 0;
 
   for (let i = startIndex; i <= endIndex; i++) {
-    current = Math.max(first + numbers[i], second);
-    first = second;
-    second = current;
+    dp_i = Math.max(dp_i1, dp_i2 + numbers[i]);
+    dp_i2 = dp_i1;
+    dp_i1 = dp_i;
   }
 
-  return current;
+  return dp_i;
 }

@@ -1,6 +1,6 @@
 import { maximalSquare } from '../maximalSquare';
 
-test('find max area in the matrix', () => {
+test('maximalSquare', () => {
   expect(maximalSquare(
     [
       [

@@ -1,6 +1,6 @@
 import { coinChange } from '../coinChange';
 
-test('coins in amount', () => {
+test('coinChange', () => {
   expect(coinChange([], 1))
     .toBe(-1);
   expect(coinChange([1], -1))

@@ -1,6 +1,6 @@
 import { uniquePaths } from '../uniquePaths';
 
-test('should find the number of unique paths on board', () => {
+test('uniquePaths', () => {
   expect(uniquePaths(3, 2))
     .toBe(3);
   expect(uniquePaths(7, 3))

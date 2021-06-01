@@ -1,6 +1,6 @@
 import { rainTerraces } from '../rainTerraces';
 
-test('should find the amount of water collected after raining', () => {
+test('rainTerraces', () => {
   expect(rainTerraces([1]))
     .toBe(0);
   expect(rainTerraces([
