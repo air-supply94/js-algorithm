@@ -1,4 +1,4 @@
-# 0.0.0 (2021-06-01)
+# 0.0.0 (2021-06-02)
 
 ### Bug Fixes
 
@@ -108,7 +108,8 @@
 - **dp:** add intervalSchedule ([4be1285](https://github.com/air-supply94/js-algorithm/commit/4be128569f3fb7ffcf59bee3e2c8ee73db815276))
 - **dp:** add knapsack01 ([f68a4f3](https://github.com/air-supply94/js-algorithm/commit/f68a4f32c7abdf13ed9b3084f3372bd0fa2ae445))
 - **dp:** add longestPalindromeSubsequence ([87e6616](https://github.com/air-supply94/js-algorithm/commit/87e66160c61ac80386d3e80684e8266a60941493))
-- **dp:** add minPathSum ([2971638](https://github.com/air-supply94/js-algorithm/commit/2971638184be49e82e3864b55d81c0d54c00b62c))
+- **dp:** add minPathSum ([4d4211b](https://github.com/air-supply94/js-algorithm/commit/4d4211b495ccb560f1edc1c9b676c4314309318b))
+- **dp:** update kmp ([62c898a](https://github.com/air-supply94/js-algorithm/commit/62c898a24ffb5c787d5ed311e8ae466e4341d85e))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceRecursion ([cdf29e3](https://github.com/air-supply94/js-algorithm/commit/cdf29e3f364c3cccdd0632817995c09945e81f44))
 - **dp/longestCommonSubstring:** add longestCommonSubstring ([e3f75fb](https://github.com/air-supply94/js-algorithm/commit/e3f75fbdc9f1ab1ebb0bc141613bdc313f16d119))
