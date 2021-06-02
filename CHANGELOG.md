@@ -108,6 +108,7 @@
 - **dp:** add intervalSchedule ([4be1285](https://github.com/air-supply94/js-algorithm/commit/4be128569f3fb7ffcf59bee3e2c8ee73db815276))
 - **dp:** add knapsack01 ([f68a4f3](https://github.com/air-supply94/js-algorithm/commit/f68a4f32c7abdf13ed9b3084f3372bd0fa2ae445))
 - **dp:** add longestPalindromeSubsequence ([87e6616](https://github.com/air-supply94/js-algorithm/commit/87e66160c61ac80386d3e80684e8266a60941493))
+- **dp:** add minPalindromeInsert ([96c26cc](https://github.com/air-supply94/js-algorithm/commit/96c26cc0969a6d53d5a79347a719e5606e3cc029))
 - **dp:** add minPathSum ([4d4211b](https://github.com/air-supply94/js-algorithm/commit/4d4211b495ccb560f1edc1c9b676c4314309318b))
 - **dp:** update kmpDp ([84e380e](https://github.com/air-supply94/js-algorithm/commit/84e380eb868471e70f964963a75d6f7f62914b36))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
