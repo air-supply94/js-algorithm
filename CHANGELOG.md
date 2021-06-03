@@ -1,4 +1,4 @@
-# 0.0.0 (2021-06-02)
+# 0.0.0 (2021-06-03)
 
 ### Bug Fixes
 
@@ -110,6 +110,7 @@
 - **dp:** add longestPalindromeSubsequence ([87e6616](https://github.com/air-supply94/js-algorithm/commit/87e66160c61ac80386d3e80684e8266a60941493))
 - **dp:** add minPalindromeInsert ([96c26cc](https://github.com/air-supply94/js-algorithm/commit/96c26cc0969a6d53d5a79347a719e5606e3cc029))
 - **dp:** add minPathSum ([4d4211b](https://github.com/air-supply94/js-algorithm/commit/4d4211b495ccb560f1edc1c9b676c4314309318b))
+- **dp:** add superEggDrop ([daa5c04](https://github.com/air-supply94/js-algorithm/commit/daa5c0445f05629f9c2131c35432d03f37d3ecb6))
 - **dp:** update kmpDp ([84e380e](https://github.com/air-supply94/js-algorithm/commit/84e380eb868471e70f964963a75d6f7f62914b36))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceRecursion ([cdf29e3](https://github.com/air-supply94/js-algorithm/commit/cdf29e3f364c3cccdd0632817995c09945e81f44))

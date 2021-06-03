@@ -18,11 +18,32 @@ function recursion(count: number, n: number, cache: Map<string, number>): number
 
   let result = Infinity;
 
+  /*
   for (let i = 1; i <= n; i++) {
     result = Math.min(
       result,
       Math.max(recursion(count - 1, i - 1, cache), recursion(count, n - i, cache)) + 1
     );
+  }
+*/
+
+  let start = 1;
+  let end = n;
+
+  while (start <= end) {
+    const middle = start + Math.floor((end - start) / 2);
+    const broken = recursion(count - 1, middle - 1, cache);
+    const notBroken = recursion(count, n - middle, cache);
+    if (broken < notBroken) {
+      start = middle + 1;
+      result = Math.min(result, notBroken + 1);
+    } else if (broken === notBroken) {
+      end = middle - 1;
+      result = Math.min(result, notBroken + 1);
+    } else {
+      end = middle - 1;
+      result = Math.min(result, broken + 1);
+    }
   }
 
   cache.set(key, result);
