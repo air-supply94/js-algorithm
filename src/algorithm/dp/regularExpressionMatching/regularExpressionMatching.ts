@@ -1,59 +1,29 @@
 const ZERO_OR_MORE_CHARS = '*';
 const ANY_CHAR = '.';
 
-export function regularExpressionMatching(str: string, pattern: string): boolean {
-  const matchMatrix = Array(str.length + 1)
-    .fill(null)
-    .map(() => {
-      return Array(pattern.length + 1)
-        .fill(null);
-    });
+export function regularExpressionMatching(text: string, pattern: string): boolean {
+  return isMatch(text, pattern, 0, 0, new Map<string, boolean>());
+}
 
-  matchMatrix[0][0] = true;
-
-  for (let columnIndex = 1; columnIndex <= pattern.length; columnIndex += 1) {
-    const patternIndex = columnIndex - 1;
-
-    if (pattern[patternIndex] === ZERO_OR_MORE_CHARS) {
-      matchMatrix[0][columnIndex] = matchMatrix[0][columnIndex - 2];
-    } else {
-      matchMatrix[0][columnIndex] = false;
-    }
+export function isMatch(text: string, pattern: string, i: number, j: number, cache: Map<string, boolean>): boolean {
+  const key = `${i},${j}`;
+  if (cache.has(key)) {
+    return cache.get(key);
   }
 
-  for (let rowIndex = 1; rowIndex <= str.length; rowIndex += 1) {
-    matchMatrix[rowIndex][0] = false;
+  if (j === pattern.length) {
+    return i === text.length;
   }
 
-  for (let rowIndex = 1; rowIndex <= str.length; rowIndex += 1) {
-    for (let columnIndex = 1; columnIndex <= pattern.length; columnIndex += 1) {
-      const stringIndex = rowIndex - 1;
-      const patternIndex = columnIndex - 1;
+  const firstMatch = i < text.length && (pattern[j] === text[i] || pattern[j] === ANY_CHAR);
+  let result: boolean;
 
-      if (pattern[patternIndex] === ZERO_OR_MORE_CHARS) {
-        if (matchMatrix[rowIndex][columnIndex - 2] === true) {
-          matchMatrix[rowIndex][columnIndex] = true;
-        } else if (
-          (
-            pattern[patternIndex - 1] === str[stringIndex] ||
-            pattern[patternIndex - 1] === ANY_CHAR
-          ) &&
-          matchMatrix[rowIndex - 1][columnIndex] === true
-        ) {
-          matchMatrix[rowIndex][columnIndex] = true;
-        } else {
-          matchMatrix[rowIndex][columnIndex] = false;
-        }
-      } else if (
-        pattern[patternIndex] === str[stringIndex] ||
-        pattern[patternIndex] === ANY_CHAR
-      ) {
-        matchMatrix[rowIndex][columnIndex] = matchMatrix[rowIndex - 1][columnIndex - 1];
-      } else {
-        matchMatrix[rowIndex][columnIndex] = false;
-      }
-    }
+  if (j <= pattern.length - 2 && pattern[j + 1] === ZERO_OR_MORE_CHARS) {
+    result = isMatch(text, pattern, i, j + 2, cache) || (firstMatch && isMatch(text, pattern, i + 1, j, cache));
+  } else {
+    result = firstMatch && isMatch(text, pattern, i + 1, j + 1, cache);
   }
 
-  return matchMatrix[str.length][pattern.length];
+  cache.set(key, result);
+  return result;
 }
