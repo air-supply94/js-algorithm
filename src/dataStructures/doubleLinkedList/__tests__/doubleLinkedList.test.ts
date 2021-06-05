@@ -893,4 +893,40 @@ describe('Index', () => {
     expect(linkedList.toString())
       .toBe('1,2,3,4,5,6,7,8,9');
   });
+
+  test('deleteNode', () => {
+    const linkedList = new DoubleLinkedList();
+
+    linkedList.append(1);
+    linkedList.append(2);
+    linkedList.append(3);
+    linkedList.append(4);
+
+    expect(linkedList.deleteNode(linkedList.head.next).value)
+      .toBe(2);
+    expect(linkedList.head.value)
+      .toBe(1);
+    expect(linkedList.tail.value)
+      .toBe(4);
+    expect(linkedList.size)
+      .toBe(3);
+
+    expect(linkedList.deleteNode(linkedList.head).value)
+      .toBe(1);
+    expect(linkedList.head.value)
+      .toBe(3);
+    expect(linkedList.tail.value)
+      .toBe(4);
+    expect(linkedList.size)
+      .toBe(2);
+
+    expect(linkedList.deleteNode(linkedList.tail).value)
+      .toBe(4);
+    expect(linkedList.head.value)
+      .toBe(3);
+    expect(linkedList.tail.value)
+      .toBe(3);
+    expect(linkedList.size)
+      .toBe(1);
+  });
 });

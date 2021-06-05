@@ -1,8 +1,7 @@
 import { Comparator, compareFunctionType } from '../../utils';
 import { DoubleLinkedListNode } from './doubleLinkedListNode';
 import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface, eachCallback, FindParams, toStringCallback } from './types';
-import { reverseBetween, get, each, formatIndex, reverseBase } from './utils';
-import { sort } from './utils/sort';
+import { reverseBetween, get, each, formatIndex, reverseBase, sort } from './utils';
 
 export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<T> {
   constructor(comparatorFunction?: Comparator | compareFunctionType) {
@@ -51,11 +50,6 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     if (!currentNode || !currentNode.next) {
       this.setTail(currentNode);
     }
-
-    // unnecessary
-    // if (this.tail) {
-    //   this.tail.setNext(null);
-    // }
 
     return deletedNode;
   }
@@ -181,6 +175,21 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
 
   public delete(value?: T): null | DoubleLinkedListNodeInterface<T> {
     return this.deleteValueBase(1, value);
+  }
+
+  public deleteNode(node: DoubleLinkedListNodeInterface<T>): DoubleLinkedListNodeInterface<T> {
+    if (node === this.head) {
+      return this.deleteHead();
+    } else if (node === this.tail) {
+      return this.deleteTail();
+    } else {
+      node.next.setPrevious(node.previous);
+      node.previous.setNext(node.next);
+      node.setNext(null)
+        .setPrevious(null);
+      this.setSize(this.size - 1);
+      return node;
+    }
   }
 
   public deleteIndex(index: number): null | DoubleLinkedListNodeInterface<T> {

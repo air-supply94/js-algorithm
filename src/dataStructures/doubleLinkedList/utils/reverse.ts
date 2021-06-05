@@ -28,8 +28,8 @@ export function reverseCount<T = unknown>(head: DoubleLinkedListNodeInterface<T>
     count--;
   }
 
-  const secondHead = firstTail.next;
-  if (secondHead) {
+  if (firstTail.next) {
+    const secondHead = firstTail.next;
     firstTail.setNext(null);
     secondHead.setPrevious(null);
 
@@ -59,8 +59,8 @@ export function reverseBetween<T = unknown>(head: DoubleLinkedListNodeInterface<
     count--;
   }
 
-  const secondHead = firstTail.next;
-  if (secondHead) {
+  if (firstTail.next) {
+    const secondHead = firstTail.next;
     firstTail.setNext(null);
     secondHead.setPrevious(null);
 
@@ -89,9 +89,8 @@ export function reverseCountGroup<T = unknown>(head: DoubleLinkedListNodeInterfa
     return head;
   }
 
-  const next = firstTail.next;
-
-  if (next) {
+  if (firstTail.next) {
+    const next = firstTail.next;
     firstTail.setNext(null);
     next.setPrevious(null);
 

@@ -16,11 +16,12 @@ export function detectCircle<T = unknown>(startNode: DoubleLinkedListNodeInterfa
     return null;
   }
 
-  slow = startNode;
-  while (slow !== fast) {
-    slow = slow[property];
-    fast = fast[property];
+  let start = startNode;
+  let end = slow;
+  while (start !== end) {
+    start = start[property];
+    end = end[property];
   }
 
-  return slow;
+  return start;
 }

@@ -1,4 +1,4 @@
-# 0.0.0 (2021-06-05)
+# 0.0.0 (2021-06-06)
 
 ### Bug Fixes
 
@@ -83,6 +83,7 @@
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/js-algorithm/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
 - **double-linked-list:** remove flatten ([928a4d6](https://github.com/air-supply94/js-algorithm/commit/928a4d6e08527d719c2c548a5ea955a9654a4e9b))
 - **double-linked-list:** 增加排序 ([94af395](https://github.com/air-supply94/js-algorithm/commit/94af395a7a0085f805427b45864883f42e247350))
+- **doubleLinkedList:** add deleteNode ([0cd523e](https://github.com/air-supply94/js-algorithm/commit/0cd523e72bb6e2a0e9268a63d7288155dec7da0a))
 - **doubleLinkedList:** remove deleteDumplicates swapPairs partion ([3fc6d5a](https://github.com/air-supply94/js-algorithm/commit/3fc6d5ad521bab55be4bf9e4f06d6a03c1bf9391))
 - **doubleLinkedList:** update reverse ([5a3b003](https://github.com/air-supply94/js-algorithm/commit/5a3b003fa8567ca478a4cf456867212533045574))
 - **doubleLinkedList:** update reverse ([0f3f7ef](https://github.com/air-supply94/js-algorithm/commit/0f3f7ef605953d15c7b844e478a9795d20802e27))
@@ -112,7 +113,7 @@
 - **dp:** add minPathSum ([4d4211b](https://github.com/air-supply94/js-algorithm/commit/4d4211b495ccb560f1edc1c9b676c4314309318b))
 - **dp:** add superEggDrop ([daa5c04](https://github.com/air-supply94/js-algorithm/commit/daa5c0445f05629f9c2131c35432d03f37d3ecb6))
 - **dp:** update kmpDp ([84e380e](https://github.com/air-supply94/js-algorithm/commit/84e380eb868471e70f964963a75d6f7f62914b36))
-- **dp:** update regularExpressionMatching ([85cfe3b](https://github.com/air-supply94/js-algorithm/commit/85cfe3b3477b75e64bdce55204c8f2f77792cd7c))
+- **dp:** update regularExpressionMatching ([4651010](https://github.com/air-supply94/js-algorithm/commit/4651010ab2b61c7657f7191f58fff1e644348604))
 - **dp:** update superEggDrop ([7c9419c](https://github.com/air-supply94/js-algorithm/commit/7c9419cc1cab44bae2336ebaa75246b260d768ec))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceRecursion ([cdf29e3](https://github.com/air-supply94/js-algorithm/commit/cdf29e3f364c3cccdd0632817995c09945e81f44))

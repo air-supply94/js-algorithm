@@ -54,6 +54,6 @@ test('regularExpressionMatching', () => {
     .toBe(false);
   expect(regularExpressionMatching('abba', 'a*b*.c'))
     .toBe(false);
-  expect(regularExpressionMatching('abba', '.*c'))
+  expect(regularExpressionMatching('abbadwwdwwdw', 'a.*.*.*b'))
     .toBe(false);
 });

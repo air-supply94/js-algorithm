@@ -1,5 +1,4 @@
-import { Comparator, compareFunctionType, getLeftChildIndex, getParentIndex, getRightChildIndex, hasLeftChild, hasParent, hasRightChild, leftChild, parent, rightChild } from '../../utils';
-import { swap } from '../../utils/helper';
+import { Comparator, compareFunctionType, getLeftChildIndex, getParentIndex, getRightChildIndex, hasLeftChild, hasParent, hasRightChild, leftChild, parent, rightChild, swap } from '../../utils';
 import { HeapInterface } from './types';
 
 export abstract class Heap<T = unknown> implements HeapInterface<T> {
