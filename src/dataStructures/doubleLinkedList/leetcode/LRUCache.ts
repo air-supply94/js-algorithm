@@ -17,7 +17,7 @@ export class LRUCache {
 
   private readonly hashTable: {[key: number]: DoubleLinkedListNodeInterface<LRUCacheItem>; } ;
 
-  public readonly capacity: number;
+  private readonly capacity: number;
 
   public get(key: number): number {
     const node = this.hashTable[key];
