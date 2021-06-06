@@ -10,11 +10,12 @@ export class LRUCache {
   constructor(capacity: number) {
     this.capacity = capacity;
     this.doubleLinkedList = new DoubleLinkedList<LRUCacheItem>();
+    this.hashTable = Object.create(null);
   }
 
-  private doubleLinkedList: DoubleLinkedListInterface<LRUCacheItem>;
+  private readonly doubleLinkedList: DoubleLinkedListInterface<LRUCacheItem>;
 
-  private hashTable: {[key: number]: DoubleLinkedListNodeInterface<LRUCacheItem>; } = Object.create(null);
+  private readonly hashTable: {[key: number]: DoubleLinkedListNodeInterface<LRUCacheItem>; } ;
 
   public readonly capacity: number;
 
@@ -37,14 +38,13 @@ export class LRUCache {
       this.doubleLinkedList.prependNode(node);
       node.value.value = value;
     } else {
-      this.doubleLinkedList.prepend({
+      this.hashTable[key] = this.doubleLinkedList.prepend({
         key,
         value,
       });
 
       if (this.doubleLinkedList.size > this.capacity) {
-        const tail = this.doubleLinkedList.deleteTail();
-        delete this.hashTable[tail.value.key];
+        delete this.hashTable[this.doubleLinkedList.deleteTail().value.key];
       }
     }
   }

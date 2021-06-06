@@ -6,6 +6,7 @@ import { getCircleLength } from '../getCircleLength';
 import { getDecimalValue } from '../getDecimalValue';
 import { hasCircle } from '../hasCircle';
 import { isPalindrome } from '../isPalindrome';
+import { LRUCache } from '../LRUCache';
 import { partition } from '../partition';
 
 describe('leetcode DoubleLinkedList', () => {
@@ -179,5 +180,24 @@ describe('leetcode DoubleLinkedList', () => {
       .toBe('1,2,3,4,5,6,7');
     expect(hasCircle(doubleLinkedList1))
       .toBeFalsy();
+  });
+
+  test('LRUCache', () => {
+    const lRUCache = new LRUCache(2);
+    lRUCache.put(1, 1);
+    lRUCache.put(2, 2);
+    expect(lRUCache.get(1))
+      .toBe(1);
+    lRUCache.put(3, 3);
+    expect(lRUCache.get(2))
+      .toBe(-1);
+    lRUCache.put(4, 4);
+    lRUCache.put(4, 5);
+    expect(lRUCache.get(1))
+      .toBe(-1);
+    expect(lRUCache.get(3))
+      .toBe(3);
+    expect(lRUCache.get(4))
+      .toBe(5);
   });
 });
