@@ -83,7 +83,7 @@
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/js-algorithm/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
 - **double-linked-list:** remove flatten ([928a4d6](https://github.com/air-supply94/js-algorithm/commit/928a4d6e08527d719c2c548a5ea955a9654a4e9b))
 - **double-linked-list:** 增加排序 ([94af395](https://github.com/air-supply94/js-algorithm/commit/94af395a7a0085f805427b45864883f42e247350))
-- **doubleLinkedList:** add deleteNode ([0cd523e](https://github.com/air-supply94/js-algorithm/commit/0cd523e72bb6e2a0e9268a63d7288155dec7da0a))
+- **doubleLinkedList:** add deleteNode ([bba2af5](https://github.com/air-supply94/js-algorithm/commit/bba2af5ca0180e4ac2ee14ade28da7da035f76c7))
 - **doubleLinkedList:** remove deleteDumplicates swapPairs partion ([3fc6d5a](https://github.com/air-supply94/js-algorithm/commit/3fc6d5ad521bab55be4bf9e4f06d6a03c1bf9391))
 - **doubleLinkedList:** update reverse ([5a3b003](https://github.com/air-supply94/js-algorithm/commit/5a3b003fa8567ca478a4cf456867212533045574))
 - **doubleLinkedList:** update reverse ([0f3f7ef](https://github.com/air-supply94/js-algorithm/commit/0f3f7ef605953d15c7b844e478a9795d20802e27))

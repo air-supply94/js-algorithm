@@ -245,6 +245,23 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
     return node;
   }
 
+  public appendNode(node: DoubleLinkedListNodeInterface<T>): DoubleLinkedListNodeInterface<T> {
+    if (this.isEmpty()) {
+      this.setTail(node)
+        .setHead(node);
+      node.setNext(null)
+        .setPrevious(null);
+    } else {
+      this.tail.setNext(node);
+      node.setPrevious(this.tail)
+        .setNext(null);
+      this.setTail(node);
+    }
+
+    this.setSize(this.size + 1);
+    return node;
+  }
+
   public prepend(value: T): DoubleLinkedListNodeInterface<T> {
     const node = new DoubleLinkedListNode(value, this.head);
 
@@ -253,6 +270,23 @@ export class DoubleLinkedList<T = unknown> implements DoubleLinkedListInterface<
         .setTail(node);
     } else {
       this.head.setPrevious(node);
+      this.setHead(node);
+    }
+
+    this.setSize(this.size + 1);
+    return node;
+  }
+
+  public prependNode(node: DoubleLinkedListNodeInterface<T>): DoubleLinkedListNodeInterface<T> {
+    if (this.isEmpty()) {
+      this.setTail(node)
+        .setHead(node);
+      node.setNext(null)
+        .setPrevious(null);
+    } else {
+      this.head.setPrevious(node);
+      node.setNext(this.head)
+        .setPrevious(null);
       this.setHead(node);
     }
 

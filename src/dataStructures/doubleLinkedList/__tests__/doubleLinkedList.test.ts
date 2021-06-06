@@ -902,7 +902,12 @@ describe('Index', () => {
     linkedList.append(3);
     linkedList.append(4);
 
-    expect(linkedList.deleteNode(linkedList.head.next).value)
+    const node1 = linkedList.deleteNode(linkedList.head.next);
+    expect(node1.next)
+      .toBeNull();
+    expect(node1.previous)
+      .toBeNull();
+    expect(node1.value)
       .toBe(2);
     expect(linkedList.head.value)
       .toBe(1);
@@ -928,5 +933,99 @@ describe('Index', () => {
       .toBe(3);
     expect(linkedList.size)
       .toBe(1);
+  });
+
+  test('prependNode', () => {
+    const linkedList = new DoubleLinkedList<number>();
+    const node1 = new DoubleLinkedListNode(1);
+    const node2 = new DoubleLinkedListNode(2);
+    const node3 = new DoubleLinkedListNode(3);
+
+    linkedList.prependNode(node1);
+    expect(linkedList.head)
+      .toBe(node1);
+    expect(linkedList.tail)
+      .toBe(node1);
+    expect(linkedList.head.previous)
+      .toBeNull();
+    expect(linkedList.tail.next)
+      .toBeNull();
+    expect(linkedList.size)
+      .toBe(1);
+
+    linkedList.prependNode(node2);
+    expect(linkedList.head)
+      .toBe(node2);
+    expect(linkedList.tail)
+      .toBe(node1);
+    expect(linkedList.head.previous)
+      .toBeNull();
+    expect(linkedList.tail.next)
+      .toBeNull();
+    expect(linkedList.size)
+      .toBe(2);
+    expect(linkedList.toString())
+      .toBe('2,1');
+
+    linkedList.prependNode(node3);
+    expect(linkedList.head)
+      .toBe(node3);
+    expect(linkedList.tail)
+      .toBe(node1);
+    expect(linkedList.head.previous)
+      .toBeNull();
+    expect(linkedList.tail.next)
+      .toBeNull();
+    expect(linkedList.size)
+      .toBe(3);
+    expect(linkedList.toString())
+      .toBe('3,2,1');
+  });
+
+  test('appendNode', () => {
+    const linkedList = new DoubleLinkedList<number>();
+    const node1 = new DoubleLinkedListNode(1);
+    const node2 = new DoubleLinkedListNode(2);
+    const node3 = new DoubleLinkedListNode(3);
+
+    linkedList.appendNode(node1);
+    expect(linkedList.head)
+      .toBe(node1);
+    expect(linkedList.tail)
+      .toBe(node1);
+    expect(linkedList.head.previous)
+      .toBeNull();
+    expect(linkedList.tail.next)
+      .toBeNull();
+    expect(linkedList.size)
+      .toBe(1);
+
+    linkedList.appendNode(node2);
+    expect(linkedList.head)
+      .toBe(node1);
+    expect(linkedList.tail)
+      .toBe(node2);
+    expect(linkedList.head.previous)
+      .toBeNull();
+    expect(linkedList.tail.next)
+      .toBeNull();
+    expect(linkedList.size)
+      .toBe(2);
+    expect(linkedList.toString())
+      .toBe('1,2');
+
+    linkedList.appendNode(node3);
+    expect(linkedList.head)
+      .toBe(node1);
+    expect(linkedList.tail)
+      .toBe(node3);
+    expect(linkedList.head.previous)
+      .toBeNull();
+    expect(linkedList.tail.next)
+      .toBeNull();
+    expect(linkedList.size)
+      .toBe(3);
+    expect(linkedList.toString())
+      .toBe('1,2,3');
   });
 });
