@@ -1,4 +1,4 @@
-# 0.0.0 (2021-06-06)
+# 0.0.0 (2021-06-07)
 
 ### Bug Fixes
 
@@ -104,7 +104,7 @@
 - **doubleLinkedList:** 抽取方法 ([c74dbf4](https://github.com/air-supply94/js-algorithm/commit/c74dbf49d5e1d42931aa7e60e8e28cc3aad8b18a))
 - **doubleLinkedList:** 更新 get，支持负数 ([09b1f00](https://github.com/air-supply94/js-algorithm/commit/09b1f00553693ca5db6bd2a04c9f4d04f1bb520d))
 - **DoubleLinkedList、heap:** 更改删除返回类型 ([9e3e25e](https://github.com/air-supply94/js-algorithm/commit/9e3e25e1eee6b91a1a90d0389e63611f7fcb1ffc))
-- **doubleLinkedList/leetcode:** add LFUCache ([2020c1b](https://github.com/air-supply94/js-algorithm/commit/2020c1b51c6d9177c655c1e0c7710a00b1df390e))
+- **doubleLinkedList/leetcode:** add LFUCache ([3670315](https://github.com/air-supply94/js-algorithm/commit/36703155ee749063ed65f46285ab9e53412e7195))
 - **doubleLinkedList/leetcode:** add LRUCache ([abaecca](https://github.com/air-supply94/js-algorithm/commit/abaecca8e33eb598db9d5925a91dc7ca10f99c46))
 - **DounleLinkedList:** 更换 reverse 算法 ([3f9d0ba](https://github.com/air-supply94/js-algorithm/commit/3f9d0ba60fc8193d63481cc3864abdb4a692708f))
 - **dp:** add canPartition ([203d2f9](https://github.com/air-supply94/js-algorithm/commit/203d2f965d48461c9bb769426500176db211e324))
@@ -140,6 +140,7 @@
 - **hashTable:** 更新类型 ([ab433b8](https://github.com/air-supply94/js-algorithm/commit/ab433b8649a44979cfd8a64b71f1eb596c8f29df))
 - **hashTable:** 重构此类 ([cf0eba5](https://github.com/air-supply94/js-algorithm/commit/cf0eba5e7f437f678c644cc1fc62b114bba6d8bd))
 - **heap:** add interface ([a9c4463](https://github.com/air-supply94/js-algorithm/commit/a9c44631cb8f952b16246d72a7518e0ed4b12488))
+- **heap:** add MedianFinder ([c9e4737](https://github.com/air-supply94/js-algorithm/commit/c9e473774123acf512c47be69921b5d79cab0f1c))
 - **Heap:** 更改小的实现细节(down) ([e78fe09](https://github.com/air-supply94/js-algorithm/commit/e78fe09c72f363e9ea668d08e60d721ca91b6fe9))
 - **heap and priorityQuery:** 更改 heap，重构优先队列 ([a9df5aa](https://github.com/air-supply94/js-algorithm/commit/a9df5aad328b3254681faaf408eb9e0ed1feb461))
 - **heap and priorityQuery:** 更改 peek、poll 返回值 ([54e09f3](https://github.com/air-supply94/js-algorithm/commit/54e09f3ae41da74b89ea35fb04a9323e507f1fd3))

@@ -1,6 +1,7 @@
 import { Comparator } from '../../../utils';
 
 export interface HeapInterface<T = unknown> {
+  heapContainer: T[];
   fromArray: (value: T[]) => this;
   sort: () => T[];
   peek: () => T | undefined;
