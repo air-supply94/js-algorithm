@@ -1,6 +1,5 @@
-import { MaxHeap } from '../maxHeap';
-import { MinHeap } from '../minHeap';
-import { MaxHeapInterface, MinHeapInterface } from '../types';
+import { MaxHeap, MinHeap } from '../../heap';
+import { MaxHeapInterface, MinHeapInterface } from '../../heap/types';
 
 export class MedianFinder {
   constructor() {

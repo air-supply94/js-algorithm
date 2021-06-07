@@ -1,5 +1,5 @@
-import { DoubleLinkedList } from '../doubleLinkedList';
-import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface } from '../types';
+import { DoubleLinkedList } from '../../doubleLinkedList';
+import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface } from '../../doubleLinkedList/types';
 
 interface LRUCacheItem {
   key: number;
