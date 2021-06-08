@@ -1,4 +1,5 @@
 import { DoubleLinkedList } from '../../doubleLinkedList';
+import { mergeKLists } from '../../utils/mergeKLists';
 import { mergeTwoLists } from '../../utils/mergeTwoLists';
 import { addTwoNumbers } from '../addTwoNumbers';
 import { detectCircle } from '../detectCircle';
@@ -177,6 +178,59 @@ describe('leetcode DoubleLinkedList', () => {
       .toBe(7);
     expect(doubleLinkedList1.toString())
       .toBe('1,2,3,4,5,6,7');
+    expect(hasCircle(doubleLinkedList1))
+      .toBeFalsy();
+  });
+
+  test('mergeKLists', () => {
+    const doubleLinkedList1 = new DoubleLinkedList<number>();
+    const doubleLinkedList2 = new DoubleLinkedList<number>();
+    expect(mergeKLists([
+      doubleLinkedList1.head,
+      doubleLinkedList2.head,
+    ], doubleLinkedList1.compare))
+      .toBeNull();
+    doubleLinkedList1.append(2);
+    doubleLinkedList1.append(3);
+    doubleLinkedList1.append(5);
+    doubleLinkedList1.append(6);
+    doubleLinkedList1.append(7);
+    doubleLinkedList2.append(1);
+    doubleLinkedList2.append(4);
+    doubleLinkedList2.append(6);
+
+    const resultHead = mergeKLists([
+      doubleLinkedList1.head,
+      doubleLinkedList2.head,
+    ], doubleLinkedList1.compare);
+    const size = doubleLinkedList1.size + doubleLinkedList2.size;
+    let tail = doubleLinkedList1.head;
+    let head = doubleLinkedList1.head;
+    while (tail && tail.next) {
+      tail = tail.next;
+    }
+    while (head && head.previous) {
+      head = head.previous;
+    }
+    doubleLinkedList1.setHead(head)
+      .setTail(tail)
+      .setSize(size);
+    doubleLinkedList2.setHead(head)
+      .setTail(tail)
+      .setSize(size);
+
+    expect(doubleLinkedList1.head)
+      .toBe(resultHead);
+    expect(doubleLinkedList2.head)
+      .toBe(resultHead);
+    expect(doubleLinkedList1.head.previous)
+      .toBeNull();
+    expect(doubleLinkedList2.tail.next)
+      .toBeNull();
+    expect(doubleLinkedList1.size)
+      .toBe(8);
+    expect(doubleLinkedList1.toString())
+      .toBe('1,2,3,4,5,6,6,7');
     expect(hasCircle(doubleLinkedList1))
       .toBeFalsy();
   });

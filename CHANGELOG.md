@@ -1,4 +1,4 @@
-# 0.0.0 (2021-06-07)
+# 0.0.0 (2021-06-08)
 
 ### Bug Fixes
 
@@ -80,7 +80,8 @@
 - **Comparator:** 更新导出方式和访问限制 ([ef485dd](https://github.com/air-supply94/js-algorithm/commit/ef485ddc67e6743f500e1ab0e8cec6f876ad1555))
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
-- **dataStructure/design:** add FreqStack ([6a93fcb](https://github.com/air-supply94/js-algorithm/commit/6a93fcb988ba9949eda788a9f2e22177c3b85a59))
+- **dataStructure/design:** add FrequencyStack ([96b15a0](https://github.com/air-supply94/js-algorithm/commit/96b15a0b1ffa45e9824c079ad06b97a65ba7f3c0))
+- **dataStructure/doubleLinkedList:** add mergeKLists ([fa82c39](https://github.com/air-supply94/js-algorithm/commit/fa82c392fa712bd0a380f2d39fe7029780b437ed))
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/js-algorithm/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
 - **double-linked-list:** remove flatten ([928a4d6](https://github.com/air-supply94/js-algorithm/commit/928a4d6e08527d719c2c548a5ea955a9654a4e9b))
 - **double-linked-list:** 增加排序 ([94af395](https://github.com/air-supply94/js-algorithm/commit/94af395a7a0085f805427b45864883f42e247350))
