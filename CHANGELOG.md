@@ -1,4 +1,4 @@
-# 0.0.0 (2021-06-09)
+# 0.0.0 (2021-06-10)
 
 ### Bug Fixes
 
@@ -81,6 +81,7 @@
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
 - **dataStructure/design:** add FrequencyStack ([96b15a0](https://github.com/air-supply94/js-algorithm/commit/96b15a0b1ffa45e9824c079ad06b97a65ba7f3c0))
+- **dataStructure/design:** add maxSlidingWindow ([f79320d](https://github.com/air-supply94/js-algorithm/commit/f79320ddb96270c46faab34feed0d92f81efed5d))
 - **dataStructure/design:** add nextGreaterElement nextGreaterElementCircle ([f836ff4](https://github.com/air-supply94/js-algorithm/commit/f836ff486de42ed042348c925d4f9f2de4ccb3b1))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/js-algorithm/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
