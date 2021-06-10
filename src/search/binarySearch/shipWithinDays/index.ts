@@ -25,7 +25,11 @@ function canFinish(weights: number[], capacity: number, day: number): boolean {
       tmpCapacity = capacity - weights[i];
       cost++;
     }
+
+    if (i === weights.length - 1) {
+      cost++;
+    }
   }
 
-  return cost <= day - 1;
+  return cost <= day;
 }

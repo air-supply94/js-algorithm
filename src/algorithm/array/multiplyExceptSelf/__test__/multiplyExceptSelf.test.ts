@@ -1,6 +1,6 @@
 import { multiplyExceptSelf } from '../multiplyExceptSelf';
 
-test('multiply except self', () => {
+test('multiplyExceptSelf', () => {
   expect(multiplyExceptSelf([
     1,
     2,
@@ -13,6 +13,7 @@ test('multiply except self', () => {
       8,
       6,
     ]);
+
   expect(multiplyExceptSelf([
     1,
     2,

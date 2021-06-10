@@ -1,6 +1,6 @@
 import { setZero } from '../setZero';
 
-test('maxProfit', () => {
+test('setZero', () => {
   expect(setZero([]))
     .toEqual([]);
 

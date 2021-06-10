@@ -1,6 +1,6 @@
 import { groupStr } from '../groupStr';
 
-test('group string', () => {
+test('groupStr', () => {
   expect(groupStr([
     'eat',
     'tea',
