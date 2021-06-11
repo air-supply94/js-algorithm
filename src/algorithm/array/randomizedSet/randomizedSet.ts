@@ -8,7 +8,7 @@ export class RandomizedSet {
 
   private readonly hashTable: {[key: number]: number; };
 
-  private readonly items: number[] ;
+  private readonly items: number[];
 
   public insert(x: number): boolean {
     if (x in this.hashTable) {
@@ -35,5 +35,43 @@ export class RandomizedSet {
 
   public getRandom(): number {
     return this.items[Math.floor(Math.random() * this.items.length)];
+  }
+}
+
+export class RandomizedSetBlackList {
+  constructor(n: number, blackList: number[]) {
+    this.unorderedMap = Object.create(null);
+    const whiteLength = n - blackList.length;
+    this.whiteLength = whiteLength;
+
+    const whiteListRight = [];
+    const blackListMap = Object.create(null);
+    for (let i = 0; i < blackList.length; i++) {
+      blackListMap[i] = true;
+    }
+
+    for (let i = whiteLength; i < n; i++) {
+      if (!(i in blackListMap)) {
+        whiteListRight.push(i);
+      }
+    }
+
+    blackList.filter((x) => (x < whiteLength))
+      .forEach((black, index) => {
+        this.unorderedMap[black] = whiteListRight[index];
+      });
+  }
+
+  private readonly whiteLength: number;
+
+  private readonly unorderedMap: {[key: number]: number; };
+
+  public pick(): number {
+    const k = Math.floor(Math.random() * this.whiteLength);
+    if (k in this.unorderedMap) {
+      return this.unorderedMap[k];
+    } else {
+      return k;
+    }
   }
 }

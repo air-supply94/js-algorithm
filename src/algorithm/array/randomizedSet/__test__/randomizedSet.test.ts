@@ -1,4 +1,4 @@
-import { RandomizedSet } from '../randomizedSet';
+import { RandomizedSet, RandomizedSetBlackList } from '../randomizedSet';
 
 test('randomizedSet', () => {
   const randomizedSet = new RandomizedSet();
@@ -26,4 +26,24 @@ test('randomizedSet', () => {
 
   expect(randomizedSet.getRandom())
     .toBe(2);
+});
+
+test('randomizedSetBlackList', () => {
+  const randomizedSetBlackList1 = new RandomizedSetBlackList(5, [
+    0,
+    1,
+    2,
+    3,
+  ]);
+
+  expect(randomizedSetBlackList1.pick())
+    .toBe(4);
+
+  const randomizedSetBlackList2 = new RandomizedSetBlackList(3, [2]);
+
+  expect([
+    0,
+    1,
+  ].includes(randomizedSetBlackList2.pick()))
+    .toBeTruthy();
 });
