@@ -10,17 +10,17 @@ export class LRUCache {
   constructor(capacity: number) {
     this.capacity = capacity;
     this.doubleLinkedList = new DoubleLinkedList<LRUCacheItem>();
-    this.hashTable = Object.create(null);
+    this.nodeMap = new Map<number, DoubleLinkedListNodeInterface<LRUCacheItem>>();
   }
 
-  private readonly doubleLinkedList: DoubleLinkedListInterface<LRUCacheItem>;
+  private readonly doubleLinkedList: DoubleLinkedListInterface<LRUCacheItem> ;
 
-  private readonly hashTable: {[key: number]: DoubleLinkedListNodeInterface<LRUCacheItem>; } ;
+  private readonly nodeMap: Map<number, DoubleLinkedListNodeInterface<LRUCacheItem>>;
 
   private readonly capacity: number;
 
   public get(key: number): number {
-    const node = this.hashTable[key];
+    const node = this.nodeMap.get(key);
     if (node) {
       this.doubleLinkedList.deleteNode(node);
       this.doubleLinkedList.prependNode(node);
@@ -32,19 +32,19 @@ export class LRUCache {
   }
 
   public put(key: number, value: number): void {
-    const node = this.hashTable[key];
+    const node = this.nodeMap.get(key);
     if (node) {
       this.doubleLinkedList.deleteNode(node);
       this.doubleLinkedList.prependNode(node);
       node.value.value = value;
     } else {
-      this.hashTable[key] = this.doubleLinkedList.prepend({
+      this.nodeMap.set(key, this.doubleLinkedList.prepend({
         key,
         value,
-      });
+      }));
 
       if (this.doubleLinkedList.size > this.capacity) {
-        delete this.hashTable[this.doubleLinkedList.deleteTail().value.key];
+        this.nodeMap.delete(this.doubleLinkedList.deleteTail().value.key);
       }
     }
   }

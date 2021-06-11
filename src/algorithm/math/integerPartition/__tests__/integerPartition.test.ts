@@ -1,4 +1,4 @@
-import { integerPartition } from '../index';
+import { integerPartition } from '../integerPartition';
 
 describe('integerPartition', () => {
   test('should partition the number', () => {

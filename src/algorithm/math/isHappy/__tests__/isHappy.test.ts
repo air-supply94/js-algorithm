@@ -1,4 +1,4 @@
-import { isHappy } from '../index';
+import { isHappy } from '../isHappy';
 
 test('isHappy', () => {
   expect(isHappy(19))

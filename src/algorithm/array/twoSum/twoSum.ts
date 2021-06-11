@@ -23,31 +23,28 @@ export function twoSum(nums: number[], target: number): [number, number] {
 
 export class TwoSum {
   constructor() {
-    this.frequency = Object.create(null);
+    this.frequency = new Map<number, number>();
   }
 
-  private readonly frequency: {[key: number]: number; };
+  private readonly frequency: Map<number, number>;
 
   public add(x: number): void {
-    if (x in this.frequency) {
-      this.frequency[x] += 1;
+    if (this.frequency.has(x)) {
+      this.frequency.set(x, this.frequency.get(x) + 1);
     } else {
-      this.frequency[x] = 1;
+      this.frequency.set(x, 1);
     }
   }
 
   public find(target: number): boolean {
-    const items = Object.keys(this.frequency)
-      .map((x) => Number(x));
+    for (const value of this.frequency.keys()) {
+      const other = target - value;
 
-    for (let i = 0; i < items.length; i++) {
-      const other = target - items[i];
-
-      if (other === items[i] && this.frequency[other] > 1) {
+      if (other === value && this.frequency.get(other) > 1) {
         return true;
       }
 
-      if (other !== items[i] && other in this.frequency) {
+      if (other !== value && this.frequency.has(other)) {
         return true;
       }
     }

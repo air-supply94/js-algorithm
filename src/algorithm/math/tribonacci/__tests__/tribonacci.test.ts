@@ -1,4 +1,4 @@
-import { tribonacci } from '../index';
+import { tribonacci } from '../tribonacci';
 
 test('tribonacci', () => {
   expect(tribonacci(0))

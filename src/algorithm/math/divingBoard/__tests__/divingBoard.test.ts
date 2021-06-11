@@ -1,4 +1,4 @@
-import { divingBoard } from '../index';
+import { divingBoard } from '../divingBoard';
 
 test('divingBoard', () => {
   expect(divingBoard(1, 1, 0))

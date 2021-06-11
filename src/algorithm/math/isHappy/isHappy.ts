@@ -1,8 +1,8 @@
 export function isHappy(n: number): boolean {
-  const tmp = Object.create(null);
+  const tmp = new Map<number, boolean>();
   let x = n;
-  while (x !== 1 && !tmp[x]) {
-    tmp[x] = true;
+  while (x !== 1 && !tmp.has(x)) {
+    tmp.set(x, true);
     x = String(x)
       .split('')
       .reduce((prev, current) => prev + Math.pow(Number(current), 2), 0);

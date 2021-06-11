@@ -1,6 +1,6 @@
 import { lessInterval } from '../lessInterval';
 
-test('should lessInterval', () => {
+test('lessInterval', () => {
   expect(lessInterval([
     'A',
     'A',

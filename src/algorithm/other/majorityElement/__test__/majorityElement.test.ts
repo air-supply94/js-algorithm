@@ -1,6 +1,6 @@
 import { majorityElement } from '../majorityElement';
 
-test('should majorityElement', () => {
+test('majorityElement', () => {
   expect(majorityElement([
     2,
     3,

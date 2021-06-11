@@ -1,6 +1,6 @@
 import { nQueens } from '../nQueens';
 
-test('should have solutions for 4 to N queens', () => {
+test('nQueens', () => {
   expect(nQueens(4))
     .toBe(2);
   expect(nQueens(5))
