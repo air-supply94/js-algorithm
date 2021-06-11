@@ -1,6 +1,6 @@
 import { Queue } from '../queue';
 
-describe('Index', () => {
+describe('Queue', () => {
   test('should create empty queue', () => {
     const queue = new Queue();
     expect(queue.dequeue())

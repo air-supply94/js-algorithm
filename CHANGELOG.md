@@ -42,6 +42,7 @@
 - **algorithm/array:** add randomizedSet ([8ffb01a](https://github.com/air-supply94/js-algorithm/commit/8ffb01a022d03f60187cf3b88184867a9ad26249))
 - **algorithm/array:** add randomizedSetBlackList ([56ab592](https://github.com/air-supply94/js-algorithm/commit/56ab59276fbda3d24b0612b5abc68ab7bb055810))
 - **algorithm/array:** add removeDuplicates ([e3412f8](https://github.com/air-supply94/js-algorithm/commit/e3412f86da8aa337a17215ea222fa772978b91e6))
+- **algorithm/array:** add removeElement ([6940656](https://github.com/air-supply94/js-algorithm/commit/69406564fc87b8918ecef93a4e2feea2677e6489))
 - **algorithm/array:** add twoSum ([a93da8f](https://github.com/air-supply94/js-algorithm/commit/a93da8fdd1a5cf9228a8cda70410b1e47433fc85))
 - **algorithm/classic:** add coinChange ([4c2b923](https://github.com/air-supply94/js-algorithm/commit/4c2b92300783066c27c01ce3f79989fbdfcf0314))
 - **algorithm/classic:** add maximalSquare ([82da714](https://github.com/air-supply94/js-algorithm/commit/82da714f99bc9b61b8b2498c1bac7e0900b08540))
