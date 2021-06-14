@@ -3,36 +3,36 @@ import { StackInterface } from '../../stack/types';
 
 export class FrequencyStack {
   constructor() {
-    this.freqHashMap = {};
-    this.freqHashStack = {};
+    this.freqMap = new Map<number, number>();
+    this.freqStackMap = new Map<number, StackInterface<number>>();
     this.maxFreq = 0;
   }
 
   private maxFreq: number;
 
-  private readonly freqHashMap: {[key: number]: number; };
+  private readonly freqMap: Map<number, number>;
 
-  private readonly freqHashStack: {[key: number]: StackInterface<number>; };
+  private readonly freqStackMap: Map<number, StackInterface<number>>;
 
   public push(item: number): void {
-    const oldCount = this.freqHashMap[item];
+    const oldCount = this.freqMap.get(item);
     if (oldCount) {
       const newCount = oldCount + 1;
-      this.freqHashMap[item] = newCount;
+      this.freqMap.set(item, newCount);
 
-      if (!this.freqHashStack[newCount]) {
-        this.freqHashStack[newCount] = new Stack<number>();
+      if (!this.freqStackMap.has(newCount)) {
+        this.freqStackMap.set(newCount, new Stack<number>());
       }
-      this.freqHashStack[newCount].push(item);
+      this.freqStackMap.get(newCount).push(item);
 
       this.maxFreq = Math.max(newCount, this.maxFreq);
     } else {
-      this.freqHashMap[item] = 1;
+      this.freqMap.set(item, 1);
 
-      if (!this.freqHashStack[1]) {
-        this.freqHashStack[1] = new Stack<number>();
+      if (!this.freqStackMap.has(1)) {
+        this.freqStackMap.set(1, new Stack<number>());
       }
-      this.freqHashStack[1].push(item);
+      this.freqStackMap.get(1).push(item);
 
       this.maxFreq = Math.max(1, this.maxFreq);
     }
@@ -43,10 +43,10 @@ export class FrequencyStack {
       return null;
     }
 
-    const value = this.freqHashStack[this.maxFreq].pop();
-    this.freqHashMap[value] -= 1;
+    const value = this.freqStackMap.get(this.maxFreq).pop();
+    this.freqMap.set(value, this.freqMap.get(value) - 1);
 
-    if (this.freqHashStack[this.maxFreq].isEmpty()) {
+    if (this.freqStackMap.get(this.maxFreq).isEmpty()) {
       this.maxFreq -= 1;
     }
 

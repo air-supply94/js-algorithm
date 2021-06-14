@@ -1,7 +1,7 @@
 export class CircularQueue {
-  private data: number[];
+  private readonly data: number[];
 
-  private cap: number;
+  private readonly cap: number;
 
   private head: number;
 

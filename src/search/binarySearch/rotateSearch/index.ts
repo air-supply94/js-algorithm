@@ -37,7 +37,7 @@ export function rotateSearchMin(rotateArray: number[]): number {
     } else if (rotateArray[middle] < rotateArray[left]) {
       right = middle - 1;
     } else {
-      right--;
+      right = left - 1;
     }
   }
 

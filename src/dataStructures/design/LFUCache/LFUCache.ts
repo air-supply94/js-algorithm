@@ -11,8 +11,8 @@ export class LFUCache {
   // 0 or 1 is LRUCache
   constructor(capacity: number) {
     this.capacity = capacity;
-    this.valueHashTable = {};
-    this.countHashTable = {};
+    this.valueMap = new Map<number, DoubleLinkedListNodeInterface<LFUCacheItem>>();
+    this.countMap = new Map<number, DoubleLinkedListInterface<LFUCacheItem>>();
     this.minCount = 0;
     this.size = 0;
   }
@@ -21,9 +21,9 @@ export class LFUCache {
 
   private size: number;
 
-  private readonly countHashTable: {[key: number]: DoubleLinkedListInterface<LFUCacheItem>; };
+  private readonly countMap: Map<number, DoubleLinkedListInterface<LFUCacheItem>>;
 
-  private readonly valueHashTable: {[key: number]: DoubleLinkedListNodeInterface<LFUCacheItem>; };
+  private readonly valueMap: Map<number, DoubleLinkedListNodeInterface<LFUCacheItem>>;
 
   private readonly capacity: number;
 
@@ -32,19 +32,19 @@ export class LFUCache {
     const newCount = oldCount + 1;
     node.value.count = newCount;
 
-    this.countHashTable[oldCount].deleteNode(node);
-    if (!this.countHashTable[newCount]) {
-      this.countHashTable[newCount] = new DoubleLinkedList<LFUCacheItem>();
+    this.countMap.get(oldCount).deleteNode(node);
+    if (!this.countMap.has(newCount)) {
+      this.countMap.set(newCount, new DoubleLinkedList<LFUCacheItem>());
     }
-    this.countHashTable[newCount].prependNode(node);
+    this.countMap.get(newCount).prependNode(node);
 
-    if (this.minCount === oldCount && this.countHashTable[oldCount].isEmpty()) {
+    if (this.minCount === oldCount && this.countMap.get(oldCount).isEmpty()) {
       this.minCount = newCount;
     }
   }
 
   public get(key: number): number {
-    const node = this.valueHashTable[key];
+    const node = this.valueMap.get(key);
     if (node) {
       this.commonExistNodeHandle(node);
       return node.value.value;
@@ -54,25 +54,25 @@ export class LFUCache {
   }
 
   public put(key: number, value: number): void {
-    const node = this.valueHashTable[key];
+    const node = this.valueMap.get(key);
     if (node) {
       this.commonExistNodeHandle(node);
     } else {
-      if (!this.countHashTable[1]) {
-        this.countHashTable[1] = new DoubleLinkedList<LFUCacheItem>();
+      if (!this.countMap.has(1)) {
+        this.countMap.set(1, new DoubleLinkedList<LFUCacheItem>());
       }
 
-      this.countHashTable[1].prepend({
+      this.countMap.get(1).prepend({
         value,
         key,
         count: 1,
       });
 
-      this.valueHashTable[key] = this.countHashTable[1].head;
+      this.valueMap.set(key, this.countMap.get(1).head);
       this.size++;
 
       if (this.size > this.capacity) {
-        delete this.valueHashTable[this.countHashTable[this.minCount].deleteTail().value.key];
+        this.valueMap.delete(this.countMap.get(this.minCount).deleteTail().value.key);
         this.size--;
       }
 
