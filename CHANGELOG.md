@@ -49,7 +49,7 @@
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
 - **algorithm/classic:** add minDistance ([f441103](https://github.com/air-supply94/js-algorithm/commit/f44110326d1e4c037a81176cc8041be436ff5b68))
 - **algorithm/classic:** add rubberHouse ([bf41594](https://github.com/air-supply94/js-algorithm/commit/bf41594753015b1d45cb67ed4ef42600805f5f8e))
-- **algorithm/slidingWindow:** add minWindow ([4b9616e](https://github.com/air-supply94/js-algorithm/commit/4b9616ecab9161bbd326bb33f75cdbed90292e7c))
+- **algorithm/slidingWindow:** add minWindow ([1316b41](https://github.com/air-supply94/js-algorithm/commit/1316b4109466ed38bea1dad44868e4cc84d9d4aa))
 - **array:** add groupStr ([d8e4365](https://github.com/air-supply94/js-algorithm/commit/d8e43659c0b2cc3ed5fdc229e8db82269fb08281))
 - **array:** add maxProfit ([601e32a](https://github.com/air-supply94/js-algorithm/commit/601e32ad487855c6359500e71078a5b4ed42ff65))
 - **array:** add multiplyExceptSelf ([545e5e9](https://github.com/air-supply94/js-algorithm/commit/545e5e9ec432554a9e120f3f40178c8078442b51))
