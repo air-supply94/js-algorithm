@@ -29,11 +29,7 @@ export class TwoSum {
   private readonly frequency: Map<number, number>;
 
   public add(x: number): void {
-    if (this.frequency.has(x)) {
-      this.frequency.set(x, this.frequency.get(x) + 1);
-    } else {
-      this.frequency.set(x, 1);
-    }
+    this.frequency.set(x, (this.frequency.get(x) || 0) + 1);
   }
 
   public find(target: number): boolean {
