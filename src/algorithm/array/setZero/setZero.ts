@@ -1,30 +1,30 @@
 export function setZero(array: number[][]): number[][] {
-  const w = array.length;
-  const h = array[0] ? array[0].length : 0;
+  const height = array.length;
+  const width = array[0] ? array[0].length : 0;
   const row = new Map<number, boolean>();
   const col = new Map<number, boolean>();
 
-  for (let i = 0; i < w; i++) {
-    for (let j = 0; j < h; j++) {
-      if (!array[i][j]) {
-        row.set(i, true);
-        col.set(j, true);
+  for (let h = 0; h < height; h++) {
+    for (let w = 0; w < width; w++) {
+      if (!array[h][w]) {
+        row.set(h, true);
+        col.set(w, true);
       }
     }
   }
 
-  for (let i = 0; i < w; i++) {
-    if (row.has(i)) {
-      for (let j = 0; j < h; j++) {
-        array[i][j] = 0;
+  for (let h = 0; h < height; h++) {
+    if (row.has(h)) {
+      for (let w = 0; w < width; w++) {
+        array[h][w] = 0;
       }
     }
   }
 
-  for (let i = 0; i < h; i++) {
-    if (col.has(i)) {
-      for (let j = 0; j < w; j++) {
-        array[j][i] = 0;
+  for (let w = 0; w < width; w++) {
+    if (col.has(w)) {
+      for (let h = 0; h < height; h++) {
+        array[h][w] = 0;
       }
     }
   }

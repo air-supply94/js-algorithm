@@ -25,19 +25,19 @@ function reverse<T = unknown>(array: T[], startIndex: number, endIndex: number):
 export function rotateMatrix<T = unknown>(array: T[]): T[] {
   const n = array.length;
 
-  for (let i = 0; i < n; i++) {
-    for (let j = i; j < n; j++) {
-      const tmp = array[i][j];
-      array[i][j] = array[j][i];
-      array[j][i] = tmp;
+  for (let h = 0; h < n; h++) {
+    for (let w = h; w < n; w++) {
+      const tmp = array[h][w];
+      array[h][w] = array[w][h];
+      array[w][h] = tmp;
     }
   }
 
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < Math.floor(n / 2); j++) {
-      const tmp = array[i][j];
-      array[i][j] = array[i][n - 1 - j];
-      array[i][n - 1 - j] = tmp;
+  for (let h = 0; h < n; h++) {
+    for (let w = 0; w < Math.floor(n / 2); w++) {
+      const tmp = array[h][w];
+      array[h][w] = array[h][n - 1 - w];
+      array[h][n - 1 - w] = tmp;
     }
   }
 
