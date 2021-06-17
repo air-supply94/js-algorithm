@@ -46,6 +46,8 @@
 - **algorithm/array:** add removeElement ([6940656](https://github.com/air-supply94/js-algorithm/commit/69406564fc87b8918ecef93a4e2feea2677e6489))
 - **algorithm/array:** add twoSum ([a93da8f](https://github.com/air-supply94/js-algorithm/commit/a93da8fdd1a5cf9228a8cda70410b1e47433fc85))
 - **algorithm/backTrack:** add combine ([74ce4ed](https://github.com/air-supply94/js-algorithm/commit/74ce4eda583e9368d48e1e5948f371ada6064bc8))
+- **algorithm/backTrack:** add solveSudoku ([a85601c](https://github.com/air-supply94/js-algorithm/commit/a85601cb2ed535d46e4efe08673a5188250a5f5e))
+- **algorithm/bfs:** add minDepth ([1710e33](https://github.com/air-supply94/js-algorithm/commit/1710e33b7d827b9963afd2d6919928ec01fa3f3c))
 - **algorithm/classic:** add coinChange ([4c2b923](https://github.com/air-supply94/js-algorithm/commit/4c2b92300783066c27c01ce3f79989fbdfcf0314))
 - **algorithm/classic:** add maximalSquare ([82da714](https://github.com/air-supply94/js-algorithm/commit/82da714f99bc9b61b8b2498c1bac7e0900b08540))
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
