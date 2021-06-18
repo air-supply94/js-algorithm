@@ -3,21 +3,21 @@ import { BinarySearchTreeNodeInterface } from '../../dataStructures/tree/binaryS
 
 export function minDepth<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): number {
   const queue = new Queue<BinarySearchTreeNodeInterface<T>>();
-  let depth = 0;
+  let level = 0;
 
   if (root) {
     queue.enqueue(root);
   }
 
   while (!queue.isEmpty()) {
-    depth++;
+    level++;
     const size = queue.size;
 
     for (let i = 0; i < size; i++) {
       const currentNode = queue.dequeue();
 
       if (!currentNode.left && !currentNode.right) {
-        return depth;
+        return level;
       }
 
       if (currentNode.left) {
@@ -30,5 +30,5 @@ export function minDepth<T = unknown>(root: BinarySearchTreeNodeInterface<T> | n
     }
   }
 
-  return depth;
+  return level;
 }
