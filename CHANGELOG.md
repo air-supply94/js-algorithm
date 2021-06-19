@@ -1,4 +1,4 @@
-# 0.0.0 (2021-06-18)
+# 0.0.0 (2021-06-20)
 
 ### Bug Fixes
 
@@ -49,7 +49,8 @@
 - **algorithm/backTrack:** add solveSudoku ([a85601c](https://github.com/air-supply94/js-algorithm/commit/a85601cb2ed535d46e4efe08673a5188250a5f5e))
 - **algorithm/bfs:** add minDepth ([31ead4a](https://github.com/air-supply94/js-algorithm/commit/31ead4a45634cb14bc5ef9151856e93ee790f421))
 - **algorithm/bfs:** add openLock ([59d2a95](https://github.com/air-supply94/js-algorithm/commit/59d2a95acdbb5b2fb1b2f5eb8fceb9faa2582c64))
-- **algorithm/bfs:** add slidingPuzzle ([6fee149](https://github.com/air-supply94/js-algorithm/commit/6fee1496dec03162235fe58c023a90ddd72089d9))
+- **algorithm/bfs:** add slidingPuzzle ([b6b52c2](https://github.com/air-supply94/js-algorithm/commit/b6b52c27492b6bdca316dcd4ab8472bb91c352a9))
+- **algorithm/bfs:** add slidingPuzzle ([c92bb4b](https://github.com/air-supply94/js-algorithm/commit/c92bb4b8a9669f21efd44a5182412bc0e8cbaf77))
 - **algorithm/classic:** add coinChange ([4c2b923](https://github.com/air-supply94/js-algorithm/commit/4c2b92300783066c27c01ce3f79989fbdfcf0314))
 - **algorithm/classic:** add maximalSquare ([82da714](https://github.com/air-supply94/js-algorithm/commit/82da714f99bc9b61b8b2498c1bac7e0900b08540))
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
