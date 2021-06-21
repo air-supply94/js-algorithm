@@ -55,7 +55,7 @@
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
 - **algorithm/classic:** add minDistance ([f441103](https://github.com/air-supply94/js-algorithm/commit/f44110326d1e4c037a81176cc8041be436ff5b68))
 - **algorithm/classic:** add rubberHouse ([bf41594](https://github.com/air-supply94/js-algorithm/commit/bf41594753015b1d45cb67ed4ef42600805f5f8e))
-- **algorithm/math:** add findErrorNums ([530bb78](https://github.com/air-supply94/js-algorithm/commit/530bb78bf4e6d4322e6493887cb3d83e9755ae37))
+- **algorithm/math:** add findErrorNums ([edee6fb](https://github.com/air-supply94/js-algorithm/commit/edee6fb2edebd8696f61c8ca66e0e8de77d46a3d))
 - **algorithm/math:** add missingNumber ([168e330](https://github.com/air-supply94/js-algorithm/commit/168e33009a3ad21ba4a15c56c65367588e6c03ad))
 - **algorithm/math:** add trailingZeroes ([cefab4c](https://github.com/air-supply94/js-algorithm/commit/cefab4c03594616e8c8ff8ed447a4bdd1febff3d))
 - **algorithm/slidingWindow:** add checkInclusion ([e952fc8](https://github.com/air-supply94/js-algorithm/commit/e952fc852e3392f5a1e92fdbb6cd1fa02d20d8d7))
