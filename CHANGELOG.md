@@ -1,4 +1,4 @@
-# 0.0.0 (2021-06-22)
+# 0.0.0 (2021-06-23)
 
 ### Bug Fixes
 
@@ -55,6 +55,8 @@
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
 - **algorithm/classic:** add minDistance ([f441103](https://github.com/air-supply94/js-algorithm/commit/f44110326d1e4c037a81176cc8041be436ff5b68))
 - **algorithm/classic:** add rubberHouse ([bf41594](https://github.com/air-supply94/js-algorithm/commit/bf41594753015b1d45cb67ed4ef42600805f5f8e))
+- **algorithm/math:** add Difference ([851082f](https://github.com/air-supply94/js-algorithm/commit/851082f5cbbc29aef367194230b4ebf55f74e480))
+- **algorithm/math:** add diffWaysToCompute ([91d3afe](https://github.com/air-supply94/js-algorithm/commit/91d3afe1bc9c2e1350bf99aedbfbf9e5536f874f))
 - **algorithm/math:** add findErrorNums ([edee6fb](https://github.com/air-supply94/js-algorithm/commit/edee6fb2edebd8696f61c8ca66e0e8de77d46a3d))
 - **algorithm/math:** add game ([20dfd5c](https://github.com/air-supply94/js-algorithm/commit/20dfd5c1c6c15e47220442bcba3d0393bfcbadc9))
 - **algorithm/math:** add getRandom ([da6ffd9](https://github.com/air-supply94/js-algorithm/commit/da6ffd976e772de2d5b6b6903ec597a752391bf1))
