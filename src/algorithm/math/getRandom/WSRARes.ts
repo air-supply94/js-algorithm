@@ -25,7 +25,8 @@ export function WSRARes(nums: number[], count: number): number[] {
 
   for (let i = count; i < nums.length; i++) {
     const sampleScore = getSampleScore(nums[i]);
-    if (!minHeap.isEmpty() && sampleScore > minHeap.peek().weight) {
+    if (sampleScore > minHeap.peek().weight) {
+      minHeap.poll();
       minHeap.add({
         weight: sampleScore,
         value: nums[i],

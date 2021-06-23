@@ -17,19 +17,16 @@ export function slidingPuzzle(board: number[][]): number {
       root.push(board[i][j]);
     }
   }
-  const index = root.indexOf(0);
 
   const queue = new Queue<{ root: number[]; index: number; }>();
   const enqueueMap = new Map<string, boolean>();
-
   queue.enqueue({
     root,
-    index,
+    index: root.indexOf(0),
   });
   enqueueMap.set(root.join(','), true);
 
   let level = 0;
-
   while (!queue.isEmpty()) {
     level++;
     const size = queue.size;
@@ -40,17 +37,17 @@ export function slidingPuzzle(board: number[][]): number {
         return level - 1;
       }
 
-      neighbor[currentNode.index].forEach((index) => {
-        swap(currentNode.root, currentNode.index, index);
+      neighbor[currentNode.index].forEach((neighborIndex) => {
+        swap(currentNode.root, currentNode.index, neighborIndex);
         const tmpNode = currentNode.root.slice();
         if (!enqueueMap.has(tmpNode.join(','))) {
           queue.enqueue({
             root: tmpNode,
-            index,
+            index: neighborIndex,
           });
           enqueueMap.set(tmpNode.join(','), true);
         }
-        swap(currentNode.root, currentNode.index, index);
+        swap(currentNode.root, currentNode.index, neighborIndex);
       });
     }
   }
