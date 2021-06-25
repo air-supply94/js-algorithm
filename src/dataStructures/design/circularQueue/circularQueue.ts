@@ -1,7 +1,7 @@
 export class CircularQueue {
   private readonly data: number[];
 
-  private readonly cap: number;
+  private readonly capacity: number;
 
   private head: number;
 
@@ -9,7 +9,7 @@ export class CircularQueue {
 
   constructor(k: number) {
     this.data = [];
-    this.cap = k + 1;
+    this.capacity = k + 1;
     this.head = 0;
     this.tail = 0;
   }
@@ -19,7 +19,7 @@ export class CircularQueue {
       return false;
     } else {
       this.data[this.tail] = value;
-      this.tail = (this.tail + 1) % this.cap;
+      this.tail = (this.tail + 1) % this.capacity;
       return true;
     }
   }
@@ -28,7 +28,7 @@ export class CircularQueue {
     if (this.isEmpty()) {
       return false;
     } else {
-      this.head = (this.head + 1) % this.cap;
+      this.head = (this.head + 1) % this.capacity;
       return true;
     }
   }
@@ -45,15 +45,15 @@ export class CircularQueue {
     if (this.isEmpty()) {
       return null;
     } else {
-      return this.data[(this.tail - 1 + this.cap) % this.cap];
+      return this.data[(this.tail - 1 + this.capacity) % this.capacity];
     }
   }
 
   public isEmpty(): boolean {
-    return this.head == this.tail;
+    return this.head === this.tail;
   }
 
   public isFull(): boolean {
-    return (this.tail + 1) % this.cap == this.head;
+    return (this.tail + 1) % this.capacity === this.head;
   }
 }

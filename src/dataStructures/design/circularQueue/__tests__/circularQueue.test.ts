@@ -1,7 +1,7 @@
 import { CircularQueue } from '../circularQueue';
 
-const circularQueue = new CircularQueue(3);
 test('CircularQueue', () => {
+  const circularQueue = new CircularQueue(3);
   expect(circularQueue.isEmpty())
     .toBeTruthy();
   expect(circularQueue.rear())

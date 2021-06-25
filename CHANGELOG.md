@@ -1,9 +1,9 @@
-# 0.0.0 (2021-06-24)
+# 0.0.0 (2021-06-25)
 
 ### Bug Fixes
 
 - **BinarySearchTreeNode:** 解决 remove 时 nodeRemove parent 为设置为 null 的情况 ([2b03f1f](https://github.com/air-supply94/js-algorithm/commit/2b03f1f2fab664b4a2b9070b81ca482c71618072))
-- **WSRARes:** 分数大于，minHeap 没有 poll ([313f900](https://github.com/air-supply94/js-algorithm/commit/313f90006021f2e5b225dc65f157614537b07199))
+- **WSRARes:** 分数大于，minHeap 没有 poll ([1c4289a](https://github.com/air-supply94/js-algorithm/commit/1c4289a140db4ec61f4dcfb2229ab6d42256b3a3))
 
 ### Features
 
