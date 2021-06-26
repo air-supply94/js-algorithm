@@ -2,7 +2,7 @@ export function lengthOfLongestSubstring(s: string): number {
   const slidingWindow = new Map<string, number>();
   let left = 0;
   let right = 0;
-  let result = 0;
+  let length = 0;
 
   while (right < s.length) {
     const rightChar = s[right];
@@ -15,8 +15,8 @@ export function lengthOfLongestSubstring(s: string): number {
       slidingWindow.set(leftChar, slidingWindow.get(leftChar) - 1);
     }
 
-    result = Math.max(result, right - left);
+    length = Math.max(length, right - left);
   }
 
-  return result;
+  return length;
 }

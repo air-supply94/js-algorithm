@@ -57,6 +57,7 @@ export class LFUCache {
     const node = this.valueMap.get(key);
     if (node) {
       this.commonExistNodeHandle(node);
+      node.value.value = value;
     } else {
       if (!this.countMap.has(1)) {
         this.countMap.set(1, new DoubleLinkedList<LFUCacheItem>());
