@@ -1,24 +1,24 @@
 export function rainTerraces(terraces: number[]): number {
   let amount = 0;
-  const dpLeftMax = Array(terraces.length)
+  const leftMax = Array(terraces.length)
     .fill(0);
-  const dpRightMax = Array(terraces.length)
+  const rightMax = Array(terraces.length)
     .fill(0);
 
-  let leftMaxPrevious = 0;
+  let leftTmp = 0;
   for (let i = 0; i < terraces.length; i++) {
-    dpLeftMax[i] = Math.max(terraces[i], leftMaxPrevious);
-    leftMaxPrevious = dpLeftMax[i];
+    leftMax[i] = Math.max(terraces[i], leftTmp);
+    leftTmp = leftMax[i];
   }
 
-  let rightMaxPrevious = 0;
+  let rightTmp = 0;
   for (let i = terraces.length - 1; i >= 0; i--) {
-    dpRightMax[i] = Math.max(terraces[i], rightMaxPrevious);
-    rightMaxPrevious = dpRightMax[i];
+    rightMax[i] = Math.max(terraces[i], rightTmp);
+    rightTmp = rightMax[i];
   }
 
   for (let i = 0; i < terraces.length; i++) {
-    const dx = Math.min(dpLeftMax[i], dpRightMax[i]) - terraces[i];
+    const dx = Math.min(leftMax[i], rightMax[i]) - terraces[i];
     amount += dx > 0 ? dx : 0;
   }
 

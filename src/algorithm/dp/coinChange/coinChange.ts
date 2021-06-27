@@ -3,10 +3,6 @@ export function coinChange(coins: number[], amount: number): number {
     return -1;
   }
 
-  if (amount === 0) {
-    return 0;
-  }
-
   const dp = Array(amount + 1)
     .fill(-1);
   dp[0] = 0;
