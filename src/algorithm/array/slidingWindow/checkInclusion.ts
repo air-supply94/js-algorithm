@@ -19,7 +19,7 @@ export function checkInclusion(s: string, t: string): boolean {
       }
     }
 
-    while (right - left > t.length) {
+    while (right - left >= t.length) {
       if (windowSize === t.length) {
         return true;
       }
@@ -27,10 +27,10 @@ export function checkInclusion(s: string, t: string): boolean {
       const leftChar = s[left];
       left++;
       if (need.has(leftChar)) {
-        slidingWindow.set(leftChar, slidingWindow.get(leftChar) - 1);
         if (slidingWindow.get(leftChar) === need.get(leftChar)) {
           windowSize--;
         }
+        slidingWindow.set(leftChar, slidingWindow.get(leftChar) - 1);
       }
     }
   }
