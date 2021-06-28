@@ -9,7 +9,7 @@ export function minPalindromeInsert(str: string): number {
       .fill(0));
 
   for (let i = str.length - 1; i >= 0; i--) {
-    for (let j = i + 1; j <= str.length - 1; j++) {
+    for (let j = i + 1; j < str.length; j++) {
       if (str[i] === str[j]) {
         dp[i][j] = dp[i + 1][j - 1];
       } else {
