@@ -1,5 +1,5 @@
-import { GraphEdge } from '../GraphEdge';
-import { GraphVertex } from '../GraphVertex';
+import { GraphEdge } from '../graphEdge';
+import { GraphVertex } from '../graphVertex';
 
 describe('GraphVertex', () => {
   test('should create graph vertex', () => {

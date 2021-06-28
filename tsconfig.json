@@ -14,10 +14,16 @@
     "baseUrl": ".",
     "strictNullChecks": false,
     "strict": true,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
+    "noImplicitThis": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules", "lib", "coverage", "**/__tests__/"]
 }

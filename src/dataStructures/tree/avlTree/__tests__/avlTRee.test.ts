@@ -29,7 +29,7 @@ describe('AvlTree', () => {
   });
 
   test('should do simple left-left rotation', () => {
-    function callback(node) {
+    function callback() {
       // nothing
     }
 

@@ -1,5 +1,5 @@
-import { GraphEdge } from '../GraphEdge';
-import { GraphVertex } from '../GraphVertex';
+import { GraphEdge } from '../graphEdge';
+import { GraphVertex } from '../graphVertex';
 
 describe('GraphEdge', () => {
   test('should create graph edge with default weight', () => {

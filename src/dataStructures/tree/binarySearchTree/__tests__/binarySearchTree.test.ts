@@ -51,7 +51,7 @@ describe('BinarySearchTree', () => {
 
     bst.insert(10);
     const originRemove = bst.remove;
-    bst.remove = function <T = unknown>(value: T): BinarySearchTreeNodeInterface<T> | null {
+    bst.remove = function <T = unknown>(this: BinarySearchTree<T>, value: T): BinarySearchTreeNodeInterface<T> | null {
       return findReplaceNode(this.root, value, this.comparator);
     };
     expect(bst.remove(10).value)
@@ -126,7 +126,7 @@ describe('BinarySearchTree', () => {
     expect(bst.findMax())
       .toBeNull();
     const originInsert = bst.insert;
-    bst.insert = function <T = unknown>(value: T): null | BinarySearchTreeNodeInterface<T> {
+    bst.insert = function <T = unknown>(this: BinarySearchTree<T>, value: T): null | BinarySearchTreeNodeInterface<T> {
       return insert(this.root, value, this.comparator);
     };
     bst.insert(10);
