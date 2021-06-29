@@ -17,7 +17,7 @@ export function maxProfitCountAny(prices: number[], count: number): number {
         .fill(0)));
 
   for (let i = 0; i < prices.length; i++) {
-    for (let j = count; j >= 1; j--) {
+    for (let j = 1; j <= count; j++) {
       if (i === 0) {
         dp[i][j][0] = 0;
         dp[i][j][1] = -prices[i];

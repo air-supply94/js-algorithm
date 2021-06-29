@@ -16,6 +16,7 @@ test('knapsack01', () => {
     ]
   ))
     .toBe(6);
+
   expect(knapsack01(
     5,
     3,

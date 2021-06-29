@@ -7,6 +7,8 @@ test('regularExpressionMatching', () => {
     .toBe(true);
   expect(regularExpressionMatching('aa', 'aa'))
     .toBe(true);
+  expect(regularExpressionMatching('aaa', 'a*a'))
+    .toBe(true);
   expect(regularExpressionMatching('aab', 'aab'))
     .toBe(true);
   expect(regularExpressionMatching('aab', 'aa.'))
