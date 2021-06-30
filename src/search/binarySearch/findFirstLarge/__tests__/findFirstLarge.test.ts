@@ -1,6 +1,22 @@
-import { findFirstLarge } from '../index';
+import { findFirstLarge } from '../findFirstLarge';
 
 test('findFirstLarge', () => {
+  expect(findFirstLarge([
+    1,
+    2,
+    3,
+    4,
+    5,
+  ], 4))
+    .toBe(4);
+
+  expect(findFirstLarge([
+    1,
+    3,
+    5,
+  ], 2))
+    .toBe(1);
+
   expect(findFirstLarge([
     1,
     2,

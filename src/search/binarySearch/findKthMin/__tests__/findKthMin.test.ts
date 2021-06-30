@@ -1,4 +1,4 @@
-import { findKthMin } from '../index';
+import { findKthMin } from '../findKthMin';
 
 const arr1 = [
   1,

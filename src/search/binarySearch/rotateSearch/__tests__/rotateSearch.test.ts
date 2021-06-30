@@ -1,4 +1,4 @@
-import { rotateSearchElement, rotateSearchMin } from '../index';
+import { rotateSearchElement, rotateSearchMin } from '../rotateSearch';
 
 const array1 = [
   4,

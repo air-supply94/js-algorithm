@@ -1,4 +1,4 @@
-import { shipWithinDays } from '../index';
+import { shipWithinDays } from '../shipWithinDays';
 
 test('shipWithinDays', () => {
   expect(shipWithinDays(

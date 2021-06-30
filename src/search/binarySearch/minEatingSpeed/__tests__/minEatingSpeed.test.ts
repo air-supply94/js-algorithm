@@ -1,4 +1,4 @@
-import { minEatingSpeed } from '../index';
+import { minEatingSpeed } from '../minEatingSpeed';
 
 test('minEatingSpeed', () => {
   expect(minEatingSpeed(

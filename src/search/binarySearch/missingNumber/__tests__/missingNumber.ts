@@ -1,4 +1,4 @@
-import { missingNumber } from '../index';
+import { missingNumber } from '../missingNumber';
 
 test('missingNumber', () => {
   expect(missingNumber([]))

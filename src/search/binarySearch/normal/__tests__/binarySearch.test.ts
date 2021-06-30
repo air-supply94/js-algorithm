@@ -1,5 +1,5 @@
 import { Comparator } from '../../../../utils';
-import { binarySearch } from '../index';
+import { binarySearch } from '../normal';
 
 test('binarySearch number', () => {
   expect(binarySearch([], 1, new Comparator()))
