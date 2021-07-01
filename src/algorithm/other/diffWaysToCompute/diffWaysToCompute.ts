@@ -3,10 +3,6 @@ export function diffWaysToCompute(expression: string): number[] {
     return [];
   }
 
-  if (expression.length === 1) {
-    return [Number(expression)];
-  }
-
   const result: number[] = [];
 
   for (let i = 0; i < expression.length; i++) {
@@ -28,5 +24,9 @@ export function diffWaysToCompute(expression: string): number[] {
     }
   }
 
-  return result.sort((a, b) => a - b);
+  if (!result.length) {
+    result.push(Number(expression));
+  }
+
+  return result;
 }
