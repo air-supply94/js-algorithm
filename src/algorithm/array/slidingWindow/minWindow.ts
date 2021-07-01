@@ -21,7 +21,7 @@ export function minWindow(s: string, t: string): string {
       }
     }
 
-    while (windowSize && windowSize === t.length) {
+    while (windowSize && windowSize === need.size) {
       if (resultLength === 0 || right - left < resultLength) {
         resultStart = left;
         resultLength = right - left;

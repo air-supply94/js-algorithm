@@ -20,7 +20,7 @@ export function checkInclusion(s: string, t: string): boolean {
     }
 
     while (right - left >= t.length) {
-      if (windowSize === t.length) {
+      if (windowSize === need.size) {
         return true;
       }
 

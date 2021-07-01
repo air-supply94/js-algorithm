@@ -51,7 +51,7 @@ export class RandomizedSetBlackList {
     const whiteListRight = [];
     const blackListMap = new Map<number, boolean>();
     for (let i = 0; i < blackList.length; i++) {
-      blackListMap.set(i, true);
+      blackListMap.set(blackList[i], true);
     }
 
     for (let i = whiteLength; i < n; i++) {
@@ -60,10 +60,10 @@ export class RandomizedSetBlackList {
       }
     }
 
-    blackList.filter((x) => (x < whiteLength))
-      .forEach((black, index) => {
-        this.unorderedMap.set(black, whiteListRight[index]);
-      });
+    const leftBlack = blackList.filter((x) => (x < whiteLength));
+    leftBlack.forEach((black, index) => {
+      this.unorderedMap.set(black, whiteListRight[index]);
+    });
   }
 
   private readonly whiteLength: number;

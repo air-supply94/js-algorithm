@@ -1,9 +1,20 @@
-import { isSubsequence } from '../isSubsequence';
+import { isSubsequence, isSubsequenceBs } from '../isSubsequence';
 
 test('isSubsequence', () => {
-  expect(isSubsequence('abc', 'ahbgdc'))
+  expect(isSubsequence('aabc', 'aahbgdc'))
     .toBeTruthy();
 
   expect(isSubsequence('axc', 'ahbgdc'))
+    .toBeFalsy();
+});
+
+test('isSubsequenceBs', () => {
+  expect(isSubsequenceBs('aabc', 'aahbgdc'))
+    .toBeTruthy();
+
+  expect(isSubsequenceBs('axc', 'ahbgdc'))
+    .toBeFalsy();
+
+  expect(isSubsequenceBs('aaxc', 'ahbgdc'))
     .toBeFalsy();
 });

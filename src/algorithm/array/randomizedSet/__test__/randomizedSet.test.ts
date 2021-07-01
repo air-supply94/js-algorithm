@@ -29,11 +29,9 @@ test('randomizedSet', () => {
 });
 
 test('randomizedSetBlackList', () => {
-  const randomizedSetBlackList1 = new RandomizedSetBlackList(5, [
+  const randomizedSetBlackList1 = new RandomizedSetBlackList(4, [
     0,
-    1,
     2,
-    3,
   ]);
 
   expect(randomizedSetBlackList1.pick())

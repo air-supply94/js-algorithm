@@ -1,12 +1,19 @@
 import { rubberHouseMedium } from '../rubberHouseMedium';
 
 test('rubberHouseMedium', () => {
+  expect(rubberHouseMedium([]))
+    .toBe(0);
+
+  expect(rubberHouseMedium([1]))
+    .toBe(1);
+
   expect(rubberHouseMedium([
     2,
     3,
     2,
   ]))
     .toBe(3);
+
   expect(rubberHouseMedium([
     1,
     2,
