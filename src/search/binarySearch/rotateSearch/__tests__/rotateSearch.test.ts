@@ -42,4 +42,28 @@ test('rotateSearchMin', () => {
 
   expect(rotateSearchMin(array2))
     .toBe(0);
+
+  expect(rotateSearchMin([
+    3,
+    4,
+    5,
+    1,
+    2,
+  ]))
+    .toBe(1);
+
+  expect(rotateSearchMin([
+    11,
+    13,
+    15,
+    17,
+  ]))
+    .toBe(11);
+
+  expect(rotateSearchMin([
+    3,
+    1,
+    2,
+  ]))
+    .toBe(1);
 });

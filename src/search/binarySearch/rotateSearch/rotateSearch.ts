@@ -7,7 +7,9 @@ export function rotateSearchElement(rotateArray: number[], seekElement: number):
     middleIndex = left + Math.floor((right - left) / 2);
     if (seekElement === rotateArray[middleIndex]) {
       return middleIndex;
-    } else if (rotateArray[middleIndex] >= rotateArray[left]) {
+    }
+
+    if (rotateArray[middleIndex] > rotateArray[right]) {
       if (rotateArray[left] <= seekElement && seekElement < rotateArray[middleIndex]) {
         right = middleIndex - 1;
       } else {
@@ -34,10 +36,10 @@ export function rotateSearchMin(rotateArray: number[]): number {
     middle = left + Math.floor((right - left) / 2);
     if (rotateArray[middle] > rotateArray[right]) {
       left = middle + 1;
-    } else if (rotateArray[middle] < rotateArray[left]) {
+    } else if (rotateArray[middle] === rotateArray[right]) {
       right = middle - 1;
     } else {
-      right = left - 1;
+      right = middle;
     }
   }
 

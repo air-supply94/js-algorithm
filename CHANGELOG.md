@@ -5,6 +5,7 @@
 - **array:** 解决 checkInclusion 窗口大小 ([14c2d5b](https://github.com/air-supply94/js-algorithm/commit/14c2d5bb244d2aa9d3ce6605f2da75eac9178070))
 - **BinarySearchTreeNode:** 解决 remove 时 nodeRemove parent 为设置为 null 的情况 ([2b03f1f](https://github.com/air-supply94/js-algorithm/commit/2b03f1f2fab664b4a2b9070b81ca482c71618072))
 - **dataSource/design:** 解决 LFUCache-put 时 value 没更新 ([e8a08ab](https://github.com/air-supply94/js-algorithm/commit/e8a08ab3fd8165f67965d6864617648835a24b8f))
+- **rotateSearchMin:** 更新 start、end 判断 ([97441cb](https://github.com/air-supply94/js-algorithm/commit/97441cbf4d18107e569732cefe884f90a63ecfaf))
 - **WSRARes:** 分数大于，minHeap 没有 poll ([1c4289a](https://github.com/air-supply94/js-algorithm/commit/1c4289a140db4ec61f4dcfb2229ab6d42256b3a3))
 
 ### Features
@@ -88,6 +89,7 @@
 - **bloom-filter:** add ([3240ac6](https://github.com/air-supply94/js-algorithm/commit/3240ac6e61518c4ecdf8b7d09e41c8a98fb074c5))
 - **bloomFilter:** update implement ([597ee06](https://github.com/air-supply94/js-algorithm/commit/597ee066e1527123becec1d179722983df4d595c))
 - **bs:** add rotateSearch ([b25fbec](https://github.com/air-supply94/js-algorithm/commit/b25fbecfc4498d6804297f7a8dedb4b7bae4f2be))
+- **bs/missingNumber:** return start ([b1fdd2c](https://github.com/air-supply94/js-algorithm/commit/b1fdd2c2f702ca6279dbf78fe8aafbb8855f61e4))
 - **bst:** add initTreeNodes isSymmetric ([56fef5e](https://github.com/air-supply94/js-algorithm/commit/56fef5e577c293ae9e2564565f2b2736fc0261ba))
 - **bst:** update traversePreOrder traverseInOrder traverseAfterOrder ([300c6d8](https://github.com/air-supply94/js-algorithm/commit/300c6d8acb8115efd7db7477aa3f34fc9fcbd823))
 - **BST:** 增加二叉树 ts 及其类型 ([e5ef3f1](https://github.com/air-supply94/js-algorithm/commit/e5ef3f1bb745bfca82a5a87ffbb9a011f5cead06))
