@@ -31,11 +31,12 @@ test('randomizedSet', () => {
 test('randomizedSetBlackList', () => {
   const randomizedSetBlackList1 = new RandomizedSetBlackList(4, [
     0,
+    1,
     2,
   ]);
 
   expect(randomizedSetBlackList1.pick())
-    .toBe(4);
+    .toBe(3);
 
   const randomizedSetBlackList2 = new RandomizedSetBlackList(3, [2]);
 
