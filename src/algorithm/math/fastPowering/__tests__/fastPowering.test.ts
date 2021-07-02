@@ -1,6 +1,13 @@
 import { fastPowering } from '../fastPowering';
 
 test('fastPowering', () => {
+  expect(fastPowering(2, -1))
+    .toBe(0.5);
+  expect(fastPowering(2, -2))
+    .toBe(0.25);
+  expect(fastPowering(2, -3))
+    .toBe(0.125);
+
   expect(fastPowering(1, 1))
     .toBe(1);
   expect(fastPowering(2, 0))
