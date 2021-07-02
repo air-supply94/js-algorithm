@@ -1,4 +1,4 @@
-# 0.0.0 (2021-07-01)
+# 0.0.0 (2021-07-02)
 
 ### Bug Fixes
 
@@ -68,7 +68,7 @@
 - **algorithm/math:** add subarraySum ([69730c2](https://github.com/air-supply94/js-algorithm/commit/69730c229b2b325e902a04ce93692e72bd0d14e4))
 - **algorithm/math:** add trailingZeroes ([cefab4c](https://github.com/air-supply94/js-algorithm/commit/cefab4c03594616e8c8ff8ed447a4bdd1febff3d))
 - **algorithm/math:** add WSRARes ([d6589c4](https://github.com/air-supply94/js-algorithm/commit/d6589c43f9c6dd469b0a642b4df9f43a136de3b8))
-- **algorithm/other:** add isRectangleCover ([2d6b958](https://github.com/air-supply94/js-algorithm/commit/2d6b958770e2f70d2bcb2d0b0fc32de63040c70a))
+- **algorithm/other:** add isRectangleCover ([dae0405](https://github.com/air-supply94/js-algorithm/commit/dae04055889731282e7e870c53f4594a28dda527))
 - **algorithm/other:** add isSubsequence ([f111959](https://github.com/air-supply94/js-algorithm/commit/f111959d6a19722ba218580f70e5ac2ab82e705b))
 - **algorithm/slidingWindow:** add checkInclusion ([e952fc8](https://github.com/air-supply94/js-algorithm/commit/e952fc852e3392f5a1e92fdbb6cd1fa02d20d8d7))
 - **algorithm/slidingWindow:** add lengthOfLongestSubstring ([50e7a5f](https://github.com/air-supply94/js-algorithm/commit/50e7a5f08be352c3201605a599f0ecf668f4228c))
