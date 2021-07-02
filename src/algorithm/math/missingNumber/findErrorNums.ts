@@ -8,13 +8,13 @@ export function findErrorNums(nums: number[]): number[] {
     xor ^= nums[i];
   }
 
-  for (let i = 0; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     xor ^= i;
   }
 
   const rightBit = xor & -xor;
   for (let i = 0; i < n; i++) {
-    if ((rightBit & nums[i]) === 1) {
+    if (rightBit & nums[i]) {
       xor1 ^= nums[i];
     } else {
       xor0 ^= nums[i];
@@ -22,7 +22,7 @@ export function findErrorNums(nums: number[]): number[] {
   }
 
   for (let i = 1; i <= n; i++) {
-    if ((i & rightBit) === 1) {
+    if (i & rightBit) {
       xor1 ^= i;
     } else {
       xor0 ^= i;
