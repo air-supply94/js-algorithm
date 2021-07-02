@@ -195,6 +195,7 @@
 - **math:** add isHappy ([42904d6](https://github.com/air-supply94/js-algorithm/commit/42904d672c6553871f5aa80be014df7451714f0c))
 - **math:** add pascalTriangle complexNumber fastPowering integerPartition liuHui ([cca718d](https://github.com/air-supply94/js-algorithm/commit/cca718d3ff1c0d85b4e1e64315b3a5571a909938))
 - **math:** add primalityTest and sieve ([9f3a1b7](https://github.com/air-supply94/js-algorithm/commit/9f3a1b72ecbd60857b3a71298bc34c7c831590f1))
+- **math:** update countSetBits(增加负数) ([742a45c](https://github.com/air-supply94/js-algorithm/commit/742a45c5cdae51fb270e57b204342880b59a337c))
 - **math:** update divingBoard ([d990253](https://github.com/air-supply94/js-algorithm/commit/d990253df88619a5a1091abccd8e64311cc3311e))
 - **math:** update fastPowering ([c193d7a](https://github.com/air-supply94/js-algorithm/commit/c193d7a343827c35ab52fbe25b19882b849c3393))
 - **math/bits:** add ([8bde116](https://github.com/air-supply94/js-algorithm/commit/8bde116141bc3a86625a2a3a44cdaf79ec6f535e))

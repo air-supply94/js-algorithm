@@ -3,6 +3,8 @@ import { countSetBits } from '../countSetBits';
 test('countSetBits', () => {
   expect(countSetBits(0))
     .toBe(0);
+  expect(countSetBits(0b11111111111111111111111111111101))
+    .toBe(31);
   expect(countSetBits(1))
     .toBe(1);
   expect(countSetBits(2))

@@ -1,10 +1,8 @@
 export function integerPartition(number: number): number {
   const dp = Array(number + 1)
     .fill(null)
-    .map(() => {
-      return Array(number + 1)
-        .fill(null);
-    });
+    .map(() => Array(number + 1)
+      .fill(null));
 
   for (let i = 1; i <= number; i++) {
     dp[0][i] = 0;
