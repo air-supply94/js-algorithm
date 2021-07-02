@@ -5,6 +5,7 @@
 - **array:** 解决 checkInclusion 窗口大小 ([14c2d5b](https://github.com/air-supply94/js-algorithm/commit/14c2d5bb244d2aa9d3ce6605f2da75eac9178070))
 - **BinarySearchTreeNode:** 解决 remove 时 nodeRemove parent 为设置为 null 的情况 ([2b03f1f](https://github.com/air-supply94/js-algorithm/commit/2b03f1f2fab664b4a2b9070b81ca482c71618072))
 - **dataSource/design:** 解决 LFUCache-put 时 value 没更新 ([e8a08ab](https://github.com/air-supply94/js-algorithm/commit/e8a08ab3fd8165f67965d6864617648835a24b8f))
+- **math/findErrorNums:** 解决 rightBit 求交判断===1 ([11d71fe](https://github.com/air-supply94/js-algorithm/commit/11d71fea0af4a86c7a372ee7da8f4051284cfa28))
 - **rotateSearchMin:** 更新 start、end 判断 ([adf5a8e](https://github.com/air-supply94/js-algorithm/commit/adf5a8e12f2c34e90d9a4c105fe2ceaff50523ff))
 - **WSRARes:** 分数大于，minHeap 没有 poll ([1c4289a](https://github.com/air-supply94/js-algorithm/commit/1c4289a140db4ec61f4dcfb2229ab6d42256b3a3))
 
