@@ -1,18 +1,17 @@
-import { MaxHeap, MinHeap } from '../../heap';
-import { MaxHeapInterface, MinHeapInterface } from '../../heap/types';
+import { Heap } from '../../simple/heap';
 
 export class MedianFinder {
   constructor() {
-    this.minHeap = new MinHeap<number>();
-    this.maxHeap = new MaxHeap<number>();
+    this.minHeap = new Heap((a, b) => a <= b);
+    this.maxHeap = new Heap((a, b) => a >= b);
   }
 
-  private readonly minHeap: MinHeapInterface<number>;
+  private readonly minHeap: Heap;
 
-  private readonly maxHeap: MaxHeapInterface<number>;
+  private readonly maxHeap: Heap;
 
   public addNum(num: number): void {
-    if (this.maxHeap.heapContainer.length >= this.minHeap.heapContainer.length) {
+    if (this.maxHeap.size >= this.minHeap.size) {
       this.maxHeap.add(num);
       this.minHeap.add(this.maxHeap.poll());
     } else {
@@ -22,7 +21,7 @@ export class MedianFinder {
   }
 
   public findMedian(): number | undefined {
-    if (this.minHeap.heapContainer.length === this.maxHeap.heapContainer.length) {
+    if (this.minHeap.size === this.maxHeap.size) {
       return (this.minHeap.peek() + this.maxHeap.peek()) / 2;
     } else {
       return this.minHeap.peek();

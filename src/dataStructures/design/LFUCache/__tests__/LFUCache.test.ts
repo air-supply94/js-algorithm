@@ -21,4 +21,10 @@ test('LFUCache', () => {
     .toBe(3);
   expect(lFUCache.get(4))
     .toBe(5);
+
+  // 特殊
+  const lfu = new LFUCache(0);
+  lfu.put(0, 0);
+  expect(lfu.get(0))
+    .toBe(-1);
 });

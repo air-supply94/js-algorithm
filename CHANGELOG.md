@@ -119,6 +119,8 @@
 - **dataStructure/design:** add nextGreaterElement nextGreaterElementCircle ([f836ff4](https://github.com/air-supply94/js-algorithm/commit/f836ff486de42ed042348c925d4f9f2de4ccb3b1))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))
+- **dataStructures/design:** update LRUCache(leetcode 上测试) ([3ca03bb](https://github.com/air-supply94/js-algorithm/commit/3ca03bbdfa7fbddcf13f45a54a9fa97256a2f4b4))
+- **dataStructures/simple:** add heap ([e7b7776](https://github.com/air-supply94/js-algorithm/commit/e7b777646bcb6448dedbb78057969219dd844f2a))
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/js-algorithm/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
 - **double-linked-list:** remove flatten ([928a4d6](https://github.com/air-supply94/js-algorithm/commit/928a4d6e08527d719c2c548a5ea955a9654a4e9b))
 - **double-linked-list:** 增加排序 ([94af395](https://github.com/air-supply94/js-algorithm/commit/94af395a7a0085f805427b45864883f42e247350))

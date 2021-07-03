@@ -1,4 +1,4 @@
-import { DoubleLinkedList, DoubleLinkedListNode } from '../../doubleLinkedList/simple/doubleLinkedListLeetcode';
+import { DoubleLinkedList, DoubleLinkedListNode } from '../../simple/doubleLinkedList';
 
 interface LRUCacheItem {
   key: number;

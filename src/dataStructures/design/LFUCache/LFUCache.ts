@@ -1,5 +1,4 @@
-import { DoubleLinkedList } from '../../doubleLinkedList';
-import { DoubleLinkedListInterface, DoubleLinkedListNodeInterface } from '../../doubleLinkedList/types';
+import { DoubleLinkedList, DoubleLinkedListNode } from '../../simple/doubleLinkedList';
 
 interface LFUCacheItem {
   key: number;
@@ -8,11 +7,10 @@ interface LFUCacheItem {
 }
 
 export class LFUCache {
-  // 0 or 1 is LRUCache
   constructor(capacity: number) {
     this.capacity = capacity;
-    this.valueMap = new Map<number, DoubleLinkedListNodeInterface<LFUCacheItem>>();
-    this.countMap = new Map<number, DoubleLinkedListInterface<LFUCacheItem>>();
+    this.valueMap = new Map<number, DoubleLinkedListNode<LFUCacheItem>>();
+    this.countMap = new Map<number, DoubleLinkedList<LFUCacheItem>>();
     this.minCount = 0;
     this.size = 0;
   }
@@ -21,24 +19,27 @@ export class LFUCache {
 
   private size: number;
 
-  private readonly countMap: Map<number, DoubleLinkedListInterface<LFUCacheItem>>;
+  private readonly countMap: Map<number, DoubleLinkedList<LFUCacheItem>>;
 
-  private readonly valueMap: Map<number, DoubleLinkedListNodeInterface<LFUCacheItem>>;
+  private readonly valueMap: Map<number, DoubleLinkedListNode<LFUCacheItem>>;
 
   private readonly capacity: number;
 
-  private commonExistNodeHandle(node: DoubleLinkedListNodeInterface<LFUCacheItem>): void {
-    const oldCount = node.value.count;
+  private commonExistNodeHandle(node: DoubleLinkedListNode<LFUCacheItem>): void {
+    const oldCount = node.val.count;
     const newCount = oldCount + 1;
-    node.value.count = newCount;
+    node.val.count = newCount;
 
-    this.countMap.get(oldCount).deleteNode(node);
+    this.countMap.get(oldCount)
+      .deleteNode(node);
     if (!this.countMap.has(newCount)) {
       this.countMap.set(newCount, new DoubleLinkedList<LFUCacheItem>());
     }
-    this.countMap.get(newCount).prependNode(node);
+    this.countMap.get(newCount)
+      .prependNode(node);
 
-    if (this.minCount === oldCount && this.countMap.get(oldCount).isEmpty()) {
+    if (this.minCount === oldCount && this.countMap.get(oldCount)
+      .isEmpty()) {
       this.minCount = newCount;
     }
   }
@@ -47,33 +48,40 @@ export class LFUCache {
     const node = this.valueMap.get(key);
     if (node) {
       this.commonExistNodeHandle(node);
-      return node.value.value;
+      return node.val.value;
     } else {
       return -1;
     }
   }
 
   public put(key: number, value: number): void {
+    if (this.capacity <= 0) {
+      return;
+    }
+
     const node = this.valueMap.get(key);
+
     if (node) {
       this.commonExistNodeHandle(node);
-      node.value.value = value;
+      node.val.value = value;
     } else {
       if (!this.countMap.has(1)) {
         this.countMap.set(1, new DoubleLinkedList<LFUCacheItem>());
       }
 
-      this.countMap.get(1).prepend({
-        value,
-        key,
-        count: 1,
-      });
+      this.countMap.get(1)
+        .prepend({
+          value,
+          key,
+          count: 1,
+        });
 
       this.valueMap.set(key, this.countMap.get(1).head);
       this.size++;
 
       if (this.size > this.capacity) {
-        this.valueMap.delete(this.countMap.get(this.minCount).deleteTail().value.key);
+        this.valueMap.delete(this.countMap.get(this.minCount)
+          .deleteTail().val.key);
         this.size--;
       }
 
