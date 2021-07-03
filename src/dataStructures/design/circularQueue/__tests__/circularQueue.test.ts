@@ -5,9 +5,9 @@ test('CircularQueue', () => {
   expect(circularQueue.isEmpty())
     .toBeTruthy();
   expect(circularQueue.rear())
-    .toBeNull();
+    .toBe(-1);
   expect(circularQueue.front())
-    .toBeNull();
+    .toBe(-1);
   expect(circularQueue.deQueue())
     .toBeFalsy();
   expect(circularQueue.enQueue(1))

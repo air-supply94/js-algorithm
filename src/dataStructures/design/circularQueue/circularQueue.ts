@@ -33,9 +33,9 @@ export class CircularQueue {
     }
   }
 
-  public front(): number | null {
+  public front(): number {
     if (this.isEmpty()) {
-      return null;
+      return -1;
     } else {
       return this.data[this.head];
     }
@@ -43,7 +43,7 @@ export class CircularQueue {
 
   public rear(): number {
     if (this.isEmpty()) {
-      return null;
+      return -1;
     } else {
       return this.data[(this.tail - 1 + this.capacity) % this.capacity];
     }
