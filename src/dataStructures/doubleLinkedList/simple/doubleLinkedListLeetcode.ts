@@ -1,4 +1,4 @@
-class DoubleLinkedListNode<T = number> {
+export class DoubleLinkedListNode<T = number> {
   constructor(val: T | null, next = null, previous = null) {
     this.val = val;
     this.next = next;
@@ -17,11 +17,11 @@ export class DoubleLinkedList<T = number> {
     this.clear();
   }
 
-  public size = 0;
+  public size: number;
 
-  public head: DoubleLinkedListNode<T> | null = null;
+  public head: DoubleLinkedListNode<T> | null;
 
-  public tail: DoubleLinkedListNode<T> | null = null;
+  public tail: DoubleLinkedListNode<T> | null;
 
   public clear(): this {
     this.size = 0;
