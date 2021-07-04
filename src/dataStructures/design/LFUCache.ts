@@ -1,4 +1,4 @@
-import { DoubleLinkedList, DoubleLinkedListNode, deleteNode, prependNode } from '../../simple/doubleLinkedList';
+import { DoubleLinkedList, DoubleLinkedListNode, deleteNode, prependNode } from '../simple/doubleLinkedList';
 
 interface LFUCacheItem {
   key: number;
@@ -6,6 +6,8 @@ interface LFUCacheItem {
   count: number;
 }
 
+// https://leetcode-cn.com/problems/lfu-cache/
+// 460
 export class LFUCache {
   constructor(capacity: number) {
     this.capacity = capacity;

@@ -1,31 +1,30 @@
-import { DoubleLinkedList } from '../../doubleLinkedList';
-import { DoubleLinkedListInterface } from '../../doubleLinkedList/types';
-
 class MonotonicQueue {
   constructor() {
-    this.doubleLinkedList = new DoubleLinkedList<number>();
+    this.doubleLinkedList = [];
   }
 
-  private readonly doubleLinkedList: DoubleLinkedListInterface<number>;
+  private readonly doubleLinkedList: number[];
 
   public push(x: number): void {
-    while (!this.doubleLinkedList.isEmpty() && this.doubleLinkedList.tail.value < x) {
-      this.doubleLinkedList.deleteTail();
+    while (this.doubleLinkedList.length && this.doubleLinkedList[this.doubleLinkedList.length - 1] < x) {
+      this.doubleLinkedList.pop();
     }
-    this.doubleLinkedList.append(x);
+    this.doubleLinkedList.push(x);
   }
 
   public pop(x: number): void {
-    if (this.doubleLinkedList.head.value === x) {
-      this.doubleLinkedList.deleteHead();
+    if (this.doubleLinkedList[0] === x) {
+      this.doubleLinkedList.shift();
     }
   }
 
   public max(): number {
-    return this.doubleLinkedList.head.value;
+    return this.doubleLinkedList[0];
   }
 }
 
+// https://leetcode-cn.com/problems/sliding-window-maximum/submissions/
+// 239
 export function maxSlidingWindow(nums: number[], k: number): number[] {
   const monotonicQueue = new MonotonicQueue();
   const result: number[] = [];

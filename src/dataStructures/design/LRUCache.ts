@@ -1,10 +1,12 @@
-import { deleteNode, DoubleLinkedList, DoubleLinkedListNode, prependNode } from '../../simple/doubleLinkedList';
+import { deleteNode, DoubleLinkedList, DoubleLinkedListNode, prependNode } from '../simple/doubleLinkedList';
 
 interface LRUCacheItem {
   key: number;
   value: number;
 }
 
+// https://leetcode-cn.com/problems/lru-cache/
+// 146
 export class LRUCache {
   constructor(capacity: number) {
     this.capacity = capacity;

@@ -1,15 +1,15 @@
-import { Stack } from '../../stack';
-
+// https://leetcode-cn.com/problems/next-greater-element-i/
+// 496
 export function nextGreaterElement(num1: number[], num2: number[]): number[] {
-  const stack = new Stack<number>();
+  const stack: number[] = [];
   const hashMap = new Map<number, number>();
 
   for (let i = num2.length - 1; i >= 0; i--) {
-    while (!stack.isEmpty() && stack.peek() <= num2[i]) {
+    while (stack.length && stack[stack.length - 1] <= num2[i]) {
       stack.pop();
     }
 
-    hashMap.set(num2[i], stack.isEmpty() ? -1 : stack.peek());
+    hashMap.set(num2[i], stack.length ? stack[stack.length - 1] : -1);
     stack.push(num2[i]);
   }
 
@@ -21,18 +21,20 @@ export function nextGreaterElement(num1: number[], num2: number[]): number[] {
   return result;
 }
 
-export function nextGreaterElementCircle(num: number[]): number[] {
-  const stack = new Stack<number>();
+// https://leetcode-cn.com/problems/next-greater-element-ii/submissions/
+// 503
+export function nextGreaterElements(num: number[]): number[] {
+  const stack: number[] = [];
   const len = num.length;
   const result: number[] = Array(num.length)
     .fill(null);
 
   for (let i = 2 * len - 1; i >= 0; i--) {
-    while (!stack.isEmpty() && stack.peek() <= num[i % len]) {
+    while (stack.length && stack[stack.length - 1] <= num[i % len]) {
       stack.pop();
     }
 
-    result[i % len] = stack.isEmpty() ? -1 : stack.peek();
+    result[i % len] = stack.length ? stack[stack.length - 1] : -1;
     stack.push(num[i % len]);
   }
 

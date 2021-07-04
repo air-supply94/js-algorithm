@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/design-circular-queue/
+// 622
 export class CircularQueue {
   private readonly data: number[];
 
@@ -33,7 +35,7 @@ export class CircularQueue {
     }
   }
 
-  public front(): number {
+  public Front(): number {
     if (this.isEmpty()) {
       return -1;
     } else {
@@ -41,7 +43,7 @@ export class CircularQueue {
     }
   }
 
-  public rear(): number {
+  public Rear(): number {
     if (this.isEmpty()) {
       return -1;
     } else {
