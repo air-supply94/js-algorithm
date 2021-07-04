@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/submissions/
+// 3
 export function lengthOfLongestSubstring(s: string): number {
   const slidingWindow = new Map<string, number>();
   let left = 0;

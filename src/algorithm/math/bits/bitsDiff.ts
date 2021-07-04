@@ -1,5 +1,5 @@
-import { countSetBits } from './countSetBits';
+import { hammingWeight } from './hammingWeight';
 
 export function bitsDiff(x1: number, x2: number): number {
-  return countSetBits(x1 ^ x2);
+  return hammingWeight(x1 ^ x2);
 }

@@ -1,5 +1,7 @@
 import { rubberHouseEasy } from './rubberHouseEasy';
 
+// https://leetcode-cn.com/problems/house-robber-ii/
+// 213
 export function rubberHouseMedium(numbers: number[]): number {
   if (!numbers.length) {
     return 0;
@@ -12,3 +14,4 @@ export function rubberHouseMedium(numbers: number[]): number {
     );
   }
 }
+

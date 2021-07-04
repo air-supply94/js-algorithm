@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/missing-number/
+// 268
 export function missingNumber(nums: number[]): number {
   const n = nums.length;
   let result = 0;

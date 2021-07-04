@@ -1,11 +1,16 @@
-import { serializeLevelOrder } from '../../../dataStructures/tree/binarySearchTree/leetcode/serializeLevelOrder';
-import { BinarySearchTreeNodeInterface } from '../../../dataStructures/tree/binarySearchTree/types';
-
-export function rubberHouseHard(numbers: number[]): number {
-  return rubber(serializeLevelOrder<number>(numbers), new Map());
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
 }
 
-function rubber(root: BinarySearchTreeNodeInterface<number>|null, cache: Map<BinarySearchTreeNodeInterface<number>, number>): number {
+// https://leetcode-cn.com/problems/house-robber-iii/
+// 337
+export function rubberHouseHard(root: TreeNode | null): number {
+  return rubber(root, new Map<TreeNode, number>());
+}
+
+function rubber(root: TreeNode | null, cache: Map<TreeNode, number>): number {
   if (!root) {
     return 0;
   }
@@ -14,7 +19,7 @@ function rubber(root: BinarySearchTreeNodeInterface<number>|null, cache: Map<Bin
     return cache.get(root);
   }
 
-  const rubberRoot = root.value + (root.left ? rubber(root.left.left, cache) + rubber(root.left.right, cache) : 0) + (root.right ? rubber(root.right.left, cache) + rubber(root.right.right, cache) : 0);
+  const rubberRoot = root.val + (root.left ? rubber(root.left.left, cache) + rubber(root.left.right, cache) : 0) + (root.right ? rubber(root.right.left, cache) + rubber(root.right.right, cache) : 0);
   const rubberChild = rubber(root.left, cache) + rubber(root.right, cache);
 
   const result = Math.max(rubberRoot, rubberChild);

@@ -1,4 +1,4 @@
-import { radianToDegree } from '../radian/radianToDegree';
+import { radianToDegree } from '../radianToDegree';
 import { ComplexNumberInterface } from './types';
 
 export * from './types';

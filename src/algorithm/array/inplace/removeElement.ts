@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/remove-element/
+// 27
 export function removeElement(nums: number[], target: number): number {
   let uniqueIndex = 0;
 

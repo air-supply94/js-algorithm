@@ -1,6 +1,8 @@
 import { maxProfitCountInfinity } from './maxProfitCountInfinity';
 
-export function maxProfitCountAny(prices: number[], count: number): number {
+// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
+// 188
+export function maxProfitCountAny(count: number, prices: number[]): number {
   if (!prices.length) {
     return 0;
   }

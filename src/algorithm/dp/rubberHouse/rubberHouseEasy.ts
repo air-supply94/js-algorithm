@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/house-robber/
+// 198
 export function rubberHouseEasy(numbers: number[], startIndex = 0, endIndex = numbers.length - 1): number {
   let dp_i0 = 0;
   let dp_i1 = 0;

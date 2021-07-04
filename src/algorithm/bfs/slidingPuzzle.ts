@@ -1,6 +1,7 @@
-import { Queue } from '../../dataStructures/queue';
 import { swap } from '../../utils';
 
+// https://leetcode-cn.com/problems/sliding-puzzle/
+// 773
 export function slidingPuzzle(board: number[][]): number {
   const h = board.length;
   const w = board[0].length;
@@ -17,37 +18,40 @@ export function slidingPuzzle(board: number[][]): number {
       root.push(board[i][j]);
     }
   }
+  const index = root.indexOf(0);
 
-  const queue = new Queue<{ root: number[]; index: number; }>();
+  const queue: Array<{ root: number[]; index: number; }> = [];
   const enqueueMap = new Map<string, boolean>();
-  queue.enqueue({
+
+  queue.push({
     root,
-    index: root.indexOf(0),
+    index,
   });
   enqueueMap.set(root.join(','), true);
 
   let level = 0;
-  while (!queue.isEmpty()) {
+
+  while (queue.length) {
     level++;
-    const size = queue.size;
+    const size = queue.length;
 
     for (let i = 0; i < size; i++) {
-      const currentNode = queue.dequeue();
+      const currentNode = queue.shift();
       if (currentNode.root.join('') === end) {
         return level - 1;
       }
 
-      neighbor[currentNode.index].forEach((neighborIndex) => {
-        swap(currentNode.root, currentNode.index, neighborIndex);
+      neighbor[currentNode.index].forEach((index) => {
+        swap(currentNode.root, currentNode.index, index);
         const tmpNode = currentNode.root.slice();
         if (!enqueueMap.has(tmpNode.join(','))) {
-          queue.enqueue({
+          queue.push({
             root: tmpNode,
-            index: neighborIndex,
+            index,
           });
           enqueueMap.set(tmpNode.join(','), true);
         }
-        swap(currentNode.root, currentNode.index, neighborIndex);
+        swap(currentNode.root, currentNode.index, index);
       });
     }
   }

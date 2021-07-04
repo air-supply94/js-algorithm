@@ -1,4 +1,6 @@
-export function checkInclusion(s: string, t: string): boolean {
+// https://leetcode-cn.com/problems/permutation-in-string/
+// 567
+export function checkInclusion(t: string, s: string): boolean {
   const need = new Map<string, number>();
   const slidingWindow = new Map<string, number>();
   let left = 0;

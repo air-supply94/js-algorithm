@@ -1,5 +1,5 @@
-import { Queue } from '../../dataStructures/queue';
-
+// https://leetcode-cn.com/problems/open-the-lock/
+// 752
 export function openLock(dead: string[], target: string): number {
   const deadMap = new Map<string, boolean>();
   const enqueueMap = new Map<string, boolean>();
@@ -8,16 +8,16 @@ export function openLock(dead: string[], target: string): number {
   }
 
   let level = 0;
-  const queue = new Queue<string>();
-  queue.enqueue('0000');
+  const queue: string[] = [];
+  queue.push('0000');
   enqueueMap.set('0000', true);
 
-  while (!queue.isEmpty()) {
+  while (queue.length) {
     level++;
-    const size = queue.size;
+    const size = queue.length;
 
     for (let i = 0; i < size; i++) {
-      const current = queue.dequeue();
+      const current = queue.shift();
       if (!deadMap.has(current)) {
         if (target === current) {
           return level - 1;
@@ -26,13 +26,13 @@ export function openLock(dead: string[], target: string): number {
         for (let j = 0; j < 4; j++) {
           const up = getUp(current, j);
           if (!deadMap.has(up) && !enqueueMap.has(up)) {
-            queue.enqueue(up);
+            queue.push(up);
             enqueueMap.set(up, true);
           }
 
           const down = getDown(current, j);
           if (!deadMap.has(down) && !enqueueMap.has(down)) {
-            queue.enqueue(down);
+            queue.push(down);
             enqueueMap.set(down, true);
           }
         }

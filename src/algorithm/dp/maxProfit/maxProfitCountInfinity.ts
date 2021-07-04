@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+// 122
 export function maxProfitCountInfinity(prices: number[]): number {
   if (!prices.length) {
     return 0;
