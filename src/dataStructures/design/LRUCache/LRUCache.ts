@@ -1,4 +1,4 @@
-import { DoubleLinkedList, DoubleLinkedListNode } from '../../simple/doubleLinkedList';
+import { deleteNode, DoubleLinkedList, DoubleLinkedListNode, prependNode } from '../../simple/doubleLinkedList';
 
 interface LRUCacheItem {
   key: number;
@@ -12,7 +12,7 @@ export class LRUCache {
     this.nodeMap = new Map<number, DoubleLinkedListNode<LRUCacheItem>>();
   }
 
-  private readonly doubleLinkedList: DoubleLinkedList<LRUCacheItem> ;
+  private readonly doubleLinkedList: DoubleLinkedList<LRUCacheItem>;
 
   private readonly nodeMap: Map<number, DoubleLinkedListNode<LRUCacheItem>>;
 
@@ -21,8 +21,8 @@ export class LRUCache {
   public get(key: number): number {
     const node = this.nodeMap.get(key);
     if (node) {
-      this.doubleLinkedList.deleteNode(node);
-      this.doubleLinkedList.prependNode(node);
+      deleteNode(this.doubleLinkedList, node);
+      prependNode(this.doubleLinkedList, node);
 
       return node.val.value;
     } else {
@@ -33,8 +33,8 @@ export class LRUCache {
   public put(key: number, value: number): void {
     const node = this.nodeMap.get(key);
     if (node) {
-      this.doubleLinkedList.deleteNode(node);
-      this.doubleLinkedList.prependNode(node);
+      deleteNode(this.doubleLinkedList, node);
+      prependNode(this.doubleLinkedList, node);
       node.val.value = value;
     } else {
       this.nodeMap.set(key, this.doubleLinkedList.prepend({

@@ -1,4 +1,4 @@
-export class DoubleLinkedListNode<T = number> {
+export class DoubleLinkedListNode<T> {
   constructor(val: T | null, next = null, previous = null) {
     this.val = val;
     this.next = next;
@@ -12,7 +12,63 @@ export class DoubleLinkedListNode<T = number> {
   public previous: DoubleLinkedListNode<T> | null;
 }
 
-export class DoubleLinkedList<T = number> {
+export function deleteNode<T>(doubleLinkedList: DoubleLinkedList<T>, node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
+  if (node === doubleLinkedList.head) {
+    return doubleLinkedList.deleteHead();
+  } else if (node === doubleLinkedList.tail) {
+    return doubleLinkedList.deleteTail();
+  } else {
+    node.next.previous = node.previous;
+    node.previous.next = node.next;
+    node.next = null;
+    node.previous = null;
+
+    doubleLinkedList.size--;
+    return node;
+  }
+}
+
+export function appendNode<T>(doubleLinkedList: DoubleLinkedList<T>, node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
+  if (doubleLinkedList.isEmpty()) {
+    doubleLinkedList.head = node;
+    doubleLinkedList.tail = node;
+    node.previous = null;
+    node.next = null;
+
+    doubleLinkedList.size++;
+    return node;
+  } else {
+    doubleLinkedList.tail.next = node;
+    node.previous = doubleLinkedList.tail;
+    node.next = null;
+    doubleLinkedList.tail = node;
+
+    doubleLinkedList.size++;
+    return node;
+  }
+}
+
+export function prependNode<T>(doubleLinkedList: DoubleLinkedList<T>, node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
+  if (doubleLinkedList.isEmpty()) {
+    doubleLinkedList.head = node;
+    doubleLinkedList.tail = node;
+    node.next = null;
+    node.previous = null;
+
+    doubleLinkedList.size++;
+    return node;
+  } else {
+    doubleLinkedList.head.previous = node;
+    node.next = doubleLinkedList.head;
+    node.previous = null;
+    doubleLinkedList.head = node;
+
+    doubleLinkedList.size++;
+    return node;
+  }
+}
+
+export class DoubleLinkedList<T> {
   constructor() {
     this.clear();
   }
@@ -23,11 +79,10 @@ export class DoubleLinkedList<T = number> {
 
   public tail: DoubleLinkedListNode<T> | null;
 
-  public clear(): this {
+  public clear(): void {
     this.size = 0;
     this.head = null;
     this.tail = null;
-    return this;
   }
 
   public isEmpty(): boolean {
@@ -60,22 +115,6 @@ export class DoubleLinkedList<T = number> {
     return deletedNode;
   }
 
-  public deleteNode(node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
-    if (node === this.head) {
-      return this.deleteHead();
-    } else if (node === this.tail) {
-      return this.deleteTail();
-    } else {
-      node.next.previous = node.previous;
-      node.previous.next = node.next;
-      node.next = null;
-      node.previous = null;
-
-      this.size--;
-      return node;
-    }
-  }
-
   public append(value: T): DoubleLinkedListNode<T> {
     const node = new DoubleLinkedListNode<T>(value, null, this.tail);
 
@@ -94,26 +133,6 @@ export class DoubleLinkedList<T = number> {
     }
   }
 
-  public appendNode(node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
-    if (this.isEmpty()) {
-      this.head = node;
-      this.tail = node;
-      node.previous = null;
-      node.next = null;
-
-      this.size++;
-      return node;
-    } else {
-      this.tail.next = node;
-      node.previous = this.tail;
-      node.next = null;
-      this.tail = node;
-
-      this.size++;
-      return node;
-    }
-  }
-
   public prepend(value: T): DoubleLinkedListNode<T> {
     const node = new DoubleLinkedListNode<T>(value, this.head);
 
@@ -125,26 +144,6 @@ export class DoubleLinkedList<T = number> {
       return node;
     } else {
       this.head.previous = node;
-      this.head = node;
-
-      this.size++;
-      return node;
-    }
-  }
-
-  public prependNode(node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
-    if (this.isEmpty()) {
-      this.head = node;
-      this.tail = node;
-      node.next = null;
-      node.previous = null;
-
-      this.size++;
-      return node;
-    } else {
-      this.head.previous = node;
-      node.next = this.head;
-      node.previous = null;
       this.head = node;
 
       this.size++;

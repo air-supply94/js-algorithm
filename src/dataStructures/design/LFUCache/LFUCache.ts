@@ -1,4 +1,4 @@
-import { DoubleLinkedList, DoubleLinkedListNode } from '../../simple/doubleLinkedList';
+import { DoubleLinkedList, DoubleLinkedListNode, deleteNode, prependNode } from '../../simple/doubleLinkedList';
 
 interface LFUCacheItem {
   key: number;
@@ -30,13 +30,12 @@ export class LFUCache {
     const newCount = oldCount + 1;
     node.val.count = newCount;
 
-    this.countMap.get(oldCount)
-      .deleteNode(node);
+    deleteNode(this.countMap.get(oldCount), node);
     if (!this.countMap.has(newCount)) {
       this.countMap.set(newCount, new DoubleLinkedList<LFUCacheItem>());
     }
-    this.countMap.get(newCount)
-      .prependNode(node);
+
+    prependNode(this.countMap.get(newCount), node);
 
     if (this.minCount === oldCount && this.countMap.get(oldCount)
       .isEmpty()) {
