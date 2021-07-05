@@ -82,6 +82,7 @@
 - **array:** add rotate matrix ([cbeb58a](https://github.com/air-supply94/js-algorithm/commit/cbeb58ab6cf44f0f027975ce08e19cab46b1dc98))
 - **avlTree:** 重构此类 ([bd35c86](https://github.com/air-supply94/js-algorithm/commit/bd35c8633f67618017b574312f63328c52a3930b))
 - **AvlTree:** 增加类型 ([57971b0](https://github.com/air-supply94/js-algorithm/commit/57971b0acd7f85c9633708e0c045031c7c415cb7))
+- **backTrack:** add canPartitionKSubsets ([96c7c77](https://github.com/air-supply94/js-algorithm/commit/96c7c773be9d361aa8c454eb08f65cf95d81c20e))
 - **binarySearch:** add minEatingSpeed ([0d0ce3b](https://github.com/air-supply94/js-algorithm/commit/0d0ce3b75e4a22bbbe91e63fbcfb7888d8bc9344))
 - **binarySearch:** add shipWithinDays ([df71a13](https://github.com/air-supply94/js-algorithm/commit/df71a13a17718129df6a851c3c0b3bb7a951ce07))
 - **binarySearchNode:** 更改遍历 ([1fae22a](https://github.com/air-supply94/js-algorithm/commit/1fae22a8cff9fc8b9e9d012f35c137b7b6d80038))
