@@ -46,7 +46,7 @@ export class Heap<T = number> {
     this.comparatorFunction = comparatorFunction;
   }
 
-  private readonly heapContainer: T[];
+  public readonly heapContainer: T[];
 
   private readonly comparatorFunction: (firstElement: T, secondElement: T) => boolean;
 

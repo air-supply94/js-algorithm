@@ -1,5 +1,3 @@
 export function clearBit(x: number, bitPosition: number): number {
-  const mask = ~(1 << bitPosition);
-
-  return x & mask;
+  return x & ~(1 << bitPosition);
 }

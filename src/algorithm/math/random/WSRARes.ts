@@ -1,34 +1,28 @@
-import { MinHeap } from '../../../dataStructures/heap';
+import { Heap } from '../../../dataStructures/simple/heap';
 
 interface Item {
-  weight: number;
+  score: number;
   value: number;
 }
 
 export function WSRARes(nums: number[], count: number): number[] {
-  const minHeap = new MinHeap<Item>((a: Item, b: Item) => {
-    if (a.weight < b.weight) {
-      return -1;
-    } else if (a.weight === b.weight) {
-      return 0;
-    } else {
-      return 1;
-    }
+  const minHeap = new Heap<Item>((a: Item, b: Item) => {
+    return a.score < b.score;
   });
 
   for (let i = 0; i < count; i++) {
     minHeap.add({
-      weight: getSampleScore(nums[i]),
+      score: getSampleScore(nums[i]),
       value: nums[i],
     });
   }
 
   for (let i = count; i < nums.length; i++) {
     const sampleScore = getSampleScore(nums[i]);
-    if (sampleScore > minHeap.peek().weight) {
+    if (sampleScore > minHeap.peek().score) {
       minHeap.poll();
       minHeap.add({
-        weight: sampleScore,
+        score: sampleScore,
         value: nums[i],
       });
     }

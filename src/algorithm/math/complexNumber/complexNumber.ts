@@ -1,7 +1,10 @@
-import { radianToDegree } from '../radianToDegree';
 import { ComplexNumberInterface } from './types';
 
 export * from './types';
+
+function radianToDegree(radian: number): number {
+  return radian * (180 / Math.PI);
+}
 
 function conjugate(number: ComplexNumberInterface | number): ComplexNumberInterface {
   const complexNumber = toComplexNumber(number);
@@ -56,7 +59,10 @@ export class ComplexNumber implements ComplexNumberInterface {
 
   public im: number;
 
-  constructor({ re = 0, im = 0 } = {}) {
+  constructor({
+    re = 0,
+    im = 0,
+  } = {}) {
     this.re = re;
     this.im = im;
   }
