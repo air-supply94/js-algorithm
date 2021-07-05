@@ -1,4 +1,10 @@
-import { getLeftChildIndex, getRightChildIndex } from '../../../utils';
+function getLeftChildIndex(parentIndex: number): number {
+  return parentIndex * 2 + 1;
+}
+
+function getRightChildIndex(parentIndex: number): number {
+  return parentIndex * 2 + 2;
+}
 
 function initSegmentTree(inputArray: number[]): number[] {
   const length = Math.pow(2, Math.ceil(Math.log2(inputArray.length)));
