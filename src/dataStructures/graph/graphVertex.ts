@@ -1,5 +1,4 @@
 import { DoubleLinkedList } from '../doubleLinkedList';
-import { DoubleLinkedListInterface } from '../doubleLinkedList/types';
 import { GraphEdgeInterface, GraphVertexInterface } from './types';
 
 function edgeComparator<T>(edgeA: GraphEdgeInterface<T>, edgeB: GraphEdgeInterface<T>) {
@@ -18,7 +17,7 @@ export class GraphVertex<T = string> implements GraphVertexInterface<T> {
 
   public readonly value: T;
 
-  public readonly edges: DoubleLinkedListInterface<GraphEdgeInterface<T>>;
+  public readonly edges: DoubleLinkedList<GraphEdgeInterface<T>>;
 
   public addEdge(edge: GraphEdgeInterface<T>): GraphEdgeInterface<T> {
     return this.edges.append(edge).value;

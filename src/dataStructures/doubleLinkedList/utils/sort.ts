@@ -1,8 +1,24 @@
 import { Comparator } from '../../../utils';
-import { DoubleLinkedListNodeInterface } from '../types';
+import { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
 import { mergeTwoLists } from './mergeTwoLists';
 
-export function sort<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null, comparator: Comparator): DoubleLinkedListNodeInterface<T> | null {
+export function sort<T = unknown>(doubleLinkedList: DoubleLinkedList<T>): void {
+  sortBase<T>(doubleLinkedList.head, doubleLinkedList.compare);
+
+  let head = doubleLinkedList.head;
+  let tail = doubleLinkedList.head;
+  while (head && head.previous) {
+    head = head.previous;
+  }
+  while (tail && tail.next) {
+    tail = tail.next;
+  }
+
+  doubleLinkedList.head = head;
+  doubleLinkedList.tail = tail;
+}
+
+function sortBase<T = unknown>(head: DoubleLinkedListNode<T> | null, comparator: Comparator): DoubleLinkedListNode<T> | null {
   if (!head || !head.next) {
     return head;
   }
@@ -15,8 +31,8 @@ export function sort<T = unknown>(head: DoubleLinkedListNodeInterface<T> | null,
   }
 
   const middle = slow.next;
-  middle.setPrevious(null);
-  slow.setNext(null);
+  middle.previous = null;
+  slow.next = null;
 
-  return mergeTwoLists<T>(sort<T>(head, comparator), sort<T>(middle, comparator), comparator);
+  return mergeTwoLists<T>(sortBase<T>(head, comparator), sortBase<T>(middle, comparator), comparator);
 }

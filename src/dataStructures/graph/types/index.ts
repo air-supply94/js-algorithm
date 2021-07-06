@@ -1,4 +1,4 @@
-import { DoubleLinkedListInterface } from '../../doubleLinkedList/types';
+import { DoubleLinkedList } from '../../doubleLinkedList';
 
 export interface GraphEdgeInterface<T = string> {
   startVertex: GraphVertexInterface<T>;
@@ -10,7 +10,7 @@ export interface GraphEdgeInterface<T = string> {
 
 export interface GraphVertexInterface<T = string> {
   readonly value: T;
-  readonly edges: DoubleLinkedListInterface<GraphEdgeInterface<T>>;
+  readonly edges: DoubleLinkedList<GraphEdgeInterface<T>>;
   addEdge: (edge: GraphEdgeInterface<T>) => GraphEdgeInterface<T>;
   deleteEdge: (edge: GraphEdgeInterface<T>) => null | GraphEdgeInterface<T>;
   getNeighbors: () => Array<GraphVertexInterface<T>>;

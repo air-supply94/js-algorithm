@@ -7,28 +7,6 @@ describe('Stack', () => {
       .not
       .toBeNull();
     stack.push(1);
-    expect(stack.size)
-      .toBe(1);
-    expect(stack.has(2))
-      .toBeFalsy();
-    expect(stack.has(1))
-      .toBeTruthy();
-    expect(stack.clear())
-      .toEqual(stack);
-    expect(stack.has(1))
-      .toBeFalsy();
-  });
-
-  test('should stack data to stack', () => {
-    const stack = new Stack();
-
-    stack.push(1);
-    stack.push(2);
-
-    expect(stack.size)
-      .toBe(2);
-    expect(stack.toString())
-      .toBe('1,2');
   });
 
   test('should peek data from stack', () => {
@@ -64,16 +42,10 @@ describe('Stack', () => {
     stack.push(1);
     stack.push(2);
 
-    expect(stack.size)
-      .toBe(2);
     expect(stack.pop())
       .toBe(2);
-    expect(stack.size)
-      .toBe(1);
     expect(stack.pop())
       .toBe(1);
-    expect(stack.size)
-      .toBe(0);
     expect(stack.pop())
       .toBeNull();
     expect(stack.isEmpty())
@@ -92,10 +64,6 @@ describe('Stack', () => {
       key: 'key2',
     });
 
-    const stringifier = (value) => `${value.key}:${value.value}`;
-
-    expect(stack.toString(stringifier))
-      .toBe('key1:test1,key2:test2');
     expect(stack.pop().value)
       .toBe('test2');
     expect(stack.pop().value)
@@ -109,15 +77,14 @@ describe('Stack', () => {
       .toBeNull();
 
     stack.push(1);
+    expect(stack.peek())
+      .toBe(1);
     stack.push(2);
+    expect(stack.peek())
+      .toBe(2);
     stack.push(3);
-
-    expect(stack.toArray())
-      .toEqual([
-        3,
-        2,
-        1,
-      ]);
+    expect(stack.peek())
+      .toBe(3);
   });
 
   test('add undefined value', () => {
@@ -127,14 +94,11 @@ describe('Stack', () => {
       .toBeNull();
 
     stack.push(1);
-    stack.push(undefined);
+    expect(stack.peek())
+      .toBe(1);
 
-    expect(stack.toArray())
-      .toEqual([
-        undefined,
-        1,
-      ]);
-    expect(stack.size)
-      .toBe(2);
+    stack.push(undefined);
+    expect(stack.peek())
+      .toBeUndefined();
   });
 });

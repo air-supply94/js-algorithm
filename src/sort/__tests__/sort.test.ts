@@ -7,7 +7,7 @@ import { quickSortInPlace } from '../quickSort/quickSortInPlace';
 import { selectionSort } from '../selectionSort';
 import { shellSort } from '../shellSort';
 
-describe('sort', () => {
+describe('sortBase', () => {
   const sortCollection = [
     bubbleSort,
     insertionSort,

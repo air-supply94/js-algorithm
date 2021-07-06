@@ -40,7 +40,7 @@ function swap(data: unknown[], first: number, second: number): void {
   data[second] = t;
 }
 
-export class Heap<T> {
+export class Heap<T = unknown> {
   constructor(comparatorFunction: (firstElement: T, secondElement: T) => boolean) {
     this.heapContainer = [];
     this.comparatorFunction = comparatorFunction;

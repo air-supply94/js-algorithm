@@ -7,8 +7,11 @@ export function backspaceCompare(str1: string, str2: string): boolean {
       item === '#' ? stack.pop() : stack.push(item);
     }
 
-    return stack.toArray()
-      .join('');
+    let result = '';
+    while (!stack.isEmpty()) {
+      result = `${stack.pop()}${result}`;
+    }
+    return result;
   }
 
   return getString(str1) === getString(str2);

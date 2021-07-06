@@ -12,24 +12,6 @@ describe('Queue', () => {
       .not
       .toBeUndefined();
     queue.enqueue(1);
-    expect(queue.has(2))
-      .toBeFalsy();
-    expect(queue.has(1))
-      .toBeTruthy();
-    expect(queue.clear())
-      .toEqual(queue);
-    expect(queue.has(1))
-      .toBeFalsy();
-  });
-
-  test('should enqueue data to queue', () => {
-    const queue = new Queue();
-
-    queue.enqueue(1);
-    queue.enqueue(2);
-    expect(queue.toArray()
-      .toString())
-      .toBe('1,2');
   });
 
   test('should be possible to enqueue/dequeue objects', () => {
@@ -44,10 +26,6 @@ describe('Queue', () => {
       key: 'key2',
     });
 
-    const stringifier = (value) => `${value.key}:${value.value}`;
-
-    expect(queue.toString(stringifier))
-      .toBe('key1:test1,key2:test2');
     expect(queue.dequeue().value)
       .toBe('test1');
     expect(queue.dequeue().value)
@@ -89,17 +67,6 @@ describe('Queue', () => {
     expect(queue.dequeue())
       .toBe(2);
     expect(queue.isEmpty())
-      .toBe(true);
-  });
-
-  test('had undefined', () => {
-    const queue = new Queue();
-
-    queue.enqueue(1);
-    queue.enqueue(undefined);
-    expect(queue.size)
-      .toBe(2);
-    expect(queue.has(undefined))
       .toBe(true);
   });
 });

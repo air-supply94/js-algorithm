@@ -1,7 +1,7 @@
-import { DoubleLinkedListNodeInterface } from '../types';
+import { DoubleLinkedListNode } from '../doubleLinkedList';
 import { detectCircle } from './detectCircle';
 
-export function getCircleLength(startNode: DoubleLinkedListNodeInterface, property: 'next' | 'previous'): number {
+export function getCircleLength(startNode: DoubleLinkedListNode, property: 'next' | 'previous'): number {
   const startCircleNode = detectCircle(startNode, property);
   if (!startCircleNode) {
     return 0;

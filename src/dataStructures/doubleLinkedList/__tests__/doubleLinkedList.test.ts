@@ -1,8 +1,6 @@
 import { Comparator } from '../../../utils';
-import { DoubleLinkedList } from '../doubleLinkedList';
-import { DoubleLinkedListNode } from '../doubleLinkedListNode';
+import { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
 import { hasCircle } from '../leetcode/hasCircle';
-import { reverseBetween, reverseCount, reverseCountGroup } from '../utils';
 
 describe('DoubleLinkedList', () => {
   test('should create list node with value', () => {
@@ -66,7 +64,7 @@ describe('DoubleLinkedList', () => {
     expect(node.toString())
       .toBe('1');
 
-    node.setValue('string value');
+    node.value = 'string value';
     expect(node.toString())
       .toBe('string value');
   });
@@ -96,8 +94,7 @@ describe('Index', () => {
       .toBeTruthy();
     expect(linkedList.has(2))
       .toBeFalsy();
-    expect(linkedList.clear())
-      .toEqual(linkedList);
+    linkedList.clear();
     expect(linkedList.isEmpty())
       .toBeTruthy();
     expect(linkedList.isEmpty())
@@ -223,141 +220,6 @@ describe('Index', () => {
       .toBe(3);
     expect(linkedList.toString())
       .toBe('1,1,2,3,3,4,5');
-  });
-
-  test('reverse base', () => {
-    const linkedList = new DoubleLinkedList();
-    linkedList.reverseBetween();
-    reverseCount(linkedList.head, 100);
-    linkedList.append(1);
-    linkedList.reverseBetween(1, 1);
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.head.previous)
-      .toBeNull();
-    linkedList.append(2);
-    linkedList.append(3);
-    linkedList.append(4);
-    expect(linkedList.toString())
-      .toBe('1,2,3,4');
-    linkedList.reverse();
-    expect(linkedList.toString())
-      .toBe('4,3,2,1');
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.head.previous)
-      .toBeNull();
-
-    linkedList.deleteAll(4);
-    linkedList.deleteAll(3);
-    linkedList.deleteAll(2);
-    linkedList.reverse();
-    expect(linkedList.head.previous)
-      .toBeNull();
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.head.value)
-      .toBe(1);
-    expect(linkedList.size)
-      .toBe(1);
-  });
-
-  test('reverseBetween', () => {
-    function getList() {
-      const linkedList = new DoubleLinkedList();
-      linkedList.append(1);
-      linkedList.append(2);
-      linkedList.append(3);
-      linkedList.append(4);
-      linkedList.append(5);
-      return linkedList;
-    }
-
-    let list = getList();
-    expect(reverseBetween(list.head, 3, 4).value)
-      .toBe(1);
-    expect(list.toString())
-      .toBe('1,2,4,3,5');
-    expect(list.head.value)
-      .toBe(1);
-    expect(list.tail.value)
-      .toBe(5);
-    expect(hasCircle(list))
-      .toBeFalsy();
-
-    list = getList();
-    list.reverseBetween(2, 5);
-    expect(list.toString())
-      .toBe('1,5,4,3,2');
-    expect(list.head.value)
-      .toBe(1);
-    expect(list.tail.value)
-      .toBe(2);
-    expect(hasCircle(list))
-      .toBeFalsy();
-
-    list = getList();
-    list.reverseBetween(1, 5);
-    expect(list.toString())
-      .toBe('5,4,3,2,1');
-    expect(list.head.value)
-      .toBe(5);
-    expect(list.tail.value)
-      .toBe(1);
-    expect(hasCircle(list))
-      .toBeFalsy();
-
-    list = getList();
-    list.reverseBetween(7, 10);
-    expect(list.toString())
-      .toBe('1,2,3,4,5');
-    expect(list.head.value)
-      .toBe(1);
-    expect(list.tail.value)
-      .toBe(5);
-    expect(hasCircle(list))
-      .toBeFalsy();
-  });
-
-  test('reverseCountGroup', () => {
-    function getList() {
-      const linkedList = new DoubleLinkedList();
-      linkedList.append(1);
-      linkedList.append(2);
-      linkedList.append(3);
-      linkedList.append(4);
-      linkedList.append(5);
-      return linkedList;
-    }
-
-    expect(reverseCountGroup(null, 2))
-      .toBeNull();
-
-    let list = getList();
-    const head1 = reverseCountGroup(list.head, 2);
-    list.setHead(head1);
-    expect(list.toString())
-      .toBe('2,1,4,3,5');
-    expect(list.head.value)
-      .toBe(2);
-    expect(hasCircle(list))
-      .toBeFalsy();
-
-    list = getList();
-    list.append(6);
-    list.setHead(reverseCountGroup(list.head, 2));
-    expect(list.toString())
-      .toBe('2,1,4,3,6,5');
-
-    list = getList();
-    list.setHead(reverseCountGroup(list.head, 3));
-    expect(list.toString())
-      .toBe('3,2,1,4,5');
-
-    list = getList();
-    list.setHead(reverseCountGroup(list.head, 1));
-    expect(list.toString())
-      .toBe('1,2,3,4,5');
   });
 
   test('should delete node by value from linked list', () => {
@@ -736,47 +598,6 @@ describe('Index', () => {
       .toBe(true);
   });
 
-  test('connect', () => {
-    const linkedList1 = new DoubleLinkedList();
-    linkedList1.fromArray([
-      1,
-      2,
-      3,
-    ]);
-
-    const linkedList2 = new DoubleLinkedList();
-    linkedList2.fromArray([
-      4,
-      5,
-      6,
-    ]);
-
-    const linkedList3 = new DoubleLinkedList();
-    linkedList3.fromArray([
-      7,
-      8,
-      9,
-    ]);
-    linkedList1.connect(linkedList1);
-
-    expect(linkedList1.size)
-      .toBe(6);
-    linkedList1.clear()
-      .fromArray([
-        1,
-        2,
-        3,
-      ])
-      .connect(linkedList2, linkedList3);
-
-    expect(linkedList1.size)
-      .toBe(9);
-    expect(hasCircle(linkedList1))
-      .toBeFalsy();
-    expect(linkedList1.toString())
-      .toBe('1,2,3,4,5,6,7,8,9');
-  });
-
   test('get item', () => {
     const linkedList = new DoubleLinkedList();
 
@@ -867,33 +688,6 @@ describe('Index', () => {
       .toBe(1);
   });
 
-  test('sort number', () => {
-    const linkedList = new DoubleLinkedList();
-    linkedList.sort();
-    expect(linkedList.head)
-      .toBeNull();
-    expect(linkedList.tail)
-      .toBeNull();
-
-    linkedList.append(5);
-    linkedList.append(6);
-    linkedList.append(7);
-    linkedList.append(8);
-    linkedList.append(9);
-    linkedList.append(4);
-    linkedList.append(3);
-    linkedList.append(2);
-    linkedList.append(1);
-
-    linkedList.sort();
-    expect(linkedList.head.value)
-      .toBe(1);
-    expect(linkedList.tail.value)
-      .toBe(9);
-    expect(linkedList.toString())
-      .toBe('1,2,3,4,5,6,7,8,9');
-  });
-
   test('deleteNode', () => {
     const linkedList = new DoubleLinkedList();
 
@@ -933,99 +727,5 @@ describe('Index', () => {
       .toBe(3);
     expect(linkedList.size)
       .toBe(1);
-  });
-
-  test('prependNode', () => {
-    const linkedList = new DoubleLinkedList<number>();
-    const node1 = new DoubleLinkedListNode(1);
-    const node2 = new DoubleLinkedListNode(2);
-    const node3 = new DoubleLinkedListNode(3);
-
-    linkedList.prependNode(node1);
-    expect(linkedList.head)
-      .toBe(node1);
-    expect(linkedList.tail)
-      .toBe(node1);
-    expect(linkedList.head.previous)
-      .toBeNull();
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.size)
-      .toBe(1);
-
-    linkedList.prependNode(node2);
-    expect(linkedList.head)
-      .toBe(node2);
-    expect(linkedList.tail)
-      .toBe(node1);
-    expect(linkedList.head.previous)
-      .toBeNull();
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.size)
-      .toBe(2);
-    expect(linkedList.toString())
-      .toBe('2,1');
-
-    linkedList.prependNode(node3);
-    expect(linkedList.head)
-      .toBe(node3);
-    expect(linkedList.tail)
-      .toBe(node1);
-    expect(linkedList.head.previous)
-      .toBeNull();
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.size)
-      .toBe(3);
-    expect(linkedList.toString())
-      .toBe('3,2,1');
-  });
-
-  test('appendNode', () => {
-    const linkedList = new DoubleLinkedList<number>();
-    const node1 = new DoubleLinkedListNode(1);
-    const node2 = new DoubleLinkedListNode(2);
-    const node3 = new DoubleLinkedListNode(3);
-
-    linkedList.appendNode(node1);
-    expect(linkedList.head)
-      .toBe(node1);
-    expect(linkedList.tail)
-      .toBe(node1);
-    expect(linkedList.head.previous)
-      .toBeNull();
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.size)
-      .toBe(1);
-
-    linkedList.appendNode(node2);
-    expect(linkedList.head)
-      .toBe(node1);
-    expect(linkedList.tail)
-      .toBe(node2);
-    expect(linkedList.head.previous)
-      .toBeNull();
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.size)
-      .toBe(2);
-    expect(linkedList.toString())
-      .toBe('1,2');
-
-    linkedList.appendNode(node3);
-    expect(linkedList.head)
-      .toBe(node1);
-    expect(linkedList.tail)
-      .toBe(node3);
-    expect(linkedList.head.previous)
-      .toBeNull();
-    expect(linkedList.tail.next)
-      .toBeNull();
-    expect(linkedList.size)
-      .toBe(3);
-    expect(linkedList.toString())
-      .toBe('1,2,3');
   });
 });

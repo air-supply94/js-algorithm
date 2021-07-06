@@ -1,6 +1,4 @@
-import { TrieNodeInterface } from './types';
-
-export class TrieNode implements TrieNodeInterface {
+export class TrieNode {
   constructor(character: string, isCompleteWord = false) {
     this.character = character;
     this.isCompleteWord = isCompleteWord;
@@ -17,13 +15,13 @@ export class TrieNode implements TrieNodeInterface {
 
   public readonly character: string;
 
-  public children: {[key: string]: TrieNodeInterface; };
+  public children: {[key: string]: TrieNode; };
 
-  public getChild(character: string): TrieNodeInterface | undefined {
+  public getChild(character: string): TrieNode | undefined {
     return this.children[character];
   }
 
-  public addChild(character: string, isCompleteWord = false): TrieNodeInterface {
+  public addChild(character: string, isCompleteWord = false): TrieNode {
     if (!this.hasChild(character)) {
       this.children[character] = new TrieNode(character, isCompleteWord);
     }

@@ -1,5 +1,4 @@
 import { DoubleLinkedList } from '../../doubleLinkedList';
-import { mergeKLists } from '../../utils/mergeKLists';
 import { mergeTwoLists } from '../../utils/mergeTwoLists';
 import { addTwoNumbers } from '../addTwoNumbers';
 import { detectCircle } from '../detectCircle';
@@ -7,6 +6,7 @@ import { getCircleLength } from '../getCircleLength';
 import { getDecimalValue } from '../getDecimalValue';
 import { hasCircle } from '../hasCircle';
 import { isPalindrome } from '../isPalindrome';
+import { mergeKLists } from '../mergeKLists';
 import { partition } from '../partition';
 
 describe('leetcode DoubleLinkedList', () => {
@@ -120,14 +120,14 @@ describe('leetcode DoubleLinkedList', () => {
     expect(hasCircle(linkedList))
       .toBeFalsy();
 
-    linkedList.tail.setNext(linkedList.head);
+    linkedList.tail.next = linkedList.head;
     expect(hasCircle(linkedList))
       .toBeTruthy();
     expect(getCircleLength(linkedList.head, 'next'))
       .toBe(5);
-    linkedList.tail.setNext(null);
+    linkedList.tail.next = null;
 
-    linkedList.head.setPrevious(linkedList.tail.previous);
+    linkedList.head.previous = linkedList.tail.previous;
     expect(detectCircle(linkedList.tail, 'previous').value)
       .toBe(4);
     expect(getCircleLength(linkedList.tail, 'previous'))
@@ -159,12 +159,12 @@ describe('leetcode DoubleLinkedList', () => {
     while (head && head.previous) {
       head = head.previous;
     }
-    doubleLinkedList1.setHead(head)
-      .setTail(tail)
-      .setSize(size);
-    doubleLinkedList2.setHead(head)
-      .setTail(tail)
-      .setSize(size);
+    doubleLinkedList1.head = head;
+    doubleLinkedList1.tail = tail;
+    doubleLinkedList1.size = size;
+    doubleLinkedList2.head = head;
+    doubleLinkedList2.tail = tail;
+    doubleLinkedList2.size = size;
 
     expect(doubleLinkedList1.head)
       .toBe(resultHead);
@@ -212,12 +212,13 @@ describe('leetcode DoubleLinkedList', () => {
     while (head && head.previous) {
       head = head.previous;
     }
-    doubleLinkedList1.setHead(head)
-      .setTail(tail)
-      .setSize(size);
-    doubleLinkedList2.setHead(head)
-      .setTail(tail)
-      .setSize(size);
+    doubleLinkedList1.head = head;
+    doubleLinkedList1.tail = tail;
+    doubleLinkedList1.size = size;
+
+    doubleLinkedList2.head = head;
+    doubleLinkedList2.tail = tail;
+    doubleLinkedList2.size = size;
 
     expect(doubleLinkedList1.head)
       .toBe(resultHead);

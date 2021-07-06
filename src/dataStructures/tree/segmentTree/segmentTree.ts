@@ -12,7 +12,7 @@ function initSegmentTree(inputArray: number[]): number[] {
 }
 
 export class SegmentTree {
-  constructor(inputArray, operation, operationFallback) {
+  constructor(inputArray: number[], operation: (...args: number[]) => number, operationFallback: number) {
     this.inputArray = inputArray;
     this.operation = operation;
     this.operationFallback = operationFallback;
@@ -22,13 +22,13 @@ export class SegmentTree {
     this.buildTreeRecursively(0, this.inputArray.length - 1, 0);
   }
 
-  public readonly operation: (...args: number[]) => number;
+  private readonly operation: (...args: number[]) => number;
 
-  public readonly operationFallback: number;
+  private readonly operationFallback: number;
 
-  public readonly inputArray: number[];
+  private readonly inputArray: number[];
 
-  public readonly segmentTree: number[];
+  private readonly segmentTree: number[];
 
   private buildTreeRecursively(leftInputIndex: number, rightInputIndex: number, position: number) {
     if (leftInputIndex === rightInputIndex) {

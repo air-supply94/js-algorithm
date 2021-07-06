@@ -1,7 +1,8 @@
-import { DoubleLinkedListNodeInterface, eachCallback } from '../types';
+import { DoubleLinkedListNode } from '../doubleLinkedList';
+import { eachCallback } from '../types';
 
 export function each<T = unknown>(
-  startNode: DoubleLinkedListNodeInterface<T> | null,
+  startNode: DoubleLinkedListNode<T> | null,
   size: number,
   propertyKey: 'next' | 'previous',
   callback: eachCallback<T>

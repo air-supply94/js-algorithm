@@ -80,36 +80,4 @@ describe('Trie', () => {
     expect(trie.doesWordExist('call'))
       .toBe(false);
   });
-
-  test('should findWordsCount findPrefixCount wordFrequency', () => {
-    const trie = new Trie();
-    const str = 'the apple apple banana potato potato potato apple oppo potato apple tomato the';
-    str.split(' ')
-      .filter((item) => item)
-      .forEach((item) => trie.addWord(item));
-
-    expect(trie.findWordsCount('xxx'))
-      .toBe(0);
-    expect(trie.findWordsCount('banana'))
-      .toBe(1);
-    expect(trie.findWordsCount('apple'))
-      .toBe(4);
-
-    expect(trie.findPrefixCount('xxx'))
-      .toBe(0);
-    expect(trie.findPrefixCount('ba'))
-      .toBe(1);
-    expect(trie.findPrefixCount('t'))
-      .toBe(3);
-
-    expect(trie.wordFrequency())
-      .toEqual({
-        apple: 4,
-        banana: 1,
-        oppo: 1,
-        potato: 4,
-        the: 2,
-        tomato: 1,
-      });
-  });
 });

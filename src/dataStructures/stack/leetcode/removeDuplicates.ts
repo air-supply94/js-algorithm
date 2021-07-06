@@ -15,7 +15,9 @@ export function removeDuplicates(str: string): string {
     }
   }
 
-  return stack.toArray()
-    .reverse()
-    .join('');
+  let result = '';
+  while (!stack.isEmpty()) {
+    result = `${stack.pop()}${result}`;
+  }
+  return result;
 }

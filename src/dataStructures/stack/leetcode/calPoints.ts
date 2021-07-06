@@ -1,9 +1,5 @@
 import { Stack } from '../stack';
 
-function add(x: number, y: number): number {
-  return x + y;
-}
-
 export function calPoints(options: Array<string | number>): number {
   const stack = new Stack<number>();
   options.forEach((value) => {
@@ -24,6 +20,9 @@ export function calPoints(options: Array<string | number>): number {
     }
   });
 
-  return stack.toArray()
-    .reduce(add, 0);
+  let result = 0;
+  while (!stack.isEmpty()) {
+    result += stack.pop();
+  }
+  return result;
 }

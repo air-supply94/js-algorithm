@@ -1,28 +1,14 @@
 import { DoubleLinkedList } from '../doubleLinkedList';
-import { DoubleLinkedListInterface, toStringCallback } from '../doubleLinkedList/types';
-import { QueueInterface } from './types';
 
-export class Queue<T = unknown> implements QueueInterface<T> {
+export class Queue<T = unknown> {
   constructor() {
     this.doubleLinkedList = new DoubleLinkedList<T>();
   }
 
-  private readonly doubleLinkedList: DoubleLinkedListInterface<T>;
+  private readonly doubleLinkedList: DoubleLinkedList<T>;
 
   public get size(): number {
     return this.doubleLinkedList.size;
-  }
-
-  public toString(callback?: toStringCallback<T>): string {
-    return this.doubleLinkedList.toString(callback);
-  }
-
-  public toArray(): T[] {
-    const values = [];
-    this.doubleLinkedList.eachFromHead((node) => {
-      values.push(node.value);
-    });
-    return values;
   }
 
   public dequeue(): T | null {
@@ -43,15 +29,6 @@ export class Queue<T = unknown> implements QueueInterface<T> {
     } else {
       return this.doubleLinkedList.head.value;
     }
-  }
-
-  public clear(): this {
-    this.doubleLinkedList.clear();
-    return this;
-  }
-
-  public has(value?: T): boolean {
-    return this.doubleLinkedList.has(value);
   }
 
   public isEmpty(): boolean {

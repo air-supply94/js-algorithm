@@ -1,6 +1,6 @@
-import { DoubleLinkedListNodeInterface } from '../types';
+import { DoubleLinkedListNode } from '../doubleLinkedList';
 
-export function detectCircle<T = unknown>(startNode: DoubleLinkedListNodeInterface<T>, property: 'next' | 'previous'): null | DoubleLinkedListNodeInterface<T> {
+export function detectCircle<T = unknown>(startNode: DoubleLinkedListNode<T>, property: 'next' | 'previous'): null | DoubleLinkedListNode<T> {
   let slow = startNode;
   let fast = startNode;
 

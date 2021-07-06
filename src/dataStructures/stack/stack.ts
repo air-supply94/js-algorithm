@@ -1,29 +1,11 @@
 import { DoubleLinkedList } from '../doubleLinkedList';
-import { DoubleLinkedListInterface, toStringCallback } from '../doubleLinkedList/types';
-import { StackInterface } from './types';
 
-export class Stack<T = unknown> implements StackInterface<T> {
+export class Stack<T = unknown> {
   constructor() {
     this.doubleLinkedList = new DoubleLinkedList<T>();
   }
 
-  private readonly doubleLinkedList: DoubleLinkedListInterface<T>;
-
-  public get size(): number {
-    return this.doubleLinkedList.size;
-  }
-
-  public toString(callback?: toStringCallback<T>): string {
-    return this.doubleLinkedList.toString(callback);
-  }
-
-  public toArray(): T[] {
-    const values = [];
-    this.doubleLinkedList.eachFromTail((node) => {
-      values.push(node.value);
-    });
-    return values;
-  }
+  private readonly doubleLinkedList: DoubleLinkedList<T>;
 
   public pop(): T | null {
     if (this.isEmpty()) {
@@ -43,15 +25,6 @@ export class Stack<T = unknown> implements StackInterface<T> {
     } else {
       return this.doubleLinkedList.tail.value;
     }
-  }
-
-  public clear(): this {
-    this.doubleLinkedList.clear();
-    return this;
-  }
-
-  public has(value?: T): boolean {
-    return this.doubleLinkedList.has(value);
   }
 
   public isEmpty(): boolean {
