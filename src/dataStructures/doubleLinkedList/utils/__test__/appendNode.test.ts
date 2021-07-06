@@ -30,7 +30,9 @@ test('doubleLinkedList appendNode', () => {
     .toBeNull();
   expect(linkedList.size)
     .toBe(2);
-  expect(linkedList.toString())
+  expect(linkedList.toArray()
+    .map((item) => item.value)
+    .join(','))
     .toBe('1,2');
 
   appendNode(linkedList, node3);
@@ -44,6 +46,8 @@ test('doubleLinkedList appendNode', () => {
     .toBeNull();
   expect(linkedList.size)
     .toBe(3);
-  expect(linkedList.toString())
+  expect(linkedList.toArray()
+    .map((item) => item.value)
+    .join(','))
     .toBe('1,2,3');
 });

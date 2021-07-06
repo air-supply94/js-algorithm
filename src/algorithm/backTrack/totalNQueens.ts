@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/n-queens-ii/
 // 52
+
 export function totalNQueens(n: number): number {
   const cols = new Map<number, boolean>();
   const addVector = new Map<number, boolean>();

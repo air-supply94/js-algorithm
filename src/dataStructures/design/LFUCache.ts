@@ -1,4 +1,4 @@
-import { DoubleLinkedList, DoubleLinkedListNode, deleteNode, prependNode } from '../simple/doubleLinkedList';
+import { deleteNode, DoubleLinkedList, DoubleLinkedListNode, prependNode } from '../simple/doubleLinkedList';
 
 interface LFUCacheItem {
   key: number;

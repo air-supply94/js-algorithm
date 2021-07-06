@@ -1,4 +1,4 @@
-import { DoubleLinkedList } from '../doubleLinkedList';
+import { DoubleLinkedList, deleteValueBase, find } from '../doubleLinkedList';
 import { GraphEdgeInterface, GraphVertexInterface } from './types';
 
 function edgeComparator<T>(edgeA: GraphEdgeInterface<T>, edgeB: GraphEdgeInterface<T>) {
@@ -24,7 +24,7 @@ export class GraphVertex<T = string> implements GraphVertexInterface<T> {
   }
 
   public deleteEdge(edge: GraphEdgeInterface<T>): null | GraphEdgeInterface<T> {
-    const node = this.edges.delete(edge);
+    const node = deleteValueBase(this.edges, 1, edge);
     return node ? node.value : null;
   }
 
@@ -43,7 +43,7 @@ export class GraphVertex<T = string> implements GraphVertexInterface<T> {
   }
 
   public hasEdge(requiredEdge: GraphEdgeInterface<T>): boolean {
-    return Boolean(this.edges.find({ value: requiredEdge }));
+    return Boolean(find(this.edges.head, { value: requiredEdge }, this.edges.compare));
   }
 
   public hasNeighbor(vertex: GraphVertexInterface<T>): boolean {
@@ -51,11 +51,15 @@ export class GraphVertex<T = string> implements GraphVertexInterface<T> {
   }
 
   public findEdge(vertex: GraphVertexInterface<T>): GraphEdgeInterface<T> | null {
-    const edge = this.edges.find({
-      callback: (edge) => {
-        return edge.startVertex === vertex || edge.endVertex === vertex;
+    const edge = find(
+      this.edges.head,
+      {
+        callback: (edge) => {
+          return edge.startVertex === vertex || edge.endVertex === vertex;
+        },
       },
-    });
+      this.edges.compare
+    );
 
     return edge ? edge.value : null;
   }

@@ -13,8 +13,6 @@ describe('GraphVertex', () => {
       .toBe('A');
     expect(vertex.value)
       .toBe('A');
-    expect(vertex.edges.toString())
-      .toBe('');
     expect(vertex.getEdges())
       .toEqual([]);
   });

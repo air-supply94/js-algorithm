@@ -1,5 +1,5 @@
 import { DoubleLinkedList } from '../../doubleLinkedList';
-import { mergeTwoLists } from '../../utils/mergeTwoLists';
+import { mergeTwoLists, insert } from '../../utils';
 import { addTwoNumbers } from '../addTwoNumbers';
 import { detectCircle } from '../detectCircle';
 import { getCircleLength } from '../getCircleLength';
@@ -18,10 +18,10 @@ describe('leetcode DoubleLinkedList', () => {
       1,
       1,
     ]);
-    expect(getDecimalValue(doubleLinkedList))
+    expect(getDecimalValue(doubleLinkedList.head))
       .toBe(15);
     doubleLinkedList.append(0);
-    expect(getDecimalValue(doubleLinkedList))
+    expect(getDecimalValue(doubleLinkedList.head))
       .toBe(30);
   });
 
@@ -39,8 +39,8 @@ describe('leetcode DoubleLinkedList', () => {
     doubleLinkedList.append(1);
     expect(isPalindrome(doubleLinkedList))
       .toBeFalsy();
-    doubleLinkedList.insert(1, 1);
-    doubleLinkedList.insert(2, 2);
+    insert(doubleLinkedList, 1, 1);
+    insert(doubleLinkedList, 2, 2);
     expect(isPalindrome(doubleLinkedList))
       .toBeTruthy();
   });
@@ -62,14 +62,18 @@ describe('leetcode DoubleLinkedList', () => {
       9,
     ]);
     expect(addTwoNumbers(doubleLinkedList1, doubleLinkedList2)
-      .toString())
+      .toArray()
+      .map((item) => item.value)
+      .join(','))
       .toBe('5,9,2,0,1');
     doubleLinkedList1.fromArray([
       1,
       1,
     ]);
     expect(addTwoNumbers(doubleLinkedList1, doubleLinkedList2)
-      .toString())
+      .toArray()
+      .map((item) => item.value)
+      .join(','))
       .toBe('5,9,2,1,2');
   });
 
@@ -83,15 +87,21 @@ describe('leetcode DoubleLinkedList', () => {
     ]);
 
     expect(partition(doubleLinkedList, 3)
-      .toString())
+      .toArray()
+      .map((item) => item.value)
+      .join(','))
       .toBe('2,1');
     expect(partition(doubleLinkedList, 0)
-      .toString())
+      .toArray()
+      .map((item) => item.value)
+      .join(','))
       .toBe('2,1');
 
     doubleLinkedList.append(3);
     expect(partition(doubleLinkedList, 2)
-      .toString())
+      .toArray()
+      .map((item) => item.value)
+      .join(','))
       .toBe('1,2,3');
     expect(hasCircle(doubleLinkedList))
       .toBeFalsy();
@@ -176,7 +186,9 @@ describe('leetcode DoubleLinkedList', () => {
       .toBeNull();
     expect(doubleLinkedList1.size)
       .toBe(7);
-    expect(doubleLinkedList1.toString())
+    expect(doubleLinkedList1.toArray()
+      .map((item) => item.value)
+      .join(','))
       .toBe('1,2,3,4,5,6,7');
     expect(hasCircle(doubleLinkedList1))
       .toBeFalsy();
@@ -230,7 +242,9 @@ describe('leetcode DoubleLinkedList', () => {
       .toBeNull();
     expect(doubleLinkedList1.size)
       .toBe(8);
-    expect(doubleLinkedList1.toString())
+    expect(doubleLinkedList1.toArray()
+      .map((item) => item.value)
+      .join(','))
       .toBe('1,2,3,4,5,6,6,7');
     expect(hasCircle(doubleLinkedList1))
       .toBeFalsy();

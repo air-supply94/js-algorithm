@@ -1,9 +1,11 @@
-import { DoubleLinkedList } from '../doubleLinkedList';
+import { DoubleLinkedListNode } from '../doubleLinkedList';
 
-export function getDecimalValue(doubleLinkedList: DoubleLinkedList<number>): number {
+export function getDecimalValue(node: DoubleLinkedListNode<number>): number {
   let result = 0;
-  doubleLinkedList.eachFromHead((node) => {
-    result = result * 2 + node.value;
-  });
+  let currentNode = node;
+  while (currentNode) {
+    result = result * 2 + currentNode.value;
+    currentNode = currentNode.next;
+  }
   return result;
 }

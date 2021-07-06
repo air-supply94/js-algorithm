@@ -30,7 +30,9 @@ test('doubleLinkedList prependNode', () => {
     .toBeNull();
   expect(linkedList.size)
     .toBe(2);
-  expect(linkedList.toString())
+  expect(linkedList.toArray()
+    .map((item) => item.value)
+    .join(','))
     .toBe('2,1');
 
   prependNode(linkedList, node3);
@@ -44,6 +46,8 @@ test('doubleLinkedList prependNode', () => {
     .toBeNull();
   expect(linkedList.size)
     .toBe(3);
-  expect(linkedList.toString())
+  expect(linkedList.toArray()
+    .map((item) => item.value)
+    .join(','))
     .toBe('3,2,1');
 });

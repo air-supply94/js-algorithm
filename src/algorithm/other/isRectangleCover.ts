@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/perfect-rectangle/
 // 391
+
 export function isRectangleCover(rectangles: number[][]): boolean {
   let leftBottomX = Infinity;
   let leftBottomY = Infinity;

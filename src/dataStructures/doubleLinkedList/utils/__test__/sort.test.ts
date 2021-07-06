@@ -24,6 +24,8 @@ test('doubleLinkedList sort', () => {
     .toBe(1);
   expect(linkedList.tail.value)
     .toBe(9);
-  expect(linkedList.toString())
+  expect(linkedList.toArray()
+    .map((item) => item.value)
+    .join(','))
     .toBe('1,2,3,4,5,6,7,8,9');
 });

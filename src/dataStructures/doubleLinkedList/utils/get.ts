@@ -1,44 +1,33 @@
 import { DoubleLinkedListNode } from '../doubleLinkedList';
-import { each } from './each';
 import { formatIndex } from './formatIndex';
 
-export function get<T = unknown>(
-  index: number,
-  size: number,
-  head: null | DoubleLinkedListNode<T>,
-  tail: null | DoubleLinkedListNode<T>
-): null | DoubleLinkedListNode<T> {
+export function get<T = unknown>(index: number, size: number, head: null | DoubleLinkedListNode<T>, tail: null | DoubleLinkedListNode<T>): null | DoubleLinkedListNode<T> {
   const position = formatIndex(index, size);
-  if (position < 0 || position >= size) {
-    return null;
-  }
-
   const middleIndex = size >>> 1;
-  if (position <= middleIndex) {
-    let findNode = null;
+
+  if (0 <= position && position <= middleIndex) {
     let i = 0;
-    each<T>(head, size, 'next', (node) => {
+    let currentNode = head;
+    while (currentNode) {
       if (i === position) {
-        findNode = node;
-        return false;
-      } else {
-        i++;
-        return true;
+        return currentNode;
       }
-    });
-    return findNode;
-  } else {
-    let findNode = null;
+      i++;
+      currentNode = currentNode.next;
+    }
+    return null;
+  } else if (middleIndex < position) {
     let i = size - 1;
-    each<T>(tail, size, 'previous', (node) => {
+    let currentNode = tail;
+    while (currentNode) {
       if (i === position) {
-        findNode = node;
-        return false;
-      } else {
-        i--;
-        return true;
+        return currentNode;
       }
-    });
-    return findNode;
+      i--;
+      currentNode = currentNode.previous;
+    }
+    return null;
+  } else {
+    return null;
   }
 }

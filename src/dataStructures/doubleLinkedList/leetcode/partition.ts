@@ -6,17 +6,19 @@ export function partition(doubleLinkedList: DoubleLinkedList, x: number): Double
   const afterHead: DoubleLinkedListNode = new DoubleLinkedListNode(null);
   let afterCurrent: DoubleLinkedListNode = afterHead;
 
-  doubleLinkedList.eachFromHead((node) => {
-    if (node.value < x) {
-      beforeCurrent.next = node;
-      node.previous = beforeCurrent;
-      beforeCurrent = node;
+  let tmpNode = doubleLinkedList.head;
+  while (tmpNode) {
+    if (tmpNode.value < x) {
+      beforeCurrent.next = tmpNode;
+      tmpNode.previous = beforeCurrent;
+      beforeCurrent = tmpNode;
     } else {
-      afterCurrent.next = node;
-      node.previous = afterCurrent;
-      afterCurrent = node;
+      afterCurrent.next = tmpNode;
+      tmpNode.previous = afterCurrent;
+      afterCurrent = tmpNode;
     }
-  });
+    tmpNode = tmpNode.next;
+  }
 
   const head1 = beforeHead.next;
   let tail1 = null;
