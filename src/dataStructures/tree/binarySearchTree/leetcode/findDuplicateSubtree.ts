@@ -1,10 +1,10 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function findDuplicateSubtree<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): Array<BinarySearchTreeNodeInterface<T>> {
+export function findDuplicateSubtree<T = unknown>(root: BinarySearchTreeNode<T> | null): Array<BinarySearchTreeNode<T>> {
   const cache = new Map<string, number>();
-  const list: Array<BinarySearchTreeNodeInterface<T>> = [];
+  const list: Array<BinarySearchTreeNode<T>> = [];
 
-  function recursion(rootNode: BinarySearchTreeNodeInterface<T> | null): string {
+  function recursion(rootNode: BinarySearchTreeNode<T> | null): string {
     if (!rootNode) {
       return ' ';
     }

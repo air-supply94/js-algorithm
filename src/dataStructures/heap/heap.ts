@@ -41,18 +41,14 @@ function swap(data: unknown[], first: number, second: number): void {
 }
 
 export class Heap<T = unknown> {
-  constructor(comparatorFunction: (firstElement: T, secondElement: T) => boolean) {
+  constructor(pairIsInCorrectOrder: (firstElement: T, secondElement: T) => boolean) {
     this.heapContainer = [];
-    this.comparatorFunction = comparatorFunction;
+    this.pairIsInCorrectOrder = pairIsInCorrectOrder;
   }
 
   public readonly heapContainer: T[];
 
-  private readonly comparatorFunction: (firstElement: T, secondElement: T) => boolean;
-
-  private pairIsInCorrectOrder(firstElement: T, secondElement: T): boolean {
-    return this.comparatorFunction(firstElement, secondElement);
-  }
+  private readonly pairIsInCorrectOrder: (firstElement: T, secondElement: T) => boolean;
 
   public peek(): T | undefined {
     return this.heapContainer[0];

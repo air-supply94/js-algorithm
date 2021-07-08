@@ -1,6 +1,6 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function getUncle<T = unknown>(root: BinarySearchTreeNodeInterface<T>): null | BinarySearchTreeNodeInterface<T> {
+export function getUncle<T = unknown>(root: BinarySearchTreeNode<T>): null | BinarySearchTreeNode<T> {
   if (root) {
     if (root.parent) {
       if (root.parent.parent) {

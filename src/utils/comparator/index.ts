@@ -1,13 +1,13 @@
-import { ComparatorInterface, compareFunctionType } from './types';
-
-function defaultCompareFunction(a, b) {
+function defaultCompareFunction<T = unknown>(a?: T, b?: T): -1 | 0 | 1 {
   if (a === b) {
     return 0;
   }
   return a < b ? -1 : 1;
 }
 
-export class Comparator implements ComparatorInterface {
+export type compareFunctionType = (a?: any, b?: any) => 0 | 1 | -1;
+
+export class Comparator<T = unknown> {
   constructor(comparatorFunction: Comparator | compareFunctionType = defaultCompareFunction) {
     if (comparatorFunction instanceof Comparator) {
       return comparatorFunction;
@@ -15,35 +15,26 @@ export class Comparator implements ComparatorInterface {
     this.compare = comparatorFunction;
   }
 
-  private compare: compareFunctionType;
+  private readonly compare: compareFunctionType;
 
-  public equal(a, b) {
+  public equal(a?: T, b?: T): boolean {
     return this.compare(a, b) === 0;
   }
 
-  public lessThan(a, b) {
+  public lessThan(a?: T, b?: T): boolean {
     return this.compare(a, b) < 0;
   }
 
-  public greaterThan(a, b) {
+  public greaterThan(a?: T, b?: T): boolean {
     return this.compare(a, b) > 0;
   }
 
-  public lessThanOrEqual(a, b) {
+  public lessThanOrEqual(a?: T, b?: T): boolean {
     return this.lessThan(a, b) || this.equal(a, b);
   }
 
-  public greaterThanOrEqual(a, b) {
+  public greaterThanOrEqual(a?: T, b?: T): boolean {
     return this.greaterThan(a, b) || this.equal(a, b);
-  }
-
-  public reverse() {
-    const compareOriginal = this.compare;
-    this.compare = function fn(a, b) {
-      return compareOriginal(b, a);
-    };
-    return this;
   }
 }
 
-export * from './types';

@@ -1,6 +1,5 @@
 import { Comparator, compareFunctionType } from '../../../utils';
-import { BinarySearchTree, findReplaceNode, getUncle, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
-import { BinarySearchTreeInterface, traverseCallback } from '../binarySearchTree/types';
+import { BinarySearchTree, findReplaceNode, getUncle, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight, traverseCallback } from '../binarySearchTree';
 import { RedBlackTreeNode } from './redBlackTreeNode';
 import { CompleteRedBlackTreeNode, RedBlackTreeInterface, RedBlackTreeNodeInterface } from './types';
 
@@ -142,7 +141,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
     currentNode.value.makeBlack();
   }
 
-  public readonly binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
+  public readonly binarySearchTree: BinarySearchTree<RedBlackTreeNodeInterface<T>>;
 
   public setRoot(root: CompleteRedBlackTreeNode<T> | null): this {
     this.binarySearchTree.setRoot(root);

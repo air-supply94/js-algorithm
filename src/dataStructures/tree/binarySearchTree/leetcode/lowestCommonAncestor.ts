@@ -1,6 +1,6 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function lowestCommonAncestor(root: BinarySearchTreeNodeInterface<number> | null, p: number, q: number): BinarySearchTreeNodeInterface<number> | null {
+export function lowestCommonAncestor(root: BinarySearchTreeNode<number> | null, p: number, q: number): BinarySearchTreeNode<number> | null {
   if (root === null) {
     return null;
   }
@@ -22,7 +22,7 @@ export function lowestCommonAncestor(root: BinarySearchTreeNodeInterface<number>
   }
 }
 
-export function lowestCommonAncestorBst(root: BinarySearchTreeNodeInterface<number> | null, p: number, q: number): BinarySearchTreeNodeInterface<number> | null {
+export function lowestCommonAncestorBst(root: BinarySearchTreeNode<number> | null, p: number, q: number): BinarySearchTreeNode<number> | null {
   if (!root) {
     return null;
   }

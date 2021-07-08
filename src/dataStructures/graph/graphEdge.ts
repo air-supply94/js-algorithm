@@ -1,15 +1,15 @@
-import { GraphEdgeInterface, GraphVertexInterface } from './types';
+import { GraphVertex } from './graphVertex';
 
-export class GraphEdge<T = string> implements GraphEdgeInterface<T> {
-  constructor(startVertex: GraphVertexInterface<T>, endVertex: GraphVertexInterface<T>, weight = 0) {
+export class GraphEdge<T = string> {
+  constructor(startVertex: GraphVertex<T>, endVertex: GraphVertex<T>, weight = 0) {
     this.startVertex = startVertex;
     this.endVertex = endVertex;
     this.weight = weight;
   }
 
-  public startVertex: GraphVertexInterface<T>;
+  public startVertex: GraphVertex<T>;
 
-  public endVertex: GraphVertexInterface<T>;
+  public endVertex: GraphVertex<T>;
 
   public readonly weight: number;
 

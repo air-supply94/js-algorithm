@@ -1,7 +1,7 @@
-import { DoubleLinkedList, deleteValueBase, find } from '../doubleLinkedList';
-import { GraphEdgeInterface, GraphVertexInterface } from './types';
+import { deleteValueBase, DoubleLinkedList, find } from '../doubleLinkedList';
+import { GraphEdge } from './graphEdge';
 
-function edgeComparator<T>(edgeA: GraphEdgeInterface<T>, edgeB: GraphEdgeInterface<T>) {
+function edgeComparator<T>(edgeA: GraphEdge<T>, edgeB: GraphEdge<T>) {
   if (edgeA.value === edgeB.value) {
     return 0;
   }
@@ -9,31 +9,31 @@ function edgeComparator<T>(edgeA: GraphEdgeInterface<T>, edgeB: GraphEdgeInterfa
   return edgeA.value < edgeB.value ? -1 : 1;
 }
 
-export class GraphVertex<T = string> implements GraphVertexInterface<T> {
+export class GraphVertex<T = string> {
   constructor(value: T) {
     this.value = value;
-    this.edges = new DoubleLinkedList<GraphEdgeInterface<T>>(edgeComparator);
+    this.edges = new DoubleLinkedList<GraphEdge<T>>(edgeComparator);
   }
 
   public readonly value: T;
 
-  public readonly edges: DoubleLinkedList<GraphEdgeInterface<T>>;
+  public readonly edges: DoubleLinkedList<GraphEdge<T>>;
 
-  public addEdge(edge: GraphEdgeInterface<T>): GraphEdgeInterface<T> {
+  public addEdge(edge: GraphEdge<T>): GraphEdge<T> {
     return this.edges.append(edge).value;
   }
 
-  public deleteEdge(edge: GraphEdgeInterface<T>): null | GraphEdgeInterface<T> {
+  public deleteEdge(edge: GraphEdge<T>): null | GraphEdge<T> {
     const node = deleteValueBase(this.edges, 1, edge);
     return node ? node.value : null;
   }
 
-  public getNeighbors(): Array<GraphVertexInterface<T>> {
+  public getNeighbors(): Array<GraphVertex<T>> {
     return this.edges.toArray()
       .map((node) => (node.value.startVertex === this ? node.value.endVertex : node.value.startVertex));
   }
 
-  public getEdges(): Array<GraphEdgeInterface<T>> {
+  public getEdges(): Array<GraphEdge<T>> {
     return this.edges.toArray()
       .map((linkedListNode) => linkedListNode.value);
   }
@@ -42,15 +42,15 @@ export class GraphVertex<T = string> implements GraphVertexInterface<T> {
     return this.edges.size;
   }
 
-  public hasEdge(requiredEdge: GraphEdgeInterface<T>): boolean {
+  public hasEdge(requiredEdge: GraphEdge<T>): boolean {
     return Boolean(find(this.edges.head, { value: requiredEdge }, this.edges.compare));
   }
 
-  public hasNeighbor(vertex: GraphVertexInterface<T>): boolean {
+  public hasNeighbor(vertex: GraphVertex<T>): boolean {
     return Boolean(this.findEdge(vertex));
   }
 
-  public findEdge(vertex: GraphVertexInterface<T>): GraphEdgeInterface<T> | null {
+  public findEdge(vertex: GraphVertex<T>): GraphEdge<T> | null {
     const edge = find(
       this.edges.head,
       {

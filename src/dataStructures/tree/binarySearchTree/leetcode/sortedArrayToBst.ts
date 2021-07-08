@@ -1,7 +1,6 @@
-import { BinarySearchTreeNode } from '../binarySearchTreeNode';
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-function initTreeNodes<T = unknown>(array: T[], start: number, end: number): BinarySearchTreeNodeInterface<T> {
+function initTreeNodes<T = unknown>(array: T[], start: number, end: number): BinarySearchTreeNode<T> {
   if (start <= end) {
     const middle = start + Math.floor((end - start) / 2);
     const node = new BinarySearchTreeNode<T>(array[middle]);
@@ -13,6 +12,6 @@ function initTreeNodes<T = unknown>(array: T[], start: number, end: number): Bin
   }
 }
 
-export function sortedArrayToBst<T = unknown>(array: T[]): BinarySearchTreeNodeInterface<T> {
+export function sortedArrayToBst<T = unknown>(array: T[]): BinarySearchTreeNode<T> {
   return initTreeNodes(array, 0, array.length - 1);
 }

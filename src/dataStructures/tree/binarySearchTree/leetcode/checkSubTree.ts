@@ -1,6 +1,6 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function checkSubTree(root: BinarySearchTreeNodeInterface<number> | null, childRoot: BinarySearchTreeNodeInterface<number> | null): boolean {
+export function checkSubTree(root: BinarySearchTreeNode<number> | null, childRoot: BinarySearchTreeNode<number> | null): boolean {
   if (!childRoot) {
     return true;
   }
@@ -16,7 +16,7 @@ export function checkSubTree(root: BinarySearchTreeNodeInterface<number> | null,
   }
 }
 
-function isSubTree<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null, childRoot: BinarySearchTreeNodeInterface<T> | null): boolean {
+function isSubTree<T = unknown>(root: BinarySearchTreeNode<T> | null, childRoot: BinarySearchTreeNode<T> | null): boolean {
   if (childRoot == null) {
     return true;
   }
@@ -32,7 +32,7 @@ function isSubTree<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null, c
   }
 }
 
-export function pathSum(root: BinarySearchTreeNodeInterface<number> | null, sum: number): number {
+export function pathSum(root: BinarySearchTreeNode<number> | null, sum: number): number {
   if (!root) {
     return 0;
   }
@@ -40,7 +40,7 @@ export function pathSum(root: BinarySearchTreeNodeInterface<number> | null, sum:
   return pathSumDfs(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
 }
 
-function pathSumDfs(root: BinarySearchTreeNodeInterface<number> | null, sum: number): number {
+function pathSumDfs(root: BinarySearchTreeNode<number> | null, sum: number): number {
   if (!root) {
     return 0;
   }

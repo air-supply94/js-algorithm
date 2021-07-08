@@ -1,22 +1,20 @@
 import { Comparator, compareFunctionType } from '../../../utils';
-import { BinarySearchTree, getBalanceFactor, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
-import { BinarySearchTreeInterface, BinarySearchTreeNodeInterface, traverseCallback } from '../binarySearchTree/types';
-import { AvlTreeInterface } from './types';
+import { BinarySearchTree, BinarySearchTreeNode, getBalanceFactor, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight, traverseCallback } from '../binarySearchTree';
 
-export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
+export class AvlTree<T = unknown> {
   public get comparator(): Comparator {
     return this.binarySearchTree.comparator;
   }
 
-  public get root(): BinarySearchTreeNodeInterface<T> | null {
+  public get root(): BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.root;
   }
 
   constructor(
     compareFunction?: compareFunctionType | Comparator,
     swap = function(
-      tmpNode: BinarySearchTreeNodeInterface<T>,
-      replaceNode: BinarySearchTreeNodeInterface<T>
+      tmpNode: BinarySearchTreeNode<T>,
+      replaceNode: BinarySearchTreeNode<T>
     ): void {
       const tmpValue = tmpNode.value;
       tmpNode.setValue(replaceNode.value);
@@ -27,9 +25,9 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
     this.setRoot = this.setRoot.bind(this);
   }
 
-  public readonly binarySearchTree: BinarySearchTreeInterface<T>;
+  public readonly binarySearchTree: BinarySearchTree<T>;
 
-  public setRoot(root: BinarySearchTreeNodeInterface<T> | null): this {
+  public setRoot(root: BinarySearchTreeNode<T> | null): this {
     this.binarySearchTree.setRoot(root);
     return this;
   }
@@ -38,7 +36,7 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
     return this.binarySearchTree.toString();
   }
 
-  public balance(node: BinarySearchTreeNodeInterface<T>): this {
+  public balance(node: BinarySearchTreeNode<T>): this {
     if (getBalanceFactor<T>(node) > 1) {
       if (getBalanceFactor<T>(node.left) > 0) {
         rotateLeftLeft<T>(node, this.setRoot);
@@ -57,15 +55,15 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
     return this;
   }
 
-  public find(value: T): null | BinarySearchTreeNodeInterface<T> {
+  public find(value: T): null | BinarySearchTreeNode<T> {
     return this.binarySearchTree.find(value);
   }
 
-  public findMin(): null | BinarySearchTreeNodeInterface<T> {
+  public findMin(): null | BinarySearchTreeNode<T> {
     return this.binarySearchTree.findMin();
   }
 
-  public findMax(): null | BinarySearchTreeNodeInterface<T> {
+  public findMax(): null | BinarySearchTreeNode<T> {
     return this.binarySearchTree.findMax();
   }
 
@@ -105,7 +103,7 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
     return this.binarySearchTree.contains(value);
   }
 
-  public insert(value: T): BinarySearchTreeNodeInterface<T> | null {
+  public insert(value: T): BinarySearchTreeNode<T> | null {
     const node = this.binarySearchTree.insert(value);
     let currentNode = node;
     while (currentNode) {
@@ -116,7 +114,7 @@ export class AvlTree<T = unknown> implements AvlTreeInterface<T> {
     return node;
   }
 
-  public remove(value: T): BinarySearchTreeNodeInterface<T> | null {
+  public remove(value: T): BinarySearchTreeNode<T> | null {
     const node = this.binarySearchTree.remove(value);
     let removeNode = node;
     while (removeNode && removeNode.parent) {

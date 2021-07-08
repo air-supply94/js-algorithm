@@ -1,13 +1,12 @@
 import { Comparator } from '../../../../utils';
-import { BinarySearchTreeNode } from '../binarySearchTreeNode';
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
 export function insert<T = unknown>(
-  root: null | BinarySearchTreeNodeInterface<T>,
+  root: null | BinarySearchTreeNode<T>,
   value: T,
   comparator: Comparator,
-  emptyRootCallback?: (root: BinarySearchTreeNodeInterface<T> | null) => unknown
-): BinarySearchTreeNodeInterface<T> | null {
+  emptyRootCallback?: (root: BinarySearchTreeNode<T> | null) => unknown
+): BinarySearchTreeNode<T> | null {
   if (!root) {
     const newNode = new BinarySearchTreeNode<T>(value);
     if (typeof emptyRootCallback === 'function') {

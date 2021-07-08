@@ -1,10 +1,10 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function isValid(root: BinarySearchTreeNodeInterface<number> | null): boolean {
+export function isValid(root: BinarySearchTreeNode<number> | null): boolean {
   return recursion(root)[0] === 1;
 }
 
-function recursion(rootNode: BinarySearchTreeNodeInterface<number> | null): number[] {
+function recursion(rootNode: BinarySearchTreeNode<number> | null): number[] {
   if (!rootNode) {
     return [
       1,

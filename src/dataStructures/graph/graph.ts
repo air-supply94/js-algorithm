@@ -1,20 +1,20 @@
 import { GraphEdge } from './graphEdge';
-import { GraphEdgeInterface, GraphInterface, GraphVertexInterface } from './types';
+import { GraphVertex } from './graphVertex';
 
-export class Graph<T = string> implements GraphInterface<T> {
+export class Graph<T = string> {
   constructor(isDirected = false) {
     this.vertices = {};
     this.edges = {};
     this.isDirected = isDirected;
   }
 
-  public readonly vertices: {[key: string]: GraphVertexInterface<T>; };
+  public readonly vertices: {[key: string]: GraphVertex<T>; };
 
-  public readonly edges: {[key: string]: GraphEdgeInterface<T>; };
+  public readonly edges: {[key: string]: GraphEdge<T>; };
 
   public readonly isDirected: boolean;
 
-  public addVertex(vertex: GraphVertexInterface<T>): GraphVertexInterface<T> {
+  public addVertex(vertex: GraphVertex<T>): GraphVertex<T> {
     if (this.hasVertex(vertex)) {
       return this.getVertex(vertex);
     } else {
@@ -23,28 +23,28 @@ export class Graph<T = string> implements GraphInterface<T> {
     }
   }
 
-  public hasVertex(vertex: GraphVertexInterface<T> | string): boolean {
+  public hasVertex(vertex: GraphVertex<T> | string): boolean {
     return Object.prototype.hasOwnProperty.call(this.vertices, String(vertex));
   }
 
-  public getVertex(vertex: string | GraphVertexInterface<T>): GraphVertexInterface<T> | null {
+  public getVertex(vertex: string | GraphVertex<T>): GraphVertex<T> | null {
     return this.hasVertex(vertex) ? this.vertices[String(vertex)] : null;
   }
 
-  public getNeighbors(vertex: GraphVertexInterface<T> | string): Array<GraphVertexInterface<T>> {
+  public getNeighbors(vertex: GraphVertex<T> | string): Array<GraphVertex<T>> {
     return this.hasVertex(vertex) ? this.getVertex(vertex)
       .getNeighbors() : [];
   }
 
-  public getAllVertices(): Array<GraphVertexInterface<T>> {
+  public getAllVertices(): Array<GraphVertex<T>> {
     return Object.values(this.vertices);
   }
 
-  public getAllEdges(): Array<GraphEdgeInterface<T>> {
+  public getAllEdges(): Array<GraphEdge<T>> {
     return Object.values(this.edges);
   }
 
-  public addEdge(edge: GraphEdgeInterface<T>): GraphEdgeInterface<T> {
+  public addEdge(edge: GraphEdge<T>): GraphEdge<T> {
     const startVertex = this.addVertex(edge.startVertex);
     const endVertex = this.addVertex(edge.endVertex);
 
@@ -64,7 +64,7 @@ export class Graph<T = string> implements GraphInterface<T> {
     }
   }
 
-  public deleteEdge(edge: GraphEdgeInterface<T> | string): GraphEdgeInterface<T> | null {
+  public deleteEdge(edge: GraphEdge<T> | string): GraphEdge<T> | null {
     if (this.hasEdge(edge)) {
       const newEdge = this.getEdge(edge);
       delete this.edges[String(newEdge)];
@@ -76,15 +76,15 @@ export class Graph<T = string> implements GraphInterface<T> {
     }
   }
 
-  public hasEdge(edge: GraphEdgeInterface<T> | string): boolean {
+  public hasEdge(edge: GraphEdge<T> | string): boolean {
     return Object.prototype.hasOwnProperty.call(this.edges, String(edge));
   }
 
-  public getEdge(edge: GraphEdgeInterface<T> | string): GraphEdgeInterface<T> | null {
+  public getEdge(edge: GraphEdge<T> | string): GraphEdge<T> | null {
     return this.hasEdge(edge) ? this.edges[String(edge)] : null;
   }
 
-  public findEdge(startVertex: GraphVertexInterface<T> | string, endVertex: GraphVertexInterface<T> | string): GraphEdgeInterface<T> | null {
+  public findEdge(startVertex: GraphVertex<T> | string, endVertex: GraphVertex<T> | string): GraphEdge<T> | null {
     const newStartVertex = this.getVertex(startVertex);
     const newEndVertex = this.getVertex(endVertex);
 

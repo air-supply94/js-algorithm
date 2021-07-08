@@ -1,11 +1,11 @@
 import { Queue } from '../../../queue';
-import { BinarySearchTreeNodeInterface, traverseCallback } from '../types';
+import { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
 export function traverseLevelOrder<T = unknown>(
-  root: BinarySearchTreeNodeInterface<T> | null,
+  root: BinarySearchTreeNode<T> | null,
   callback: traverseCallback<T>
 ): number {
-  const queue = new Queue<BinarySearchTreeNodeInterface<T>>();
+  const queue = new Queue<BinarySearchTreeNode<T>>();
   let level = 0;
   if (root) {
     queue.enqueue(root);

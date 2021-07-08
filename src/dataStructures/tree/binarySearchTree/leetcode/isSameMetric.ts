@@ -1,6 +1,6 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function isSameMetric<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): boolean {
+export function isSameMetric<T = unknown>(root: BinarySearchTreeNode<T> | null): boolean {
   if (!root) {
     return true;
   }
@@ -8,7 +8,7 @@ export function isSameMetric<T = unknown>(root: BinarySearchTreeNodeInterface<T>
   return isSameLeftAndRight<T>(root.left, root.right);
 }
 
-export function isSameLeftAndRight<T = unknown>(left: BinarySearchTreeNodeInterface<T> | null, right: BinarySearchTreeNodeInterface<T> | null): boolean {
+export function isSameLeftAndRight<T = unknown>(left: BinarySearchTreeNode<T> | null, right: BinarySearchTreeNode<T> | null): boolean {
   if (left == null) {
     return right == null;
   }

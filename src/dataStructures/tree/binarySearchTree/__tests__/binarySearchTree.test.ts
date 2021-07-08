@@ -1,5 +1,4 @@
-import { BinarySearchTree } from '../binarySearchTree';
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTree, BinarySearchTreeNode } from '../binarySearchTree';
 import { getHeight, insert, findReplaceNode } from '../utils';
 
 describe('BinarySearchTree', () => {
@@ -51,7 +50,7 @@ describe('BinarySearchTree', () => {
 
     bst.insert(10);
     const originRemove = bst.remove;
-    bst.remove = function <T = unknown>(this: BinarySearchTree<T>, value: T): BinarySearchTreeNodeInterface<T> | null {
+    bst.remove = function <T = unknown>(this: BinarySearchTree<T>, value: T): BinarySearchTreeNode<T> | null {
       return findReplaceNode(this.root, value, this.comparator);
     };
     expect(bst.remove(10).value)
@@ -126,7 +125,7 @@ describe('BinarySearchTree', () => {
     expect(bst.findMax())
       .toBeNull();
     const originInsert = bst.insert;
-    bst.insert = function <T = unknown>(this: BinarySearchTree<T>, value: T): null | BinarySearchTreeNodeInterface<T> {
+    bst.insert = function <T = unknown>(this: BinarySearchTree<T>, value: T): null | BinarySearchTreeNode<T> {
       return insert(this.root, value, this.comparator);
     };
     bst.insert(10);

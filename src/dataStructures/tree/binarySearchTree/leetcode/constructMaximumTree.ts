@@ -1,11 +1,10 @@
-import { BinarySearchTreeNode } from '../binarySearchTreeNode';
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function constructMaximumTree(num: number[]): BinarySearchTreeNodeInterface<number> | null {
+export function constructMaximumTree(num: number[]): BinarySearchTreeNode<number> | null {
   return recursion(num, 0, num.length - 1);
 }
 
-function recursion(num: number[], startIndex: number, endIndex: number): BinarySearchTreeNodeInterface<number> | null {
+function recursion(num: number[], startIndex: number, endIndex: number): BinarySearchTreeNode<number> | null {
   if (startIndex > endIndex) {
     return null;
   }

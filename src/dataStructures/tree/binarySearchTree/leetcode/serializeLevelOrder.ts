@@ -1,15 +1,14 @@
 import { Queue } from '../../../queue';
-import { BinarySearchTreeNode } from '../binarySearchTreeNode';
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNodeInterface<T> | null {
+export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNode<T> | null {
   if (!array.length) {
     return null;
   }
 
   let i = 1;
   const root = new BinarySearchTreeNode<T>(array[0]);
-  const queue = new Queue<BinarySearchTreeNodeInterface<T>>();
+  const queue = new Queue<BinarySearchTreeNode<T>>();
   queue.enqueue(root);
 
   while (!queue.isEmpty() && i < array.length) {

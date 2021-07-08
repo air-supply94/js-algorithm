@@ -1,9 +1,9 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function maxSumTree(root: BinarySearchTreeNodeInterface<number> | null): number {
+export function maxSumTree(root: BinarySearchTreeNode<number> | null): number {
   let max = 0;
 
-  function recursion(rootNode: BinarySearchTreeNodeInterface<number> | null): number[] {
+  function recursion(rootNode: BinarySearchTreeNode<number> | null): number[] {
     if (!rootNode) {
       return [
         1,

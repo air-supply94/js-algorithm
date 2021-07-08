@@ -1,4 +1,4 @@
-import { Comparator, compareFunctionType, ComparatorInterface } from '../../utils';
+import { Comparator, compareFunctionType } from '../../utils';
 
 export function mergeSort<T = unknown>(originalArray: T[], comparator?: Comparator | compareFunctionType): T[] {
   if (originalArray.length <= 1) {
@@ -14,7 +14,7 @@ export function mergeSort<T = unknown>(originalArray: T[], comparator?: Comparat
   return mergeSortedArrays<T>(mergeSort<T>(left, newComparator), mergeSort<T>(right, newComparator), newComparator);
 }
 
-function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: ComparatorInterface): T[] {
+function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: Comparator): T[] {
   const result: T[] = Array(leftArray.length + rightArray.length);
   let i = 0;
   let j = 0;

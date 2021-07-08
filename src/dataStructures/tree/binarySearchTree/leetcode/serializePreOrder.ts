@@ -1,9 +1,8 @@
-import { BinarySearchTreeNode } from '../binarySearchTreeNode';
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function serializePreOrder<T = unknown>(array: T[]): BinarySearchTreeNodeInterface<T> | null {
+export function serializePreOrder<T = unknown>(array: T[]): BinarySearchTreeNode<T> | null {
   let i = 0;
-  function serialize(): BinarySearchTreeNodeInterface<T> | null {
+  function serialize(): BinarySearchTreeNode<T> | null {
     if (i >= array.length) {
       return null;
     }

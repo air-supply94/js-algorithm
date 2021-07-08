@@ -1,8 +1,8 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function bstToGst(root: BinarySearchTreeNodeInterface<number> | null): BinarySearchTreeNodeInterface<number> | null {
+export function bstToGst(root: BinarySearchTreeNode<number> | null): BinarySearchTreeNode<number> | null {
   let sum = 0;
-  function inorderTraverse(rootNode: BinarySearchTreeNodeInterface<number> | null) {
+  function inorderTraverse(rootNode: BinarySearchTreeNode<number> | null) {
     if (!rootNode) {
       return;
     }

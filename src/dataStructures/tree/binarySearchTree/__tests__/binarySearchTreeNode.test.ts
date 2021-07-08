@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode } from '../binarySearchTreeNode';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 import { getBalanceFactor, getHeight, getUncle } from '../utils';
 
 describe('BinarySearchTreeNode', () => {

@@ -1,7 +1,6 @@
-import { BinarySearchTreeNode } from '../binarySearchTreeNode';
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function serializePostAndInOrder<T = unknown>(postorder: T[], inorder: T[]): BinarySearchTreeNodeInterface<T> | null {
+export function serializePostAndInOrder<T = unknown>(postorder: T[], inorder: T[]): BinarySearchTreeNode<T> | null {
   return recursion(postorder, 0, postorder.length - 1, inorder, 0, inorder.length - 1);
 }
 

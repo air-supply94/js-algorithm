@@ -1,8 +1,8 @@
 import { Comparator } from '../../../../utils';
-import { BinarySearchTreeInterface, BinarySearchTreeNodeInterface, traverseCallback } from '../../binarySearchTree/types';
+import { BinarySearchTree, BinarySearchTreeNode, traverseCallback } from '../../binarySearchTree';
 
 export type RedBlackTreeColor = 'r' | 'b';
-export type CompleteRedBlackTreeNode<T = unknown> = BinarySearchTreeNodeInterface<RedBlackTreeNodeInterface<T>>;
+export type CompleteRedBlackTreeNode<T = unknown> = BinarySearchTreeNode<RedBlackTreeNodeInterface<T>>;
 
 export interface RedBlackTreeNodeInterface<T = unknown> {
   readonly value: T;
@@ -16,7 +16,7 @@ export interface RedBlackTreeNodeInterface<T = unknown> {
 }
 
 export interface RedBlackTreeInterface<T = unknown> {
-  readonly binarySearchTree: BinarySearchTreeInterface<RedBlackTreeNodeInterface<T>>;
+  readonly binarySearchTree: BinarySearchTree<RedBlackTreeNodeInterface<T>>;
   readonly comparator: Comparator;
   readonly root: CompleteRedBlackTreeNode<T> | null;
   setRoot: (root: CompleteRedBlackTreeNode<T> | null) => this;

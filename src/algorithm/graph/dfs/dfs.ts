@@ -1,9 +1,9 @@
-import { GraphInterface, GraphVertexInterface } from '../../../dataStructures/graph';
+import { Graph, GraphVertex } from '../../../dataStructures/graph';
 
 interface CallbackParams {
-  previousVertex: GraphVertexInterface | null;
-  currentVertex: GraphVertexInterface;
-  nextVertex: GraphVertexInterface;
+  previousVertex: GraphVertex | null;
+  currentVertex: GraphVertex;
+  nextVertex: GraphVertex;
 }
 
 interface CallbackConfig {
@@ -20,7 +20,7 @@ function defaultEnterVertex(params: Omit<CallbackParams, 'nextVertex'>): void {
 function defaultLeaveVertex(params: Omit<CallbackParams, 'nextVertex'>): void {
 }
 
-export function dfs(graph: GraphInterface, startVertex: GraphVertexInterface, callbackConfig?: Partial<CallbackConfig>) {
+export function dfs(graph: Graph, startVertex: GraphVertex, callbackConfig?: Partial<CallbackConfig>) {
   const visitedVertices = Object.keys(graph.vertices)
     .reduce((prev, current) => {
       prev[String[current]] = false;

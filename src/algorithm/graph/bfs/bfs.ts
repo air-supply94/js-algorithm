@@ -1,10 +1,10 @@
-import { GraphInterface, GraphVertexInterface } from '../../../dataStructures/graph';
+import { Graph, GraphVertex } from '../../../dataStructures/graph';
 import { Queue } from '../../../dataStructures/queue';
 
 interface CallbackParams {
-  previousVertex: GraphVertexInterface | null;
-  currentVertex: GraphVertexInterface;
-  nextVertex: GraphVertexInterface;
+  previousVertex: GraphVertex | null;
+  currentVertex: GraphVertex;
+  nextVertex: GraphVertex;
 }
 
 interface CallbackConfig {
@@ -21,7 +21,7 @@ function defaultEnterVertex(params: Omit<CallbackParams, 'nextVertex'>): void {
 function defaultLeaveVertex(params: Omit<CallbackParams, 'nextVertex'>): void {
 }
 
-export function bfs(graph: GraphInterface, startVertex: null | GraphVertexInterface, callbackConfig?: Partial<CallbackConfig>) {
+export function bfs(graph: Graph, startVertex: null | GraphVertex, callbackConfig?: Partial<CallbackConfig>) {
   const visitedVertices = Object.keys(graph.vertices)
     .reduce((prev, current) => {
       prev[String[current]] = false;
@@ -40,7 +40,7 @@ export function bfs(graph: GraphInterface, startVertex: null | GraphVertexInterf
   const enterVertex = callbackConfig && callbackConfig.enterVertex ? callbackConfig.enterVertex : defaultEnterVertex;
   const leaveVertex = callbackConfig && callbackConfig.leaveVertex ? callbackConfig.leaveVertex : defaultLeaveVertex;
   const allowTraversal = callbackConfig && callbackConfig.allowTraversal ? callbackConfig.allowTraversal : defaultAllowTraversal;
-  const vertexQueue = new Queue<GraphVertexInterface>();
+  const vertexQueue = new Queue<GraphVertex>();
 
   vertexQueue.enqueue(startVertex);
 

@@ -1,6 +1,6 @@
-import { BinarySearchTreeNodeInterface } from '../types';
+import { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function invertTree<T = unknown>(root: BinarySearchTreeNodeInterface<T> | null): BinarySearchTreeNodeInterface<T> | null {
+export function invertTree<T = unknown>(root: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> | null {
   if (!root) {
     return null;
   }
