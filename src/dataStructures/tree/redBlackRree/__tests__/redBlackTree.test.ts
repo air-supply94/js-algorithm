@@ -1,4 +1,4 @@
-import { getHeight } from '../../binarySearchTree';
+import { getHeight, nodeToString } from '../../binarySearchTree';
 import { RedBlackTree } from '../redBlackTree';
 import { CompleteRedBlackTreeNode, RedBlackTreeNodeInterface } from '../types';
 
@@ -32,7 +32,7 @@ describe('RedBlackTree', () => {
       .toBe(false);
     expect(tree.contains(20))
       .toBeTruthy();
-    expect(firstInsertedNode.toString())
+    expect(nodeToString(firstInsertedNode))
       .toBe('20');
     expect(tree.comparator)
       .toBeDefined();

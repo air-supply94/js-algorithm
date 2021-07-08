@@ -1,4 +1,5 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
+import { setLeft, setRight } from '../utils';
 
 export function serializePostOrder<T = unknown>(array: T[]): BinarySearchTreeNode<T> | null {
   let i = array.length - 1;
@@ -14,8 +15,8 @@ export function serializePostOrder<T = unknown>(array: T[]): BinarySearchTreeNod
     }
 
     const rootNode = new BinarySearchTreeNode<T>(value);
-    rootNode.setRight(recursion());
-    rootNode.setLeft(recursion());
+    setRight(rootNode, recursion());
+    setLeft(rootNode, recursion());
     return rootNode;
   }
 

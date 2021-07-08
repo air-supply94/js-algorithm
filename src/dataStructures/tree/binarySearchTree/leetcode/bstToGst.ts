@@ -9,7 +9,7 @@ export function bstToGst(root: BinarySearchTreeNode<number> | null): BinarySearc
 
     inorderTraverse(rootNode.right);
     sum += rootNode.value;
-    rootNode.setValue(sum);
+    rootNode.value = sum;
     inorderTraverse(rootNode.left);
   }
 

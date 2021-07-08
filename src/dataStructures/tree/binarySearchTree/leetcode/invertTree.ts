@@ -1,4 +1,5 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
+import { setLeft, setRight } from '../utils';
 
 export function invertTree<T = unknown>(root: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> | null {
   if (!root) {
@@ -6,8 +7,8 @@ export function invertTree<T = unknown>(root: BinarySearchTreeNode<T> | null): B
   }
 
   const tmp = root.right;
-  root.setRight(root.left);
-  root.setLeft(tmp);
+  setRight(root, root.left);
+  setLeft(root, tmp);
 
   invertTree<T>(root.left);
   invertTree<T>(root.right);

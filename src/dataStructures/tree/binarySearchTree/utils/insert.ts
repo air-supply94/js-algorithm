@@ -1,5 +1,6 @@
 import { Comparator } from '../../../../utils';
 import { BinarySearchTreeNode } from '../binarySearchTree';
+import { setLeft, setRight } from './nodeOperate';
 
 export function insert<T = unknown>(
   root: null | BinarySearchTreeNode<T>,
@@ -20,7 +21,7 @@ export function insert<T = unknown>(
       return insert<T>(root.left, value, comparator);
     } else {
       const newNode = new BinarySearchTreeNode<T>(value);
-      root.setLeft(newNode);
+      setLeft(root, newNode);
       return newNode;
     }
   } else if (comparator.greaterThan(value, root.value)) {
@@ -28,7 +29,7 @@ export function insert<T = unknown>(
       return insert<T>(root.right, value, comparator);
     } else {
       const newNode = new BinarySearchTreeNode<T>(value);
-      root.setRight(newNode);
+      setRight(root, newNode);
       return newNode;
     }
   } else {

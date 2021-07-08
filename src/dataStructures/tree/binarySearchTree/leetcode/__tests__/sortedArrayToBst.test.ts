@@ -1,3 +1,4 @@
+import { nodeToString } from '../../utils';
 import { sortedArrayToBst } from '../sortedArrayToBst';
 
 test('sortedArrayToBst', () => {
@@ -17,6 +18,6 @@ test('sortedArrayToBst', () => {
     .toBe(1);
   expect(node.right.value)
     .toBe(4);
-  expect(node.toString())
+  expect(nodeToString(node))
     .toBe('1,2,3,4,5');
 });

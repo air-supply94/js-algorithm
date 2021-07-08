@@ -1,87 +1,99 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
+import { getBalanceFactor } from './height';
+import { setLeft, setRight } from './nodeOperate';
 
-export function rotateLeftLeft<T = unknown>(
-  rootNode: BinarySearchTreeNode<T>,
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  setRoot: Function
-): void {
+export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
   const leftNode = rootNode.left;
-  rootNode.setLeft(null);
+  setLeft(rootNode, null);
 
   if (!rootNode.parent) {
     setRoot(leftNode);
   } else if (rootNode.parent.left === rootNode) {
-    rootNode.parent.setLeft(leftNode);
+    setLeft(rootNode.parent, leftNode);
   } else {
-    rootNode.parent.setRight(leftNode);
+    setRight(rootNode.parent, leftNode);
   }
 
   if (leftNode.right) {
     const leftRightNode = leftNode.right;
-    leftNode.setRight(null);
-    rootNode.setLeft(leftRightNode);
+    setRight(leftNode, null);
+    setLeft(rootNode, leftRightNode);
   }
 
-  leftNode.setRight(rootNode);
+  setRight(leftNode, rootNode);
 }
 
 export function rotateLeftRight<T = unknown>(rootNode: BinarySearchTreeNode<T>): void {
   const leftNode = rootNode.left;
-  rootNode.setLeft(null);
+  setLeft(rootNode, null);
 
   const leftRightNode = leftNode.right;
-  leftNode.setRight(null);
+  setRight(leftNode, null);
 
   if (leftRightNode.left) {
     const leftRightLeftNode = leftRightNode.left;
-    leftRightNode.setLeft(null);
-    leftNode.setRight(leftRightLeftNode);
+    setLeft(leftRightNode, null);
+    setRight(leftNode, leftRightLeftNode);
   }
 
-  rootNode.setLeft(leftRightNode);
+  setLeft(rootNode, leftRightNode);
 
-  leftRightNode.setLeft(leftNode);
+  setLeft(leftRightNode, leftNode);
 }
 
 export function rotateRightLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>): void {
   const rightNode = rootNode.right;
-  rootNode.setRight(null);
+  setRight(rootNode, null);
 
   const rightLeftNode = rightNode.left;
-  rightNode.setLeft(null);
+  setLeft(rightNode, null);
 
   if (rightLeftNode.right) {
     const rightLeftRightNode = rightLeftNode.right;
-    rightLeftNode.setRight(null);
-    rightNode.setLeft(rightLeftRightNode);
+    setRight(rightLeftNode, null);
+    setLeft(rightNode, rightLeftRightNode);
   }
 
-  rootNode.setRight(rightLeftNode);
+  setRight(rootNode, rightLeftNode);
 
-  rightLeftNode.setRight(rightNode);
+  setRight(rightLeftNode, rightNode);
 }
 
-export function rotateRightRight<T = unknown>(
-  rootNode: BinarySearchTreeNode<T>,
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  setRoot: Function
-): void {
+export function rotateRightRight<T = unknown>(rootNode: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
   const rightNode = rootNode.right;
-  rootNode.setRight(null);
+  setRight(rootNode, null);
 
   if (!rootNode.parent) {
     setRoot(rightNode);
   } else if (rootNode.parent.right === rootNode) {
-    rootNode.parent.setRight(rightNode);
+    setRight(rootNode.parent, rightNode);
   } else {
-    rootNode.parent.setLeft(rightNode);
+    setLeft(rootNode.parent, rightNode);
   }
 
   if (rightNode.left) {
     const rightLeftNode = rightNode.left;
-    rightNode.setLeft(null);
-    rootNode.setRight(rightLeftNode);
+    setLeft(rightNode, null);
+    setRight(rootNode, rightLeftNode);
   }
 
-  rightNode.setLeft(rootNode);
+  setLeft(rightNode, rootNode);
+}
+
+export function balance<T = unknown>(root: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
+  if (getBalanceFactor<T>(root) > 1) {
+    if (getBalanceFactor<T>(root.left) > 0) {
+      rotateLeftLeft<T>(root, setRoot);
+    } else {
+      rotateLeftRight<T>(root);
+      rotateLeftLeft<T>(root, setRoot);
+    }
+  } else if (getBalanceFactor<T>(root) < -1) {
+    if (getBalanceFactor<T>(root.right) < 0) {
+      rotateRightRight<T>(root, setRoot);
+    } else {
+      rotateRightLeft<T>(root);
+      rotateRightRight<T>(root, setRoot);
+    }
+  }
 }

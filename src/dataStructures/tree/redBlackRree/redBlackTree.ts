@@ -1,5 +1,5 @@
 import { Comparator, compareFunctionType } from '../../../utils';
-import { BinarySearchTree, findReplaceNode, getUncle, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight, traverseCallback } from '../binarySearchTree';
+import { BinarySearchTree, findReplaceNode, getUncle, removeChild, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight, traverseCallback } from '../binarySearchTree';
 import { RedBlackTreeNode } from './redBlackTreeNode';
 import { CompleteRedBlackTreeNode, RedBlackTreeInterface, RedBlackTreeNodeInterface } from './types';
 
@@ -144,7 +144,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
   public readonly binarySearchTree: BinarySearchTree<RedBlackTreeNodeInterface<T>>;
 
   public setRoot(root: CompleteRedBlackTreeNode<T> | null): this {
-    this.binarySearchTree.setRoot(root);
+    this.binarySearchTree.root = root;
     return this;
   }
 
@@ -245,7 +245,7 @@ export class RedBlackTree<T = unknown> implements RedBlackTreeInterface<T> {
       this.removeBalance(replaceNode);
     }
 
-    replaceNode.parent.removeChild(replaceNode);
+    removeChild(replaceNode.parent, replaceNode);
     return replaceNode;
   }
 }

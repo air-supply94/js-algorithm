@@ -1,4 +1,5 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
+import { setLeft, setRight } from '../utils';
 
 export function serializePreOrder<T = unknown>(array: T[]): BinarySearchTreeNode<T> | null {
   let i = 0;
@@ -15,8 +16,8 @@ export function serializePreOrder<T = unknown>(array: T[]): BinarySearchTreeNode
 
     const node = new BinarySearchTreeNode<T>(value);
 
-    node.setLeft(serialize());
-    node.setRight(serialize());
+    setLeft(node, serialize());
+    setRight(node, serialize());
     return node;
   }
 

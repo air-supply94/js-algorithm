@@ -1,4 +1,5 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
+import { setLeft, setRight } from '../utils';
 
 export function flattenToLinkedList<T = unknown>(root: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> | null {
   if (!root) {
@@ -10,14 +11,14 @@ export function flattenToLinkedList<T = unknown>(root: BinarySearchTreeNode<T> |
   const left = root.left;
   const right = root.right;
 
-  root.setLeft(null);
-  root.setRight(left);
+  setLeft(root, null);
+  setRight(root, left);
 
   let current = root;
   while (current.right) {
     current = current.right;
   }
-  current.setRight(right);
+  setRight(current, right);
 
   return root;
 }

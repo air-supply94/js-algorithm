@@ -1,4 +1,5 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
+import { setLeft, setRight } from '../utils';
 
 export function constructMaximumTree(num: number[]): BinarySearchTreeNode<number> | null {
   return recursion(num, 0, num.length - 1);
@@ -20,7 +21,7 @@ function recursion(num: number[], startIndex: number, endIndex: number): BinaryS
   }
 
   const root = new BinarySearchTreeNode<number>(maxValue);
-  root.setLeft(recursion(num, startIndex, maxIndex - 1));
-  root.setRight(recursion(num, maxIndex + 1, endIndex));
+  setLeft(root, recursion(num, startIndex, maxIndex - 1));
+  setRight(root, recursion(num, maxIndex + 1, endIndex));
   return root;
 }

@@ -6,6 +6,7 @@ export * from './find';
 export * from './findMin';
 export * from './findMax';
 export * from './insert';
+export * from './nodeOperate';
 export * from './findReplaceNode';
 export * from './height';
 export * from './getUncle';

@@ -1,14 +1,8 @@
 import { Comparator, compareFunctionType } from '../../../utils';
-import { BinarySearchTree, BinarySearchTreeNode, getBalanceFactor, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight, traverseCallback } from '../binarySearchTree';
+import { balance, BinarySearchTree, BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
 export class AvlTree<T = unknown> {
-  public get comparator(): Comparator {
-    return this.binarySearchTree.comparator;
-  }
-
-  public get root(): BinarySearchTreeNode<T> | null {
-    return this.binarySearchTree.root;
-  }
+  private readonly binarySearchTree: BinarySearchTree<T>;
 
   constructor(
     compareFunction?: compareFunctionType | Comparator,
@@ -17,42 +11,24 @@ export class AvlTree<T = unknown> {
       replaceNode: BinarySearchTreeNode<T>
     ): void {
       const tmpValue = tmpNode.value;
-      tmpNode.setValue(replaceNode.value);
-      replaceNode.setValue(tmpValue);
+      tmpNode.value = replaceNode.value;
+      replaceNode.value = tmpValue;
     }
   ) {
     this.binarySearchTree = new BinarySearchTree<T>(compareFunction, true, swap);
     this.setRoot = this.setRoot.bind(this);
   }
 
-  public readonly binarySearchTree: BinarySearchTree<T>;
-
-  public setRoot(root: BinarySearchTreeNode<T> | null): this {
-    this.binarySearchTree.setRoot(root);
-    return this;
+  public get comparator(): Comparator {
+    return this.binarySearchTree.comparator;
   }
 
-  public toString(): string {
-    return this.binarySearchTree.toString();
+  public get root(): BinarySearchTreeNode<T> | null {
+    return this.binarySearchTree.root;
   }
 
-  public balance(node: BinarySearchTreeNode<T>): this {
-    if (getBalanceFactor<T>(node) > 1) {
-      if (getBalanceFactor<T>(node.left) > 0) {
-        rotateLeftLeft<T>(node, this.setRoot);
-      } else if (getBalanceFactor<T>(node.left) < 0) {
-        rotateLeftRight<T>(node);
-        rotateLeftLeft<T>(node, this.setRoot);
-      }
-    } else if (getBalanceFactor<T>(node) < -1) {
-      if (getBalanceFactor<T>(node.right) < 0) {
-        rotateRightRight<T>(node, this.setRoot);
-      } else if (getBalanceFactor<T>(node.right) > 0) {
-        rotateRightLeft<T>(node);
-        rotateRightRight<T>(node, this.setRoot);
-      }
-    }
-    return this;
+  public setRoot(root: BinarySearchTreeNode<T> | null): void {
+    this.binarySearchTree.root = root;
   }
 
   public find(value: T): null | BinarySearchTreeNode<T> {
@@ -107,7 +83,7 @@ export class AvlTree<T = unknown> {
     const node = this.binarySearchTree.insert(value);
     let currentNode = node;
     while (currentNode) {
-      this.balance(currentNode);
+      balance(currentNode, this.setRoot);
       currentNode = currentNode.parent;
     }
 
@@ -118,9 +94,13 @@ export class AvlTree<T = unknown> {
     const node = this.binarySearchTree.remove(value);
     let removeNode = node;
     while (removeNode && removeNode.parent) {
-      this.balance(removeNode.parent);
+      balance(removeNode.parent, this.setRoot);
       removeNode = removeNode.parent;
     }
     return node;
+  }
+
+  public toString(): string {
+    return this.binarySearchTree.toString();
   }
 }

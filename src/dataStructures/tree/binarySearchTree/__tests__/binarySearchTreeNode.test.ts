@@ -1,5 +1,5 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
-import { getBalanceFactor, getHeight, getUncle } from '../utils';
+import { getBalanceFactor, getHeight, getUncle, nodeToString, removeChild, replaceChild, setLeft, setRight } from '../utils';
 
 describe('BinarySearchTreeNode', () => {
   test('should create node', () => {
@@ -19,9 +19,8 @@ describe('BinarySearchTreeNode', () => {
     const rightNode = new BinarySearchTreeNode(3);
     const rootNode = new BinarySearchTreeNode(2);
 
-    rootNode
-      .setLeft(leftNode)
-      .setRight(rightNode);
+    setLeft(rootNode, leftNode);
+    setRight(rootNode, rightNode);
 
     expect(rootNode.value)
       .toBe(2);
@@ -35,12 +34,11 @@ describe('BinarySearchTreeNode', () => {
     const leftNode = new BinarySearchTreeNode(1);
     const rightNode = new BinarySearchTreeNode(3);
     const rootNode = new BinarySearchTreeNode(2);
-    expect(rightNode.removeChild(leftNode))
+    expect(removeChild(rightNode, leftNode))
       .toBeFalsy();
 
-    rootNode
-      .setLeft(leftNode)
-      .setRight(rightNode);
+    setLeft(rootNode, leftNode);
+    setRight(rootNode, rightNode);
 
     expect(rootNode.parent)
       .toBeNull();
@@ -57,26 +55,25 @@ describe('BinarySearchTreeNode', () => {
     const rightNode = new BinarySearchTreeNode(3);
     const rootNode = new BinarySearchTreeNode(2);
 
-    rootNode
-      .setLeft(leftNode)
-      .setRight(rightNode);
+    setLeft(rootNode, leftNode);
+    setRight(rootNode, rightNode);
 
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toBe('1,2,3');
 
-    expect(rootNode.removeChild(rootNode.left))
+    expect(removeChild(rootNode, rootNode.left))
       .toBe(true);
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toBe('2,3');
 
-    expect(rootNode.removeChild(rootNode.right))
+    expect(removeChild(rootNode, rootNode.right))
       .toBe(true);
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toEqual('2');
 
-    expect(rootNode.removeChild(rootNode.right))
+    expect(removeChild(rootNode, rootNode.right))
       .toBe(false);
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toBe('2');
   });
 
@@ -85,44 +82,43 @@ describe('BinarySearchTreeNode', () => {
     const rightNode = new BinarySearchTreeNode(3);
     const rootNode = new BinarySearchTreeNode(2);
 
-    rootNode
-      .setLeft(leftNode)
-      .setRight(rightNode);
+    setLeft(rootNode, leftNode);
+    setRight(rootNode, rightNode);
 
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toBe('1,2,3');
 
     const replacementNode = new BinarySearchTreeNode(5);
-    rightNode.setRight(replacementNode);
+    setRight(rightNode, replacementNode);
 
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toEqual('1,2,3,5');
 
-    expect(rootNode.replaceChild(rootNode.right, rootNode.right.right))
+    expect(replaceChild(rootNode, rootNode.right, rootNode.right.right))
       .toBe(true);
     expect(rootNode.right.value)
       .toBe(5);
     expect(rootNode.right.right)
       .toBeNull();
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toBe('1,2,5');
 
-    expect(rootNode.replaceChild(rootNode.right, rootNode.right.right))
+    expect(replaceChild(rootNode, rootNode.right, rootNode.right.right))
       .toBe(false);
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toBe('1,2,5');
 
-    expect(rootNode.replaceChild(rootNode.right, replacementNode))
+    expect(replaceChild(rootNode, rootNode.right, replacementNode))
       .toBe(true);
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toBe('1,2,5');
 
-    expect(rootNode.replaceChild(rootNode.left, replacementNode))
+    expect(replaceChild(rootNode, rootNode.left, replacementNode))
       .toBe(true);
-    expect(rootNode.toString())
+    expect(nodeToString(rootNode))
       .toBe('5,2,5');
 
-    expect(rootNode.replaceChild(new BinarySearchTreeNode(), new BinarySearchTreeNode()))
+    expect(replaceChild(rootNode, new BinarySearchTreeNode(), new BinarySearchTreeNode()))
       .toBe(false);
   });
 
@@ -139,9 +135,8 @@ describe('BinarySearchTreeNode', () => {
     expect(getBalanceFactor(root))
       .toBe(0);
 
-    root
-      .setLeft(left)
-      .setRight(right);
+    setLeft(root, left);
+    setRight(root, right);
 
     expect(getHeight(root))
       .toBe(1);
@@ -150,9 +145,8 @@ describe('BinarySearchTreeNode', () => {
     expect(getBalanceFactor(root))
       .toBe(0);
 
-    left
-      .setLeft(grandLeft)
-      .setRight(grandRight);
+    setLeft(left, grandLeft);
+    setRight(left, grandRight);
 
     expect(getHeight(root))
       .toBe(2);
@@ -165,7 +159,7 @@ describe('BinarySearchTreeNode', () => {
     expect(getBalanceFactor(root))
       .toBe(1);
 
-    grandLeft.setLeft(grandGrandLeft);
+    setLeft(grandLeft, grandGrandLeft);
 
     expect(getHeight(root))
       .toBe(3);
@@ -185,7 +179,7 @@ describe('BinarySearchTreeNode', () => {
     const root = new BinarySearchTreeNode(1);
     const right = new BinarySearchTreeNode(2);
 
-    root.setRight(right);
+    setRight(root, right);
 
     expect(getHeight(root))
       .toBe(1);
@@ -200,16 +194,16 @@ describe('BinarySearchTreeNode', () => {
     const left = new BinarySearchTreeNode(1);
     const right = new BinarySearchTreeNode(3);
 
-    root.setLeft(left);
-    root.setRight(right);
+    setLeft(root, left);
+    setRight(root, right);
 
     expect(root.left.value)
       .toBe(1);
     expect(root.right.value)
       .toBe(3);
 
-    root.setLeft(null);
-    root.setRight(null);
+    setLeft(root, null);
+    setRight(root, null);
 
     expect(root.left)
       .toBeNull();
@@ -227,7 +221,7 @@ describe('BinarySearchTreeNode', () => {
     const node1 = new BinarySearchTreeNode(obj1);
     const node2 = new BinarySearchTreeNode(obj2);
 
-    node1.setLeft(node2);
+    setLeft(node1, node2);
 
     expect(node1.value)
       .toEqual(obj1);
@@ -236,7 +230,7 @@ describe('BinarySearchTreeNode', () => {
     expect(node1.left.value)
       .toEqual(obj2);
 
-    node1.removeChild(node2);
+    removeChild(node1, node2);
 
     expect(node1.value)
       .toEqual(obj1);
@@ -245,9 +239,9 @@ describe('BinarySearchTreeNode', () => {
     expect(node1.left)
       .toBeNull();
 
-    expect(node1.toString())
+    expect(nodeToString(node1))
       .toBe('object_1');
-    expect(node2.toString())
+    expect(nodeToString(node2))
       .toBe('[object Object]');
   });
 
@@ -264,19 +258,19 @@ describe('BinarySearchTreeNode', () => {
     expect(getUncle(parent))
       .toBeNull();
 
-    grandParent.setLeft(parent);
+    setLeft(grandParent, parent);
 
     expect(getUncle(parent))
       .toBeNull();
     expect(getUncle(child))
       .toBeNull();
 
-    parent.setLeft(child);
+    setLeft(parent, child);
 
     expect(getUncle(child))
       .toBeNull();
 
-    grandParent.setRight(uncle);
+    setRight(grandParent, uncle);
 
     expect(getUncle(parent))
       .toBeNull();
@@ -297,19 +291,19 @@ describe('BinarySearchTreeNode', () => {
     expect(getUncle(parent))
       .toBeNull();
 
-    grandParent.setRight(parent);
+    setRight(grandParent, parent);
 
     expect(getUncle(parent))
       .toBeNull();
     expect(getUncle(child))
       .toBeNull();
 
-    parent.setRight(child);
+    setRight(parent, child);
 
     expect(getUncle(child))
       .toBeNull();
 
-    grandParent.setLeft(uncle);
+    setLeft(grandParent, uncle);
 
     expect(getUncle(parent))
       .toBeNull();
@@ -325,7 +319,7 @@ describe('BinarySearchTreeNode', () => {
     expect(node.value)
       .toBe('initial_value');
 
-    node.setValue('new_value');
+    node.value = 'new_value';
 
     expect(node.value)
       .toBe('new_value');
@@ -336,31 +330,29 @@ describe('BinarySearchTreeNode', () => {
     const left = new BinarySearchTreeNode('left');
     const right = new BinarySearchTreeNode('right');
 
-    root
-      .setLeft(left)
-      .setRight(right);
+    setLeft(root, left);
+    setRight(root, right);
 
-    expect(root.toString())
+    expect(nodeToString(root))
       .toBe('left,root,right');
 
     const newRoot = new BinarySearchTreeNode('new_root');
     const newLeft = new BinarySearchTreeNode('new_left');
     const newRight = new BinarySearchTreeNode('new_right');
 
-    newRoot
-      .setLeft(newLeft)
-      .setRight(newRight);
+    setLeft(newRoot, newLeft);
+    setRight(newRoot, newRight);
 
-    expect(newRoot.toString())
+    expect(nodeToString(newRoot))
       .toBe('new_left,new_root,new_right');
 
-    newRoot.setValue(root.value)
-      .setLeft(root.left)
-      .setRight(root.right);
+    newRoot.value = root.value;
+    newRoot.left = root.left;
+    newRoot.right = root.right;
 
-    expect(root.toString())
+    expect(nodeToString(root))
       .toBe('left,root,right');
-    expect(root.toString())
+    expect(nodeToString(root))
       .toBe('left,root,right');
   });
 

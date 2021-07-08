@@ -1,5 +1,6 @@
 import { Queue } from '../../../queue';
 import { BinarySearchTreeNode } from '../binarySearchTree';
+import { setLeft, setRight } from '../utils';
 
 export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNode<T> | null {
   if (!array.length) {
@@ -17,7 +18,7 @@ export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNo
     const leftValue = array[i];
     i++;
     if (leftValue != null) {
-      currentNode.setLeft(new BinarySearchTreeNode<T>(leftValue));
+      setLeft(currentNode, new BinarySearchTreeNode<T>(leftValue));
       queue.enqueue(currentNode.left);
     }
 
@@ -28,7 +29,7 @@ export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNo
     const rightValue = array[i];
     i++;
     if (rightValue != null) {
-      currentNode.setRight(new BinarySearchTreeNode<T>(rightValue));
+      setRight(currentNode, new BinarySearchTreeNode<T>(rightValue));
       queue.enqueue(currentNode.right);
     }
   }

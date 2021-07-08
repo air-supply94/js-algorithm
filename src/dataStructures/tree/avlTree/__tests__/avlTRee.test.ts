@@ -9,22 +9,16 @@ describe('AvlTree', () => {
       replaceNode: BinarySearchTreeNode
     ): void => {
       const tmpValue = tmpNode.value;
-      tmpNode.setValue(replaceNode.value);
-      replaceNode.setValue(tmpValue);
+      tmpNode.value = replaceNode.value;
+      replaceNode.value = tmpValue;
     }));
-    tree.binarySearchTree.insert(1);
-    tree.binarySearchTree.insert(3);
-    tree.binarySearchTree.insert(4);
-    tree.binarySearchTree.insert(2);
-    tree.balance(tree.root);
+    tree.insert(1);
+    tree.insert(3);
+    tree.insert(4);
+    tree.insert(2);
 
-    tree.binarySearchTree.setRoot(null);
-    tree.binarySearchTree.insert(4);
-    tree.binarySearchTree.insert(2);
-    tree.binarySearchTree.insert(1);
-    tree.binarySearchTree.insert(3);
-    tree.balance(tree.root);
-    tree.binarySearchTree.setRoot(null);
+    expect(tree.toString())
+      .toBe('1,2,3,4');
   });
 
   test('should do simple left-left rotation', () => {

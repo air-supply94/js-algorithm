@@ -1,3 +1,4 @@
+import { nodeToString } from '../../utils';
 import { serializeLevelOrder } from '../serializeLevelOrder';
 
 test('serializeLevelOrder', () => {
@@ -29,6 +30,6 @@ test('serializeLevelOrder', () => {
     .toBe(1);
   expect(root.right.value)
     .toBe(4);
-  expect(root.toString())
+  expect(nodeToString(root))
     .toBe('1,2,3,4,5');
 });
