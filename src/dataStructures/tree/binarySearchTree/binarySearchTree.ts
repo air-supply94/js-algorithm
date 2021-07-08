@@ -1,12 +1,18 @@
 import { Comparator, compareFunctionType } from '../../../utils';
 import { find, findMax, findMin, findReplaceNode, insert, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder } from './utils';
 
+export enum color {
+  red = 0,
+  black = 1,
+}
+
 export class BinarySearchTreeNode<T = unknown> {
   constructor(value = null) {
     this.left = null;
     this.right = null;
     this.parent = null;
     this.value = value;
+    this.color = color.red;
   }
 
   public left: null | BinarySearchTreeNode<T>;
@@ -16,35 +22,20 @@ export class BinarySearchTreeNode<T = unknown> {
   public parent: null | BinarySearchTreeNode<T>;
 
   public value: T;
+
+  public color: color;
 }
 
 export type traverseCallback<T = unknown> = (node: BinarySearchTreeNode<T>, height?: number) => void | boolean;
 
 export class BinarySearchTree<T = unknown> {
-  constructor(
-    compareFunction?: compareFunctionType | Comparator,
-    isFindMin = true,
-    swap = function(
-      tmpNode: BinarySearchTreeNode<T>,
-      replaceNode: BinarySearchTreeNode<T>
-    ): void {
-      const tmpValue = tmpNode.value;
-      tmpNode.value = replaceNode.value;
-      replaceNode.value = tmpValue;
-    }
-  ) {
+  constructor(compareFunction?: compareFunctionType | Comparator, isFindMin = true) {
     this.comparator = new Comparator(compareFunction);
-    this.swap = swap;
     this.isFindMin = isFindMin;
     this.root = null;
   }
 
   private readonly isFindMin: boolean;
-
-  private readonly swap: (
-    tmpNode: BinarySearchTreeNode<T>,
-    replaceNode: BinarySearchTreeNode<T>,
-  ) => void;
 
   public root: BinarySearchTreeNode<T> | null;
 
@@ -63,7 +54,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public remove(value: T): BinarySearchTreeNode<T> | null {
-    const replaceNode = findReplaceNode<T>(this.root, value, this.comparator, this.isFindMin, this.swap);
+    const replaceNode = findReplaceNode<T>(this.root, value, this.comparator, this.isFindMin);
     if (replaceNode) {
       if (!replaceNode.parent) {
         this.root = null;

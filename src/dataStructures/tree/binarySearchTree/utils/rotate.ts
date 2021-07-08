@@ -1,5 +1,4 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
-import { getBalanceFactor } from './height';
 import { setLeft, setRight } from './nodeOperate';
 
 export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
@@ -80,20 +79,3 @@ export function rotateRightRight<T = unknown>(rootNode: BinarySearchTreeNode<T>,
   setLeft(rightNode, rootNode);
 }
 
-export function balance<T = unknown>(root: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
-  if (getBalanceFactor<T>(root) > 1) {
-    if (getBalanceFactor<T>(root.left) > 0) {
-      rotateLeftLeft<T>(root, setRoot);
-    } else {
-      rotateLeftRight<T>(root);
-      rotateLeftLeft<T>(root, setRoot);
-    }
-  } else if (getBalanceFactor<T>(root) < -1) {
-    if (getBalanceFactor<T>(root.right) < 0) {
-      rotateRightRight<T>(root, setRoot);
-    } else {
-      rotateRightLeft<T>(root);
-      rotateRightRight<T>(root, setRoot);
-    }
-  }
-}

@@ -1,23 +1,13 @@
 import { Comparator, compareFunctionType } from '../../../utils';
-import { balance, BinarySearchTree, BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
+import { avlTreeBalance, BinarySearchTree, BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
 export class AvlTree<T = unknown> {
-  private readonly binarySearchTree: BinarySearchTree<T>;
-
-  constructor(
-    compareFunction?: compareFunctionType | Comparator,
-    swap = function(
-      tmpNode: BinarySearchTreeNode<T>,
-      replaceNode: BinarySearchTreeNode<T>
-    ): void {
-      const tmpValue = tmpNode.value;
-      tmpNode.value = replaceNode.value;
-      replaceNode.value = tmpValue;
-    }
-  ) {
-    this.binarySearchTree = new BinarySearchTree<T>(compareFunction, true, swap);
+  constructor(compareFunction?: compareFunctionType | Comparator) {
+    this.binarySearchTree = new BinarySearchTree<T>(compareFunction, true);
     this.setRoot = this.setRoot.bind(this);
   }
+
+  private readonly binarySearchTree: BinarySearchTree<T>;
 
   public get comparator(): Comparator {
     return this.binarySearchTree.comparator;
@@ -83,7 +73,7 @@ export class AvlTree<T = unknown> {
     const node = this.binarySearchTree.insert(value);
     let currentNode = node;
     while (currentNode) {
-      balance(currentNode, this.setRoot);
+      avlTreeBalance(currentNode, this.setRoot);
       currentNode = currentNode.parent;
     }
 
@@ -94,7 +84,7 @@ export class AvlTree<T = unknown> {
     const node = this.binarySearchTree.remove(value);
     let removeNode = node;
     while (removeNode && removeNode.parent) {
-      balance(removeNode.parent, this.setRoot);
+      avlTreeBalance(removeNode.parent, this.setRoot);
       removeNode = removeNode.parent;
     }
     return node;
