@@ -13,7 +13,7 @@ export function redBlackTreeInsertBalance<T = unknown>(node: BinarySearchTreeNod
     return;
   }
 
-  if (node.parent.color) {
+  if (node.parent.color === color.black) {
     return;
   }
 
