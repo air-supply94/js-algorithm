@@ -1,19 +1,7 @@
 import { backspaceCompare } from '../backspaceCompare';
-import { balanceSymbol } from '../balanceSymbol';
 import { calPoints } from '../calPoints';
 import { decodeString } from '../decodeString';
 import { postfix } from '../postfix';
-
-test('balanceSymbol', () => {
-  expect(balanceSymbol('(aaa)[]['))
-    .toBeFalsy();
-  expect(balanceSymbol('[aaa)[]]'))
-    .toBeFalsy();
-  expect(balanceSymbol('}]aaa()[]'))
-    .toBeFalsy();
-  expect(balanceSymbol('([({})[{}]])aaa()[]'))
-    .toBeTruthy();
-});
 
 test('postfix', () => {
   expect(postfix([
