@@ -3,7 +3,6 @@ import { balanceSymbol } from '../balanceSymbol';
 import { calPoints } from '../calPoints';
 import { decodeString } from '../decodeString';
 import { postfix } from '../postfix';
-import { removeDuplicates } from '../removeDuplicates';
 
 test('balanceSymbol', () => {
   expect(balanceSymbol('(aaa)[]['))
@@ -54,11 +53,6 @@ test('backspaceCompare', () => {
     .toBeTruthy();
   expect(backspaceCompare('ab##', 'c#d#'))
     .toBeTruthy();
-});
-
-test('removeDuplicates', () => {
-  expect(removeDuplicates('abbaca'))
-    .toBe('ca');
 });
 
 test('decodeString', () => {
