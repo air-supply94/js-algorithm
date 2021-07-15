@@ -1,4 +1,4 @@
-# 0.0.0 (2021-07-13)
+# 0.0.0 (2021-07-15)
 
 ### Bug Fixes
 
@@ -229,8 +229,10 @@
 - **serialize-pre-order:** add ([52c0c71](https://github.com/air-supply94/js-algorithm/commit/52c0c71e4415104cac0532cbd3120f6ee420c22f))
 - **Set:** add interface ([eac93fc](https://github.com/air-supply94/js-algorithm/commit/eac93fc365de359492d042141c36cbd1359d7cbe))
 - **sieve:** 增加埃拉托色尼算法 ([692b7ab](https://github.com/air-supply94/js-algorithm/commit/692b7ab5a39325e2c48b0bee7d9074b421d16b8f))
+- **stack:** add calculate ([04f3517](https://github.com/air-supply94/js-algorithm/commit/04f35175d0880262efcbe29123a4b2eedfc39bbb))
 - **stack:** add interface ([8cf0709](https://github.com/air-supply94/js-algorithm/commit/8cf0709f63b6e7d5bac7dd90a48870778b41a893))
 - **stack:** add majorityElement ([59025f6](https://github.com/air-supply94/js-algorithm/commit/59025f648094185ea220bc92d328245a53c6cacd))
+- **stack:** add minAddToMakeValid minInsertions ([a1f80f0](https://github.com/air-supply94/js-algorithm/commit/a1f80f0f82522a884a8fa90735abd8290cc466f6))
 - **stack:** 增加 divingBoard ([bffe555](https://github.com/air-supply94/js-algorithm/commit/bffe55587c9923d8c41dcc347e6e11f064ca31e0))
 - **stack:** 增加 hannuo 非递归版本 ([e7f6ec0](https://github.com/air-supply94/js-algorithm/commit/e7f6ec0f9cbadd948508ca2657c5564f88da12cc))
 - **stack:** 增加 leetcode backspaceCompare ([de9000c](https://github.com/air-supply94/js-algorithm/commit/de9000c9957ecbc23ecab2fcf310e1a6042682fb))
