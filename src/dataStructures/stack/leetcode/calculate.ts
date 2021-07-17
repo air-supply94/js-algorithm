@@ -37,7 +37,7 @@ function recursion(s: string[]): number {
       } else if (sign === '*') {
         stack.push(stack.pop() * num);
       } else if (sign === '/') {
-        stack.push(stack.pop() / num | 0);
+        stack.push(Math.floor(stack.pop() / num));
       }
 
       if (c === ')') {
