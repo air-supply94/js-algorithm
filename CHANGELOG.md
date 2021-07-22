@@ -1,4 +1,4 @@
-# 0.0.0 (2021-07-18)
+# 0.0.0 (2021-07-22)
 
 ### Bug Fixes
 
@@ -72,6 +72,7 @@
 - **algorithm/math:** add WSRARes ([d6589c4](https://github.com/air-supply94/js-algorithm/commit/d6589c43f9c6dd469b0a642b4df9f43a136de3b8))
 - **algorithm/other:** add isRectangleCover ([dae0405](https://github.com/air-supply94/js-algorithm/commit/dae04055889731282e7e870c53f4594a28dda527))
 - **algorithm/other:** add isSubsequence ([f111959](https://github.com/air-supply94/js-algorithm/commit/f111959d6a19722ba218580f70e5ac2ab82e705b))
+- **algorithm/other:** add pancakeSort ([474db73](https://github.com/air-supply94/js-algorithm/commit/474db738b37d274ed7ad4175ff4283edd0cc2220))
 - **algorithm/slidingWindow:** add checkInclusion ([e952fc8](https://github.com/air-supply94/js-algorithm/commit/e952fc852e3392f5a1e92fdbb6cd1fa02d20d8d7))
 - **algorithm/slidingWindow:** add lengthOfLongestSubstring ([50e7a5f](https://github.com/air-supply94/js-algorithm/commit/50e7a5f08be352c3201605a599f0ecf668f4228c))
 - **algorithm/slidingWindow:** add minWindow ([1316b41](https://github.com/air-supply94/js-algorithm/commit/1316b4109466ed38bea1dad44868e4cc84d9d4aa))
@@ -197,6 +198,7 @@
 - **longestCommonSubstring:** add ([baea544](https://github.com/air-supply94/js-algorithm/commit/baea5448bcb194840f9b167395a6d4bd1ceba9c3))
 - **longestPalindrome:** add ([af1e5ff](https://github.com/air-supply94/js-algorithm/commit/af1e5ff9c8a7bf9d228bcad7b3296252ed0dd9d1))
 - **Map:** add interface ([61d77aa](https://github.com/air-supply94/js-algorithm/commit/61d77aa58d648d70513cc3592b813b18b4036ae4))
+- **math:** add eatGrape ([39fa397](https://github.com/air-supply94/js-algorithm/commit/39fa39777d122b9a1cc43cf10c41c27879627952))
 - **math:** add isHappy ([42904d6](https://github.com/air-supply94/js-algorithm/commit/42904d672c6553871f5aa80be014df7451714f0c))
 - **math:** add pascalTriangle complexNumber fastPowering integerPartition liuHui ([cca718d](https://github.com/air-supply94/js-algorithm/commit/cca718d3ff1c0d85b4e1e64315b3a5571a909938))
 - **math:** add primalityTest and sieve ([9f3a1b7](https://github.com/air-supply94/js-algorithm/commit/9f3a1b72ecbd60857b3a71298bc34c7c831590f1))
