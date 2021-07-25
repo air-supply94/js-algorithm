@@ -1,4 +1,4 @@
-# 0.0.0 (2021-07-22)
+# 0.0.0 (2021-07-25)
 
 ### Bug Fixes
 
@@ -72,7 +72,7 @@
 - **algorithm/math:** add WSRARes ([d6589c4](https://github.com/air-supply94/js-algorithm/commit/d6589c43f9c6dd469b0a642b4df9f43a136de3b8))
 - **algorithm/other:** add isRectangleCover ([dae0405](https://github.com/air-supply94/js-algorithm/commit/dae04055889731282e7e870c53f4594a28dda527))
 - **algorithm/other:** add isSubsequence ([f111959](https://github.com/air-supply94/js-algorithm/commit/f111959d6a19722ba218580f70e5ac2ab82e705b))
-- **algorithm/other:** add pancakeSort ([474db73](https://github.com/air-supply94/js-algorithm/commit/474db738b37d274ed7ad4175ff4283edd0cc2220))
+- **algorithm/other:** add pancakeSort ([5ecfc37](https://github.com/air-supply94/js-algorithm/commit/5ecfc376482fc0ae2f811b2a90545fed55aaa382))
 - **algorithm/slidingWindow:** add checkInclusion ([e952fc8](https://github.com/air-supply94/js-algorithm/commit/e952fc852e3392f5a1e92fdbb6cd1fa02d20d8d7))
 - **algorithm/slidingWindow:** add lengthOfLongestSubstring ([50e7a5f](https://github.com/air-supply94/js-algorithm/commit/50e7a5f08be352c3201605a599f0ecf668f4228c))
 - **algorithm/slidingWindow:** add minWindow ([1316b41](https://github.com/air-supply94/js-algorithm/commit/1316b4109466ed38bea1dad44868e4cc84d9d4aa))
@@ -160,6 +160,7 @@
 - **dp:** add minPalindromeInsert ([96c26cc](https://github.com/air-supply94/js-algorithm/commit/96c26cc0969a6d53d5a79347a719e5606e3cc029))
 - **dp:** add minPathSum ([4d4211b](https://github.com/air-supply94/js-algorithm/commit/4d4211b495ccb560f1edc1c9b676c4314309318b))
 - **dp:** add superEggDrop ([daa5c04](https://github.com/air-supply94/js-algorithm/commit/daa5c0445f05629f9c2131c35432d03f37d3ecb6))
+- **dp:** add translateNum ([a538710](https://github.com/air-supply94/js-algorithm/commit/a538710919e16497dba30a82c163da136ce699fd))
 - **dp:** update kmpDp ([84e380e](https://github.com/air-supply94/js-algorithm/commit/84e380eb868471e70f964963a75d6f7f62914b36))
 - **dp:** update regularExpressionMatching ([4651010](https://github.com/air-supply94/js-algorithm/commit/4651010ab2b61c7657f7191f58fff1e644348604))
 - **dp:** update superEggDrop ([7c9419c](https://github.com/air-supply94/js-algorithm/commit/7c9419cc1cab44bae2336ebaa75246b260d768ec))
