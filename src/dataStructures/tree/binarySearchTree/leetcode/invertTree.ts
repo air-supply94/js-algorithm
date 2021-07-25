@@ -1,17 +1,18 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
-import { setLeft, setRight } from '../utils';
+import { TreeNode } from './treeNode';
 
-export function invertTree<T = unknown>(root: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> | null {
+// https://leetcode-cn.com/problems/invert-binary-tree/
+// 226;
+export function invertTree(root: TreeNode | null): TreeNode | null {
   if (!root) {
     return null;
   }
 
   const tmp = root.right;
-  setRight(root, root.left);
-  setLeft(root, tmp);
+  root.right = root.left;
+  root.left = tmp;
 
-  invertTree<T>(root.left);
-  invertTree<T>(root.right);
+  invertTree(root.left);
+  invertTree(root.right);
 
   return root;
 }

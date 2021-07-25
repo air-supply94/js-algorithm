@@ -1,4 +1,13 @@
-export function connectNodeNext(root: any) {
+interface Node {
+  val: number;
+  left: Node | null;
+  right: Node | null;
+  next: Node | null;
+}
+
+// https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/
+// 116
+export function connect(root: Node): Node | null {
   if (!root) {
     return null;
   }
@@ -7,12 +16,12 @@ export function connectNodeNext(root: any) {
   return root;
 }
 
-function connectTwoNode(left: any, right: any) {
+function connectTwoNode(left: Node, right: Node) {
   if (left == null || right == null) {
     return;
   }
 
-  left._next = right;
+  left.next = right;
   connectTwoNode(left.left, left.right);
   connectTwoNode(right.left, right.right);
   connectTwoNode(left.right ? left.right : left.left, right.left ? right.left : right.right);
