@@ -160,7 +160,7 @@
 - **dp:** add minPalindromeInsert ([96c26cc](https://github.com/air-supply94/js-algorithm/commit/96c26cc0969a6d53d5a79347a719e5606e3cc029))
 - **dp:** add minPathSum ([4d4211b](https://github.com/air-supply94/js-algorithm/commit/4d4211b495ccb560f1edc1c9b676c4314309318b))
 - **dp:** add superEggDrop ([daa5c04](https://github.com/air-supply94/js-algorithm/commit/daa5c0445f05629f9c2131c35432d03f37d3ecb6))
-- **dp:** add translateNum ([a538710](https://github.com/air-supply94/js-algorithm/commit/a538710919e16497dba30a82c163da136ce699fd))
+- **dp:** add translateNum ([3ad4458](https://github.com/air-supply94/js-algorithm/commit/3ad445831e3541f0e952b4dac19a1527de747566))
 - **dp:** update kmpDp ([84e380e](https://github.com/air-supply94/js-algorithm/commit/84e380eb868471e70f964963a75d6f7f62914b36))
 - **dp:** update regularExpressionMatching ([4651010](https://github.com/air-supply94/js-algorithm/commit/4651010ab2b61c7657f7191f58fff1e644348604))
 - **dp:** update superEggDrop ([7c9419c](https://github.com/air-supply94/js-algorithm/commit/7c9419cc1cab44bae2336ebaa75246b260d768ec))
