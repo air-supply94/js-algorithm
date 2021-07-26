@@ -1,9 +1,10 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
-import { setLeft, setRight } from '../utils';
+import { TreeNode } from './treeNode';
 
-export function serializePreOrder<T = unknown>(array: T[]): BinarySearchTreeNode<T> | null {
+// https://leetcode-cn.com/problems/serialize-and-deserialize-bst/submissions/
+// 449
+export function serializePreOrder(array: number[]): TreeNode| null {
   let i = 0;
-  function serialize(): BinarySearchTreeNode<T> | null {
+  function serialize(): TreeNode | null {
     if (i >= array.length) {
       return null;
     }
@@ -14,10 +15,9 @@ export function serializePreOrder<T = unknown>(array: T[]): BinarySearchTreeNode
       return null;
     }
 
-    const node = new BinarySearchTreeNode<T>(value);
-
-    setLeft(node, serialize());
-    setRight(node, serialize());
+    const node = new TreeNode(value);
+    node.left = serialize();
+    node.right = serialize();
     return node;
   }
 

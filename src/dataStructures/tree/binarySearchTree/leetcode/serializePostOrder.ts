@@ -1,9 +1,10 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
-import { setLeft, setRight } from '../utils';
+import { TreeNode } from './treeNode';
 
-export function serializePostOrder<T = unknown>(array: T[]): BinarySearchTreeNode<T> | null {
+// https://leetcode-cn.com/problems/serialize-and-deserialize-bst/submissions/
+// 449
+export function serializePostOrder(array: number[]): TreeNode | null {
   let i = array.length - 1;
-  function recursion(): BinarySearchTreeNode<T> | null {
+  function recursion(): TreeNode | null {
     if (i < 0) {
       return null;
     }
@@ -14,9 +15,9 @@ export function serializePostOrder<T = unknown>(array: T[]): BinarySearchTreeNod
       return null;
     }
 
-    const rootNode = new BinarySearchTreeNode<T>(value);
-    setRight(rootNode, recursion());
-    setLeft(rootNode, recursion());
+    const rootNode = new TreeNode(value);
+    rootNode.right = recursion();
+    rootNode.left = recursion();
     return rootNode;
   }
 

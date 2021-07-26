@@ -1,6 +1,8 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import { TreeNode } from './treeNode';
 
-export function checkSubTree(root: BinarySearchTreeNode<number> | null, childRoot: BinarySearchTreeNode<number> | null): boolean {
+// https://leetcode-cn.com/problems/check-subtree-lcci/
+// 剑指offer-04.10
+export function checkSubTree(root: TreeNode | null, childRoot: TreeNode | null): boolean {
   if (!childRoot) {
     return true;
   }
@@ -16,7 +18,7 @@ export function checkSubTree(root: BinarySearchTreeNode<number> | null, childRoo
   }
 }
 
-function isSubTree<T = unknown>(root: BinarySearchTreeNode<T> | null, childRoot: BinarySearchTreeNode<T> | null): boolean {
+function isSubTree(root: TreeNode | null, childRoot: TreeNode | null): boolean {
   if (childRoot == null) {
     return true;
   }
@@ -25,26 +27,9 @@ function isSubTree<T = unknown>(root: BinarySearchTreeNode<T> | null, childRoot:
     return false;
   }
 
-  if (root.value !== childRoot.value) {
+  if (root.val !== childRoot.val) {
     return false;
   } else {
     return isSubTree(root.left, childRoot.left) && isSubTree(root.right, childRoot.right);
   }
-}
-
-export function pathSum(root: BinarySearchTreeNode<number> | null, sum: number): number {
-  if (!root) {
-    return 0;
-  }
-
-  return pathSumDfs(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
-}
-
-function pathSumDfs(root: BinarySearchTreeNode<number> | null, sum: number): number {
-  if (!root) {
-    return 0;
-  }
-
-  const newSum = sum - root.value;
-  return (newSum === 0 ? 1 : 0) + pathSumDfs(root.left, newSum) + pathSumDfs(root.right, newSum);
 }

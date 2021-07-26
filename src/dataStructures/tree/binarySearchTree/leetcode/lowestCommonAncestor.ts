@@ -24,6 +24,8 @@ export function lowestCommonAncestor(root: TreeNode | null, p: TreeNode, q: Tree
   }
 }
 
+// https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+// 235
 export function lowestCommonAncestorBst(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
   if (!root) {
     return null;

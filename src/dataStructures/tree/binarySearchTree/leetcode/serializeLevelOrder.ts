@@ -1,25 +1,23 @@
-import { Queue } from '../../../queue';
-import { BinarySearchTreeNode } from '../binarySearchTree';
-import { setLeft, setRight } from '../utils';
+import { TreeNode } from './treeNode';
 
-export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNode<T> | null {
+export function serializeLevelOrder(array: number[]): TreeNode | null {
   if (!array.length) {
     return null;
   }
 
   let i = 1;
-  const root = new BinarySearchTreeNode<T>(array[0]);
-  const queue = new Queue<BinarySearchTreeNode<T>>();
-  queue.enqueue(root);
+  const root = new TreeNode(array[0]);
+  const queue: TreeNode[] = [];
+  queue.push(root);
 
-  while (!queue.isEmpty() && i < array.length) {
-    const currentNode = queue.dequeue();
+  while (queue.length && i < array.length) {
+    const currentNode = queue.shift();
 
     const leftValue = array[i];
     i++;
     if (leftValue != null) {
-      setLeft(currentNode, new BinarySearchTreeNode<T>(leftValue));
-      queue.enqueue(currentNode.left);
+      currentNode.left = new TreeNode(leftValue);
+      queue.push(currentNode.left);
     }
 
     if (i >= array.length) {
@@ -29,8 +27,8 @@ export function serializeLevelOrder<T = unknown>(array: T[]): BinarySearchTreeNo
     const rightValue = array[i];
     i++;
     if (rightValue != null) {
-      setRight(currentNode, new BinarySearchTreeNode<T>(rightValue));
-      queue.enqueue(currentNode.right);
+      currentNode.right = new TreeNode(rightValue);
+      queue.push(currentNode.right);
     }
   }
 
