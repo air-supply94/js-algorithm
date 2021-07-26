@@ -1,17 +1,19 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import { TreeNode } from './treeNode';
 
-export function findDuplicateSubtree<T = unknown>(root: BinarySearchTreeNode<T> | null): Array<BinarySearchTreeNode<T>> {
+// https://leetcode-cn.com/problems/find-duplicate-subtrees/
+// 652
+export function findDuplicateSubtrees(root: TreeNode | null): TreeNode[] {
   const cache = new Map<string, number>();
-  const list: Array<BinarySearchTreeNode<T>> = [];
+  const list: TreeNode[] = [];
 
-  function recursion(rootNode: BinarySearchTreeNode<T> | null): string {
+  function recursion(rootNode: TreeNode | null): string {
     if (!rootNode) {
       return ' ';
     }
 
     const leftValue = recursion(rootNode.left);
     const rightValue = recursion(rootNode.right);
-    const result = `${rootNode.value}_${leftValue}_${rightValue}`;
+    const result = `${rootNode.val}_${leftValue}_${rightValue}`;
     const count = cache.get(result) >>> 0;
 
     if (count === 1) {

@@ -1,11 +1,13 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import { TreeNode } from './treeNode';
 
-export function lowestCommonAncestor(root: BinarySearchTreeNode<number> | null, p: number, q: number): BinarySearchTreeNode<number> | null {
+// https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+// 236
+export function lowestCommonAncestor(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
   if (root === null) {
     return null;
   }
 
-  if (root.value === p || root.value === q) {
+  if (root.val === p.val || root.val === q.val) {
     return root;
   }
 
@@ -22,18 +24,18 @@ export function lowestCommonAncestor(root: BinarySearchTreeNode<number> | null, 
   }
 }
 
-export function lowestCommonAncestorBst(root: BinarySearchTreeNode<number> | null, p: number, q: number): BinarySearchTreeNode<number> | null {
+export function lowestCommonAncestorBst(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
   if (!root) {
     return null;
   }
 
-  if (root.value === p || root.value === q) {
+  if (root.val === p.val || root.val === q.val) {
     return root;
   }
 
-  if (p < root.value && q < root.value) {
+  if (p.val < root.val && q.val < root.val) {
     return lowestCommonAncestorBst(root.left, p, q);
-  } else if (root.value < p && root.value < q) {
+  } else if (root.val < p.val && root.val < q.val) {
     return lowestCommonAncestorBst(root.right, p, q);
   } else {
     return root;
