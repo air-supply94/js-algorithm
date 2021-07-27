@@ -216,6 +216,7 @@
 - **math/bits:** test ([3de3260](https://github.com/air-supply94/js-algorithm/commit/3de32608ced958befed76d42b1e8052c2fa6f6cc))
 - **mergeSort:** 更新 mergeSortedArrays concat 方式 ([8baf586](https://github.com/air-supply94/js-algorithm/commit/8baf5861287c1e603d619609628544db119c6781))
 - **nQueens:** add bf ([abb3529](https://github.com/air-supply94/js-algorithm/commit/abb3529939a93661f6660a51c47ae49ff98bc932))
+- **other:** add isUnique ([8d07125](https://github.com/air-supply94/js-algorithm/commit/8d071256711e298bfb4567a0267e5baa7cafb7b7))
 - **package.json:** add validate-commit-msg and cz ([273c6c8](https://github.com/air-supply94/js-algorithm/commit/273c6c8b081693a6b0030a362662ca0bf1f4c579))
 - **price:** add add、subtract、multiple toFixed thousandthSeparator method ([78ade6c](https://github.com/air-supply94/js-algorithm/commit/78ade6c6af34edcbc58c82f1b22b249f71b90f90))
 - **queue:** add circularQueue ([23e4905](https://github.com/air-supply94/js-algorithm/commit/23e4905dbfba958fdae3a90844e933d2233a3dfd))
