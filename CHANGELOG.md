@@ -72,7 +72,7 @@
 - **algorithm/math:** add WSRARes ([d6589c4](https://github.com/air-supply94/js-algorithm/commit/d6589c43f9c6dd469b0a642b4df9f43a136de3b8))
 - **algorithm/other:** add isRectangleCover ([dae0405](https://github.com/air-supply94/js-algorithm/commit/dae04055889731282e7e870c53f4594a28dda527))
 - **algorithm/other:** add isSubsequence ([f111959](https://github.com/air-supply94/js-algorithm/commit/f111959d6a19722ba218580f70e5ac2ab82e705b))
-- **algorithm/other:** add oneEditAway ([2b92ae8](https://github.com/air-supply94/js-algorithm/commit/2b92ae85eaca045f2c174842a43044de4fc27b43))
+- **algorithm/other:** add oneEditAway ([8462de8](https://github.com/air-supply94/js-algorithm/commit/8462de8cc4659d51163106296a16368ba152c122))
 - **algorithm/other:** add pancakeSort ([5ecfc37](https://github.com/air-supply94/js-algorithm/commit/5ecfc376482fc0ae2f811b2a90545fed55aaa382))
 - **algorithm/slidingWindow:** add checkInclusion ([e952fc8](https://github.com/air-supply94/js-algorithm/commit/e952fc852e3392f5a1e92fdbb6cd1fa02d20d8d7))
 - **algorithm/slidingWindow:** add lengthOfLongestSubstring ([50e7a5f](https://github.com/air-supply94/js-algorithm/commit/50e7a5f08be352c3201605a599f0ecf668f4228c))
