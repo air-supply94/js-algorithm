@@ -1,4 +1,4 @@
-# 0.0.0 (2021-07-26)
+# 0.0.0 (2021-07-27)
 
 ### Bug Fixes
 
@@ -113,7 +113,7 @@
 - **bst/leetcode:** add serializePostOrder ([86d2bba](https://github.com/air-supply94/js-algorithm/commit/86d2bba87b10dc35c6c216b3e0ec88f8ed2cf86d))
 - **bst/leetcode:** add serializePreAndInOrder ([3504aff](https://github.com/air-supply94/js-algorithm/commit/3504affb9f63de05912046066d8c12fe8bffe000))
 - **bst/leetcode:** update lowestCommonAncestor ([d2cecad](https://github.com/air-supply94/js-algorithm/commit/d2cecad5356c2e460b25fe30dfe1125346e20b6d))
-- **bst/leetcode:** 迁移到线上 leetcode ([33ce9e9](https://github.com/air-supply94/js-algorithm/commit/33ce9e936c2316a4252933ca29a70ab19f5144b1))
+- **bst/leetcode:** 迁移到线上 leetcode ([2bb8e77](https://github.com/air-supply94/js-algorithm/commit/2bb8e77ad012dc77020bec7495a3609576366c5c))
 - **bst/leetcode:** 迁移到线上 leetcode ([27194fb](https://github.com/air-supply94/js-algorithm/commit/27194fb9690fd9944918c06a207caad3217525be))
 - **bst/leetcode:** 迁移到线上 leetcode ([02bb002](https://github.com/air-supply94/js-algorithm/commit/02bb002c3fc9b2573a3286034f8869c689699925))
 - **Comparator:** 更新导出方式和访问限制 ([ef485dd](https://github.com/air-supply94/js-algorithm/commit/ef485ddc67e6743f500e1ab0e8cec6f876ad1555))
