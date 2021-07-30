@@ -1,5 +1,7 @@
 // https://leetcode-cn.com/problems/set-mismatch/
 // 645
+// https://leetcode-cn.com/problems/missing-two-lcci/
+// 金典-17.19
 export function findErrorNums(nums: number[]): number[] {
   let xor = 0;
   let xor1 = 0;
