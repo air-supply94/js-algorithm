@@ -1,6 +1,5 @@
 import { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
-import { formatIndex } from './formatIndex';
-import { get } from './get';
+import { formatIndex, get } from './get';
 
 export function insert<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, value: T, index: number): DoubleLinkedListNode<T> {
   const position = formatIndex(index, doubleLinkedList.size);

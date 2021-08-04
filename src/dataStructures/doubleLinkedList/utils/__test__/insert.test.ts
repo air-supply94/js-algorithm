@@ -1,5 +1,4 @@
 import { DoubleLinkedList } from '../../doubleLinkedList';
-import { hasCircle } from '../../leetcode/hasCircle';
 import { insert } from '../insert';
 
 test('DoubleLinkedList insert', () => {
@@ -17,8 +16,6 @@ test('DoubleLinkedList insert', () => {
     .map((item) => item.value)
     .join(','))
     .toBe('0,1,2,3');
-  expect(hasCircle(linkedList))
-    .toBeFalsy();
 
   insert(linkedList, 4, 10);
   expect(linkedList.size)
@@ -27,8 +24,6 @@ test('DoubleLinkedList insert', () => {
     .map((item) => item.value)
     .join(','))
     .toBe('0,1,2,3,4');
-  expect(hasCircle(linkedList))
-    .toBeFalsy();
 
   insert(linkedList, 10, 2);
   expect(linkedList.size)
@@ -37,7 +32,4 @@ test('DoubleLinkedList insert', () => {
     .map((item) => item.value)
     .join(','))
     .toBe('0,1,10,2,3,4');
-
-  expect(hasCircle(linkedList))
-    .toBeFalsy();
 });
