@@ -60,7 +60,7 @@ export function replaceChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToR
 }
 
 export function nodeToString<T = unknown>(root: BinarySearchTreeNode<T>): string {
-  const result = [];
+  const result: T[] = [];
   traverseInOrder(root, (node) => {
     result.push(node.value);
   });

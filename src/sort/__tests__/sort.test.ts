@@ -115,7 +115,7 @@ describe('sortBase', () => {
         { age: 25 },
       ];
 
-      function compareCallback(a, b) {
+      function compareCallback(a: { age: number; }, b: { age: number; }) {
         if (a.age === b.age) {
           return 0;
         }

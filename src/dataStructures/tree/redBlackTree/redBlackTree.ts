@@ -34,7 +34,7 @@ export class RedBlackTree<T = unknown> {
   }
 
   public traversePreOrder(): T[] {
-    const result = [];
+    const result: T[] = [];
     this.traversePreOrderCallback((node) => {
       result.push(node.value);
     });
@@ -46,7 +46,7 @@ export class RedBlackTree<T = unknown> {
   }
 
   public traverseInOrder(): T[] {
-    const result = [];
+    const result: T[] = [];
     this.traverseInOrderCallback((node) => {
       result.push(node.value);
     });
@@ -58,7 +58,7 @@ export class RedBlackTree<T = unknown> {
   }
 
   public traverseAfterOrder(): T[] {
-    const result = [];
+    const result: T[] = [];
     this.traverseAfterOrderCallback((node) => {
       result.push(node.value);
     });
@@ -70,7 +70,7 @@ export class RedBlackTree<T = unknown> {
   }
 
   public traverseLevelOrder(): T[] {
-    const result = [];
+    const result: T[] = [];
     traverseLevelOrder(this.root, (node) => {
       result.push(node.value);
     });

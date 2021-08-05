@@ -1,6 +1,5 @@
 // https://leetcode-cn.com/problems/remove-duplicate-letters/
 // 316
-
 export function removeDuplicateLetters(s: string): string {
   const countMap = new Map<string, number>();
   const charMap = new Map<string, boolean>();

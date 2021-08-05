@@ -1,7 +1,7 @@
 import { BloomFilter } from '../bloomFilter';
 
 describe('BloomFilter', () => {
-  let bloomFilter;
+  let bloomFilter: BloomFilter;
   const people = [
     'Bruce Wayne',
     'Clark Kent',

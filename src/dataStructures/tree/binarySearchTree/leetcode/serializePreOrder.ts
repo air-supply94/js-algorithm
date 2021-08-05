@@ -2,7 +2,7 @@ import { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/serialize-and-deserialize-bst/submissions/
 // 449
-export function serializePreOrder(array: number[]): TreeNode| null {
+export function serializePreOrder(array: number[]): TreeNode | null {
   let i = 0;
   function serialize(): TreeNode | null {
     if (i >= array.length) {

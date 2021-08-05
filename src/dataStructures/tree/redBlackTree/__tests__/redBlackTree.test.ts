@@ -1,7 +1,7 @@
 import { getHeight, nodeToString, BinarySearchTreeNode, color } from '../../binarySearchTree';
 import { RedBlackTree } from '../redBlackTree';
 
-function redBlackTreeCompare(a, b) {
+function redBlackTreeCompare(a: BinarySearchTreeNode<number>, b: BinarySearchTreeNode<number>) {
   if (a === b) {
     return 0;
   }
@@ -477,7 +477,7 @@ describe('RedBlackTree', () => {
   });
 
   test('should insert and remove object item', () => {
-    function compare(a, b) {
+    function compare(a: { key: string;value: number; }, b: { key: string;value: number; }) {
       if (a.key === b.key) {
         return 0;
       }

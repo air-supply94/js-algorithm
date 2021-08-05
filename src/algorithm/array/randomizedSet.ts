@@ -52,7 +52,7 @@ export class RandomizedSetBlackList {
   private init(n: number, blackList: number[]) {
     const whiteLength = this.whiteLength;
 
-    const whiteListRight = [];
+    const whiteListRight: number[] = [];
     const blackListMap = new Map<number, boolean>();
     for (let i = 0; i < blackList.length; i++) {
       blackListMap.set(blackList[i], true);

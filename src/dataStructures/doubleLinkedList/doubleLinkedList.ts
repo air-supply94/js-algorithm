@@ -1,7 +1,7 @@
 import { Comparator, compareFunctionType } from '../../utils';
 
 export class DoubleLinkedListNode<T = unknown> {
-  constructor(value: T | null, next = null, previous = null) {
+  constructor(value: T | null, next: DoubleLinkedListNode<T> | null = null, previous: DoubleLinkedListNode<T> | null = null) {
     this.value = value;
     this.next = next;
     this.previous = previous;

@@ -7,7 +7,7 @@ export enum color {
 }
 
 export class BinarySearchTreeNode<T = unknown> {
-  constructor(value = null) {
+  constructor(value: T | null = null) {
     this.left = null;
     this.right = null;
     this.parent = null;
@@ -77,7 +77,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public traversePreOrder(): T[] {
-    const result = [];
+    const result: T[] = [];
     this.traversePreOrderCallback((node) => {
       result.push(node.value);
     });
@@ -89,7 +89,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public traverseInOrder(): T[] {
-    const result = [];
+    const result: T[] = [];
     this.traverseInOrderCallback((node) => {
       result.push(node.value);
     });
@@ -101,7 +101,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public traverseAfterOrder(): T[] {
-    const result = [];
+    const result: T[] = [];
     this.traverseAfterOrderCallback((node) => {
       result.push(node.value);
     });
@@ -113,7 +113,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public traverseLevelOrder(): T[] {
-    const result = [];
+    const result: T[] = [];
     this.traverseLevelOrderCallback((node) => {
       result.push(node.value);
     });

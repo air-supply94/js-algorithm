@@ -21,9 +21,9 @@ function defaultLeaveVertex(params: Omit<CallbackParams, 'nextVertex'>): void {
 }
 
 export function dfs(graph: Graph, startVertex: GraphVertex, callbackConfig?: Partial<CallbackConfig>) {
-  const visitedVertices = Object.keys(graph.vertices)
-    .reduce((prev, current) => {
-      prev[String[current]] = false;
+  const visitedVertices: {[key: string]: boolean; } = Object.keys(graph.vertices)
+    .reduce((prev: {[key: string]: boolean; }, current) => {
+      prev[current.toString()] = false;
       return prev;
     }, {});
 
@@ -31,7 +31,7 @@ export function dfs(graph: Graph, startVertex: GraphVertex, callbackConfig?: Par
     if (visitedVertices[String(params.nextVertex)] === true) {
       return false;
     } else {
-      visitedVertices[String(params.nextVertex)] = true;
+      visitedVertices[String(params.nextVertex.toString())] = true;
       return true;
     }
   }
@@ -40,7 +40,7 @@ export function dfs(graph: Graph, startVertex: GraphVertex, callbackConfig?: Par
   const leaveVertex = callbackConfig && callbackConfig.leaveVertex ? callbackConfig.leaveVertex : defaultLeaveVertex;
   const allowTraversal = callbackConfig && callbackConfig.allowTraversal ? callbackConfig.allowTraversal : defaultAllowTraversal;
 
-  function depthFirstSearchRecursive(currentVertex, previousVertex) {
+  function depthFirstSearchRecursive(currentVertex: GraphVertex, previousVertex: GraphVertex | null): void {
     enterVertex({
       currentVertex,
       previousVertex,

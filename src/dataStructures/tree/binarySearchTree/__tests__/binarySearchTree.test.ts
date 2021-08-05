@@ -79,7 +79,7 @@ describe('BinarySearchTree', () => {
   });
 
   test('should insert object values', () => {
-    const nodeValueCompareFunction = (a, b) => {
+    const nodeValueCompareFunction = (a: { key?: string; value: number; }, b: { key?: string; value: number; }) => {
       const normalizedA = a || { value: null };
       const normalizedB = b || { value: null };
 
@@ -406,7 +406,7 @@ describe('BinarySearchTree', () => {
   });
 
   test('should be possible to use objects as node values', () => {
-    const nodeValueComparatorCallback = (a, b) => {
+    const nodeValueComparatorCallback = (a: { key?: string; value: number; }, b: { key?: string; value: number; }) => {
       const normalizedA = a || { value: null };
       const normalizedB = b || { value: null };
 
@@ -456,7 +456,7 @@ describe('BinarySearchTree', () => {
   });
 
   test('should traverse node', () => {
-    const bst = new BinarySearchTree();
+    const bst = new BinarySearchTree<number>();
     expect(bst.traversePreOrder()
       .join())
       .toBe('');
@@ -481,9 +481,9 @@ describe('BinarySearchTree', () => {
     bst.insert(3);
     bst.insert(7);
     bst.insert(5);
-    let result = [];
+    let result: number[] = [];
 
-    function callback(node) {
+    function callback(node: BinarySearchTreeNode<number>) {
       if (result.length >= 3) {
         return false;
       }

@@ -1,4 +1,4 @@
-import { Heap } from '../../../dataStructures/simple/heap';
+import { Heap } from '../../../dataStructures/heap';
 
 interface Item {
   score: number;

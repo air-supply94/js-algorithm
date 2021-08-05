@@ -1,4 +1,4 @@
-# 0.0.0 (2021-08-04)
+# 0.0.0 (2021-08-05)
 
 ### Bug Fixes
 
@@ -119,7 +119,7 @@
 - **bst/leetcode:** add serializePostOrder ([86d2bba](https://github.com/air-supply94/js-algorithm/commit/86d2bba87b10dc35c6c216b3e0ec88f8ed2cf86d))
 - **bst/leetcode:** add serializePreAndInOrder ([3504aff](https://github.com/air-supply94/js-algorithm/commit/3504affb9f63de05912046066d8c12fe8bffe000))
 - **bst/leetcode:** update lowestCommonAncestor ([d2cecad](https://github.com/air-supply94/js-algorithm/commit/d2cecad5356c2e460b25fe30dfe1125346e20b6d))
-- **bst/leetcode:** 迁移到线上 leetcode ([1b7548f](https://github.com/air-supply94/js-algorithm/commit/1b7548f97661c3aaef76bd42bfd8cf133cae2dc5))
+- **bst/leetcode:** 迁移到线上 leetcode ([fa79264](https://github.com/air-supply94/js-algorithm/commit/fa7926458dbb4b1a9247374f9267dff5ca726a2c))
 - **bst/leetcode:** 迁移到线上 leetcode ([2bb8e77](https://github.com/air-supply94/js-algorithm/commit/2bb8e77ad012dc77020bec7495a3609576366c5c))
 - **bst/leetcode:** 迁移到线上 leetcode ([27194fb](https://github.com/air-supply94/js-algorithm/commit/27194fb9690fd9944918c06a207caad3217525be))
 - **bst/leetcode:** 迁移到线上 leetcode ([02bb002](https://github.com/air-supply94/js-algorithm/commit/02bb002c3fc9b2573a3286034f8869c689699925))
@@ -272,5 +272,6 @@
 - **trie:** 增加类型 ([7b8f635](https://github.com/air-supply94/js-algorithm/commit/7b8f63569962a2a05a36b2077efbacaa3167c75f))
 - **trie:** 更改 trie 的 toString ([2791bd4](https://github.com/air-supply94/js-algorithm/commit/2791bd40a8cdd93ba3dbc0606328162e12b7bbd6))
 - **tsconfig.json:** add strict limit ([50b31ff](https://github.com/air-supply94/js-algorithm/commit/50b31ffe47a3b9182340319c9df2332ad0d3fda3))
+- **tsconfig.json:** set noImplicitAny true ([cb42783](https://github.com/air-supply94/js-algorithm/commit/cb427832dc4e736455d7446a5469e02bd15634d4))
 - **tsconfig.json:** 更新配置 ([18f0cbb](https://github.com/air-supply94/js-algorithm/commit/18f0cbb55f13165b46683983391a1219c40f8e72))
 - **unique-paths:** add ([9739d63](https://github.com/air-supply94/js-algorithm/commit/9739d637d592fb3cff685bb2d3bad84fc24865e6))

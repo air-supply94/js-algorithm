@@ -26,7 +26,7 @@ function reverse<T = unknown>(array: T[], startIndex: number, endIndex: number):
 
 // https://leetcode-cn.com/problems/rotate-matrix-lcci/
 // 07
-export function rotateMatrix<T = unknown>(array: T[]): T[] {
+export function rotateMatrix<T = unknown>(array: T[][]): T[][] {
   const n = array.length;
 
   for (let h = 0; h < n; h++) {

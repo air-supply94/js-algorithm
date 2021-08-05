@@ -22,9 +22,9 @@ function defaultLeaveVertex(params: Omit<CallbackParams, 'nextVertex'>): void {
 }
 
 export function bfs(graph: Graph, startVertex: null | GraphVertex, callbackConfig?: Partial<CallbackConfig>) {
-  const visitedVertices = Object.keys(graph.vertices)
-    .reduce((prev, current) => {
-      prev[String[current]] = false;
+  const visitedVertices: {[key: string]: boolean; } = Object.keys(graph.vertices)
+    .reduce((prev: {[key: string]: boolean; }, current) => {
+      prev[current.toString()] = false;
       return prev;
     }, {});
 
@@ -44,7 +44,7 @@ export function bfs(graph: Graph, startVertex: null | GraphVertex, callbackConfi
 
   vertexQueue.enqueue(startVertex);
 
-  let previousVertex = null;
+  let previousVertex: GraphVertex | null = null;
 
   while (!vertexQueue.isEmpty()) {
     const currentVertex = vertexQueue.dequeue();

@@ -51,7 +51,7 @@ test('should find node by callback', () => {
 });
 
 test('should find node by means of custom compare function', () => {
-  const comparatorFunction = (a, b) => {
+  const comparatorFunction = (a: { value: number; customValue: string; }, b: { value: number; customValue: string; }) => {
     if (a.customValue === b.customValue) {
       return 0;
     }

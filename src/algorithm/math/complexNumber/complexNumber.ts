@@ -1,12 +1,9 @@
-import { ComplexNumberInterface } from './types';
-
-export * from './types';
 
 function radianToDegree(radian: number): number {
   return radian * (180 / Math.PI);
 }
 
-function conjugate(number: ComplexNumberInterface | number): ComplexNumberInterface {
+function conjugate(number: ComplexNumber | number): ComplexNumber {
   const complexNumber = toComplexNumber(number);
 
   return new ComplexNumber({
@@ -15,7 +12,7 @@ function conjugate(number: ComplexNumberInterface | number): ComplexNumberInterf
   });
 }
 
-function toComplexNumber(x: ComplexNumberInterface | number): ComplexNumberInterface {
+function toComplexNumber(x: ComplexNumber | number): ComplexNumber {
   if (x instanceof ComplexNumber) {
     return x;
   }
@@ -26,7 +23,7 @@ function toComplexNumber(x: ComplexNumberInterface | number): ComplexNumberInter
   });
 }
 
-function getPhase(complexNumber: ComplexNumberInterface, inRadians: boolean): number {
+function getPhase(complexNumber: ComplexNumber, inRadians: boolean): number {
   let phase = Math.atan(Math.abs(complexNumber.im) / Math.abs(complexNumber.re));
 
   if (complexNumber.re < 0 && complexNumber.im > 0) {
@@ -54,7 +51,7 @@ function getPhase(complexNumber: ComplexNumberInterface, inRadians: boolean): nu
   return phase;
 }
 
-export class ComplexNumber implements ComplexNumberInterface {
+export class ComplexNumber {
   public re: number;
 
   public im: number;
@@ -67,7 +64,7 @@ export class ComplexNumber implements ComplexNumberInterface {
     this.im = im;
   }
 
-  public add(addend: ComplexNumberInterface | number): ComplexNumberInterface {
+  public add(addend: ComplexNumber | number): ComplexNumber {
     const complexAddend = toComplexNumber(addend);
 
     return new ComplexNumber({
@@ -76,7 +73,7 @@ export class ComplexNumber implements ComplexNumberInterface {
     });
   }
 
-  public subtract(subtrahend: ComplexNumberInterface | number): ComplexNumberInterface {
+  public subtract(subtrahend: ComplexNumber | number): ComplexNumber {
     const complexSubtrahend = toComplexNumber(subtrahend);
 
     return new ComplexNumber({
@@ -85,7 +82,7 @@ export class ComplexNumber implements ComplexNumberInterface {
     });
   }
 
-  public multiply(multiplicand: ComplexNumberInterface | number): ComplexNumberInterface {
+  public multiply(multiplicand: ComplexNumber | number): ComplexNumber {
     const complexMultiplicand = toComplexNumber(multiplicand);
 
     return new ComplexNumber({
@@ -94,7 +91,7 @@ export class ComplexNumber implements ComplexNumberInterface {
     });
   }
 
-  public divide(divider: ComplexNumberInterface | number): ComplexNumberInterface {
+  public divide(divider: ComplexNumber | number): ComplexNumber {
     const complexDivider = toComplexNumber(divider);
 
     const dividerConjugate = conjugate(complexDivider);
