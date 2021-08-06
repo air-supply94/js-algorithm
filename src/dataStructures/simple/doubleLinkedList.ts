@@ -1,5 +1,5 @@
 export class DoubleLinkedListNode<T> {
-  constructor(val: T | null, next = null, previous = null) {
+  constructor(val: T | null, next: DoubleLinkedListNode<T> | null = null, previous: DoubleLinkedListNode<T> | null = null) {
     this.val = val;
     this.next = next;
     this.previous = previous;

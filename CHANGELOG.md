@@ -130,7 +130,7 @@
 - **dataStructure/design:** add maxSlidingWindow ([f79320d](https://github.com/air-supply94/js-algorithm/commit/f79320ddb96270c46faab34feed0d92f81efed5d))
 - **dataStructure/design:** add nextGreaterElement nextGreaterElementCircle ([f836ff4](https://github.com/air-supply94/js-algorithm/commit/f836ff486de42ed042348c925d4f9f2de4ccb3b1))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
-- **dataStructure/stack:** 迁移到线上 leetcode ([e554ae9](https://github.com/air-supply94/js-algorithm/commit/e554ae99384204705c4039497660184186f07a2e))
+- **dataStructure/stack:** 迁移到线上 leetcode ([b1c2b8a](https://github.com/air-supply94/js-algorithm/commit/b1c2b8a747a22654837ad0eb1095b969b28714cb))
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))
 - **dataStructures/design:** update LRUCache(leetcode 上测试) ([3ca03bb](https://github.com/air-supply94/js-algorithm/commit/3ca03bbdfa7fbddcf13f45a54a9fa97256a2f4b4))
 - **dataStructures/simple:** add heap ([c9a5222](https://github.com/air-supply94/js-algorithm/commit/c9a5222ce84cedd66826fb131071185998d4c404))
