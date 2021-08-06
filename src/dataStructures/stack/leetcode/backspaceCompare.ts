@@ -1,17 +1,17 @@
-import { Stack } from '../stack';
-
+// https://leetcode-cn.com/problems/backspace-string-compare/
+// 844
 export function backspaceCompare(str1: string, str2: string): boolean {
   function getString(str: string): string {
-    const stack = new Stack<string>();
+    const stack: string[] = [];
     for (const item of str) {
-      item === '#' ? stack.pop() : stack.push(item);
+      if (item === '#') {
+        stack.pop();
+      } else {
+        stack.push(item);
+      }
     }
 
-    let result = '';
-    while (!stack.isEmpty()) {
-      result = `${stack.pop()}${result}`;
-    }
-    return result;
+    return stack.join('');
   }
 
   return getString(str1) === getString(str2);

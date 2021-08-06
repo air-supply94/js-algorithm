@@ -1,4 +1,4 @@
-# 0.0.0 (2021-08-05)
+# 0.0.0 (2021-08-06)
 
 ### Bug Fixes
 
@@ -130,6 +130,7 @@
 - **dataStructure/design:** add maxSlidingWindow ([f79320d](https://github.com/air-supply94/js-algorithm/commit/f79320ddb96270c46faab34feed0d92f81efed5d))
 - **dataStructure/design:** add nextGreaterElement nextGreaterElementCircle ([f836ff4](https://github.com/air-supply94/js-algorithm/commit/f836ff486de42ed042348c925d4f9f2de4ccb3b1))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
+- **dataStructure/stack:** 迁移到线上 leetcode ([e554ae9](https://github.com/air-supply94/js-algorithm/commit/e554ae99384204705c4039497660184186f07a2e))
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))
 - **dataStructures/design:** update LRUCache(leetcode 上测试) ([3ca03bb](https://github.com/air-supply94/js-algorithm/commit/3ca03bbdfa7fbddcf13f45a54a9fa97256a2f4b4))
 - **dataStructures/simple:** add heap ([c9a5222](https://github.com/air-supply94/js-algorithm/commit/c9a5222ce84cedd66826fb131071185998d4c404))
@@ -272,6 +273,6 @@
 - **trie:** 增加类型 ([7b8f635](https://github.com/air-supply94/js-algorithm/commit/7b8f63569962a2a05a36b2077efbacaa3167c75f))
 - **trie:** 更改 trie 的 toString ([2791bd4](https://github.com/air-supply94/js-algorithm/commit/2791bd40a8cdd93ba3dbc0606328162e12b7bbd6))
 - **tsconfig.json:** add strict limit ([50b31ff](https://github.com/air-supply94/js-algorithm/commit/50b31ffe47a3b9182340319c9df2332ad0d3fda3))
-- **tsconfig.json:** set noImplicitAny true ([cb42783](https://github.com/air-supply94/js-algorithm/commit/cb427832dc4e736455d7446a5469e02bd15634d4))
+- **tsconfig.json:** set noImplicitAny true ([6ac23c1](https://github.com/air-supply94/js-algorithm/commit/6ac23c1fbba0182a00cd2a5413a73c4f505e899e))
 - **tsconfig.json:** 更新配置 ([18f0cbb](https://github.com/air-supply94/js-algorithm/commit/18f0cbb55f13165b46683983391a1219c40f8e72))
 - **unique-paths:** add ([9739d63](https://github.com/air-supply94/js-algorithm/commit/9739d637d592fb3cff685bb2d3bad84fc24865e6))

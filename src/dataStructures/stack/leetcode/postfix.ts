@@ -1,39 +1,25 @@
-import { Stack } from '../stack';
+// https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/submissions/
+// 150
+export function evalRPN(tokens: string[]): number {
+  const stack: number[] = [];
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
 
-function add(x: number, y: number): number {
-  return x + y;
-}
-
-function subtract(x: number, y: number): number {
-  return x - y;
-}
-
-function multiply(x: number, y: number): number {
-  return x * y;
-}
-
-function divide(x: number, y: number): number {
-  return x / y;
-}
-
-export const symbolStrategy = {
-  '+': add,
-  '-': subtract,
-  '*': multiply,
-  '/': divide,
-};
-
-export function postfix(array: Array<'+' | '-' | '*' | '/' | number>): number | null {
-  const stack = new Stack<number>();
-  let result: number | null = null;
-  array.forEach((item) => {
-    if (typeof item === 'number') {
-      stack.push(item);
-    } else if (typeof item === 'string') {
-      result = symbolStrategy[item](stack.pop(), stack.pop());
-      stack.push(result);
+    if (token === '+') {
+      stack.push(stack.pop() + stack.pop());
+    } else if (token === '-') {
+      const num2 = stack.pop();
+      const num1 = stack.pop();
+      stack.push(num1 - num2);
+    } else if (token === '*') {
+      stack.push(stack.pop() * stack.pop());
+    } else if (token === '/') {
+      const num2 = stack.pop();
+      const num1 = stack.pop();
+      stack.push(num1 / num2 > 0 ? Math.floor(num1 / num2) : Math.ceil(num1 / num2));
+    } else {
+      stack.push(parseInt(token, 10));
     }
-  });
-
-  return result;
+  }
+  return stack.pop();
 }

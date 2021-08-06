@@ -1,11 +1,9 @@
-import { Stack } from '../stack';
-
-export function calPoints(options: Array<string | number>): number {
-  const stack = new Stack<number>();
+// https://leetcode-cn.com/problems/baseball-game/
+// 682
+export function calPoints(options: string[]): number {
+  const stack: number[] = [];
   options.forEach((value) => {
-    if (typeof value === 'number') {
-      stack.push(value);
-    } else if (value === 'C') {
+    if (value === 'C') {
       stack.pop();
     } else if (value === 'D') {
       const last = stack.pop();
@@ -17,12 +15,14 @@ export function calPoints(options: Array<string | number>): number {
       stack.push(lastSecond);
       stack.push(last);
       stack.push(last + lastSecond);
+    } else {
+      stack.push(Number(value));
     }
   });
 
   let result = 0;
-  while (!stack.isEmpty()) {
-    result += stack.pop();
+  for (let i = 0; i < stack.length; i++) {
+    result += stack[i];
   }
   return result;
 }
