@@ -1,31 +1,33 @@
-import { Queue } from '../../../queue';
 import { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
+// https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+// 102
+// 简单改造
 export function traverseLevelOrder<T = unknown>(
   root: BinarySearchTreeNode<T> | null,
   callback: traverseCallback<T>
 ): number {
-  const queue = new Queue<BinarySearchTreeNode<T>>();
+  const queue: Array<BinarySearchTreeNode<T>> = [];
   let level = 0;
   if (root) {
-    queue.enqueue(root);
+    queue.push(root);
   }
 
-  while (!queue.isEmpty()) {
-    const size = queue.size;
+  while (queue.length) {
+    const size = queue.length;
     level++;
     for (let i = 0; i < size; i++) {
-      const tmpNode = queue.dequeue();
+      const tmpNode = queue.shift();
       if (callback(tmpNode, level) === false) {
         return level;
       }
 
       if (tmpNode.left) {
-        queue.enqueue(tmpNode.left);
+        queue.push(tmpNode.left);
       }
 
       if (tmpNode.right) {
-        queue.enqueue(tmpNode.right);
+        queue.push(tmpNode.right);
       }
     }
   }

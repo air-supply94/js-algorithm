@@ -1,4 +1,4 @@
-# 0.0.0 (2021-08-06)
+# 0.0.0 (2021-08-09)
 
 ### Bug Fixes
 
@@ -126,10 +126,12 @@
 - **Comparator:** 更新导出方式和访问限制 ([ef485dd](https://github.com/air-supply94/js-algorithm/commit/ef485ddc67e6743f500e1ab0e8cec6f876ad1555))
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
+- **dataStructure/bst:** update getHeight ([6ceb2ab](https://github.com/air-supply94/js-algorithm/commit/6ceb2abbc2929c2f39a2476ccad39b7600104abc))
 - **dataStructure/design:** add FrequencyStack ([96b15a0](https://github.com/air-supply94/js-algorithm/commit/96b15a0b1ffa45e9824c079ad06b97a65ba7f3c0))
 - **dataStructure/design:** add maxSlidingWindow ([f79320d](https://github.com/air-supply94/js-algorithm/commit/f79320ddb96270c46faab34feed0d92f81efed5d))
 - **dataStructure/design:** add nextGreaterElement nextGreaterElementCircle ([f836ff4](https://github.com/air-supply94/js-algorithm/commit/f836ff486de42ed042348c925d4f9f2de4ccb3b1))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
+- **dataStructure/stack:** 迁移到线上 leetcode ([6d4b4aa](https://github.com/air-supply94/js-algorithm/commit/6d4b4aa551167292b40bd16cb58c312a48553fcf))
 - **dataStructure/stack:** 迁移到线上 leetcode ([b1c2b8a](https://github.com/air-supply94/js-algorithm/commit/b1c2b8a747a22654837ad0eb1095b969b28714cb))
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))
 - **dataStructures/design:** update LRUCache(leetcode 上测试) ([3ca03bb](https://github.com/air-supply94/js-algorithm/commit/3ca03bbdfa7fbddcf13f45a54a9fa97256a2f4b4))

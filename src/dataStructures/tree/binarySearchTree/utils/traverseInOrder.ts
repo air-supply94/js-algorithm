@@ -1,14 +1,16 @@
-import { Stack } from '../../../stack';
 import { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
+// https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+// 94
+// 简单改造
 export function traverseInOrder<T = unknown>(
   root: null | BinarySearchTreeNode<T>,
   callback: traverseCallback<T>
 ): void {
-  const nodeStack = new Stack<BinarySearchTreeNode<T>>();
+  const nodeStack: Array<BinarySearchTreeNode<T>> = [];
   let peekNode = root;
 
-  while (peekNode || !nodeStack.isEmpty()) {
+  while (peekNode || nodeStack.length) {
     if (peekNode) {
       nodeStack.push(peekNode);
       peekNode = peekNode.left;

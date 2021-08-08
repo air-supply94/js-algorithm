@@ -1,29 +1,27 @@
-import { Stack } from '../../../stack';
 import { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
 export function traverseAfterOrder<T = unknown>(
   root: BinarySearchTreeNode<T> | null,
   callback: traverseCallback<T>
 ): void {
-  const nodeStack = new Stack<BinarySearchTreeNode<T>>();
+  const nodeStack: Array<BinarySearchTreeNode<T>> = [];
   let currentNode = root;
   if (root) {
     nodeStack.push(root);
   }
 
-  while (!nodeStack.isEmpty()) {
-    if (nodeStack.peek() !== currentNode.parent) {
-      let peekNode = nodeStack.peek();
+  while (nodeStack.length) {
+    if (nodeStack[nodeStack.length - 1] !== currentNode.parent) {
+      let peekNode = nodeStack[nodeStack.length - 1];
       while (peekNode.left || peekNode.right) {
-        if (peekNode.left && peekNode.right) {
+        if (peekNode.right) {
           nodeStack.push(peekNode.right);
-          nodeStack.push(peekNode.left);
-        } else if (peekNode.right) {
-          nodeStack.push(peekNode.right);
-        } else {
+        }
+
+        if (peekNode.left) {
           nodeStack.push(peekNode.left);
         }
-        peekNode = nodeStack.peek();
+        peekNode = nodeStack[nodeStack.length - 1];
       }
     }
 

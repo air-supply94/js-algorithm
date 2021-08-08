@@ -124,6 +124,9 @@ describe('BinarySearchTreeNode', () => {
 
   test('should calculate node height', () => {
     const root = new BinarySearchTreeNode(1);
+    expect(getHeight(null))
+      .toBe(0);
+
     const left = new BinarySearchTreeNode(3);
     const right = new BinarySearchTreeNode(2);
     const grandLeft = new BinarySearchTreeNode(5);

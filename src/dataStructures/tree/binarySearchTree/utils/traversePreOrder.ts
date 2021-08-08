@@ -1,16 +1,18 @@
-import { Stack } from '../../../stack';
 import { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
+// https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
+// 144
+// 简单改造
 export function traversePreOrder<T = unknown>(
   root: BinarySearchTreeNode<T> | null,
   callback: traverseCallback<T>
 ): void {
-  const nodeStack = new Stack<BinarySearchTreeNode<T>>();
+  const nodeStack: Array<BinarySearchTreeNode<T>> = [];
   if (root) {
     nodeStack.push(root);
   }
 
-  while (!nodeStack.isEmpty()) {
+  while (nodeStack.length) {
     const currentNode = nodeStack.pop();
     if (callback(currentNode) === false) {
       return;

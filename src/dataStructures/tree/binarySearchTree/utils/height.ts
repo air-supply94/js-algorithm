@@ -1,19 +1,33 @@
 import { BinarySearchTreeNode } from '../binarySearchTree';
-import { traverseLevelOrder } from './traverseLevelOrder';
+
+function getLeftHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
+  if (!root.left) {
+    return 0;
+  }
+
+  return getHeight(root.left) + 1;
+}
+
+function getRightHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
+  if (!root.right) {
+    return 0;
+  }
+
+  return getHeight(root.right) + 1;
+}
 
 export function getHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
-  const level = traverseLevelOrder(root, () => true);
-  if (level <= 1) {
+  if (!root) {
     return 0;
-  } else {
-    return level - 1;
   }
+
+  return Math.max(getLeftHeight(root), getRightHeight(root));
 }
 
 export function getBalanceFactor<T = unknown>(root: BinarySearchTreeNode<T>): number {
-  if (root) {
-    return traverseLevelOrder(root.left, () => true) - traverseLevelOrder(root.right, () => true);
-  } else {
+  if (!root) {
     return 0;
   }
+
+  return getLeftHeight(root) - getRightHeight(root);
 }
