@@ -1,25 +1,25 @@
 class MonotonicQueue {
   constructor() {
-    this.doubleLinkedList = [];
+    this.queue = [];
   }
 
-  private readonly doubleLinkedList: number[];
+  private readonly queue: number[];
 
   public push(x: number): void {
-    while (this.doubleLinkedList.length && this.doubleLinkedList[this.doubleLinkedList.length - 1] < x) {
-      this.doubleLinkedList.pop();
+    while (this.queue.length && this.queue[this.queue.length - 1] < x) {
+      this.queue.pop();
     }
-    this.doubleLinkedList.push(x);
+    this.queue.push(x);
   }
 
   public pop(x: number): void {
-    if (this.doubleLinkedList[0] === x) {
-      this.doubleLinkedList.shift();
+    if (this.queue[0] === x) {
+      this.queue.shift();
     }
   }
 
   public max(): number {
-    return this.doubleLinkedList[0];
+    return this.queue[0];
   }
 }
 
