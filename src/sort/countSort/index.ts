@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/sort-an-array/submissions/
+// 912
 export function countSort(originalArray: number[]): number[] {
   if (originalArray.length <= 1) {
     return originalArray;

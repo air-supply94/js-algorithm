@@ -1,4 +1,4 @@
-# 0.0.0 (2021-08-10)
+# 0.0.0 (2021-08-12)
 
 ### Bug Fixes
 
@@ -251,6 +251,7 @@
 - **serialize-pre-order:** add ([52c0c71](https://github.com/air-supply94/js-algorithm/commit/52c0c71e4415104cac0532cbd3120f6ee420c22f))
 - **Set:** add interface ([eac93fc](https://github.com/air-supply94/js-algorithm/commit/eac93fc365de359492d042141c36cbd1359d7cbe))
 - **sieve:** 增加埃拉托色尼算法 ([692b7ab](https://github.com/air-supply94/js-algorithm/commit/692b7ab5a39325e2c48b0bee7d9074b421d16b8f))
+- **stack:** add asteroidCollision ([c1d6499](https://github.com/air-supply94/js-algorithm/commit/c1d64996c1892ab591323f0654dd3355d4f0e5b6))
 - **stack:** add calculate ([f45da8b](https://github.com/air-supply94/js-algorithm/commit/f45da8bb36150a4dc8ab9071a713ebaf54dc55ff))
 - **stack:** add interface ([8cf0709](https://github.com/air-supply94/js-algorithm/commit/8cf0709f63b6e7d5bac7dd90a48870778b41a893))
 - **stack:** add majorityElement ([59025f6](https://github.com/air-supply94/js-algorithm/commit/59025f648094185ea220bc92d328245a53c6cacd))

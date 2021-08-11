@@ -1,3 +1,19 @@
+export function isValidEasy(str: string): boolean {
+  let leftBrace = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '(') {
+      leftBrace++;
+    } else {
+      if (leftBrace <= 0) {
+        return false;
+      }
+      leftBrace--;
+    }
+  }
+
+  return leftBrace === 0;
+}
+
 // https://leetcode-cn.com/problems/valid-parentheses/
 // 22
 export function isValid(str: string): boolean {

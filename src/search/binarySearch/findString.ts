@@ -13,14 +13,14 @@ export function findString(words: string[], s: string): number {
     }
 
     let middle = left + Math.floor((right - left) / 2);
-    while (left <= middle && words[middle] === '') {
-      middle--;
+    while (middle <= right && words[middle] === '') {
+      middle++;
     }
 
-    if (s === words[middle]) {
-      return middle;
-    } else if (s < words[middle]) {
+    if (s < words[middle]) {
       right = middle - 1;
+    } else if (s === words[middle]) {
+      return middle;
     } else {
       left = middle + 1;
     }
