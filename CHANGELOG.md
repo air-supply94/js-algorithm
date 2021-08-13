@@ -200,6 +200,7 @@
 - **hashTable:** 更改 hash 表，暂时只支持 key 为 string 或者 number。以后可能会加红黑树 ([24723ff](https://github.com/air-supply94/js-algorithm/commit/24723ff5cf1a29e16bd69902cee0e3662536fe0f))
 - **hashTable:** 更新类型 ([ab433b8](https://github.com/air-supply94/js-algorithm/commit/ab433b8649a44979cfd8a64b71f1eb596c8f29df))
 - **hashTable:** 重构此类 ([cf0eba5](https://github.com/air-supply94/js-algorithm/commit/cf0eba5e7f437f678c644cc1fc62b114bba6d8bd))
+- **heap:** add eatenApples ([0534a9e](https://github.com/air-supply94/js-algorithm/commit/0534a9e12c49fb5abeb8c8b2c3695b31c585f5ba))
 - **heap:** add interface ([a9c4463](https://github.com/air-supply94/js-algorithm/commit/a9c44631cb8f952b16246d72a7518e0ed4b12488))
 - **heap:** add MedianFinder ([01b011d](https://github.com/air-supply94/js-algorithm/commit/01b011dfe67d3ae3d8ac2103f751e0a870ec1053))
 - **Heap:** 更改小的实现细节(down) ([e78fe09](https://github.com/air-supply94/js-algorithm/commit/e78fe09c72f363e9ea668d08e60d721ca91b6fe9))
