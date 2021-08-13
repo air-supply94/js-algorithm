@@ -203,6 +203,7 @@
 - **heap:** add eatenApples ([0534a9e](https://github.com/air-supply94/js-algorithm/commit/0534a9e12c49fb5abeb8c8b2c3695b31c585f5ba))
 - **heap:** add interface ([a9c4463](https://github.com/air-supply94/js-algorithm/commit/a9c44631cb8f952b16246d72a7518e0ed4b12488))
 - **heap:** add MedianFinder ([01b011d](https://github.com/air-supply94/js-algorithm/commit/01b011dfe67d3ae3d8ac2103f751e0a870ec1053))
+- **heap:** add minRefuelStops ([85ffc5a](https://github.com/air-supply94/js-algorithm/commit/85ffc5aa3bac7d48a3b1a870436dc02b639f08dc))
 - **Heap:** 更改小的实现细节(down) ([e78fe09](https://github.com/air-supply94/js-algorithm/commit/e78fe09c72f363e9ea668d08e60d721ca91b6fe9))
 - **heap and priorityQuery:** 更改 heap，重构优先队列 ([a9df5aa](https://github.com/air-supply94/js-algorithm/commit/a9df5aad328b3254681faaf408eb9e0ed1feb461))
 - **heap and priorityQuery:** 更改 peek、poll 返回值 ([54e09f3](https://github.com/air-supply94/js-algorithm/commit/54e09f3ae41da74b89ea35fb04a9323e507f1fd3))

@@ -17,11 +17,15 @@ function pathSumDfs(root: TreeNode | null, sum: number, result: number[][], curr
   }
 
   const newSum = sum - root.val;
-  const newCurrentPath = currentPath.concat(root.val);
   if (newSum === 0 && !root.left && !root.right) {
-    result.push(newCurrentPath);
+    result.push(currentPath.concat(root.val));
   }
 
-  pathSumDfs(root.left, newSum, result, newCurrentPath);
-  pathSumDfs(root.right, newSum, result, newCurrentPath);
+  currentPath.push(root.val);
+  pathSumDfs(root.left, newSum, result, currentPath);
+  currentPath.pop();
+
+  currentPath.push(root.val);
+  pathSumDfs(root.right, newSum, result, currentPath);
+  currentPath.pop();
 }
