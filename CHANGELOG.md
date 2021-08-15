@@ -1,4 +1,4 @@
-# 0.0.0 (2021-08-13)
+# 0.0.0 (2021-08-15)
 
 ### Bug Fixes
 
@@ -126,7 +126,7 @@
 - **Comparator:** 更新导出方式和访问限制 ([ef485dd](https://github.com/air-supply94/js-algorithm/commit/ef485ddc67e6743f500e1ab0e8cec6f876ad1555))
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
-- **dataStructure/bst:** add findMode ([27af8e6](https://github.com/air-supply94/js-algorithm/commit/27af8e6d07cfca539e9d5f80717aff9608a172a2))
+- **dataStructure/bst:** add findMode ([aa0d969](https://github.com/air-supply94/js-algorithm/commit/aa0d969c0672a81c643ec9260096ec6b1920955a))
 - **dataStructure/bst:** update getHeight ([972e0c4](https://github.com/air-supply94/js-algorithm/commit/972e0c43279a8d26aee1d49e00cd827fa93a4e7a))
 - **dataStructure/design:** add FrequencyStack ([96b15a0](https://github.com/air-supply94/js-algorithm/commit/96b15a0b1ffa45e9824c079ad06b97a65ba7f3c0))
 - **dataStructure/design:** add maxSlidingWindow ([f79320d](https://github.com/air-supply94/js-algorithm/commit/f79320ddb96270c46faab34feed0d92f81efed5d))
@@ -255,6 +255,7 @@
 - **serialize-pre-order:** add ([52c0c71](https://github.com/air-supply94/js-algorithm/commit/52c0c71e4415104cac0532cbd3120f6ee420c22f))
 - **Set:** add interface ([eac93fc](https://github.com/air-supply94/js-algorithm/commit/eac93fc365de359492d042141c36cbd1359d7cbe))
 - **sieve:** 增加埃拉托色尼算法 ([692b7ab](https://github.com/air-supply94/js-algorithm/commit/692b7ab5a39325e2c48b0bee7d9074b421d16b8f))
+- **sort/mergeSort:** add merge ([df041f7](https://github.com/air-supply94/js-algorithm/commit/df041f7b97b2ce161ec3ee37138bb0143ca23578))
 - **stack:** add asteroidCollision ([9d15621](https://github.com/air-supply94/js-algorithm/commit/9d15621d49af890b12a0039e7859677189cf89d0))
 - **stack:** add calculate ([f45da8b](https://github.com/air-supply94/js-algorithm/commit/f45da8bb36150a4dc8ab9071a713ebaf54dc55ff))
 - **stack:** add interface ([8cf0709](https://github.com/air-supply94/js-algorithm/commit/8cf0709f63b6e7d5bac7dd90a48870778b41a893))
