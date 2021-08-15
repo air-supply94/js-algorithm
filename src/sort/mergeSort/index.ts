@@ -1,48 +1,49 @@
-import { Comparator, compareFunctionType } from '../../utils';
-
-export function mergeSort<T = unknown>(originalArray: T[], comparator?: Comparator | compareFunctionType): T[] {
-  if (originalArray.length <= 1) {
+// https://leetcode-cn.com/problems/sort-an-array/submissions/
+// 912
+export function mergeSort(originalArray: number[], left = 0, right = originalArray.length - 1): number[] {
+  if (left >= right) {
     return originalArray;
   }
 
-  const newComparator = new Comparator(comparator);
-
-  const middleIndex = originalArray.length >>> 1;
-  const left = originalArray.slice(0, middleIndex);
-  const right = originalArray.slice(middleIndex);
-
-  return mergeSortedArrays<T>(mergeSort<T>(left, newComparator), mergeSort<T>(right, newComparator), newComparator);
+  const middleIndex = left + Math.floor((right - left) / 2);
+  mergeSort(originalArray, left, middleIndex);
+  mergeSort(originalArray, middleIndex + 1, right);
+  mergeSortedArrays(originalArray, left, right);
+  return originalArray;
 }
 
-function mergeSortedArrays<T>(leftArray: T[], rightArray: T[], comparator: Comparator): T[] {
-  const result: T[] = Array(leftArray.length + rightArray.length);
-  let i = 0;
-  let j = 0;
+function mergeSortedArrays(originalArray: number[], left: number, right: number): void {
+  const result: number[] = Array(right - left + 1);
+  const middleIndex = left + Math.floor((right - left) / 2);
+  let i = left;
+  let j = middleIndex + 1;
   let k = 0;
 
-  while (i < leftArray.length && j < rightArray.length) {
-    if (comparator.lessThan(rightArray[j], leftArray[i])) {
-      result[k] = rightArray[j];
+  while (i <= middleIndex && j <= right) {
+    if (originalArray[j] < originalArray[i]) {
+      result[k] = originalArray[j];
       k++;
       j++;
     } else {
-      result[k] = leftArray[i];
+      result[k] = originalArray[i];
       k++;
       i++;
     }
   }
 
-  while (i < leftArray.length) {
-    result[k] = leftArray[i];
+  while (i <= middleIndex) {
+    result[k] = originalArray[i];
     k++;
     i++;
   }
 
-  while (j < rightArray.length) {
-    result[k] = rightArray[j];
+  while (j <= right) {
+    result[k] = originalArray[j];
     k++;
     j++;
   }
 
-  return result;
+  for (let l = 0; l < result.length; l++) {
+    originalArray[l + left] = result[l];
+  }
 }

@@ -1,7 +1,6 @@
 import { Comparator } from '../../utils';
 import { bubbleSort } from '../bubbleSort';
 import { insertionSort } from '../insertionSort';
-import { mergeSort } from '../mergeSort';
 import { quickSortExchange } from '../quickSort/quickSortExchange';
 import { quickSortInPlace } from '../quickSort/quickSortInPlace';
 import { selectionSort } from '../selectionSort';
@@ -11,7 +10,6 @@ describe('sortBase', () => {
   const sortCollection = [
     bubbleSort,
     insertionSort,
-    mergeSort,
     quickSortExchange,
     selectionSort,
     shellSort,
