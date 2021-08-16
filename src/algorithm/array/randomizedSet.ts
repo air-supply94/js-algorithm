@@ -44,30 +44,32 @@ export class RandomizedSet {
 // 710
 export class RandomizedSetBlackList {
   constructor(n: number, blackList: number[]) {
+    const whiteLength = n - blackList.length;
+    this.whiteLength = whiteLength;
     this.unorderedMap = new Map<number, number>();
-    this.whiteLength = n - blackList.length;
-    this.init(n, blackList);
-  }
 
-  private init(n: number, blackList: number[]) {
-    const whiteLength = this.whiteLength;
-
-    const whiteListRight: number[] = [];
-    const blackListMap = new Map<number, boolean>();
+    const blackMap = new Map<number, boolean>();
     for (let i = 0; i < blackList.length; i++) {
-      blackListMap.set(blackList[i], true);
+      blackMap.set(blackList[i], true);
     }
 
+    const whiteRightList: number[] = [];
     for (let i = whiteLength; i < n; i++) {
-      if (!blackListMap.has(i)) {
-        whiteListRight.push(i);
+      if (!blackMap.has(i)) {
+        whiteRightList.push(i);
       }
     }
 
-    const leftBlack = blackList.filter((x) => (x < whiteLength));
-    leftBlack.forEach((black, index) => {
-      this.unorderedMap.set(black, whiteListRight[index]);
-    });
+    const blackListLeft: number[] = [];
+    for (let i = 0; i < blackList.length; i++) {
+      if (blackList[i] < whiteLength) {
+        blackListLeft.push(blackList[i]);
+      }
+    }
+
+    for (let i = 0; i < blackListLeft.length; i++) {
+      this.unorderedMap.set(blackListLeft[i], whiteRightList[i]);
+    }
   }
 
   private readonly whiteLength: number;

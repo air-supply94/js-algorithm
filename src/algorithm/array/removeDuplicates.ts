@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+// 26
 export function removeDuplicates(nums: number[]): number {
   let uniqueIndex = 0;
 

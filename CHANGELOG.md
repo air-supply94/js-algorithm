@@ -1,4 +1,4 @@
-# 0.0.0 (2021-08-16)
+# 0.0.0 (2021-08-17)
 
 ### Bug Fixes
 
@@ -86,6 +86,7 @@
 - **array:** add multiplyExceptSelf ([545e5e9](https://github.com/air-supply94/js-algorithm/commit/545e5e9ec432554a9e120f3f40178c8078442b51))
 - **array:** add rotate ([46fd6cf](https://github.com/air-supply94/js-algorithm/commit/46fd6cf9973a42ccf48cac5cd086cc53d6107cec))
 - **array:** add rotate matrix ([cbeb58a](https://github.com/air-supply94/js-algorithm/commit/cbeb58ab6cf44f0f027975ce08e19cab46b1dc98))
+- **array/slidingWindow:** add maxAverage ([6017129](https://github.com/air-supply94/js-algorithm/commit/60171293db4087a347e34b6b1e0673fa6a39e3f7))
 - **avlTree:** 重构此类 ([bd35c86](https://github.com/air-supply94/js-algorithm/commit/bd35c8633f67618017b574312f63328c52a3930b))
 - **AvlTree:** 增加类型 ([57971b0](https://github.com/air-supply94/js-algorithm/commit/57971b0acd7f85c9633708e0c045031c7c415cb7))
 - **backTrack:** add canPartitionKSubsets ([5d9b1a9](https://github.com/air-supply94/js-algorithm/commit/5d9b1a9090e442b40c42a47e941a944865b1e3ae))
@@ -245,11 +246,11 @@
 - **redBlackTree、AvlTree:** 以组合代替继承，继承太麻烦 ([8058567](https://github.com/air-supply94/js-algorithm/commit/80585670dc9d680bbca539bbff39f33ecbf50089))
 - **RedBlackTree),fix(rotate:** add RedBlackTree test, 解决旋转 node parent 丢失问题 ([f70663a](https://github.com/air-supply94/js-algorithm/commit/f70663abb56135f8244d953cb26cb72b2b5d9bb5))
 - **search:** add findKthMin.png ([73d49f7](https://github.com/air-supply94/js-algorithm/commit/73d49f79d43eb68905b2026480fb017769f2e03c))
-- **search:** add minSubArrayLen ([eac273a](https://github.com/air-supply94/js-algorithm/commit/eac273a58b32de69dcba8206d3c626800cd97769))
 - **search:** add missingNumber ([d3a3444](https://github.com/air-supply94/js-algorithm/commit/d3a3444ad2d02fb5d6eac769e6d3d35b3e95edaa))
 - **search:** add peakIndexInMountainArray ([7fd6415](https://github.com/air-supply94/js-algorithm/commit/7fd6415f4c7e45e48c6e1cdab1d2af8663ed74cd))
 - **search:** add rotateSearchMin ([4b5e7f7](https://github.com/air-supply94/js-algorithm/commit/4b5e7f772d9f9c3b9d9c861fe123025761636ec3))
 - **search-word:** add ([6c387cb](https://github.com/air-supply94/js-algorithm/commit/6c387cbeba7c7539dd6a3d4d36e5103a86b170d6))
+- **search、array/slidingWindow:** add minSubArrayLen ([0402993](https://github.com/air-supply94/js-algorithm/commit/0402993df5b7ae052aa2e2fb16823c414d5c57be))
 - **serialize-level-order:** add ([e4ff9f5](https://github.com/air-supply94/js-algorithm/commit/e4ff9f53981172be1ca5a558f67285ccf41d1368))
 - **serialize-pre-and-in-order:** add ([78d93b6](https://github.com/air-supply94/js-algorithm/commit/78d93b60761de94bcb5f5eb85459b860f9b2e0b1))
 - **serialize-pre-and-in-order:** update node variable ([26677c6](https://github.com/air-supply94/js-algorithm/commit/26677c6e5f06927da1490fa20d6309314e1990c6))

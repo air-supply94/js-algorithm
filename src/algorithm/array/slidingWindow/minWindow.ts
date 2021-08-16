@@ -1,47 +1,47 @@
 // https://leetcode-cn.com/problems/minimum-window-substring/
 // 76
 export function minWindow(s: string, t: string): string {
-  const need = new Map<string, number>();
-  const slidingWindow = new Map<string, number>();
-  let windowSize = 0;
+  const needMap = new Map<string, number>();
+  const countMap = new Map<string, number>();
   let left = 0;
   let right = 0;
-  let resultLength = 0;
-  let resultStart = 0;
+  let windowSize = 0;
+  let length = Infinity;
+  let start = 0;
 
   for (let i = 0; i < t.length; i++) {
-    need.set(t[i], (need.get(t[i]) || 0) + 1);
+    needMap.set(t[i], (needMap.get(t[i]) || 0) + 1);
   }
 
   while (right < s.length) {
     const rightChar = s[right];
     right++;
-    if (need.has(rightChar)) {
-      slidingWindow.set(rightChar, (slidingWindow.get(rightChar) || 0) + 1);
-      if (slidingWindow.get(rightChar) === need.get(rightChar)) {
+    if (needMap.has(rightChar)) {
+      countMap.set(rightChar, (countMap.get(rightChar) || 0) + 1);
+      if (needMap.get(rightChar) === countMap.get(rightChar)) {
         windowSize++;
       }
     }
 
-    while (windowSize && windowSize === need.size) {
-      if (resultLength === 0 || right - left < resultLength) {
-        resultStart = left;
-        resultLength = right - left;
+    while (windowSize && windowSize === needMap.size) {
+      if (right - left < length) {
+        length = right - left;
+        start = left;
       }
 
       const leftChar = s[left];
       left++;
-      if (need.has(leftChar)) {
-        if (slidingWindow.get(leftChar) === need.get(leftChar)) {
+      if (needMap.has(leftChar)) {
+        if (needMap.get(leftChar) === countMap.get(leftChar)) {
           windowSize--;
         }
-        slidingWindow.set(leftChar, slidingWindow.get(leftChar) - 1);
+        countMap.set(leftChar, countMap.get(leftChar) - 1);
       }
     }
   }
 
-  if (resultLength) {
-    return s.substr(resultStart, resultLength);
+  if (length !== Infinity) {
+    return s.substr(start, length);
   } else {
     return '';
   }

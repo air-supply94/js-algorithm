@@ -38,14 +38,14 @@ export class TwoSum {
 
   public find(target: number): boolean {
     for (const value of this.frequency.keys()) {
-      const other = target - value;
-
-      if (other === value && this.frequency.get(other) > 1) {
-        return true;
-      }
-
-      if (other !== value && this.frequency.has(other)) {
-        return true;
+      if (target - value === value) {
+        if (this.frequency.get(target - value) > 1) {
+          return true;
+        }
+      } else {
+        if (this.frequency.has(target - value)) {
+          return true;
+        }
       }
     }
 
