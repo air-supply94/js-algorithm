@@ -86,7 +86,7 @@
 - **array:** add multiplyExceptSelf ([545e5e9](https://github.com/air-supply94/js-algorithm/commit/545e5e9ec432554a9e120f3f40178c8078442b51))
 - **array:** add rotate ([46fd6cf](https://github.com/air-supply94/js-algorithm/commit/46fd6cf9973a42ccf48cac5cd086cc53d6107cec))
 - **array:** add rotate matrix ([cbeb58a](https://github.com/air-supply94/js-algorithm/commit/cbeb58ab6cf44f0f027975ce08e19cab46b1dc98))
-- **array/slidingWindow:** add maxAverage ([6017129](https://github.com/air-supply94/js-algorithm/commit/60171293db4087a347e34b6b1e0673fa6a39e3f7))
+- **array/slidingWindow:** add maxAverage ([13bd38a](https://github.com/air-supply94/js-algorithm/commit/13bd38a79266365f4d952e7963a83126ffa271df))
 - **avlTree:** 重构此类 ([bd35c86](https://github.com/air-supply94/js-algorithm/commit/bd35c8633f67618017b574312f63328c52a3930b))
 - **AvlTree:** 增加类型 ([57971b0](https://github.com/air-supply94/js-algorithm/commit/57971b0acd7f85c9633708e0c045031c7c415cb7))
 - **backTrack:** add canPartitionKSubsets ([5d9b1a9](https://github.com/air-supply94/js-algorithm/commit/5d9b1a9090e442b40c42a47e941a944865b1e3ae))
