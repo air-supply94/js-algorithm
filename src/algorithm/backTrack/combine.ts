@@ -1,25 +1,27 @@
 // https://leetcode-cn.com/problems/combinations/submissions/
 // 77
-export function combine(n: number, k: number): number[][] {
-  const choice = [];
+export function combine(n: number, m: number): number[][] {
+  const choice = Array(n)
+    .fill(null);
   for (let i = 1; i <= n; i++) {
-    choice.push(i);
+    choice[i - 1] = i;
   }
 
   const result: number[][] = [];
-  function recursion(k: number, choice: number[], path: number[]): void {
-    if (path.length === k) {
+
+  function recursion(choice: number[], path: number[]): void {
+    if (path.length === m) {
       result.push(path.slice());
       return;
     }
 
     for (let i = 0; i < choice.length; i++) {
       path.push(choice[i]);
-      recursion(k, choice.filter((_, index) => index > i), path);
+      recursion(choice.filter((_, index) => index > i), path);
       path.pop();
     }
   }
 
-  recursion(k, choice, []);
+  recursion(choice, []);
   return result;
 }

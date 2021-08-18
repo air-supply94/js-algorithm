@@ -3,7 +3,7 @@
 export function exist(board: string[][], word: string): boolean {
   for (let h = 0; h < board.length; h++) {
     for (let w = 0; w < board[h].length; w++) {
-      if (wordSearch(board, word, h, w, 0, board.length, board[h].length)) {
+      if (wordSearch(board, word, h, w, 0)) {
         return true;
       }
     }
@@ -12,7 +12,9 @@ export function exist(board: string[][], word: string): boolean {
   return false;
 }
 
-function wordSearch(board: string[][], word: string, h: number, w: number, k: number, height: number, width: number): boolean {
+function wordSearch(board: string[][], word: string, h: number, w: number, k: number): boolean {
+  const height = board.length;
+  const width = height ? board[0].length : 0;
   if (h < 0 || w < 0 || h >= height || w >= width || board[h][w] !== word[k]) {
     return false;
   }
@@ -24,10 +26,10 @@ function wordSearch(board: string[][], word: string, h: number, w: number, k: nu
   const tempChar = board[h][w];
   board[h][w] = '  ';
   const result = (
-    wordSearch(board, word, h - 1, w, k + 1, height, width) ||
-    wordSearch(board, word, h, w + 1, k + 1, height, width) ||
-    wordSearch(board, word, h + 1, w, k + 1, height, width) ||
-    wordSearch(board, word, h, w - 1, k + 1, height, width)
+    wordSearch(board, word, h - 1, w, k + 1) ||
+    wordSearch(board, word, h, w + 1, k + 1) ||
+    wordSearch(board, word, h + 1, w, k + 1) ||
+    wordSearch(board, word, h, w - 1, k + 1)
   );
   board[h][w] = tempChar;
   return result;

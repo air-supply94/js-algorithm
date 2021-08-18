@@ -18,26 +18,26 @@ export function canPartitionKSubsets(nums: number[], k: number): boolean {
     return false;
   }
 
-  return recursion(nums.sort((a, b) => a - b), k, 0, nums.map(() => 0), target, 0);
+  return dfs(nums.sort((a, b) => a - b), k, 0, Array(nums.length).fill(0), 0, target);
 }
 
-function recursion(nums: number[], restBucket: number, bucketSum: number, choice: number[], target: number, start: number): boolean {
-  if (restBucket === 0) {
+function dfs(nums: number[], currentBucket: number, bucketSum: number, visitedIndex: number[], currentIndex: number, target: number): boolean {
+  if (currentBucket === 0) {
     return true;
   }
 
   if (bucketSum === target) {
-    return recursion(nums, restBucket - 1, 0, choice, target, 0);
+    return dfs(nums, currentBucket - 1, 0, visitedIndex, 0, target);
   }
 
-  for (let i = start; i < nums.length; i++) {
-    if (!choice[i]) {
+  for (let i = currentIndex; i < nums.length; i++) {
+    if (!visitedIndex[i]) {
       if (nums[i] + bucketSum <= target) {
-        choice[i] = 1;
-        if (recursion(nums, restBucket, bucketSum + nums[i], choice, target, start + 1)) {
+        visitedIndex[i] = 1;
+        if (dfs(nums, currentBucket, bucketSum + nums[i], visitedIndex, currentIndex + 1, target)) {
           return true;
         }
-        choice[i] = 0;
+        visitedIndex[i] = 0;
       }
     }
   }

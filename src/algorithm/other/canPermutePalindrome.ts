@@ -1,19 +1,18 @@
 // https://leetcode-cn.com/problems/palindrome-permutation-lcci/
 // 金典01.04
 export function canPermutePalindrome(s: string): boolean {
-  const charMap = Object.create(null);
+  const charMap = new Map<string, number>();
   for (let i = 0; i < s.length; i++) {
-    charMap[s[i]] = (charMap[s[i]] || 0) + 1;
+    charMap.set(s[i], (charMap.get(s[i]) || 0) + 1);
   }
 
-  let count = 0;
-  const values: number[] = Object.values(charMap);
-  for (let i = 0; i < values.length; i++) {
-    if (values[i] & 1) {
-      count++;
-      if (count > 1) {
+  let isFirstOdd = false;
+  for (const count of charMap.values()) {
+    if (count % 2 === 1) {
+      if (isFirstOdd) {
         return false;
       }
+      isFirstOdd = true;
     }
   }
 

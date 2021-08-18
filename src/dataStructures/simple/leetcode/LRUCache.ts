@@ -1,4 +1,4 @@
-import { deleteNode, DoubleLinkedList, DoubleLinkedListNode, prependNode } from '../simple/doubleLinkedList';
+import { deleteNode, DoubleLinkedList, DoubleLinkedListNode, prependNode } from '../doubleLinkedList';
 
 interface LRUCacheItem {
   key: number;

@@ -1,17 +1,17 @@
-import { swap } from '../../utils';
-
 // https://leetcode-cn.com/problems/sliding-puzzle/
 // 773
 export function slidingPuzzle(board: number[][]): number {
   const h = board.length;
   const w = board[0].length;
   const neighbor = getNeighborIndex(h, w);
+  const visited = new Map<string, boolean>();
 
   let end = '0';
   for (let i = h * w - 1; i >= 1; i--) {
     end = `${i}${end}`;
   }
 
+  const queue: Array<{ root: number[]; index: number; }> = [];
   const root: number[] = [];
   for (let i = 0; i < h; i++) {
     for (let j = 0; j < w; j++) {
@@ -19,40 +19,34 @@ export function slidingPuzzle(board: number[][]): number {
     }
   }
   const index = root.indexOf(0);
-
-  const queue: Array<{ root: number[]; index: number; }> = [];
-  const enqueueMap = new Map<string, boolean>();
-
   queue.push({
     root,
     index,
   });
-  enqueueMap.set(root.join(','), true);
 
   let level = 0;
-
   while (queue.length) {
     level++;
     const size = queue.length;
 
     for (let i = 0; i < size; i++) {
-      const currentNode = queue.shift();
-      if (currentNode.root.join('') === end) {
+      const currentItem = queue.shift();
+      if (currentItem.root.join('') === end) {
         return level - 1;
       }
 
-      neighbor[currentNode.index].forEach((index) => {
-        swap(currentNode.root, currentNode.index, index);
-        const tmpNode = currentNode.root.slice();
-        if (!enqueueMap.has(tmpNode.join(','))) {
+      const currentNeighbor = neighbor[currentItem.index];
+      for (let j = 0; j < currentNeighbor.length; j++) {
+        swap(currentItem.root, currentItem.index, currentNeighbor[j]);
+        if (!visited.has(currentItem.root.join(''))) {
+          visited.set(currentItem.root.join(''), true);
           queue.push({
-            root: tmpNode,
-            index,
+            root: currentItem.root.slice(),
+            index: currentNeighbor[j],
           });
-          enqueueMap.set(tmpNode.join(','), true);
         }
-        swap(currentNode.root, currentNode.index, index);
-      });
+        swap(currentItem.root, currentItem.index, currentNeighbor[j]);
+      }
     }
   }
 
@@ -61,9 +55,8 @@ export function slidingPuzzle(board: number[][]): number {
 
 function getNeighborIndex(h: number, w: number): number[][] {
   const result: number[][] = [];
-
   for (let i = 0; i < h * w; i++) {
-    const tmp = [];
+    const tmp: number[] = [];
     if (i >= w) {
       tmp.push(i - w);
     }
@@ -84,4 +77,10 @@ function getNeighborIndex(h: number, w: number): number[][] {
   }
 
   return result;
+}
+
+function swap(data: unknown[], first: number, second: number): void {
+  const t = data[first];
+  data[first] = data[second];
+  data[second] = t;
 }

@@ -2,7 +2,8 @@
 // 682
 export function calPoints(options: string[]): number {
   const stack: number[] = [];
-  options.forEach((value) => {
+  for (let i = 0; i < options.length; i++) {
+    const value = options[i];
     if (value === 'C') {
       stack.pop();
     } else if (value === 'D') {
@@ -18,7 +19,7 @@ export function calPoints(options: string[]): number {
     } else {
       stack.push(Number(value));
     }
-  });
+  }
 
   let result = 0;
   for (let i = 0; i < stack.length; i++) {

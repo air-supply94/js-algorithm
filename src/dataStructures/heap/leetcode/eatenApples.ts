@@ -1,5 +1,7 @@
 import { Heap } from '../heap';
 
+// https://leetcode-cn.com/problems/maximum-number-of-eaten-apples/
+// 1705
 export function eatenApples(apples: number[], days: number[]): number {
   const minHeap = new Heap<[number, number]>((a, b) => a[0] <= b[0]);
   let result = 0;
