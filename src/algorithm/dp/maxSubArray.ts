@@ -1,18 +1,17 @@
 // https://leetcode-cn.com/problems/maximum-subarray/
 // 53
 export function maxSubArray(numbers: number[]): number {
-  if (!numbers.length) {
-    return 0;
-  }
-
-  let dp_0 = numbers[0];
-  let dp_1 = 0;
-  let result = dp_0;
+  let sum = numbers[0];
+  let result = sum;
 
   for (let i = 1; i < numbers.length; i++) {
-    dp_1 = Math.max(numbers[i], dp_0 + numbers[i]);
-    dp_0 = dp_1;
-    result = Math.max(result, dp_1);
+    if (sum <= 0) {
+      sum = numbers[i];
+    } else {
+      sum += numbers[i];
+    }
+
+    result = Math.max(result, sum);
   }
 
   return result;
@@ -42,12 +41,12 @@ export function getMaxMatrix(matrix: number[][]): number[] {
       sum = 0;
       for (let k = 0; k < w; k++) {
         dp[k] += matrix[j][k];
-        if (sum > 0) {
-          sum += dp[k];
-        } else {
+        if (sum <= 0) {
           sum = dp[k];
           startH = i;
           startW = k;
+        } else {
+          sum += dp[k];
         }
 
         if (sum > maxValue) {

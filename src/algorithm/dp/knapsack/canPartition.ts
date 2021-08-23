@@ -1,7 +1,11 @@
 // https://leetcode-cn.com/problems/partition-equal-subset-sum/
 // 416
 export function canPartition(weightList: number[]): boolean {
-  const sum = weightList.reduce((prev, current) => prev + current, 0);
+  let sum = 0;
+  for (let i = 0; i < weightList.length; i++) {
+    sum += weightList[i];
+  }
+
   if (sum % 2 !== 0) {
     return false;
   }
@@ -18,7 +22,7 @@ export function canPartition(weightList: number[]): boolean {
 
   for (let i = 1; i <= count; i++) {
     for (let w = 1; w <= weight; w++) {
-      if (w - weightList[i - 1] >= 0) {
+      if (w >= weightList[i - 1]) {
         dp[i][w] = dp[i - 1][w] || dp[i - 1][w - weightList[i - 1]];
       } else {
         dp[i][w] = dp[i - 1][w];

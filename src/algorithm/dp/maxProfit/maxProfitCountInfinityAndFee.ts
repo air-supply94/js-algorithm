@@ -1,10 +1,6 @@
 // https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
 // 714
 export function maxProfitCountInfinityAndFee(prices: number[], fee: number): number {
-  if (!prices.length) {
-    return 0;
-  }
-
   let dp_i_0 = 0;
   let dp_i_1 = -Infinity;
   let tmp = 0;

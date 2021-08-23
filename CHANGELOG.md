@@ -1,4 +1,4 @@
-# 0.0.0 (2021-08-22)
+# 0.0.0 (2021-08-30)
 
 ### Bug Fixes
 
@@ -52,7 +52,7 @@
 - **algorithm/array:** add twoSum ([a93da8f](https://github.com/air-supply94/js-algorithm/commit/a93da8fdd1a5cf9228a8cda70410b1e47433fc85))
 - **algorithm/backTrack:** add combine ([74ce4ed](https://github.com/air-supply94/js-algorithm/commit/74ce4eda583e9368d48e1e5948f371ada6064bc8))
 - **algorithm/backTrack:** add findLadders ([ca9ecec](https://github.com/air-supply94/js-algorithm/commit/ca9ecec1ac28ca1b603023f81305c96d02d6f3f3))
-- **algorithm/backTrack:** add letterCombinations ([f31ec42](https://github.com/air-supply94/js-algorithm/commit/f31ec42f4d431315d11a73ee4ce966f0a17c126a))
+- **algorithm/backTrack:** add letterCombinations ([5969266](https://github.com/air-supply94/js-algorithm/commit/5969266601e7b89c00cb6515d5a7df3801cfa8bd))
 - **algorithm/backTrack:** add solveSudoku ([a85601c](https://github.com/air-supply94/js-algorithm/commit/a85601cb2ed535d46e4efe08673a5188250a5f5e))
 - **algorithm/bfs:** add minDepth ([31ead4a](https://github.com/air-supply94/js-algorithm/commit/31ead4a45634cb14bc5ef9151856e93ee790f421))
 - **algorithm/bfs:** add openLock ([59d2a95](https://github.com/air-supply94/js-algorithm/commit/59d2a95acdbb5b2fb1b2f5eb8fceb9faa2582c64))
@@ -277,6 +277,7 @@
 - **stack:** 增加 postfix ([3b1e18e](https://github.com/air-supply94/js-algorithm/commit/3b1e18edd5f2d6abdf310affecf3fdc0ab26c6be))
 - **stack:** 增加 tribonacci ([de70519](https://github.com/air-supply94/js-algorithm/commit/de70519065f15add07f2a5e8ffa04aa6ede00eb9))
 - **stack:** 增加平衡符号 ([52dca19](https://github.com/air-supply94/js-algorithm/commit/52dca19d0ef7c6a2381a1e342cf95e8d27633181))
+- **stack/leetcode:** update parentheses ([51f9a64](https://github.com/air-supply94/js-algorithm/commit/51f9a64070b14b4171c43eedcf440e287995c572))
 - **string:** add longestSubstring ([43ed7e8](https://github.com/air-supply94/js-algorithm/commit/43ed7e89200aaf46792095661f4346b1c86acfc2))
 - **string:** add setZero ([d85a8e3](https://github.com/air-supply94/js-algorithm/commit/d85a8e3cdd49e9cea3b2f5843037c704c0f4c8a2))
 - **sub-set、permutation:** add ([092b621](https://github.com/air-supply94/js-algorithm/commit/092b62143260bb041c1c478fae999bba70d18e3c))

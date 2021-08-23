@@ -1,10 +1,6 @@
 // https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 // 309
 export function maxProfitCountInfinityAndCoolDown(prices: number[]): number {
-  if (!prices.length) {
-    return 0;
-  }
-
   let dp_i_0 = 0;
   let dp_i_1 = -Infinity;
   let previous = 0;

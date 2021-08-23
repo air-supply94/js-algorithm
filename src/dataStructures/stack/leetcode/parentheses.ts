@@ -4,10 +4,10 @@ export function isValidEasy(str: string): boolean {
     if (str[i] === '(') {
       leftBrace++;
     } else {
-      if (leftBrace <= 0) {
+      leftBrace--;
+      if (leftBrace === -1) {
         return false;
       }
-      leftBrace--;
     }
   }
 
@@ -18,31 +18,20 @@ export function isValidEasy(str: string): boolean {
 // 22
 export function isValid(str: string): boolean {
   const stack: string[] = [];
-  const startMap = new Map<string, number>();
+  const startMap = new Map<string, boolean>();
   const endMap = new Map<string, string>();
-  const start = [
-    '{',
-    '[',
-    '(',
-  ];
-  const end = [
-    '}',
-    ']',
-    ')',
-  ];
+  startMap.set('(', true);
+  startMap.set('{', true);
+  startMap.set('[', true);
 
-  start.forEach((item) => {
-    startMap.set(item, 1);
-  });
-
-  end.forEach((item, index) => {
-    endMap.set(item, start[index]);
-  });
+  endMap.set(')', '(');
+  endMap.set('}', '{');
+  endMap.set(']', '[');
 
   for (let i = 0; i < str.length; i++) {
     if (startMap.has(str[i])) {
       stack.push(str[i]);
-    } else if (endMap.has(str[i])) {
+    } else {
       if (!stack.length) {
         return false;
       }
@@ -53,28 +42,28 @@ export function isValid(str: string): boolean {
     }
   }
 
-  return !stack.length;
+  return stack.length === 0;
 }
 
 // https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid/
 // 921
 export function minAddToMakeValid(s: string): number {
   let result = 0;
-  let need = 0;
+  let leftBrace = 0;
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === '(') {
-      need++;
+      leftBrace++;
     } else {
-      need--;
-      if (need === -1) {
+      leftBrace--;
+      if (leftBrace === -1) {
         result++;
-        need = 0;
+        leftBrace = 0;
       }
     }
   }
 
-  return result + need;
+  return leftBrace + result;
 }
 
 // https://leetcode-cn.com/problems/minimum-insertions-to-balance-a-parentheses-string/

@@ -2,7 +2,6 @@
 // 224
 export function calculate(s: string): number {
   return recursion(Array.from(s)
-    .filter((item) => item && item !== ' ')
     .reverse());
 }
 
@@ -16,20 +15,21 @@ function sum(nums: number[]): number {
 
 function recursion(s: string[]): number {
   const stack: number[] = [];
-  let num = 0;
   let sign = '+';
+  let num = 0;
 
   while (s.length) {
     const c = s.pop();
+
     if (/\d/.test(c)) {
-      num = num * 10 + (Number(c));
+      num = 10 * num + Number(c);
     }
 
     if (c === '(') {
       num = recursion(s);
     }
 
-    if (/\D/.test(c) || s.length === 0) {
+    if ((/\D/.test(c) && c !== ' ') || s.length === 0) {
       if (sign === '+') {
         stack.push(num);
       } else if (sign === '-') {
@@ -37,7 +37,8 @@ function recursion(s: string[]): number {
       } else if (sign === '*') {
         stack.push(stack.pop() * num);
       } else if (sign === '/') {
-        stack.push(Math.floor(stack.pop() / num));
+        const tmp = stack.pop() / num;
+        stack.push(tmp >= 0 ? Math.floor(tmp) : Math.ceil(tmp));
       }
 
       if (c === ')') {

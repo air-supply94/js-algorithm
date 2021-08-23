@@ -1,3 +1,30 @@
+/*
+export function coinChange(coins: number[], amount: number, cache = new Map<number, number>()): number {
+  if (amount === 0) {
+    return 0;
+  }
+
+  if (amount < 0) {
+    return -1;
+  }
+
+  if (cache.has(amount)) {
+    return cache.get(amount);
+  }
+
+  let result = Infinity;
+  for (let i = 0; i < coins.length; i++) {
+    const subResult = coinChange(coins, amount - coins[i], cache);
+    if (subResult !== -1) {
+      result = Math.min(result, subResult + 1);
+    }
+  }
+
+  cache.set(amount, result === Infinity ? -1 : result);
+  return result === Infinity ? -1 : result;
+}
+*/
+
 // https://leetcode-cn.com/problems/coin-change/
 // 322
 export function coinChange(coins: number[], amount: number): number {
