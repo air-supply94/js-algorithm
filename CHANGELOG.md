@@ -64,7 +64,7 @@
 - **algorithm/classic:** add rubberHouse ([bf41594](https://github.com/air-supply94/js-algorithm/commit/bf41594753015b1d45cb67ed4ef42600805f5f8e))
 - **algorithm/diffWaysToCompute:** 兼容 leetcode ([fadbfb8](https://github.com/air-supply94/js-algorithm/commit/fadbfb895473352ec4aa52657782c8063d301a17))
 - **algorithm/dp:** add calculateMinimumHP ([958d248](https://github.com/air-supply94/js-algorithm/commit/958d248ddc7977c12d0dd400d1ad98d0b718b61b))
-- **algorithm/dp:** add findCheapestPrice ([62e8a19](https://github.com/air-supply94/js-algorithm/commit/62e8a19fae3973ae771252b2d061774d55cb62cc))
+- **algorithm/dp:** add findCheapestPrice ([c02956f](https://github.com/air-supply94/js-algorithm/commit/c02956f2f2e49b818e8088debe0218b84c8b5b80))
 - **algorithm/dp:** add findRotateSteps ([476bffb](https://github.com/air-supply94/js-algorithm/commit/476bffbd434db6866bb1ede9a7eb82819769c214))
 - **algorithm/math:** add Difference ([851082f](https://github.com/air-supply94/js-algorithm/commit/851082f5cbbc29aef367194230b4ebf55f74e480))
 - **algorithm/math:** add diffWaysToCompute ([bf3741c](https://github.com/air-supply94/js-algorithm/commit/bf3741cd9c4109eeec7fca92bb861ede82274294))
