@@ -16,10 +16,13 @@ export function multiply(num1: string, num2: string): string {
   }
 
   let res = '';
-  for (let i = 0; i < result.length; i++) {
-    if (result[i] || res.length) {
-      res = `${res}${result[i]}`;
-    }
+  let i = 0;
+  while (i < result.length && result[i] === 0) {
+    i++;
+  }
+  while (i < result.length) {
+    res = `${res}${result[i]}`;
+    i++;
   }
 
   if (res) {
