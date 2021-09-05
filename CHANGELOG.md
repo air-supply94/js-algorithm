@@ -265,7 +265,7 @@
 - **serialize-pre-order:** add ([52c0c71](https://github.com/air-supply94/js-algorithm/commit/52c0c71e4415104cac0532cbd3120f6ee420c22f))
 - **Set:** add interface ([eac93fc](https://github.com/air-supply94/js-algorithm/commit/eac93fc365de359492d042141c36cbd1359d7cbe))
 - **sieve:** 增加埃拉托色尼算法 ([692b7ab](https://github.com/air-supply94/js-algorithm/commit/692b7ab5a39325e2c48b0bee7d9074b421d16b8f))
-- **sort/leetcode:** add findKthLargest ([257beeb](https://github.com/air-supply94/js-algorithm/commit/257beebbbcb4298f83af344b92863d52b87e1fd0))
+- **sort/leetcode:** add findKthLargest ([5db9905](https://github.com/air-supply94/js-algorithm/commit/5db990561a9920d2e43168ff1d2292eb433a36c3))
 - **sort/mergeSort:** add countSmaller ([70e0a30](https://github.com/air-supply94/js-algorithm/commit/70e0a30eeca4c23464d0f77f5c0cdf6a54bd7732))
 - **sort/mergeSort:** add merge ([1e8280d](https://github.com/air-supply94/js-algorithm/commit/1e8280dcf21064cc8492e60218e994f933059c63))
 - **stack:** add asteroidCollision ([9d15621](https://github.com/air-supply94/js-algorithm/commit/9d15621d49af890b12a0039e7859677189cf89d0))
