@@ -7,7 +7,7 @@ export function eraseOverlapIntervals(numbers: number[][]): number {
 
   const newNumbers: number[][] = numbers.slice().sort((a, b) => a[1] - b[1]);
   let count = 1;
-  let current = newNumbers[0][1];
+  let current: number = newNumbers[0][1];
 
   for (let i = 1; i < newNumbers.length; i++) {
     if (newNumbers[i][0] >= current) {
