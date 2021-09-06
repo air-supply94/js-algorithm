@@ -1,4 +1,3 @@
-import { Queue } from '../../queue';
 import { TrieNode } from './trieNode';
 
 export function getLastCharacterNode(root: TrieNode, word: string): TrieNode | undefined {
@@ -32,22 +31,23 @@ export function findPrefixCount(root: TrieNode, word: string): number {
 
 export function wordFrequency(root: TrieNode): {[key in string]: number } {
   const result = {};
-  const queue = new Queue<{ node: TrieNode; word: string; }>();
-  queue.enqueue({
+  const queue: Array<{ node: TrieNode; word: string; }> = [];
+  queue.push({
     node: root,
     word: '',
   });
 
-  while (!queue.isEmpty()) {
-    const size = queue.size;
+  while (queue.length) {
+    const size = queue.length;
+
     for (let i = 0; i < size; i++) {
-      const item = queue.dequeue();
+      const item = queue.shift();
       if (item.node.isCompleteWord) {
         result[`${item.word}${item.node.character}`] = item.node.wordCount;
       }
 
       Object.values(item.node.children)
-        .forEach((trieNode) => queue.enqueue({
+        .forEach((trieNode) => queue.push({
           node: trieNode,
           word: `${item.word}${item.node.character}`,
         }));

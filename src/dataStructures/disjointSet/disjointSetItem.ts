@@ -1,37 +1,33 @@
-import { DisjointSetItemInterface } from './types';
-
-function identity(item: string): string {
-  return item;
-}
-
-export class DisjointSetItem<T = unknown> implements DisjointSetItemInterface<T> {
+export class DisjointSetItem<T = unknown> {
   constructor(value: T, keyCallback?: (item: T) => string) {
     this.value = value;
-
-    // @ts-ignore
-    this.keyCallback = keyCallback || identity;
-    this._parent = null;
-    this.children = {};
+    this.keyCallback = keyCallback;
+    this.parent = null;
+    this.children = Object.create(null);
   }
 
-  private _parent: DisjointSetItemInterface<T> | null;
+  private readonly keyCallback?: (item: T) => string;
 
-  public get parent(): DisjointSetItemInterface<T> | null {
-    return this._parent;
-  }
+  private parent: DisjointSetItem<T> | null;
+
+  private readonly children: {[key: string]: DisjointSetItem<T>; };
 
   public readonly value: T;
 
-  public readonly keyCallback: (item: string | T) => string;
-
-  public readonly children: {[key: string]: DisjointSetItemInterface<T>; };
-
   public getKey(): string {
-    return this.keyCallback(this.value);
+    if (typeof this.keyCallback === 'function') {
+      return this.keyCallback(this.value);
+    } else {
+      return String(this.value);
+    }
   }
 
-  public getRoot(): DisjointSetItemInterface<T> {
-    return this.isRoot() ? this : this.parent.getRoot();
+  public getRoot(): DisjointSetItem<T> {
+    if (this.isRoot()) {
+      return this;
+    } else {
+      return this.parent.getRoot();
+    }
   }
 
   public isRoot(): boolean {
@@ -39,22 +35,21 @@ export class DisjointSetItem<T = unknown> implements DisjointSetItemInterface<T>
   }
 
   public getRank(): number {
-    return this.getChildren()
-      .reduce((prev: number, child: DisjointSetItemInterface<T>) => prev + child.getRank() + 1, 0);
+    const children = this.getChildren();
+    let result = 0;
+    for (let i = 0; i < children.length; i++) {
+      result += children[i].getRank() + 1;
+    }
+    return result;
   }
 
-  public getChildren(): Array<DisjointSetItemInterface<T>> {
+  public getChildren(): Array<DisjointSetItem<T>> {
     return Object.values(this.children);
   }
 
-  public setParent(parentItem: DisjointSetItemInterface<T> | null): DisjointSetItemInterface<T> {
-    this._parent = parentItem;
-    return this;
-  }
-
-  public addChild(childItem: DisjointSetItemInterface<T>): DisjointSetItemInterface<T> {
+  public addChild(childItem: DisjointSetItem<T>): DisjointSetItem<T> {
     this.children[childItem.getKey()] = childItem;
-    childItem.setParent(this);
+    childItem.parent = this;
 
     return childItem;
   }

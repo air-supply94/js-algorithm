@@ -1,37 +1,32 @@
 import { DisjointSetItem } from './disjointSetItem';
-import { DisjointSetInterface, DisjointSetItemInterface } from './types';
 
-export class DisjointSet<T = unknown> implements DisjointSetInterface<T> {
+export class DisjointSet<T = unknown> {
   constructor(keyCallback?: (item: T) => string) {
     this.keyCallback = keyCallback;
-    this.items = {};
+    this.items = Object.create(null);
   }
 
-  public readonly keyCallback?: (item: T) => string;
+  private readonly keyCallback?: (item: T) => string;
 
-  public readonly items: {[key: string]: DisjointSetItemInterface<T>; };
+  private readonly items: {[key: string]: DisjointSetItem<T>; };
 
-  public makeSet(itemValue: T): this {
-    const disjointSetItem = new DisjointSetItem(itemValue, this.keyCallback);
+  public makeSet(itemValue: T): void {
+    const tmpItem = new DisjointSetItem(itemValue, this.keyCallback);
 
-    if (!this.items[disjointSetItem.getKey()]) {
-      this.items[disjointSetItem.getKey()] = disjointSetItem;
+    if (!(tmpItem.getKey() in this.items)) {
+      this.items[tmpItem.getKey()] = tmpItem;
     }
-
-    return this;
   }
 
   public find(itemValue: T): null | string {
-    const templateDisjointItem = new DisjointSetItem(itemValue, this.keyCallback);
+    const tmpItem = new DisjointSetItem(itemValue, this.keyCallback);
 
-    const requiredDisjointItem = this.items[templateDisjointItem.getKey()];
-
-    if (!requiredDisjointItem) {
+    if (tmpItem.getKey() in this.items) {
+      return this.items[tmpItem.getKey()].getRoot()
+        .getKey();
+    } else {
       return null;
     }
-
-    return requiredDisjointItem.getRoot()
-      .getKey();
   }
 
   public union(valueA: T, valueB: T): null | string {
@@ -40,23 +35,20 @@ export class DisjointSet<T = unknown> implements DisjointSetInterface<T> {
 
     if (rootKeyA === null || rootKeyB === null) {
       return null;
-    }
-
-    if (rootKeyA === rootKeyB) {
+    } else if (rootKeyA === rootKeyB) {
       return rootKeyA;
+    } else {
+      const rootA = this.items[rootKeyA];
+      const rootB = this.items[rootKeyB];
+
+      if (rootA.getRank() < rootB.getRank()) {
+        rootB.addChild(rootA);
+        return rootKeyB;
+      } else {
+        rootA.addChild(rootB);
+        return rootKeyA;
+      }
     }
-
-    const rootA = this.items[rootKeyA];
-    const rootB = this.items[rootKeyB];
-
-    if (rootA.getRank() < rootB.getRank()) {
-      rootB.addChild(rootA);
-      return rootKeyB;
-    }
-
-    rootA.addChild(rootB);
-
-    return rootKeyA;
   }
 
   public inSameSet(valueA: T, valueB: T): boolean {
@@ -65,8 +57,8 @@ export class DisjointSet<T = unknown> implements DisjointSetInterface<T> {
 
     if (rootKeyA === null || rootKeyB === null) {
       return false;
+    } else {
+      return rootKeyA === rootKeyB;
     }
-
-    return rootKeyA === rootKeyB;
   }
 }

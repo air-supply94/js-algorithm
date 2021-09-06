@@ -1,4 +1,4 @@
-# 0.0.0 (2021-09-05)
+# 0.0.0 (2021-09-07)
 
 ### Bug Fixes
 
@@ -134,6 +134,7 @@
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
 - **dataStructure:** add DisjointSet ([2903fb3](https://github.com/air-supply94/js-algorithm/commit/2903fb3bc1f1b9cee927aca551338cc2d3559efe))
+- **dataStructure:** update disjointSet ([29b2c7b](https://github.com/air-supply94/js-algorithm/commit/29b2c7b37f1df1d4bc913c0afe69661a3b52ec4c))
 - **dataStructure/bst:** add findMode ([aa0d969](https://github.com/air-supply94/js-algorithm/commit/aa0d969c0672a81c643ec9260096ec6b1920955a))
 - **dataStructure/bst:** update getHeight ([972e0c4](https://github.com/air-supply94/js-algorithm/commit/972e0c43279a8d26aee1d49e00cd827fa93a4e7a))
 - **dataStructure/design:** add FrequencyStack ([96b15a0](https://github.com/air-supply94/js-algorithm/commit/96b15a0b1ffa45e9824c079ad06b97a65ba7f3c0))
@@ -203,6 +204,7 @@
 - **graph:** add graph ([8447530](https://github.com/air-supply94/js-algorithm/commit/844753025463ee1cfb843939945607892c63c4ec))
 - **graph:** update graph ([160c590](https://github.com/air-supply94/js-algorithm/commit/160c590cdc2de8e26096cb01d6d70b2f0e8370a5))
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
+- **greedy:** add canCompleteCircuit ([1a41837](https://github.com/air-supply94/js-algorithm/commit/1a41837c37ce3f8f837f9bb1e53926c26a942bee))
 - **greedy:** add jumpGameFast ([680996f](https://github.com/air-supply94/js-algorithm/commit/680996fea200dd5921b18229153f313d7fa5641d))
 - **hammingDistance:** add ([7540dac](https://github.com/air-supply94/js-algorithm/commit/7540dac75eec4d659f7faeab219084d5b6447dca))
 - **hashTable:** 实现太 low，没那么简单 ([4eb9634](https://github.com/air-supply94/js-algorithm/commit/4eb963424502f084cea768875dbd1e2a038efba1))

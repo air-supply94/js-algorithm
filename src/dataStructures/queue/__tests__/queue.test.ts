@@ -5,6 +5,8 @@ describe('Queue', () => {
     const queue = new Queue();
     expect(queue.dequeue())
       .toBeNull();
+    expect(queue.size)
+      .toBe(0);
     expect(queue.peek())
       .toBeNull();
 
@@ -12,6 +14,8 @@ describe('Queue', () => {
       .not
       .toBeUndefined();
     queue.enqueue(1);
+    expect(queue.size)
+      .toBe(1);
   });
 
   test('should be possible to enqueue/dequeue objects', () => {
@@ -26,10 +30,16 @@ describe('Queue', () => {
       key: 'key2',
     });
 
+    expect(queue.size)
+      .toBe(2);
     expect(queue.dequeue().value)
       .toBe('test1');
+    expect(queue.size)
+      .toBe(1);
     expect(queue.dequeue().value)
       .toBe('test2');
+    expect(queue.size)
+      .toBe(0);
   });
 
   test('should peek data from queue', () => {
