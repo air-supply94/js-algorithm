@@ -46,11 +46,12 @@ export function wordFrequency(root: TrieNode): {[key in string]: number } {
         result[`${item.word}${item.node.character}`] = item.node.wordCount;
       }
 
-      Object.values(item.node.children)
-        .forEach((trieNode) => queue.push({
+      for (const trieNode of item.node.children.values()) {
+        queue.push({
           node: trieNode,
           word: `${item.word}${item.node.character}`,
-        }));
+        });
+      }
     }
   }
 

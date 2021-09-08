@@ -4,7 +4,7 @@ export class TrieNode {
     this.isCompleteWord = isCompleteWord;
     this.wordCount = 0;
     this.prefixCount = 0;
-    this.children = Object.create(null);
+    this.children = new Map<string, TrieNode>();
   }
 
   public wordCount: number;
@@ -15,29 +15,32 @@ export class TrieNode {
 
   public readonly character: string;
 
-  public children: {[key: string]: TrieNode; };
+  public children: Map<string, TrieNode>;
 
   public getChild(character: string): TrieNode | undefined {
-    return this.children[character];
+    return this.children.get(character);
   }
 
   public addChild(character: string, isCompleteWord = false): TrieNode {
     if (!this.hasChild(character)) {
-      this.children[character] = new TrieNode(character, isCompleteWord);
+      this.children.set(character, new TrieNode(character, isCompleteWord));
     }
 
-    const childNode = this.children[character];
+    const childNode = this.children.get(character);
     childNode.isCompleteWord = childNode.isCompleteWord || isCompleteWord;
     return childNode;
   }
 
   public hasChild(character: string): boolean {
-    return Object.prototype.hasOwnProperty.call(this.children, character);
+    return this.children.has(character);
   }
 
   public suggestChildren(): string[] {
-    return Object.values(this.children)
-      .map((item) => item.character);
+    const children: string[] = [];
+    for (const child of this.children.values()) {
+      children.push(child.character);
+    }
+    return children;
   }
 
   public toString(): string {

@@ -1,24 +1,24 @@
 export class DisjointSetItem<T = unknown> {
-  constructor(value: T, keyCallback?: (item: T) => string) {
+  constructor(value: T, keyCallback?: (item: T) => string | number) {
     this.value = value;
     this.keyCallback = keyCallback;
     this.parent = null;
-    this.children = Object.create(null);
+    this.children = new Map<string | number, DisjointSetItem<T>>();
   }
 
-  private readonly keyCallback?: (item: T) => string;
+  private readonly keyCallback?: (item: T) => string | number;
 
   private parent: DisjointSetItem<T> | null;
 
-  private readonly children: {[key: string]: DisjointSetItem<T>; };
+  private readonly children: Map<string | number, DisjointSetItem<T>>;
 
   public readonly value: T;
 
-  public getKey(): string {
+  public getKey(): string | number {
     if (typeof this.keyCallback === 'function') {
       return this.keyCallback(this.value);
     } else {
-      return String(this.value);
+      return this.value as unknown as string | number;
     }
   }
 
@@ -44,11 +44,15 @@ export class DisjointSetItem<T = unknown> {
   }
 
   public getChildren(): Array<DisjointSetItem<T>> {
-    return Object.values(this.children);
+    const children: Array<DisjointSetItem<T>> = [];
+    for (const child of this.children.values()) {
+      children.push(child);
+    }
+    return children;
   }
 
   public addChild(childItem: DisjointSetItem<T>): DisjointSetItem<T> {
-    this.children[childItem.getKey()] = childItem;
+    this.children.set(childItem.getKey(), childItem);
     childItem.parent = this;
 
     return childItem;

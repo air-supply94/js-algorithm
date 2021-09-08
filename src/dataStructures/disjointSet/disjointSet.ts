@@ -3,33 +3,34 @@ import { DisjointSetItem } from './disjointSetItem';
 export class DisjointSet<T = unknown> {
   constructor(keyCallback?: (item: T) => string) {
     this.keyCallback = keyCallback;
-    this.items = Object.create(null);
+    this.items = new Map<string | number, DisjointSetItem<T>>();
   }
 
-  private readonly keyCallback?: (item: T) => string;
+  private readonly keyCallback?: (item: T) => string | number;
 
-  private readonly items: {[key: string]: DisjointSetItem<T>; };
+  public readonly items: Map<string | number, DisjointSetItem<T>>;
 
   public makeSet(itemValue: T): void {
     const tmpItem = new DisjointSetItem(itemValue, this.keyCallback);
 
-    if (!(tmpItem.getKey() in this.items)) {
-      this.items[tmpItem.getKey()] = tmpItem;
+    if (!this.items.has(tmpItem.getKey())) {
+      this.items.set(tmpItem.getKey(), tmpItem);
     }
   }
 
-  public find(itemValue: T): null | string {
+  public find(itemValue: T): string | number | null {
     const tmpItem = new DisjointSetItem(itemValue, this.keyCallback);
 
-    if (tmpItem.getKey() in this.items) {
-      return this.items[tmpItem.getKey()].getRoot()
+    if (this.items.has(tmpItem.getKey())) {
+      return this.items.get(tmpItem.getKey())
+        .getRoot()
         .getKey();
     } else {
       return null;
     }
   }
 
-  public union(valueA: T, valueB: T): null | string {
+  public union(valueA: T, valueB: T): string | number | null {
     const rootKeyA = this.find(valueA);
     const rootKeyB = this.find(valueB);
 
@@ -38,8 +39,8 @@ export class DisjointSet<T = unknown> {
     } else if (rootKeyA === rootKeyB) {
       return rootKeyA;
     } else {
-      const rootA = this.items[rootKeyA];
-      const rootB = this.items[rootKeyB];
+      const rootA = this.items.get(rootKeyA);
+      const rootB = this.items.get(rootKeyB);
 
       if (rootA.getRank() < rootB.getRank()) {
         rootB.addChild(rootA);
