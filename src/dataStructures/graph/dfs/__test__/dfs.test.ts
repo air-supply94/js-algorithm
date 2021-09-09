@@ -1,4 +1,4 @@
-import { GraphEdge, GraphVertex, Graph } from '../../../../dataStructures/graph';
+import { GraphEdge, GraphVertex, Graph } from '../../index';
 import { dfs } from '../dfs';
 
 describe('depthFirstSearch', () => {

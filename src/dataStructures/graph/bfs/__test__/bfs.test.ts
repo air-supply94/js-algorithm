@@ -1,4 +1,4 @@
-import { Graph, GraphEdge, GraphVertex } from '../../../../dataStructures/graph';
+import { Graph, GraphEdge, GraphVertex } from '../../index';
 import { bfs } from '../bfs';
 
 describe('breadthFirstSearch', () => {

@@ -1,4 +1,5 @@
-import { Graph, GraphVertex } from '../../../dataStructures/graph';
+import { Queue } from '../../queue';
+import { Graph, GraphVertex } from '../index';
 
 interface CallbackParams {
   previousVertex: GraphVertex | null;
@@ -20,7 +21,7 @@ function defaultEnterVertex(params: Omit<CallbackParams, 'nextVertex'>): void {
 function defaultLeaveVertex(params: Omit<CallbackParams, 'nextVertex'>): void {
 }
 
-export function dfs(graph: Graph, startVertex: GraphVertex, callbackConfig?: Partial<CallbackConfig>) {
+export function bfs(graph: Graph, startVertex: null | GraphVertex, callbackConfig?: Partial<CallbackConfig>) {
   const visitedVertices: {[key: string]: boolean; } = Object.keys(graph.vertices)
     .reduce((prev: {[key: string]: boolean; }, current) => {
       prev[current.toString()] = false;
@@ -31,7 +32,7 @@ export function dfs(graph: Graph, startVertex: GraphVertex, callbackConfig?: Par
     if (visitedVertices[String(params.nextVertex)] === true) {
       return false;
     } else {
-      visitedVertices[String(params.nextVertex.toString())] = true;
+      visitedVertices[String(params.nextVertex)] = true;
       return true;
     }
   }
@@ -39,21 +40,28 @@ export function dfs(graph: Graph, startVertex: GraphVertex, callbackConfig?: Par
   const enterVertex = callbackConfig && callbackConfig.enterVertex ? callbackConfig.enterVertex : defaultEnterVertex;
   const leaveVertex = callbackConfig && callbackConfig.leaveVertex ? callbackConfig.leaveVertex : defaultLeaveVertex;
   const allowTraversal = callbackConfig && callbackConfig.allowTraversal ? callbackConfig.allowTraversal : defaultAllowTraversal;
+  const vertexQueue = new Queue<GraphVertex>();
 
-  function depthFirstSearchRecursive(currentVertex: GraphVertex, previousVertex: GraphVertex | null): void {
+  vertexQueue.enqueue(startVertex);
+
+  let previousVertex: GraphVertex | null = null;
+
+  while (!vertexQueue.isEmpty()) {
+    const currentVertex = vertexQueue.dequeue();
     enterVertex({
       currentVertex,
       previousVertex,
     });
 
-    currentVertex.getNeighbors()
+    graph.getNeighbors(currentVertex)
+      // eslint-disable-next-line no-loop-func
       .forEach((nextVertex) => {
         if (allowTraversal({
           previousVertex,
           currentVertex,
           nextVertex,
         })) {
-          depthFirstSearchRecursive(nextVertex, currentVertex);
+          vertexQueue.enqueue(nextVertex);
         }
       });
 
@@ -61,7 +69,7 @@ export function dfs(graph: Graph, startVertex: GraphVertex, callbackConfig?: Par
       currentVertex,
       previousVertex,
     });
-  }
 
-  depthFirstSearchRecursive(startVertex, null);
+    previousVertex = currentVertex;
+  }
 }
