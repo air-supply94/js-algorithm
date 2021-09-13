@@ -1,4 +1,4 @@
-# 0.0.0 (2021-09-10)
+# 0.0.0 (2021-09-13)
 
 ### Bug Fixes
 
@@ -205,7 +205,8 @@
 - **graph:** add graph ([8447530](https://github.com/air-supply94/js-algorithm/commit/844753025463ee1cfb843939945607892c63c4ec))
 - **graph:** update graph ([160c590](https://github.com/air-supply94/js-algorithm/commit/160c590cdc2de8e26096cb01d6d70b2f0e8370a5))
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
-- **graph:** 增加图术语 ([d7a4267](https://github.com/air-supply94/js-algorithm/commit/d7a42677f07a03be1f0c00d62628e4d7a22b1170))
+- **graph:** 增加图术语 ([93139b4](https://github.com/air-supply94/js-algorithm/commit/93139b4292972a6b4604a41efe6b6c9842c2a757))
+- **graph/leetcode:** add allPathsSourceTarget ([47711ae](https://github.com/air-supply94/js-algorithm/commit/47711ae2cf71091b5441fc7ec122da8c18230914))
 - **greedy:** add canCompleteCircuit ([1a41837](https://github.com/air-supply94/js-algorithm/commit/1a41837c37ce3f8f837f9bb1e53926c26a942bee))
 - **greedy:** add jumpGameFast ([680996f](https://github.com/air-supply94/js-algorithm/commit/680996fea200dd5921b18229153f313d7fa5641d))
 - **hammingDistance:** add ([7540dac](https://github.com/air-supply94/js-algorithm/commit/7540dac75eec4d659f7faeab219084d5b6447dca))
