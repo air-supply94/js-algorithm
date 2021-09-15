@@ -1,4 +1,4 @@
-# 0.0.0 (2021-09-13)
+# 0.0.0 (2021-09-15)
 
 ### Bug Fixes
 
@@ -134,6 +134,7 @@
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
 - **dataStructure:** add DisjointSet ([2903fb3](https://github.com/air-supply94/js-algorithm/commit/2903fb3bc1f1b9cee927aca551338cc2d3559efe))
+- **dataStructure:** add minCostConnectPoints ([d9d5765](https://github.com/air-supply94/js-algorithm/commit/d9d5765e7f2c1ed6a51b37e4828d8cf7cf805902))
 - **dataStructure:** update disjointSet ([569f487](https://github.com/air-supply94/js-algorithm/commit/569f487b6a1b64a0091718eb588c672ae0dd2a25))
 - **dataStructure/bst:** add findMode ([aa0d969](https://github.com/air-supply94/js-algorithm/commit/aa0d969c0672a81c643ec9260096ec6b1920955a))
 - **dataStructure/bst:** update getHeight ([972e0c4](https://github.com/air-supply94/js-algorithm/commit/972e0c43279a8d26aee1d49e00cd827fa93a4e7a))
@@ -207,7 +208,7 @@
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
 - **graph:** 增加图术语 ([93139b4](https://github.com/air-supply94/js-algorithm/commit/93139b4292972a6b4604a41efe6b6c9842c2a757))
 - **graph/leetcode:** add allPathsSourceTarget ([ba33a1e](https://github.com/air-supply94/js-algorithm/commit/ba33a1ec08e4df370da5d830d6bcecd2c18320d4))
-- **graph/leetcode:** add canFinish ([dbcae76](https://github.com/air-supply94/js-algorithm/commit/dbcae7642b4a4d0d99f8c4c2ea3e1a4643165b95))
+- **graph/leetcode:** add canFinish findOrder ([368b7d3](https://github.com/air-supply94/js-algorithm/commit/368b7d3ca2fcca01df11c449d70fa4149835970c))
 - **greedy:** add canCompleteCircuit ([1a41837](https://github.com/air-supply94/js-algorithm/commit/1a41837c37ce3f8f837f9bb1e53926c26a942bee))
 - **greedy:** add jumpGameFast ([680996f](https://github.com/air-supply94/js-algorithm/commit/680996fea200dd5921b18229153f313d7fa5641d))
 - **hammingDistance:** add ([7540dac](https://github.com/air-supply94/js-algorithm/commit/7540dac75eec4d659f7faeab219084d5b6447dca))
