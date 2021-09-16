@@ -1,27 +1,36 @@
-import { DisjointSet } from '../disjointSet';
-
 // https://leetcode-cn.com/problems/similar-string-groups/
 // 839
 export function numSimilarGroups(list: string[]): number {
-  const disjointSet = new DisjointSet<string>();
+  const f = Array(list.length).fill(null);
+  let count = f.length;
   for (let i = 0; i < list.length; i++) {
-    disjointSet.makeSet(list[i]);
+    f[i] = i;
+  }
+
+  function find(x: number): number {
+    if (f[x] === x) {
+      return x;
+    } else {
+      f[x] = find(f[x]);
+      return f[x];
+    }
+  }
+
+  function union(x: number, y: number): void {
+    if (find(x) !== find(y)) {
+      count--;
+    }
+    f[find(x)] = find(y);
   }
 
   for (let i = 0; i < list.length; i++) {
     for (let j = i + 1; j < list.length; j++) {
       if (check(list[i], list[j])) {
-        disjointSet.union(list[i], list[j]);
+        union(i, j);
       }
     }
   }
 
-  let count = 0;
-  for (const item of disjointSet.items.values()) {
-    if (item.isRoot()) {
-      count++;
-    }
-  }
   return count;
 }
 

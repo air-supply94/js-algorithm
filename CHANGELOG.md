@@ -1,4 +1,4 @@
-# 0.0.0 (2021-09-15)
+# 0.0.0 (2021-09-16)
 
 ### Bug Fixes
 
@@ -134,7 +134,8 @@
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
 - **dataStructure:** add DisjointSet ([2903fb3](https://github.com/air-supply94/js-algorithm/commit/2903fb3bc1f1b9cee927aca551338cc2d3559efe))
-- **dataStructure:** add minCostConnectPoints ([d9d5765](https://github.com/air-supply94/js-algorithm/commit/d9d5765e7f2c1ed6a51b37e4828d8cf7cf805902))
+- **dataStructure:** add minCostConnectPoints ([76414f2](https://github.com/air-supply94/js-algorithm/commit/76414f22080a74d32a56f84baaab4d56f7537a67))
+- **dataStructure:** add minCostConnectPoints ([79f255d](https://github.com/air-supply94/js-algorithm/commit/79f255d8e74741b5baea41072dfd723a3c47459b))
 - **dataStructure:** update disjointSet ([569f487](https://github.com/air-supply94/js-algorithm/commit/569f487b6a1b64a0091718eb588c672ae0dd2a25))
 - **dataStructure/bst:** add findMode ([aa0d969](https://github.com/air-supply94/js-algorithm/commit/aa0d969c0672a81c643ec9260096ec6b1920955a))
 - **dataStructure/bst:** update getHeight ([972e0c4](https://github.com/air-supply94/js-algorithm/commit/972e0c43279a8d26aee1d49e00cd827fa93a4e7a))
