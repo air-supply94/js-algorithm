@@ -1,4 +1,4 @@
-# 0.0.0 (2021-09-16)
+# 0.0.0 (2021-09-17)
 
 ### Bug Fixes
 
@@ -134,7 +134,6 @@
 - **count-sort:** add ([c1d588d](https://github.com/air-supply94/js-algorithm/commit/c1d588d6de86c0f60e0385e56bdb9c71bc1b1a88))
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
 - **dataStructure:** add DisjointSet ([2903fb3](https://github.com/air-supply94/js-algorithm/commit/2903fb3bc1f1b9cee927aca551338cc2d3559efe))
-- **dataStructure:** add minCostConnectPoints ([76414f2](https://github.com/air-supply94/js-algorithm/commit/76414f22080a74d32a56f84baaab4d56f7537a67))
 - **dataStructure:** add minCostConnectPoints ([79f255d](https://github.com/air-supply94/js-algorithm/commit/79f255d8e74741b5baea41072dfd723a3c47459b))
 - **dataStructure:** update disjointSet ([569f487](https://github.com/air-supply94/js-algorithm/commit/569f487b6a1b64a0091718eb588c672ae0dd2a25))
 - **dataStructure/bst:** add findMode ([aa0d969](https://github.com/air-supply94/js-algorithm/commit/aa0d969c0672a81c643ec9260096ec6b1920955a))
@@ -143,6 +142,7 @@
 - **dataStructure/design:** add maxSlidingWindow ([f79320d](https://github.com/air-supply94/js-algorithm/commit/f79320ddb96270c46faab34feed0d92f81efed5d))
 - **dataStructure/design:** add nextGreaterElement nextGreaterElementCircle ([f836ff4](https://github.com/air-supply94/js-algorithm/commit/f836ff486de42ed042348c925d4f9f2de4ccb3b1))
 - **dataStructure/disjoinSet/leetcode:** add numSimilarGroups ([b9e4788](https://github.com/air-supply94/js-algorithm/commit/b9e4788efac4d205b4e37a51969e033fc3e52f0c))
+- **dataStructure/disjoninSet:** add numIslands ([6843e66](https://github.com/air-supply94/js-algorithm/commit/6843e6662715833cef6bfdda471810bcc934d7fb))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
 - **dataStructure/stack:** 迁移到线上 leetcode ([6d4b4aa](https://github.com/air-supply94/js-algorithm/commit/6d4b4aa551167292b40bd16cb58c312a48553fcf))
 - **dataStructure/stack:** 迁移到线上 leetcode ([b1c2b8a](https://github.com/air-supply94/js-algorithm/commit/b1c2b8a747a22654837ad0eb1095b969b28714cb))
