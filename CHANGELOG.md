@@ -1,4 +1,4 @@
-# 0.0.0 (2021-09-17)
+# 0.0.0 (2021-09-21)
 
 ### Bug Fixes
 
@@ -145,7 +145,7 @@
 - **dataStructure/disjoninSet:** add numIslands ([6843e66](https://github.com/air-supply94/js-algorithm/commit/6843e6662715833cef6bfdda471810bcc934d7fb))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
 - **dataStructure/graph:** add findCheapestPrice ([df9102d](https://github.com/air-supply94/js-algorithm/commit/df9102d5c9fdaedfbfa855502e5955402b2fc82f))
-- **dataStructure/graph:** add networkDelayTime ([6fd9c63](https://github.com/air-supply94/js-algorithm/commit/6fd9c6345ca5de7c58bc7f402f5433a62f97ac0c))
+- **dataStructure/graph:** add networkDelayTime ([209d7d7](https://github.com/air-supply94/js-algorithm/commit/209d7d74835477054c86acb5bbcef01e0fdae595))
 - **dataStructure/stack:** 迁移到线上 leetcode ([6d4b4aa](https://github.com/air-supply94/js-algorithm/commit/6d4b4aa551167292b40bd16cb58c312a48553fcf))
 - **dataStructure/stack:** 迁移到线上 leetcode ([b1c2b8a](https://github.com/air-supply94/js-algorithm/commit/b1c2b8a747a22654837ad0eb1095b969b28714cb))
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))

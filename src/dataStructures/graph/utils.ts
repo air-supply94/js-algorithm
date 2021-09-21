@@ -2,8 +2,10 @@ import { Heap } from '../heap';
 
 // 邻接表
 export function hasCircle(graph: number[][]): boolean {
-  const visitedCache: boolean[] = Array(graph.length).fill(false);
-  const pathTmp: boolean[] = Array(graph.length).fill(false);
+  const visitedCache: boolean[] = Array(graph.length)
+    .fill(false);
+  const pathTmp: boolean[] = Array(graph.length)
+    .fill(false);
   let graphHasCircle = false;
 
   for (let i = 0; i < graph.length; i++) {
@@ -34,7 +36,8 @@ export function hasCircle(graph: number[][]): boolean {
 
 // 邻接表
 export function topologicalSortingDfs(graph: number[][]): number[] {
-  const visitedCache: boolean[] = Array(graph.length).fill(false);
+  const visitedCache: boolean[] = Array(graph.length)
+    .fill(false);
   const pathTmp: number[] = [];
 
   if (!hasCircle(graph)) {
@@ -63,7 +66,8 @@ export function topologicalSortingDfs(graph: number[][]): number[] {
 
 // 邻接表
 export function topologicalSortingBfs(graph: number[][]): number[] {
-  const inDegree: number[] = Array(graph.length).fill(0);
+  const inDegree: number[] = Array(graph.length)
+    .fill(0);
   for (let i = 0; i < graph.length; i++) {
     for (let j = 0; j < graph[i].length; j++) {
       inDegree[graph[i][j]]++;
@@ -100,7 +104,8 @@ export function topologicalSortingBfs(graph: number[][]): number[] {
 // 邻接矩阵
 export function prim(graph: number[][]): number {
   const n = graph.length;
-  const lowCost: number[] = Array(n).fill(Infinity);
+  const lowCost: number[] = Array(n)
+    .fill(Infinity);
   for (let i = 1; i < n; i++) {
     lowCost[i] = graph[0][i];
   }
@@ -147,7 +152,8 @@ export function kruskal(graph: number[][]): number {
   }
   edges.sort((a, b) => a[2] - b[2]);
 
-  const f = Array(edges.length).fill(null);
+  const f = Array(edges.length)
+    .fill(null);
   let count = n;
   let result = 0;
   for (let i = 0; i < f.length; i++) {
@@ -181,7 +187,8 @@ export function kruskal(graph: number[][]): number {
 
 // 邻接矩阵
 export function dijkstra(graph: number[][], start: number): number[] {
-  const distance: number[] = Array(graph.length).fill(Infinity);
+  const distance: number[] = Array(graph.length)
+    .fill(Infinity);
   distance[start] = 0;
   const minHeap = new Heap<[number, number]>((a, b) => a[1] - b[1] < 0);
   minHeap.add([
@@ -210,4 +217,28 @@ export function dijkstra(graph: number[][], start: number): number[] {
   }
 
   return distance;
+}
+
+// 邻接矩阵
+export function floyd(graph: number[][]): number[][] {
+  const dp: number[][] = Array(graph.length)
+    .fill(null)
+    .map(() => Array(graph.length)
+      .fill(null));
+
+  for (let i = 0; i < graph.length; i++) {
+    for (let j = 0; j < graph.length; j++) {
+      dp[i][j] = graph[i][j];
+    }
+  }
+
+  for (let i = 0; i < graph.length; i++) {
+    for (let j = 0; j < graph.length; j++) {
+      for (let k = 0; k < graph.length; k++) {
+        dp[j][k] = Math.min(dp[j][k], dp[j][i] + dp[i][k]);
+      }
+    }
+  }
+
+  return dp;
 }
