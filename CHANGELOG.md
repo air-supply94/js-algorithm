@@ -1,4 +1,4 @@
-# 0.0.0 (2021-09-22)
+# 0.0.0 (2021-10-24)
 
 ### Bug Fixes
 
@@ -147,8 +147,10 @@
 - **dataStructure/graph:** add findCheapestPrice ([df9102d](https://github.com/air-supply94/js-algorithm/commit/df9102d5c9fdaedfbfa855502e5955402b2fc82f))
 - **dataStructure/graph:** add floyd ([f873d6b](https://github.com/air-supply94/js-algorithm/commit/f873d6b6b213002b2103e16c5bea53bf6d7ed4eb))
 - **dataStructure/graph:** add networkDelayTime ([209d7d7](https://github.com/air-supply94/js-algorithm/commit/209d7d74835477054c86acb5bbcef01e0fdae595))
+- **dataStructure/graph:** remove findCheapestPrice ([7f6995f](https://github.com/air-supply94/js-algorithm/commit/7f6995f398b2ccfb956b41975390ca7cff17ebac))
 - **dataStructure/stack:** 迁移到线上 leetcode ([6d4b4aa](https://github.com/air-supply94/js-algorithm/commit/6d4b4aa551167292b40bd16cb58c312a48553fcf))
 - **dataStructure/stack:** 迁移到线上 leetcode ([b1c2b8a](https://github.com/air-supply94/js-algorithm/commit/b1c2b8a747a22654837ad0eb1095b969b28714cb))
+- **dataStructure/tree:** add huffmanTree ([ac9fd2b](https://github.com/air-supply94/js-algorithm/commit/ac9fd2ba7015d365a13391c52f0538ce7872780e))
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))
 - **dataStructures/design:** update LRUCache(leetcode 上测试) ([3ca03bb](https://github.com/air-supply94/js-algorithm/commit/3ca03bbdfa7fbddcf13f45a54a9fa97256a2f4b4))
 - **dataStructures/simple:** add heap ([c9a5222](https://github.com/air-supply94/js-algorithm/commit/c9a5222ce84cedd66826fb131071185998d4c404))

@@ -1,0 +1,71 @@
+import { BinarySearchTreeNode } from '../../binarySearchTree';
+import { huffmanTree } from '../huffmanTree';
+
+test('huffmanTree', () => {
+  expect(getHuffmanWPL(huffmanTree([
+    7,
+    5,
+    2,
+    4,
+  ])))
+    .toBe(35);
+
+  expect(getHuffmanWPL(huffmanTree([
+    1,
+    1,
+    2,
+    2,
+  ])))
+    .toBe(12);
+
+  expect(getHuffmanWPL(huffmanTree([
+    5,
+    15,
+    40,
+    30,
+    10,
+  ])))
+    .toBe(205);
+
+  expect(getHuffmanWPL(huffmanTree([
+    5,
+    29,
+    7,
+    8,
+    14,
+    23,
+    3,
+    11,
+  ])))
+    .toBe(271);
+  expect(getHuffmanWPL(huffmanTree([
+    5,
+    8,
+    4,
+    11,
+    9,
+    13,
+  ])))
+    .toBe(126);
+});
+
+function getHuffmanWPL(root: BinarySearchTreeNode<number> | null): number {
+  let result = 0;
+
+  function dfs(node: BinarySearchTreeNode<number>, level: number): void {
+    if (!node) {
+      return;
+    }
+
+    if (!node.left && !node.right) {
+      result += level * node.value;
+    }
+
+    dfs(node.left, level + 1);
+    dfs(node.right, level + 1);
+  }
+
+  dfs(root, 0);
+
+  return result;
+}
