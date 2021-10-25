@@ -2,6 +2,9 @@ import { BinarySearchTreeNode } from '../../binarySearchTree';
 import { huffmanTree } from '../huffmanTree';
 
 test('huffmanTree', () => {
+  expect(getHuffmanWPL(huffmanTree([])))
+    .toBe(0);
+
   expect(getHuffmanWPL(huffmanTree([
     7,
     5,
