@@ -1,4 +1,4 @@
-# 0.0.0 (2021-10-25)
+# 0.0.0 (2021-10-26)
 
 ### Bug Fixes
 
@@ -151,7 +151,8 @@
 - **dataStructure/stack:** 迁移到线上 leetcode ([6d4b4aa](https://github.com/air-supply94/js-algorithm/commit/6d4b4aa551167292b40bd16cb58c312a48553fcf))
 - **dataStructure/stack:** 迁移到线上 leetcode ([b1c2b8a](https://github.com/air-supply94/js-algorithm/commit/b1c2b8a747a22654837ad0eb1095b969b28714cb))
 - **dataStructure/tree:** add huffmanTree ([e319016](https://github.com/air-supply94/js-algorithm/commit/e319016d3426a2452ce5e209745747610beeb911))
-- **dataStructure/tree:** add skipList ([4de5b07](https://github.com/air-supply94/js-algorithm/commit/4de5b0780ba9be77bf842a44441d3b8f12918856))
+- **dataStructure/tree:** add skipList ([6253cc8](https://github.com/air-supply94/js-algorithm/commit/6253cc8528beadeabc6cb8bf7439925740ae9d37))
+- **dataStructure/tree:** add skipList ([f83838a](https://github.com/air-supply94/js-algorithm/commit/f83838a8f23e7a7811bb6ae73136e337de2a11a7))
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))
 - **dataStructures/design:** update LRUCache(leetcode 上测试) ([3ca03bb](https://github.com/air-supply94/js-algorithm/commit/3ca03bbdfa7fbddcf13f45a54a9fa97256a2f4b4))
 - **dataStructures/simple:** add heap ([c9a5222](https://github.com/air-supply94/js-algorithm/commit/c9a5222ce84cedd66826fb131071185998d4c404))

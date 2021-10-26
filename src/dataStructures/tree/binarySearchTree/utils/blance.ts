@@ -85,7 +85,7 @@ export function removeBalance<T = unknown>(getRoot: () => BinarySearchTreeNode<T
         currentNode = currentNode.parent;
       } else if (sibling.left && sibling.left.color === color.red) {
         sibling.color = currentNode.parent.color;
-        currentNode.parent.color === color.black;
+        currentNode.parent.color = color.black;
         sibling.left.color = color.black;
         rotateLeftLeft(currentNode.parent, setRoot);
         currentNode = getRoot();

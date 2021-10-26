@@ -11,11 +11,11 @@ class SkipListNode {
 
   public left: SkipListNode;
 
-  public right: SkipListNode ;
+  public right: SkipListNode;
 
-  public up: SkipListNode ;
+  public up: SkipListNode;
 
-  public down: SkipListNode ;
+  public down: SkipListNode;
 }
 
 function findNode(head: SkipListNode, data: number): SkipListNode {
@@ -86,6 +86,21 @@ export class SkipList {
     this.tail = newTail;
   }
 
+  private removeLevel(levelHead: SkipListNode): void {
+    const levelTail = levelHead.right;
+    this.level--;
+
+    if (levelHead.up == null) {
+      levelHead.down.up = null;
+      levelTail.down.up = null;
+    } else {
+      levelHead.up.down = levelHead.down;
+      levelHead.down.up = levelHead.up;
+      levelTail.up.down = levelTail.down;
+      levelTail.down.up = levelTail.up;
+    }
+  }
+
   public insert(data: number): void {
     let preNode = findNode(this.head, data);
     if (preNode.data == data) {
@@ -120,44 +135,30 @@ export class SkipList {
 
   public remove(data: number): boolean {
     let removedNode = this.search(data);
+    let currentLevel = 0;
     if (removedNode == null) {
       return false;
     }
 
-    let currentLevel = 0;
-    while (removedNode != null) {
+    while (removedNode) {
       removedNode.right.left = removedNode.left;
       removedNode.left.right = removedNode.right;
-      if (currentLevel !== 0 && removedNode.left.data == -Infinity && removedNode.right.data == Infinity) {
+
+      if (currentLevel !== 0 && removedNode.left.data === -Infinity && removedNode.right.data === Infinity) {
         this.removeLevel(removedNode.left);
-      } else {
-        currentLevel++;
       }
+
+      currentLevel++;
       removedNode = removedNode.up;
     }
 
     return true;
   }
 
-  public removeLevel(leftNode: SkipListNode): void {
-    const rightNode = leftNode.right;
-    this.level--;
-
-    if (leftNode.up == null) {
-      leftNode.down.up = null;
-      rightNode.down.up = null;
-    } else {
-      leftNode.up.down = leftNode.down;
-      leftNode.down.up = leftNode.up;
-      rightNode.up.down = rightNode.down;
-      rightNode.down.up = rightNode.up;
-    }
-  }
-
   public toArray(): SkipListNode[] {
     const nodes: SkipListNode[] = [];
     let node = this.head;
-    while (node.down != null) {
+    while (node.down) {
       node = node.down;
     }
 

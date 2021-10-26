@@ -21,7 +21,7 @@ export function getHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
     return 0;
   }
 
-  return Math.max(getLeftHeight(root), getRightHeight(root));
+  return Math.max.call(null, getLeftHeight(root), getRightHeight(root));
 }
 
 export function getBalanceFactor<T = unknown>(root: BinarySearchTreeNode<T>): number {
