@@ -1,4 +1,4 @@
-import { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
+import type { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
 import { get } from './get';
 
 export function deleteValueBase<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, count: number, value?: T): null | DoubleLinkedListNode<T> {

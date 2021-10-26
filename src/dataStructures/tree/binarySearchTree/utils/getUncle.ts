@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
 
 export function getUncle<T = unknown>(root: BinarySearchTreeNode<T>): null | BinarySearchTreeNode<T> {
   if (root) {

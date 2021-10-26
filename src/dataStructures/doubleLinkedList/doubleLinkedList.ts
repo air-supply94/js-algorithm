@@ -1,4 +1,5 @@
-import { Comparator, compareFunctionType } from '../../utils';
+import type { compareFunctionType } from '../../utils';
+import { Comparator } from '../../utils';
 
 export class DoubleLinkedListNode<T = unknown> {
   constructor(value: T | null, next: DoubleLinkedListNode<T> | null = null, previous: DoubleLinkedListNode<T> | null = null) {

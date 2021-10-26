@@ -1,4 +1,5 @@
-import { BinarySearchTreeNode, color } from '../binarySearchTree';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
+import { color } from '../binarySearchTree';
 import { getUncle } from './getUncle';
 import { getBalanceFactor } from './height';
 import { rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from './rotate';

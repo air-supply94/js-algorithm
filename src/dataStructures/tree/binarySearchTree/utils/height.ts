@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
 
 function getLeftHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
   if (!root.left) {

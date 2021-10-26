@@ -1,4 +1,4 @@
-import { DoubleLinkedListNode } from '../doubleLinkedList';
+import type { DoubleLinkedListNode } from '../doubleLinkedList';
 
 export function formatIndex(index: any, size: number): number {
   const indexInt = index | 0;

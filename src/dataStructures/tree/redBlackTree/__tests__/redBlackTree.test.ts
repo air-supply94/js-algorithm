@@ -1,4 +1,5 @@
-import { getHeight, nodeToString, BinarySearchTreeNode, color } from '../../binarySearchTree';
+import type { BinarySearchTreeNode } from '../../binarySearchTree';
+import { getHeight, nodeToString, color } from '../../binarySearchTree';
 import { RedBlackTree } from '../redBlackTree';
 
 function redBlackTreeCompare(a: BinarySearchTreeNode<number>, b: BinarySearchTreeNode<number>) {

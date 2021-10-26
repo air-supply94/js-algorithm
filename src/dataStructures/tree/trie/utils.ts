@@ -1,4 +1,4 @@
-import { TrieNode } from './trieNode';
+import type { TrieNode } from './trieNode';
 
 export function getLastCharacterNode(root: TrieNode, word: string): TrieNode | undefined {
   let currentNode = root;

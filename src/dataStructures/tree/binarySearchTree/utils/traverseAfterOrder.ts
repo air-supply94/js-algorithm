@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
+import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
 export function traverseAfterOrder<T = unknown>(
   root: BinarySearchTreeNode<T> | null,

@@ -1,4 +1,4 @@
-import { ListNode } from '../listNode';
+import type { ListNode } from '../listNode';
 import { mergeTwoLists } from './mergeTwoLists';
 
 // https://leetcode-cn.com/problems/sort-list/

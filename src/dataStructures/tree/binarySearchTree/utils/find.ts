@@ -1,5 +1,5 @@
-import { Comparator } from '../../../../utils';
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import type { Comparator } from '../../../../utils';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
 
 export function find<T = unknown>(
   root: null | BinarySearchTreeNode<T>,

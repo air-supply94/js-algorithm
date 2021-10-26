@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
 import { setLeft, setRight } from './nodeOperate';
 
 export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {

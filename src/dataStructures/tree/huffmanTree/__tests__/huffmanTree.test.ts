@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode } from '../../binarySearchTree';
+import type { BinarySearchTreeNode } from '../../binarySearchTree';
 import { huffmanTree } from '../huffmanTree';
 
 test('huffmanTree', () => {

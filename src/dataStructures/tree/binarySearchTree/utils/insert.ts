@@ -1,4 +1,4 @@
-import { Comparator } from '../../../../utils';
+import type { Comparator } from '../../../../utils';
 import { BinarySearchTreeNode } from '../binarySearchTree';
 import { setLeft, setRight } from './nodeOperate';
 

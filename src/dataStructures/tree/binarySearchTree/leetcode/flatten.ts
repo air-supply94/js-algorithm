@@ -1,4 +1,4 @@
-import { TreeNode } from './treeNode';
+import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
 // 114

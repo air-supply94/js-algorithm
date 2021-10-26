@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
 import { traverseInOrder } from './traverseInOrder';
 
 export function setLeft<T = unknown>(root: BinarySearchTreeNode<T>, leftNode: BinarySearchTreeNode<T> | null): void {

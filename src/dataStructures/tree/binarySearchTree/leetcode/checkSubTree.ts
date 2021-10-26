@@ -1,4 +1,4 @@
-import { TreeNode } from './treeNode';
+import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/check-subtree-lcci/
 // 剑指offer-04.10

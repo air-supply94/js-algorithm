@@ -1,4 +1,4 @@
-import { TreeNode } from './treeNode';
+import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
 // 剑指offer-34

@@ -1,5 +1,6 @@
-import { Comparator, compareFunctionType } from '../../../utils';
-import { avlTreeBalance, BinarySearchTree, BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
+import type { Comparator, compareFunctionType } from '../../../utils';
+import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
+import { avlTreeBalance, BinarySearchTree } from '../binarySearchTree';
 
 export class AvlTree<T = unknown> {
   constructor(compareFunction?: compareFunctionType | Comparator) {

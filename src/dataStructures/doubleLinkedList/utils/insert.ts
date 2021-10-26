@@ -1,4 +1,5 @@
-import { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
+import type { DoubleLinkedList } from '../doubleLinkedList';
+import { DoubleLinkedListNode } from '../doubleLinkedList';
 import { formatIndex, get } from './get';
 
 export function insert<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, value: T, index: number): DoubleLinkedListNode<T> {

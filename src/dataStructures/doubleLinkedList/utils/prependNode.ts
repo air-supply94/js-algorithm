@@ -1,4 +1,4 @@
-import { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
+import type { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
 
 export function prependNode<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
   if (doubleLinkedList.isEmpty()) {

@@ -1,4 +1,4 @@
-import { ListNode } from '../listNode';
+import type { ListNode } from '../listNode';
 
 // https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
 // 19

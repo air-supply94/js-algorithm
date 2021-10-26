@@ -1,4 +1,4 @@
-import { TreeNode } from './treeNode';
+import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
 // 783

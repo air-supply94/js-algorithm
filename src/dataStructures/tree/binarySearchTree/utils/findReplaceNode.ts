@@ -1,5 +1,5 @@
-import { Comparator } from '../../../../utils';
-import { BinarySearchTreeNode } from '../binarySearchTree';
+import type { Comparator } from '../../../../utils';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
 import { find } from './find';
 import { findMax } from './findMax';
 import { findMin } from './findMin';

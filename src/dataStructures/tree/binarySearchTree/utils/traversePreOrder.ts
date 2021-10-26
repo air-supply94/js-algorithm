@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
+import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 
 // https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
 // 144

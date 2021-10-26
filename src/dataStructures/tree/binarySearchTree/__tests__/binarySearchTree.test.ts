@@ -1,4 +1,5 @@
-import { BinarySearchTree, BinarySearchTreeNode } from '../binarySearchTree';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
+import { BinarySearchTree } from '../binarySearchTree';
 import { getHeight, insert, findReplaceNode } from '../utils';
 
 describe('BinarySearchTree', () => {

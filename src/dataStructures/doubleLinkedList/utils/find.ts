@@ -1,5 +1,5 @@
-import { Comparator } from '../../../utils';
-import { DoubleLinkedListNode } from '../doubleLinkedList';
+import type { Comparator } from '../../../utils';
+import type { DoubleLinkedListNode } from '../doubleLinkedList';
 
 export function find<T = unknown>(head: DoubleLinkedListNode<T>, findParams: {
   value?: T;
