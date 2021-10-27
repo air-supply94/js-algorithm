@@ -50,7 +50,7 @@ export function redBlackTreeInsertBalance<T = unknown>(node: BinarySearchTreeNod
   }
 }
 
-export function removeBalance<T = unknown>(getRoot: () => BinarySearchTreeNode<T>, node: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
+export function redBlackTreeRemoveBalance<T = unknown>(getRoot: () => BinarySearchTreeNode<T>, node: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
   let currentNode = node;
   while (currentNode.parent && currentNode.color === color.black) {
     if (currentNode === currentNode.parent.left) {

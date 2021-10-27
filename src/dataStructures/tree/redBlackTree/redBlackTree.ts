@@ -1,6 +1,6 @@
 import type { Comparator, compareFunctionType } from '../../../utils';
 import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
-import { BinarySearchTree, color, findReplaceNode, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder, redBlackTreeInsertBalance, removeBalance } from '../binarySearchTree';
+import { BinarySearchTree, color, findReplaceNode, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder, redBlackTreeInsertBalance, redBlackTreeRemoveBalance } from '../binarySearchTree';
 
 export class RedBlackTree<T = unknown> {
   constructor(compareFunction?: compareFunctionType | Comparator) {
@@ -110,7 +110,7 @@ export class RedBlackTree<T = unknown> {
     }
 
     if (replaceNode.color === color.black) {
-      removeBalance(() => this.root, replaceNode, this.setRoot);
+      redBlackTreeRemoveBalance(() => this.root, replaceNode, this.setRoot);
     }
 
     removeChild(replaceNode.parent, replaceNode);
