@@ -34,18 +34,15 @@ export function appendNode<T>(doubleLinkedList: DoubleLinkedList<T>, node: Doubl
     doubleLinkedList.tail = node;
     node.previous = null;
     node.next = null;
-
-    doubleLinkedList.size++;
-    return node;
   } else {
     doubleLinkedList.tail.next = node;
     node.previous = doubleLinkedList.tail;
     node.next = null;
     doubleLinkedList.tail = node;
-
-    doubleLinkedList.size++;
-    return node;
   }
+
+  doubleLinkedList.size++;
+  return node;
 }
 
 export function prependNode<T>(doubleLinkedList: DoubleLinkedList<T>, node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
@@ -54,18 +51,15 @@ export function prependNode<T>(doubleLinkedList: DoubleLinkedList<T>, node: Doub
     doubleLinkedList.tail = node;
     node.next = null;
     node.previous = null;
-
-    doubleLinkedList.size++;
-    return node;
   } else {
     doubleLinkedList.head.previous = node;
     node.next = doubleLinkedList.head;
     node.previous = null;
     doubleLinkedList.head = node;
-
-    doubleLinkedList.size++;
-    return node;
   }
+
+  doubleLinkedList.size++;
+  return node;
 }
 
 export class DoubleLinkedList<T> {
@@ -121,16 +115,13 @@ export class DoubleLinkedList<T> {
     if (this.isEmpty()) {
       this.head = node;
       this.tail = node;
-
-      this.size++;
-      return node;
     } else {
       this.tail.next = node;
       this.tail = node;
-
-      this.size++;
-      return node;
     }
+
+    this.size++;
+    return node;
   }
 
   public prepend(value: T): DoubleLinkedListNode<T> {
@@ -139,15 +130,12 @@ export class DoubleLinkedList<T> {
     if (this.isEmpty()) {
       this.head = node;
       this.tail = node;
-
-      this.size++;
-      return node;
     } else {
       this.head.previous = node;
       this.head = node;
-
-      this.size++;
-      return node;
     }
+
+    this.size++;
+    return node;
   }
 }

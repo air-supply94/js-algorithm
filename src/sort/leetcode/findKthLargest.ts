@@ -2,19 +2,19 @@ import { swap } from '../../utils';
 
 // https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
 // 215
-export function findKthLargest(nums: number[], k: number, low = 0, high = nums.length - 1): number {
-  if (low === high) {
-    return nums[low];
+export function findKthLargest(nums: number[], k: number, left = 0, right = nums.length - 1): number {
+  if (left === right) {
+    return nums[left];
   }
 
-  const middle = partitionArray(nums, low, high);
+  const middle = partitionArray(nums, left, right);
   const target = nums.length - k;
   if (target < middle - 1) {
-    return findKthLargest(nums, k, low, middle - 1);
+    return findKthLargest(nums, k, left, middle - 1);
   } else if (target === middle - 1) {
-    return findKthLargest(nums, k, low, middle - 1);
+    return findKthLargest(nums, k, left, middle - 1);
   } else {
-    return findKthLargest(nums, k, middle, high);
+    return findKthLargest(nums, k, middle, right);
   }
 }
 

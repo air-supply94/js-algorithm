@@ -50,7 +50,9 @@ export class DoubleLinkedList<T = unknown> {
   }
 
   public fromArray(values: T[]): void {
-    values.forEach((value) => this.append(value));
+    for (let i = 0; i < values.length; i++) {
+      this.append(values[i]);
+    }
   }
 
   public append(value: T): DoubleLinkedListNode<T> {
@@ -58,16 +60,12 @@ export class DoubleLinkedList<T = unknown> {
     if (this.isEmpty()) {
       this.tail = node;
       this.head = node;
-
-      this.size++;
-      return node;
     } else {
       this.tail.next = node;
       this.tail = node;
-
-      this.size++;
-      return node;
     }
+    this.size++;
+    return node;
   }
 
   public prepend(value: T): DoubleLinkedListNode<T> {
@@ -75,16 +73,12 @@ export class DoubleLinkedList<T = unknown> {
     if (this.isEmpty()) {
       this.head = node;
       this.tail = node;
-
-      this.size++;
-      return node;
     } else {
       this.head.previous = node;
       this.head = node;
-
-      this.size++;
-      return node;
     }
+    this.size++;
+    return node;
   }
 
   public deleteHead(): null | DoubleLinkedListNode<T> {

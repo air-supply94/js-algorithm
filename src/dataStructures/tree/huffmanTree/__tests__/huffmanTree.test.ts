@@ -55,17 +55,17 @@ test('huffmanTree', () => {
 function getHuffmanWPL(root: BinarySearchTreeNode<number> | null): number {
   let result = 0;
 
-  function dfs(node: BinarySearchTreeNode<number>, level: number): void {
+  function dfs(node: BinarySearchTreeNode<number>, height: number): void {
     if (!node) {
       return;
     }
 
     if (!node.left && !node.right) {
-      result += level * node.value;
+      result += height * node.value;
     }
 
-    dfs(node.left, level + 1);
-    dfs(node.right, level + 1);
+    dfs(node.left, height + 1);
+    dfs(node.right, height + 1);
   }
 
   dfs(root, 0);

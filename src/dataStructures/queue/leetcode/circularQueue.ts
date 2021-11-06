@@ -10,8 +10,9 @@ export class CircularQueue {
   private tail: number;
 
   constructor(k: number) {
-    this.data = [];
     this.capacity = k + 1;
+    this.data = Array(this.capacity)
+      .fill(null);
     this.head = 0;
     this.tail = 0;
   }
@@ -30,6 +31,7 @@ export class CircularQueue {
     if (this.isEmpty()) {
       return false;
     } else {
+      this.data[this.head] = null;
       this.head = (this.head + 1) % this.capacity;
       return true;
     }

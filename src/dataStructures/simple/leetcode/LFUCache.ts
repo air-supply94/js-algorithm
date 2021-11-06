@@ -33,10 +33,10 @@ export class LFUCache {
     const newCount = oldCount + 1;
     node.val.count = newCount;
 
+    deleteNode(this.countMap.get(oldCount), node);
     if (!this.countMap.has(newCount)) {
       this.countMap.set(newCount, new DoubleLinkedList<LFUCacheItem>());
     }
-    deleteNode(this.countMap.get(oldCount), node);
     prependNode(this.countMap.get(newCount), node);
 
     if (this.minCount === oldCount && this.countMap.get(oldCount)

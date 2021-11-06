@@ -1,5 +1,5 @@
 import { DoubleLinkedList, DoubleLinkedListNode } from '../../doubleLinkedList';
-import { appendNode } from '../appendNode';
+import { appendNode } from '../appendAndPrependNode';
 
 test('doubleLinkedList appendNode', () => {
   const linkedList = new DoubleLinkedList<number>();

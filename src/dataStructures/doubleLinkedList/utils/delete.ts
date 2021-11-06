@@ -2,39 +2,16 @@ import type { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList
 import { get } from './get';
 
 export function deleteValueBase<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, count: number, value?: T): null | DoubleLinkedListNode<T> {
-  let deleteCount = 0;
+  const deleteCount = 0;
   let deletedNode = null;
-  while (deleteCount < count && doubleLinkedList.head && doubleLinkedList.compare.equal(doubleLinkedList.head.value, value)) {
-    deletedNode = doubleLinkedList.head;
-    doubleLinkedList.head = doubleLinkedList.head.next;
-    doubleLinkedList.size -= 1;
-    ++deleteCount;
-  }
-
-  if (doubleLinkedList.head) {
-    doubleLinkedList.head.previous = null;
-  }
-
   let currentNode = doubleLinkedList.head;
-  if (currentNode) {
-    while (deleteCount < count && currentNode.next) {
-      if (doubleLinkedList.compare.equal(currentNode.next.value, value)) {
-        deletedNode = currentNode.next;
-        ++deleteCount;
-        doubleLinkedList.size -= 1;
-
-        if (currentNode.next.next) {
-          currentNode.next.next.previous = currentNode;
-        }
-        currentNode.next = currentNode.next.next;
-      } else {
-        currentNode = currentNode.next;
-      }
+  while (deleteCount < count && currentNode) {
+    const nextNode = currentNode.next;
+    if (doubleLinkedList.compare.equal(currentNode.value, value)) {
+      deletedNode = currentNode;
+      deleteNode<T>(doubleLinkedList, currentNode);
     }
-  }
-
-  if (!currentNode || !currentNode.next) {
-    doubleLinkedList.tail = currentNode;
+    currentNode = nextNode;
   }
 
   return deletedNode;
@@ -56,19 +33,10 @@ export function deleteNode<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, n
 }
 
 export function deleteIndex<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, index: number): null | DoubleLinkedListNode<T> {
-  const deleteNode = get(index, doubleLinkedList.size, doubleLinkedList.head, doubleLinkedList.tail);
-  if (!deleteNode) {
+  const node = get(index, doubleLinkedList.size, doubleLinkedList.head, doubleLinkedList.tail);
+  if (!node) {
     return null;
   }
 
-  if (deleteNode === doubleLinkedList.head) {
-    return doubleLinkedList.deleteHead();
-  } else if (deleteNode === doubleLinkedList.tail) {
-    return doubleLinkedList.deleteTail();
-  } else {
-    deleteNode.next.previous = deleteNode.previous;
-    deleteNode.previous.next = deleteNode.next;
-    doubleLinkedList.size -= 1;
-    return deleteNode;
-  }
+  return deleteNode(doubleLinkedList, node);
 }

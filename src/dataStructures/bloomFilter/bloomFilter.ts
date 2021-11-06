@@ -51,20 +51,24 @@ export class BloomFilter {
   private readonly data: number[];
 
   public insert(item: string): void {
-    getHashValues(item, this.data.length * bitLength)
-      .forEach((val) => {
-        const dataIndex = Math.floor(val / bitLength);
-        const bitIndex = val % bitLength;
-        this.data[dataIndex] |= 1 << bitIndex;
-      });
+    const hashValues: [number, number, number] = getHashValues(item, this.data.length * bitLength);
+    for (let i = 0; i < hashValues.length; i++) {
+      const dataIndex = Math.floor(hashValues[i] / bitLength);
+      const bitIndex = hashValues[i] % bitLength;
+      this.data[dataIndex] |= 1 << bitIndex;
+    }
   }
 
   public contain(item: string): boolean {
-    return getHashValues(item, this.data.length * bitLength)
-      .every((val) => {
-        const dataIndex = Math.floor(val / bitLength);
-        const bitIndex = val % bitLength;
-        return Boolean(this.data[dataIndex] & (1 << bitIndex));
-      });
+    const hashValues: [number, number, number] = getHashValues(item, this.data.length * bitLength);
+    for (let i = 0; i < hashValues.length; i++) {
+      const dataIndex = Math.floor(hashValues[i] / bitLength);
+      const bitIndex = hashValues[i] % bitLength;
+      if ((this.data[dataIndex] & (1 << bitIndex)) === 0) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }

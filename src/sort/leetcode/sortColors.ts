@@ -7,19 +7,19 @@ function swap(data: unknown[], first: number, second: number): void {
 // https://leetcode-cn.com/problems/sort-colors/
 // 75
 export function sortColors(nums: number[]): void {
-  let l0 = 0;
-  let l01 = 0;
-  let r = nums.length - 1;
-  while (l01 <= r) {
-    if (nums[l01] === 0) {
-      swap(nums, l01, l0);
-      l0++;
-      l01++;
-    } else if (nums[l01] === 1) {
-      l01++;
+  let leftFirst = 0;
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    if (nums[left] === 0) {
+      swap(nums, left, leftFirst);
+      leftFirst++;
+      left++;
+    } else if (nums[left] === 1) {
+      left++;
     } else {
-      swap(nums, l01, r);
-      r--;
+      swap(nums, left, right);
+      right--;
     }
   }
 }

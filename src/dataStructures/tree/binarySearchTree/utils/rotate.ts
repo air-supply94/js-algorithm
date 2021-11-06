@@ -36,7 +36,6 @@ export function rotateLeftRight<T = unknown>(rootNode: BinarySearchTreeNode<T>):
   }
 
   setLeft(rootNode, leftRightNode);
-
   setLeft(leftRightNode, leftNode);
 }
 
@@ -54,7 +53,6 @@ export function rotateRightLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>):
   }
 
   setRight(rootNode, rightLeftNode);
-
   setRight(rightLeftNode, rightNode);
 }
 
