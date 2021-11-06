@@ -84,7 +84,7 @@ export class AvlTree<T = unknown> {
   public remove(value: T): BinarySearchTreeNode<T> | null {
     const node = this.binarySearchTree.remove(value);
     let removeNode = node;
-    while (removeNode && removeNode.parent) {
+    while (removeNode) {
       avlTreeBalance(removeNode.parent, this.setRoot);
       removeNode = removeNode.parent;
     }

@@ -86,21 +86,6 @@ export class SkipList {
     this.tail = newTail;
   }
 
-  private removeLevel(levelHead: SkipListNode): void {
-    const levelTail = levelHead.right;
-    this.level--;
-
-    if (levelHead.up == null) {
-      levelHead.down.up = null;
-      levelTail.down.up = null;
-    } else {
-      levelHead.up.down = levelHead.down;
-      levelHead.down.up = levelHead.up;
-      levelTail.up.down = levelTail.down;
-      levelTail.down.up = levelTail.up;
-    }
-  }
-
   public insert(data: number): void {
     let preNode = findNode(this.head, data);
     if (preNode.data == data) {
@@ -135,7 +120,6 @@ export class SkipList {
 
   public remove(data: number): boolean {
     let removedNode = this.search(data);
-    let currentLevel = 0;
     if (removedNode == null) {
       return false;
     }
@@ -143,13 +127,23 @@ export class SkipList {
     while (removedNode) {
       removedNode.right.left = removedNode.left;
       removedNode.left.right = removedNode.right;
-
-      if (currentLevel !== 0 && removedNode.left.data === -Infinity && removedNode.right.data === Infinity) {
-        this.removeLevel(removedNode.left);
-      }
-
-      currentLevel++;
       removedNode = removedNode.up;
+    }
+
+    let newHead = this.head;
+    while (newHead.down && newHead.data === -Infinity && newHead.right.data === Infinity) {
+      const newHeadDown = newHead.down;
+      newHeadDown.up = null;
+      newHead.down = null;
+
+      const newTailDown = newHead.right.down;
+      newTailDown.up = null;
+      newHead.right.down = null;
+
+      this.level--;
+      newHead = newHeadDown;
+      this.head = newHeadDown;
+      this.tail = newTailDown;
     }
 
     return true;

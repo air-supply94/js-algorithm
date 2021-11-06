@@ -16,7 +16,7 @@ export function connect(root: Node): Node | null {
   return root;
 }
 
-function connectTwoNode(left: Node, right: Node) {
+function connectTwoNode(left: Node, right: Node): void {
   if (left == null || right == null) {
     return;
   }
