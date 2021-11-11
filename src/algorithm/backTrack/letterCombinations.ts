@@ -52,17 +52,20 @@ export function letterCombinations(digits: string): string[] {
 
   const result: string[] = [];
 
-  function dfs(currentPath: string, n: number): void {
+  function dfs(currentPath: string[], n: number): void {
     if (n === digits.length) {
-      result.push(currentPath);
+      result.push(currentPath.join(''));
       return;
     }
+
     const choice: string[] = dict[digits[n]];
     for (let i = 0; i < choice.length; i++) {
-      dfs(currentPath + choice[i], n + 1);
+      currentPath.push(choice[i]);
+      dfs(currentPath, n + 1);
+      currentPath.pop();
     }
   }
 
-  dfs('', 0);
+  dfs([], 0);
   return result;
 }

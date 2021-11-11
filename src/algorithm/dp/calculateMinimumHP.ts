@@ -1,6 +1,6 @@
 // https://leetcode-cn.com/problems/dungeon-game/
 // 174
-function calculateMinimumHP(dungeon: number[][]): number {
+export function calculateMinimumHP(dungeon: number[][]): number {
   const height = dungeon.length;
   const width = dungeon[0].length;
   const cache = Array(height)
@@ -32,7 +32,7 @@ function recursion(dungeon: number[][], h: number, w: number, height: number, wi
   return cache[h][w];
 }
 
-function calculateMinimumHPDp(dungeon: number[][]): number {
+export function calculateMinimumHPDp(dungeon: number[][]): number {
   const height = dungeon.length;
   const width = dungeon[0].length;
   const dp = Array(width + 1)

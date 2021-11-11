@@ -12,11 +12,11 @@ export function translateNum(num: number): number {
     if (tmp >= 10 && tmp <= 25) {
       dp_i_2 = dp_i_0 + dp_i_1;
     } else {
-      dp_i_2 = dp_i_0;
+      dp_i_2 = dp_i_1;
     }
 
-    dp_i_1 = dp_i_0;
-    dp_i_0 = dp_i_2;
+    dp_i_0 = dp_i_1;
+    dp_i_1 = dp_i_2;
   }
 
   return dp_i_2;

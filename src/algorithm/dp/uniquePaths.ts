@@ -1,6 +1,6 @@
 // https://leetcode-cn.com/problems/unique-paths/
 // 62
-export function uniquePaths(width: number, height: number): number {
+export function uniquePaths(height: number, width: number): number {
   const dp = Array(width)
     .fill(1);
 
