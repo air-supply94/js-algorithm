@@ -29,7 +29,7 @@ export function findPrefixCount(root: TrieNode, word: string): number {
   }
 }
 
-export function wordFrequency(root: TrieNode): {[key in string]: number } {
+export function wordFrequency(root: TrieNode): {[key: string]: number; } {
   const result = {};
   const queue: Array<{ node: TrieNode; word: string; }> = [];
   queue.push({

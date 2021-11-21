@@ -1,4 +1,4 @@
-# 0.0.0 (2021-11-21)
+# 0.0.0 (2021-11-24)
 
 ### Bug Fixes
 
@@ -83,6 +83,7 @@
 - **algorithm/other:** add masterMind ([eb19a1b](https://github.com/air-supply94/js-algorithm/commit/eb19a1b548ee0fc45e76e610b72604188de89fa7))
 - **algorithm/other:** add oneEditAway ([8462de8](https://github.com/air-supply94/js-algorithm/commit/8462de8cc4659d51163106296a16368ba152c122))
 - **algorithm/other:** add pancakeSort ([5ecfc37](https://github.com/air-supply94/js-algorithm/commit/5ecfc376482fc0ae2f811b2a90545fed55aaa382))
+- **algorithm/other:** add respace ([283c195](https://github.com/air-supply94/js-algorithm/commit/283c1953913a8d8c26ff79b313d1268647d7c558))
 - **algorithm/slidingWindow:** add checkInclusion ([e952fc8](https://github.com/air-supply94/js-algorithm/commit/e952fc852e3392f5a1e92fdbb6cd1fa02d20d8d7))
 - **algorithm/slidingWindow:** add lengthOfLongestSubstring ([50e7a5f](https://github.com/air-supply94/js-algorithm/commit/50e7a5f08be352c3201605a599f0ecf668f4228c))
 - **algorithm/slidingWindow:** add minWindow ([1316b41](https://github.com/air-supply94/js-algorithm/commit/1316b4109466ed38bea1dad44868e4cc84d9d4aa))
@@ -286,6 +287,7 @@
 - **stack:** add asteroidCollision ([9d15621](https://github.com/air-supply94/js-algorithm/commit/9d15621d49af890b12a0039e7859677189cf89d0))
 - **stack:** add calculate ([f45da8b](https://github.com/air-supply94/js-algorithm/commit/f45da8bb36150a4dc8ab9071a713ebaf54dc55ff))
 - **stack:** add interface ([8cf0709](https://github.com/air-supply94/js-algorithm/commit/8cf0709f63b6e7d5bac7dd90a48870778b41a893))
+- **stack:** add largestRectangleArea ([6a910db](https://github.com/air-supply94/js-algorithm/commit/6a910db59e3720cd0b5ee7c8ed8f3f708bd30c78))
 - **stack:** add majorityElement ([59025f6](https://github.com/air-supply94/js-algorithm/commit/59025f648094185ea220bc92d328245a53c6cacd))
 - **stack:** add minAddToMakeValid minInsertions ([a1f80f0](https://github.com/air-supply94/js-algorithm/commit/a1f80f0f82522a884a8fa90735abd8290cc466f6))
 - **stack:** 增加 divingBoard ([bffe555](https://github.com/air-supply94/js-algorithm/commit/bffe55587c9923d8c41dcc347e6e11f064ca31e0))
