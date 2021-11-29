@@ -1,4 +1,4 @@
-# 0.0.0 (2021-11-25)
+# (2021-12-01)
 
 ### Bug Fixes
 
@@ -67,6 +67,8 @@
 - **algorithm/dp:** add findCheapestPrice ([c02956f](https://github.com/air-supply94/js-algorithm/commit/c02956f2f2e49b818e8088debe0218b84c8b5b80))
 - **algorithm/dp:** add findRotateSteps ([476bffb](https://github.com/air-supply94/js-algorithm/commit/476bffbd434db6866bb1ede9a7eb82819769c214))
 - **algorithm/dp:** add maxCoins ([115c369](https://github.com/air-supply94/js-algorithm/commit/115c3699124a46a8682cff9a7593463e2b8ae782))
+- **algorithm/dp:** add stoneGame ([3e91eaf](https://github.com/air-supply94/js-algorithm/commit/3e91eaf13bb0b8465d745ab1170ba45b593812ef))
+- **algorithm/dp:** add stoneGame ([9d6031d](https://github.com/air-supply94/js-algorithm/commit/9d6031d397139a8a9cdaf9754e0fd10216a9d220))
 - **algorithm/math:** add Difference ([851082f](https://github.com/air-supply94/js-algorithm/commit/851082f5cbbc29aef367194230b4ebf55f74e480))
 - **algorithm/math:** add diffWaysToCompute ([bf3741c](https://github.com/air-supply94/js-algorithm/commit/bf3741cd9c4109eeec7fca92bb861ede82274294))
 - **algorithm/math:** add findErrorNums ([edee6fb](https://github.com/air-supply94/js-algorithm/commit/edee6fb2edebd8696f61c8ca66e0e8de77d46a3d))

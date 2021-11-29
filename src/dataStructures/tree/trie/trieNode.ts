@@ -1,7 +1,7 @@
 export class TrieNode {
-  constructor(character: string, isCompleteWord = false) {
+  constructor(character: string) {
     this.character = character;
-    this.isCompleteWord = isCompleteWord;
+    this.isCompleteWord = false;
     this.wordCount = 0;
     this.prefixCount = 0;
     this.children = new Map<string, TrieNode>();
@@ -23,7 +23,7 @@ export class TrieNode {
 
   public addChild(character: string, isCompleteWord = false): TrieNode {
     if (!this.hasChild(character)) {
-      this.children.set(character, new TrieNode(character, isCompleteWord));
+      this.children.set(character, new TrieNode(character));
     }
 
     const childNode = this.children.get(character);

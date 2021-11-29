@@ -31,7 +31,7 @@ export function hasCircle(graph: number[][]): boolean {
     path[start] = false;
   }
 
-  return !graphHasCircle;
+  return graphHasCircle;
 }
 
 // 邻接表
@@ -40,7 +40,7 @@ export function topologicalSortingDfs(graph: number[][]): number[] {
     .fill(false);
   const pathTmp: number[] = [];
 
-  if (!hasCircle(graph)) {
+  if (hasCircle(graph)) {
     return [];
   }
 

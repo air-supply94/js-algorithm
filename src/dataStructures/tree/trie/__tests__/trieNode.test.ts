@@ -2,12 +2,12 @@ import { TrieNode } from '../trieNode';
 
 describe('TrieNode', () => {
   test('should create trie node', () => {
-    const trieNode = new TrieNode('c', true);
+    const trieNode = new TrieNode('c');
 
     expect(trieNode.character)
       .toBe('c');
     expect(trieNode.isCompleteWord)
-      .toBe(true);
+      .toBe(false);
     expect(trieNode.toString())
       .toBe('c');
   });
