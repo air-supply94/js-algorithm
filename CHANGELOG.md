@@ -1,4 +1,4 @@
-# (2021-12-01)
+# (2021-12-05)
 
 ### Bug Fixes
 
@@ -67,7 +67,7 @@
 - **algorithm/dp:** add findCheapestPrice ([c02956f](https://github.com/air-supply94/js-algorithm/commit/c02956f2f2e49b818e8088debe0218b84c8b5b80))
 - **algorithm/dp:** add findRotateSteps ([476bffb](https://github.com/air-supply94/js-algorithm/commit/476bffbd434db6866bb1ede9a7eb82819769c214))
 - **algorithm/dp:** add maxCoins ([115c369](https://github.com/air-supply94/js-algorithm/commit/115c3699124a46a8682cff9a7593463e2b8ae782))
-- **algorithm/dp:** add stoneGame ([3e91eaf](https://github.com/air-supply94/js-algorithm/commit/3e91eaf13bb0b8465d745ab1170ba45b593812ef))
+- **algorithm/dp:** add stoneGame ([2389ef2](https://github.com/air-supply94/js-algorithm/commit/2389ef2101e66df5bbf9a57d697a5371554a360a))
 - **algorithm/dp:** add stoneGame ([9d6031d](https://github.com/air-supply94/js-algorithm/commit/9d6031d397139a8a9cdaf9754e0fd10216a9d220))
 - **algorithm/math:** add Difference ([851082f](https://github.com/air-supply94/js-algorithm/commit/851082f5cbbc29aef367194230b4ebf55f74e480))
 - **algorithm/math:** add diffWaysToCompute ([bf3741c](https://github.com/air-supply94/js-algorithm/commit/bf3741cd9c4109eeec7fca92bb861ede82274294))
@@ -217,6 +217,7 @@
 - **graph:** add graph ([8447530](https://github.com/air-supply94/js-algorithm/commit/844753025463ee1cfb843939945607892c63c4ec))
 - **graph:** update graph ([160c590](https://github.com/air-supply94/js-algorithm/commit/160c590cdc2de8e26096cb01d6d70b2f0e8370a5))
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
+- **graph:** 优化 dijkstra 算法 ([c52a815](https://github.com/air-supply94/js-algorithm/commit/c52a815ac4354695b25778952cb1a3ab3021a07b))
 - **graph:** 增加图术语 ([93139b4](https://github.com/air-supply94/js-algorithm/commit/93139b4292972a6b4604a41efe6b6c9842c2a757))
 - **graph/leetcode:** add allPathsSourceTarget ([ba33a1e](https://github.com/air-supply94/js-algorithm/commit/ba33a1ec08e4df370da5d830d6bcecd2c18320d4))
 - **graph/leetcode:** add canFinish findOrder ([368b7d3](https://github.com/air-supply94/js-algorithm/commit/368b7d3ca2fcca01df11c449d70fa4149835970c))

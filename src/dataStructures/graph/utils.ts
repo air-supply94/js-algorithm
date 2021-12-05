@@ -185,8 +185,9 @@ export function kruskal(graph: number[][]): number {
   return count <= 1 ? result : Infinity;
 }
 
-// 邻接矩阵
-export function dijkstra(graph: number[][], start: number): number[] {
+// 邻接表
+// 可换成普通队列,简单修改堆即可
+export function dijkstra(graph: Array<Array<[number, number]>>, start: number): number[] {
   const distance: number[] = Array(graph.length)
     .fill(Infinity);
   distance[start] = 0;
@@ -204,11 +205,12 @@ export function dijkstra(graph: number[][], start: number): number[] {
     if (weight <= distance[startIndex]) {
       const neighbor = graph[startIndex];
       for (let i = 0; i < neighbor.length; i++) {
-        const nextWeight = weight + neighbor[i];
-        if (startIndex !== i && neighbor[i] !== Infinity && distance[i] > nextWeight) {
-          distance[i] = nextWeight;
+        const nextWeight = weight + neighbor[i][1];
+        const nextIndex = neighbor[i][0];
+        if (distance[nextIndex] > nextWeight) {
+          distance[nextIndex] = nextWeight;
           minHeap.add([
-            i,
+            nextIndex,
             nextWeight,
           ]);
         }
