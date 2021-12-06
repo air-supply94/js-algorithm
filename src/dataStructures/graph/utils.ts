@@ -1,5 +1,3 @@
-import { Heap } from '../heap';
-
 // 邻接表
 export function hasCircle(graph: number[][]): boolean {
   const visitedCache: boolean[] = Array(graph.length)
@@ -135,19 +133,18 @@ export function prim(graph: number[][]): number {
   return sum;
 }
 
-// 邻接矩阵
-export function kruskal(graph: number[][]): number {
+// 邻接表
+export function kruskal(graph: Array<Array<[number, number]>>): number {
   const n = graph.length;
   const edges: Array<[number, number, number]> = [];
   for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      if (i !== j && graph[i][j] !== Infinity) {
-        edges.push([
-          i,
-          j,
-          graph[i][j],
-        ]);
-      }
+    const neighbor = graph[i];
+    for (let j = 0; j < neighbor.length; j++) {
+      edges.push([
+        i,
+        neighbor[j][0],
+        neighbor[j][1],
+      ]);
     }
   }
   edges.sort((a, b) => a[2] - b[2]);
@@ -186,19 +183,19 @@ export function kruskal(graph: number[][]): number {
 }
 
 // 邻接表
-// 可换成普通队列,简单修改堆即可
+// 可用堆优化
 export function dijkstra(graph: Array<Array<[number, number]>>, start: number): number[] {
   const distance: number[] = Array(graph.length)
     .fill(Infinity);
   distance[start] = 0;
-  const minHeap = new Heap<[number, number]>((a, b) => a[1] - b[1] < 0);
-  minHeap.add([
+  const queue: Array<[number, number]> = [];
+  queue.push([
     start,
     0,
   ]);
 
-  while (!minHeap.isEmpty()) {
-    const currentItem = minHeap.poll();
+  while (queue.length) {
+    const currentItem = queue.shift();
     const startIndex = currentItem[0];
     const weight = currentItem[1];
 
@@ -209,7 +206,7 @@ export function dijkstra(graph: Array<Array<[number, number]>>, start: number): 
         const nextIndex = neighbor[i][0];
         if (distance[nextIndex] > nextWeight) {
           distance[nextIndex] = nextWeight;
-          minHeap.add([
+          queue.push([
             nextIndex,
             nextWeight,
           ]);
@@ -243,4 +240,42 @@ export function floyd(graph: number[][]): number[][] {
   }
 
   return dp;
+}
+
+// 邻接表
+// https://leetcode-cn.com/problems/is-graph-bipartite/
+// 785
+export function isBipartite(graph: number[][]): boolean {
+  const n = graph.length;
+  const cache: number[] = Array(n).fill(0);
+  const color: number[] = Array(n).fill(1);
+  let result = true;
+
+  for (let i = 0; i < n; i++) {
+    if (cache[i] === 0) {
+      dfs(i);
+    }
+  }
+
+  function dfs(start: number): void {
+    if (result === false) {
+      return;
+    }
+
+    cache[start] = 1;
+    const neighbor = graph[start];
+
+    for (let i = 0; i < neighbor.length; i++) {
+      if (cache[neighbor[i]] === 0) {
+        color[neighbor[i]] = -color[start];
+        dfs(neighbor[i]);
+      } else {
+        if (color[neighbor[i]] === color[start]) {
+          result = false;
+        }
+      }
+    }
+  }
+
+  return result;
 }
