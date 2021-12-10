@@ -1,4 +1,4 @@
-# (2021-12-06)
+# (2021-12-10)
 
 ### Bug Fixes
 
@@ -215,7 +215,7 @@
 - **getUpMedian:** add ([c9de684](https://github.com/air-supply94/js-algorithm/commit/c9de684d083cb46488c443b5fa67cd075de8560d))
 - **graph:** add bfs、dfs ([e22b2da](https://github.com/air-supply94/js-algorithm/commit/e22b2da5d57cd3262982b4d8df2e50ea6fc04a35))
 - **graph:** add graph ([8447530](https://github.com/air-supply94/js-algorithm/commit/844753025463ee1cfb843939945607892c63c4ec))
-- **graph:** add isBipartite ([6f346e4](https://github.com/air-supply94/js-algorithm/commit/6f346e4a9579ebd0027ab56d9057bb969ec81ff8))
+- **graph:** add isBipartite ([ab227b9](https://github.com/air-supply94/js-algorithm/commit/ab227b99eb46f839547dd1ced1e03bd5052b82ce))
 - **graph:** update graph ([160c590](https://github.com/air-supply94/js-algorithm/commit/160c590cdc2de8e26096cb01d6d70b2f0e8370a5))
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
 - **graph:** 优化 dijkstra 算法 ([13ac2f9](https://github.com/air-supply94/js-algorithm/commit/13ac2f907588c141334bfda446c7c019399b2742))
