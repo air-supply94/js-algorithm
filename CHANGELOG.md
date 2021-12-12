@@ -1,4 +1,4 @@
-# (2021-12-10)
+# (2021-12-12)
 
 ### Bug Fixes
 
@@ -159,6 +159,7 @@
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))
 - **dataStructures/design:** update LRUCache(leetcode 上测试) ([3ca03bb](https://github.com/air-supply94/js-algorithm/commit/3ca03bbdfa7fbddcf13f45a54a9fa97256a2f4b4))
 - **dataStructures/simple:** add heap ([c9a5222](https://github.com/air-supply94/js-algorithm/commit/c9a5222ce84cedd66826fb131071185998d4c404))
+- **disJoinSet:** add minSwapsCouples ([f447837](https://github.com/air-supply94/js-algorithm/commit/f447837e8f35b73fb1758c06e5d7d8bbb5730d94))
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/js-algorithm/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))
 - **double-linked-list:** remove flatten ([928a4d6](https://github.com/air-supply94/js-algorithm/commit/928a4d6e08527d719c2c548a5ea955a9654a4e9b))
 - **double-linked-list:** 增加排序 ([94af395](https://github.com/air-supply94/js-algorithm/commit/94af395a7a0085f805427b45864883f42e247350))
