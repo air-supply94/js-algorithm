@@ -1,4 +1,4 @@
-# (2021-12-12)
+# (2021-12-17)
 
 ### Bug Fixes
 
@@ -17,6 +17,7 @@
 - rename file ([b03f0d1](https://github.com/air-supply94/js-algorithm/commit/b03f0d15ca04ebbfeb0f6a54aa3e1a0c4785e768))
 - rename project ([42f990d](https://github.com/air-supply94/js-algorithm/commit/42f990deb5659630681bfea763aca02cb80517fa))
 - rename test filename ([8369baf](https://github.com/air-supply94/js-algorithm/commit/8369baf3707d50382d3d85cd2131eedf7e16ede5))
+- test ([7aa375c](https://github.com/air-supply94/js-algorithm/commit/7aa375c3160dd3bf3425210c023cc4322bf98b3a))
 - update code-style package ([bc71131](https://github.com/air-supply94/js-algorithm/commit/bc7113122ac26a5f097fb3490505b8ff0433589a))
 - update config ([ddef9b6](https://github.com/air-supply94/js-algorithm/commit/ddef9b6a41f76289a091972110c23a1a75d68968))
 - update package ([2e5aeff](https://github.com/air-supply94/js-algorithm/commit/2e5aeff48d3c0579c49f9efceb2fd2a6b657c59b))
@@ -217,6 +218,7 @@
 - **graph:** add bfs、dfs ([e22b2da](https://github.com/air-supply94/js-algorithm/commit/e22b2da5d57cd3262982b4d8df2e50ea6fc04a35))
 - **graph:** add graph ([8447530](https://github.com/air-supply94/js-algorithm/commit/844753025463ee1cfb843939945607892c63c4ec))
 - **graph:** add isBipartite ([ab227b9](https://github.com/air-supply94/js-algorithm/commit/ab227b99eb46f839547dd1ced1e03bd5052b82ce))
+- **graph:** add 被围绕的区域 ([3e4998b](https://github.com/air-supply94/js-algorithm/commit/3e4998b77d153fab8604b9eb67c24f8e0194d19f))
 - **graph:** update graph ([160c590](https://github.com/air-supply94/js-algorithm/commit/160c590cdc2de8e26096cb01d6d70b2f0e8370a5))
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
 - **graph:** 优化 dijkstra 算法 ([13ac2f9](https://github.com/air-supply94/js-algorithm/commit/13ac2f907588c141334bfda446c7c019399b2742))
