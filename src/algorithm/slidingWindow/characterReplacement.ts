@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/longest-repeating-character-replacement/
 // 424
+// 最长区间
 export function characterReplacement(s: string, k: number): number {
   const countList = new Map<string, number>();
   let left = 0;

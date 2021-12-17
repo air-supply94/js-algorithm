@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/subarray-product-less-than-k/
 // 713
+// 区间计数
 export function numSubarrayProductLessThanK(nums: number[], k: number): number {
   let result = 0;
   let left = 0;

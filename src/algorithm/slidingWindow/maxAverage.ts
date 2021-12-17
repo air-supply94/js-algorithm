@@ -1,4 +1,5 @@
 // https://www.lintcode.com/problem/617/
+// 最长区间
 export function maxAverage(nums: number[], k: number): number {
   let right = 0;
   let left = 0;

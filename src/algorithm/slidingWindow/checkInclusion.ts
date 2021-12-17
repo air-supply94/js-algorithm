@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/permutation-in-string/
 // 567
+// 定长区间
 export function checkInclusion(t: string, s: string): boolean {
   const needMap = new Map<string, number>();
   const countMap = new Map<string, number>();

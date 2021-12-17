@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/minimum-window-substring/
 // 76
+// 定长区间
 export function minWindow(s: string, t: string): string {
   const needMap = new Map<string, number>();
   const countMap = new Map<string, number>();

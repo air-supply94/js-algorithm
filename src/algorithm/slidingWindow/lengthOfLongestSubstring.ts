@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/submissions/
 // 3
+// 最长区间
 export function lengthOfLongestSubstring(s: string): number {
   const countMap = new Map<string, number>();
   let left = 0;
