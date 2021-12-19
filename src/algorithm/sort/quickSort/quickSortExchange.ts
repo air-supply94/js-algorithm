@@ -1,5 +1,5 @@
-import type { compareFunctionType } from '../../utils';
-import { Comparator } from '../../utils';
+import type { compareFunctionType } from '../../../utils';
+import { Comparator } from '../../../utils';
 
 export function quickSortExchange<T = unknown>(originalArray: T[], comparator: Comparator | compareFunctionType): T[] {
   if (originalArray.length <= 1) {

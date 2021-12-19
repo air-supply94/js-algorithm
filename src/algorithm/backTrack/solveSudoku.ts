@@ -1,14 +1,14 @@
 // https://leetcode-cn.com/problems/sudoku-solver/
 // 37
 export function solveSudoku(board: string[][]): void {
-  recursion(board, 0, 0);
+  dfs(board, 0, 0);
 }
 
-function recursion(board: string[][], h: number, w: number): boolean {
+function dfs(board: string[][], h: number, w: number): boolean {
   const n = 9;
 
   if (w === n) {
-    return recursion(board, h + 1, 0);
+    return dfs(board, h + 1, 0);
   }
 
   if (h === n) {
@@ -16,13 +16,13 @@ function recursion(board: string[][], h: number, w: number): boolean {
   }
 
   if (board[h][w] !== '.') {
-    return recursion(board, h, w + 1);
+    return dfs(board, h, w + 1);
   }
 
   for (let i = 1; i <= n; i++) {
     if (isValid(board, h, w, `${i}`)) {
       board[h][w] = `${i}`;
-      if (recursion(board, h, w + 1)) {
+      if (dfs(board, h, w + 1)) {
         return true;
       }
       board[h][w] = '.';

@@ -6,11 +6,11 @@ export function totalNQueens(n: number): number {
   const subtractVector = new Map<number, boolean>();
   let result = 0;
 
-  function isValid(h: number, w: number) {
+  function isValid(h: number, w: number): boolean {
     return !cols.has(w) && !addVector.has(h + w) && !subtractVector.has(h - w);
   }
 
-  function recursion(h: number, path: number[]): void {
+  function dfs(h: number, path: number[]): void {
     if (h === n) {
       result++;
       return;
@@ -23,7 +23,7 @@ export function totalNQueens(n: number): number {
         addVector.set(h + i, true);
         subtractVector.set(h - i, true);
 
-        recursion(h + 1, path.concat(i));
+        dfs(h + 1, path);
 
         path.pop();
         cols.delete(i);
@@ -33,6 +33,6 @@ export function totalNQueens(n: number): number {
     }
   }
 
-  recursion(0, []);
+  dfs(0, []);
   return result;
 }

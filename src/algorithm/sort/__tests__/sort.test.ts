@@ -1,4 +1,4 @@
-import { Comparator } from '../../utils';
+import { Comparator } from '../../../utils';
 import { bubbleSort } from '../bubbleSort';
 import { insertionSort } from '../insertionSort';
 import { quickSortExchange } from '../quickSort/quickSortExchange';

@@ -1,4 +1,4 @@
-import { swap } from '../../utils';
+import { swap } from '../../../utils';
 
 // https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
 // 215

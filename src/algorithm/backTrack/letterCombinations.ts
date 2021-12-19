@@ -58,9 +58,8 @@ export function letterCombinations(digits: string): string[] {
       return;
     }
 
-    const choice: string[] = dict[digits[n]];
-    for (let i = 0; i < choice.length; i++) {
-      currentPath.push(choice[i]);
+    for (let i = 0; i < dict[digits[n]].length; i++) {
+      currentPath.push(dict[digits[n]][i]);
       dfs(currentPath, n + 1);
       currentPath.pop();
     }

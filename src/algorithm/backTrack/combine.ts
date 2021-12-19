@@ -9,7 +9,7 @@ export function combine(n: number, m: number): number[][] {
 
   const result: number[][] = [];
 
-  function recursion(choice: number[], path: number[]): void {
+  function dfs(choice: number[], path: number[]): void {
     if (path.length === m) {
       result.push(path.slice());
       return;
@@ -17,11 +17,11 @@ export function combine(n: number, m: number): number[][] {
 
     for (let i = 0; i < choice.length; i++) {
       path.push(choice[i]);
-      recursion(choice.filter((_, index) => index > i), path);
+      dfs(choice.slice(i + 1), path);
       path.pop();
     }
   }
 
-  recursion(choice, []);
+  dfs(choice, []);
   return result;
 }

@@ -1,4 +1,4 @@
-function recursion(result: number[][], choice: number[], path: number[]): number[][] {
+function dfs(result: number[][], choice: number[], path: number[]): number[][] {
   if (!choice.length) {
     if (path.length) {
       result.push(path.slice());
@@ -8,7 +8,7 @@ function recursion(result: number[][], choice: number[], path: number[]): number
 
   for (let i = 0; i < choice.length; i++) {
     path.push(choice[i]);
-    recursion(result, choice.filter((item) => item !== choice[i]), path);
+    dfs(result, choice.filter((item) => item !== choice[i]), path);
     path.pop();
   }
 
@@ -18,5 +18,5 @@ function recursion(result: number[][], choice: number[], path: number[]): number
 // https://leetcode-cn.com/problems/permutations/submissions/
 // 46
 export function permute(choice: number[]): number[][] {
-  return recursion([], choice, []);
+  return dfs([], choice, []);
 }

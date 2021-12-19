@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/all-paths-from-source-to-target/
 // 797
+// graph-dfs
 export function allPathsSourceTarget(graph: number[][]): number[][] {
   const result: number[][] = [];
   dfs(graph, 0, result, []);

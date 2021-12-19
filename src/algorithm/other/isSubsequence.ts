@@ -1,4 +1,4 @@
-import { findFirstLarge } from '../../search/binarySearch/findFirstLarge';
+import { findFirstLarge } from '../search/binarySearch/findFirstLarge';
 
 // https://leetcode-cn.com/problems/is-subsequence/
 // 392

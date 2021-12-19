@@ -1,4 +1,4 @@
-function recursion(
+function dfs(
   result: number[][],
   choice: number[],
   currentPath: number[],
@@ -17,7 +17,7 @@ function recursion(
   for (let i = 0; i < choice.length; i++) {
     currentPath.push(choice[i]);
 
-    recursion(
+    dfs(
       result,
       choice.slice(i),
       currentPath,
@@ -33,5 +33,5 @@ function recursion(
 // https://leetcode-cn.com/problems/combination-sum/
 // 39
 export function combinationSum(choices: number[], target: number): number[][] {
-  return recursion([], choices, [], target);
+  return dfs([], choices, [], target);
 }
