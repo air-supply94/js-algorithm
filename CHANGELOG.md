@@ -1,4 +1,4 @@
-# (2021-12-23)
+# (2021-12-24)
 
 ### Bug Fixes
 
@@ -62,6 +62,7 @@
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
 - **algorithm/classic:** add minDistance ([f441103](https://github.com/air-supply94/js-algorithm/commit/f44110326d1e4c037a81176cc8041be436ff5b68))
 - **algorithm/classic:** add rubberHouse ([bf41594](https://github.com/air-supply94/js-algorithm/commit/bf41594753015b1d45cb67ed4ef42600805f5f8e))
+- **algorithm/dfs、bfs:** add shortestPathBinaryMatrix ([3bcb57a](https://github.com/air-supply94/js-algorithm/commit/3bcb57a12fc71c58e3fc13f9c7bda65171fb4a49))
 - **algorithm/diffWaysToCompute:** 兼容 leetcode ([fadbfb8](https://github.com/air-supply94/js-algorithm/commit/fadbfb895473352ec4aa52657782c8063d301a17))
 - **algorithm/dp:** add calculateMinimumHP ([958d248](https://github.com/air-supply94/js-algorithm/commit/958d248ddc7977c12d0dd400d1ad98d0b718b61b))
 - **algorithm/dp:** add findCheapestPrice ([c02956f](https://github.com/air-supply94/js-algorithm/commit/c02956f2f2e49b818e8088debe0218b84c8b5b80))
@@ -141,7 +142,7 @@
 - **dataStructure:** add DisjointSet ([2903fb3](https://github.com/air-supply94/js-algorithm/commit/2903fb3bc1f1b9cee927aca551338cc2d3559efe))
 - **dataStructure:** add minCostConnectPoints ([79f255d](https://github.com/air-supply94/js-algorithm/commit/79f255d8e74741b5baea41072dfd723a3c47459b))
 - **dataStructure:** update disjointSet ([569f487](https://github.com/air-supply94/js-algorithm/commit/569f487b6a1b64a0091718eb588c672ae0dd2a25))
-- **dataStructure:** 迁移并查集、图 ([8a10304](https://github.com/air-supply94/js-algorithm/commit/8a103043b3a161517c394de2ff2f378b11666c96))
+- **dataStructure:** 迁移并查集、图 ([75d3505](https://github.com/air-supply94/js-algorithm/commit/75d350521bf12fcd94e400cf55fb9cf01410998a))
 - **dataStructure/bst:** add findMode ([aa0d969](https://github.com/air-supply94/js-algorithm/commit/aa0d969c0672a81c643ec9260096ec6b1920955a))
 - **dataStructure/bst:** update getHeight ([972e0c4](https://github.com/air-supply94/js-algorithm/commit/972e0c43279a8d26aee1d49e00cd827fa93a4e7a))
 - **dataStructure/design:** add FrequencyStack ([96b15a0](https://github.com/air-supply94/js-algorithm/commit/96b15a0b1ffa45e9824c079ad06b97a65ba7f3c0))
