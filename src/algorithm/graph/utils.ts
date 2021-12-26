@@ -1,32 +1,30 @@
 // 邻接表
 export function hasCircle(graph: number[][]): boolean {
-  const visitedCache: boolean[] = Array(graph.length)
-    .fill(false);
-  const pathTmp: boolean[] = Array(graph.length)
-    .fill(false);
+  const visitedCache: number[] = Array(graph.length).fill(0);
+  const pathTmp: number[] = Array(graph.length).fill(0);
   let graphHasCircle = false;
 
   for (let i = 0; i < graph.length; i++) {
     dfs(graph, i, visitedCache, pathTmp);
   }
 
-  function dfs(graph: number[][], start: number, visited: boolean[], path: boolean[]): void {
-    if (path[start]) {
+  function dfs(graph: number[][], start: number, visited: number[], path: number[]): void {
+    if (path[start] === 1) {
       graphHasCircle = true;
     }
 
-    if (visited[start] || graphHasCircle) {
+    if (visited[start] === 1 || graphHasCircle) {
       return;
     }
 
-    path[start] = true;
-    visited[start] = true;
+    path[start] = 1;
+    visited[start] = 1;
 
     for (let i = 0; i < graph[start].length; i++) {
       dfs(graph, graph[start][i], visited, path);
     }
 
-    path[start] = false;
+    path[start] = 0;
   }
 
   return graphHasCircle;
@@ -34,19 +32,19 @@ export function hasCircle(graph: number[][]): boolean {
 
 // 邻接表
 export function topologicalSortingDfs(graph: number[][]): number[] {
-  const visitedCache: boolean[] = Array(graph.length)
-    .fill(false);
+  const visitedCache: number[] = Array(graph.length).fill(0);
   const pathTmp: number[] = [];
 
   if (hasCircle(graph)) {
     return [];
   }
 
-  function dfs(graph: number[][], start: number, visited: boolean[], path: number[]): void {
-    if (visited[start]) {
+  function dfs(graph: number[][], start: number, visited: number[], path: number[]): void {
+    if (visited[start] === 1) {
       return;
     }
-    visited[start] = true;
+
+    visited[start] = 1;
 
     for (let i = 0; i < graph[start].length; i++) {
       dfs(graph, graph[start][i], visited, path);
@@ -64,8 +62,7 @@ export function topologicalSortingDfs(graph: number[][]): number[] {
 
 // 邻接表
 export function topologicalSortingBfs(graph: number[][]): number[] {
-  const inDegree: number[] = Array(graph.length)
-    .fill(0);
+  const inDegree: number[] = Array(graph.length).fill(0);
   for (let i = 0; i < graph.length; i++) {
     for (let j = 0; j < graph[i].length; j++) {
       inDegree[graph[i][j]]++;
@@ -102,8 +99,8 @@ export function topologicalSortingBfs(graph: number[][]): number[] {
 // 邻接矩阵
 export function prim(graph: number[][]): number {
   const n = graph.length;
-  const lowCost: number[] = Array(n)
-    .fill(Infinity);
+  const lowCost: number[] = Array(n).fill(Infinity);
+  lowCost[0] = -1;
   for (let i = 1; i < n; i++) {
     lowCost[i] = graph[0][i];
   }
@@ -114,17 +111,17 @@ export function prim(graph: number[][]): number {
     let minIndex = 0;
 
     for (let j = 1; j < n; j++) {
-      if (lowCost[j] !== Infinity && lowCost[j] < minValue) {
+      if (lowCost[j] !== -1 && lowCost[j] < minValue) {
         minValue = lowCost[j];
         minIndex = j;
       }
     }
 
     sum += minValue;
-    lowCost[minIndex] = Infinity;
+    lowCost[minIndex] = -1;
 
     for (let j = 1; j < n; j++) {
-      if (lowCost[j] !== Infinity && graph[minIndex][j] < lowCost[j]) {
+      if (lowCost[j] !== -1 && graph[minIndex][j] < lowCost[j]) {
         lowCost[j] = graph[minIndex][j];
       }
     }

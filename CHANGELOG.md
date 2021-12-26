@@ -1,4 +1,4 @@
-# (2021-12-26)
+# (2021-12-27)
 
 ### Bug Fixes
 
@@ -152,7 +152,8 @@
 - **dataStructure/disjoinSet/leetcode:** add numSimilarGroups ([b9e4788](https://github.com/air-supply94/js-algorithm/commit/b9e4788efac4d205b4e37a51969e033fc3e52f0c))
 - **dataStructure/disjoninSet:** add numIslands ([6843e66](https://github.com/air-supply94/js-algorithm/commit/6843e6662715833cef6bfdda471810bcc934d7fb))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
-- **dataStructure/doubleLinkedList:** remove simple ([eca47b2](https://github.com/air-supply94/js-algorithm/commit/eca47b27c20f8ded03ba4b62ca64402129493756))
+- **dataStructure/doubleLinkedList:** remove simple ([70fa034](https://github.com/air-supply94/js-algorithm/commit/70fa03492a0429a7cea735e770d889b39b48d5de))
+- **dataStructure/doubleLinkedList:** remove simple ([5ae138c](https://github.com/air-supply94/js-algorithm/commit/5ae138c50108f81379e072b8305e0bfbb4eb0ff9))
 - **dataStructure/graph:** add findCheapestPrice ([df9102d](https://github.com/air-supply94/js-algorithm/commit/df9102d5c9fdaedfbfa855502e5955402b2fc82f))
 - **dataStructure/graph:** add floyd ([f873d6b](https://github.com/air-supply94/js-algorithm/commit/f873d6b6b213002b2103e16c5bea53bf6d7ed4eb))
 - **dataStructure/graph:** add networkDelayTime ([209d7d7](https://github.com/air-supply94/js-algorithm/commit/209d7d74835477054c86acb5bbcef01e0fdae595))
