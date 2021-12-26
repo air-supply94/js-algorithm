@@ -1,4 +1,4 @@
-# (2021-12-24)
+# (2021-12-26)
 
 ### Bug Fixes
 
@@ -62,7 +62,7 @@
 - **algorithm/classic:** add maxSubArray ([684c1b8](https://github.com/air-supply94/js-algorithm/commit/684c1b823a8541d96bbbb4e245ef456e09425e35))
 - **algorithm/classic:** add minDistance ([f441103](https://github.com/air-supply94/js-algorithm/commit/f44110326d1e4c037a81176cc8041be436ff5b68))
 - **algorithm/classic:** add rubberHouse ([bf41594](https://github.com/air-supply94/js-algorithm/commit/bf41594753015b1d45cb67ed4ef42600805f5f8e))
-- **algorithm/dfs:** add minimumTotal ([7d45891](https://github.com/air-supply94/js-algorithm/commit/7d4589181ff4ffb8173ae4b3f3dc2e6feabb0e08))
+- **algorithm/dfs:** add minimumTotal ([bb296cd](https://github.com/air-supply94/js-algorithm/commit/bb296cd15a710cc703f270c54a0c61e0e5f8aed5))
 - **algorithm/dfs、bfs:** add shortestPathBinaryMatrix ([1971f38](https://github.com/air-supply94/js-algorithm/commit/1971f387383e1228af9f04b05aba6f038b14dd5f))
 - **algorithm/diffWaysToCompute:** 兼容 leetcode ([fadbfb8](https://github.com/air-supply94/js-algorithm/commit/fadbfb895473352ec4aa52657782c8063d301a17))
 - **algorithm/dp:** add calculateMinimumHP ([958d248](https://github.com/air-supply94/js-algorithm/commit/958d248ddc7977c12d0dd400d1ad98d0b718b61b))
@@ -152,6 +152,7 @@
 - **dataStructure/disjoinSet/leetcode:** add numSimilarGroups ([b9e4788](https://github.com/air-supply94/js-algorithm/commit/b9e4788efac4d205b4e37a51969e033fc3e52f0c))
 - **dataStructure/disjoninSet:** add numIslands ([6843e66](https://github.com/air-supply94/js-algorithm/commit/6843e6662715833cef6bfdda471810bcc934d7fb))
 - **dataStructure/doubleLinkedList:** add mergeKLists ([19dccba](https://github.com/air-supply94/js-algorithm/commit/19dccbaa032f5fc850028d31ecb4574753ec2139))
+- **dataStructure/doubleLinkedList:** remove simple ([eca47b2](https://github.com/air-supply94/js-algorithm/commit/eca47b27c20f8ded03ba4b62ca64402129493756))
 - **dataStructure/graph:** add findCheapestPrice ([df9102d](https://github.com/air-supply94/js-algorithm/commit/df9102d5c9fdaedfbfa855502e5955402b2fc82f))
 - **dataStructure/graph:** add floyd ([f873d6b](https://github.com/air-supply94/js-algorithm/commit/f873d6b6b213002b2103e16c5bea53bf6d7ed4eb))
 - **dataStructure/graph:** add networkDelayTime ([209d7d7](https://github.com/air-supply94/js-algorithm/commit/209d7d74835477054c86acb5bbcef01e0fdae595))

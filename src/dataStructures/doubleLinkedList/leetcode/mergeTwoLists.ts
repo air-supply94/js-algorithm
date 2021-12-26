@@ -1,4 +1,4 @@
-import { ListNode } from '../listNode';
+import { ListNode } from './listNode';
 
 /*
 function mergeTwoLists<T = unknown>(firstHead: DoubleLinkedListNode<T> | null, secondHead: DoubleLinkedListNode<T> | null, comparator: Comparator): DoubleLinkedListNode<T> | null {

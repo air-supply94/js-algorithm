@@ -1,4 +1,4 @@
-import type { ListNode } from '../listNode';
+import type { ListNode } from './listNode';
 import { reverseList } from './reverse';
 
 function getHalfNode(head: ListNode): ListNode | null {

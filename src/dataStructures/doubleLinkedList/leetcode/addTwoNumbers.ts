@@ -1,4 +1,4 @@
-import { ListNode } from '../listNode';
+import { ListNode } from './listNode';
 
 // https://leetcode-cn.com/problems/add-two-numbers/
 // 2

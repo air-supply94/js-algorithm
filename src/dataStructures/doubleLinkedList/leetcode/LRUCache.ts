@@ -1,5 +1,6 @@
 import type { DoubleLinkedListNode } from '../doubleLinkedList';
-import { deleteNode, DoubleLinkedList, prependNode } from '../doubleLinkedList';
+import { DoubleLinkedList } from '../doubleLinkedList';
+import { prependNode, deleteNode } from '../utils';
 
 interface LRUCacheItem {
   key: number;
@@ -27,7 +28,7 @@ export class LRUCache {
       deleteNode(this.doubleLinkedList, node);
       prependNode(this.doubleLinkedList, node);
 
-      return node.val.value;
+      return node.value.value;
     } else {
       return -1;
     }
@@ -38,7 +39,7 @@ export class LRUCache {
     if (node) {
       deleteNode(this.doubleLinkedList, node);
       prependNode(this.doubleLinkedList, node);
-      node.val.value = value;
+      node.value.value = value;
     } else {
       this.nodeMap.set(key, this.doubleLinkedList.prepend({
         key,
@@ -46,7 +47,7 @@ export class LRUCache {
       }));
 
       if (this.doubleLinkedList.size > this.capacity) {
-        this.nodeMap.delete(this.doubleLinkedList.deleteTail().val.key);
+        this.nodeMap.delete(this.doubleLinkedList.deleteTail().value.key);
       }
     }
   }

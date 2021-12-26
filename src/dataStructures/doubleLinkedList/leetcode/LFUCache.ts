@@ -1,5 +1,6 @@
 import type { DoubleLinkedListNode } from '../doubleLinkedList';
-import { deleteNode, DoubleLinkedList, prependNode } from '../doubleLinkedList';
+import { DoubleLinkedList } from '../doubleLinkedList';
+import { prependNode, deleteNode } from '../utils';
 
 interface LFUCacheItem {
   key: number;
@@ -29,9 +30,9 @@ export class LFUCache {
   private readonly capacity: number;
 
   private commonExistNodeHandle(node: DoubleLinkedListNode<LFUCacheItem>): void {
-    const oldCount = node.val.count;
+    const oldCount = node.value.count;
     const newCount = oldCount + 1;
-    node.val.count = newCount;
+    node.value.count = newCount;
 
     deleteNode(this.countMap.get(oldCount), node);
     if (!this.countMap.has(newCount)) {
@@ -49,7 +50,7 @@ export class LFUCache {
     const node = this.valueMap.get(key);
     if (node) {
       this.commonExistNodeHandle(node);
-      return node.val.value;
+      return node.value.value;
     } else {
       return -1;
     }
@@ -64,7 +65,7 @@ export class LFUCache {
 
     if (node) {
       this.commonExistNodeHandle(node);
-      node.val.value = value;
+      node.value.value = value;
     } else {
       if (!this.countMap.has(1)) {
         this.countMap.set(1, new DoubleLinkedList<LFUCacheItem>());
@@ -80,7 +81,7 @@ export class LFUCache {
       this.size++;
       if (this.size > this.capacity) {
         this.valueMap.delete(this.countMap.get(this.minCount)
-          .deleteTail().val.key);
+          .deleteTail().value.key);
         this.size--;
       }
 

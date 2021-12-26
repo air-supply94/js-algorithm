@@ -1,4 +1,4 @@
-import type { ListNode } from '../listNode';
+import type { ListNode } from './listNode';
 
 // https://leetcode-cn.com/problems/reverse-linked-list
 // 206
