@@ -182,8 +182,7 @@ export function kruskal(graph: Array<Array<[number, number]>>): number {
 // 邻接表
 // 可用堆优化
 export function dijkstra(graph: Array<Array<[number, number]>>, start: number): number[] {
-  const distance: number[] = Array(graph.length)
-    .fill(Infinity);
+  const distance: number[] = Array(graph.length).fill(Infinity);
   distance[start] = 0;
   const queue: Array<[number, number]> = [];
   queue.push([
@@ -196,7 +195,7 @@ export function dijkstra(graph: Array<Array<[number, number]>>, start: number): 
     const startIndex = currentItem[0];
     const weight = currentItem[1];
 
-    if (weight <= distance[startIndex]) {
+    if (distance[startIndex] >= weight) {
       const neighbor = graph[startIndex];
       for (let i = 0; i < neighbor.length; i++) {
         const nextWeight = weight + neighbor[i][1];
