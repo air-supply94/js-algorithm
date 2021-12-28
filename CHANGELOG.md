@@ -1,4 +1,4 @@
-# (2021-12-27)
+# (2021-12-28)
 
 ### Bug Fixes
 
@@ -71,7 +71,8 @@
 - **algorithm/dp:** add maxCoins ([115c369](https://github.com/air-supply94/js-algorithm/commit/115c3699124a46a8682cff9a7593463e2b8ae782))
 - **algorithm/dp:** add stoneGame ([2389ef2](https://github.com/air-supply94/js-algorithm/commit/2389ef2101e66df5bbf9a57d697a5371554a360a))
 - **algorithm/dp:** add stoneGame ([9d6031d](https://github.com/air-supply94/js-algorithm/commit/9d6031d397139a8a9cdaf9754e0fd10216a9d220))
-- **algorithm/graph:** add minimumEffortPath ([5cebffd](https://github.com/air-supply94/js-algorithm/commit/5cebffd81c717457e1469641006024839e723fd4))
+- **algorithm/graph:** add minimumEffortPath ([3eb2241](https://github.com/air-supply94/js-algorithm/commit/3eb2241461946fbfc73fd0b8a8be383b7a36690c))
+- **algorithm/graph:** add trapRainWater ([3a0517b](https://github.com/air-supply94/js-algorithm/commit/3a0517b6c930fa286d15d1740142bab5f61f97fa))
 - **algorithm/graph:** update prim ([1cff535](https://github.com/air-supply94/js-algorithm/commit/1cff535e8024b27f6079c9ad2d242822f000e11b))
 - **algorithm/math:** add Difference ([851082f](https://github.com/air-supply94/js-algorithm/commit/851082f5cbbc29aef367194230b4ebf55f74e480))
 - **algorithm/math:** add diffWaysToCompute ([bf3741c](https://github.com/air-supply94/js-algorithm/commit/bf3741cd9c4109eeec7fca92bb861ede82274294))
