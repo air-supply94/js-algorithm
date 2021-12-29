@@ -1,4 +1,4 @@
-# (2021-12-28)
+# (2021-12-29)
 
 ### Bug Fixes
 
@@ -54,6 +54,7 @@
 - **algorithm/backTrack:** add findLadders ([ca9ecec](https://github.com/air-supply94/js-algorithm/commit/ca9ecec1ac28ca1b603023f81305c96d02d6f3f3))
 - **algorithm/backTrack:** add letterCombinations ([5969266](https://github.com/air-supply94/js-algorithm/commit/5969266601e7b89c00cb6515d5a7df3801cfa8bd))
 - **algorithm/backTrack:** add solveSudoku ([a85601c](https://github.com/air-supply94/js-algorithm/commit/a85601cb2ed535d46e4efe08673a5188250a5f5e))
+- **algorithm/backTrack:** 优化 combinationSum、combine 空间复杂度 ([62e8100](https://github.com/air-supply94/js-algorithm/commit/62e8100d9010df9f2e96c3e15ad37162e9891579))
 - **algorithm/bfs:** add minDepth ([31ead4a](https://github.com/air-supply94/js-algorithm/commit/31ead4a45634cb14bc5ef9151856e93ee790f421))
 - **algorithm/bfs:** add openLock ([59d2a95](https://github.com/air-supply94/js-algorithm/commit/59d2a95acdbb5b2fb1b2f5eb8fceb9faa2582c64))
 - **algorithm/bfs:** add slidingPuzzle ([c92bb4b](https://github.com/air-supply94/js-algorithm/commit/c92bb4b8a9669f21efd44a5182412bc0e8cbaf77))
@@ -72,7 +73,7 @@
 - **algorithm/dp:** add stoneGame ([2389ef2](https://github.com/air-supply94/js-algorithm/commit/2389ef2101e66df5bbf9a57d697a5371554a360a))
 - **algorithm/dp:** add stoneGame ([9d6031d](https://github.com/air-supply94/js-algorithm/commit/9d6031d397139a8a9cdaf9754e0fd10216a9d220))
 - **algorithm/graph:** add minimumEffortPath ([3eb2241](https://github.com/air-supply94/js-algorithm/commit/3eb2241461946fbfc73fd0b8a8be383b7a36690c))
-- **algorithm/graph:** add trapRainWater ([3a0517b](https://github.com/air-supply94/js-algorithm/commit/3a0517b6c930fa286d15d1740142bab5f61f97fa))
+- **algorithm/graph:** add trapRainWater ([5d5b64c](https://github.com/air-supply94/js-algorithm/commit/5d5b64c004b4711ab1eb9615c8ea915fcc6c72dd))
 - **algorithm/graph:** update prim ([1cff535](https://github.com/air-supply94/js-algorithm/commit/1cff535e8024b27f6079c9ad2d242822f000e11b))
 - **algorithm/math:** add Difference ([851082f](https://github.com/air-supply94/js-algorithm/commit/851082f5cbbc29aef367194230b4ebf55f74e480))
 - **algorithm/math:** add diffWaysToCompute ([bf3741c](https://github.com/air-supply94/js-algorithm/commit/bf3741cd9c4109eeec7fca92bb861ede82274294))

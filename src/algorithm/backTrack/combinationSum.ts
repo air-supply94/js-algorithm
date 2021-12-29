@@ -1,6 +1,7 @@
 function dfs(
   result: number[][],
-  choice: number[],
+  choices: number[],
+  start: number,
   currentPath: number[],
   target: number
 ): number[][] {
@@ -14,14 +15,15 @@ function dfs(
     return result;
   }
 
-  for (let i = 0; i < choice.length; i++) {
-    currentPath.push(choice[i]);
+  for (let i = start; i < choices.length; i++) {
+    currentPath.push(choices[i]);
 
     dfs(
       result,
-      choice.slice(i),
+      choices,
+      i,
       currentPath,
-      target - choice[i]
+      target - choices[i]
     );
 
     currentPath.pop();
@@ -33,5 +35,5 @@ function dfs(
 // https://leetcode-cn.com/problems/combination-sum/
 // 39
 export function combinationSum(choices: number[], target: number): number[][] {
-  return dfs([], choices, [], target);
+  return dfs([], choices, 0, [], target);
 }

@@ -1,13 +1,19 @@
 // https://leetcode-cn.com/problems/subsets/
 // 78
-export function subsets(originalSet: number[]): number[][] {
-  const result: number[][] = [[]];
-  for (let i = 0; i < originalSet.length; i++) {
-    const size = result.length;
-    for (let j = 0; j < size; j++) {
-      result.push(result[j].concat(originalSet[i]));
+export function subsets(nums: number[]): number[][] {
+  const result: number[][] = [];
+
+  function dfs(start: number, path: number[]): void {
+    result.push(path.slice());
+
+    for (let i = start; i < nums.length; i++) {
+      path.push(nums[i]);
+      dfs(i + 1, path);
+      path.pop();
     }
   }
+
+  dfs(0, []);
 
   return result;
 }
