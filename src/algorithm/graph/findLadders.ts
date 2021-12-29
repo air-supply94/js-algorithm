@@ -1,6 +1,5 @@
 // https://leetcode-cn.com/problems/word-transformer-lcci/
 // 金典-17.22
-// 类似graph-dfs
 export function findLadders(beginWord: string, endWord: string, wordList: string[]): string[] {
   const wordSet = new Set(wordList);
   const visited = new Set();
