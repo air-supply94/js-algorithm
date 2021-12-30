@@ -1,4 +1,4 @@
-import { Heap } from '../heap';
+import { Heap } from '../../dataStructures/heap';
 
 // https://leetcode-cn.com/problems/minimum-number-of-refueling-stops/
 // 871
