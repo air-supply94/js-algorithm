@@ -1,4 +1,4 @@
-# (2021-12-29)
+# (2021-12-30)
 
 ### Bug Fixes
 
@@ -72,7 +72,8 @@
 - **algorithm/dp:** add maxCoins ([115c369](https://github.com/air-supply94/js-algorithm/commit/115c3699124a46a8682cff9a7593463e2b8ae782))
 - **algorithm/dp:** add stoneGame ([2389ef2](https://github.com/air-supply94/js-algorithm/commit/2389ef2101e66df5bbf9a57d697a5371554a360a))
 - **algorithm/dp:** add stoneGame ([9d6031d](https://github.com/air-supply94/js-algorithm/commit/9d6031d397139a8a9cdaf9754e0fd10216a9d220))
-- **algorithm/graph:** add ladderLength ([386e5cd](https://github.com/air-supply94/js-algorithm/commit/386e5cd9dc63d9d9628c706c8be8bff3391e101e))
+- **algorithm/graph:** add ladderLength ([51db843](https://github.com/air-supply94/js-algorithm/commit/51db843a5fc93af95d16b1f801ac6793348c59e6))
+- **algorithm/graph:** add ladderLength doubleBfs ([4b7df1b](https://github.com/air-supply94/js-algorithm/commit/4b7df1bc010e9e8ad126be6c1c38ea46d1c1b6f5))
 - **algorithm/graph:** add minimumEffortPath ([3eb2241](https://github.com/air-supply94/js-algorithm/commit/3eb2241461946fbfc73fd0b8a8be383b7a36690c))
 - **algorithm/graph:** add trapRainWater ([5d5b64c](https://github.com/air-supply94/js-algorithm/commit/5d5b64c004b4711ab1eb9615c8ea915fcc6c72dd))
 - **algorithm/graph:** update prim ([1cff535](https://github.com/air-supply94/js-algorithm/commit/1cff535e8024b27f6079c9ad2d242822f000e11b))
