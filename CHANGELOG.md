@@ -1,4 +1,4 @@
-# (2021-12-30)
+# (2022-01-03)
 
 ### Bug Fixes
 
@@ -99,7 +99,8 @@
 - **algorithm/slidingWindow:** add minWindow ([1316b41](https://github.com/air-supply94/js-algorithm/commit/1316b4109466ed38bea1dad44868e4cc84d9d4aa))
 - **algorithm/slidingWindow:** add numSubarrayProductLessThanK ([e94d152](https://github.com/air-supply94/js-algorithm/commit/e94d152f3d3412a624b388e6b1040c6c8c7f9304))
 - **algorithm/slidingWindow:** 增加区间说明 ([9e5168c](https://github.com/air-supply94/js-algorithm/commit/9e5168c90d7f960e74405a56c742884c44aa7d7d))
-- **algorithm/stack:** add longestValidParentheses ([75bfb38](https://github.com/air-supply94/js-algorithm/commit/75bfb3872099abf080e1926e4311f5a1d3d23420))
+- **algorithm/stack:** add longestValidParentheses ([4a4de19](https://github.com/air-supply94/js-algorithm/commit/4a4de195a9f0217f02d47a45f1f09b5b12a63162))
+- **algorithm/stack:** add longestValidParentheses ([193eb4b](https://github.com/air-supply94/js-algorithm/commit/193eb4b07ee1493554baffd2898c46ed7dc66332))
 - **array:** add groupStr ([d8e4365](https://github.com/air-supply94/js-algorithm/commit/d8e43659c0b2cc3ed5fdc229e8db82269fb08281))
 - **array:** add maxProfit ([601e32a](https://github.com/air-supply94/js-algorithm/commit/601e32ad487855c6359500e71078a5b4ed42ff65))
 - **array:** add multiplyExceptSelf ([545e5e9](https://github.com/air-supply94/js-algorithm/commit/545e5e9ec432554a9e120f3f40178c8078442b51))

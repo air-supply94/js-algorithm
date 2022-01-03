@@ -30,4 +30,3 @@ export function longestValidParentheses(s: string): number {
 
   return result;
 }
-
