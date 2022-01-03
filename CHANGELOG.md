@@ -1,4 +1,4 @@
-# (2022-01-03)
+# (2022-01-17)
 
 ### Bug Fixes
 
@@ -99,7 +99,8 @@
 - **algorithm/slidingWindow:** add minWindow ([1316b41](https://github.com/air-supply94/js-algorithm/commit/1316b4109466ed38bea1dad44868e4cc84d9d4aa))
 - **algorithm/slidingWindow:** add numSubarrayProductLessThanK ([e94d152](https://github.com/air-supply94/js-algorithm/commit/e94d152f3d3412a624b388e6b1040c6c8c7f9304))
 - **algorithm/slidingWindow:** 增加区间说明 ([9e5168c](https://github.com/air-supply94/js-algorithm/commit/9e5168c90d7f960e74405a56c742884c44aa7d7d))
-- **algorithm/stack:** add longestValidParentheses ([4a4de19](https://github.com/air-supply94/js-algorithm/commit/4a4de195a9f0217f02d47a45f1f09b5b12a63162))
+- **algorithm/stack:** add longestValidParentheses ([72f8c77](https://github.com/air-supply94/js-algorithm/commit/72f8c770d2074f16804971acd26610948f46b8a7))
+- **algorithm/stack:** add longestValidParentheses ([adc6787](https://github.com/air-supply94/js-algorithm/commit/adc67871b61d9d475cd61ce65f5d763e2f5e481d))
 - **algorithm/stack:** add longestValidParentheses ([193eb4b](https://github.com/air-supply94/js-algorithm/commit/193eb4b07ee1493554baffd2898c46ed7dc66332))
 - **array:** add groupStr ([d8e4365](https://github.com/air-supply94/js-algorithm/commit/d8e43659c0b2cc3ed5fdc229e8db82269fb08281))
 - **array:** add maxProfit ([601e32a](https://github.com/air-supply94/js-algorithm/commit/601e32ad487855c6359500e71078a5b4ed42ff65))

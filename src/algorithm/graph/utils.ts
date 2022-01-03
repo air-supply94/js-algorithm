@@ -243,12 +243,12 @@ export function floyd(graph: number[][]): number[][] {
 // 785
 export function isBipartite(graph: number[][]): boolean {
   const n = graph.length;
-  const cache: number[] = Array(n).fill(0);
+  const visited: number[] = Array(n).fill(0);
   const color: number[] = Array(n).fill(1);
   let result = true;
 
   for (let i = 0; i < n; i++) {
-    if (cache[i] === 0) {
+    if (visited[i] === 0) {
       dfs(i);
     }
   }
@@ -258,11 +258,11 @@ export function isBipartite(graph: number[][]): boolean {
       return;
     }
 
-    cache[start] = 1;
+    visited[start] = 1;
     const neighbor = graph[start];
 
     for (let i = 0; i < neighbor.length; i++) {
-      if (cache[neighbor[i]] === 0) {
+      if (visited[neighbor[i]] === 0) {
         color[neighbor[i]] = -color[start];
         dfs(neighbor[i]);
       } else {

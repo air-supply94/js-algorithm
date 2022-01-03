@@ -5,7 +5,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@types/jest": "^26.0.19",
+    "@types/jest": "^27.4.0",
     "commitizen": "^4.2.2",
     "conventional-changelog-cli": "^2.1.1",
     "cz-conventional-changelog": "^3.3.0",
@@ -17,7 +17,7 @@
     "validate-commit-msg": "^2.14.0",
     "zhouhaifei-code-style": "^2.18.0",
     "zhouhaifei-config": "^2.18.0",
-    "zhouhaifei-test": "^2.18.0"
+    "zhouhaifei-test": "^2.18.8"
   },
   "config": {
     "commitizen": {
