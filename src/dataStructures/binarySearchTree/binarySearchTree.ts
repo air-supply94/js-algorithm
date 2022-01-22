@@ -1,5 +1,5 @@
-import type { compareFunctionType } from '../../../utils';
-import { Comparator } from '../../../utils';
+import type { compareFunctionType } from '../../utils';
+import { Comparator } from '../../utils';
 import { find, findMax, findMin, findReplaceNode, insert, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder } from './utils';
 
 export enum color {

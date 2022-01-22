@@ -1,4 +1,4 @@
-import { Comparator } from '../../../../utils';
+import { Comparator } from '../../../utils';
 import { getBalanceFactor, getHeight } from '../../binarySearchTree';
 import { AvlTree } from '../avlTree';
 

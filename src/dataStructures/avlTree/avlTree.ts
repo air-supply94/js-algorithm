@@ -1,4 +1,4 @@
-import type { Comparator, compareFunctionType } from '../../../utils';
+import type { Comparator, compareFunctionType } from '../../utils';
 import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 import { avlTreeBalance, BinarySearchTree } from '../binarySearchTree';
 

@@ -1,4 +1,4 @@
-import type { Comparator } from '../../../../utils';
+import type { Comparator } from '../../../utils';
 import type { BinarySearchTreeNode } from '../binarySearchTree';
 import { find } from './find';
 import { findMax } from './findMax';
