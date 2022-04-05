@@ -1,3 +1,4 @@
+import { getHalfNode } from './isPalindrome';
 import type { ListNode } from './listNode';
 import { mergeTwoLists } from './mergeTwoLists';
 
@@ -8,17 +9,9 @@ export function sortList(head: ListNode | null): ListNode | null {
     return head;
   }
 
-  let slow = head;
-  let fast = head;
-  while (fast && fast.next && fast.next.next) {
-    slow = slow.next;
-    fast = fast.next.next;
-  }
+  const middle = getHalfNode(head);
+  const secondHead = middle.next;
+  middle.next = null;
 
-  const middle = slow.next;
-
-  // middle.previous = null;
-  slow.next = null;
-
-  return mergeTwoLists(sortList(head), sortList(middle));
+  return mergeTwoLists(sortList(head), sortList(secondHead));
 }

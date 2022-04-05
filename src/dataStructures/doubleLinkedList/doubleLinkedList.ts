@@ -88,7 +88,7 @@ export class DoubleLinkedList<T = unknown> {
     } else {
       this.head = this.head.next;
       this.head.previous = null;
-      this.size -= 1;
+      this.size--;
     }
 
     return deletedNode;
@@ -101,7 +101,7 @@ export class DoubleLinkedList<T = unknown> {
     } else {
       this.tail = this.tail.previous;
       this.tail.next = null;
-      this.size -= 1;
+      this.size--;
     }
 
     return deletedNode;

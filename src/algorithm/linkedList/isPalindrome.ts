@@ -1,7 +1,7 @@
 import type { ListNode } from './listNode';
 import { reverseList } from './reverse';
 
-function getHalfNode(head: ListNode): ListNode | null {
+export function getHalfNode(head: ListNode): ListNode | null {
   let fast = head;
   let slow = head;
   while (fast && fast.next && fast.next.next) {
