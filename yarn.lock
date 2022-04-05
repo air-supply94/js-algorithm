@@ -10463,10 +10463,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zhouhaifei-code-style@^2.18.0:
-  version "2.18.0"
-  resolved "https://registry.npmmirror.com/zhouhaifei-code-style/download/zhouhaifei-code-style-2.18.0.tgz#b07affa1cdb9ff66eb09c3feaaec4dff4c3cf09c"
-  integrity sha512-O8S1q0covrffA5Aco4T85+PeM25vvW+Vayp22vJkWEHGhiXtO31RIGvR7SgdfHYNsVp5X81W+1Siuxgbbn4b9A==
+zhouhaifei-code-style@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.npmmirror.com/zhouhaifei-code-style/-/zhouhaifei-code-style-2.19.0.tgz#519617482046f0565ffe8c8e1c11ccadbbf8df15"
+  integrity sha512-X8CGhg7vRrhV87I6YvDTrfkndWueytHmr91mmmrOCH7jlZCz0o8quO0BEKrDzrYSRPTO6pczRe45zKj8eBG07g==
   dependencies:
     "@commitlint/config-conventional" "^13.2.0"
     "@typescript-eslint/eslint-plugin" "^5.2.0"
@@ -10484,10 +10484,10 @@ zhouhaifei-code-style@^2.18.0:
     stylelint-declaration-block-no-ignored-properties "^2.4.0"
     stylelint-order "^5.0.0"
 
-zhouhaifei-config@^2.18.0:
-  version "2.18.0"
-  resolved "https://registry.npmmirror.com/zhouhaifei-config/download/zhouhaifei-config-2.18.0.tgz#ff8dba9de6da3e30949c0b4e6c30f546caea0c94"
-  integrity sha512-oRQY1iJbxqKlqT9JMOn2WfSwP8tPyk/x+ccfeDx59/XMuzfqhgF5fnmtYV9VIfGZwNGTAGkiQP3wibG9p5irNQ==
+zhouhaifei-config@^2.19.2:
+  version "2.19.2"
+  resolved "https://registry.npmmirror.com/zhouhaifei-config/-/zhouhaifei-config-2.19.2.tgz#9d6f3355c5b8c62b04be2ad8d4d1be38e6a2887f"
+  integrity sha512-Mac1DIbOmYaBeXxfVQUkj82MCfC18jKKh1j+XeEqzfx5L1Dt0plpG890QpkxFNPR+0hrwvD3+ysDKK1ek75r/w==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.14.5"
     "@babel/plugin-proposal-decorators" "^7.15.8"
@@ -10506,10 +10506,10 @@ zhouhaifei-config@^2.18.0:
     px2rem "0.5.0"
     typescript "4.2.4"
 
-zhouhaifei-test@^2.18.8:
-  version "2.18.8"
-  resolved "https://registry.npmmirror.com/zhouhaifei-test/download/zhouhaifei-test-2.18.8.tgz#5fc625329e27ffcaf58e27b91f4307a25e087c75"
-  integrity sha512-Cz/t3FjzB986FrGMGenXRgp8dBBFJsoUzqgB8kCpm/rE9mlZUZjyHoj1OSo2qMN8dxrdHtHatAVNn4mLymQ+Nw==
+zhouhaifei-test@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.npmmirror.com/zhouhaifei-test/-/zhouhaifei-test-2.19.0.tgz#b68f924a6a008dac3769bd53718877c4e57dc470"
+  integrity sha512-qNIsIs2jCatnLI7jBr8KAE4lKCfI9ozsrqG/RMI9yMZGJpeXCl23qU1gSnxlrQ1ou+4kxUEHbUfYgl5JP05RlQ==
   dependencies:
     babel-jest "^27.3.1"
     chalk "^4.1.2"
