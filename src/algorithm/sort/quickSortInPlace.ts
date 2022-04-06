@@ -1,5 +1,5 @@
-import type { compareFunctionType } from '../../../utils';
-import { Comparator, swap } from '../../../utils';
+import type { compareFunctionType } from '../../utils';
+import { Comparator, swap } from '../../utils';
 
 export function quickSortInPlace<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType, left = 0, right: number = originalArray.length - 1): T[] {
   if (left < right) {

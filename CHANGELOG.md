@@ -122,6 +122,7 @@
 - **bs:** add rotateSearch ([b25fbec](https://github.com/air-supply94/js-algorithm/commit/b25fbecfc4498d6804297f7a8dedb4b7bae4f2be))
 - **bs/missingNumber:** return start ([b1fdd2c](https://github.com/air-supply94/js-algorithm/commit/b1fdd2c2f702ca6279dbf78fe8aafbb8855f61e4))
 - **bst:** add initTreeNodes isSymmetric ([56fef5e](https://github.com/air-supply94/js-algorithm/commit/56fef5e577c293ae9e2564565f2b2736fc0261ba))
+- **bst:** add maxDepth ([55b18b5](https://github.com/air-supply94/js-algorithm/commit/55b18b5856ecc1f5382a87d19ff144b5cad70095))
 - **bst:** update traversePreOrder traverseInOrder traverseAfterOrder ([300c6d8](https://github.com/air-supply94/js-algorithm/commit/300c6d8acb8115efd7db7477aa3f34fc9fcbd823))
 - **BST:** 增加二叉树 ts 及其类型 ([e5ef3f1](https://github.com/air-supply94/js-algorithm/commit/e5ef3f1bb745bfca82a5a87ffbb9a011f5cead06))
 - **BST:** 增加先序、后序、层序遍历 ([488b4a8](https://github.com/air-supply94/js-algorithm/commit/488b4a8408fd8a40aec420f0ce8a32b3b17c9bce))
