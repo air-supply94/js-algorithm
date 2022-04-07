@@ -5,11 +5,11 @@ import { getBalanceFactor } from './height';
 import { rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from './rotate';
 
 export function redBlackTreeInsertBalance<T = unknown>(node: BinarySearchTreeNode<T> | null, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
-  if (!node) {
+  if (node == null) {
     return;
   }
 
-  if (!node.parent) {
+  if (node.parent == null) {
     node.color = color.black;
     return;
   }
@@ -18,7 +18,7 @@ export function redBlackTreeInsertBalance<T = unknown>(node: BinarySearchTreeNod
     return;
   }
 
-  if (getUncle(node) && getUncle(node).color === color.red) {
+  if (getUncle(node) != null && getUncle(node).color === color.red) {
     node.parent.color = color.black;
     getUncle(node).color = color.black;
     node.parent.parent.color = color.red;
@@ -52,7 +52,7 @@ export function redBlackTreeInsertBalance<T = unknown>(node: BinarySearchTreeNod
 
 export function redBlackTreeRemoveBalance<T = unknown>(getRoot: () => BinarySearchTreeNode<T>, node: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
   let currentNode = node;
-  while (currentNode.parent && currentNode.color === color.black) {
+  while (currentNode.parent != null && currentNode.color === color.black) {
     if (currentNode === currentNode.parent.left) {
       const sibling = currentNode.parent.right;
 

@@ -10,16 +10,16 @@ export function traverseInOrder<T = unknown>(
   const nodeStack: Array<BinarySearchTreeNode<T>> = [];
   let currentNode = root;
 
-  while (currentNode || nodeStack.length) {
-    if (currentNode) {
+  while (nodeStack.length > 0 || currentNode != null) {
+    while (currentNode != null) {
       nodeStack.push(currentNode);
       currentNode = currentNode.left;
-    } else {
-      const tmpNode = nodeStack.pop();
-      if (callback(tmpNode) === false) {
-        return;
-      }
-      currentNode = tmpNode.right;
     }
+
+    const tmpNode = nodeStack.pop();
+    if (callback(tmpNode) === false) {
+      return;
+    }
+    currentNode = tmpNode.right;
   }
 }

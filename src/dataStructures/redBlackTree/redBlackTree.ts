@@ -100,11 +100,11 @@ export class RedBlackTree<T = unknown> {
       false
     );
 
-    if (!replaceNode) {
+    if (replaceNode == null) {
       return replaceNode;
     }
 
-    if (!replaceNode.parent) {
+    if (replaceNode.parent == null) {
       this.setRoot(null);
       return replaceNode;
     }

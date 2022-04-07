@@ -2,25 +2,25 @@ import type { BinarySearchTreeNode } from '../binarySearchTree';
 import { traverseInOrder } from './traverseInOrder';
 
 export function setLeft<T = unknown>(root: BinarySearchTreeNode<T>, leftNode: BinarySearchTreeNode<T> | null): void {
-  if (root.left) {
+  if (root.left != null) {
     root.left.parent = null;
   }
 
   root.left = leftNode;
 
-  if (root.left) {
+  if (root.left != null) {
     root.left.parent = root;
   }
 }
 
 export function setRight<T = unknown>(root: BinarySearchTreeNode<T>, node: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> {
-  if (root.right) {
+  if (root.right != null) {
     root.right.parent = null;
   }
 
   root.right = node;
 
-  if (root.right) {
+  if (root.right != null) {
     root.right.parent = root;
   }
 
@@ -28,7 +28,7 @@ export function setRight<T = unknown>(root: BinarySearchTreeNode<T>, node: Binar
 }
 
 export function removeChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToRemove: BinarySearchTreeNode<T>): boolean {
-  if (!nodeToRemove) {
+  if (nodeToRemove == null) {
     return false;
   }
 
@@ -44,7 +44,7 @@ export function removeChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToRe
 }
 
 export function replaceChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToReplace: BinarySearchTreeNode<T>, replacementNode: BinarySearchTreeNode<T>): boolean {
-  if (!nodeToReplace || !replacementNode) {
+  if (nodeToReplace == null || replacementNode == null) {
     return false;
   }
 

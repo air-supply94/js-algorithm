@@ -51,13 +51,13 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public contains(value: T): boolean {
-    return Boolean(this.find(value));
+    return this.find(value) != null;
   }
 
   public remove(value: T): BinarySearchTreeNode<T> | null {
     const replaceNode = findReplaceNode<T>(this.root, value, this.comparator, this.isFindMin);
-    if (replaceNode) {
-      if (!replaceNode.parent) {
+    if (replaceNode != null) {
+      if (replaceNode.parent == null) {
         this.root = null;
       } else {
         const parent = replaceNode.parent;

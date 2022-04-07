@@ -6,7 +6,7 @@ export function find<T = unknown>(
   value: T,
   comparator: Comparator
 ): null | BinarySearchTreeNode<T> {
-  if (!root) {
+  if (root == null) {
     return null;
   }
 

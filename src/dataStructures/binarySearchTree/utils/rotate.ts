@@ -5,7 +5,7 @@ export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, s
   const leftNode = rootNode.left;
   setLeft(rootNode, null);
 
-  if (!rootNode.parent) {
+  if (rootNode.parent == null) {
     setRoot(leftNode);
   } else if (rootNode.parent.left === rootNode) {
     setLeft(rootNode.parent, leftNode);
@@ -13,7 +13,7 @@ export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, s
     setRight(rootNode.parent, leftNode);
   }
 
-  if (leftNode.right) {
+  if (leftNode.right != null) {
     const leftRightNode = leftNode.right;
     setRight(leftNode, null);
     setLeft(rootNode, leftRightNode);
@@ -29,7 +29,7 @@ export function rotateLeftRight<T = unknown>(rootNode: BinarySearchTreeNode<T>):
   const leftRightNode = leftNode.right;
   setRight(leftNode, null);
 
-  if (leftRightNode.left) {
+  if (leftRightNode.left != null) {
     const leftRightLeftNode = leftRightNode.left;
     setLeft(leftRightNode, null);
     setRight(leftNode, leftRightLeftNode);
@@ -46,7 +46,7 @@ export function rotateRightLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>):
   const rightLeftNode = rightNode.left;
   setLeft(rightNode, null);
 
-  if (rightLeftNode.right) {
+  if (rightLeftNode.right != null) {
     const rightLeftRightNode = rightLeftNode.right;
     setRight(rightLeftNode, null);
     setLeft(rightNode, rightLeftRightNode);
@@ -60,7 +60,7 @@ export function rotateRightRight<T = unknown>(rootNode: BinarySearchTreeNode<T>,
   const rightNode = rootNode.right;
   setRight(rootNode, null);
 
-  if (!rootNode.parent) {
+  if (rootNode.parent == null) {
     setRoot(rightNode);
   } else if (rootNode.parent.right === rootNode) {
     setRight(rootNode.parent, rightNode);
@@ -68,7 +68,7 @@ export function rotateRightRight<T = unknown>(rootNode: BinarySearchTreeNode<T>,
     setLeft(rootNode.parent, rightNode);
   }
 
-  if (rightNode.left) {
+  if (rightNode.left != null) {
     const rightLeftNode = rightNode.left;
     setLeft(rightNode, null);
     setRight(rootNode, rightLeftNode);

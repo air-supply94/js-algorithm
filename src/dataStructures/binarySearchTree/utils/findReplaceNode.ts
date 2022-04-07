@@ -11,23 +11,23 @@ function swap<T = unknown>(tmpNode: BinarySearchTreeNode<T>, replaceNode: Binary
 }
 
 export function findReplaceNode<T = unknown>(root: null | BinarySearchTreeNode<T>, value: T, comparator: Comparator, isFindRightMin = true): null | BinarySearchTreeNode<T> {
-  let replaceNode = find<T>(root, value, comparator);
-  if (!replaceNode) {
+  let endNode = find<T>(root, value, comparator);
+  if (endNode == null) {
     return null;
   }
 
-  while (replaceNode.left || replaceNode.right) {
-    const tmpNode = replaceNode;
-    if (replaceNode.left && replaceNode.right) {
-      replaceNode = isFindRightMin ? findMin<T>(replaceNode.right) : findMax<T>(replaceNode.left);
-    } else if (replaceNode.left) {
-      replaceNode = replaceNode.left;
+  while (endNode.left != null || endNode.right != null) {
+    const startNode = endNode;
+    if (endNode.left != null && endNode.right != null) {
+      endNode = isFindRightMin ? findMin<T>(endNode.right) : findMax<T>(endNode.left);
+    } else if (endNode.left != null) {
+      endNode = endNode.left;
     } else {
-      replaceNode = replaceNode.right;
+      endNode = endNode.right;
     }
 
-    swap(tmpNode, replaceNode);
+    swap(startNode, endNode);
   }
 
-  return replaceNode;
+  return endNode;
 }
