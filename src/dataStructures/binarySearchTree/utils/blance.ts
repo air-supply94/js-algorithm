@@ -60,16 +60,16 @@ export function redBlackTreeRemoveBalance<T = unknown>(getRoot: () => BinarySear
         currentNode.parent.color = color.red;
         sibling.color = color.black;
         rotateRightRight(currentNode.parent, setRoot);
-      } else if ((!sibling.left && !sibling.right) || (sibling.left && sibling.right && sibling.left.color === color.black && sibling.right.color === color.black)) {
+      } else if ((sibling.left == null && sibling.right == null) || (sibling.left != null && sibling.right != null && sibling.left.color === color.black && sibling.right.color === color.black)) {
         sibling.color = color.red;
         currentNode = currentNode.parent;
-      } else if (sibling.right && sibling.right.color === color.red) {
+      } else if (sibling.right != null && sibling.right.color === color.red) {
         sibling.color = currentNode.parent.color;
         currentNode.parent.color = color.black;
         sibling.right.color = color.black;
         rotateRightRight(currentNode.parent, setRoot);
         currentNode = getRoot();
-      } else {
+      } else if (sibling.left != null && sibling.left.color === color.red) {
         sibling.left.color = color.black;
         sibling.color = color.red;
         rotateRightLeft(currentNode.parent);
@@ -81,16 +81,16 @@ export function redBlackTreeRemoveBalance<T = unknown>(getRoot: () => BinarySear
         currentNode.parent.color = color.red;
         sibling.color = color.black;
         rotateLeftLeft(currentNode.parent, setRoot);
-      } else if ((!sibling.left && !sibling.right) || (sibling.left && sibling.right && sibling.left.color === color.black && sibling.right.color === color.black)) {
+      } else if ((sibling.left == null && sibling.right == null) || (sibling.left != null && sibling.right != null && sibling.left.color === color.black && sibling.right.color === color.black)) {
         sibling.color = color.red;
         currentNode = currentNode.parent;
-      } else if (sibling.left && sibling.left.color === color.red) {
+      } else if (sibling.left != null && sibling.left.color === color.red) {
         sibling.color = currentNode.parent.color;
         currentNode.parent.color = color.black;
         sibling.left.color = color.black;
         rotateLeftLeft(currentNode.parent, setRoot);
         currentNode = getRoot();
-      } else {
+      } else if (sibling.right != null && sibling.right.color === color.red) {
         sibling.right.color = color.black;
         sibling.color = color.red;
         rotateLeftRight(currentNode.parent);

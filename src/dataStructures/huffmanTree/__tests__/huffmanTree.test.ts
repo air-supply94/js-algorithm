@@ -56,11 +56,11 @@ function getHuffmanWPL(root: BinarySearchTreeNode<number> | null): number {
   let result = 0;
 
   function dfs(node: BinarySearchTreeNode<number>, height: number): void {
-    if (!node) {
+    if (node == null) {
       return;
     }
 
-    if (!node.left && !node.right) {
+    if (node.left == null && node.right == null) {
       result += height * node.value;
     }
 

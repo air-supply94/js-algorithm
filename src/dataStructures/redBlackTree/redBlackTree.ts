@@ -83,7 +83,7 @@ export class RedBlackTree<T = unknown> {
   }
 
   public contains(value: T): boolean {
-    return Boolean(this.find(value));
+    return this.binarySearchTree.contains(value);
   }
 
   public insert(value: T): BinarySearchTreeNode<T> | null {
