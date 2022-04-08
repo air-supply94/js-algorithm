@@ -1,6 +1,6 @@
-import type { TrieNode } from './trieNode';
+import { TrieNode } from '../trieNode';
 
-export function getLastCharacterNode(root: TrieNode, word: string): TrieNode | undefined {
+function getLastCharacterNode(root: TrieNode, word: string): TrieNode | undefined {
   let currentNode = root;
   let i = 0;
   while (i < word.length && currentNode) {
@@ -56,4 +56,47 @@ export function wordFrequency(root: TrieNode): {[key: string]: number; } {
   }
 
   return result;
+}
+
+// https://leetcode-cn.com/problems/design-add-and-search-words-data-structure/
+// 211
+// 和此很类似,此类功能更完善
+export class Trie {
+  constructor() {
+    this.root = new TrieNode('');
+  }
+
+  public readonly root: TrieNode;
+
+  public addWord(word: string): void {
+    let currentNode = this.root;
+    for (let i = 0; i < word.length; i++) {
+      currentNode = currentNode.addChild(word[i]);
+      currentNode.prefixCount++;
+    }
+
+    currentNode.wordCount++;
+    currentNode.isCompleteWord = true;
+    this.root.isCompleteWord = false;
+    this.root.wordCount = 0;
+    this.root.prefixCount = 0;
+  }
+
+  public suggestNextCharacters(word: string): string[] {
+    const lastCharacter = getLastCharacterNode(this.root, word);
+    if (lastCharacter) {
+      return lastCharacter.suggestChildren();
+    } else {
+      return [];
+    }
+  }
+
+  public doesWordExist(word: string): boolean {
+    const lastCharacter = getLastCharacterNode(this.root, word);
+    if (lastCharacter) {
+      return lastCharacter.isCompleteWord;
+    } else {
+      return false;
+    }
+  }
 }

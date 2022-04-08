@@ -1,4 +1,4 @@
-# (2022-04-07)
+# (2022-04-08)
 
 ### Bug Fixes
 
@@ -124,7 +124,8 @@
 - **bst:** add initTreeNodes isSymmetric ([56fef5e](https://github.com/air-supply94/js-algorithm/commit/56fef5e577c293ae9e2564565f2b2736fc0261ba))
 - **bst:** add kthSmallest ([03cbe8f](https://github.com/air-supply94/js-algorithm/commit/03cbe8f66b97672f9c8e61fea55b8304bbe279ae))
 - **bst:** add maxDepth ([02a41b3](https://github.com/air-supply94/js-algorithm/commit/02a41b3b7f9a5967693d9668a2c2a1ef0920e00e))
-- **bst:** update null 的判断逻辑 ([c9e0ce1](https://github.com/air-supply94/js-algorithm/commit/c9e0ce1095baa513d076f22a535e5bfdecaad40f))
+- **bst:** update null 的判断逻辑 ([2a8a391](https://github.com/air-supply94/js-algorithm/commit/2a8a391afd07b80fa74f596eb4d396226ec0edad))
+- **bst:** update null 的判断逻辑 ([c525ea6](https://github.com/air-supply94/js-algorithm/commit/c525ea651f11519bc6e506ea5c97a8843199984c))
 - **bst:** update traversePreOrder traverseInOrder traverseAfterOrder ([300c6d8](https://github.com/air-supply94/js-algorithm/commit/300c6d8acb8115efd7db7477aa3f34fc9fcbd823))
 - **BST:** 增加二叉树 ts 及其类型 ([e5ef3f1](https://github.com/air-supply94/js-algorithm/commit/e5ef3f1bb745bfca82a5a87ffbb9a011f5cead06))
 - **BST:** 增加先序、后序、层序遍历 ([488b4a8](https://github.com/air-supply94/js-algorithm/commit/488b4a8408fd8a40aec420f0ce8a32b3b17c9bce))
@@ -331,9 +332,11 @@
 - **tree:** test ([bd6eadf](https://github.com/air-supply94/js-algorithm/commit/bd6eadf4b26ff8fe8a22d3bbae4edd45953c04f4))
 - **tree:** 新增 tree 初始化 ([6095c22](https://github.com/air-supply94/js-algorithm/commit/6095c225b210e6f3e5d25586b4c7311505cb7141))
 - **tree/trie:** delete deleteWord add application ([33a22be](https://github.com/air-supply94/js-algorithm/commit/33a22bee692ef2842df2bc6a758e7326325b31be))
+- **trie:** add replaceWords ([e6809e5](https://github.com/air-supply94/js-algorithm/commit/e6809e5a2cef7c5314a68f90dc03743a31282e46))
 - **trie:** add trie ([e10e7f5](https://github.com/air-supply94/js-algorithm/commit/e10e7f5902c4a212877fd964ba457a889b34bc02))
 - **trie:** 增加类型 ([7b8f635](https://github.com/air-supply94/js-algorithm/commit/7b8f63569962a2a05a36b2077efbacaa3167c75f))
 - **trie:** 更改 trie 的 toString ([2791bd4](https://github.com/air-supply94/js-algorithm/commit/2791bd40a8cdd93ba3dbc0606328162e12b7bbd6))
+- **trie:** 更新实现逻辑 ([1735f14](https://github.com/air-supply94/js-algorithm/commit/1735f141451f3cfb276cd24e1f5eecba3921159c))
 - **tsconfig.json:** add strict limit ([50b31ff](https://github.com/air-supply94/js-algorithm/commit/50b31ffe47a3b9182340319c9df2332ad0d3fda3))
 - **tsconfig.json:** set noImplicitAny true ([6ac23c1](https://github.com/air-supply94/js-algorithm/commit/6ac23c1fbba0182a00cd2a5413a73c4f505e899e))
 - **tsconfig.json:** 更新配置 ([18f0cbb](https://github.com/air-supply94/js-algorithm/commit/18f0cbb55f13165b46683983391a1219c40f8e72))

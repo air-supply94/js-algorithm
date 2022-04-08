@@ -12,16 +12,6 @@ describe('TrieNode', () => {
       .toBe('c');
   });
 
-  test('should add child nodes', () => {
-    const trieNode = new TrieNode('c');
-
-    trieNode.addChild('a', true);
-    trieNode.addChild('o');
-
-    expect(trieNode.toString())
-      .toBe('cao');
-  });
-
   test('should get child nodes', () => {
     const trieNode = new TrieNode('c');
 

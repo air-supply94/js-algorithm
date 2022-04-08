@@ -1,35 +1,8 @@
-class TrieNode {
-  constructor(character: string) {
-    this.character = character;
-    this.isCompleteWord = false;
-    this.children = new Map<string, TrieNode>();
-  }
-
-  public isCompleteWord: boolean;
-
-  public readonly character: string;
-
-  public children: Map<string, TrieNode>;
-
-  public addChild(character: string): TrieNode {
-    if (!this.hasChild(character)) {
-      this.children.set(character, new TrieNode(character));
-    }
-
-    return this.getChild(character);
-  }
-
-  public hasChild(character: string): boolean {
-    return this.children.has(character);
-  }
-
-  public getChild(character: string): TrieNode | undefined {
-    return this.children.get(character);
-  }
-}
+import { TrieNode } from '../trieNode';
 
 // https://leetcode-cn.com/problems/re-space-lcci/
 // 17.13. 恢复空格
+
 export function respace(dictionary: string[], sentence: string): number {
   const root = new TrieNode('');
   const n = sentence.length;

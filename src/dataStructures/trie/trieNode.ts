@@ -1,17 +1,14 @@
 export class TrieNode {
   constructor(character: string) {
     this.character = character;
-    this.isCompleteWord = false;
-    this.wordCount = 0;
-    this.prefixCount = 0;
     this.children = new Map<string, TrieNode>();
   }
 
-  public wordCount: number;
+  public wordCount = 0;
 
-  public prefixCount: number;
+  public prefixCount = 0;
 
-  public isCompleteWord: boolean;
+  public isCompleteWord = false;
 
   public readonly character: string;
 
@@ -21,14 +18,12 @@ export class TrieNode {
     return this.children.get(character);
   }
 
-  public addChild(character: string, isCompleteWord = false): TrieNode {
-    if (!this.hasChild(character)) {
+  public addChild(character: string): TrieNode {
+    if (this.hasChild(character) === false) {
       this.children.set(character, new TrieNode(character));
     }
 
-    const childNode = this.children.get(character);
-    childNode.isCompleteWord = childNode.isCompleteWord || isCompleteWord;
-    return childNode;
+    return this.children.get(character);
   }
 
   public hasChild(character: string): boolean {
