@@ -1,4 +1,4 @@
-import { Heap } from '../../index';
+import { Heap } from '../index';
 
 // https://leetcode-cn.com/problems/maximum-number-of-eaten-apples/
 // 1705
