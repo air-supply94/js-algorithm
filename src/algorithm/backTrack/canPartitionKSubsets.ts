@@ -13,32 +13,36 @@ export function canPartitionKSubsets(nums: number[], k: number): boolean {
     return false;
   }
 
-  const target = sum / k;
-  if (Math.max.apply(null, nums) > target) {
-    return false;
+  const targetSum = sum / k;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > targetSum) {
+      return false;
+    }
   }
 
-  return dfs(nums.sort((a, b) => a - b), k, 0, Array(nums.length).fill(0), 0, target);
+  return dfs(nums.sort((a, b) => a - b), k, 0, Array(nums.length).fill(0), 0, targetSum);
 }
 
-function dfs(nums: number[], currentBucket: number, bucketSum: number, visitedIndex: number[], currentIndex: number, target: number): boolean {
-  if (currentBucket === 0) {
+function dfs(nums: number[], bucketCount: number, currentBucketSum: number, visitedIndex: number[], currentIndex: number, targetSum: number): boolean {
+  if (bucketCount === 0) {
     return true;
   }
 
-  if (bucketSum === target) {
-    return dfs(nums, currentBucket - 1, 0, visitedIndex, 0, target);
+  if (currentBucketSum > targetSum) {
+    return false;
+  }
+
+  if (currentBucketSum === targetSum) {
+    return dfs(nums, bucketCount - 1, 0, visitedIndex, 0, targetSum);
   }
 
   for (let i = currentIndex; i < nums.length; i++) {
-    if (!visitedIndex[i]) {
-      if (nums[i] + bucketSum <= target) {
-        visitedIndex[i] = 1;
-        if (dfs(nums, currentBucket, bucketSum + nums[i], visitedIndex, currentIndex + 1, target)) {
-          return true;
-        }
-        visitedIndex[i] = 0;
+    if (visitedIndex[i] === 0) {
+      visitedIndex[i] = 1;
+      if (dfs(nums, bucketCount, currentBucketSum + nums[i], visitedIndex, currentIndex + 1, targetSum)) {
+        return true;
       }
+      visitedIndex[i] = 0;
     }
   }
 

@@ -1,4 +1,4 @@
-# (2022-04-08)
+# (2022-04-09)
 
 ### Bug Fixes
 
@@ -111,6 +111,7 @@
 - **avlTree:** 重构此类 ([bd35c86](https://github.com/air-supply94/js-algorithm/commit/bd35c8633f67618017b574312f63328c52a3930b))
 - **AvlTree:** 增加类型 ([57971b0](https://github.com/air-supply94/js-algorithm/commit/57971b0acd7f85c9633708e0c045031c7c415cb7))
 - **backTrack:** add canPartitionKSubsets ([5d9b1a9](https://github.com/air-supply94/js-algorithm/commit/5d9b1a9090e442b40c42a47e941a944865b1e3ae))
+- **backTrack:** 更新实现逻辑 ([2ff8f84](https://github.com/air-supply94/js-algorithm/commit/2ff8f84b5861f0a9937c2d957bcfe4249d96869c))
 - **binarySearch:** add findString ([613354a](https://github.com/air-supply94/js-algorithm/commit/613354a9ed3bfe411beec33cafc439b8dc02060b))
 - **binarySearch:** add minEatingSpeed ([0d0ce3b](https://github.com/air-supply94/js-algorithm/commit/0d0ce3b75e4a22bbbe91e63fbcfb7888d8bc9344))
 - **binarySearch:** add shipWithinDays ([df71a13](https://github.com/air-supply94/js-algorithm/commit/df71a13a17718129df6a851c3c0b3bb7a951ce07))

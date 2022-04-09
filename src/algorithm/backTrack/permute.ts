@@ -1,6 +1,6 @@
 function dfs(result: number[][], choice: number[], path: number[]): number[][] {
-  if (!choice.length) {
-    if (path.length) {
+  if (choice.length === 0) {
+    if (path.length > 0) {
       result.push(path.slice());
     }
     return result;

@@ -1,26 +1,25 @@
 // https://leetcode-cn.com/problems/combinations/submissions/
 // 77
 export function combine(n: number, m: number): number[][] {
-  const choice = Array(n).fill(null);
+  const choice: number[] = Array(n).fill(null);
   for (let i = 1; i <= n; i++) {
     choice[i - 1] = i;
   }
 
-  const result: number[][] = [];
+  return dfs([], choice, [], 0, m);
+}
 
-  function dfs(start: number, path: number[]): void {
-    if (path.length === m) {
-      result.push(path.slice());
-      return;
-    }
-
-    for (let i = start; i < choice.length; i++) {
-      path.push(choice[i]);
-      dfs(i + 1, path);
-      path.pop();
-    }
+function dfs(result: number[][], choice: number[], path: number[], start: number, m: number): number[][] {
+  if (path.length === m) {
+    result.push(path.slice());
+    return result;
   }
 
-  dfs(0, []);
+  for (let i = start; i < choice.length; i++) {
+    path.push(choice[i]);
+    dfs(result, choice, path, i + 1, m);
+    path.pop();
+  }
+
   return result;
 }

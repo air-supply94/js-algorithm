@@ -14,7 +14,7 @@ export function exist(board: string[][], word: string): boolean {
 
 function dfs(board: string[][], word: string, h: number, w: number, k: number): boolean {
   const height = board.length;
-  const width = height ? board[0].length : 0;
+  const width = height > 0 ? board[0].length : 0;
   if (h < 0 || w < 0 || h >= height || w >= width || board[h][w] !== word[k]) {
     return false;
   }

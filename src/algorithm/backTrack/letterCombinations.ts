@@ -1,11 +1,11 @@
 // https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
 // 17
 export function letterCombinations(digits: string): string[] {
-  if (!digits.length) {
+  if (digits.length === 0) {
     return [];
   }
 
-  const dict: {[key: string]: string[]; } = {
+  const dict: Record<string, string[]> = {
     '2': [
       'a',
       'b',

@@ -4,7 +4,7 @@ export function slidingPuzzle(board: number[][]): number {
   const h = board.length;
   const w = board[0].length;
   const neighbor = getNeighborIndex(h, w);
-  const visited = new Map<string, boolean>();
+  const visited = new Set<string>();
 
   let end = '0';
   for (let i = h * w - 1; i >= 1; i--) {
@@ -39,7 +39,7 @@ export function slidingPuzzle(board: number[][]): number {
       for (let j = 0; j < currentNeighbor.length; j++) {
         swap(currentItem.root, currentItem.index, currentNeighbor[j]);
         if (!visited.has(currentItem.root.join(''))) {
-          visited.set(currentItem.root.join(''), true);
+          visited.add(currentItem.root.join(''));
           queue.push({
             root: currentItem.root.slice(),
             index: currentNeighbor[j],

@@ -2,16 +2,16 @@
 // 752
 export function openLock(dead: string[], target: string): number {
   const queue: string[] = [];
-  const visited = new Map<string, boolean>();
-  const deadMap = new Map<string, boolean>();
+  const visited = new Set<string>();
+  const deadMap = new Set<string>();
 
   for (let i = 0; i < dead.length; i++) {
-    deadMap.set(dead[i], true);
+    deadMap.add(dead[i]);
   }
 
   if (!deadMap.has('0000')) {
     queue.push('0000');
-    visited.set('0000', true);
+    visited.add('0000');
   }
 
   let level = 0;
@@ -32,13 +32,13 @@ export function openLock(dead: string[], target: string): number {
         const up = `${head}${(Number(currentNode[j]) + 1) % 10}${tail}`;
         if (!deadMap.has(up) && !visited.has(up)) {
           queue.push(up);
-          visited.set(up, true);
+          visited.add(up);
         }
 
         const bottom = `${head}${(Number(currentNode[j]) + 9) % 10}${tail}`;
         if (!deadMap.has(bottom) && !visited.has(bottom)) {
           queue.push(bottom);
-          visited.set(bottom, true);
+          visited.add(bottom);
         }
       }
     }
