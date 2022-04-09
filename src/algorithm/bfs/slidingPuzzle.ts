@@ -3,7 +3,6 @@
 export function slidingPuzzle(board: number[][]): number {
   const h = board.length;
   const w = board[0].length;
-  const neighbor = getNeighborIndex(h, w);
   const visited = new Set<string>();
 
   let end = '0';
@@ -11,41 +10,38 @@ export function slidingPuzzle(board: number[][]): number {
     end = `${i}${end}`;
   }
 
-  const queue: Array<{ root: number[]; index: number; }> = [];
-  const root: number[] = [];
-  for (let i = 0; i < h; i++) {
-    for (let j = 0; j < w; j++) {
-      root.push(board[i][j]);
-    }
-  }
-  const index = root.indexOf(0);
+  const queue: Array<{ root: string; index: number; }> = [];
+  const root = board.map((item) => item.join('')).join('');
   queue.push({
     root,
-    index,
+    index: root.indexOf('0'),
   });
 
   let level = 0;
-  while (queue.length) {
+  while (queue.length > 0) {
     level++;
     const size = queue.length;
 
     for (let i = 0; i < size; i++) {
       const currentItem = queue.shift();
-      if (currentItem.root.join('') === end) {
+      if (currentItem.root === end) {
         return level - 1;
       }
 
-      const currentNeighbor = neighbor[currentItem.index];
+      const currentNeighbor = getNeighborIndex(h, w, currentItem.index);
       for (let j = 0; j < currentNeighbor.length; j++) {
-        swap(currentItem.root, currentItem.index, currentNeighbor[j]);
-        if (!visited.has(currentItem.root.join(''))) {
-          visited.add(currentItem.root.join(''));
+        const nextRootList = currentItem.root.split('');
+        nextRootList.splice(currentItem.index, 1, currentItem.root[currentNeighbor[j]]);
+        nextRootList.splice(currentNeighbor[j], 1, currentItem.root[currentItem.index]);
+        const nextRoot = nextRootList.join('');
+
+        if (visited.has(nextRoot) === false) {
+          visited.add(nextRoot);
           queue.push({
-            root: currentItem.root.slice(),
+            root: nextRoot,
             index: currentNeighbor[j],
           });
         }
-        swap(currentItem.root, currentItem.index, currentNeighbor[j]);
       }
     }
   }
@@ -53,34 +49,23 @@ export function slidingPuzzle(board: number[][]): number {
   return -1;
 }
 
-function getNeighborIndex(h: number, w: number): number[][] {
-  const result: number[][] = [];
-  for (let i = 0; i < h * w; i++) {
-    const tmp: number[] = [];
-    if (i >= w) {
-      tmp.push(i - w);
-    }
+function getNeighborIndex(h: number, w: number, i: number): number[] {
+  const result: number[] = [];
+  if (i >= w) {
+    result.push(i - w);
+  }
 
-    if (i < (h - 1) * w) {
-      tmp.push(i + w);
-    }
+  if (i < (h - 1) * w) {
+    result.push(i + w);
+  }
 
-    if (i % w > 0) {
-      tmp.push(i - 1);
-    }
+  if (i % w > 0) {
+    result.push(i - 1);
+  }
 
-    if (i % w < w - 1) {
-      tmp.push(i + 1);
-    }
-
-    result.push(tmp);
+  if (i % w < w - 1) {
+    result.push(i + 1);
   }
 
   return result;
-}
-
-function swap(data: unknown[], first: number, second: number): void {
-  const t = data[first];
-  data[first] = data[second];
-  data[second] = t;
 }

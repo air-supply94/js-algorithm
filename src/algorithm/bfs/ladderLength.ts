@@ -1,7 +1,7 @@
 // https://leetcode-cn.com/problems/word-ladder/
 // 127
 export function ladderLength(beginWord: string, endWord: string, wordList: string[]): number {
-  if (!wordList.includes(endWord)) {
+  if (wordList.includes(endWord) === false) {
     return 0;
   }
 
@@ -12,12 +12,11 @@ export function ladderLength(beginWord: string, endWord: string, wordList: strin
   } = buildGraph(beginWord, endWord, wordList);
   const queue: number[] = [];
   let level = 0;
-  const visited = Array(graph.length)
-    .fill(0);
+  const visited = Array(graph.length).fill(0);
   queue.push(beginIndex);
   visited[beginIndex] = 1;
 
-  while (queue.length) {
+  while (queue.length > 0) {
     level++;
     const size = queue.length;
 
@@ -80,21 +79,17 @@ function buildGraph(beginWord: string, endWord: string, wordList: string[]): { g
 // https://leetcode-cn.com/problems/word-ladder/
 // 127
 export function ladderLengthDoubleBfs(beginWord: string, endWord: string, wordList: string[]): number {
-  const wordSet = new Set<string>();
-  const visitedSet = new Set<string>();
-  for (let i = 0; i < wordList.length; i++) {
-    wordSet.add(wordList[i]);
-  }
-  if (!wordSet.has(endWord)) {
+  const wordSet = new Set<string>(wordList);
+  const visitedSet = new Set<string>([
+    beginWord,
+    endWord,
+  ]);
+  if (wordSet.has(endWord) === false) {
     return 0;
   }
 
-  let startSet = new Set<string>();
-  let endSet = new Set<string>();
-  startSet.add(beginWord);
-  endSet.add(endWord);
-  visitedSet.add(beginWord);
-  visitedSet.add(endWord);
+  let startSet = new Set<string>([beginWord]);
+  let endSet = new Set<string>([endWord]);
 
   let level = 0;
   const a = 'a'.charCodeAt(0);
@@ -118,7 +113,7 @@ export function ladderLengthDoubleBfs(beginWord: string, endWord: string, wordLi
               return level + 1;
             }
 
-            if (!visitedSet.has(newWord)) {
+            if (visitedSet.has(newWord) === false) {
               visitedSet.add(newWord);
               tmpSet.add(newWord);
             }
