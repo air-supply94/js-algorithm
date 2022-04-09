@@ -45,36 +45,27 @@ export function shortestPathBinaryMatrix(grid: number[][]): number {
   ];
 
   function dfs(i: number, j: number, path: number): void {
-    if (i === width - 1 && j === height - 1) {
-      count = Math.min(count, path);
+    if (grid[i][j] !== 0) {
       return;
     }
 
-    grid[i][j] = null;
+    if (i === width - 1 && j === height - 1) {
+      count = Math.min(count, path + 1);
+      return;
+    }
 
     for (let k = 0; k < directionMatrix.length; k++) {
       h = i + directionMatrix[k][0];
       w = j + directionMatrix[k][1];
-      if (h >= 0 && h < height && w >= 0 && w < width && grid[h][w] === 0) {
+      if (h >= 0 && h < height && w >= 0 && w < width) {
+        grid[i][j] = null;
         dfs(h, w, path + 1);
-      }
-    }
-
-    grid[i][j] = 0;
-  }
-
-  if (grid[0][0] === 0) {
-    dfs(0, 0, 1);
-  }
-
-  // recover
-  for (let i = 0; i < height; i++) {
-    for (let j = 0; j < width; j++) {
-      if (grid[i][j] === null) {
         grid[i][j] = 0;
       }
     }
   }
+
+  dfs(0, 0, 0);
 
   return count === Infinity ? -1 : count;
 }

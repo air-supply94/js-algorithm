@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/triangle/
 // 120
+// 自顶向下
 export function minimumTotal(grid: number[][]): number {
   const height = grid.length;
   const cache = Array(height)
@@ -21,4 +22,23 @@ export function minimumTotal(grid: number[][]): number {
   }
 
   return dfs(0, 0);
+}
+
+// https://leetcode-cn.com/problems/triangle/
+// 120
+// 自底向上
+export function minimumTotalDp(grid: number[][]): number {
+  const height = grid.length;
+  const dp = Array(height).fill(null);
+  for (let i = 0; i < height; i++) {
+    dp[i] = grid[height - 1][i];
+  }
+
+  for (let i = height - 2; i >= 0; i--) {
+    for (let j = 0; j < grid[i].length; j++) {
+      dp[j] = Math.min(dp[j], dp[j + 1]) + grid[i][j];
+    }
+  }
+
+  return dp[0];
 }
