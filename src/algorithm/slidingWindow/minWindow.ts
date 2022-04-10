@@ -3,10 +3,10 @@
 // 定长区间
 export function minWindow(s: string, t: string): string {
   const needMap = new Map<string, number>();
-  const countMap = new Map<string, number>();
+  const matchMap = new Map<string, number>();
   let left = 0;
   let right = 0;
-  let windowSize = 0;
+  let matchCharLength = 0;
   let length = Infinity;
   let start = 0;
 
@@ -18,13 +18,13 @@ export function minWindow(s: string, t: string): string {
     const rightChar = s[right];
     right++;
     if (needMap.has(rightChar)) {
-      countMap.set(rightChar, (countMap.get(rightChar) || 0) + 1);
-      if (needMap.get(rightChar) === countMap.get(rightChar)) {
-        windowSize++;
+      matchMap.set(rightChar, (matchMap.get(rightChar) || 0) + 1);
+      if (needMap.get(rightChar) === matchMap.get(rightChar)) {
+        matchCharLength++;
       }
     }
 
-    while (windowSize && windowSize === needMap.size) {
+    while (matchCharLength && matchCharLength === needMap.size) {
       if (right - left < length) {
         length = right - left;
         start = left;
@@ -33,10 +33,10 @@ export function minWindow(s: string, t: string): string {
       const leftChar = s[left];
       left++;
       if (needMap.has(leftChar)) {
-        if (needMap.get(leftChar) === countMap.get(leftChar)) {
-          windowSize--;
+        if (needMap.get(leftChar) === matchMap.get(leftChar)) {
+          matchCharLength--;
         }
-        countMap.set(leftChar, countMap.get(leftChar) - 1);
+        matchMap.set(leftChar, matchMap.get(leftChar) - 1);
       }
     }
   }
