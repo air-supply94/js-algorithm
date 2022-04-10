@@ -6,7 +6,7 @@ export function peakIndexInMountainArray(arr: number[]): number {
   let middle: number = null;
 
   while (left <= right) {
-    middle = left + Math.floor((right - left) / 2);
+    middle = (left + right) >>> 1;
     if (arr[middle - 1] < arr[middle] && arr[middle] > arr[middle + 1]) {
       return middle;
     } else if (arr[middle - 1] < arr[middle] && arr[middle] < arr[middle + 1]) {

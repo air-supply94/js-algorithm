@@ -1,8 +1,4 @@
-function swap(data: unknown[], first: number, second: number): void {
-  const t = data[first];
-  data[first] = data[second];
-  data[second] = t;
-}
+import { swap } from '../../utils';
 
 // https://leetcode-cn.com/problems/sort-colors/
 // 75

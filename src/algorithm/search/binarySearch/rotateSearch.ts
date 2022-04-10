@@ -6,7 +6,7 @@ export function rotateSearchElement(rotateArray: number[], seekElement: number):
   let middleIndex = 0;
 
   while (left <= right) {
-    middleIndex = left + Math.floor((right - left) / 2);
+    middleIndex = (left + right) >>> 1;
     if (seekElement === rotateArray[middleIndex]) {
       return middleIndex;
     }
@@ -37,7 +37,7 @@ export function rotateSearchMin(rotateArray: number[]): number {
   let middle: number;
 
   while (left <= right) {
-    middle = left + Math.floor((right - left) / 2);
+    middle = (left + right) >>> 1;
     if (rotateArray[middle] > rotateArray[right]) {
       left = middle + 1;
     } else if (rotateArray[middle] === rotateArray[right]) {

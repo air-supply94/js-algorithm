@@ -1,4 +1,4 @@
-# (2022-04-09)
+# (2022-04-10)
 
 ### Bug Fixes
 
@@ -112,7 +112,7 @@
 - **AvlTree:** 增加类型 ([57971b0](https://github.com/air-supply94/js-algorithm/commit/57971b0acd7f85c9633708e0c045031c7c415cb7))
 - **backTrack:** add canPartitionKSubsets ([5d9b1a9](https://github.com/air-supply94/js-algorithm/commit/5d9b1a9090e442b40c42a47e941a944865b1e3ae))
 - **backTrack:** 更新实现逻辑 ([3ceae5a](https://github.com/air-supply94/js-algorithm/commit/3ceae5a6d86bfbd4a44207d35ced37d3542a4b0b))
-- **bfs:** 更新实现逻辑 ([b5e5b52](https://github.com/air-supply94/js-algorithm/commit/b5e5b52aaa752e07888a0417f535ec185be8a49e))
+- **bfs:** 更新实现逻辑 ([087fb20](https://github.com/air-supply94/js-algorithm/commit/087fb201ad28a784f2199bceb05894974712ac96))
 - **binarySearch:** add findString ([613354a](https://github.com/air-supply94/js-algorithm/commit/613354a9ed3bfe411beec33cafc439b8dc02060b))
 - **binarySearch:** add minEatingSpeed ([0d0ce3b](https://github.com/air-supply94/js-algorithm/commit/0d0ce3b75e4a22bbbe91e63fbcfb7888d8bc9344))
 - **binarySearch:** add shipWithinDays ([df71a13](https://github.com/air-supply94/js-algorithm/commit/df71a13a17718129df6a851c3c0b3bb7a951ce07))
@@ -156,6 +156,7 @@
 - **dataStructure:** add bitMap ([252f1b6](https://github.com/air-supply94/js-algorithm/commit/252f1b6f4901f96725b9b764e55237ab4bae0303))
 - **dataStructure:** add DisjointSet ([2903fb3](https://github.com/air-supply94/js-algorithm/commit/2903fb3bc1f1b9cee927aca551338cc2d3559efe))
 - **dataStructure:** add minCostConnectPoints ([79f255d](https://github.com/air-supply94/js-algorithm/commit/79f255d8e74741b5baea41072dfd723a3c47459b))
+- **dataStructure:** add NumMatrix ([009092c](https://github.com/air-supply94/js-algorithm/commit/009092c990daae7f074a85874c83d22d710ad396))
 - **dataStructure:** remove queue stack ([a1dd61c](https://github.com/air-supply94/js-algorithm/commit/a1dd61c2e3ceb6388968b5059462ef506ebc1c1c))
 - **dataStructure:** update disjointSet ([569f487](https://github.com/air-supply94/js-algorithm/commit/569f487b6a1b64a0091718eb588c672ae0dd2a25))
 - **dataStructure:** 迁移并查集、图 ([75d3505](https://github.com/air-supply94/js-algorithm/commit/75d350521bf12fcd94e400cf55fb9cf01410998a))

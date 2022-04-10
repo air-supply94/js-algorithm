@@ -1,5 +1,3 @@
-// https://leetcode-cn.com/problems/corporate-flight-bookings/
-// 1109
 export class Difference {
   constructor(nums: number[]) {
     this.diff = Array(nums.length)
@@ -30,4 +28,15 @@ export class Difference {
     }
     return result;
   }
+}
+
+// https://leetcode-cn.com/problems/corporate-flight-bookings/
+// 1109
+export function corpFlightBookings(bookings: number[][], n: number): number[] {
+  const difference = new Difference(Array(n).fill(0));
+  for (let i = 0; i < bookings.length; i++) {
+    const item = bookings[i];
+    difference.add(item[0] - 1, item[1] - 1, item[2]);
+  }
+  return difference.toArray();
 }

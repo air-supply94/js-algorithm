@@ -1,13 +1,9 @@
+import { swap } from '../../utils';
+
 // https://leetcode-cn.com/problems/pancake-sorting/
 // 969
 export function pancakeSort(arr: number[]): number[] {
   return recursion(arr, arr.length - 1, []);
-}
-
-function swap(data: unknown[], first: number, second: number): void {
-  const t = data[first];
-  data[first] = data[second];
-  data[second] = t;
 }
 
 function recursion(cake: number[], index: number, res: number[]): number[] {

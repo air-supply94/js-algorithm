@@ -5,7 +5,7 @@ export function minEatingSpeed(piles: number[], h: number): number {
   let left = 1;
 
   while (left <= right) {
-    const middle = left + Math.floor((right - left) / 2);
+    const middle = (left + right) >>> 1;
     if (canFinish(piles, middle, h)) {
       right = middle - 1;
     } else {

@@ -5,7 +5,7 @@ export function mergeSort(originalArray: number[], left = 0, right = originalArr
     return originalArray;
   }
 
-  const middleIndex = left + Math.floor((right - left) / 2);
+  const middleIndex = (left + right) >>> 1;
   mergeSort(originalArray, left, middleIndex);
   mergeSort(originalArray, middleIndex + 1, right);
   mergeSortedArrays(originalArray, left, right);
@@ -14,33 +14,33 @@ export function mergeSort(originalArray: number[], left = 0, right = originalArr
 
 function mergeSortedArrays(originalArray: number[], left: number, right: number): void {
   const result: number[] = Array(right - left + 1);
-  const middleIndex = left + Math.floor((right - left) / 2);
-  let i = left;
-  let j = middleIndex + 1;
+  const middleIndex = (left + right) >>> 1;
+  let l = left;
+  let r = middleIndex + 1;
   let k = 0;
 
-  while (i <= middleIndex && j <= right) {
-    if (originalArray[j] < originalArray[i]) {
-      result[k] = originalArray[j];
+  while (l <= middleIndex && r <= right) {
+    if (originalArray[r] < originalArray[l]) {
+      result[k] = originalArray[r];
       k++;
-      j++;
+      r++;
     } else {
-      result[k] = originalArray[i];
+      result[k] = originalArray[l];
       k++;
-      i++;
+      l++;
     }
   }
 
-  while (i <= middleIndex) {
-    result[k] = originalArray[i];
+  while (l <= middleIndex) {
+    result[k] = originalArray[l];
     k++;
-    i++;
+    l++;
   }
 
-  while (j <= right) {
-    result[k] = originalArray[j];
+  while (r <= right) {
+    result[k] = originalArray[r];
     k++;
-    j++;
+    r++;
   }
 
   for (let l = 0; l < result.length; l++) {

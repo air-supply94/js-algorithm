@@ -7,7 +7,7 @@ export function shipWithinDays(weights: number[], day: number): number {
   let left = Math.max.apply(null, weights);
 
   while (left <= right) {
-    const middle = left + Math.floor((right - left) / 2);
+    const middle = (left + right) >>> 1;
     if (canFinish(weights, middle, day)) {
       right = middle - 1;
     } else {

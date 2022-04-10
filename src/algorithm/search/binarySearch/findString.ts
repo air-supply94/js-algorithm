@@ -12,7 +12,7 @@ export function findString(words: string[], s: string): number {
       right--;
     }
 
-    let middle = left + Math.floor((right - left) / 2);
+    let middle = (left + right) >>> 1;
     while (middle <= right && words[middle] === '') {
       middle++;
     }

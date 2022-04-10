@@ -1,3 +1,5 @@
+import { swap } from '../../utils';
+
 function getLeftChildIndex(parentIndex: number): number {
   return parentIndex * 2 + 1;
 }
@@ -32,12 +34,6 @@ function parent<T = unknown>(container: T[], childIndex: number): T | undefined 
 
 function rightChild<T = unknown>(container: T[], parentIndex: number): T | undefined {
   return container[getRightChildIndex(parentIndex)];
-}
-
-function swap(data: unknown[], first: number, second: number): void {
-  const t = data[first];
-  data[first] = data[second];
-  data[second] = t;
 }
 
 export class Heap<T = unknown> {
