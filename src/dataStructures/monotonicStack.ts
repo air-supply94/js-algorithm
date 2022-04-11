@@ -44,12 +44,12 @@ export function nextGreaterElements(num: number[]): number[] {
 // https://leetcode-cn.com/problems/largest-rectangle-in-histogram/
 // 84
 export function largestRectangleArea(heights: number[]): number {
-  const n = heights.length;
+  heights.push(0);
   let max = 0;
   const stack: number[] = [];
 
-  for (let i = 0; i <= n; i++) {
-    while (stack.length && (i === n || heights[i] < heights[stack[stack.length - 1]])) {
+  for (let i = 0; i < heights.length; i++) {
+    while (stack.length > 0 && heights[i] < heights[stack[stack.length - 1]]) {
       const height = heights[stack.pop()];
       const width = stack.length ? i - 1 - stack[stack.length - 1] : i;
       max = Math.max(max, width * height);
@@ -58,5 +58,6 @@ export function largestRectangleArea(heights: number[]): number {
     stack.push(i);
   }
 
+  heights.pop();
   return max;
 }
