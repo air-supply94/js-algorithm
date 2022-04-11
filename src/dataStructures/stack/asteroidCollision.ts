@@ -4,20 +4,20 @@ export function asteroidCollision(asteroids: number[]): number[] {
   const stack: number[] = [];
   for (let i = 0; i < asteroids.length; i++) {
     let destroySelf = false;
-    while (stack.length && stack[stack.length - 1] > 0 && asteroids[i] < 0 && !destroySelf) {
-      const currentItemAbs = -asteroids[i];
-      const peekNodeAbs = stack[stack.length - 1];
-      if (currentItemAbs === peekNodeAbs) {
+    while (stack.length && stack[stack.length - 1] > 0 && asteroids[i] < 0 && destroySelf === false) {
+      const currentValue = -asteroids[i];
+      const previousValue = stack[stack.length - 1];
+      if (currentValue === previousValue) {
         stack.pop();
         destroySelf = true;
-      } else if (currentItemAbs < peekNodeAbs) {
+      } else if (currentValue < previousValue) {
         destroySelf = true;
       } else {
         stack.pop();
       }
     }
 
-    if (!destroySelf) {
+    if (destroySelf === false) {
       stack.push(asteroids[i]);
     }
   }
