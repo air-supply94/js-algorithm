@@ -38,7 +38,7 @@ export function rotateMatrix<T = unknown>(array: T[][]): T[][] {
   }
 
   for (let h = 0; h < n; h++) {
-    for (let w = 0; w < Math.floor(n / 2); w++) {
+    for (let w = 0; w < n >>> 1; w++) {
       const tmp = array[h][w];
       array[h][w] = array[h][n - 1 - w];
       array[h][n - 1 - w] = tmp;

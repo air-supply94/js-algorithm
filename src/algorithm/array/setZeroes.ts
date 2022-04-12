@@ -3,14 +3,14 @@
 export function setZeroes(array: number[][]): number[][] {
   const height = array.length;
   const width = array[0] ? array[0].length : 0;
-  const row = new Map<number, boolean>();
-  const col = new Map<number, boolean>();
+  const row = new Set<number>();
+  const col = new Set<number>();
 
   for (let h = 0; h < height; h++) {
     for (let w = 0; w < width; w++) {
-      if (!array[h][w]) {
-        row.set(h, true);
-        col.set(w, true);
+      if (array[h][w] === 0) {
+        row.add(h);
+        col.add(w);
       }
     }
   }

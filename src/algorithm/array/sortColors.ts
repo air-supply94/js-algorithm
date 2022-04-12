@@ -3,19 +3,19 @@ import { swap } from '../../utils';
 // https://leetcode-cn.com/problems/sort-colors/
 // 75
 export function sortColors(nums: number[]): void {
-  let leftFirst = 0;
-  let left = 0;
-  let right = nums.length - 1;
-  while (left <= right) {
-    if (nums[left] === 0) {
-      swap(nums, left, leftFirst);
-      leftFirst++;
-      left++;
-    } else if (nums[left] === 1) {
-      left++;
+  let p0 = 0;
+  let p1 = 0;
+  let p2 = nums.length - 1;
+  while (p1 <= p2) {
+    if (nums[p1] === 0) {
+      swap(nums, p1, p0);
+      p0++;
+      p1++;
+    } else if (nums[p1] === 1) {
+      p1++;
     } else {
-      swap(nums, left, right);
-      right--;
+      swap(nums, p1, p2);
+      p2--;
     }
   }
 }
