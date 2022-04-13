@@ -48,14 +48,14 @@ export class RandomizedSetBlackList {
     this.whiteLength = whiteLength;
     this.unorderedMap = new Map<number, number>();
 
-    const blackMap = new Map<number, boolean>();
+    const blackSet = new Set<number>();
     for (let i = 0; i < blackList.length; i++) {
-      blackMap.set(blackList[i], true);
+      blackSet.add(blackList[i]);
     }
 
     const whiteRightList: number[] = [];
     for (let i = whiteLength; i < n; i++) {
-      if (!blackMap.has(i)) {
+      if (blackSet.has(i) === false) {
         whiteRightList.push(i);
       }
     }

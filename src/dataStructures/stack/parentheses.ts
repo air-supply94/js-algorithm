@@ -18,21 +18,22 @@ export function isValidEasy(str: string): boolean {
 // 22
 export function isValid(str: string): boolean {
   const stack: string[] = [];
-  const startMap = new Map<string, boolean>();
+  const startSet = new Set<string>([
+    '(',
+    '{',
+    '[',
+  ]);
   const endMap = new Map<string, string>();
-  startMap.set('(', true);
-  startMap.set('{', true);
-  startMap.set('[', true);
 
   endMap.set(')', '(');
   endMap.set('}', '{');
   endMap.set(']', '[');
 
   for (let i = 0; i < str.length; i++) {
-    if (startMap.has(str[i])) {
+    if (startSet.has(str[i])) {
       stack.push(str[i]);
     } else {
-      if (!stack.length) {
+      if (stack.length === 0) {
         return false;
       }
 
@@ -49,21 +50,21 @@ export function isValid(str: string): boolean {
 // 921
 export function minAddToMakeValid(s: string): number {
   let result = 0;
-  let leftBrace = 0;
+  let need = 0;
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === '(') {
-      leftBrace++;
+      need++;
     } else {
-      leftBrace--;
-      if (leftBrace === -1) {
+      need--;
+      if (need === -1) {
         result++;
-        leftBrace = 0;
+        need = 0;
       }
     }
   }
 
-  return leftBrace + result;
+  return need + result;
 }
 
 // https://leetcode-cn.com/problems/minimum-insertions-to-balance-a-parentheses-string/

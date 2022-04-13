@@ -1,4 +1,4 @@
-# (2022-04-11)
+# (2022-04-13)
 
 ### Bug Fixes
 
@@ -106,6 +106,7 @@
 - **array:** add multiplyExceptSelf ([545e5e9](https://github.com/air-supply94/js-algorithm/commit/545e5e9ec432554a9e120f3f40178c8078442b51))
 - **array:** add rotate ([46fd6cf](https://github.com/air-supply94/js-algorithm/commit/46fd6cf9973a42ccf48cac5cd086cc53d6107cec))
 - **array:** add rotate matrix ([cbeb58a](https://github.com/air-supply94/js-algorithm/commit/cbeb58ab6cf44f0f027975ce08e19cab46b1dc98))
+- **array:** 更新实现逻辑 ([16afe1b](https://github.com/air-supply94/js-algorithm/commit/16afe1b721e5c195a1e22041bba41a66f525c641))
 - **array/slidingWindow:** add characterReplacement ([e7410e7](https://github.com/air-supply94/js-algorithm/commit/e7410e78b2d0ba5dc673afa375841094032d8902))
 - **array/slidingWindow:** add maxAverage ([13bd38a](https://github.com/air-supply94/js-algorithm/commit/13bd38a79266365f4d952e7963a83126ffa271df))
 - **avlTree:** 重构此类 ([bd35c86](https://github.com/air-supply94/js-algorithm/commit/bd35c8633f67618017b574312f63328c52a3930b))
@@ -283,6 +284,7 @@
 - **math/bits:** add ([8bde116](https://github.com/air-supply94/js-algorithm/commit/8bde116141bc3a86625a2a3a44cdaf79ec6f535e))
 - **math/bits:** test ([3de3260](https://github.com/air-supply94/js-algorithm/commit/3de32608ced958befed76d42b1e8052c2fa6f6cc))
 - **mergeSort:** 更新 mergeSortedArrays concat 方式 ([8baf586](https://github.com/air-supply94/js-algorithm/commit/8baf5861287c1e603d619609628544db119c6781))
+- **monotonicStack:** update largestRectangleArea ([75dcac7](https://github.com/air-supply94/js-algorithm/commit/75dcac7ca150d927e2105b237bcbb1b82a0b6ba1))
 - **nQueens:** add bf ([abb3529](https://github.com/air-supply94/js-algorithm/commit/abb3529939a93661f6660a51c47ae49ff98bc932))
 - **other:** add canPermutePalindrome ([919d4b2](https://github.com/air-supply94/js-algorithm/commit/919d4b25f916dbeacdbba4f6e9a6e7d86f9f4bf2))
 - **other:** add isUnique ([8d07125](https://github.com/air-supply94/js-algorithm/commit/8d071256711e298bfb4567a0267e5baa7cafb7b7))
@@ -316,6 +318,7 @@
 - **sort/mergeSort:** add merge ([1e8280d](https://github.com/air-supply94/js-algorithm/commit/1e8280dcf21064cc8492e60218e994f933059c63))
 - **stack:** add asteroidCollision ([9d15621](https://github.com/air-supply94/js-algorithm/commit/9d15621d49af890b12a0039e7859677189cf89d0))
 - **stack:** add calculate ([f45da8b](https://github.com/air-supply94/js-algorithm/commit/f45da8bb36150a4dc8ab9071a713ebaf54dc55ff))
+- **stack:** add checkValidString ([59c7020](https://github.com/air-supply94/js-algorithm/commit/59c702098077a2fb762f309b86e3f31ea78a12c2))
 - **stack:** add interface ([8cf0709](https://github.com/air-supply94/js-algorithm/commit/8cf0709f63b6e7d5bac7dd90a48870778b41a893))
 - **stack:** add largestRectangleArea ([6a910db](https://github.com/air-supply94/js-algorithm/commit/6a910db59e3720cd0b5ee7c8ed8f3f708bd30c78))
 - **stack:** add majorityElement ([59025f6](https://github.com/air-supply94/js-algorithm/commit/59025f648094185ea220bc92d328245a53c6cacd))
@@ -330,7 +333,7 @@
 - **stack:** 增加 postfix ([3b1e18e](https://github.com/air-supply94/js-algorithm/commit/3b1e18edd5f2d6abdf310affecf3fdc0ab26c6be))
 - **stack:** 增加 tribonacci ([de70519](https://github.com/air-supply94/js-algorithm/commit/de70519065f15add07f2a5e8ffa04aa6ede00eb9))
 - **stack:** 增加平衡符号 ([52dca19](https://github.com/air-supply94/js-algorithm/commit/52dca19d0ef7c6a2381a1e342cf95e8d27633181))
-- **stack:** 更新实现逻辑 ([eb1bfe7](https://github.com/air-supply94/js-algorithm/commit/eb1bfe7897941248ea1873ffe87cb25d27c4e9c7))
+- **stack:** 更新实现逻辑 ([4da25d1](https://github.com/air-supply94/js-algorithm/commit/4da25d1dbeb59f90f10e0d088e6fb60c5fe25b0e))
 - **stack/leetcode:** update parentheses ([e087e71](https://github.com/air-supply94/js-algorithm/commit/e087e7149955ae9bc4a5822081bda96eb65207de))
 - **string:** add longestSubstring ([43ed7e8](https://github.com/air-supply94/js-algorithm/commit/43ed7e89200aaf46792095661f4346b1c86acfc2))
 - **string:** add setZero ([d85a8e3](https://github.com/air-supply94/js-algorithm/commit/d85a8e3cdd49e9cea3b2f5843037c704c0f4c8a2))

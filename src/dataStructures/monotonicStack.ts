@@ -61,3 +61,35 @@ export function largestRectangleArea(heights: number[]): number {
   heights.pop();
   return max;
 }
+
+// https://leetcode-cn.com/problems/remove-duplicate-letters/
+// 316
+export function removeDuplicateLetters(s: string): string {
+  const countMap = new Map<string, number>();
+  const charSet = new Set<string>();
+  const stack: string[] = [];
+
+  for (let i = 0; i < s.length; i++) {
+    countMap.set(s[i], (countMap.get(s[i]) || 0) + 1);
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    const item = s[i];
+    countMap.set(item, countMap.get(item) - 1);
+
+    if (charSet.has(item) === false) {
+      while (stack.length > 0 && stack[stack.length - 1].charCodeAt(0) > s.charCodeAt(i) && countMap.get(stack[stack.length - 1]) > 0) {
+        charSet.delete(stack.pop());
+      }
+
+      charSet.add(item);
+      stack.push(item);
+    }
+  }
+
+  let result = '';
+  while (stack.length) {
+    result = `${stack.pop()}${result}`;
+  }
+  return result;
+}

@@ -9,7 +9,7 @@ export function longestValidParentheses(s: string): number {
     if (s[i] === '(') {
       stack.push(i);
     } else {
-      if (stack.length) {
+      if (stack.length > 0) {
         match[i] = 1;
         match[stack.pop()] = 1;
       }
