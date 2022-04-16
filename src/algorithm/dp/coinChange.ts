@@ -28,12 +28,11 @@ export function coinChange(coins: number[], amount: number, cache = new Map<numb
 // https://leetcode-cn.com/problems/coin-change/
 // 322
 export function coinChange(coins: number[], amount: number): number {
-  if (!coins.length || amount < 0) {
+  if (coins.length === 0 || amount < 0) {
     return -1;
   }
 
-  const dp = Array(amount + 1)
-    .fill(-1);
+  const dp = Array(amount + 1).fill(-1);
   dp[0] = 0;
 
   for (let i = 1; i <= amount; i++) {

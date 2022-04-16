@@ -1,4 +1,4 @@
-# (2022-04-13)
+# (2022-04-16)
 
 ### Bug Fixes
 
@@ -318,7 +318,8 @@
 - **sort/mergeSort:** add merge ([1e8280d](https://github.com/air-supply94/js-algorithm/commit/1e8280dcf21064cc8492e60218e994f933059c63))
 - **stack:** add asteroidCollision ([9d15621](https://github.com/air-supply94/js-algorithm/commit/9d15621d49af890b12a0039e7859677189cf89d0))
 - **stack:** add calculate ([f45da8b](https://github.com/air-supply94/js-algorithm/commit/f45da8bb36150a4dc8ab9071a713ebaf54dc55ff))
-- **stack:** add checkValidString ([59c7020](https://github.com/air-supply94/js-algorithm/commit/59c702098077a2fb762f309b86e3f31ea78a12c2))
+- **stack:** add checkValidString ([a31fec3](https://github.com/air-supply94/js-algorithm/commit/a31fec371c43a5648c56f9df5b3172e8c4d6ba46))
+- **stack:** add infixExpressionToPostfixExpression ([a097b34](https://github.com/air-supply94/js-algorithm/commit/a097b34c16bc712cd38e1301511659f5717dd279))
 - **stack:** add interface ([8cf0709](https://github.com/air-supply94/js-algorithm/commit/8cf0709f63b6e7d5bac7dd90a48870778b41a893))
 - **stack:** add largestRectangleArea ([6a910db](https://github.com/air-supply94/js-algorithm/commit/6a910db59e3720cd0b5ee7c8ed8f3f708bd30c78))
 - **stack:** add majorityElement ([59025f6](https://github.com/air-supply94/js-algorithm/commit/59025f648094185ea220bc92d328245a53c6cacd))
