@@ -11,7 +11,7 @@ export function rubberHouseHard(root: TreeNode | null): number {
 }
 
 function rubber(root: TreeNode | null, cache: Map<TreeNode, number>): number {
-  if (!root) {
+  if (root == null) {
     return 0;
   }
 

@@ -1,4 +1,4 @@
-# (2022-04-16)
+# (2022-04-17)
 
 ### Bug Fixes
 
@@ -226,6 +226,7 @@
 - **dp:** update regularExpressionMatching ([4651010](https://github.com/air-supply94/js-algorithm/commit/4651010ab2b61c7657f7191f58fff1e644348604))
 - **dp:** update superEggDrop ([7c9419c](https://github.com/air-supply94/js-algorithm/commit/7c9419cc1cab44bae2336ebaa75246b260d768ec))
 - **dp:** 优化 changeCoins 空间复杂度 ([30c7cf6](https://github.com/air-supply94/js-algorithm/commit/30c7cf66b299044cf46de2833235a275e2ee2fa7))
+- **dp:** 更新实现逻辑 ([f6d1967](https://github.com/air-supply94/js-algorithm/commit/f6d1967fe71c035f3aa91f9408e741339a8ee623))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceRecursion ([cdf29e3](https://github.com/air-supply94/js-algorithm/commit/cdf29e3f364c3cccdd0632817995c09945e81f44))
 - **dp/longestCommonSubstring:** add longestCommonSubstring ([e3f75fb](https://github.com/air-supply94/js-algorithm/commit/e3f75fbdc9f1ab1ebb0bc141613bdc313f16d119))
@@ -319,7 +320,7 @@
 - **stack:** add asteroidCollision ([9d15621](https://github.com/air-supply94/js-algorithm/commit/9d15621d49af890b12a0039e7859677189cf89d0))
 - **stack:** add calculate ([f45da8b](https://github.com/air-supply94/js-algorithm/commit/f45da8bb36150a4dc8ab9071a713ebaf54dc55ff))
 - **stack:** add checkValidString ([a31fec3](https://github.com/air-supply94/js-algorithm/commit/a31fec371c43a5648c56f9df5b3172e8c4d6ba46))
-- **stack:** add infixExpressionToPostfixExpression ([a097b34](https://github.com/air-supply94/js-algorithm/commit/a097b34c16bc712cd38e1301511659f5717dd279))
+- **stack:** add infixExpressionToPostfixExpression ([0ae7e31](https://github.com/air-supply94/js-algorithm/commit/0ae7e3191aceca18e7dd24defe40181f33a9e432))
 - **stack:** add interface ([8cf0709](https://github.com/air-supply94/js-algorithm/commit/8cf0709f63b6e7d5bac7dd90a48870778b41a893))
 - **stack:** add largestRectangleArea ([6a910db](https://github.com/air-supply94/js-algorithm/commit/6a910db59e3720cd0b5ee7c8ed8f3f708bd30c78))
 - **stack:** add majorityElement ([59025f6](https://github.com/air-supply94/js-algorithm/commit/59025f648094185ea220bc92d328245a53c6cacd))

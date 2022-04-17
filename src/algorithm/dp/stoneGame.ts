@@ -37,5 +37,5 @@ export function stoneGame(piles: number[]): boolean {
     }
   }
 
-  return dp[0][n - 1][0] - dp[0][n - 1][1] > 0;
+  return dp[0][n - 1][0] > dp[0][n - 1][1];
 }

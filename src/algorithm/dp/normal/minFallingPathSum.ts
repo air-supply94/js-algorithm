@@ -1,7 +1,7 @@
 // https://leetcode-cn.com/problems/minimum-falling-path-sum/
 // 931
 export function minFallingPathSum(matrix: number[][]): number {
-  if (!matrix.length) {
+  if (matrix.length === 0) {
     return 0;
   }
 
