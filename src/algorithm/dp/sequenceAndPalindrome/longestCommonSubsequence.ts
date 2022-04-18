@@ -8,15 +8,15 @@ function recursion(val1: string, i: number, val2: string, j: number, cache: Map<
     return cache.get(key);
   }
 
+  let result: number;
   if (val1[i] === val2[j]) {
-    const result = 1 + recursion(val1, i - 1, val2, j - 1, cache);
-    cache.set(key, result);
-    return result;
+    result = 1 + recursion(val1, i - 1, val2, j - 1, cache);
   } else {
-    const result = Math.max(recursion(val1, i - 1, val2, j, cache), recursion(val1, i, val2, j - 1, cache));
-    cache.set(key, result);
-    return result;
+    result = Math.max(recursion(val1, i - 1, val2, j, cache), recursion(val1, i, val2, j - 1, cache));
   }
+
+  cache.set(key, result);
+  return result;
 }
 
 // https://leetcode-cn.com/problems/longest-common-subsequence/
@@ -28,7 +28,7 @@ export function longestCommonSubsequenceRecursion(str1: string, str2: string): n
 // https://leetcode-cn.com/problems/longest-common-subsequence/
 // 1143
 export function longestCommonSubsequence(str1: string, str2: string): number {
-  if (!str1.length || !str2.length) {
+  if (str1.length === 0 || str2.length === 0) {
     return 0;
   }
 

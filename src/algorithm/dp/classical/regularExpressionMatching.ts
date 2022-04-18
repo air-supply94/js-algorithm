@@ -8,20 +8,20 @@ export function regularExpressionMatching(text: string, pattern: string): boolea
 }
 
 function dp(text: string, pattern: string, i: number, j: number, cache: Map<string, boolean>): boolean {
+  if (j === pattern.length) {
+    return i === text.length;
+  }
+
   const key = `${i},${j}`;
   if (cache.has(key)) {
     return cache.get(key);
-  }
-
-  if (j === pattern.length) {
-    return i === text.length;
   }
 
   const firstMatch = i < text.length && (pattern[j] === text[i] || pattern[j] === ANY_CHAR);
   let result: boolean;
 
   if (j <= pattern.length - 2 && pattern[j + 1] === ZERO_OR_MORE_CHARS) {
-    result = dp(text, pattern, i, j + 2, cache) || (firstMatch && dp(text, pattern, i + 1, j, cache));
+    result = (firstMatch && dp(text, pattern, i + 1, j, cache)) || dp(text, pattern, i, j + 2, cache);
   } else {
     result = firstMatch && dp(text, pattern, i + 1, j + 1, cache);
   }

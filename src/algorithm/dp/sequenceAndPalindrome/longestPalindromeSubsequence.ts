@@ -1,7 +1,7 @@
 // https://leetcode-cn.com/problems/longest-palindromic-subsequence/
 // 516
 export function longestPalindromeSubsequence(str: string): number {
-  if (!str.length) {
+  if (str.length === 0) {
     return 0;
   }
 

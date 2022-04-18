@@ -1,7 +1,7 @@
 // https://leetcode-cn.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/
 // 1312
 export function minPalindromeInsert(str: string): number {
-  if (!str.length) {
+  if (str.length === 0) {
     return 0;
   }
 
