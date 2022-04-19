@@ -1,41 +1,29 @@
-import { swap } from '../../utils';
+import { reverse } from '../../utils';
 
 // https://leetcode-cn.com/problems/pancake-sorting/
 // 969
 export function pancakeSort(arr: number[]): number[] {
-  return recursion(arr, arr.length - 1, []);
-}
+  const result: number[] = [];
 
-function recursion(cake: number[], index: number, res: number[]): number[] {
-  if (index <= 0) {
-    return res;
-  }
+  for (let i = arr.length - 1; i > 0; i--) {
+    let maxValue = -Infinity;
+    let maxIndex = 0;
 
-  let maxValue = -Infinity;
-  let maxIndex = 0;
-  for (let i = 0; i <= index; i++) {
-    if (cake[i] > maxValue) {
-      maxIndex = i;
-      maxValue = cake[i];
+    for (let j = 0; j <= i; j++) {
+      if (arr[j] > maxValue) {
+        maxIndex = j;
+        maxValue = arr[j];
+      }
+    }
+
+    if (maxIndex < i) {
+      reverse(arr, 0, maxIndex);
+      result.push(maxIndex + 1);
+      reverse(arr, 0, i);
+      result.push(i + 1);
     }
   }
 
-  if (maxIndex < index) {
-    reverse(cake, 0, maxIndex);
-    res.push(maxIndex + 1);
-    reverse(cake, 0, index);
-    res.push(index + 1);
-  }
-
-  return recursion(cake, index - 1, res);
+  return result;
 }
 
-function reverse(arr: number[], left: number, right: number): void {
-  let i = left;
-  let j = right;
-  while (i < j) {
-    swap(arr, i, j);
-    i++;
-    j--;
-  }
-}

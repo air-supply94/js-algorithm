@@ -1,7 +1,7 @@
 // https://leetcode-cn.com/problems/different-ways-to-add-parentheses/
 // 241
 export function diffWaysToCompute(expression: string): number[] {
-  if (!expression.length) {
+  if (expression.length === 0) {
     return [];
   }
 
@@ -9,8 +9,8 @@ export function diffWaysToCompute(expression: string): number[] {
 
   for (let i = 0; i < expression.length; i++) {
     if (expression[i] === '+' || expression[i] === '-' || expression[i] === '*') {
-      const left = diffWaysToCompute(expression.substr(0, i));
-      const right = diffWaysToCompute(expression.substr(i + 1, expression.length - i - 1));
+      const left = diffWaysToCompute(expression.slice(0, i));
+      const right = diffWaysToCompute(expression.slice(i + 1));
 
       for (let j = 0; j < left.length; j++) {
         for (let k = 0; k < right.length; k++) {
@@ -18,7 +18,7 @@ export function diffWaysToCompute(expression: string): number[] {
             result.push(left[j] + right[k]);
           } else if (expression[i] === '-') {
             result.push(left[j] - right[k]);
-          } else {
+          } else if (expression[i] === '*') {
             result.push(left[j] * right[k]);
           }
         }
@@ -26,7 +26,7 @@ export function diffWaysToCompute(expression: string): number[] {
     }
   }
 
-  if (!result.length) {
+  if (result.length === 0) {
     result.push(Number(expression));
   }
 

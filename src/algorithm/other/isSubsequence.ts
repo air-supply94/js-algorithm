@@ -32,7 +32,7 @@ export function isSubsequenceBs(t: string, s: string): boolean {
   let pre = -1;
   for (let i = 0; i < t.length; i++) {
     const positions = cache.get(t[i]);
-    if (!positions) {
+    if (positions == null) {
       return false;
     }
 

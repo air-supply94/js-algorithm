@@ -3,7 +3,7 @@
 export function canCompleteCircuit(gas: number[], cost: number[]): number {
   let sum = 0;
   let start = 0;
-  let minValue = Infinity;
+  let minValue = 0;
 
   for (let i = 0; i < gas.length; i++) {
     sum += gas[i] - cost[i];
@@ -13,9 +13,5 @@ export function canCompleteCircuit(gas: number[], cost: number[]): number {
     }
   }
 
-  if (sum < 0) {
-    return -1;
-  } else {
-    return start % gas.length;
-  }
+  return sum < 0 ? -1 : start % gas.length;
 }
