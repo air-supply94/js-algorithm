@@ -1,30 +1,31 @@
 // 邻接表
 export function hasCircle(graph: number[][]): boolean {
-  const visitedCache: number[] = Array(graph.length).fill(0);
-  const pathTmp: number[] = Array(graph.length).fill(0);
+  const visited: number[] = Array(graph.length).fill(0);
+  const connectedPath: number[] = Array(graph.length).fill(0);
   let graphHasCircle = false;
 
   for (let i = 0; i < graph.length; i++) {
-    dfs(graph, i, visitedCache, pathTmp);
+    dfs(i);
   }
 
-  function dfs(graph: number[][], start: number, visited: number[], path: number[]): void {
-    if (path[start] === 1) {
+  function dfs(start: number): void {
+    if (connectedPath[start] === 1) {
       graphHasCircle = true;
-    }
-
-    if (visited[start] === 1 || graphHasCircle) {
       return;
     }
 
-    path[start] = 1;
-    visited[start] = 1;
-
-    for (let i = 0; i < graph[start].length; i++) {
-      dfs(graph, graph[start][i], visited, path);
+    if (visited[start] === 1) {
+      return;
     }
 
-    path[start] = 0;
+    visited[start] = 1;
+    connectedPath[start] = 1;
+
+    for (let i = 0; i < graph[start].length; i++) {
+      dfs(graph[start][i]);
+    }
+
+    connectedPath[start] = 0;
   }
 
   return graphHasCircle;
@@ -32,14 +33,14 @@ export function hasCircle(graph: number[][]): boolean {
 
 // 邻接表
 export function topologicalSortingDfs(graph: number[][]): number[] {
-  const visitedCache: number[] = Array(graph.length).fill(0);
-  const pathTmp: number[] = [];
+  const visited: number[] = Array(graph.length).fill(0);
+  const connectedPath: number[] = [];
 
   if (hasCircle(graph)) {
     return [];
   }
 
-  function dfs(graph: number[][], start: number, visited: number[], path: number[]): void {
+  function dfs(start: number): void {
     if (visited[start] === 1) {
       return;
     }
@@ -47,17 +48,17 @@ export function topologicalSortingDfs(graph: number[][]): number[] {
     visited[start] = 1;
 
     for (let i = 0; i < graph[start].length; i++) {
-      dfs(graph, graph[start][i], visited, path);
+      dfs(graph[start][i]);
     }
 
-    path.push(start);
+    connectedPath.push(start);
   }
 
   for (let i = 0; i < graph.length; i++) {
-    dfs(graph, i, visitedCache, pathTmp);
+    dfs(i);
   }
 
-  return pathTmp.reverse();
+  return connectedPath.reverse();
 }
 
 // 邻接表
@@ -77,7 +78,7 @@ export function topologicalSortingBfs(graph: number[][]): number[] {
     }
   }
 
-  while (queue.length) {
+  while (queue.length > 0) {
     const currentNode = queue.shift();
     result.push(currentNode);
 

@@ -1,4 +1,4 @@
-# (2022-04-19)
+# (2022-04-20)
 
 ### Bug Fixes
 
@@ -248,11 +248,12 @@
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
 - **graph:** 优化 dijkstra 算法 ([13ac2f9](https://github.com/air-supply94/js-algorithm/commit/13ac2f907588c141334bfda446c7c019399b2742))
 - **graph:** 增加图术语 ([93139b4](https://github.com/air-supply94/js-algorithm/commit/93139b4292972a6b4604a41efe6b6c9842c2a757))
+- **graph:** 更新实现逻辑 ([7575b5e](https://github.com/air-supply94/js-algorithm/commit/7575b5ec9e8d5daf61d0cc211efae7d1d5a3966f))
 - **graph/leetcode:** add allPathsSourceTarget ([ba33a1e](https://github.com/air-supply94/js-algorithm/commit/ba33a1ec08e4df370da5d830d6bcecd2c18320d4))
 - **graph/leetcode:** add canFinish findOrder ([368b7d3](https://github.com/air-supply94/js-algorithm/commit/368b7d3ca2fcca01df11c449d70fa4149835970c))
 - **greedy:** add canCompleteCircuit ([1a41837](https://github.com/air-supply94/js-algorithm/commit/1a41837c37ce3f8f837f9bb1e53926c26a942bee))
 - **greedy:** add jumpGameFast ([680996f](https://github.com/air-supply94/js-algorithm/commit/680996fea200dd5921b18229153f313d7fa5641d))
-- **greedy:** 更新实现逻辑 ([77c6012](https://github.com/air-supply94/js-algorithm/commit/77c6012837598d39777d02415869ca5ad8ed9dbe))
+- **greedy:** 更新实现逻辑 ([50fd098](https://github.com/air-supply94/js-algorithm/commit/50fd0985a75881f13d4fcb3e31a3678a78a2619b))
 - **hammingDistance:** add ([7540dac](https://github.com/air-supply94/js-algorithm/commit/7540dac75eec4d659f7faeab219084d5b6447dca))
 - **hashTable:** 实现太 low，没那么简单 ([4eb9634](https://github.com/air-supply94/js-algorithm/commit/4eb963424502f084cea768875dbd1e2a038efba1))
 - **hashTable:** 更改 hash 表，暂时只支持 key 为 string 或者 number。以后可能会加红黑树 ([24723ff](https://github.com/air-supply94/js-algorithm/commit/24723ff5cf1a29e16bd69902cee0e3662536fe0f))

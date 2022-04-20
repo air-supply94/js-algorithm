@@ -1,4 +1,4 @@
-import { Heap } from '../../dataStructures/heap';
+import { Heap } from '../index';
 
 // https://leetcode-cn.com/problems/trapping-rain-water-ii/
 // 407
@@ -47,7 +47,7 @@ export function trapRainWater(heightMap: number[][]): number {
   ];
   let result = 0;
 
-  while (!minHeap.isEmpty()) {
+  while (minHeap.isEmpty() === false) {
     const currentItem = minHeap.poll();
     const currentX = currentItem[0];
     const currentY = currentItem[1];

@@ -8,7 +8,7 @@ export function findLadders(beginWord: string, endWord: string, wordList: string
   let result: string[] = [];
 
   function dfs(currentPath: string[], currentWord: string): void {
-    if (result.length) {
+    if (result.length > 0) {
       return;
     }
 
@@ -24,7 +24,7 @@ export function findLadders(beginWord: string, endWord: string, wordList: string
     for (let i = 0; i < currentWord.length; i++) {
       for (let j = a; j <= z; j++) {
         const newWord = `${currentWord.slice(0, i)}${String.fromCharCode(j)}${currentWord.slice(i + 1)}`;
-        if (newWord !== currentWord && wordSet.has(newWord) && !visited.has(newWord)) {
+        if (newWord !== currentWord && wordSet.has(newWord) && visited.has(newWord) === false) {
           dfs(currentPath, newWord);
         }
       }
