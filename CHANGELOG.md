@@ -248,6 +248,8 @@
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
 - **graph:** 优化 dijkstra 算法 ([13ac2f9](https://github.com/air-supply94/js-algorithm/commit/13ac2f907588c141334bfda446c7c019399b2742))
 - **graph:** 增加图术语 ([93139b4](https://github.com/air-supply94/js-algorithm/commit/93139b4292972a6b4604a41efe6b6c9842c2a757))
+- **graph:** 更新实现逻辑 ([6511292](https://github.com/air-supply94/js-algorithm/commit/651129279d18c6f47863875b08bad29907659179))
+- **graph:** 更新实现逻辑 ([a646e25](https://github.com/air-supply94/js-algorithm/commit/a646e255d3601bbb3212d75b76e9e67924e81a3a))
 - **graph:** 更新实现逻辑 ([d2a9e24](https://github.com/air-supply94/js-algorithm/commit/d2a9e241d6abd7097199b787aeb37a8415b947ae))
 - **graph/leetcode:** add allPathsSourceTarget ([ba33a1e](https://github.com/air-supply94/js-algorithm/commit/ba33a1ec08e4df370da5d830d6bcecd2c18320d4))
 - **graph/leetcode:** add canFinish findOrder ([368b7d3](https://github.com/air-supply94/js-algorithm/commit/368b7d3ca2fcca01df11c449d70fa4149835970c))

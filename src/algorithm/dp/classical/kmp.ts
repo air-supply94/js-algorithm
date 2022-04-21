@@ -1,6 +1,5 @@
 function getPmt(str: string): number[] {
-  const dp: number[] = Array(str.length)
-    .fill(null);
+  const dp: number[] = Array(str.length).fill(null);
   dp[0] = 0;
   let i = 1;
   let j = 0;
@@ -45,11 +44,7 @@ export function strStr(originStr: string, matchStr: string): number {
     }
   }
 
-  if (j == matchStr.length) {
-    return i - j;
-  } else {
-    return -1;
-  }
+  return j == matchStr.length ? i - j : -1;
 }
 
 /*

@@ -147,20 +147,19 @@ export function kruskal(graph: Array<Array<[number, number]>>): number {
   }
   edges.sort((a, b) => a[2] - b[2]);
 
-  const f = Array(edges.length)
-    .fill(null);
+  const fx = Array(n).fill(null);
+  for (let i = 0; i < n; i++) {
+    fx[i] = i;
+  }
   let count = n;
   let result = 0;
-  for (let i = 0; i < f.length; i++) {
-    f[i] = i;
-  }
 
   function find(x: number): number {
-    if (f[x] === x) {
+    if (fx[x] === x) {
       return x;
     } else {
-      f[x] = find(f[x]);
-      return f[x];
+      fx[x] = find(fx[x]);
+      return fx[x];
     }
   }
 
@@ -170,7 +169,7 @@ export function kruskal(graph: Array<Array<[number, number]>>): number {
       count--;
     }
 
-    f[find(x)] = find(y);
+    fx[find(x)] = find(y);
   }
 
   for (let i = 0; i < edges.length; i++) {
@@ -191,16 +190,16 @@ export function dijkstra(graph: Array<Array<[number, number]>>, start: number): 
     0,
   ]);
 
-  while (queue.length) {
+  while (queue.length > 0) {
     const currentItem = queue.shift();
-    const startIndex = currentItem[0];
-    const weight = currentItem[1];
+    const currentIndex = currentItem[0];
+    const currentWeight = currentItem[1];
+    const neighbor = graph[currentIndex];
 
-    if (distance[startIndex] >= weight) {
-      const neighbor = graph[startIndex];
+    if (distance[currentIndex] >= currentWeight) {
       for (let i = 0; i < neighbor.length; i++) {
-        const nextWeight = weight + neighbor[i][1];
         const nextIndex = neighbor[i][0];
+        const nextWeight = currentWeight + neighbor[i][1];
         if (distance[nextIndex] > nextWeight) {
           distance[nextIndex] = nextWeight;
           queue.push([
@@ -228,51 +227,13 @@ export function floyd(graph: number[][]): number[][] {
     }
   }
 
-  for (let i = 0; i < graph.length; i++) {
-    for (let j = 0; j < graph.length; j++) {
-      for (let k = 0; k < graph.length; k++) {
-        dp[j][k] = Math.min(dp[j][k], dp[j][i] + dp[i][k]);
+  for (let k = 0; k < graph.length; k++) {
+    for (let i = 0; i < graph.length; i++) {
+      for (let j = 0; j < graph.length; j++) {
+        dp[i][j] = Math.min(dp[i][j], dp[i][k] + dp[k][j]);
       }
     }
   }
 
   return dp;
-}
-
-// 邻接表
-// https://leetcode-cn.com/problems/is-graph-bipartite/
-// 785
-export function isBipartite(graph: number[][]): boolean {
-  const n = graph.length;
-  const visited: number[] = Array(n).fill(0);
-  const color: number[] = Array(n).fill(1);
-  let result = true;
-
-  for (let i = 0; i < n; i++) {
-    if (visited[i] === 0) {
-      dfs(i);
-    }
-  }
-
-  function dfs(start: number): void {
-    if (result === false) {
-      return;
-    }
-
-    visited[start] = 1;
-    const neighbor = graph[start];
-
-    for (let i = 0; i < neighbor.length; i++) {
-      if (visited[neighbor[i]] === 0) {
-        color[neighbor[i]] = -color[start];
-        dfs(neighbor[i]);
-      } else {
-        if (color[neighbor[i]] === color[start]) {
-          result = false;
-        }
-      }
-    }
-  }
-
-  return result;
 }
