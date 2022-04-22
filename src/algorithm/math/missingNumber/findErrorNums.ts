@@ -26,7 +26,7 @@ export function findErrorNums(nums: number[]): number[] {
   }
 
   for (let i = 1; i <= n; i++) {
-    if (i & rightBit) {
+    if (rightBit & i) {
       xor1 ^= i;
     } else {
       xor0 ^= i;

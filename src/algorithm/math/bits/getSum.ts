@@ -9,7 +9,7 @@ export function getSum(a: number, b: number): number {
     const bi = (b >> i) & 1;
     const bitSum = ai ^ bi ^ rest;
 
-    rest = rest ? ai | bi : ai & bi;
+    rest = rest === 1 ? ai | bi : ai & bi;
 
     result |= (bitSum << i);
   }

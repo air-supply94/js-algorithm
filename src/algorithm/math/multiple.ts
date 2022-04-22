@@ -3,8 +3,7 @@
 export function multiply(num1: string, num2: string): string {
   const h = num1.length;
   const w = num2.length;
-  const result: number[] = Array(h + w)
-    .fill(0);
+  const result: number[] = Array(h + w).fill(0);
   let sum = 0;
 
   for (let i = h - 1; i >= 0; i--) {
@@ -25,9 +24,5 @@ export function multiply(num1: string, num2: string): string {
     i++;
   }
 
-  if (res) {
-    return res;
-  } else {
-    return '0';
-  }
+  return res.length > 0 ? res : '0';
 }

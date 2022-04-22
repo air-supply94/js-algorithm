@@ -1,4 +1,4 @@
-# (2022-04-21)
+# (2022-04-22)
 
 ### Bug Fixes
 
@@ -248,7 +248,7 @@
 - **graph:** update vertex edge ([3bc3895](https://github.com/air-supply94/js-algorithm/commit/3bc3895299993f68e99d782147e8366a8dde32fc))
 - **graph:** 优化 dijkstra 算法 ([13ac2f9](https://github.com/air-supply94/js-algorithm/commit/13ac2f907588c141334bfda446c7c019399b2742))
 - **graph:** 增加图术语 ([93139b4](https://github.com/air-supply94/js-algorithm/commit/93139b4292972a6b4604a41efe6b6c9842c2a757))
-- **graph:** 更新实现逻辑 ([6511292](https://github.com/air-supply94/js-algorithm/commit/651129279d18c6f47863875b08bad29907659179))
+- **graph:** 更新实现逻辑 ([dfe46d8](https://github.com/air-supply94/js-algorithm/commit/dfe46d87e90cb7f22d6cf3a80c56ceda8ee451ce))
 - **graph:** 更新实现逻辑 ([a646e25](https://github.com/air-supply94/js-algorithm/commit/a646e255d3601bbb3212d75b76e9e67924e81a3a))
 - **graph:** 更新实现逻辑 ([d2a9e24](https://github.com/air-supply94/js-algorithm/commit/d2a9e241d6abd7097199b787aeb37a8415b947ae))
 - **graph/leetcode:** add allPathsSourceTarget ([ba33a1e](https://github.com/air-supply94/js-algorithm/commit/ba33a1ec08e4df370da5d830d6bcecd2c18320d4))
@@ -287,6 +287,7 @@
 - **math:** update countSetBits(增加负数) ([8371770](https://github.com/air-supply94/js-algorithm/commit/837177086d7e2274d2cee79e93a07a7cad317692))
 - **math:** update divingBoard ([d990253](https://github.com/air-supply94/js-algorithm/commit/d990253df88619a5a1091abccd8e64311cc3311e))
 - **math:** update fastPowering ([c193d7a](https://github.com/air-supply94/js-algorithm/commit/c193d7a343827c35ab52fbe25b19882b849c3393))
+- **math:** 更新实现逻辑 ([56ea361](https://github.com/air-supply94/js-algorithm/commit/56ea361e214c8e5ce60dd5a3d335f78495ab1b88))
 - **math/bits:** add ([8bde116](https://github.com/air-supply94/js-algorithm/commit/8bde116141bc3a86625a2a3a44cdaf79ec6f535e))
 - **math/bits:** test ([3de3260](https://github.com/air-supply94/js-algorithm/commit/3de32608ced958befed76d42b1e8052c2fa6f6cc))
 - **mergeSort:** 更新 mergeSortedArrays concat 方式 ([8baf586](https://github.com/air-supply94/js-algorithm/commit/8baf5861287c1e603d619609628544db119c6781))

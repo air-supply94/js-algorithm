@@ -6,9 +6,7 @@ interface Item {
 }
 
 export function WSRARes(nums: number[], count: number): number[] {
-  const minHeap = new Heap<Item>((a: Item, b: Item) => {
-    return a.score < b.score;
-  });
+  const minHeap = new Heap<Item>((a, b) => a.score < b.score);
 
   for (let i = 0; i < count; i++) {
     minHeap.add({

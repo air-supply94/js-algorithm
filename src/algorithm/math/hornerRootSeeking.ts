@@ -1,4 +1,3 @@
-
 function horner(an: number[], x: number): number {
   let v = 0;
   let n = an.length - 1;

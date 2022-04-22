@@ -1,16 +1,10 @@
 // https://leetcode-cn.com/problems/missing-number/
 // 268
 export function missingNumber(nums: number[]): number {
-  const n = nums.length;
   let result = 0;
-
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < nums.length; i++) {
     result ^= nums[i];
+    result ^= i + 1;
   }
-
-  for (let i = 0; i <= n; i++) {
-    result ^= i;
-  }
-
   return result;
 }

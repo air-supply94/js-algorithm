@@ -2,10 +2,9 @@
 // 172
 export function trailingZeroes(n: number): number {
   let count = 0;
-  let base = 5;
-  while (base <= n) {
-    count += Math.floor(n / base);
-    base *= 5;
+  while (n > 0) {
+    n = (n / 5) | 0;
+    count += n;
   }
   return count;
 }

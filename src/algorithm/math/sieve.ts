@@ -9,10 +9,8 @@ export function sieve(n: number): number[] {
 
   for (let i = 2; i <= Math.floor(Math.pow(n, 0.5)); i++) {
     if (result[i] !== 0) {
-      let j = i * i;
-      while (j <= n) {
+      for (let j = i * i; j < n; j += i) {
         result[j] = 0;
-        j += i;
       }
     }
   }
