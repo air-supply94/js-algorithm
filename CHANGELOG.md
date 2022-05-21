@@ -1,4 +1,4 @@
-# (2022-04-23)
+# (2022-05-21)
 
 ### Bug Fixes
 
@@ -254,7 +254,7 @@
 - **graph/leetcode:** add allPathsSourceTarget ([ba33a1e](https://github.com/air-supply94/js-algorithm/commit/ba33a1ec08e4df370da5d830d6bcecd2c18320d4))
 - **graph/leetcode:** add canFinish findOrder ([368b7d3](https://github.com/air-supply94/js-algorithm/commit/368b7d3ca2fcca01df11c449d70fa4149835970c))
 - **greedy:** add canCompleteCircuit ([1a41837](https://github.com/air-supply94/js-algorithm/commit/1a41837c37ce3f8f837f9bb1e53926c26a942bee))
-- **greedy:** add getSmallestString ([904685a](https://github.com/air-supply94/js-algorithm/commit/904685a5092bb3cb8baf1b8e04f0f0a2f93269b2))
+- **greedy:** add getSmallestString ([c9a0f48](https://github.com/air-supply94/js-algorithm/commit/c9a0f48296d59687050ac4217b06392b5ed91562))
 - **greedy:** add jumpGameFast ([680996f](https://github.com/air-supply94/js-algorithm/commit/680996fea200dd5921b18229153f313d7fa5641d))
 - **greedy:** 更新实现逻辑 ([50fd098](https://github.com/air-supply94/js-algorithm/commit/50fd0985a75881f13d4fcb3e31a3678a78a2619b))
 - **hammingDistance:** add ([7540dac](https://github.com/air-supply94/js-algorithm/commit/7540dac75eec4d659f7faeab219084d5b6447dca))
@@ -343,6 +343,7 @@
 - **stack:** 增加 tribonacci ([de70519](https://github.com/air-supply94/js-algorithm/commit/de70519065f15add07f2a5e8ffa04aa6ede00eb9))
 - **stack:** 增加平衡符号 ([52dca19](https://github.com/air-supply94/js-algorithm/commit/52dca19d0ef7c6a2381a1e342cf95e8d27633181))
 - **stack:** 更新实现逻辑 ([4da25d1](https://github.com/air-supply94/js-algorithm/commit/4da25d1dbeb59f90f10e0d088e6fb60c5fe25b0e))
+- **stack/compile:** add description ([2f601bc](https://github.com/air-supply94/js-algorithm/commit/2f601bc94db014ff3de04af59fb1569d90325d79))
 - **stack/leetcode:** update parentheses ([e087e71](https://github.com/air-supply94/js-algorithm/commit/e087e7149955ae9bc4a5822081bda96eb65207de))
 - **string:** add longestSubstring ([43ed7e8](https://github.com/air-supply94/js-algorithm/commit/43ed7e89200aaf46792095661f4346b1c86acfc2))
 - **string:** add setZero ([d85a8e3](https://github.com/air-supply94/js-algorithm/commit/d85a8e3cdd49e9cea3b2f5843037c704c0f4c8a2))
