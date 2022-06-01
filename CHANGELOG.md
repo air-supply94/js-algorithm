@@ -288,6 +288,8 @@
 - **math:** update countSetBits(增加负数) ([8371770](https://github.com/air-supply94/js-algorithm/commit/837177086d7e2274d2cee79e93a07a7cad317692))
 - **math:** update divingBoard ([d990253](https://github.com/air-supply94/js-algorithm/commit/d990253df88619a5a1091abccd8e64311cc3311e))
 - **math:** update fastPowering ([c193d7a](https://github.com/air-supply94/js-algorithm/commit/c193d7a343827c35ab52fbe25b19882b849c3393))
+- **math:** 去掉一些简单方法 ([b5ddc8b](https://github.com/air-supply94/js-algorithm/commit/b5ddc8befcb626404c52cdf8e7837779da40bc37))
+- **math:** 去掉一些简单方法 ([09a8cd4](https://github.com/air-supply94/js-algorithm/commit/09a8cd459e0b759c79bf46e129c8b03856258afd))
 - **math:** 更新实现逻辑 ([bdd8d3f](https://github.com/air-supply94/js-algorithm/commit/bdd8d3f1be2bd86d5b03833ad78b7e0cf384bbd7))
 - **math/bits:** add ([8bde116](https://github.com/air-supply94/js-algorithm/commit/8bde116141bc3a86625a2a3a44cdaf79ec6f535e))
 - **math/bits:** test ([3de3260](https://github.com/air-supply94/js-algorithm/commit/3de32608ced958befed76d42b1e8052c2fa6f6cc))
