@@ -8,19 +8,17 @@ export function findLadders(beginWord: string, endWord: string, wordList: string
   let result: string[] = [];
 
   function dfs(currentPath: string[], currentWord: string): void {
+    visited.add(currentWord);
     if (result.length > 0) {
       return;
     }
 
-    currentPath.push(currentWord);
-    visited.add(currentWord);
-
     if (currentWord === endWord) {
-      result = currentPath.slice();
-      currentPath.pop();
+      result = currentPath.concat(currentWord);
       return;
     }
 
+    currentPath.push(currentWord);
     for (let i = 0; i < currentWord.length; i++) {
       for (let j = a; j <= z; j++) {
         const newWord = `${currentWord.slice(0, i)}${String.fromCharCode(j)}${currentWord.slice(i + 1)}`;
@@ -29,7 +27,6 @@ export function findLadders(beginWord: string, endWord: string, wordList: string
         }
       }
     }
-
     currentPath.pop();
   }
 

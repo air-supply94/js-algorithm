@@ -54,15 +54,15 @@ export function shortestPathBinaryMatrix(grid: number[][]): number {
       return;
     }
 
+    grid[i][j] = null;
     for (let k = 0; k < directionMatrix.length; k++) {
       h = i + directionMatrix[k][0];
       w = j + directionMatrix[k][1];
       if (h >= 0 && h < height && w >= 0 && w < width) {
-        grid[i][j] = null;
         dfs(h, w, path + 1);
-        grid[i][j] = 0;
       }
     }
+    grid[i][j] = 0;
   }
 
   dfs(0, 0, 0);
