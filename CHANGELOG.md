@@ -1,4 +1,4 @@
-# (2022-06-05)
+# (2022-08-27)
 
 ### Bug Fixes
 
@@ -27,6 +27,7 @@
 - 增加 trie ([605372a](https://github.com/air-supply94/js-algorithm/commit/605372afa097d3c4d0aebbda3f337b08ce07f69c))
 - 增加测试覆盖 ([acb452b](https://github.com/air-supply94/js-algorithm/commit/acb452bcbbb5be7d1801c8ce63581873f80e1830))
 - 增加跳跃游戏、雨滴问题 ([4a0523e](https://github.com/air-supply94/js-algorithm/commit/4a0523ee3728ad5004412c07e78be3b86fea0932))
+- 更新实现 ([57358c4](https://github.com/air-supply94/js-algorithm/commit/57358c428cd2cdd11a97e586065572fae2b2666e))
 - 简单重构 ([94b454e](https://github.com/air-supply94/js-algorithm/commit/94b454edea13c9e781008584280de4841845cb4f))
 - 限制 BST 访问 ([26941af](https://github.com/air-supply94/js-algorithm/commit/26941af4a0b513d42ae9ea7dc597967097570738))
 - 限制链表 node 的访问 ([6879acc](https://github.com/air-supply94/js-algorithm/commit/6879acc3d93cf753b4bf92efefa15e2142076738))
