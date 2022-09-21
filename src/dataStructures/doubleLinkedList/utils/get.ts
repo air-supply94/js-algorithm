@@ -2,11 +2,7 @@ import type { DoubleLinkedListNode } from '../doubleLinkedList';
 
 export function formatIndex(index: any, size: number): number {
   const indexInt = index | 0;
-  if (indexInt < 0) {
-    return indexInt + size;
-  } else {
-    return indexInt;
-  }
+  return indexInt < 0 ? indexInt + size : indexInt;
 }
 
 export function get<T = unknown>(index: number, size: number, head: null | DoubleLinkedListNode<T>, tail: null | DoubleLinkedListNode<T>): null | DoubleLinkedListNode<T> {
@@ -16,25 +12,19 @@ export function get<T = unknown>(index: number, size: number, head: null | Doubl
   if (0 <= position && position <= middleIndex) {
     let i = 0;
     let currentNode = head;
-    while (currentNode) {
-      if (i === position) {
-        return currentNode;
-      }
+    while (currentNode && i !== position) {
       i++;
       currentNode = currentNode.next;
     }
-    return null;
+    return currentNode;
   } else if (middleIndex < position) {
     let i = size - 1;
     let currentNode = tail;
-    while (currentNode) {
-      if (i === position) {
-        return currentNode;
-      }
+    while (currentNode && i !== position) {
       i--;
       currentNode = currentNode.previous;
     }
-    return null;
+    return currentNode;
   } else {
     return null;
   }

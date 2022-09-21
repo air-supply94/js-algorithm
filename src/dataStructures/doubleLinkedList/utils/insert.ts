@@ -9,11 +9,11 @@ export function insert<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, value
   } else if (position >= doubleLinkedList.size) {
     return doubleLinkedList.append(value);
   } else {
-    const oldPositionNode = get(position, doubleLinkedList.size, doubleLinkedList.head, doubleLinkedList.tail);
-    const newPositionNode = new DoubleLinkedListNode<T>(value, oldPositionNode, oldPositionNode.previous);
-    oldPositionNode.previous.next = newPositionNode;
-    oldPositionNode.previous = newPositionNode;
-    doubleLinkedList.size += 1;
-    return newPositionNode;
+    const oldNode = get(position, doubleLinkedList.size, doubleLinkedList.head, doubleLinkedList.tail);
+    const newNode = new DoubleLinkedListNode<T>(value, oldNode, oldNode.previous);
+    oldNode.previous.next = newNode;
+    oldNode.previous = newNode;
+    doubleLinkedList.size++;
+    return newNode;
   }
 }

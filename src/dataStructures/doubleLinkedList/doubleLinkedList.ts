@@ -1,5 +1,6 @@
 import type { compareFunctionType } from '../../utils';
 import { Comparator } from '../../utils';
+import { appendNode, prependNode } from './utils';
 
 export class DoubleLinkedListNode<T = unknown> {
   constructor(value: T | null, next: DoubleLinkedListNode<T> | null = null, previous: DoubleLinkedListNode<T> | null = null) {
@@ -56,29 +57,11 @@ export class DoubleLinkedList<T = unknown> {
   }
 
   public append(value: T): DoubleLinkedListNode<T> {
-    const node = new DoubleLinkedListNode(value, null, this.tail);
-    if (this.isEmpty()) {
-      this.tail = node;
-      this.head = node;
-    } else {
-      this.tail.next = node;
-      this.tail = node;
-    }
-    this.size++;
-    return node;
+    return appendNode(this, new DoubleLinkedListNode(value));
   }
 
   public prepend(value: T): DoubleLinkedListNode<T> {
-    const node = new DoubleLinkedListNode(value, this.head);
-    if (this.isEmpty()) {
-      this.head = node;
-      this.tail = node;
-    } else {
-      this.head.previous = node;
-      this.head = node;
-    }
-    this.size++;
-    return node;
+    return prependNode(this, new DoubleLinkedListNode(value));
   }
 
   public deleteHead(): null | DoubleLinkedListNode<T> {

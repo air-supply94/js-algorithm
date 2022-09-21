@@ -27,7 +27,7 @@ export function deleteNode<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, n
     node.previous.next = node.next;
     node.next = null;
     node.previous = null;
-    doubleLinkedList.size -= 1;
+    doubleLinkedList.size--;
     return node;
   }
 }
