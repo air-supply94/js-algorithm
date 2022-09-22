@@ -17,7 +17,7 @@ export function reverseList(head: ListNode): ListNode | null {
 }
 
 function reverseCount(head: ListNode | null, n: number): ListNode | null {
-  if (!head || !head.next) {
+  if (head == null || head.next == null) {
     return head;
   }
 
@@ -44,7 +44,7 @@ function reverseCount(head: ListNode | null, n: number): ListNode | null {
 // https://leetcode-cn.com/problems/reverse-linked-list-ii/
 // 92
 export function reverseBetween(head: ListNode | null, m: number, n: number): ListNode | null {
-  if (!head || !head.next) {
+  if (head == null || head.next == null) {
     return head;
   }
 
@@ -71,7 +71,7 @@ export function reverseBetween(head: ListNode | null, m: number, n: number): Lis
 // https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
 // 25
 export function reverseKGroup(head: ListNode | null, n: number): ListNode | null {
-  if (!head || !head.next) {
+  if (head == null || head.next == null) {
     return head;
   }
 
