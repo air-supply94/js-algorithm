@@ -1,21 +1,15 @@
 // https://leetcode-cn.com/problems/maximum-frequency-stack/submissions/
 // 895
 export class FreqStack {
-  constructor() {
-    this.freqMap = new Map<number, number>();
-    this.freqStackMap = new Map<number, number[]>();
-    this.maxFreq = 0;
-  }
+  private maxFreq = 0;
 
-  private maxFreq: number;
+  private readonly freqMap = new Map<number, number>();
 
-  private readonly freqMap: Map<number, number>;
-
-  private readonly freqStackMap: Map<number, number[]>;
+  private readonly freqStackMap = new Map<number, number[]>();
 
   public push(item: number): void {
     const oldCount = this.freqMap.get(item);
-    if (oldCount) {
+    if (oldCount > 0) {
       const newCount = oldCount + 1;
       this.freqMap.set(item, newCount);
 
