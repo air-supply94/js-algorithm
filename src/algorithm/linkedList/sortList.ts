@@ -5,7 +5,7 @@ import { mergeTwoLists } from './mergeTwoLists';
 // https://leetcode-cn.com/problems/sort-list/
 // 148
 export function sortList(head: ListNode | null): ListNode | null {
-  if (!head || !head.next) {
+  if (head == null || head.next == null) {
     return head;
   }
 

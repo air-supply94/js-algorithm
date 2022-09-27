@@ -3,7 +3,7 @@ import type { TreeNode } from './treeNode';
 // https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
 // 剑指offer-34
 export function pathSum(root: TreeNode | null, sum: number, result: number[][] = [], currentPath: number[] = []): number[][] {
-  if (!root) {
+  if (root == null) {
     return result;
   }
 
@@ -12,7 +12,7 @@ export function pathSum(root: TreeNode | null, sum: number, result: number[][] =
 }
 
 function pathSumDfs(root: TreeNode | null, sum: number, result: number[][], currentPath: number[]): void {
-  if (!root) {
+  if (root == null) {
     return;
   }
 

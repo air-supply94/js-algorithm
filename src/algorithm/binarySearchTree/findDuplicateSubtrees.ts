@@ -7,7 +7,7 @@ export function findDuplicateSubtrees(root: TreeNode | null): TreeNode[] {
   const list: TreeNode[] = [];
 
   function recursion(rootNode: TreeNode | null): string {
-    if (!rootNode) {
+    if (rootNode == null) {
       return ' ';
     }
 

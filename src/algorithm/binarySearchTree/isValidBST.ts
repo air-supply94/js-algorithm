@@ -7,7 +7,7 @@ export function isValidBST(root: TreeNode | null): boolean {
 }
 
 function recursion(rootNode: TreeNode | null): number[] {
-  if (!rootNode) {
+  if (rootNode == null) {
     return [
       1,
       Infinity,

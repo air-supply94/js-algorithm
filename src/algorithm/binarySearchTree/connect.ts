@@ -8,7 +8,7 @@ interface Node {
 // https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/
 // 116
 export function connect(root: Node): Node | null {
-  if (!root) {
+  if (root == null) {
     return null;
   }
 

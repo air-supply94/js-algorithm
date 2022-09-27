@@ -11,7 +11,7 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
     count--;
   }
 
-  if (!fast) {
+  if (fast == null) {
     return head.next;
   }
 

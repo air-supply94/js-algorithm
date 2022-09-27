@@ -6,7 +6,7 @@ export function maxSumBST(root: TreeNode | null): number {
   let max = 0;
 
   function recursion(rootNode: TreeNode | null): number[] {
-    if (!rootNode) {
+    if (rootNode == null) {
       return [
         1,
         Infinity,

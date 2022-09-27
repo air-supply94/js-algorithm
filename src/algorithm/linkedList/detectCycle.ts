@@ -14,7 +14,7 @@ export function detectCycle(startNode: ListNode): null | ListNode {
     }
   }
 
-  if (!fast || !fast.next) {
+  if (fast == null || fast.next == null) {
     return null;
   }
 

@@ -3,7 +3,7 @@ import type { TreeNode } from './treeNode';
 // https://leetcode-cn.com/problems/symmetric-tree/
 // 101
 export function isSymmetric(root: TreeNode | null): boolean {
-  if (!root) {
+  if (root == null) {
     return true;
   }
 
@@ -16,12 +16,12 @@ function isSameLeftAndRight(left: TreeNode | null, right: TreeNode | null): bool
   }
 
   if (right == null) {
-    return left == null;
+    return false;
   }
 
   if (left.val !== right.val) {
     return false;
-  } else {
-    return isSameLeftAndRight(left.left, right.right) && isSameLeftAndRight(left.right, right.left);
   }
+
+  return isSameLeftAndRight(left.left, right.right) && isSameLeftAndRight(left.right, right.left);
 }

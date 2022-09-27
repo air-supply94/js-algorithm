@@ -7,7 +7,7 @@ export function minDiffInBST(root: TreeNode | null): number {
   let pre: number | null = null;
 
   function dfs(tmpRoot: TreeNode) {
-    if (!tmpRoot) {
+    if (tmpRoot == null) {
       return;
     }
 

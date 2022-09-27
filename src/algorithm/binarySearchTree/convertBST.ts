@@ -5,7 +5,7 @@ import type { TreeNode } from './treeNode';
 export function convertBST(root: TreeNode | null): TreeNode | null {
   let sum = 0;
   function inorderTraverse(rootNode: TreeNode | null) {
-    if (!rootNode) {
+    if (rootNode == null) {
       return;
     }
 

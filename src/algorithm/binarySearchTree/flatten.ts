@@ -3,7 +3,7 @@ import type { TreeNode } from './treeNode';
 // https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
 // 114
 export function flatten(root: TreeNode | null): void {
-  if (!root) {
+  if (root == null) {
     return null;
   }
 
@@ -16,7 +16,7 @@ export function flatten(root: TreeNode | null): void {
   root.right = left;
 
   let current = root;
-  while (current.right) {
+  while (current.right != null) {
     current = current.right;
   }
   current.right = right;

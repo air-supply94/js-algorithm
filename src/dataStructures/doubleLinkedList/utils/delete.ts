@@ -34,7 +34,7 @@ export function deleteNode<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, n
 
 export function deleteIndex<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, index: number): null | DoubleLinkedListNode<T> {
   const node = get(index, doubleLinkedList.size, doubleLinkedList.head, doubleLinkedList.tail);
-  if (!node) {
+  if (node == null) {
     return null;
   }
 

@@ -1,7 +1,7 @@
 import { TreeNode } from './treeNode';
 
 export function serializeLevelOrder(array: number[]): TreeNode | null {
-  if (!array.length) {
+  if (array.length === 0) {
     return null;
   }
 

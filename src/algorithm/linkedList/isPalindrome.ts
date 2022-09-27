@@ -14,7 +14,7 @@ export function getHalfNode(head: ListNode): ListNode | null {
 // https://leetcode-cn.com/problems/palindrome-linked-list/
 // 234
 export function isPalindrome(head: ListNode): boolean {
-  if (!head) {
+  if (head == null) {
     return true;
   }
 

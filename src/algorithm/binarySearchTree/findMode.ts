@@ -9,7 +9,7 @@ export function findMode(root: TreeNode | null): number[] {
   let result: number[] = [];
 
   function dfs(tmpRoot: TreeNode) {
-    if (!tmpRoot) {
+    if (tmpRoot == null) {
       return;
     }
 
