@@ -16,6 +16,9 @@ function dfs(
   }
 
   for (let i = start; i < choices.length; i++) {
+    /*    if (i > start && choices[i] === choices[i - 1]) {
+      // 重复判断
+    }*/
     currentPath.push(choices[i]);
 
     dfs(
