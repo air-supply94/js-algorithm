@@ -49,8 +49,9 @@ export function shortestPathBinaryMatrix(grid: number[][]): number {
       return;
     }
 
+    path++;
     if (i === width - 1 && j === height - 1) {
-      count = Math.min(count, path + 1);
+      count = Math.min(count, path);
       return;
     }
 
@@ -59,7 +60,7 @@ export function shortestPathBinaryMatrix(grid: number[][]): number {
       h = i + directionMatrix[k][0];
       w = j + directionMatrix[k][1];
       if (h >= 0 && h < height && w >= 0 && w < width) {
-        dfs(h, w, path + 1);
+        dfs(h, w, path);
       }
     }
     grid[i][j] = 0;

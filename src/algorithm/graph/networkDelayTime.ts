@@ -1,4 +1,4 @@
-import { dijkstra } from './utils';
+import { dijkstra } from './utils/shortestPath';
 
 function buildGraph(times: Array<[number, number, number]>, n: number): Array<Array<[number, number]>> {
   const graph: Array<Array<[number, number]>> = Array(n)

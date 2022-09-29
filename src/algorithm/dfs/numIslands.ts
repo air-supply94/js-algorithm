@@ -31,7 +31,6 @@ export function numIslands(grid: string[][]): number {
     }
 
     grid[i][j] = null;
-
     for (let k = 0; k < directionMatrix.length; k++) {
       h = i + directionMatrix[k][0];
       w = j + directionMatrix[k][1];
@@ -39,6 +38,7 @@ export function numIslands(grid: string[][]): number {
         dfs(h, w);
       }
     }
+    grid[i][j] = '1';
   }
 
   for (let i = 0; i < height; i++) {
@@ -46,15 +46,6 @@ export function numIslands(grid: string[][]): number {
       if (grid[i][j] === '1') {
         count++;
         dfs(i, j);
-      }
-    }
-  }
-
-  // recover
-  for (let i = 0; i < height; i++) {
-    for (let j = 0; j < width; j++) {
-      if (grid[i][j] === null) {
-        grid[i][j] = '1';
       }
     }
   }

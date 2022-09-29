@@ -1,4 +1,4 @@
-import { hasCircle, topologicalSortingBfs, topologicalSortingDfs } from './utils';
+import { hasCircle, topologicalSortingBfs, topologicalSortingDfs } from './utils/topologicalSorting';
 
 function buildGraph(numCourses: number, prerequisites: number[][]): number[][] {
   const graph: number[][] = Array(numCourses).fill(null);
