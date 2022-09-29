@@ -5,66 +5,65 @@ export function letterCombinations(digits: string): string[] {
     return [];
   }
 
-  const dict: Record<string, string[]> = {
-    '2': [
-      'a',
-      'b',
-      'c',
-    ],
-    '3': [
-      'd',
-      'e',
-      'f',
-    ],
-    '4': [
-      'g',
-      'h',
-      'i',
-    ],
-    '5': [
-      'j',
-      'k',
-      'l',
-    ],
-    '6': [
-      'm',
-      'n',
-      'o',
-    ],
-    '7': [
-      'p',
-      'q',
-      'r',
-      's',
-    ],
-    '8': [
-      't',
-      'u',
-      'v',
-    ],
-    '9': [
-      'w',
-      'x',
-      'y',
-      'z',
-    ],
-  };
+  return dfs([], [], digits, 0);
+}
 
-  const result: string[] = [];
+const dict: Record<string, string[]> = {
+  '2': [
+    'a',
+    'b',
+    'c',
+  ],
+  '3': [
+    'd',
+    'e',
+    'f',
+  ],
+  '4': [
+    'g',
+    'h',
+    'i',
+  ],
+  '5': [
+    'j',
+    'k',
+    'l',
+  ],
+  '6': [
+    'm',
+    'n',
+    'o',
+  ],
+  '7': [
+    'p',
+    'q',
+    'r',
+    's',
+  ],
+  '8': [
+    't',
+    'u',
+    'v',
+  ],
+  '9': [
+    'w',
+    'x',
+    'y',
+    'z',
+  ],
+};
 
-  function dfs(currentPath: string[], n: number): void {
-    if (n === digits.length) {
-      result.push(currentPath.join(''));
-      return;
-    }
-
-    for (let i = 0; i < dict[digits[n]].length; i++) {
-      currentPath.push(dict[digits[n]][i]);
-      dfs(currentPath, n + 1);
-      currentPath.pop();
-    }
+function dfs(result: string[], currentPath: string[], digits: string, n: number): string[] {
+  if (n === digits.length) {
+    result.push(currentPath.join(''));
+    return result;
   }
 
-  dfs([], 0);
+  for (let i = 0; i < dict[digits[n]].length; i++) {
+    currentPath.push(dict[digits[n]][i]);
+    dfs(result, currentPath, digits, n + 1);
+    currentPath.pop();
+  }
+
   return result;
 }
