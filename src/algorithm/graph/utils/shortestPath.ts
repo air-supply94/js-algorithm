@@ -35,20 +35,21 @@ export function dijkstra(graph: Array<Array<[number, number]>>, start: number): 
 
 // 邻接矩阵
 export function floyd(graph: number[][]): number[][] {
-  const dp: number[][] = Array(graph.length)
+  const n = graph.length;
+  const dp: number[][] = Array(n)
     .fill(null)
-    .map(() => Array(graph.length)
+    .map(() => Array(n)
       .fill(null));
 
-  for (let i = 0; i < graph.length; i++) {
-    for (let j = 0; j < graph.length; j++) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
       dp[i][j] = graph[i][j];
     }
   }
 
-  for (let k = 0; k < graph.length; k++) {
-    for (let i = 0; i < graph.length; i++) {
-      for (let j = 0; j < graph.length; j++) {
+  for (let k = 0; k < n; k++) {
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
         dp[i][j] = Math.min(dp[i][j], dp[i][k] + dp[k][j]);
       }
     }

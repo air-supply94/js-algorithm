@@ -48,19 +48,20 @@ export function kruskal(graph: Array<Array<[number, number]>>): number {
   }
   edges.sort((a, b) => a[2] - b[2]);
 
-  const fx = Array(n).fill(null);
+  const f = Array(n).fill(null);
   for (let i = 0; i < n; i++) {
-    fx[i] = i;
+    f[i] = i;
   }
+
   let count = n;
   let result = 0;
 
   function find(x: number): number {
-    if (fx[x] === x) {
+    if (f[x] === x) {
       return x;
     } else {
-      fx[x] = find(fx[x]);
-      return fx[x];
+      f[x] = find(f[x]);
+      return f[x];
     }
   }
 
@@ -70,7 +71,7 @@ export function kruskal(graph: Array<Array<[number, number]>>): number {
       count--;
     }
 
-    fx[find(x)] = find(y);
+    f[find(x)] = find(y);
   }
 
   for (let i = 0; i < edges.length; i++) {

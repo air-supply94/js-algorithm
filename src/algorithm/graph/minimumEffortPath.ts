@@ -28,12 +28,13 @@ export function minimumEffortPath(heights: number[][]): number {
       1,
     ],
   ];
-  const queue: Array<[number, number, number]> = [];
-  queue.push([
-    0,
-    0,
-    0,
-  ]);
+  const queue: Array<[number, number, number]> = [
+    [
+      0,
+      0,
+      0,
+    ],
+  ];
 
   while (queue.length > 0) {
     const currentItem = queue.shift();
