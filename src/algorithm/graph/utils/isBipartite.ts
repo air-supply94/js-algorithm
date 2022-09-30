@@ -8,7 +8,7 @@ export function isBipartite(graph: number[][]): boolean {
   let result = true;
 
   for (let i = 0; i < n; i++) {
-    if (visited[i] === 0) {
+    if (visited[i] === 0 && result) {
       dfs(i);
     }
   }
@@ -33,5 +33,27 @@ export function isBipartite(graph: number[][]): boolean {
     }
   }
 
+  /*  function bfs(start: number): void {
+    const queue = [start];
+    visited[start] = 1;
+
+    while (queue.length > 0 && result) {
+      const currentNode = queue.shift();
+      const neighbor = graph[currentNode];
+
+      for (let i = 0; i < neighbor.length; i++) {
+        const nextNode = neighbor[i];
+        if (visited[nextNode] === 0) {
+          visited[nextNode] = 1;
+          color[nextNode] = -color[currentNode];
+          queue.push(nextNode);
+        } else if (color[currentNode] === color[nextNode]) {
+          result = false;
+        }
+      }
+    }
+  }*/
+
   return result;
 }
+

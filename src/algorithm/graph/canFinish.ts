@@ -1,4 +1,4 @@
-import { hasCircle, topologicalSortingBfs, topologicalSortingDfs } from './utils/topologicalSorting';
+import { hasCircleDfs, topologicalSortingBfs, topologicalSortingDfs } from './utils/topologicalSorting';
 
 function buildGraph(numCourses: number, prerequisites: number[][]): number[][] {
   const graph: number[][] = Array(numCourses).fill(null);
@@ -16,7 +16,7 @@ function buildGraph(numCourses: number, prerequisites: number[][]): number[][] {
 // https://leetcode-cn.com/problems/course-schedule/
 // 207
 export function canFinish(numCourses: number, prerequisites: number[][]): boolean {
-  return hasCircle(buildGraph(numCourses, prerequisites)) === false;
+  return hasCircleDfs(buildGraph(numCourses, prerequisites)) === false;
 }
 
 // https://leetcode-cn.com/problems/course-schedule-ii/
