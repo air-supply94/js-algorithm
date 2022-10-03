@@ -19,7 +19,7 @@ export class TrieNode {
   }
 
   public addChild(character: string): TrieNode {
-    if (this.hasChild(character) === false) {
+    if (!this.hasChild(character)) {
       this.children.set(character, new TrieNode(character));
     }
 

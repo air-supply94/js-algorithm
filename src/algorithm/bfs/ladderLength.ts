@@ -1,12 +1,12 @@
 // https://leetcode-cn.com/problems/word-ladder/
 // 127
-export function ladderLength(beginWord: string, endWord: string, wordList: string[]): number {
+export function ladderLengthDoubleBfs(beginWord: string, endWord: string, wordList: string[]): number {
   const wordSet = new Set<string>(wordList);
   const visitedSet = new Set<string>([
     beginWord,
     endWord,
   ]);
-  if (wordSet.has(endWord) === false) {
+  if (!wordSet.has(endWord)) {
     return 0;
   }
 
@@ -35,7 +35,7 @@ export function ladderLength(beginWord: string, endWord: string, wordList: strin
               return level + 1;
             }
 
-            if (visitedSet.has(newWord) === false) {
+            if (!visitedSet.has(newWord)) {
               visitedSet.add(newWord);
               tmpSet.add(newWord);
             }

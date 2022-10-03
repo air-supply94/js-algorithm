@@ -35,7 +35,7 @@ export function slidingPuzzle(board: number[][]): number {
         nextRootList.splice(currentNeighbor[j], 1, currentItem.root[currentItem.index]);
         const nextRoot = nextRootList.join('');
 
-        if (visited.has(nextRoot) === false) {
+        if (!visited.has(nextRoot)) {
           visited.add(nextRoot);
           queue.push({
             root: nextRoot,

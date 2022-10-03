@@ -12,7 +12,7 @@ export function find<T = unknown>(head: DoubleLinkedListNode<T>, findParams: {
 
   let currentNode = head;
   while (currentNode) {
-    if (typeof callback === 'function' && callback(currentNode.value) === true) {
+    if (typeof callback === 'function' && callback(currentNode.value)) {
       return currentNode;
     } else if (compare.equal(currentNode.value, value)) {
       return currentNode;

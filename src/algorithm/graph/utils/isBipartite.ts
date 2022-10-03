@@ -14,7 +14,7 @@ export function isBipartite(graph: number[][]): boolean {
   }
 
   function dfs(start: number): void {
-    if (result === false) {
+    if (!result) {
       return;
     }
 

@@ -55,7 +55,7 @@ export class RandomizedSetBlackList {
 
     const whiteRightList: number[] = [];
     for (let i = whiteLength; i < n; i++) {
-      if (blackSet.has(i) === false) {
+      if (!blackSet.has(i)) {
         whiteRightList.push(i);
       }
     }

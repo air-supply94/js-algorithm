@@ -17,12 +17,12 @@ export function replaceWords(dictionary: string[], sentence: string): string {
   for (let i = 0; i < sentenceList.length; i++) {
     let currentNode = root;
     let j = 0;
-    while (j < sentenceList[i].length && currentNode != null && currentNode.isCompleteWord === false) {
+    while (j < sentenceList[i].length && currentNode != null && !currentNode.isCompleteWord) {
       currentNode = currentNode.getChild(sentenceList[i][j]);
       j++;
     }
 
-    if (currentNode != null && currentNode.isCompleteWord === true) {
+    if (currentNode != null && currentNode.isCompleteWord) {
       result.push(sentenceList[i].slice(0, j));
     } else {
       result.push(sentenceList[i]);

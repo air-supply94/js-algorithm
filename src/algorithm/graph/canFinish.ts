@@ -16,7 +16,7 @@ function buildGraph(numCourses: number, prerequisites: number[][]): number[][] {
 // https://leetcode-cn.com/problems/course-schedule/
 // 207
 export function canFinish(numCourses: number, prerequisites: number[][]): boolean {
-  return hasCircleDfs(buildGraph(numCourses, prerequisites)) === false;
+  return !hasCircleDfs(buildGraph(numCourses, prerequisites));
 }
 
 // https://leetcode-cn.com/problems/course-schedule-ii/

@@ -47,7 +47,7 @@ export function trapRainWater(heightMap: number[][]): number {
   ];
   let result = 0;
 
-  while (minHeap.isEmpty() === false) {
+  while (!minHeap.isEmpty()) {
     const currentItem = minHeap.poll();
     const currentX = currentItem[0];
     const currentY = currentItem[1];

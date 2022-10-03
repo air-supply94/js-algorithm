@@ -77,7 +77,7 @@ export function removeDuplicateLetters(s: string): string {
     const item = s[i];
     countMap.set(item, countMap.get(item) - 1);
 
-    if (charSet.has(item) === false) {
+    if (!charSet.has(item)) {
       while (stack.length > 0 && stack[stack.length - 1].charCodeAt(0) > s.charCodeAt(i) && countMap.get(stack[stack.length - 1]) > 0) {
         charSet.delete(stack.pop());
       }
