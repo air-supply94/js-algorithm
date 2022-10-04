@@ -1,15 +1,10 @@
-interface Item {
-  value: number;
-  index: number;
-}
-
 // https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
 // 315
-function countSmaller(nums: number[]): number[] {
+export function countSmaller(nums: number[]): number[] {
   const count: number[] = Array(nums.length)
     .fill(0);
 
-  function mergeSort(originalArray: Item[], left = 0, right = originalArray.length - 1): void {
+  function mergeSort(originalArray: Array<[number, number]>, left = 0, right = originalArray.length - 1): void {
     if (left >= right) {
       return;
     }
@@ -20,21 +15,21 @@ function countSmaller(nums: number[]): number[] {
     mergeSortedArrays(originalArray, left, right);
   }
 
-  function mergeSortedArrays(originalArray: Item[], left: number, right: number): void {
-    const result: Item[] = Array(right - left + 1);
+  function mergeSortedArrays(originalArray: Array<[number, number]>, left: number, right: number): void {
+    const result: Array<[number, number]> = Array(right - left + 1);
     const middleIndex = (left + right) >>> 1;
     let i = left;
     let j = middleIndex + 1;
     let k = 0;
 
     while (i <= middleIndex && j <= right) {
-      if (originalArray[j].value < originalArray[i].value) {
+      if (originalArray[j][0] < originalArray[i][0]) {
         result[k] = originalArray[j];
         k++;
         j++;
       } else {
         result[k] = originalArray[i];
-        count[originalArray[i].index] += (j - 1) - (middleIndex + 1) + 1;
+        count[originalArray[i][1]] += (j - 1) - (middleIndex + 1) + 1;
         k++;
         i++;
       }
@@ -42,7 +37,7 @@ function countSmaller(nums: number[]): number[] {
 
     while (i <= middleIndex) {
       result[k] = originalArray[i];
-      count[originalArray[i].index] += (j - 1) - (middleIndex + 1) + 1;
+      count[originalArray[i][1]] += (j - 1) - (middleIndex + 1) + 1;
       k++;
       i++;
     }
@@ -58,9 +53,9 @@ function countSmaller(nums: number[]): number[] {
     }
   }
 
-  mergeSort(nums.map((item, index) => ({
-    value: item,
+  mergeSort(nums.map((item, index) => ([
+    item,
     index,
-  })));
+  ])));
   return count;
 }

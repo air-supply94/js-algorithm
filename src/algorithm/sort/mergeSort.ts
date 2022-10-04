@@ -13,7 +13,7 @@ export function mergeSort(originalArray: number[], left = 0, right = originalArr
 }
 
 function mergeSortedArrays(originalArray: number[], left: number, right: number): void {
-  const result: number[] = Array(right - left + 1);
+  const result: number[] = Array(right - left + 1).fill(null);
   const middleIndex = (left + right) >>> 1;
   let l = left;
   let r = middleIndex + 1;
@@ -43,7 +43,7 @@ function mergeSortedArrays(originalArray: number[], left: number, right: number)
     r++;
   }
 
-  for (let l = 0; l < result.length; l++) {
-    originalArray[l + left] = result[l];
+  for (let i = 0; i < result.length; i++) {
+    originalArray[i + left] = result[i];
   }
 }
