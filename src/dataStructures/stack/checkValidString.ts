@@ -20,10 +20,6 @@ export function checkValidString(s: string): boolean {
     }
   }
 
-  if (leftBraceStack.length === 0) {
-    return true;
-  }
-
   if (leftBraceStack.length > placeholderStack.length) {
     return false;
   }
