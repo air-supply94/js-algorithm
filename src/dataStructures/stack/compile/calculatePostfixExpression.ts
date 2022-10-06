@@ -24,7 +24,7 @@ export function calculatePostfixExpression(tokens: string[]): number {
       tmp = num1 / num2;
       stack.push(tmp > 0 ? Math.floor(tmp) : Math.ceil(tmp));
     } else {
-      stack.push(parseInt(token, 10));
+      stack.push(Number(token));
     }
   }
 

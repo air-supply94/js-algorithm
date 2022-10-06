@@ -33,11 +33,7 @@ export function isValid(str: string): boolean {
     if (startSet.has(str[i])) {
       stack.push(str[i]);
     } else {
-      if (stack.length === 0) {
-        return false;
-      }
-
-      if (endMap.get(str[i]) !== stack.pop()) {
+      if (stack.length === 0 || endMap.get(str[i]) !== stack.pop()) {
         return false;
       }
     }
