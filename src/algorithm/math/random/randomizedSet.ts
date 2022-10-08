@@ -1,4 +1,4 @@
-import { swap } from '../../utils';
+import { swap } from '../../../utils';
 
 // https://leetcode-cn.com/problems/insert-delete-getrandom-o1/
 // 380

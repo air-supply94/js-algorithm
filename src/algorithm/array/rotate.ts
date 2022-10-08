@@ -13,6 +13,9 @@ export function rotate<T = unknown>(array: T[], k: number): T[] {
 
 // https://leetcode-cn.com/problems/rotate-matrix-lcci/
 // 07
+// 求: f[row][col] = f[col][n - 1 - row]
+// 1对角线: f[row][col] = f[col][row]
+// 2水平对称: f[row][col] = f[row][n - 1 - col]
 export function rotateMatrix<T = unknown>(array: T[][]): T[][] {
   const n = array.length;
 
