@@ -17,9 +17,5 @@ export function findFirstLarge(arr: number[], target: number): number {
     }
   }
 
-  if (left <= arr.length - 1 && arr[left] > target) {
-    return left;
-  } else {
-    return -1;
-  }
+  return left <= arr.length - 1 && arr[left] > target ? left : -1;
 }

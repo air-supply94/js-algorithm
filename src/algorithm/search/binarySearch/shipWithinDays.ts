@@ -8,7 +8,7 @@ export function shipWithinDays(weights: number[], day: number): number {
 
   while (left <= right) {
     const middle = (left + right) >>> 1;
-    if (canFinish(weights, middle, day)) {
+    if (costDay(weights, middle) <= day) {
       right = middle - 1;
     } else {
       left = middle + 1;
@@ -18,22 +18,22 @@ export function shipWithinDays(weights: number[], day: number): number {
   return left;
 }
 
-function canFinish(weights: number[], capacity: number, day: number): boolean {
+function costDay(weights: number[], capacity: number): number {
   let cost = 0;
   let tmpCapacity = capacity;
 
   for (let i = 0; i < weights.length; i++) {
+    if (i === 0) {
+      cost++;
+    }
+
     if (tmpCapacity >= weights[i]) {
       tmpCapacity -= weights[i];
     } else {
       tmpCapacity = capacity - weights[i];
       cost++;
     }
-
-    if (i === weights.length - 1) {
-      cost++;
-    }
   }
 
-  return cost <= day;
+  return cost;
 }
