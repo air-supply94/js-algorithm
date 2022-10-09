@@ -1,6 +1,6 @@
 // https://leetcode-cn.com/problems/minimum-window-substring/
 // 76
-// 定长区间
+// 最短区间
 export function minWindow(s: string, t: string): string {
   const needMap = new Map<string, number>();
   const matchMap = new Map<string, number>();
@@ -41,9 +41,5 @@ export function minWindow(s: string, t: string): string {
     }
   }
 
-  if (length !== Infinity) {
-    return s.substr(start, length);
-  } else {
-    return '';
-  }
+  return length === Infinity ? '' : s.substr(start, length);
 }
