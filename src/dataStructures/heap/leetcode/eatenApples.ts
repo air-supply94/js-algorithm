@@ -5,8 +5,9 @@ import { Heap } from '../heap';
 export function eatenApples(apples: number[], days: number[]): number {
   const minHeap = new Heap<[number, number]>((a, b) => a[0] <= b[0]);
   let result = 0;
+  let i = 0;
 
-  for (let i = 0; i < apples.length || !minHeap.isEmpty(); i++) {
+  while (i < apples.length || !minHeap.isEmpty()) {
     // 移除过期
     while (!minHeap.isEmpty() && (minHeap.peek()[0] <= i || minHeap.peek()[1] <= 0)) {
       minHeap.poll();
@@ -25,6 +26,9 @@ export function eatenApples(apples: number[], days: number[]): number {
       result++;
       minHeap.peek()[1]--;
     }
+
+    i++;
   }
+
   return result;
 }

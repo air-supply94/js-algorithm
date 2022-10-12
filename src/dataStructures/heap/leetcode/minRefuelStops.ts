@@ -21,5 +21,6 @@ export function minRefuelStops(target: number, startFuel: number, stations: numb
     totalFuel += maxHeap.poll();
     count++;
   }
+
   return count;
 }

@@ -1,4 +1,4 @@
-import { Heap } from '../heap';
+import { Heap } from '../../dataStructures/heap/heap';
 
 // https://leetcode-cn.com/problems/trapping-rain-water-ii/
 // 407
