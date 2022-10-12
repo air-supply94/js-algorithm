@@ -1,5 +1,6 @@
-import type { DoubleLinkedListNode } from '../../dataStructures/doubleLinkedList';
-import { DoubleLinkedList, prependNode, deleteNode } from '../../dataStructures/doubleLinkedList';
+import type { DoubleLinkedListNode } from 'src/dataStructures/doubleLinkedList/doubleLinkedList';
+import { DoubleLinkedList } from 'src/dataStructures/doubleLinkedList/doubleLinkedList';
+import { deleteNode, prependNode } from '../../dataStructures/doubleLinkedList/utils';
 
 interface LRUCacheItem {
   key: number;

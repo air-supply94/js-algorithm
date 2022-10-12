@@ -1,5 +1,5 @@
 import { BinarySearchTreeNode, setLeft, setRight } from '../binarySearchTree';
-import { Heap } from '../heap';
+import { Heap } from '../heap/heap';
 
 export function huffmanTree(data: number[]): BinarySearchTreeNode<number> | null {
   const minHeap = new Heap<BinarySearchTreeNode<number>>((a, b) => a.value <= b.value);

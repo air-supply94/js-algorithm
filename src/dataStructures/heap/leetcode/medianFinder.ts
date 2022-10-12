@@ -1,4 +1,4 @@
-import { Heap } from '../index';
+import { Heap } from '../heap';
 
 // https://leetcode-cn.com/problems/find-median-from-data-stream/
 // 295

@@ -1,5 +1,6 @@
-import type { DoubleLinkedListNode } from '../../dataStructures/doubleLinkedList';
-import { DoubleLinkedList, prependNode, deleteNode } from '../../dataStructures/doubleLinkedList';
+import { DoubleLinkedList } from '../../dataStructures/doubleLinkedList/doubleLinkedList';
+import type { DoubleLinkedListNode } from '../../dataStructures/doubleLinkedList/doubleLinkedList';
+import { prependNode, deleteNode } from '../../dataStructures/doubleLinkedList/utils';
 
 interface LFUCacheItem {
   key: number;
