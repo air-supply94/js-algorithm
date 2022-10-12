@@ -5,7 +5,7 @@ export function nextGreaterElement(num1: number[], num2: number[]): number[] {
   const hashMap = new Map<number, number>();
 
   for (let i = num2.length - 1; i >= 0; i--) {
-    while (stack.length && stack[stack.length - 1] <= num2[i]) {
+    while (stack.length && num2[i] >= stack[stack.length - 1]) {
       stack.pop();
     }
 
@@ -13,8 +13,7 @@ export function nextGreaterElement(num1: number[], num2: number[]): number[] {
     stack.push(num2[i]);
   }
 
-  const result: number[] = Array(num1.length)
-    .fill(null);
+  const result: number[] = Array(num1.length).fill(null);
   for (let i = 0; i < num1.length; i++) {
     result[i] = hashMap.get(num1[i]);
   }
@@ -30,7 +29,7 @@ export function nextGreaterElements(num: number[]): number[] {
     .fill(null);
 
   for (let i = 2 * len - 1; i >= 0; i--) {
-    while (stack.length && stack[stack.length - 1] <= num[i % len]) {
+    while (stack.length && num[i % len] >= stack[stack.length - 1]) {
       stack.pop();
     }
 
@@ -66,7 +65,6 @@ export function largestRectangleArea(heights: number[]): number {
 // 316
 export function removeDuplicateLetters(s: string): string {
   const countMap = new Map<string, number>();
-  const charSet = new Set<string>();
   const stack: string[] = [];
 
   for (let i = 0; i < s.length; i++) {
@@ -77,19 +75,14 @@ export function removeDuplicateLetters(s: string): string {
     const item = s[i];
     countMap.set(item, countMap.get(item) - 1);
 
-    if (!charSet.has(item)) {
-      while (stack.length > 0 && stack[stack.length - 1].charCodeAt(0) > s.charCodeAt(i) && countMap.get(stack[stack.length - 1]) > 0) {
-        charSet.delete(stack.pop());
+    if (!stack.includes(item)) {
+      while (stack.length > 0 && s.charCodeAt(i) <= stack[stack.length - 1].charCodeAt(0) && countMap.get(stack[stack.length - 1]) > 0) {
+        stack.pop();
       }
 
-      charSet.add(item);
       stack.push(item);
     }
   }
 
-  let result = '';
-  while (stack.length) {
-    result = `${stack.pop()}${result}`;
-  }
-  return result;
+  return stack.join('');
 }

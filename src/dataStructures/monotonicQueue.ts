@@ -6,7 +6,7 @@ class MonotonicQueue {
   private readonly queue: number[];
 
   public push(x: number): void {
-    while (this.queue.length && this.queue[this.queue.length - 1] < x) {
+    while (this.queue.length > 0 && this.queue[this.queue.length - 1] < x) {
       this.queue.pop();
     }
     this.queue.push(x);
