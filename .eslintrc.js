@@ -1,1 +1,1 @@
-module.exports = require('zhouhaifei-code-style').eslintNormal;
+module.exports = require('@zhouhaifei/code-style').eslintNormal;
