@@ -1,24 +1,27 @@
 // https://www.lintcode.com/problem/79/#
-export function longestCommonSubstring(string1: string, string2: string): number {
-  const dp = Array(string2.length + 1)
-    .fill(null)
-    .map(() => Array(string1.length + 1)
-      .fill(0));
-
+export function longestCommonSubstring(a: string, b: string): number {
+  const height = a.length;
+  const width = b.length;
+  const dp: number[] = Array(width + 1).fill(0);
   let result = 0;
 
-  for (let height = 1; height <= string2.length; height++) {
-    for (let width = 1; width <= string1.length; width++) {
-      if (string1[width - 1] === string2[height - 1]) {
-        dp[height][width] = dp[height - 1][width - 1] + 1;
+  for (let i = 1; i <= height; i++) {
+    let pre = dp[0];
+    dp[0] = 0;
+
+    for (let j = 1; j <= width; j++) {
+      const tmp = pre;
+      pre = dp[j];
+
+      if (a[i - 1] === b[j - 1]) {
+        dp[j] = tmp + 1;
       } else {
-        dp[height][width] = 0;
+        dp[j] = 0;
       }
 
-      result = Math.max(result, dp[height][width]);
+      result = Math.max(result, dp[j]);
     }
   }
-
   return result;
 }
 
