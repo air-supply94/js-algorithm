@@ -6,12 +6,12 @@ export function canPartition(weightList: number[]): boolean {
     sum += weightList[i];
   }
 
-  if (sum % 2 !== 0) {
+  if (sum & 1) {
     return false;
   }
 
   const count = weightList.length;
-  const weight = Math.floor(sum / 2);
+  const weight = sum / 2;
   const dp = Array(count + 1)
     .fill(null)
     .map(() => Array(weight + 1)
