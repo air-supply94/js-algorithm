@@ -21,7 +21,7 @@ function getPmt(str: string): number[] {
   return dp;
 }
 
-// https://leetcode-cn.com/problems/implement-strstr/
+// https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/
 // 28
 export function strStr(originStr: string, matchStr: string): number {
   if (matchStr.length === 0) {
