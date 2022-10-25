@@ -26,3 +26,49 @@ export function trap(terraces: number[]): number {
 
   return amount;
 }
+
+/*
+export function trap(terraces: number[]): number {
+  let result = 0;
+  let left = 0;
+  let right = terraces.length - 1;
+  let leftMax = 0;
+  let rightMax = 0;
+
+  while (left < right) {
+    leftMax = Math.max(leftMax, terraces[left]);
+    rightMax = Math.max(rightMax, terraces[right]);
+
+    if (leftMax < rightMax) {
+      result += leftMax - terraces[left];
+      left++;
+    } else {
+      result += rightMax - terraces[right];
+      right--;
+    }
+  }
+
+  return result;
+}
+*/
+
+// https://leetcode.cn/problems/container-with-most-water/
+// 11
+export function maxArea(height: number[]): number {
+  let result = 0;
+  let left = 0;
+  let right = height.length - 1;
+  let area: number;
+
+  while (left < right) {
+    area = Math.min(height[left], height[right]) * (right - left);
+    result = Math.max(result, area);
+    if (height[left] < height[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return result;
+}
