@@ -237,6 +237,7 @@
 - **dp/longestCommonSubstring:** add longestCommonSubstring ([e3f75fb](https://github.com/air-supply94/js-algorithm/commit/e3f75fbdc9f1ab1ebb0bc141613bdc313f16d119))
 - **dp/longestCreasingSubsequence:** add bs ([41c2be0](https://github.com/air-supply94/js-algorithm/commit/41c2be08eb5f35fdf020e9c51292cf96c35c9100))
 - **dp/maxSubArray:** add getMaxMatrix ([82d31a6](https://github.com/air-supply94/js-algorithm/commit/82d31a69b5445ee0d316d7e1d584a14f03677707))
+- **dp/trap:** add maxArea ([4573c3d](https://github.com/air-supply94/js-algorithm/commit/4573c3df9668b121ef5492c9992af47139b2c25a))
 - **FenwickTree、binarySearchTreeNode:** add FenwickTree remove binarySearchTreeNode height leftHeight rightHeight banlanceFactory ([7d3763b](https://github.com/air-supply94/js-algorithm/commit/7d3763ba2f08fe52c27f8fe985570bf6e961390d))
 - **findFirstLarge:** add ([90d3278](https://github.com/air-supply94/js-algorithm/commit/90d3278da4215456f0e598654e271dfb2327ae35))
 - **findKthMin:** add ([91879e9](https://github.com/air-supply94/js-algorithm/commit/91879e9a1a5970e46531a1e62833c17efaf6c8e8))
