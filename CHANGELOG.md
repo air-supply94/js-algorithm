@@ -1,4 +1,4 @@
-# (2022-10-25)
+# (2022-10-26)
 
 ### Bug Fixes
 
@@ -263,6 +263,7 @@
 - **greedy:** add getSmallestString ([c9a0f48](https://github.com/air-supply94/js-algorithm/commit/c9a0f48296d59687050ac4217b06392b5ed91562))
 - **greedy:** add jumpGameFast ([680996f](https://github.com/air-supply94/js-algorithm/commit/680996fea200dd5921b18229153f313d7fa5641d))
 - **greedy:** 更新实现逻辑 ([50fd098](https://github.com/air-supply94/js-algorithm/commit/50fd0985a75881f13d4fcb3e31a3678a78a2619b))
+- **greedy/jumpGame:** add partitionLabels ([78e38f9](https://github.com/air-supply94/js-algorithm/commit/78e38f9984f1b28a69662fa3d9c0f2e1976264fe))
 - **hammingDistance:** add ([7540dac](https://github.com/air-supply94/js-algorithm/commit/7540dac75eec4d659f7faeab219084d5b6447dca))
 - **hashTable:** 实现太 low，没那么简单 ([4eb9634](https://github.com/air-supply94/js-algorithm/commit/4eb963424502f084cea768875dbd1e2a038efba1))
 - **hashTable:** 更改 hash 表，暂时只支持 key 为 string 或者 number。以后可能会加红黑树 ([24723ff](https://github.com/air-supply94/js-algorithm/commit/24723ff5cf1a29e16bd69902cee0e3662536fe0f))
