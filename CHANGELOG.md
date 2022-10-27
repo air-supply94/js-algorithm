@@ -1,4 +1,4 @@
-# (2022-10-26)
+# (2022-10-27)
 
 ### Bug Fixes
 
@@ -279,6 +279,7 @@
 - **heap and priorityQuery:** 更改 peek、poll 返回值 ([54e09f3](https://github.com/air-supply94/js-algorithm/commit/54e09f3ae41da74b89ea35fb04a9323e507f1fd3))
 - **heap and priorityQuery:** 更改 peek、poll 返回值 ([7a80ccd](https://github.com/air-supply94/js-algorithm/commit/7a80ccd7f76ed7a52f5f10afb256a71213b47b88))
 - **horner:** 增加秦九昭算法及求根 ([aaf9ab5](https://github.com/air-supply94/js-algorithm/commit/aaf9ab5773cd4f9f52541fb2015ab8de8f74ff57))
+- **integerPartitionDfs:** 增加递归解法 ([49e87d9](https://github.com/air-supply94/js-algorithm/commit/49e87d9395998964906d30faea4f76ca611c5207))
 - **kmp:** add ([466e45e](https://github.com/air-supply94/js-algorithm/commit/466e45e712d3796c89123ad2e04482377976bde9))
 - **less-interval:** add ([bf9c594](https://github.com/air-supply94/js-algorithm/commit/bf9c594ff18187f658fb0f185748ccd13dcba495))
 - **linkedHashTable:** 删除 keys ([ce92e9c](https://github.com/air-supply94/js-algorithm/commit/ce92e9cf22e872c29d5ae2ea79c00f4bbec42a24))
