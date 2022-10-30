@@ -25,7 +25,7 @@ export function hornerRootSeeking(an: number[], x0: number, x1: number, d: numbe
     const middle = (x0 + x1) / 2;
     const middleValue = horner(an, middle);
     if (middleValue === 0) {
-      break;
+      return middle;
     } else if (middleValue * horner(an, x0) < 0) {
       x1 = middle;
     } else {

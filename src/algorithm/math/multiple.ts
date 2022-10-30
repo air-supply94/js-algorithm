@@ -9,7 +9,11 @@ export function multiply(num1: string, num2: string): string {
   for (let i = h - 1; i >= 0; i--) {
     for (let j = w - 1; j >= 0; j--) {
       sum = Number(num1[i]) * Number(num2[j]) + result[i + j + 1];
+
+      // 当前位置0-9
       result[i + j + 1] = sum % 10;
+
+      // 下个位置计算(最后一个不可能为10)
       result[i + j] += (sum / 10) | 0;
     }
   }
