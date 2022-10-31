@@ -13,45 +13,34 @@ function getLastCharacterNode(root: TrieNode, word: string): TrieNode | undefine
 
 export function findWordsCount(root: TrieNode, word: string): number {
   const lastCharacter = getLastCharacterNode(root, word);
-  if (lastCharacter) {
-    return lastCharacter.wordCount;
-  } else {
-    return 0;
-  }
+  return lastCharacter ? lastCharacter.wordCount : 0;
 }
 
 export function findPrefixCount(root: TrieNode, word: string): number {
   const lastCharacter = getLastCharacterNode(root, word);
-  if (lastCharacter) {
-    return lastCharacter.prefixCount;
-  } else {
-    return 0;
-  }
+  return lastCharacter ? lastCharacter.prefixCount : 0;
 }
 
-export function wordFrequency(root: TrieNode): {[key: string]: number; } {
+export function wordFrequency(root: TrieNode): Record<string, number> {
   const result = {};
-  const queue: Array<{ node: TrieNode; word: string; }> = [];
-  queue.push({
-    node: root,
-    word: '',
-  });
+  const queue: Array<[string, TrieNode]> = [
+    [
+      '',
+      root,
+    ],
+  ];
 
   while (queue.length) {
-    const size = queue.length;
+    const currentItem = queue.shift();
+    if (currentItem[1].isCompleteWord) {
+      result[currentItem[0]] = currentItem[1].wordCount;
+    }
 
-    for (let i = 0; i < size; i++) {
-      const item = queue.shift();
-      if (item.node.isCompleteWord) {
-        result[`${item.word}${item.node.character}`] = item.node.wordCount;
-      }
-
-      for (const trieNode of item.node.children.values()) {
-        queue.push({
-          node: trieNode,
-          word: `${item.word}${item.node.character}`,
-        });
-      }
+    for (const trieNode of currentItem[1].children.values()) {
+      queue.push([
+        `${currentItem[0]}${trieNode.character}`,
+        trieNode,
+      ]);
     }
   }
 
@@ -75,8 +64,9 @@ export class Trie {
       currentNode.prefixCount++;
     }
 
-    currentNode.wordCount++;
     currentNode.isCompleteWord = true;
+    currentNode.wordCount++;
+
     this.root.isCompleteWord = false;
     this.root.wordCount = 0;
     this.root.prefixCount = 0;
@@ -84,19 +74,11 @@ export class Trie {
 
   public suggestNextCharacters(word: string): string[] {
     const lastCharacter = getLastCharacterNode(this.root, word);
-    if (lastCharacter) {
-      return lastCharacter.suggestChildren();
-    } else {
-      return [];
-    }
+    return lastCharacter ? lastCharacter.suggestChildren() : [];
   }
 
   public doesWordExist(word: string): boolean {
     const lastCharacter = getLastCharacterNode(this.root, word);
-    if (lastCharacter) {
-      return lastCharacter.isCompleteWord;
-    } else {
-      return false;
-    }
+    return lastCharacter ? lastCharacter.isCompleteWord : false;
   }
 }

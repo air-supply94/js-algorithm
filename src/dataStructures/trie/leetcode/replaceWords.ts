@@ -15,17 +15,18 @@ export function replaceWords(dictionary: string[], sentence: string): string {
   const result: string[] = [];
   const sentenceList: string[] = sentence.split(' ');
   for (let i = 0; i < sentenceList.length; i++) {
+    const sentence = sentenceList[i];
     let currentNode = root;
     let j = 0;
-    while (j < sentenceList[i].length && currentNode != null && !currentNode.isCompleteWord) {
-      currentNode = currentNode.getChild(sentenceList[i][j]);
+    while (j < sentence.length && currentNode != null && !currentNode.isCompleteWord) {
+      currentNode = currentNode.getChild(sentence[j]);
       j++;
     }
 
     if (currentNode != null && currentNode.isCompleteWord) {
-      result.push(sentenceList[i].slice(0, j));
+      result.push(sentence.slice(0, j));
     } else {
-      result.push(sentenceList[i]);
+      result.push(sentence);
     }
   }
   return result.join(' ');

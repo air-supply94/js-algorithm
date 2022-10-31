@@ -1,7 +1,6 @@
 export class TrieNode {
   constructor(character: string) {
     this.character = character;
-    this.children = new Map<string, TrieNode>();
   }
 
   public wordCount = 0;
@@ -10,9 +9,9 @@ export class TrieNode {
 
   public isCompleteWord = false;
 
-  public readonly character: string;
+  public character: string;
 
-  public children: Map<string, TrieNode>;
+  public children: Map<string, TrieNode> = new Map<string, TrieNode>();
 
   public getChild(character: string): TrieNode | undefined {
     return this.children.get(character);

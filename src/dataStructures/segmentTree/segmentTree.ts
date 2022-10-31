@@ -7,10 +7,11 @@ function getRightChildIndex(parentIndex: number): number {
 }
 
 function initSegmentTree(inputArray: number[]): number[] {
-  const length = Math.pow(2, Math.ceil(Math.log2(inputArray.length)));
-  return new Array((2 * length) - 1).fill(null);
+  const height = Math.ceil(Math.log2(inputArray.length));
+  return new Array(Math.pow(2, height + 1) - 1).fill(null);
 }
 
+// https://zhuanlan.zhihu.com/p/436326746
 export class SegmentTree {
   constructor(inputArray: number[], operation: (...args: number[]) => number, operationFallback: number) {
     this.inputArray = inputArray;

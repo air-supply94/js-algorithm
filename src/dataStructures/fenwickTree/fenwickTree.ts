@@ -1,3 +1,4 @@
+// https://zhuanlan.zhihu.com/p/435561765
 export class FenwickTree {
   constructor(arraySize: number) {
     this.arraySize = arraySize;
