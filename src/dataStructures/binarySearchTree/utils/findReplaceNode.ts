@@ -4,10 +4,10 @@ import { find } from './find';
 import { findMax } from './findMax';
 import { findMin } from './findMin';
 
-function swap<T = unknown>(tmpNode: BinarySearchTreeNode<T>, replaceNode: BinarySearchTreeNode<T>): void {
-  const tmpValue = tmpNode.value;
-  tmpNode.value = replaceNode.value;
-  replaceNode.value = tmpValue;
+function swap<T = unknown>(startNode: BinarySearchTreeNode<T>, endNode: BinarySearchTreeNode<T>): void {
+  const tmpValue = startNode.value;
+  startNode.value = endNode.value;
+  endNode.value = tmpValue;
 }
 
 export function findReplaceNode<T = unknown>(root: null | BinarySearchTreeNode<T>, value: T, comparator: Comparator, isFindRightMin = true): null | BinarySearchTreeNode<T> {

@@ -18,9 +18,10 @@ export function redBlackTreeInsertBalance<T = unknown>(node: BinarySearchTreeNod
     return;
   }
 
-  if (getUncle(node) != null && getUncle(node).color === COLOR_TYPE.red) {
+  const uncle = getUncle(node);
+  if (uncle && uncle.color === COLOR_TYPE.red) {
     node.parent.color = COLOR_TYPE.black;
-    getUncle(node).color = COLOR_TYPE.black;
+    uncle.color = COLOR_TYPE.black;
     node.parent.parent.color = COLOR_TYPE.red;
     return redBlackTreeInsertBalance(node.parent.parent, setRoot);
   }
@@ -52,7 +53,7 @@ export function redBlackTreeInsertBalance<T = unknown>(node: BinarySearchTreeNod
 
 export function redBlackTreeRemoveBalance<T = unknown>(getRoot: () => BinarySearchTreeNode<T>, node: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
   let currentNode = node;
-  while (currentNode.parent != null && currentNode.color === COLOR_TYPE.black) {
+  while (currentNode.parent && currentNode.color === COLOR_TYPE.black) {
     if (currentNode === currentNode.parent.left) {
       const sibling = currentNode.parent.right;
 
@@ -60,16 +61,16 @@ export function redBlackTreeRemoveBalance<T = unknown>(getRoot: () => BinarySear
         currentNode.parent.color = COLOR_TYPE.red;
         sibling.color = COLOR_TYPE.black;
         rotateRightRight(currentNode.parent, setRoot);
-      } else if ((sibling.left == null && sibling.right == null) || (sibling.left != null && sibling.right != null && sibling.left.color === COLOR_TYPE.black && sibling.right.color === COLOR_TYPE.black)) {
+      } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === COLOR_TYPE.black && sibling.right.color === COLOR_TYPE.black)) {
         sibling.color = COLOR_TYPE.red;
         currentNode = currentNode.parent;
-      } else if (sibling.right != null && sibling.right.color === COLOR_TYPE.red) {
+      } else if (sibling.right && sibling.right.color === COLOR_TYPE.red) {
         sibling.color = currentNode.parent.color;
         currentNode.parent.color = COLOR_TYPE.black;
         sibling.right.color = COLOR_TYPE.black;
         rotateRightRight(currentNode.parent, setRoot);
         currentNode = getRoot();
-      } else if (sibling.left != null && sibling.left.color === COLOR_TYPE.red) {
+      } else if (sibling.left && sibling.left.color === COLOR_TYPE.red) {
         sibling.left.color = COLOR_TYPE.black;
         sibling.color = COLOR_TYPE.red;
         rotateRightLeft(currentNode.parent);
@@ -81,16 +82,16 @@ export function redBlackTreeRemoveBalance<T = unknown>(getRoot: () => BinarySear
         currentNode.parent.color = COLOR_TYPE.red;
         sibling.color = COLOR_TYPE.black;
         rotateLeftLeft(currentNode.parent, setRoot);
-      } else if ((sibling.left == null && sibling.right == null) || (sibling.left != null && sibling.right != null && sibling.left.color === COLOR_TYPE.black && sibling.right.color === COLOR_TYPE.black)) {
+      } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === COLOR_TYPE.black && sibling.right.color === COLOR_TYPE.black)) {
         sibling.color = COLOR_TYPE.red;
         currentNode = currentNode.parent;
-      } else if (sibling.left != null && sibling.left.color === COLOR_TYPE.red) {
+      } else if (sibling.left && sibling.left.color === COLOR_TYPE.red) {
         sibling.color = currentNode.parent.color;
         currentNode.parent.color = COLOR_TYPE.black;
         sibling.left.color = COLOR_TYPE.black;
         rotateLeftLeft(currentNode.parent, setRoot);
         currentNode = getRoot();
-      } else if (sibling.right != null && sibling.right.color === COLOR_TYPE.red) {
+      } else if (sibling.right && sibling.right.color === COLOR_TYPE.red) {
         sibling.right.color = COLOR_TYPE.black;
         sibling.color = COLOR_TYPE.red;
         rotateLeftRight(currentNode.parent);

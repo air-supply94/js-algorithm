@@ -6,19 +6,19 @@ export function traverseAfterOrder<T = unknown>(
 ): void {
   const nodeStack: Array<BinarySearchTreeNode<T>> = [];
   let currentNode = root;
-  if (root != null) {
+  if (root) {
     nodeStack.push(root);
   }
 
   while (nodeStack.length > 0) {
     if (nodeStack[nodeStack.length - 1] !== currentNode.parent) {
       let peekNode = nodeStack[nodeStack.length - 1];
-      while (peekNode.left != null || peekNode.right != null) {
-        if (peekNode.right != null) {
+      while (peekNode.left || peekNode.right) {
+        if (peekNode.right) {
           nodeStack.push(peekNode.right);
         }
 
-        if (peekNode.left != null) {
+        if (peekNode.left) {
           nodeStack.push(peekNode.left);
         }
         peekNode = nodeStack[nodeStack.length - 1];

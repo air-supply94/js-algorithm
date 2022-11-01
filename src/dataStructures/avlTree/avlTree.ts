@@ -73,7 +73,7 @@ export class AvlTree<T = unknown> {
   public insert(value: T): BinarySearchTreeNode<T> | null {
     const node = this.binarySearchTree.insert(value);
     let currentNode = node;
-    while (currentNode != null) {
+    while (currentNode) {
       avlTreeBalance(currentNode, this.setRoot);
       currentNode = currentNode.parent;
     }
@@ -87,6 +87,10 @@ export class AvlTree<T = unknown> {
     while (removeNode != null) {
       avlTreeBalance(removeNode.parent, this.setRoot);
       removeNode = removeNode.parent;
+    }
+
+    if (node) {
+      node.parent = null;
     }
     return node;
   }

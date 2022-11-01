@@ -52,7 +52,7 @@ export class BinarySearchTree<T = unknown> {
 
   public remove(value: T): BinarySearchTreeNode<T> | null {
     const replaceNode = findReplaceNode<T>(this.root, value, this.comparator, this.isFindMin);
-    if (replaceNode != null) {
+    if (replaceNode) {
       if (replaceNode.parent == null) {
         this.root = null;
       } else {
