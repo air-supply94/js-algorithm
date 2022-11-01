@@ -1,6 +1,6 @@
 import type { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function findMin<T = unknown>(root: null | BinarySearchTreeNode<T>): null | BinarySearchTreeNode<T> {
+export function findMin<T = unknown>(root: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> | null {
   if (root == null) {
     return null;
   }
@@ -9,5 +9,5 @@ export function findMin<T = unknown>(root: null | BinarySearchTreeNode<T>): null
     return root;
   }
 
-  return findMin<T>(root.left);
+  return findMin(root.left);
 }

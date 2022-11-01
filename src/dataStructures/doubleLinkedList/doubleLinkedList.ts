@@ -17,12 +17,12 @@ export class DoubleLinkedListNode<T = unknown> {
 }
 
 export class DoubleLinkedList<T = unknown> {
-  constructor(comparatorFunction?: Comparator | compareFunctionType) {
+  constructor(comparatorFunction?: Comparator<T> | compareFunctionType) {
     this.clear();
-    this.compare = new Comparator(comparatorFunction);
+    this.compare = new Comparator<T>(comparatorFunction);
   }
 
-  public readonly compare: Comparator;
+  public readonly compare: Comparator<T>;
 
   public head: DoubleLinkedListNode<T> | null;
 

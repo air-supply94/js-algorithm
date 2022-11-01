@@ -1,6 +1,6 @@
 import type { BinarySearchTreeNode } from '../binarySearchTree';
 
-function getLeftHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
+function getLeftHeight(root: BinarySearchTreeNode): number {
   if (root == null || root.left == null) {
     return 0;
   }
@@ -8,7 +8,7 @@ function getLeftHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
   return getHeight(root.left) + 1;
 }
 
-function getRightHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
+function getRightHeight(root: BinarySearchTreeNode): number {
   if (root == null || root.right == null) {
     return 0;
   }
@@ -16,7 +16,7 @@ function getRightHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
   return getHeight(root.right) + 1;
 }
 
-export function getHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
+export function getHeight(root: BinarySearchTreeNode): number {
   if (root == null) {
     return 0;
   }
@@ -28,6 +28,6 @@ export function getHeight<T = unknown>(root: BinarySearchTreeNode<T>): number {
   return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
 }
 
-export function getBalanceFactor<T = unknown>(root: BinarySearchTreeNode<T>): number {
+export function getBalanceFactor(root: BinarySearchTreeNode): number {
   return getLeftHeight(root) - getRightHeight(root);
 }

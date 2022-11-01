@@ -1,6 +1,6 @@
 import type { BinarySearchTreeNode } from '../binarySearchTree';
 
-export function findMax<T = unknown>(root: null | BinarySearchTreeNode<T>): null | BinarySearchTreeNode<T> {
+export function findMax<T = unknown>(root: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> | null {
   if (root == null) {
     return null;
   }
@@ -9,5 +9,5 @@ export function findMax<T = unknown>(root: null | BinarySearchTreeNode<T>): null
     return root;
   }
 
-  return findMax<T>(root.right);
+  return findMax(root.right);
 }

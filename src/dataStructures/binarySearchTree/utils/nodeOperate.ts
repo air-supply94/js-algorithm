@@ -1,31 +1,31 @@
 import type { BinarySearchTreeNode } from '../binarySearchTree';
 import { traverseInOrder } from './traverseInOrder';
 
-export function setLeft<T = unknown>(root: BinarySearchTreeNode<T>, leftNode: BinarySearchTreeNode<T> | null): void {
-  if (root.left != null) {
+export function setLeft(root: BinarySearchTreeNode, leftNode: BinarySearchTreeNode | null): void {
+  if (root.left) {
     root.left.parent = null;
   }
 
   root.left = leftNode;
 
-  if (root.left != null) {
+  if (root.left) {
     root.left.parent = root;
   }
 }
 
-export function setRight<T = unknown>(root: BinarySearchTreeNode<T>, node: BinarySearchTreeNode<T> | null): void {
-  if (root.right != null) {
+export function setRight(root: BinarySearchTreeNode, node: BinarySearchTreeNode | null): void {
+  if (root.right) {
     root.right.parent = null;
   }
 
   root.right = node;
 
-  if (root.right != null) {
+  if (root.right) {
     root.right.parent = root;
   }
 }
 
-export function removeChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToRemove: BinarySearchTreeNode<T>): boolean {
+export function removeChild(root: BinarySearchTreeNode, nodeToRemove: BinarySearchTreeNode): boolean {
   if (nodeToRemove == null) {
     return false;
   }
@@ -41,7 +41,7 @@ export function removeChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToRe
   }
 }
 
-export function replaceChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToReplace: BinarySearchTreeNode<T>, replacementNode: BinarySearchTreeNode<T>): boolean {
+export function replaceChild(root: BinarySearchTreeNode, nodeToReplace: BinarySearchTreeNode, replacementNode: BinarySearchTreeNode): boolean {
   if (nodeToReplace == null || replacementNode == null) {
     return false;
   }
@@ -57,8 +57,8 @@ export function replaceChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToR
   }
 }
 
-export function nodeToString<T = unknown>(root: BinarySearchTreeNode<T>): string {
-  const result: T[] = [];
+export function nodeToString(root: BinarySearchTreeNode): string {
+  const result: unknown[] = [];
   traverseInOrder(root, (node) => {
     result.push(node.value);
   });

@@ -2,10 +2,10 @@ import type { Comparator } from '../../../utils';
 import type { BinarySearchTreeNode } from '../binarySearchTree';
 
 export function find<T = unknown>(
-  root: null | BinarySearchTreeNode<T>,
+  root: BinarySearchTreeNode<T> | null,
   value: T,
   comparator: Comparator
-): null | BinarySearchTreeNode<T> {
+): BinarySearchTreeNode<T> | null {
   if (root == null) {
     return null;
   }
@@ -13,8 +13,8 @@ export function find<T = unknown>(
   if (comparator.equal(value, root.value)) {
     return root;
   } else if (comparator.lessThan(value, root.value)) {
-    return find<T>(root.left, value, comparator);
+    return find(root.left, value, comparator);
   } else {
-    return find<T>(root.right, value, comparator);
+    return find(root.right, value, comparator);
   }
 }

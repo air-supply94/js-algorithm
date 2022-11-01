@@ -1,6 +1,24 @@
 import type { Comparator, compareFunctionType } from '../../utils';
 import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
-import { avlTreeBalance, BinarySearchTree } from '../binarySearchTree';
+import { BinarySearchTree, getBalanceFactor, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
+
+function avlTreeBalance<T = unknown>(root: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
+  if (getBalanceFactor(root) > 1) {
+    if (getBalanceFactor(root.left) > 0) {
+      rotateLeftLeft(root, setRoot);
+    } else {
+      rotateLeftRight(root);
+      rotateLeftLeft(root, setRoot);
+    }
+  } else if (getBalanceFactor(root) < -1) {
+    if (getBalanceFactor(root.right) < 0) {
+      rotateRightRight(root, setRoot);
+    } else {
+      rotateRightLeft(root);
+      rotateRightRight(root, setRoot);
+    }
+  }
+}
 
 export class AvlTree<T = unknown> {
   constructor(compareFunction?: compareFunctionType | Comparator) {
