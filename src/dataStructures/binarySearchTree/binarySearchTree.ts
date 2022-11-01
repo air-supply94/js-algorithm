@@ -2,29 +2,25 @@ import type { compareFunctionType } from '../../utils';
 import { Comparator } from '../../utils';
 import { find, findMax, findMin, findReplaceNode, insert, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder } from './utils';
 
-export enum color {
+export enum COLOR_TYPE {
   red = 0,
   black = 1,
 }
 
 export class BinarySearchTreeNode<T = unknown> {
   constructor(value: T | null = null) {
-    this.left = null;
-    this.right = null;
-    this.parent = null;
     this.value = value;
-    this.color = color.red;
   }
 
-  public left: null | BinarySearchTreeNode<T>;
+  public left: BinarySearchTreeNode<T> | null = null;
 
-  public right: null | BinarySearchTreeNode<T>;
+  public right: BinarySearchTreeNode<T> | null = null;
 
-  public parent: null | BinarySearchTreeNode<T>;
+  public parent: BinarySearchTreeNode<T> | null = null;
 
   public value: T;
 
-  public color: color;
+  public color: COLOR_TYPE = COLOR_TYPE.red;
 }
 
 export type traverseCallback<T = unknown> = (node: BinarySearchTreeNode<T>, height?: number) => void | boolean;

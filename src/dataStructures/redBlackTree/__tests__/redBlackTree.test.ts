@@ -1,5 +1,5 @@
 import type { BinarySearchTreeNode } from '../../binarySearchTree';
-import { getHeight, nodeToString, color } from '../../binarySearchTree';
+import { getHeight, nodeToString, COLOR_TYPE } from '../../binarySearchTree';
 import { RedBlackTree } from '../redBlackTree';
 
 function redBlackTreeCompare(a: BinarySearchTreeNode<number>, b: BinarySearchTreeNode<number>) {
@@ -17,9 +17,9 @@ describe('RedBlackTree', () => {
     const firstInsertedNode = tree.insert(10);
     tree.insert(10);
     firstInsertedNode.value = 20;
-    expect(firstInsertedNode.color === color.black)
+    expect(firstInsertedNode.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(firstInsertedNode.color === color.red)
+    expect(firstInsertedNode.color === COLOR_TYPE.red)
       .toBe(false);
     expect(tree.contains(20))
       .toBeTruthy();
@@ -51,11 +51,11 @@ describe('RedBlackTree', () => {
       .toString())
       .toBe('5,15,10');
 
-    expect(firstInsertedNode.color === color.black)
+    expect(firstInsertedNode.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(secondInsertedNode.color === color.red)
+    expect(secondInsertedNode.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(thirdInsertedNode.color === color.red)
+    expect(thirdInsertedNode.color === COLOR_TYPE.red)
       .toBe(true);
 
     expect(tree.toString())
@@ -85,62 +85,62 @@ describe('RedBlackTree', () => {
 
     const node1 = tree.insert(10);
     tree.insert(10);
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
 
     const node2 = tree.insert(-10);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.red)
+    expect(node2.color === COLOR_TYPE.red)
       .toBe(true);
 
     const node3 = tree.insert(20);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.red)
+    expect(node2.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node3.color === color.red)
+    expect(node3.color === COLOR_TYPE.red)
       .toBe(true);
 
     const node4 = tree.insert(-20);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
 
     const node5 = tree.insert(25);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
 
     const node6 = tree.insert(6);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node6.color === color.red)
+    expect(node6.color === COLOR_TYPE.red)
       .toBe(true);
 
     expect(tree.toString())
@@ -158,19 +158,19 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(3);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.red)
+    expect(node2.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.black)
+    expect(node4.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node6.color === color.black)
+    expect(node6.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node7.color === color.red)
+    expect(node7.color === COLOR_TYPE.red)
       .toBe(true);
   });
 
@@ -192,23 +192,23 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(3);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.red)
+    expect(node2.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.black)
+    expect(node4.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node5.color === color.black)
+    expect(node5.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node6.color === color.red)
+    expect(node6.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node7.color === color.red)
+    expect(node7.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node8.color === color.red)
+    expect(node8.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node9.color === color.red)
+    expect(node9.color === COLOR_TYPE.red)
       .toBe(true);
 
     const node10 = tree.insert(4);
@@ -221,25 +221,25 @@ describe('RedBlackTree', () => {
     expect(tree.root.value)
       .toBe(node5.value);
 
-    expect(node5.color === color.black)
+    expect(node5.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node1.color === color.red)
+    expect(node1.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node2.color === color.red)
+    expect(node2.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node10.color === color.red)
+    expect(node10.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node6.color === color.red)
+    expect(node6.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node7.color === color.red)
+    expect(node7.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node4.color === color.black)
+    expect(node4.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node8.color === color.black)
+    expect(node8.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node9.color === color.black)
+    expect(node9.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
 
     expect(tree.findMin().value)
@@ -264,15 +264,15 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(2);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
 
     const node6 = tree.insert(13);
@@ -281,17 +281,17 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(2);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node5.color === color.black)
+    expect(node5.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.red)
+    expect(node3.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node6.color === color.red)
+    expect(node6.color === COLOR_TYPE.red)
       .toBe(true);
   });
 
@@ -309,15 +309,15 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(2);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
 
     const node6 = tree.insert(17);
@@ -326,17 +326,17 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(2);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node6.color === color.black)
+    expect(node6.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.red)
+    expect(node3.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
   });
 
@@ -358,23 +358,23 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(3);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.red)
+    expect(node2.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.black)
+    expect(node4.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node5.color === color.black)
+    expect(node5.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node6.color === color.red)
+    expect(node6.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node7.color === color.red)
+    expect(node7.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node8.color === color.red)
+    expect(node8.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node9.color === color.red)
+    expect(node9.color === COLOR_TYPE.red)
       .toBe(true);
 
     tree.insert(4);
@@ -400,17 +400,17 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(2);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.black)
+    expect(node3.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
 
     const node7 = tree.insert(25);
@@ -431,19 +431,19 @@ describe('RedBlackTree', () => {
     expect(getHeight(tree.root))
       .toBe(2);
 
-    expect(node1.color === color.black)
+    expect(node1.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node2.color === color.black)
+    expect(node2.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node7.color === color.black)
+    expect(node7.color === COLOR_TYPE.black)
       .toBe(true);
-    expect(node3.color === color.red)
+    expect(node3.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node4.color === color.red)
+    expect(node4.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node5.color === color.red)
+    expect(node5.color === COLOR_TYPE.red)
       .toBe(true);
-    expect(node6.color === color.red)
+    expect(node6.color === COLOR_TYPE.red)
       .toBe(true);
   });
 
@@ -706,7 +706,7 @@ function treeUtils<T = unknown>(tree: RedBlackTree<T>) {
   });
 
   return {
-    color: items.map((item) => (item.color === color.black ? 1 : 0))
+    color: items.map((item) => (item.color === COLOR_TYPE.black ? 1 : 0))
       .join(','),
     value: items.map((item) => item.value)
       .join(','),

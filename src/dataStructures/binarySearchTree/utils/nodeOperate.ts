@@ -13,7 +13,7 @@ export function setLeft<T = unknown>(root: BinarySearchTreeNode<T>, leftNode: Bi
   }
 }
 
-export function setRight<T = unknown>(root: BinarySearchTreeNode<T>, node: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> {
+export function setRight<T = unknown>(root: BinarySearchTreeNode<T>, node: BinarySearchTreeNode<T> | null): void {
   if (root.right != null) {
     root.right.parent = null;
   }
@@ -23,8 +23,6 @@ export function setRight<T = unknown>(root: BinarySearchTreeNode<T>, node: Binar
   if (root.right != null) {
     root.right.parent = root;
   }
-
-  return root;
 }
 
 export function removeChild<T = unknown>(root: BinarySearchTreeNode<T>, nodeToRemove: BinarySearchTreeNode<T>): boolean {
