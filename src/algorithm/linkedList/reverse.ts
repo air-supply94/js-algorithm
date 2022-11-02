@@ -7,7 +7,7 @@ export function reverseList(head: ListNode): ListNode | null {
   let current = head;
   let next = null;
 
-  while (current != null) {
+  while (current) {
     next = current.next;
     current.next = prev;
     prev = current;

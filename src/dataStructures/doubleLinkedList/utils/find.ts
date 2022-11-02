@@ -4,7 +4,7 @@ import type { DoubleLinkedListNode } from '../doubleLinkedList';
 export function find<T = unknown>(head: DoubleLinkedListNode<T>, findParams: {
   value?: T;
   callback?: (value: T) => boolean | void;
-}, compare: Comparator): null | DoubleLinkedListNode<T> {
+}, compare: Comparator): DoubleLinkedListNode<T> | null {
   const {
     value,
     callback,

@@ -126,7 +126,7 @@ describe('BinarySearchTree', () => {
     expect(bst.findMax())
       .toBeNull();
     const originInsert = bst.insert;
-    bst.insert = function <T = unknown>(this: BinarySearchTree<T>, value: T): null | BinarySearchTreeNode<T> {
+    bst.insert = function <T = unknown>(this: BinarySearchTree<T>, value: T): BinarySearchTreeNode<T> | null {
       return insert(this.root, value, this.comparator);
     };
     bst.insert(10);

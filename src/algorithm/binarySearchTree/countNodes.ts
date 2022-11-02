@@ -9,14 +9,14 @@ export function countNodes(root: TreeNode | null): number {
 
   let leftHeight = 0;
   let left = root;
-  while (left != null) {
+  while (left) {
     left = left.left;
     leftHeight++;
   }
 
   let rightHeight = 0;
   let right = root;
-  while (right != null) {
+  while (right) {
     right = right.right;
     rightHeight++;
   }

@@ -8,7 +8,7 @@ export function traversePreOrder<T = unknown>(
   callback: traverseCallback<T>
 ): void {
   const nodeStack: Array<BinarySearchTreeNode<T>> = [];
-  if (root != null) {
+  if (root) {
     nodeStack.push(root);
   }
 
@@ -18,11 +18,11 @@ export function traversePreOrder<T = unknown>(
       return;
     }
 
-    if (currentNode.right != null) {
+    if (currentNode.right) {
       nodeStack.push(currentNode.right);
     }
 
-    if (currentNode.left != null) {
+    if (currentNode.left) {
       nodeStack.push(currentNode.left);
     }
   }

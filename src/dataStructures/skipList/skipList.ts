@@ -16,7 +16,7 @@ class SkipListNode {
 
 function findNode(head: SkipListNode, data: number): SkipListNode {
   let node = head;
-  while (node != null) {
+  while (node) {
     while (node.right.data != Infinity && node.right.data <= data) {
       node = node.right;
     }
@@ -117,14 +117,14 @@ export class SkipList {
       return false;
     }
 
-    while (removedNode != null) {
+    while (removedNode) {
       removedNode.right.left = removedNode.left;
       removedNode.left.right = removedNode.right;
       removedNode = removedNode.up;
     }
 
     let newHead = this.head;
-    while (newHead.down != null && newHead.data === -Infinity && newHead.right.data === Infinity) {
+    while (newHead.down && newHead.data === -Infinity && newHead.right.data === Infinity) {
       const newHeadDown = newHead.down;
       newHeadDown.up = null;
       newHead.down = null;
@@ -145,7 +145,7 @@ export class SkipList {
   public toArray(): SkipListNode[] {
     const nodes: SkipListNode[] = [];
     let node = this.head;
-    while (node.down != null) {
+    while (node.down) {
       node = node.down;
     }
 

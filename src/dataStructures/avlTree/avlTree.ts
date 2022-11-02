@@ -40,15 +40,15 @@ export class AvlTree<T = unknown> {
     this.binarySearchTree.root = root;
   }
 
-  public find(value: T): null | BinarySearchTreeNode<T> {
+  public find(value: T): BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.find(value);
   }
 
-  public findMin(): null | BinarySearchTreeNode<T> {
+  public findMin(): BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.findMin();
   }
 
-  public findMax(): null | BinarySearchTreeNode<T> {
+  public findMax(): BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.findMax();
   }
 
@@ -102,7 +102,7 @@ export class AvlTree<T = unknown> {
   public remove(value: T): BinarySearchTreeNode<T> | null {
     const node = this.binarySearchTree.remove(value);
     let removeNode = node;
-    while (removeNode != null) {
+    while (removeNode) {
       avlTreeBalance(removeNode.parent, this.setRoot);
       removeNode = removeNode.parent;
     }

@@ -18,12 +18,12 @@ export function replaceWords(dictionary: string[], sentence: string): string {
     const sentence = sentenceList[i];
     let currentNode = root;
     let j = 0;
-    while (j < sentence.length && currentNode != null && !currentNode.isCompleteWord) {
+    while (j < sentence.length && currentNode && !currentNode.isCompleteWord) {
       currentNode = currentNode.getChild(sentence[j]);
       j++;
     }
 
-    if (currentNode != null && currentNode.isCompleteWord) {
+    if (currentNode && currentNode.isCompleteWord) {
       result.push(sentence.slice(0, j));
     } else {
       result.push(sentence);

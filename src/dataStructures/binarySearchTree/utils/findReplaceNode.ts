@@ -10,11 +10,11 @@ export function findReplaceNode<T = unknown>(root: BinarySearchTreeNode<T> | nul
     return null;
   }
 
-  while (endNode.left != null || endNode.right != null) {
+  while (endNode.left || endNode.right) {
     const startNode = endNode;
-    if (endNode.left != null && endNode.right != null) {
+    if (endNode.left && endNode.right) {
       endNode = isFindRightMin ? findMin(endNode.right) : findMax(endNode.left);
-    } else if (endNode.left != null) {
+    } else if (endNode.left) {
       endNode = endNode.left;
     } else {
       endNode = endNode.right;

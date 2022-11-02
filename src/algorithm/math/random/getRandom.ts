@@ -10,7 +10,7 @@ export function getRandom(head: ListNode): number {
   let result = null;
   let n = 0;
 
-  while (current != null) {
+  while (current) {
     n++;
     if (Math.random() <= 1 / n) {
       result = current.val;

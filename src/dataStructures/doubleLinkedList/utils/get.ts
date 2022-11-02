@@ -5,7 +5,7 @@ export function formatIndex(index: any, size: number): number {
   return indexInt < 0 ? indexInt + size : indexInt;
 }
 
-export function get<T = unknown>(index: number, size: number, head: null | DoubleLinkedListNode<T>, tail: null | DoubleLinkedListNode<T>): null | DoubleLinkedListNode<T> {
+export function get<T = unknown>(index: number, size: number, head: DoubleLinkedListNode<T> | null, tail: DoubleLinkedListNode<T> | null): DoubleLinkedListNode<T> | null {
   const position = formatIndex(index, size);
   const middleIndex = size >>> 1;
 

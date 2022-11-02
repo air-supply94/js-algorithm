@@ -4,14 +4,14 @@ import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree
 // 94
 // 简单改造
 export function traverseInOrder<T = unknown>(
-  root: null | BinarySearchTreeNode<T>,
+  root: BinarySearchTreeNode<T> | null,
   callback: traverseCallback<T>
 ): void {
   const nodeStack: Array<BinarySearchTreeNode<T>> = [];
   let currentNode = root;
 
-  while (nodeStack.length > 0 || currentNode != null) {
-    while (currentNode != null) {
+  while (nodeStack.length > 0 || currentNode) {
+    while (currentNode) {
       nodeStack.push(currentNode);
       currentNode = currentNode.left;
     }

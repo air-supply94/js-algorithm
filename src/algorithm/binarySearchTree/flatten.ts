@@ -16,7 +16,7 @@ export function flatten(root: TreeNode | null): void {
   root.right = left;
 
   let current = root;
-  while (current.right != null) {
+  while (current.right) {
     current = current.right;
   }
   current.right = right;

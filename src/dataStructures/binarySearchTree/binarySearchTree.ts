@@ -23,35 +23,34 @@ export class BinarySearchTreeNode<T = unknown> {
   public color: COLOR_TYPE = COLOR_TYPE.red;
 }
 
-export type traverseCallback<T = unknown> = (node: BinarySearchTreeNode<T>, height?: number) => void | boolean;
+export type traverseCallback<T = unknown> = (node: BinarySearchTreeNode<T>, height?: number) => boolean | void;
 
 export class BinarySearchTree<T = unknown> {
   constructor(compareFunction?: compareFunctionType | Comparator, isFindMin = true) {
     this.comparator = new Comparator(compareFunction);
     this.isFindMin = isFindMin;
-    this.root = null;
   }
 
   private readonly isFindMin: boolean;
 
-  public root: BinarySearchTreeNode<T> | null;
+  public root: BinarySearchTreeNode<T> | null = null;
 
   public readonly comparator: Comparator;
 
-  public insert(value: T): null | BinarySearchTreeNode<T> {
-    return insert<T>(this.root, value, this.comparator, (root: BinarySearchTreeNode<T> | null) => this.root = root);
+  public insert(value: T): BinarySearchTreeNode<T> | null {
+    return insert(this.root, value, this.comparator, (root: BinarySearchTreeNode<T> | null) => this.root = root);
   }
 
-  public find(value: T): null | BinarySearchTreeNode<T> {
-    return find<T>(this.root, value, this.comparator);
+  public find(value: T): BinarySearchTreeNode<T> | null {
+    return find(this.root, value, this.comparator);
   }
 
   public contains(value: T): boolean {
-    return this.find(value) != null;
+    return Boolean(this.find(value));
   }
 
   public remove(value: T): BinarySearchTreeNode<T> | null {
-    const replaceNode = findReplaceNode<T>(this.root, value, this.comparator, this.isFindMin);
+    const replaceNode = findReplaceNode(this.root, value, this.comparator, this.isFindMin);
     if (replaceNode) {
       if (replaceNode.parent == null) {
         this.root = null;
@@ -65,12 +64,12 @@ export class BinarySearchTree<T = unknown> {
     return replaceNode;
   }
 
-  public findMin(): null | BinarySearchTreeNode<T> {
-    return findMin<T>(this.root);
+  public findMin(): BinarySearchTreeNode<T> | null {
+    return findMin(this.root);
   }
 
-  public findMax(): null | BinarySearchTreeNode<T> {
-    return findMax<T>(this.root);
+  public findMax(): BinarySearchTreeNode<T> | null {
+    return findMax(this.root);
   }
 
   public traversePreOrder(): T[] {
@@ -82,7 +81,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public traversePreOrderCallback(callback: traverseCallback<T>): void {
-    traversePreOrder<T>(this.root, callback);
+    traversePreOrder(this.root, callback);
   }
 
   public traverseInOrder(): T[] {
@@ -94,7 +93,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public traverseInOrderCallback(callback: traverseCallback<T>): void {
-    traverseInOrder<T>(this.root, callback);
+    traverseInOrder(this.root, callback);
   }
 
   public traverseAfterOrder(): T[] {
@@ -106,7 +105,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public traverseAfterOrderCallback(callback: traverseCallback<T>): void {
-    return traverseAfterOrder<T>(this.root, callback);
+    return traverseAfterOrder(this.root, callback);
   }
 
   public traverseLevelOrder(): T[] {
@@ -118,7 +117,7 @@ export class BinarySearchTree<T = unknown> {
   }
 
   public traverseLevelOrderCallback(callback: traverseCallback<T>): void {
-    traverseLevelOrder<T>(this.root, callback);
+    traverseLevelOrder(this.root, callback);
   }
 
   public toString(): string {

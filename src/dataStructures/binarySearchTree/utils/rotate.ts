@@ -22,7 +22,7 @@ export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, s
   setRight(leftNode, rootNode);
 }
 
-export function rotateLeftRight<T = unknown>(rootNode: BinarySearchTreeNode<T>): void {
+export function rotateLeftRight(rootNode: BinarySearchTreeNode): void {
   const leftNode = rootNode.left;
   setLeft(rootNode, null);
 
@@ -39,7 +39,7 @@ export function rotateLeftRight<T = unknown>(rootNode: BinarySearchTreeNode<T>):
   setLeft(leftRightNode, leftNode);
 }
 
-export function rotateRightLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>): void {
+export function rotateRightLeft(rootNode: BinarySearchTreeNode): void {
   const rightNode = rootNode.right;
   setRight(rootNode, null);
 

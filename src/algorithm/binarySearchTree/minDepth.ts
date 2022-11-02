@@ -6,7 +6,7 @@ export function minDepth(root: TreeNode | null): number {
   const queue: TreeNode[] = [];
   let level = 0;
 
-  if (root != null) {
+  if (root) {
     queue.push(root);
   }
 

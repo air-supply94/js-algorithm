@@ -1,7 +1,7 @@
 import type { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
 import { get } from './get';
 
-export function deleteValueBase<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, count: number, value?: T): null | DoubleLinkedListNode<T> {
+export function deleteValueBase<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, count: number, value?: T): DoubleLinkedListNode<T> | null {
   const deleteCount = 0;
   let deletedNode = null;
   let currentNode = doubleLinkedList.head;
@@ -32,7 +32,7 @@ export function deleteNode<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, n
   }
 }
 
-export function deleteIndex<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, index: number): null | DoubleLinkedListNode<T> {
+export function deleteIndex<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, index: number): DoubleLinkedListNode<T> | null {
   const node = get(index, doubleLinkedList.size, doubleLinkedList.head, doubleLinkedList.tail);
   if (node == null) {
     return null;

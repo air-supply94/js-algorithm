@@ -119,15 +119,15 @@ export class RedBlackTree<T = unknown> {
     this.binarySearchTree.root = root;
   }
 
-  public find(value: T): null | BinarySearchTreeNode<T> {
+  public find(value: T): BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.find(value);
   }
 
-  public findMin(): null | BinarySearchTreeNode<T> {
+  public findMin(): BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.findMin();
   }
 
-  public findMax(): null | BinarySearchTreeNode<T> {
+  public findMax(): BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.findMax();
   }
 

@@ -9,7 +9,7 @@ export function traverseLevelOrder<T = unknown>(
 ): number {
   const queue: Array<BinarySearchTreeNode<T>> = [];
   let level = 0;
-  if (root != null) {
+  if (root) {
     queue.push(root);
   }
 
@@ -22,11 +22,11 @@ export function traverseLevelOrder<T = unknown>(
         return level;
       }
 
-      if (tmpNode.left != null) {
+      if (tmpNode.left) {
         queue.push(tmpNode.left);
       }
 
-      if (tmpNode.right != null) {
+      if (tmpNode.right) {
         queue.push(tmpNode.right);
       }
     }

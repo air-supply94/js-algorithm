@@ -64,7 +64,7 @@ export class DoubleLinkedList<T = unknown> {
     return prependNode(this, new DoubleLinkedListNode(value));
   }
 
-  public deleteHead(): null | DoubleLinkedListNode<T> {
+  public deleteHead(): DoubleLinkedListNode<T> | null {
     const deletedNode = this.head;
     if (this.size <= 1) {
       this.clear();
@@ -77,7 +77,7 @@ export class DoubleLinkedList<T = unknown> {
     return deletedNode;
   }
 
-  public deleteTail(): null | DoubleLinkedListNode<T> {
+  public deleteTail(): DoubleLinkedListNode<T> | null {
     const deletedNode = this.tail;
     if (this.size <= 1) {
       this.clear();
