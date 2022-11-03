@@ -1,4 +1,4 @@
-import { findPrefixCount, findWordsCount, Trie, wordFrequency } from '../leetcode/trie';
+import { findPrefixCount, findWordsCount, Trie, wordFrequency } from '../trie';
 
 describe('Trie', () => {
   test('trie findWordsCount findPrefixCount wordFrequency', () => {

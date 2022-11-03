@@ -1,4 +1,4 @@
-import { SegmentTree } from '../segmentTree';
+import { SegmentTree } from './segmentTree';
 
 describe('SegmentTree', () => {
   test('should do min range query on power of two length array', () => {

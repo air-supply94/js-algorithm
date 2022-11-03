@@ -1,4 +1,4 @@
-import type { compareFunctionType } from '../../utils';
+import type { Compare } from '../../utils';
 import { Comparator } from '../../utils';
 import { appendNode, prependNode } from './utils';
 
@@ -17,9 +17,9 @@ export class DoubleLinkedListNode<T = unknown> {
 }
 
 export class DoubleLinkedList<T = unknown> {
-  constructor(comparatorFunction?: Comparator<T> | compareFunctionType<T>) {
+  constructor(compare?: Compare<T>) {
     this.clear();
-    this.compare = new Comparator<T>(comparatorFunction);
+    this.compare = new Comparator<T>(compare);
   }
 
   public readonly compare: Comparator<T>;

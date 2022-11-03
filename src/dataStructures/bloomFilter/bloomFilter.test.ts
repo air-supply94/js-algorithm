@@ -1,4 +1,4 @@
-import { BloomFilter } from '../bloomFilter';
+import { BloomFilter } from './bloomFilter';
 
 describe('BloomFilter', () => {
   let bloomFilter: BloomFilter;

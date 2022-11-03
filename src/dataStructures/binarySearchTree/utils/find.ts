@@ -4,7 +4,7 @@ import type { BinarySearchTreeNode } from '../binarySearchTree';
 export function find<T = unknown>(
   root: BinarySearchTreeNode<T> | null,
   value: T,
-  comparator: Comparator
+  comparator: Comparator<T>
 ): BinarySearchTreeNode<T> | null {
   if (root == null) {
     return null;

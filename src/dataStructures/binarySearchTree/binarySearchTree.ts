@@ -1,4 +1,4 @@
-import type { compareFunctionType } from '../../utils';
+import type { Compare } from '../../utils';
 import { Comparator } from '../../utils';
 import { find, findMax, findMin, findReplaceNode, insert, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder } from './utils';
 
@@ -26,8 +26,8 @@ export class BinarySearchTreeNode<T = unknown> {
 export type traverseCallback<T = unknown> = (node: BinarySearchTreeNode<T>, height?: number) => boolean | void;
 
 export class BinarySearchTree<T = unknown> {
-  constructor(compareFunction?: compareFunctionType | Comparator, isFindMin = true) {
-    this.comparator = new Comparator(compareFunction);
+  constructor(compare?: Compare<T>, isFindMin = true) {
+    this.comparator = new Comparator<T>(compare);
     this.isFindMin = isFindMin;
   }
 
@@ -35,7 +35,7 @@ export class BinarySearchTree<T = unknown> {
 
   public root: BinarySearchTreeNode<T> | null = null;
 
-  public readonly comparator: Comparator;
+  public readonly comparator: Comparator<T>;
 
   public insert(value: T): BinarySearchTreeNode<T> | null {
     return insert(this.root, value, this.comparator, (root: BinarySearchTreeNode<T> | null) => this.root = root);

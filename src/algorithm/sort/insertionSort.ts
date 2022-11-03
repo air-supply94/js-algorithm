@@ -1,8 +1,8 @@
-import type { compareFunctionType } from '../../utils';
+import type { Compare } from '../../utils';
 import { Comparator, swap } from '../../utils';
 
-export function insertionSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
-  const comparator = new Comparator(compareCallback);
+export function insertionSort<T = unknown>(originalArray: T[], compare?: Compare<T>): T[] {
+  const comparator = new Comparator(compare);
   const gap = 1;
   for (let i = 0; i < originalArray.length - gap; i++) {
     let currentIndex = i;
@@ -14,8 +14,8 @@ export function insertionSort<T = unknown>(originalArray: T[], compareCallback?:
   return originalArray;
 }
 
-export function shellSort<T = unknown>(originalArray: T[], compareCallback?: Comparator | compareFunctionType): T[] {
-  const comparator = new Comparator(compareCallback);
+export function shellSort<T = unknown>(originalArray: T[], compare?: Compare<T>): T[] {
+  const comparator = new Comparator(compare);
   let gap = originalArray.length >>> 1;
 
   while (gap > 0) {

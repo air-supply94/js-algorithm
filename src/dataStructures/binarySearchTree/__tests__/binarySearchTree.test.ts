@@ -1,6 +1,6 @@
 import type { BinarySearchTreeNode } from '../binarySearchTree';
 import { BinarySearchTree } from '../binarySearchTree';
-import { getHeight, insert, findReplaceNode } from '../utils';
+import { findReplaceNode, getHeight, insert } from '../utils';
 
 describe('BinarySearchTree', () => {
   test('should create binary search tree', () => {
@@ -80,17 +80,6 @@ describe('BinarySearchTree', () => {
   });
 
   test('should insert object values', () => {
-    const nodeValueCompareFunction = (a: { key?: string; value: number; }, b: { key?: string; value: number; }) => {
-      const normalizedA = a || { value: null };
-      const normalizedB = b || { value: null };
-
-      if (normalizedA.value === normalizedB.value) {
-        return 0;
-      }
-
-      return normalizedA.value < normalizedB.value ? -1 : 1;
-    };
-
     const obj1 = {
       key: 'obj1',
       value: 1,
@@ -107,7 +96,16 @@ describe('BinarySearchTree', () => {
       toString: () => 'obj3',
     };
 
-    const bst = new BinarySearchTree(nodeValueCompareFunction);
+    const bst = new BinarySearchTree<{ key?: string; value: number; }>((a, b) => {
+      const normalizedA = a || { value: null };
+      const normalizedB = b || { value: null };
+
+      if (normalizedA.value === normalizedB.value) {
+        return 0;
+      }
+
+      return normalizedA.value < normalizedB.value ? -1 : 1;
+    });
 
     bst.insert(obj2);
     bst.insert(obj3);
@@ -407,17 +405,6 @@ describe('BinarySearchTree', () => {
   });
 
   test('should be possible to use objects as node values', () => {
-    const nodeValueComparatorCallback = (a: { key?: string; value: number; }, b: { key?: string; value: number; }) => {
-      const normalizedA = a || { value: null };
-      const normalizedB = b || { value: null };
-
-      if (normalizedA.value === normalizedB.value) {
-        return 0;
-      }
-
-      return normalizedA.value < normalizedB.value ? -1 : 1;
-    };
-
     const obj1 = {
       key: 'obj1',
       value: 1,
@@ -434,7 +421,16 @@ describe('BinarySearchTree', () => {
       toString: () => 'obj3',
     };
 
-    const bstNode = new BinarySearchTree(nodeValueComparatorCallback);
+    const bstNode = new BinarySearchTree<{ key?: string; value: number; }>((a, b) => {
+      const normalizedA = a || { value: null };
+      const normalizedB = b || { value: null };
+
+      if (normalizedA.value === normalizedB.value) {
+        return 0;
+      }
+
+      return normalizedA.value < normalizedB.value ? -1 : 1;
+    });
     bstNode.insert(obj2);
     bstNode.insert(obj1);
 

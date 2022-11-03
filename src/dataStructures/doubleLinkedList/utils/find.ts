@@ -7,7 +7,7 @@ export function find<T = unknown>(
     value?: T;
     callback?: (value: T) => boolean | void;
   },
-  compare: Comparator<T>
+  comparator: Comparator<T>
 ): DoubleLinkedListNode<T> | null {
   const {
     value,
@@ -18,7 +18,7 @@ export function find<T = unknown>(
   while (currentNode) {
     if (typeof callback === 'function' && callback(currentNode.value)) {
       return currentNode;
-    } else if (compare.equal(currentNode.value, value)) {
+    } else if (comparator.equal(currentNode.value, value)) {
       return currentNode;
     }
     currentNode = currentNode.next;

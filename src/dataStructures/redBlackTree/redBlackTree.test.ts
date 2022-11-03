@@ -1,18 +1,16 @@
-import type { BinarySearchTreeNode } from '../../binarySearchTree';
-import { getHeight, nodeToString, COLOR_TYPE } from '../../binarySearchTree';
-import { RedBlackTree } from '../redBlackTree';
-
-function redBlackTreeCompare(a: BinarySearchTreeNode<number>, b: BinarySearchTreeNode<number>) {
-  if (a === b) {
-    return 0;
-  }
-
-  return a < b ? -1 : 1;
-}
+import type { BinarySearchTreeNode } from '../binarySearchTree';
+import { COLOR_TYPE, getHeight, nodeToString } from '../binarySearchTree';
+import { RedBlackTree } from './redBlackTree';
 
 describe('RedBlackTree', () => {
   test('should always color first inserted node as black', () => {
-    const tree = new RedBlackTree(redBlackTreeCompare);
+    const tree = new RedBlackTree<number>((a, b) => {
+      if (a === b) {
+        return 0;
+      }
+
+      return a < b ? -1 : 1;
+    });
 
     const firstInsertedNode = tree.insert(10);
     tree.insert(10);
@@ -32,7 +30,13 @@ describe('RedBlackTree', () => {
   });
 
   test('should always color new leaf node as red', () => {
-    const tree = new RedBlackTree(redBlackTreeCompare);
+    const tree = new RedBlackTree<number>((a, b) => {
+      if (a === b) {
+        return 0;
+      }
+
+      return a < b ? -1 : 1;
+    });
 
     const firstInsertedNode = tree.insert(10);
     const secondInsertedNode = tree.insert(15);
@@ -65,7 +69,13 @@ describe('RedBlackTree', () => {
   });
 
   test('should balance itself', () => {
-    const tree = new RedBlackTree(redBlackTreeCompare);
+    const tree = new RedBlackTree<number>((a, b) => {
+      if (a === b) {
+        return 0;
+      }
+
+      return a < b ? -1 : 1;
+    });
 
     tree.insert(5);
     tree.insert(10);
@@ -478,15 +488,13 @@ describe('RedBlackTree', () => {
   });
 
   test('should insert and remove object item', () => {
-    function compare(a: { key: string;value: number; }, b: { key: string;value: number; }) {
+    const tree = new RedBlackTree<{ key: string; value: number; }>((a, b) => {
       if (a.key === b.key) {
         return 0;
       }
 
       return a.key < b.key ? -1 : 1;
-    }
-
-    const tree = new RedBlackTree<{ key: string; value: number; }>(compare);
+    });
 
     const data = [
       {

@@ -5,7 +5,7 @@ import { setLeft, setRight } from './nodeOperate';
 export function insert<T = unknown>(
   root: BinarySearchTreeNode<T> | null,
   value: T,
-  comparator: Comparator,
+  comparator: Comparator<T>,
   emptyRootCallback?: (root: BinarySearchTreeNode<T> | null) => unknown
 ): BinarySearchTreeNode<T> | null {
   const newNode = new BinarySearchTreeNode(value);

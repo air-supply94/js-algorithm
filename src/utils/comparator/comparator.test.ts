@@ -1,4 +1,4 @@
-import { Comparator } from '../index';
+import { Comparator } from './comparator';
 
 test('comparator default function', () => {
   const comparator = new Comparator();

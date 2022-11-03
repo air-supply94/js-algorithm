@@ -1,4 +1,4 @@
-import { TrieNode } from '../trieNode';
+import { TrieNode } from './trieNode';
 
 function getLastCharacterNode(root: TrieNode, word: string): TrieNode | undefined {
   let currentNode = root;

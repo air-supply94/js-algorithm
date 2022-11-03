@@ -1,4 +1,4 @@
-import { SkipList } from '../skipList';
+import { SkipList } from './skipList';
 
 test('skipList', () => {
   const skipList = new SkipList();

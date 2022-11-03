@@ -1,4 +1,4 @@
-import { ComplexNumber } from '../complexNumber';
+import { ComplexNumber } from './complexNumber';
 
 describe('ComplexNumber', () => {
   test('should create complex numbers', () => {

@@ -4,7 +4,7 @@ import { find } from './find';
 import { findMax } from './findMax';
 import { findMin } from './findMin';
 
-export function findReplaceNode<T = unknown>(root: BinarySearchTreeNode<T> | null, value: T, comparator: Comparator, isFindRightMin = true): BinarySearchTreeNode<T> | null {
+export function findReplaceNode<T = unknown>(root: BinarySearchTreeNode<T> | null, value: T, comparator: Comparator<T>, isFindRightMin = true): BinarySearchTreeNode<T> | null {
   let endNode = find(root, value, comparator);
   if (endNode == null) {
     return null;

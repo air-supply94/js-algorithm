@@ -1,5 +1,5 @@
-import type { BinarySearchTreeNode } from '../../binarySearchTree';
-import { huffmanTree } from '../huffmanTree';
+import type { BinarySearchTreeNode } from '../binarySearchTree';
+import { huffmanTree } from './huffmanTree';
 
 test('huffmanTree', () => {
   expect(getHuffmanWPL(huffmanTree([])))

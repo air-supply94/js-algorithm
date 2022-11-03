@@ -1,5 +1,5 @@
-import { Comparator } from '../../../utils';
-import { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
+import { Comparator } from '../../utils';
+import { DoubleLinkedList, DoubleLinkedListNode } from './doubleLinkedList';
 
 describe('doubleLinkedList node', () => {
   test('should create list node with value', () => {

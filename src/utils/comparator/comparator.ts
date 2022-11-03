@@ -1,19 +1,20 @@
-export type compareFunctionType<T = unknown> = (a?: T, b?: T) => 0 | 1 | -1;
+type CompareFunction<T = unknown> = (a?: T, b?: T) => 0 | 1 | -1;
+export type Compare<T = unknown> = Comparator<T> | CompareFunction<T>;
 
 export class Comparator<T = unknown> {
-  constructor(comparatorFunction: Comparator<T> | compareFunctionType<T> = function(a, b) {
+  constructor(compare: Compare<T> = function(a, b) {
     if (a === b) {
       return 0;
     }
     return a < b ? -1 : 1;
   }) {
-    if (comparatorFunction instanceof Comparator) {
-      return comparatorFunction;
+    if (compare instanceof Comparator) {
+      return compare;
     }
-    this.compare = comparatorFunction;
+    this.compare = compare;
   }
 
-  private readonly compare: compareFunctionType<T>;
+  private readonly compare: CompareFunction<T>;
 
   public equal(a?: T, b?: T): boolean {
     return this.compare(a, b) === 0;

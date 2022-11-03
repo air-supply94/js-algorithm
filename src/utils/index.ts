@@ -1,2 +1,2 @@
-export * from './comparator';
+export * from './comparator/comparator';
 export * from './helper';
