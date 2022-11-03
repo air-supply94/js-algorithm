@@ -17,7 +17,7 @@ export class DoubleLinkedListNode<T = unknown> {
 }
 
 export class DoubleLinkedList<T = unknown> {
-  constructor(comparatorFunction?: Comparator<T> | compareFunctionType) {
+  constructor(comparatorFunction?: Comparator<T> | compareFunctionType<T>) {
     this.clear();
     this.compare = new Comparator<T>(comparatorFunction);
   }

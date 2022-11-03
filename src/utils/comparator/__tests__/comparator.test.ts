@@ -38,7 +38,7 @@ test('comparator default function', () => {
 });
 
 test('comparator custom function', () => {
-  const comparator = new Comparator((a, b) => {
+  const comparator = new Comparator<string>((a, b) => {
     if (a.length === b.length) {
       return 0;
     }

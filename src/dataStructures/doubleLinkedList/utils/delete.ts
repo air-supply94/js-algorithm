@@ -9,7 +9,7 @@ export function deleteValueBase<T = unknown>(doubleLinkedList: DoubleLinkedList<
     const nextNode = currentNode.next;
     if (doubleLinkedList.compare.equal(currentNode.value, value)) {
       deletedNode = currentNode;
-      deleteNode<T>(doubleLinkedList, currentNode);
+      deleteNode(doubleLinkedList, currentNode);
     }
     currentNode = nextNode;
   }

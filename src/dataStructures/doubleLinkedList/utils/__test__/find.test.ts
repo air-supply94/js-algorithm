@@ -51,15 +51,13 @@ test('should find node by callback', () => {
 });
 
 test('should find node by means of custom compare function', () => {
-  const comparatorFunction = (a: { value: number; customValue: string; }, b: { value: number; customValue: string; }) => {
+  const linkedList = new DoubleLinkedList<{ value: number; customValue: string; }>((a, b) => {
     if (a.customValue === b.customValue) {
       return 0;
     }
 
     return a.customValue < b.customValue ? -1 : 1;
-  };
-
-  const linkedList = new DoubleLinkedList<{ value: number; customValue: string; }>(comparatorFunction);
+  });
 
   linkedList.append({
     value: 1,

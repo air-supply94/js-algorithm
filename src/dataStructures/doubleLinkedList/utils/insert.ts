@@ -10,7 +10,7 @@ export function insert<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, value
     return doubleLinkedList.append(value);
   } else {
     const oldNode = get(position, doubleLinkedList.size, doubleLinkedList.head, doubleLinkedList.tail);
-    const newNode = new DoubleLinkedListNode<T>(value, oldNode, oldNode.previous);
+    const newNode = new DoubleLinkedListNode(value, oldNode, oldNode.previous);
     oldNode.previous.next = newNode;
     oldNode.previous = newNode;
     doubleLinkedList.size++;
