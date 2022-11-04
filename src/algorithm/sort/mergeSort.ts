@@ -1,26 +1,31 @@
+import { Comparator } from '../../utils';
+import type { Compare } from '../../utils';
+
 // https://leetcode-cn.com/problems/sort-an-array/submissions/
 // 912
-export function mergeSort(originalArray: number[], left = 0, right = originalArray.length - 1): number[] {
+export function mergeSort<T = unknown>(originalArray: T[], compare?: Compare<T>, left = 0, right = originalArray.length - 1): T[] {
   if (left >= right) {
     return originalArray;
   }
 
+  const comparator = new Comparator(compare);
   const middleIndex = (left + right) >>> 1;
-  mergeSort(originalArray, left, middleIndex);
-  mergeSort(originalArray, middleIndex + 1, right);
-  mergeSortedArrays(originalArray, left, right);
+  mergeSort(originalArray, comparator, left, middleIndex);
+  mergeSort(originalArray, comparator, middleIndex + 1, right);
+  mergeSortedArrays(originalArray, comparator, left, right);
   return originalArray;
 }
 
-function mergeSortedArrays(originalArray: number[], left: number, right: number): void {
-  const result: number[] = Array(right - left + 1).fill(null);
+function mergeSortedArrays<T = unknown>(originalArray: T[], comparator: Comparator<T>, left: number, right: number): void {
+  const result: T[] = Array(right - left + 1)
+    .fill(null);
   const middleIndex = (left + right) >>> 1;
   let l = left;
   let r = middleIndex + 1;
   let k = 0;
 
   while (l <= middleIndex && r <= right) {
-    if (originalArray[r] < originalArray[l]) {
+    if (comparator.lessThan(originalArray[r], originalArray[l])) {
       result[k] = originalArray[r];
       k++;
       r++;

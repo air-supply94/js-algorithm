@@ -2,31 +2,34 @@ import type { Comparator, Compare } from '../../utils';
 import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 import { BinarySearchTree, getBalanceFactor, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
 
-function avlTreeBalance<T = unknown>(root: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
-  if (getBalanceFactor(root) > 1) {
-    if (getBalanceFactor(root.left) > 0) {
-      rotateLeftLeft(root, setRoot);
-    } else {
-      rotateLeftRight(root);
-      rotateLeftLeft(root, setRoot);
-    }
-  } else if (getBalanceFactor(root) < -1) {
-    if (getBalanceFactor(root.right) < 0) {
-      rotateRightRight(root, setRoot);
-    } else {
-      rotateRightLeft(root);
-      rotateRightRight(root, setRoot);
-    }
-  }
-}
-
 export class AvlTree<T = unknown> {
   constructor(compare?: Compare<T>) {
     this.binarySearchTree = new BinarySearchTree<T>(compare, true);
-    this.setRoot = this.setRoot.bind(this);
   }
 
   private readonly binarySearchTree: BinarySearchTree<T>;
+
+  private readonly setRoot = (root: BinarySearchTreeNode<T> | null): void => {
+    this.binarySearchTree.root = root;
+  };
+
+  private avlTreeBalance(root: BinarySearchTreeNode<T>): void {
+    if (getBalanceFactor(root) > 1) {
+      if (getBalanceFactor(root.left) > 0) {
+        rotateLeftLeft(root, this.setRoot);
+      } else {
+        rotateLeftRight(root);
+        rotateLeftLeft(root, this.setRoot);
+      }
+    } else if (getBalanceFactor(root) < -1) {
+      if (getBalanceFactor(root.right) < 0) {
+        rotateRightRight(root, this.setRoot);
+      } else {
+        rotateRightLeft(root);
+        rotateRightRight(root, this.setRoot);
+      }
+    }
+  }
 
   public get comparator(): Comparator<T> {
     return this.binarySearchTree.comparator;
@@ -34,10 +37,6 @@ export class AvlTree<T = unknown> {
 
   public get root(): BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.root;
-  }
-
-  public setRoot(root: BinarySearchTreeNode<T> | null): void {
-    this.binarySearchTree.root = root;
   }
 
   public find(value: T): BinarySearchTreeNode<T> | null {
@@ -92,7 +91,7 @@ export class AvlTree<T = unknown> {
     const node = this.binarySearchTree.insert(value);
     let currentNode = node;
     while (currentNode) {
-      avlTreeBalance(currentNode, this.setRoot);
+      this.avlTreeBalance(currentNode);
       currentNode = currentNode.parent;
     }
 
@@ -103,7 +102,7 @@ export class AvlTree<T = unknown> {
     const node = this.binarySearchTree.remove(value);
     let removeNode = node;
     while (removeNode) {
-      avlTreeBalance(removeNode.parent, this.setRoot);
+      this.avlTreeBalance(removeNode.parent);
       removeNode = removeNode.parent;
     }
 

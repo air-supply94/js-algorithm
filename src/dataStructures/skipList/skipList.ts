@@ -1,70 +1,60 @@
-class SkipListNode {
-  constructor(data: number) {
+export class SkipListNode<T = unknown> {
+  constructor(data: T) {
     this.data = data;
   }
 
-  public data: number;
+  public data: T;
 
-  public left: SkipListNode | null = null;
+  public left: SkipListNode<T> | null = null;
 
-  public right: SkipListNode | null = null;
+  public right: SkipListNode<T> | null = null;
 
-  public up: SkipListNode | null = null;
+  public up: SkipListNode<T> | null = null;
 
-  public down: SkipListNode | null = null;
+  public down: SkipListNode<T> | null = null;
 }
 
-function findNode(head: SkipListNode, data: number): SkipListNode {
-  let node = head;
-  while (node) {
-    while (node.right.data != Infinity && node.right.data <= data) {
-      node = node.right;
-    }
-
-    if (node.down == null) {
-      break;
-    } else {
-      node = node.down;
-    }
-  }
-  return node;
-}
-
-function appendNode(preNode: SkipListNode, newNode: SkipListNode): void {
-  newNode.left = preNode;
-  newNode.right = preNode.right;
-  preNode.right.left = newNode;
-  preNode.right = newNode;
-}
-
-export class SkipList {
+export class SkipList<T = unknown> {
   constructor() {
-    this.PROMOTE_RATE = 0.5;
     this.head.right = this.tail;
     this.tail.left = this.head;
   }
 
-  private readonly PROMOTE_RATE: number;
+  private PROMOTE_RATE = 0.5;
 
   private level = 0;
 
-  private head: SkipListNode = new SkipListNode(-Infinity);
+  private head: SkipListNode<T> = new SkipListNode<T>(null);
 
-  private tail: SkipListNode = new SkipListNode(Infinity);
+  private tail: SkipListNode<T> = new SkipListNode<T>(null);
 
-  public search(data: number): SkipListNode {
-    const node = findNode(this.head, data);
-    if (node.data === data) {
-      return node;
-    } else {
-      return null;
+  private findNode(head: SkipListNode<T>, data: T): SkipListNode<T> {
+    let node = head;
+    while (node) {
+      while (node.right.data != null && node.right.data <= data) {
+        node = node.right;
+      }
+
+      if (node.down == null) {
+        return node;
+      }
+
+      node = node.down;
     }
+    return node;
   }
 
-  private addLevel() {
+  private appendNode(preNode: SkipListNode<T>, newNode: SkipListNode<T>): void {
+    newNode.left = preNode;
+    newNode.right = preNode.right;
+    preNode.right.left = newNode;
+    preNode.right = newNode;
+  }
+
+  private addLevel(): void {
     this.level++;
-    const newHead = new SkipListNode(-Infinity);
-    const newTail = new SkipListNode(Infinity);
+    const newHead = new SkipListNode(null);
+    const newTail = new SkipListNode(null);
 
     newHead.right = newTail;
     newTail.left = newHead;
@@ -79,14 +69,19 @@ export class SkipList {
     this.tail = newTail;
   }
 
-  public insert(data: number): void {
-    let preNode = findNode(this.head, data);
+  public search(data: T): SkipListNode<T> | null {
+    const node = this.findNode(this.head, data);
+    return data === node.data ? node : null;
+  }
+
+  public insert(data: T): void {
+    let preNode = this.findNode(this.head, data);
     if (preNode.data == data) {
       return;
     }
 
     let currentDataNode = new SkipListNode(data);
-    appendNode(preNode, currentDataNode);
+    this.appendNode(preNode, currentDataNode);
     let currentLevel = 0;
 
     while (Math.random() <= this.PROMOTE_RATE) {
@@ -102,7 +97,7 @@ export class SkipList {
       tmpPreUpNode = tmpPreUpNode.up;
 
       const tmpCurrentDataUpNode = new SkipListNode(data);
-      appendNode(tmpPreUpNode, tmpCurrentDataUpNode);
+      this.appendNode(tmpPreUpNode, tmpCurrentDataUpNode);
       tmpCurrentDataUpNode.down = currentDataNode;
       currentDataNode.up = tmpCurrentDataUpNode;
 
@@ -111,7 +106,7 @@ export class SkipList {
     }
   }
 
-  public remove(data: number): boolean {
+  public remove(data: T): boolean {
     let removedNode = this.search(data);
     if (removedNode == null) {
       return false;
@@ -124,7 +119,7 @@ export class SkipList {
     }
 
     let newHead = this.head;
-    while (newHead.down && newHead.data === -Infinity && newHead.right.data === Infinity) {
+    while (newHead.down && newHead.data === null && newHead.right.data === null) {
       const newHeadDown = newHead.down;
       newHeadDown.up = null;
       newHead.down = null;
@@ -142,14 +137,14 @@ export class SkipList {
     return true;
   }
 
-  public toArray(): SkipListNode[] {
-    const nodes: SkipListNode[] = [];
+  public toArray(): Array<SkipListNode<T>> {
+    const nodes: Array<SkipListNode<T>> = [];
     let node = this.head;
     while (node.down) {
       node = node.down;
     }
 
-    while (node.right.data != Infinity) {
+    while (node.right.data != null) {
       nodes.push(node.right);
       node = node.right;
     }

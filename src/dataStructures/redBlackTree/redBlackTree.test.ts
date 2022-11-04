@@ -84,6 +84,8 @@ describe('RedBlackTree', () => {
     tree.insert(25);
     tree.insert(30);
 
+    expect(tree.find(5).value)
+      .toBe(5);
     expect(tree.toString())
       .toBe('5,10,15,20,25,30');
     expect(getHeight(tree.root))
