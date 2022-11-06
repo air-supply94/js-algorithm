@@ -7,7 +7,7 @@ export function deleteValueBase<T = unknown>(doubleLinkedList: DoubleLinkedList<
   let currentNode = doubleLinkedList.head;
   while (deleteCount < count && currentNode) {
     const nextNode = currentNode.next;
-    if (doubleLinkedList.compare.equal(currentNode.value, value)) {
+    if (doubleLinkedList.comparator.equal(currentNode.value, value)) {
       deletedNode = currentNode;
       deleteNode(doubleLinkedList, currentNode);
     }

@@ -20,6 +20,10 @@ export class Comparator<T = unknown> {
     return this.compare(a, b) === 0;
   }
 
+  public notEqual(a?: T, b?: T): boolean {
+    return !this.equal(a, b);
+  }
+
   public lessThan(a?: T, b?: T): boolean {
     return this.compare(a, b) === -1;
   }

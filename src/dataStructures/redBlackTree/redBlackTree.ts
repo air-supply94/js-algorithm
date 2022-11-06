@@ -1,4 +1,4 @@
-import type { Comparator, Compare } from '../../utils';
+import type { Compare } from '../../utils';
 import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
 import { BinarySearchTree, COLOR_TYPE, findReplaceNode, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder, getUncle, rotateLeftLeft, rotateLeftRight, rotateRightRight, rotateRightLeft } from '../binarySearchTree';
 
@@ -8,10 +8,6 @@ export class RedBlackTree<T = unknown> {
   }
 
   private readonly binarySearchTree: BinarySearchTree<T>;
-
-  private setRoot = (root: BinarySearchTreeNode<T> | null): void => {
-    this.binarySearchTree.root = root;
-  };
 
   private insertBalance(node: BinarySearchTreeNode<T> | null): void {
     if (node == null) {
@@ -39,23 +35,23 @@ export class RedBlackTree<T = unknown> {
       if (node === node.parent.left) {
         node.parent.color = COLOR_TYPE.black;
         node.parent.parent.color = COLOR_TYPE.red;
-        rotateLeftLeft(node.parent.parent, this.setRoot);
+        rotateLeftLeft(node.parent.parent, this.binarySearchTree.setRoot);
       } else {
         node.color = COLOR_TYPE.black;
         node.parent.parent.color = COLOR_TYPE.red;
         rotateLeftRight(node.parent.parent);
-        rotateLeftLeft(node.parent, this.setRoot);
+        rotateLeftLeft(node.parent, this.binarySearchTree.setRoot);
       }
     } else {
       if (node === node.parent.right) {
         node.parent.color = COLOR_TYPE.black;
         node.parent.parent.color = COLOR_TYPE.red;
-        rotateRightRight(node.parent.parent, this.setRoot);
+        rotateRightRight(node.parent.parent, this.binarySearchTree.setRoot);
       } else {
         node.color = COLOR_TYPE.black;
         node.parent.parent.color = COLOR_TYPE.red;
         rotateRightLeft(node.parent.parent);
-        rotateRightRight(node.parent, this.setRoot);
+        rotateRightRight(node.parent, this.binarySearchTree.setRoot);
       }
     }
   }
@@ -69,7 +65,7 @@ export class RedBlackTree<T = unknown> {
         if (sibling.color === COLOR_TYPE.red) {
           currentNode.parent.color = COLOR_TYPE.red;
           sibling.color = COLOR_TYPE.black;
-          rotateRightRight(currentNode.parent, this.setRoot);
+          rotateRightRight(currentNode.parent, this.binarySearchTree.setRoot);
         } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === COLOR_TYPE.black && sibling.right.color === COLOR_TYPE.black)) {
           sibling.color = COLOR_TYPE.red;
           currentNode = currentNode.parent;
@@ -77,7 +73,7 @@ export class RedBlackTree<T = unknown> {
           sibling.color = currentNode.parent.color;
           currentNode.parent.color = COLOR_TYPE.black;
           sibling.right.color = COLOR_TYPE.black;
-          rotateRightRight(currentNode.parent, this.setRoot);
+          rotateRightRight(currentNode.parent, this.binarySearchTree.setRoot);
           currentNode = this.root;
         } else if (sibling.left && sibling.left.color === COLOR_TYPE.red) {
           sibling.left.color = COLOR_TYPE.black;
@@ -90,7 +86,7 @@ export class RedBlackTree<T = unknown> {
         if (sibling.color === COLOR_TYPE.red) {
           currentNode.parent.color = COLOR_TYPE.red;
           sibling.color = COLOR_TYPE.black;
-          rotateLeftLeft(currentNode.parent, this.setRoot);
+          rotateLeftLeft(currentNode.parent, this.binarySearchTree.setRoot);
         } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === COLOR_TYPE.black && sibling.right.color === COLOR_TYPE.black)) {
           sibling.color = COLOR_TYPE.red;
           currentNode = currentNode.parent;
@@ -98,7 +94,7 @@ export class RedBlackTree<T = unknown> {
           sibling.color = currentNode.parent.color;
           currentNode.parent.color = COLOR_TYPE.black;
           sibling.left.color = COLOR_TYPE.black;
-          rotateLeftLeft(currentNode.parent, this.setRoot);
+          rotateLeftLeft(currentNode.parent, this.binarySearchTree.setRoot);
           currentNode = this.root;
         } else if (sibling.right && sibling.right.color === COLOR_TYPE.red) {
           sibling.right.color = COLOR_TYPE.black;
@@ -108,10 +104,6 @@ export class RedBlackTree<T = unknown> {
       }
     }
     currentNode.color = COLOR_TYPE.black;
-  }
-
-  public get comparator(): Comparator<T> {
-    return this.binarySearchTree.comparator;
   }
 
   public get root(): BinarySearchTreeNode<T> | null {
@@ -192,7 +184,7 @@ export class RedBlackTree<T = unknown> {
     const replaceNode = findReplaceNode<T>(
       this.root,
       value,
-      this.comparator,
+      this.binarySearchTree.comparator,
       false
     );
 
@@ -201,7 +193,7 @@ export class RedBlackTree<T = unknown> {
     }
 
     if (replaceNode.parent == null) {
-      this.setRoot(null);
+      this.binarySearchTree.setRoot(null);
       return replaceNode;
     }
 

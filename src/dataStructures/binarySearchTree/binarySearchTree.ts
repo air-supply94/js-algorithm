@@ -35,6 +35,10 @@ export class BinarySearchTree<T = unknown> {
 
   public root: BinarySearchTreeNode<T> | null = null;
 
+  public setRoot = (root: BinarySearchTreeNode<T> | null): void => {
+    this.root = root;
+  };
+
   public readonly comparator: Comparator<T>;
 
   public insert(value: T): BinarySearchTreeNode<T> | null {

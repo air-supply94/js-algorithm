@@ -1905,10 +1905,10 @@
     "@typescript-eslint/types" "5.5.0"
     eslint-visitor-keys "^3.0.0"
 
-"@zhouhaifei/code-style@2.22.6":
-  version "2.22.6"
-  resolved "https://registry.npmmirror.com/@zhouhaifei/code-style/-/code-style-2.22.6.tgz#0b40540055a89bba296232e57d6f25a474dc6e95"
-  integrity sha512-T21T6jsywihwjS2CNs2IgPzyXslz3eY2taGHfb/kUNQd3KglINN9X1IpP/jO/OtuhDUZnzAicdhC7Pw0v/r1JA==
+"@zhouhaifei/code-style@2.22.7":
+  version "2.22.7"
+  resolved "https://registry.npmmirror.com/@zhouhaifei/code-style/-/code-style-2.22.7.tgz#8f5fc05913de72ee8e8daad79f8aea90cac99785"
+  integrity sha512-wIROgAPBCfoDIFvM+iKj2WNGvnIBKRY6xeDfJvmezXkZZC3NUlFBOk5fgpWqKE1jRfX3fRprn5oJdKDQohzG4g==
   dependencies:
     "@commitlint/config-conventional" "^13.2.0"
     "@typescript-eslint/eslint-plugin" "^5.2.0"

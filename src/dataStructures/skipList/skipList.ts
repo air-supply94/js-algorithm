@@ -1,3 +1,6 @@
+import { Comparator } from '../../utils';
+import type { Compare } from '../../utils';
+
 export class SkipListNode<T = unknown> {
   constructor(data: T) {
     this.data = data;
@@ -15,10 +18,13 @@ export class SkipListNode<T = unknown> {
 }
 
 export class SkipList<T = unknown> {
-  constructor() {
+  constructor(compare?: Compare<T>) {
     this.head.right = this.tail;
     this.tail.left = this.head;
+    this.comparator = new Comparator<T>(compare);
   }
+
+  private readonly comparator: Comparator<T>;
 
   private PROMOTE_RATE = 0.5;
 
@@ -28,10 +34,10 @@ export class SkipList<T = unknown> {
 
   private tail: SkipListNode<T> = new SkipListNode<T>(null);
 
-  private findNode(head: SkipListNode<T>, data: T): SkipListNode<T> {
-    let node = head;
+  private getFirstLevelLatestNode(data: T): SkipListNode<T> {
+    let node = this.head;
     while (node) {
-      while (node.right.data != null && node.right.data <= data) {
+      while (node.right.data != null && this.comparator.lessThanOrEqual(node.right.data, data)) {
         node = node.right;
       }
 
@@ -44,11 +50,19 @@ export class SkipList<T = unknown> {
     return node;
   }
 
-  private appendNode(preNode: SkipListNode<T>, newNode: SkipListNode<T>): void {
-    newNode.left = preNode;
-    newNode.right = preNode.right;
-    preNode.right.left = newNode;
-    preNode.right = newNode;
+  private getNextLevelLatestNode(node: SkipListNode<T>): SkipListNode<T> {
+    let nextLevelLatestNode = node;
+    while (nextLevelLatestNode.up == null) {
+      nextLevelLatestNode = nextLevelLatestNode.left;
+    }
+    return nextLevelLatestNode.up;
+  }
+
+  private appendNode(previousNode: SkipListNode<T>, newNode: SkipListNode<T>): void {
+    newNode.left = previousNode;
+    newNode.right = previousNode.right;
+    previousNode.right.left = newNode;
+    previousNode.right = newNode;
   }
 
   private addLevel(): void {
@@ -69,46 +83,51 @@ export class SkipList<T = unknown> {
     this.tail = newTail;
   }
 
-  public search(data: T): SkipListNode<T> | null {
-    const node = this.findNode(this.head, data);
-    return data === node.data ? node : null;
-  }
-
-  public insert(data: T): void {
-    let preNode = this.findNode(this.head, data);
-    if (preNode.data == data) {
-      return;
+  public search(data: T): T | null {
+    const firstLevelLatestNode = this.getFirstLevelLatestNode(data);
+    if (firstLevelLatestNode.data == null) {
+      return null;
     }
 
-    let currentDataNode = new SkipListNode(data);
-    this.appendNode(preNode, currentDataNode);
+    return this.comparator.equal(firstLevelLatestNode.data, data) ? firstLevelLatestNode.data : null;
+  }
+
+  public insert(data: T): boolean {
+    let currentLevelLatestNode = this.getFirstLevelLatestNode(data);
+    if (this.comparator.equal(currentLevelLatestNode.data, data)) {
+      return false;
+    }
+
+    let currentLevelNode = new SkipListNode(data);
+    this.appendNode(currentLevelLatestNode, currentLevelNode);
     let currentLevel = 0;
 
     while (Math.random() <= this.PROMOTE_RATE) {
-      if (currentLevel == this.level) {
+      currentLevel++;
+      if (currentLevel > this.level) {
         this.addLevel();
       }
 
-      currentLevel++;
-      let tmpPreUpNode = preNode;
-      while (tmpPreUpNode.up == null) {
-        tmpPreUpNode = tmpPreUpNode.left;
-      }
-      tmpPreUpNode = tmpPreUpNode.up;
+      const nextLevelLatestNode = this.getNextLevelLatestNode(currentLevelLatestNode);
+      const nextLevelNode = new SkipListNode(data);
+      this.appendNode(nextLevelLatestNode, nextLevelNode);
+      nextLevelNode.down = currentLevelNode;
+      currentLevelNode.up = nextLevelNode;
 
-      const tmpCurrentDataUpNode = new SkipListNode(data);
-      this.appendNode(tmpPreUpNode, tmpCurrentDataUpNode);
-      tmpCurrentDataUpNode.down = currentDataNode;
-      currentDataNode.up = tmpCurrentDataUpNode;
-
-      currentDataNode = tmpCurrentDataUpNode;
-      preNode = tmpPreUpNode;
+      currentLevelNode = nextLevelNode;
+      currentLevelLatestNode = nextLevelLatestNode;
     }
+
+    return true;
   }
 
   public remove(data: T): boolean {
-    let removedNode = this.search(data);
-    if (removedNode == null) {
+    let removedNode = this.getFirstLevelLatestNode(data);
+    if (removedNode.data == null) {
+      return false;
+    }
+
+    if (this.comparator.notEqual(data, removedNode.data)) {
       return false;
     }
 
@@ -118,37 +137,37 @@ export class SkipList<T = unknown> {
       removedNode = removedNode.up;
     }
 
-    let newHead = this.head;
-    while (newHead.down && newHead.data === null && newHead.right.data === null) {
-      const newHeadDown = newHead.down;
-      newHeadDown.up = null;
-      newHead.down = null;
+    let currentHead = this.head;
+    while (currentHead.down && currentHead.data === null && currentHead.right.data === null) {
+      const newHead = currentHead.down;
+      newHead.up = null;
+      currentHead.down = null;
 
-      const newTailDown = newHead.right.down;
-      newTailDown.up = null;
-      newHead.right.down = null;
+      const newTail = currentHead.right.down;
+      newTail.up = null;
+      currentHead.right.down = null;
 
       this.level--;
-      newHead = newHeadDown;
-      this.head = newHeadDown;
-      this.tail = newTailDown;
+      currentHead = newHead;
+      this.head = newHead;
+      this.tail = newTail;
     }
 
     return true;
   }
 
-  public toArray(): Array<SkipListNode<T>> {
-    const nodes: Array<SkipListNode<T>> = [];
+  public toArray(): T[] {
+    const result: T[] = [];
     let node = this.head;
     while (node.down) {
       node = node.down;
     }
 
     while (node.right.data != null) {
-      nodes.push(node.right);
+      result.push(node.right.data);
       node = node.right;
     }
 
-    return nodes;
+    return result;
   }
 }

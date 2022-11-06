@@ -20,8 +20,6 @@ describe('AvlTree', () => {
     }
 
     const tree = new AvlTree();
-    expect(tree.comparator)
-      .toBeDefined();
     expect(tree.find(1))
       .toBeNull();
     expect(tree.findMax())

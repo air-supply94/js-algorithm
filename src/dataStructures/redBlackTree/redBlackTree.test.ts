@@ -23,8 +23,6 @@ describe('RedBlackTree', () => {
       .toBeTruthy();
     expect(nodeToString(firstInsertedNode))
       .toBe('20');
-    expect(tree.comparator)
-      .toBeDefined();
     expect(getHeight(tree.root))
       .toBe(0);
   });

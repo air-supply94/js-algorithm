@@ -4,21 +4,21 @@ import { find } from '../find';
 test('should find node by value', () => {
   const linkedList = new DoubleLinkedList();
 
-  expect(find(linkedList.head, { value: 5 }, linkedList.compare))
+  expect(find(linkedList.head, { value: 5 }, linkedList.comparator))
     .toBeNull();
 
   linkedList.append(1);
-  expect(find(linkedList.head, { value: 1 }, linkedList.compare))
+  expect(find(linkedList.head, { value: 1 }, linkedList.comparator))
     .toBeDefined();
 
   linkedList.append(2);
   linkedList.append(3);
 
-  const node = find(linkedList.head, { value: 2 }, linkedList.compare);
+  const node = find(linkedList.head, { value: 2 }, linkedList.comparator);
 
   expect(node.value)
     .toBe(2);
-  expect(find(linkedList.head, { value: 5 }, linkedList.compare))
+  expect(find(linkedList.head, { value: 5 }, linkedList.comparator))
     .toBeNull();
 });
 
@@ -38,7 +38,7 @@ test('should find node by callback', () => {
     key: 'test3',
   });
 
-  const node = find(linkedList.head, { callback: (value) => value.key === 'test2' }, linkedList.compare);
+  const node = find(linkedList.head, { callback: (value) => value.key === 'test2' }, linkedList.comparator);
 
   expect(node)
     .toBeDefined();
@@ -46,7 +46,7 @@ test('should find node by callback', () => {
     .toBe(2);
   expect(node.value.key)
     .toBe('test2');
-  expect(find(linkedList.head, { callback: (value) => value.key === 'test5' }, linkedList.compare))
+  expect(find(linkedList.head, { callback: (value) => value.key === 'test5' }, linkedList.comparator))
     .toBeNull();
 });
 
@@ -80,7 +80,7 @@ test('should find node by means of custom compare function', () => {
         customValue: 'test2',
       },
     },
-    linkedList.compare
+    linkedList.comparator
   );
 
   expect(node)
@@ -97,6 +97,6 @@ test('should find node by means of custom compare function', () => {
         customValue: 'test5',
       },
     },
-    linkedList.compare
+    linkedList.comparator
   )).toBeNull();
 });

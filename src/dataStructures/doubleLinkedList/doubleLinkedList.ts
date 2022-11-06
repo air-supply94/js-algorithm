@@ -19,10 +19,10 @@ export class DoubleLinkedListNode<T = unknown> {
 export class DoubleLinkedList<T = unknown> {
   constructor(compare?: Compare<T>) {
     this.clear();
-    this.compare = new Comparator<T>(compare);
+    this.comparator = new Comparator<T>(compare);
   }
 
-  public readonly compare: Comparator<T>;
+  public readonly comparator: Comparator<T>;
 
   public head: DoubleLinkedListNode<T> | null;
 
