@@ -94,7 +94,7 @@ export class SkipList<T = unknown> {
 
   public insert(data: T): boolean {
     let currentLevelLatestNode = this.getFirstLevelLatestNode(data);
-    if (this.comparator.equal(currentLevelLatestNode.data, data)) {
+    if (currentLevelLatestNode.data != null && this.comparator.equal(currentLevelLatestNode.data, data)) {
       return false;
     }
 
@@ -134,6 +134,8 @@ export class SkipList<T = unknown> {
     while (removedNode) {
       removedNode.right.left = removedNode.left;
       removedNode.left.right = removedNode.right;
+      removedNode.left = null;
+      removedNode.right = null;
       removedNode = removedNode.up;
     }
 
