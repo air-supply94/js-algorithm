@@ -93,6 +93,10 @@ export class SkipList<T = unknown> {
   }
 
   public insert(data: T): boolean {
+    if (data == null) {
+      throw new Error('data not be null');
+    }
+
     let currentLevelLatestNode = this.getFirstLevelLatestNode(data);
     if (currentLevelLatestNode.data != null && this.comparator.equal(currentLevelLatestNode.data, data)) {
       return false;

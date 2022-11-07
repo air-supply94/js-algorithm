@@ -5,6 +5,9 @@ test('skipList for number', () => {
   const data = Array(20)
     .fill(0)
     .map((_, index) => index);
+  expect(() => skipList.insert(null))
+    .toThrow();
+
   expect(skipList.remove(-1))
     .toBeFalsy();
 
