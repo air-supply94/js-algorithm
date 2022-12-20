@@ -31,7 +31,7 @@
     "skipLibCheck": true, //忽略所有的声明文件（ *.d.ts）的类型检查
     "resolveJsonModule": true, //导入 JSON Module
     "noEmit": true, //不生成输出文件
-    "alwaysStrict": false //以严格模式解析并为每个源文件生成 "use strict"语句
+    "alwaysStrict": true //以严格模式解析并为每个源文件生成 "use strict"语句
   },
   "exclude": ["node_modules", "lib", "coverage"]
 }
