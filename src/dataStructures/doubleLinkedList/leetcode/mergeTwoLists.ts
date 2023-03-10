@@ -54,12 +54,11 @@ export function mergeTwoLists(firstHead: ListNode | null, secondHead: ListNode |
     if (firstHeadNode.val <= secondHeadNode.val) {
       currentNode.next = firstHeadNode;
       firstHeadNode = firstHeadNode.next;
-      currentNode = currentNode.next;
     } else {
       currentNode.next = secondHeadNode;
       secondHeadNode = secondHeadNode.next;
-      currentNode = currentNode.next;
     }
+    currentNode = currentNode.next;
   }
 
   if (firstHeadNode) {
