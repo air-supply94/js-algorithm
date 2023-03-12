@@ -3,17 +3,17 @@ import type { ListNode } from './listNode';
 // https://leetcode-cn.com/problems/reverse-linked-list
 // 206
 export function reverseList(head: ListNode): ListNode | null {
-  let prev = null;
-  let current = head;
-  let next = null;
+  let headNode = null;
+  let currentNode = head;
+  let nextNode = null;
 
-  while (current) {
-    next = current.next;
-    current.next = prev;
-    prev = current;
-    current = next;
+  while (currentNode) {
+    nextNode = currentNode.next;
+    currentNode.next = headNode;
+    headNode = currentNode;
+    currentNode = nextNode;
   }
-  return prev;
+  return headNode;
 }
 
 function reverseCount(head: ListNode | null, n: number): ListNode | null {
@@ -22,20 +22,20 @@ function reverseCount(head: ListNode | null, n: number): ListNode | null {
   }
 
   let firstTail = head;
-  let count = n;
-  while (firstTail.next && count > 1) {
+  let targetN = n;
+  while (firstTail.next && targetN > 1) {
     firstTail = firstTail.next;
-    count--;
+    targetN--;
   }
 
   if (firstTail.next) {
     const secondHead = firstTail.next;
     firstTail.next = null;
 
-    const newHead = reverseList(head);
+    reverseList(head);
 
     head.next = secondHead;
-    return newHead;
+    return firstTail;
   } else {
     return reverseList(head);
   }
@@ -53,19 +53,18 @@ export function reverseBetween(head: ListNode | null, m: number, n: number): Lis
   }
 
   let firstTail = head;
-  let count = m - 1;
-  while (firstTail.next && count > 1) {
+  let targetM = m - 1;
+  while (firstTail.next && targetM > 1) {
     firstTail = firstTail.next;
-    count--;
+    targetM--;
   }
 
   if (firstTail.next) {
     const secondHead = firstTail.next;
     firstTail.next = reverseCount(secondHead, n - m + 1);
-    return head;
-  } else {
-    return head;
   }
+
+  return head;
 }
 
 // https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
@@ -75,23 +74,23 @@ export function reverseKGroup(head: ListNode | null, n: number): ListNode | null
     return head;
   }
 
-  let count = n;
+  let targetN = 1;
   let firstTail = head;
-  while (firstTail.next && count > 1) {
+  while (firstTail.next && targetN < n) {
     firstTail = firstTail.next;
-    count--;
+    targetN++;
   }
 
-  if (count !== 1) {
+  if (targetN !== n) {
     return head;
   }
 
   if (firstTail.next) {
-    const next = firstTail.next;
+    const secondHead = firstTail.next;
     firstTail.next = null;
 
     reverseList(head);
-    head.next = reverseKGroup(next, n);
+    head.next = reverseKGroup(secondHead, n);
     return firstTail;
   } else {
     return reverseList(head);

@@ -1,6 +1,6 @@
-import { DoubleLinkedList } from '../../dataStructures/doubleLinkedList/doubleLinkedList';
-import type { DoubleLinkedListNode } from '../../dataStructures/doubleLinkedList/doubleLinkedList';
-import { prependNode, deleteNode } from '../../dataStructures/doubleLinkedList/utils';
+import { DoubleLinkedList } from '../doubleLinkedList';
+import type { DoubleLinkedListNode } from '../doubleLinkedList';
+import { prependNode, deleteNode } from '../utils';
 
 interface LFUCacheItem {
   key: number;
@@ -16,12 +16,9 @@ export class LFUCache {
     this.valueMap = new Map<number, DoubleLinkedListNode<LFUCacheItem>>();
     this.countMap = new Map<number, DoubleLinkedList<LFUCacheItem>>();
     this.minCount = 0;
-    this.size = 0;
   }
 
   private minCount: number;
-
-  private size: number;
 
   private readonly countMap: Map<number, DoubleLinkedList<LFUCacheItem>>;
 
@@ -78,11 +75,9 @@ export class LFUCache {
           count: 1,
         }));
 
-      this.size++;
-      if (this.size > this.capacity) {
+      if (this.valueMap.size > this.capacity) {
         this.valueMap.delete(this.countMap.get(this.minCount)
           .deleteTail().value.key);
-        this.size--;
       }
 
       this.minCount = 1;

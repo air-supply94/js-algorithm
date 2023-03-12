@@ -1,4 +1,4 @@
-# (2023-03-10)
+# (2023-03-12)
 
 ### Bug Fixes
 
@@ -198,6 +198,7 @@
 - **doubleLinkedList:** update reverse ([5a3b003](https://github.com/air-supply94/js-algorithm/commit/5a3b003fa8567ca478a4cf456867212533045574))
 - **doubleLinkedList:** update reverse ([0f3f7ef](https://github.com/air-supply94/js-algorithm/commit/0f3f7ef605953d15c7b844e478a9795d20802e27))
 - **doubleLinkedList:** 修改 delete ([d0ac1c4](https://github.com/air-supply94/js-algorithm/commit/d0ac1c4f2a2721bdc15ba784c96fd0a8c33037ea))
+- **doubleLinkedList:** 删除节点去掉删除节点对其他节点的引用 ([23e7a37](https://github.com/air-supply94/js-algorithm/commit/23e7a3717a49d897a265df421c7ec7d645e401f6))
 - **doubleLinkedList:** 增加 deleteIndex ([06fdb35](https://github.com/air-supply94/js-algorithm/commit/06fdb3547472ae15e60fc516b3875a9c5be41729))
 - **doubleLinkedList:** 增加 get ([7e7427d](https://github.com/air-supply94/js-algorithm/commit/7e7427dfb1a8787fb6581b8ce4fba295f5f9eb4c))
 - **doubleLinkedList:** 增加 insert ([53fd17c](https://github.com/air-supply94/js-algorithm/commit/53fd17c836b64f2d610d760aa0e43a642fc7637c))
