@@ -3,10 +3,9 @@
 export function peakIndexInMountainArray(arr: number[]): number {
   let left = 1;
   let right = arr.length - 2;
-  let middle: number = null;
 
   while (left <= right) {
-    middle = (left + right) >>> 1;
+    const middle = (left + right) >>> 1;
     if (arr[middle - 1] < arr[middle] && arr[middle] > arr[middle + 1]) {
       return middle;
     } else if (arr[middle - 1] < arr[middle] && arr[middle] < arr[middle + 1]) {
@@ -16,5 +15,5 @@ export function peakIndexInMountainArray(arr: number[]): number {
     }
   }
 
-  return middle;
+  return left;
 }

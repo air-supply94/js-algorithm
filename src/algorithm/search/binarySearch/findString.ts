@@ -14,7 +14,7 @@ export function findString(words: string[], s: string): number {
 
     let middle = (left + right) >>> 1;
     while (middle <= right && words[middle] === '') {
-      middle++;
+      middle--;
     }
 
     if (s < words[middle]) {
