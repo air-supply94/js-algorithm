@@ -5,13 +5,13 @@ export function traverseAfterOrder<T = unknown>(
   callback: traverseCallback<T>
 ): void {
   const nodeStack: Array<BinarySearchTreeNode<T>> = [];
-  let currentNode = root;
+  let currentVisitedNode: BinarySearchTreeNode<T> = null;
   if (root) {
     nodeStack.push(root);
   }
 
   while (nodeStack.length > 0) {
-    if (nodeStack[nodeStack.length - 1] !== currentNode.parent) {
+    if (currentVisitedNode == null || nodeStack[nodeStack.length - 1] !== currentVisitedNode.parent) {
       let peekNode = nodeStack[nodeStack.length - 1];
       while (peekNode.left || peekNode.right) {
         if (peekNode.right) {
@@ -25,8 +25,8 @@ export function traverseAfterOrder<T = unknown>(
       }
     }
 
-    currentNode = nodeStack.pop();
-    if (callback(currentNode) === false) {
+    currentVisitedNode = nodeStack.pop();
+    if (callback(currentVisitedNode) === false) {
       return;
     }
   }

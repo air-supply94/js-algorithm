@@ -8,18 +8,18 @@ export function traverseInOrder<T = unknown>(
   callback: traverseCallback<T>
 ): void {
   const nodeStack: Array<BinarySearchTreeNode<T>> = [];
-  let currentNode = root;
+  let currentInStackNode = root;
 
-  while (nodeStack.length > 0 || currentNode) {
-    while (currentNode) {
-      nodeStack.push(currentNode);
-      currentNode = currentNode.left;
+  while (nodeStack.length > 0 || currentInStackNode) {
+    while (currentInStackNode) {
+      nodeStack.push(currentInStackNode);
+      currentInStackNode = currentInStackNode.left;
     }
 
     const tmpNode = nodeStack.pop();
     if (callback(tmpNode) === false) {
       return;
     }
-    currentNode = tmpNode.right;
+    currentInStackNode = tmpNode.right;
   }
 }

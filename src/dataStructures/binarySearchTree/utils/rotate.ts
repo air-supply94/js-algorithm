@@ -1,6 +1,10 @@
 import type { BinarySearchTreeNode } from '../binarySearchTree';
 import { setLeft, setRight } from './nodeOperate';
 
+// 剪left
+// left连接父节点
+// leftRight节点处理
+// 旋转1次
 export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
   const leftNode = rootNode.left;
   setLeft(rootNode, null);
@@ -22,6 +26,10 @@ export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, s
   setRight(leftNode, rootNode);
 }
 
+// 剪left
+// 剪leftRight
+// leftRightLeft节点处理
+// 旋转2次
 export function rotateLeftRight(rootNode: BinarySearchTreeNode): void {
   const leftNode = rootNode.left;
   setLeft(rootNode, null);
