@@ -13,7 +13,6 @@ export class CircularQueue {
     this.capacity = k + 1;
     this.data = Array(this.capacity)
       .fill(null);
-    this.tail = 0;
   }
 
   public enQueue(value: number): boolean {

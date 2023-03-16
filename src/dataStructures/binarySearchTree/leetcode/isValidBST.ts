@@ -10,7 +10,11 @@ function recursion(rootNode: TreeNode | null): number[] {
   if (rootNode == null) {
     return [
       1,
+
+      // 最小值
       Infinity,
+
+      // 最大值
       -Infinity,
     ];
   }

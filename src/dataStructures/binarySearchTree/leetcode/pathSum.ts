@@ -7,15 +7,6 @@ export function pathSum(root: TreeNode | null, sum: number, result: number[][] =
     return result;
   }
 
-  pathSumDfs(root, sum, result, currentPath);
-  return result;
-}
-
-function pathSumDfs(root: TreeNode | null, sum: number, result: number[][], currentPath: number[]): void {
-  if (root == null) {
-    return;
-  }
-
   currentPath.push(root.val);
 
   const newSum = sum - root.val;
@@ -23,8 +14,9 @@ function pathSumDfs(root: TreeNode | null, sum: number, result: number[][], curr
     result.push(currentPath.slice());
   }
 
-  pathSumDfs(root.left, newSum, result, currentPath);
-  pathSumDfs(root.right, newSum, result, currentPath);
+  pathSum(root.left, newSum, result, currentPath);
+  pathSum(root.right, newSum, result, currentPath);
 
   currentPath.pop();
+  return result;
 }

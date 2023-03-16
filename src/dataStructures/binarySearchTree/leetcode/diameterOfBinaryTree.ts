@@ -10,10 +10,10 @@ export function diameterOfBinaryTree(root: TreeNode | null): number {
       return 0;
     }
 
-    const leftResult = dfs(node.left);
-    const rightResult = dfs(node.right);
-    result = Math.max(result, leftResult + rightResult);
-    return 1 + Math.max(leftResult, rightResult);
+    const leftLevel = dfs(node.left);
+    const rightLevel = dfs(node.right);
+    result = Math.max(result, leftLevel + rightLevel);
+    return 1 + Math.max(leftLevel, rightLevel);
   }
 
   dfs(root);

@@ -3,10 +3,10 @@ import type { TreeNode } from './treeNode';
 // https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/
 // 501
 export function findMode(root: TreeNode | null): number[] {
-  let current = NaN;
-  let count = 0;
+  let currentValue = NaN;
+  let currentCount = 0;
   let maxCount = 0;
-  let result: number[] = [];
+  let maxResult: number[] = [];
 
   function dfs(tmpRoot: TreeNode) {
     if (tmpRoot == null) {
@@ -14,22 +14,22 @@ export function findMode(root: TreeNode | null): number[] {
     }
 
     dfs(tmpRoot.left);
-    if (tmpRoot.val === current) {
-      count++;
+    if (tmpRoot.val === currentValue) {
+      currentCount++;
     } else {
-      current = tmpRoot.val;
-      count = 1;
+      currentValue = tmpRoot.val;
+      currentCount = 1;
     }
 
-    if (count === maxCount) {
-      result.push(current);
-    } else if (count > maxCount) {
-      maxCount = count;
-      result = [current];
+    if (currentCount === maxCount) {
+      maxResult.push(currentValue);
+    } else if (currentCount > maxCount) {
+      maxCount = currentCount;
+      maxResult = [currentValue];
     }
     dfs(tmpRoot.right);
   }
 
   dfs(root);
-  return result;
+  return maxResult;
 }
