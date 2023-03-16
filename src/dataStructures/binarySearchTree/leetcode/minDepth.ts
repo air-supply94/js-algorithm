@@ -17,7 +17,7 @@ export function minDepth(root: TreeNode | null): number {
     for (let i = 0; i < size; i++) {
       const currentNode = queue.shift();
 
-      if (currentNode.left && currentNode.right) {
+      if (!currentNode.left && !currentNode.right) {
         return level;
       }
 

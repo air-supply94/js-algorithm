@@ -20,7 +20,7 @@ export function checkSubTree(root: TreeNode | null, childRoot: TreeNode | null):
 
 function isSubTree(root: TreeNode | null, childRoot: TreeNode | null): boolean {
   if (childRoot == null) {
-    return true;
+    return root == null;
   }
 
   if (root == null) {

@@ -7,22 +7,22 @@ export function countNodes(root: TreeNode | null): number {
     return 0;
   }
 
-  let leftHeight = 0;
+  let leftLevel = 0;
   let left = root;
   while (left) {
     left = left.left;
-    leftHeight++;
+    leftLevel++;
   }
 
-  let rightHeight = 0;
+  let rightLevel = 0;
   let right = root;
   while (right) {
     right = right.right;
-    rightHeight++;
+    rightLevel++;
   }
 
-  if (leftHeight === rightHeight) {
-    return Math.pow(2, leftHeight) - 1;
+  if (leftLevel === rightLevel) {
+    return Math.pow(2, leftLevel) - 1;
   }
 
   return 1 + countNodes(root.left) + countNodes(root.right);
