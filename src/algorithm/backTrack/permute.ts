@@ -1,27 +1,29 @@
-function dfs(result: number[][], choice: number[], path: number[], used: number[]): number[][] {
+// https://leetcode-cn.com/problems/permutations/submissions/
+// 46
+export function permute(choice: number[], path: number[] = [], visited: number[] = Array(choice.length).fill(0), result: number[][] = []): number[][] {
+  // 达到n层(n可以换成m层)
   if (choice.length === path.length) {
     result.push(path.slice());
     return result;
   }
 
   for (let i = 0; i < choice.length; i++) {
-    if (used[i] === 0) {
-      // 判断重复: i > 0 && choice[i] == choice[i - 1] && used[i - 1] === 1
-      used[i] = 1;
+    // 去掉去重复就是: 元素无重可复选
+    if (visited[i] === 0) {
+      // 元素可重不可复选
+      // if (i > 0 && choice[i] == choice[i - 1] && !visited[i - 1]) {
+      //   continue;
+      // }
+
+      visited[i] = 1;
       path.push(choice[i]);
 
-      dfs(result, choice, path, used);
+      permute(choice, path, visited, result);
 
-      used[i] = 0;
+      visited[i] = 0;
       path.pop();
     }
   }
 
   return result;
-}
-
-// https://leetcode-cn.com/problems/permutations/submissions/
-// 46
-export function permute(choice: number[]): number[][] {
-  return dfs([], choice, [], choice.map(() => 0));
 }

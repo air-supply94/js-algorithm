@@ -16,9 +16,6 @@ function dfs(
   }
 
   for (let i = start; i < choices.length; i++) {
-    /*    if (i > start && choices[i] === choices[i - 1]) {
-      // 重复判断
-    }*/
     currentPath.push(choices[i]);
 
     dfs(
@@ -37,6 +34,7 @@ function dfs(
 
 // https://leetcode-cn.com/problems/combination-sum/
 // 39
+// 元素无重可复选
 export function combinationSum(choices: number[], target: number): number[][] {
   return dfs([], choices, 0, [], target);
 }

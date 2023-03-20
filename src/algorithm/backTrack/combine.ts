@@ -6,10 +6,10 @@ export function combine(n: number, m: number): number[][] {
     choice[i - 1] = i;
   }
 
-  return dfs([], choice, [], 0, m);
+  return dfs(choice, [], 0, m, []);
 }
 
-function dfs(result: number[][], choice: number[], path: number[], start: number, m: number): number[][] {
+function dfs(choice: number[], path: number[], start: number, m: number, result: number[][]): number[][] {
   if (path.length === m) {
     result.push(path.slice());
     return result;
@@ -17,7 +17,7 @@ function dfs(result: number[][], choice: number[], path: number[], start: number
 
   for (let i = start; i < choice.length; i++) {
     path.push(choice[i]);
-    dfs(result, choice, path, i + 1, m);
+    dfs(choice, path, i + 1, m, result);
     path.pop();
   }
 
