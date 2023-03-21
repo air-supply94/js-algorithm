@@ -1,21 +1,17 @@
 // https://leetcode-cn.com/problems/generate-parentheses/
 // 22
-export function generateParenthesis(n: number): string[] {
-  return dfs([], '', 0, 0, n);
-}
-
-function dfs(result: string[], path: string, left: number, right: number, n: number): string[] {
+export function generateParenthesis(n: number, path = '', left = 0, right = 0, result: string[] = []): string[] {
   if (left === n && right === n) {
     result.push(path);
     return result;
   }
 
   if (left < n) {
-    dfs(result, `${path}(`, left + 1, right, n);
+    generateParenthesis(n, `${path}(`, left + 1, right, result);
   }
 
   if (left > right) {
-    dfs(result, `${path})`, left, right + 1, n);
+    generateParenthesis(n, `${path})`, left, right + 1, result);
   }
 
   return result;
