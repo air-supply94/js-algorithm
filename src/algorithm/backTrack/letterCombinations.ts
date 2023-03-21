@@ -1,11 +1,22 @@
 // https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
 // 17
-export function letterCombinations(digits: string): string[] {
+export function letterCombinations(digits: string, currentPath: string[] = [], n = 0, result: string[] = []): string[] {
   if (digits.length === 0) {
     return [];
   }
 
-  return dfs([], [], digits, 0);
+  if (n === digits.length) {
+    result.push(currentPath.join(''));
+    return result;
+  }
+
+  for (let i = 0; i < dict[digits[n]].length; i++) {
+    currentPath.push(dict[digits[n]][i]);
+    letterCombinations(digits, currentPath, n + 1, result);
+    currentPath.pop();
+  }
+
+  return result;
 }
 
 const dict: Record<string, string[]> = {
@@ -53,17 +64,3 @@ const dict: Record<string, string[]> = {
   ],
 };
 
-function dfs(result: string[], currentPath: string[], digits: string, n: number): string[] {
-  if (n === digits.length) {
-    result.push(currentPath.join(''));
-    return result;
-  }
-
-  for (let i = 0; i < dict[digits[n]].length; i++) {
-    currentPath.push(dict[digits[n]][i]);
-    dfs(result, currentPath, digits, n + 1);
-    currentPath.pop();
-  }
-
-  return result;
-}

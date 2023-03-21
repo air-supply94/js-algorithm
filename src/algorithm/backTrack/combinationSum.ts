@@ -1,9 +1,12 @@
-function dfs(
-  result: number[][],
+// https://leetcode-cn.com/problems/combination-sum/
+// 39
+// 元素无重可复选
+export function combinationSum(
   choices: number[],
-  start: number,
-  currentPath: number[],
-  target: number
+  target: number,
+  start = 0,
+  currentPath: number[] = [],
+  result: number[][] = []
 ): number[][] {
   if (target < 0) {
     return result;
@@ -18,23 +21,16 @@ function dfs(
   for (let i = start; i < choices.length; i++) {
     currentPath.push(choices[i]);
 
-    dfs(
-      result,
+    combinationSum(
       choices,
+      target - choices[i],
       i,
       currentPath,
-      target - choices[i]
+      result
     );
 
     currentPath.pop();
   }
 
   return result;
-}
-
-// https://leetcode-cn.com/problems/combination-sum/
-// 39
-// 元素无重可复选
-export function combinationSum(choices: number[], target: number): number[][] {
-  return dfs([], choices, 0, [], target);
 }
