@@ -4,8 +4,6 @@
 export function shortestPathBinaryMatrix(grid: number[][]): number {
   const height = grid.length;
   const width = grid[0].length;
-  let h: number;
-  let w: number;
   const directionMatrix: Array<[number, number]> = [
     [
       -1,
@@ -42,8 +40,10 @@ export function shortestPathBinaryMatrix(grid: number[][]): number {
   ];
   const queue: Array<[number, number]> = [];
 
+  const visited = Array(height).fill(null)
+    .map(() => Array(width).fill(0));
   if (grid[0][0] === 0) {
-    grid[0][0] = null;
+    visited[0][0] = 1;
     queue.push([
       0,
       0,
@@ -62,10 +62,10 @@ export function shortestPathBinaryMatrix(grid: number[][]): number {
       }
 
       for (let k = 0; k < directionMatrix.length; k++) {
-        h = currentNode[0] + directionMatrix[k][0];
-        w = currentNode[1] + directionMatrix[k][1];
-        if (h >= 0 && h < height && w >= 0 && w < width && grid[h][w] === 0) {
-          grid[h][w] = null;
+        const h = currentNode[0] + directionMatrix[k][0];
+        const w = currentNode[1] + directionMatrix[k][1];
+        if (h >= 0 && h < height && w >= 0 && w < width && grid[h][w] === 0 && visited[h][w] === 0) {
+          visited[h][w] = 1;
           queue.push([
             h,
             w,

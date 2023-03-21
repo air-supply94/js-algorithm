@@ -3,9 +3,7 @@
 export function numIslands(grid: string[][]): number {
   const height = grid.length;
   const width = grid[0].length;
-  let count = 0;
-  let h: number;
-  let w: number;
+  let connectCount = 0;
   const directionMatrix = [
     [
       -1,
@@ -30,25 +28,28 @@ export function numIslands(grid: string[][]): number {
       return;
     }
 
+    // connectPathCount++
     grid[i][j] = null;
     for (let k = 0; k < directionMatrix.length; k++) {
-      h = i + directionMatrix[k][0];
-      w = j + directionMatrix[k][1];
+      const h = i + directionMatrix[k][0];
+      const w = j + directionMatrix[k][1];
       if (h >= 0 && h < height && w >= 0 && w < width && grid[h][w] === '1') {
         dfs(h, w);
       }
     }
-    grid[i][j] = '1';
   }
 
+  // let connectPathCount = 0;
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
       if (grid[i][j] === '1') {
-        count++;
+        connectCount++;
+
+        // connectPathCount = 0;
         dfs(i, j);
       }
     }
   }
 
-  return count;
+  return connectCount;
 }

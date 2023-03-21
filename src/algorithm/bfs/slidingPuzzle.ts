@@ -12,6 +12,7 @@ export function slidingPuzzle(board: number[][]): number {
 
   const queue: Array<{ root: string; index: number; }> = [];
   const root = board.map((item) => item.join('')).join('');
+  visited.add(root);
   queue.push({
     root,
     index: root.indexOf('0'),
@@ -28,18 +29,18 @@ export function slidingPuzzle(board: number[][]): number {
         return level - 1;
       }
 
-      const currentNeighbor = getNeighborIndex(h, w, currentItem.index);
-      for (let j = 0; j < currentNeighbor.length; j++) {
+      const currentNeighborIndex = getNeighborIndex(h, w, currentItem.index);
+      for (let j = 0; j < currentNeighborIndex.length; j++) {
         const nextRootList = currentItem.root.split('');
-        nextRootList.splice(currentItem.index, 1, currentItem.root[currentNeighbor[j]]);
-        nextRootList.splice(currentNeighbor[j], 1, currentItem.root[currentItem.index]);
+        nextRootList.splice(currentItem.index, 1, currentItem.root[currentNeighborIndex[j]]);
+        nextRootList.splice(currentNeighborIndex[j], 1, currentItem.root[currentItem.index]);
         const nextRoot = nextRootList.join('');
 
         if (!visited.has(nextRoot)) {
           visited.add(nextRoot);
           queue.push({
             root: nextRoot,
-            index: currentNeighbor[j],
+            index: currentNeighborIndex[j],
           });
         }
       }
