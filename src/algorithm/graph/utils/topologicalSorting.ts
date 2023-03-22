@@ -5,26 +5,25 @@ export function hasCircleDfs(graph: number[][]): boolean {
   let graphHasCircle = false;
 
   for (let i = 0; i < graph.length; i++) {
-    dfs(i);
+    if (visited[i] === 0) {
+      dfs(i);
+    }
   }
 
   function dfs(start: number): void {
-    if (visited[start] === 1) {
-      return;
-    }
-
     if (path[start] === 1) {
       graphHasCircle = true;
+    }
+
+    if (visited[start] === 1 || graphHasCircle) {
       return;
     }
 
     visited[start] = 1;
     path[start] = 1;
-
     for (let i = 0; i < graph[start].length; i++) {
       dfs(graph[start][i]);
     }
-
     path[start] = 0;
   }
 

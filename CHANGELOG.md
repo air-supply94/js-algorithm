@@ -186,6 +186,7 @@
 - **dataStructures/design:** update circularQueue ([dc93e44](https://github.com/air-supply94/js-algorithm/commit/dc93e44fdd23d16297befb91e9a996ea316ab760))
 - **dataStructures/design:** update LRUCache(leetcode 上测试) ([3ca03bb](https://github.com/air-supply94/js-algorithm/commit/3ca03bbdfa7fbddcf13f45a54a9fa97256a2f4b4))
 - **dataStructures/simple:** add heap ([c9a5222](https://github.com/air-supply94/js-algorithm/commit/c9a5222ce84cedd66826fb131071185998d4c404))
+- **dfs:** add countSubIslands.ts ([b4547ba](https://github.com/air-supply94/js-algorithm/commit/b4547ba79f4eaa4d14ccbef9e3527bc5ec559808))
 - **dfs:** 更新实现逻辑 ([590c8d8](https://github.com/air-supply94/js-algorithm/commit/590c8d8cd88e439bd4a52d7333392590f36e40c4))
 - **disJoinSet:** add minSwapsCouples ([f447837](https://github.com/air-supply94/js-algorithm/commit/f447837e8f35b73fb1758c06e5d7d8bbb5730d94))
 - **disjointSet:** add disjointSet ([84c1404](https://github.com/air-supply94/js-algorithm/commit/84c1404ccb82ea6c66b9d647e82e312514351a31))

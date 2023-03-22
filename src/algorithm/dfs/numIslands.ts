@@ -14,7 +14,6 @@ export function numIslands(grid: string[][]): number {
       return;
     }
 
-    // connectPathCount++
     grid[i][j] = '0';
     dfs(i - 1, j);
     dfs(i, j + 1);
@@ -22,13 +21,10 @@ export function numIslands(grid: string[][]): number {
     dfs(i, j - 1);
   }
 
-  // let connectPathCount = 0;
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
       if (grid[i][j] === '1') {
         connectCount++;
-
-        // connectPathCount = 0;
         dfs(i, j);
       }
     }
