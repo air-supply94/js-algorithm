@@ -3,11 +3,13 @@
 export function findCircleNum(isConnected: number[][]): number {
   const n = isConnected.length;
   const visited = Array(n).fill(0);
-  let count = 0;
+  let connectCount = 0;
 
+  // let connectPathCount = 0;
   for (let i = 0; i < n; i++) {
     if (visited[i] === 0) {
-      count++;
+      // connectPathCount = 0;
+      connectCount++;
       dfs(i);
     }
   }
@@ -17,6 +19,7 @@ export function findCircleNum(isConnected: number[][]): number {
       return;
     }
 
+    // connectPathCount++;
     visited[i] = 1;
 
     for (let j = 0; j < n; j++) {
@@ -26,5 +29,5 @@ export function findCircleNum(isConnected: number[][]): number {
     }
   }
 
-  return count;
+  return connectCount;
 }
