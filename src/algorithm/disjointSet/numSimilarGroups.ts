@@ -1,11 +1,12 @@
 // https://leetcode-cn.com/problems/similar-string-groups/
 // 839
-export function numSimilarGroups(list: string[]): number {
-  const f = Array(list.length).fill(null);
-  let count = f.length;
-  for (let i = 0; i < list.length; i++) {
+export function numSimilarGroups(str: string[]): number {
+  const f = Array(str.length).fill(null);
+  for (let i = 0; i < f.length; i++) {
     f[i] = i;
   }
+
+  let count = f.length;
 
   function find(x: number): number {
     if (f[x] === x) {
@@ -16,16 +17,19 @@ export function numSimilarGroups(list: string[]): number {
     }
   }
 
-  function union(x: number, y: number): void {
-    if (find(x) !== find(y)) {
+  function union(x: number, y: number) {
+    const parentX = find(x);
+    const parentY = find(y);
+    if (parentX !== parentY) {
       count--;
     }
-    f[find(x)] = find(y);
+
+    f[parentX] = parentY;
   }
 
-  for (let i = 0; i < list.length; i++) {
-    for (let j = i + 1; j < list.length; j++) {
-      if (check(list[i], list[j])) {
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length; j++) {
+      if (check(str[i], str[j])) {
         union(i, j);
       }
     }
@@ -34,10 +38,10 @@ export function numSimilarGroups(list: string[]): number {
   return count;
 }
 
-function check(s1: string, s2: string): boolean {
+function check(str1: string, str2: string): boolean {
   let notMatchCount = 0;
-  for (let i = 0; i < s1.length; i++) {
-    if (s1[i] !== s2[i]) {
+  for (let i = 0; i < str1.length; i++) {
+    if (str1[i] !== str2[i]) {
       notMatchCount++;
     }
   }
