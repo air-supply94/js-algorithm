@@ -1,19 +1,19 @@
 // https://leetcode-cn.com/problems/similar-string-groups/
 // 839
 export function numSimilarGroups(str: string[]): number {
-  const f = Array(str.length).fill(null);
-  for (let i = 0; i < f.length; i++) {
-    f[i] = i;
+  const parent = Array(str.length).fill(null);
+  for (let i = 0; i < parent.length; i++) {
+    parent[i] = i;
   }
 
-  let count = f.length;
+  let connectCount = parent.length;
 
   function find(x: number): number {
-    if (f[x] === x) {
+    if (parent[x] === x) {
       return x;
     } else {
-      f[x] = find(f[x]);
-      return f[x];
+      parent[x] = find(parent[x]);
+      return parent[x];
     }
   }
 
@@ -21,10 +21,10 @@ export function numSimilarGroups(str: string[]): number {
     const parentX = find(x);
     const parentY = find(y);
     if (parentX !== parentY) {
-      count--;
+      connectCount--;
     }
 
-    f[parentX] = parentY;
+    parent[parentX] = parentY;
   }
 
   for (let i = 0; i < str.length; i++) {
@@ -35,7 +35,7 @@ export function numSimilarGroups(str: string[]): number {
     }
   }
 
-  return count;
+  return connectCount;
 }
 
 function check(str1: string, str2: string): boolean {

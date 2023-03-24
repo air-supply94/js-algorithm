@@ -32,50 +32,37 @@ export function prim(graph: number[][]): number {
   return sum;
 }
 
-// 邻接表
-export function kruskal(graph: Array<Array<[number, number]>>): number {
-  const n = graph.length;
-  const edges: Array<[number, number, number]> = [];
-  for (let i = 0; i < n; i++) {
-    const neighbor = graph[i];
-    for (let j = 0; j < neighbor.length; j++) {
-      edges.push([
-        i,
-        neighbor[j][0],
-        neighbor[j][1],
-      ]);
-    }
-  }
-  edges.sort((a, b) => a[2] - b[2]);
-
-  const f = Array(n).fill(null);
-  for (let i = 0; i < n; i++) {
-    f[i] = i;
+export function kruskal(graphLength: number, sortedEdges: Array<[number, number, number]>): number {
+  const parent = Array(graphLength).fill(null);
+  for (let i = 0; i < graphLength; i++) {
+    parent[i] = i;
   }
 
-  let count = n;
+  let count = graphLength;
   let result = 0;
 
   function find(x: number): number {
-    if (f[x] === x) {
+    if (parent[x] === x) {
       return x;
     } else {
-      f[x] = find(f[x]);
-      return f[x];
+      parent[x] = find(parent[x]);
+      return parent[x];
     }
   }
 
   function union(x: number, y: number, cost: number): void {
-    if (find(x) !== find(y)) {
+    const parentX = find(x);
+    const parentY = find(y);
+    if (parentX !== parentY) {
       result += cost;
       count--;
     }
 
-    f[find(x)] = find(y);
+    parent[parentY] = parentY;
   }
 
-  for (let i = 0; i < edges.length; i++) {
-    union(edges[i][0], edges[i][1], edges[i][2]);
+  for (let i = 0; i < sortedEdges.length; i++) {
+    union(sortedEdges[i][0], sortedEdges[i][1], sortedEdges[i][2]);
   }
 
   return count <= 1 ? result : Infinity;

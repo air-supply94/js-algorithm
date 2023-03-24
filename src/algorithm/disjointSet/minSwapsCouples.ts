@@ -1,34 +1,36 @@
 // https://leetcode-cn.com/problems/couples-holding-hands/
 // 765
 export function minSwapsCouples(row: number[]): number {
-  const f: number[] = Array(row.length)
-    .fill(null);
-  let count = 0;
+  const parent: number[] = Array(row.length).fill(null);
+  const n = row.length / 2;
+  let connectCount = n;
 
   for (let i = 0; i < row.length; i++) {
-    f[i] = i - (i & 1);
+    parent[i] = i - (i & 1);
   }
 
   function find(x: number): number {
-    if (x === f[x]) {
+    if (x === parent[x]) {
       return x;
     } else {
-      f[x] = find(f[x]);
-      return f[x];
+      parent[x] = find(parent[x]);
+      return parent[x];
     }
   }
 
   function union(x: number, y: number): void {
-    if (find(x) !== find(y)) {
-      count++;
+    const parentX = find(x);
+    const parentY = find(y);
+    if (parentX !== parentY) {
+      connectCount--;
     }
 
-    f[find(x)] = find(y);
+    parent[parentX] = parentY;
   }
 
   for (let i = 0; i < row.length; i += 2) {
     union(row[i], row[i + 1]);
   }
 
-  return count;
+  return n - connectCount;
 }

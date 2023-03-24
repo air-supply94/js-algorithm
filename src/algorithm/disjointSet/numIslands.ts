@@ -4,28 +4,29 @@ export function numIslands(grid: string[][]): number {
   const height = grid.length;
   const width = grid[0].length;
 
-  const f: number[] = Array(width * height)
-    .fill(null);
-  let count = f.length;
-  for (let i = 0; i < f.length; i++) {
-    f[i] = i;
+  const parent: number[] = Array(width * height).fill(null);
+  let connectCount = parent.length;
+  for (let i = 0; i < parent.length; i++) {
+    parent[i] = i;
   }
 
   function find(x: number): number {
-    if (f[x] === x) {
+    if (parent[x] === x) {
       return x;
     } else {
-      f[x] = find(f[x]);
-      return f[x];
+      parent[x] = find(parent[x]);
+      return parent[x];
     }
   }
 
   function union(x: number, y: number): void {
-    if (find(x) !== find(y)) {
-      count--;
+    const parentX = find(x);
+    const parentY = find(y);
+    if (parentX !== parentY) {
+      connectCount--;
     }
 
-    f[find(x)] = find(y);
+    parent[parentX] = parentY;
   }
 
   const directionMatrix = [
@@ -58,10 +59,10 @@ export function numIslands(grid: string[][]): number {
           }
         }
       } else {
-        count--;
+        connectCount--;
       }
     }
   }
 
-  return count;
+  return connectCount;
 }

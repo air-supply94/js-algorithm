@@ -27,7 +27,7 @@ function buildGraph(points: Array<[number, number]>): number[][] {
 export function minCostConnectPoints(points: Array<[number, number]>): number {
   if (points.length <= 1) {
     return 0;
-  } else {
-    return prim(buildGraph(points));
   }
+
+  return prim(buildGraph(points));
 }
