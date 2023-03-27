@@ -40,22 +40,19 @@ export function minimumEffortPath(heights: number[][]): number {
     const currentItem = queue.shift();
     const currentHeight = currentItem[0];
     const currentWidth = currentItem[1];
-    const currentWeight = currentItem[2];
 
-    if (result[currentHeight][currentWidth] >= currentWeight) {
-      for (let i = 0; i < directionMatrix.length; i++) {
-        const h = currentHeight + directionMatrix[i][0];
-        const w = currentWidth + directionMatrix[i][1];
-        if (h >= 0 && h < height && w >= 0 && w < width) {
-          const nextWeight = Math.max(result[currentHeight][currentWidth], Math.abs(heights[currentHeight][currentWidth] - heights[h][w]));
-          if (result[h][w] > nextWeight) {
-            result[h][w] = nextWeight;
-            queue.push([
-              h,
-              w,
-              nextWeight,
-            ]);
-          }
+    for (let i = 0; i < directionMatrix.length; i++) {
+      const h = currentHeight + directionMatrix[i][0];
+      const w = currentWidth + directionMatrix[i][1];
+      if (h >= 0 && h < height && w >= 0 && w < width) {
+        const nextWeight = Math.max(result[currentHeight][currentWidth], Math.abs(heights[currentHeight][currentWidth] - heights[h][w]));
+        if (result[h][w] > nextWeight) {
+          result[h][w] = nextWeight;
+          queue.push([
+            h,
+            w,
+            nextWeight,
+          ]);
         }
       }
     }

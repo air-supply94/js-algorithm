@@ -15,17 +15,15 @@ export function dijkstra(graph: Array<Array<[number, number]>>, start: number): 
     const currentWeight = currentItem[1];
     const neighbor = graph[currentIndex];
 
-    if (distance[currentIndex] >= currentWeight) {
-      for (let i = 0; i < neighbor.length; i++) {
-        const nextIndex = neighbor[i][0];
-        const nextWeight = currentWeight + neighbor[i][1];
-        if (distance[nextIndex] > nextWeight) {
-          distance[nextIndex] = nextWeight;
-          queue.push([
-            nextIndex,
-            nextWeight,
-          ]);
-        }
+    for (let i = 0; i < neighbor.length; i++) {
+      const nextIndex = neighbor[i][0];
+      const nextWeight = currentWeight + neighbor[i][1];
+      if (distance[nextIndex] > nextWeight) {
+        distance[nextIndex] = nextWeight;
+        queue.push([
+          nextIndex,
+          nextWeight,
+        ]);
       }
     }
   }
