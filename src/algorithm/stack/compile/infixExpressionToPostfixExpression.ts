@@ -2,29 +2,36 @@
 export function infixExpressionToPostfixExpression(infixExpression: string[]): string[] {
   const signStack: string[] = [];
   const expressionStack: string[] = [];
-  let token: string = null;
+  let i = 0;
 
-  for (let i = 0; i < infixExpression.length; i++) {
-    token = infixExpression[i];
-    if (token === '+' || token === '-' || token === '*' || token === '/') {
-      if (
-        signStack.length === 0 ||
-        signStack[signStack.length - 1] === '(' ||
-        ((token === '*' || token === '/') && (signStack[signStack.length - 1] === '+' || signStack[signStack.length - 1] === '-'))) {
+  while (i < infixExpression.length) {
+    const token = infixExpression[i];
+    switch (token) {
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        if (
+          signStack.length === 0 ||
+          signStack[signStack.length - 1] === '(' ||
+          ((token === '*' || token === '/') && (signStack[signStack.length - 1] === '+' || signStack[signStack.length - 1] === '-'))) {
+          signStack.push(token);
+        } else {
+          expressionStack.push(signStack.pop());
+          i--;
+        }
+        break;
+      case '(':
         signStack.push(token);
-      } else {
-        expressionStack.push(signStack.pop());
-        i--;
-      }
-    } else if (token === '(') {
-      signStack.push(token);
-    } else if (token === ')') {
-      while (signStack.length > 0 && signStack[signStack.length - 1] !== '(') {
-        expressionStack.push(signStack.pop());
-      }
-      signStack.pop();
-    } else {
-      expressionStack.push(token);
+        break;
+      case ')':
+        while (signStack.length > 0 && signStack[signStack.length - 1] !== '(') {
+          expressionStack.push(signStack.pop());
+        }
+        signStack.pop();
+        break;
+      default:
+        expressionStack.push(token);
     }
   }
 
