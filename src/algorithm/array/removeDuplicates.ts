@@ -6,11 +6,13 @@ export function removeDuplicates(nums: number[]): number {
   }
 
   let uniqueIndex = 0;
-  for (let i = 1; i < nums.length; i++) {
-    if (nums[uniqueIndex] !== nums[i]) {
+  let currentIndex = 1;
+  while (currentIndex < nums.length) {
+    if (nums[uniqueIndex] !== nums[currentIndex]) {
       uniqueIndex++;
-      nums[uniqueIndex] = nums[i];
+      nums[uniqueIndex] = nums[currentIndex];
     }
+    currentIndex++;
   }
 
   return uniqueIndex + 1;

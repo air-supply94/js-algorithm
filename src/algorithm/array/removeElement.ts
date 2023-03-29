@@ -1,14 +1,15 @@
 // https://leetcode-cn.com/problems/remove-element/
 // 27
 export function removeElement(nums: number[], target: number): number {
-  let position = 0;
-
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== target) {
-      nums[position] = nums[i];
-      position++;
+  let nextNotMatchIndex = 0;
+  let currentIndex = 0;
+  while (currentIndex < nums.length) {
+    if (nums[currentIndex] !== target) {
+      nums[nextNotMatchIndex] = nums[currentIndex];
+      nextNotMatchIndex++;
     }
+    currentIndex++;
   }
 
-  return position;
+  return nextNotMatchIndex;
 }

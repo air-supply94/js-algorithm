@@ -25,15 +25,15 @@ export function subarraySum(nums: number[], total: number): number {
   prefixSum.set(0, 1);
 
   let result = 0;
-  let sumI = 0;
+  let sum = 0;
 
   for (let i = 0; i < nums.length; i++) {
-    sumI += nums[i];
-    const sumJ = sumI - total;
+    sum += nums[i];
+    const sumJ = sum - total;
     if (prefixSum.has(sumJ)) {
       result += prefixSum.get(sumJ);
     }
-    prefixSum.set(sumI, (prefixSum.get(sumI) || 0) + 1);
+    prefixSum.set(sum, (prefixSum.get(sum) || 0) + 1);
   }
 
   return result;
@@ -58,6 +58,6 @@ export class NumMatrix {
   private readonly prefixSum: number[][] = [];
 
   public sumRegion(row1: number, col1: number, row2: number, col2: number): number {
-    return (this.prefixSum[row2 + 1][col2 + 1] - this.prefixSum[row1][col2 + 1]) - (this.prefixSum[row2 + 1][col1] - this.prefixSum[row1][col1]);
+    return (this.prefixSum[row2 + 1][col2 + 1] - this.prefixSum[row1][col2 + 1]) - this.prefixSum[row2 + 1][col1] + this.prefixSum[row1][col1];
   }
 }
