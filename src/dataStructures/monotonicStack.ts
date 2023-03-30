@@ -50,7 +50,7 @@ export function largestRectangleArea(heights: number[]): number {
   for (let i = 0; i < heights.length; i++) {
     while (stack.length > 0 && heights[i] < heights[stack[stack.length - 1]]) {
       const height = heights[stack.pop()];
-      const width = stack.length ? i - 1 - stack[stack.length - 1] : i;
+      const width = stack.length ? i - 1 - (stack[stack.length - 1] + 1) + 1 : i;
       max = Math.max(max, width * height);
     }
 
