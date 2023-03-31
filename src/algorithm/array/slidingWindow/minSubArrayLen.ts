@@ -8,13 +8,16 @@ export function minSubArrayLen(target: number, nums: number[]): number {
   let sum = 0;
 
   while (right < nums.length) {
-    sum += nums[right];
+    const rightValue = nums[right];
     right++;
+    sum += rightValue;
 
     while (sum >= target) {
       length = Math.min(right - left, length);
-      sum -= nums[left];
+
+      const leftValue = nums[left];
       left++;
+      sum -= leftValue;
     }
   }
 

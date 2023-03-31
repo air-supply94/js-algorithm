@@ -2,22 +2,22 @@
 // 424
 // 最长区间
 export function characterReplacement(s: string, k: number): number {
-  const countList = new Map<string, number>();
+  const charCountMap = new Map<string, number>();
   let left = 0;
   let right = 0;
   let length = 0;
-  let maxOneLength = 0;
+  let maxCharCount = 0;
 
   while (right < s.length) {
     const rightChar = s[right];
     right++;
-    countList.set(rightChar, (countList.get(rightChar) || 0) + 1);
-    maxOneLength = Math.max(maxOneLength, countList.get(rightChar));
+    charCountMap.set(rightChar, (charCountMap.get(rightChar) || 0) + 1);
+    maxCharCount = Math.max(maxCharCount, charCountMap.get(rightChar));
 
-    if (right - left - maxOneLength > k) {
+    if (right - left - maxCharCount > k) {
       const leftChar = s[left];
       left++;
-      countList.set(leftChar, countList.get(leftChar) - 1);
+      charCountMap.set(leftChar, charCountMap.get(leftChar) - 1);
     }
 
     length = Math.max(length, right - left);

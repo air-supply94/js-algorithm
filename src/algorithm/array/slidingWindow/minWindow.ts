@@ -2,29 +2,29 @@
 // 76
 // 最短区间
 export function minWindow(s: string, t: string): string {
-  const needMap = new Map<string, number>();
-  const matchMap = new Map<string, number>();
+  const needCharMap = new Map<string, number>();
+  const matchCharMap = new Map<string, number>();
   let left = 0;
   let right = 0;
-  let matchCharLength = 0;
+  let matchCharCount = 0;
   let length = Infinity;
   let start = 0;
 
   for (let i = 0; i < t.length; i++) {
-    needMap.set(t[i], (needMap.get(t[i]) || 0) + 1);
+    needCharMap.set(t[i], (needCharMap.get(t[i]) || 0) + 1);
   }
 
   while (right < s.length) {
     const rightChar = s[right];
     right++;
-    if (needMap.has(rightChar)) {
-      matchMap.set(rightChar, (matchMap.get(rightChar) || 0) + 1);
-      if (needMap.get(rightChar) === matchMap.get(rightChar)) {
-        matchCharLength++;
+    if (needCharMap.has(rightChar)) {
+      matchCharMap.set(rightChar, (matchCharMap.get(rightChar) || 0) + 1);
+      if (needCharMap.get(rightChar) === matchCharMap.get(rightChar)) {
+        matchCharCount++;
       }
     }
 
-    while (matchCharLength && matchCharLength === needMap.size) {
+    while (matchCharCount && matchCharCount === needCharMap.size) {
       if (right - left < length) {
         length = right - left;
         start = left;
@@ -32,11 +32,11 @@ export function minWindow(s: string, t: string): string {
 
       const leftChar = s[left];
       left++;
-      if (needMap.has(leftChar)) {
-        if (needMap.get(leftChar) === matchMap.get(leftChar)) {
-          matchCharLength--;
+      if (needCharMap.has(leftChar)) {
+        if (needCharMap.get(leftChar) === matchCharMap.get(leftChar)) {
+          matchCharCount--;
         }
-        matchMap.set(leftChar, matchMap.get(leftChar) - 1);
+        matchCharMap.set(leftChar, matchCharMap.get(leftChar) - 1);
       }
     }
   }
