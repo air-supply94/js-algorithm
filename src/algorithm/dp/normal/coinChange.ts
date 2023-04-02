@@ -12,16 +12,17 @@ export function coinChange(coins: number[], amount: number, cache = new Map<numb
     return cache.get(amount);
   }
 
-  let result = Infinity;
+  let tmpResult = Infinity;
   for (let i = 0; i < coins.length; i++) {
     const subResult = coinChange(coins, amount - coins[i], cache);
     if (subResult !== -1) {
-      result = Math.min(result, subResult + 1);
+      tmpResult = Math.min(tmpResult, subResult + 1);
     }
   }
 
-  cache.set(amount, result === Infinity ? -1 : result);
-  return result === Infinity ? -1 : result;
+  const result = tmpResult === Infinity ? -1 : tmpResult;
+  cache.set(amount, result);
+  return result;
 }
 */
 
@@ -37,11 +38,12 @@ export function coinChange(coins: number[], amount: number): number {
 
   for (let i = 1; i <= amount; i++) {
     for (let j = 0; j < coins.length; j++) {
-      if (i >= coins[j] && dp[i - coins[j]] >= 0) {
+      const subChoice = i - coins[j];
+      if (subChoice >= 0 && dp[subChoice] !== -1) {
         if (dp[i] === -1) {
-          dp[i] = dp[i - coins[j]] + 1;
+          dp[i] = dp[subChoice] + 1;
         } else {
-          dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+          dp[i] = Math.min(dp[i], dp[subChoice] + 1);
         }
       }
     }
