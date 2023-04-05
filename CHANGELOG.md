@@ -1,4 +1,4 @@
-# (2023-04-02)
+# (2023-04-05)
 
 ### Bug Fixes
 
@@ -232,14 +232,16 @@
 - **dp:** update regularExpressionMatching ([4651010](https://github.com/air-supply94/js-algorithm/commit/4651010ab2b61c7657f7191f58fff1e644348604))
 - **dp:** update superEggDrop ([7c9419c](https://github.com/air-supply94/js-algorithm/commit/7c9419cc1cab44bae2336ebaa75246b260d768ec))
 - **dp:** 优化 changeCoins 空间复杂度 ([30c7cf6](https://github.com/air-supply94/js-algorithm/commit/30c7cf66b299044cf46de2833235a275e2ee2fa7))
+- **dp:** 更新实现 ([21d74ad](https://github.com/air-supply94/js-algorithm/commit/21d74ad963920a7eddb2226490460693194acc22))
 - **dp:** 更新实现逻辑 ([10ee50c](https://github.com/air-supply94/js-algorithm/commit/10ee50cd4ad6ef9d7c9f6e687f638fe6c4d76be7))
 - **dp:** 更新实现逻辑 ([fd09ed2](https://github.com/air-supply94/js-algorithm/commit/fd09ed24373523c1e18ad19258767909ed3473e3))
-- **dp:** 更新说明 ([dfc2445](https://github.com/air-supply94/js-algorithm/commit/dfc24456b30e22589f4f731b3d09d57ea4573861))
+- **dp:** 更新说明 ([5f01e14](https://github.com/air-supply94/js-algorithm/commit/5f01e14daff3790ad972f9ed9451430166f698a8))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceDp ([a71b2bc](https://github.com/air-supply94/js-algorithm/commit/a71b2bce3884e44c611dbb0f2f7382c2a710be42))
 - **dp/longestCommonSubsequence:** add longestCommonSubsequenceRecursion ([cdf29e3](https://github.com/air-supply94/js-algorithm/commit/cdf29e3f364c3cccdd0632817995c09945e81f44))
 - **dp/longestCommonSubstring:** add longestCommonSubstring ([e3f75fb](https://github.com/air-supply94/js-algorithm/commit/e3f75fbdc9f1ab1ebb0bc141613bdc313f16d119))
 - **dp/longestCreasingSubsequence:** add bs ([41c2be0](https://github.com/air-supply94/js-algorithm/commit/41c2be08eb5f35fdf020e9c51292cf96c35c9100))
 - **dp/maxSubArray:** add getMaxMatrix ([82d31a6](https://github.com/air-supply94/js-algorithm/commit/82d31a69b5445ee0d316d7e1d584a14f03677707))
+- **dp/minFallingPathSum:** 更新方向向量实现 ([cf7a403](https://github.com/air-supply94/js-algorithm/commit/cf7a40310070db567a7f967d7ea21a6e004f9420))
 - **dp/trap:** add maxArea ([4573c3d](https://github.com/air-supply94/js-algorithm/commit/4573c3df9668b121ef5492c9992af47139b2c25a))
 - **FenwickTree、binarySearchTreeNode:** add FenwickTree remove binarySearchTreeNode height leftHeight rightHeight banlanceFactory ([7d3763b](https://github.com/air-supply94/js-algorithm/commit/7d3763ba2f08fe52c27f8fe985570bf6e961390d))
 - **findFirstLarge:** add ([90d3278](https://github.com/air-supply94/js-algorithm/commit/90d3278da4215456f0e598654e271dfb2327ae35))

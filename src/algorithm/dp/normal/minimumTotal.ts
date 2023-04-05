@@ -1,27 +1,20 @@
 // https://leetcode-cn.com/problems/triangle/
 // 120
 // 自顶向下
-export function minimumTotal(grid: number[][]): number {
+export function minimumTotal(grid: number[][], cache = new Map<string, number>(), h = 0, w = 0): number {
   const height = grid.length;
-  const cache = Array(height)
-    .fill(null)
-    .map(() => Array(height)
-      .fill(null));
-
-  function dfs(i: number, j: number): number {
-    if (i === height) {
-      return 0;
-    }
-
-    if (cache[i][j] !== null) {
-      return cache[i][j];
-    }
-
-    cache[i][j] = Math.min(dfs(i + 1, j), dfs(i + 1, j + 1)) + grid[i][j];
-    return cache[i][j];
+  if (h === height) {
+    return 0;
   }
 
-  return dfs(0, 0);
+  const cacheKey = `${h},${w}`;
+  if (cache.has(cacheKey)) {
+    return cache.get(cacheKey);
+  }
+
+  const result = Math.min(minimumTotal(grid, cache, h + 1, w), minimumTotal(grid, cache, h + 1, w + 1)) + grid[h][w];
+  cache.set(cacheKey, result);
+  return result;
 }
 
 // https://leetcode-cn.com/problems/triangle/
