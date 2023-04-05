@@ -1,6 +1,5 @@
 function getPmt(str: string): number[] {
-  const dp: number[] = Array(str.length).fill(null);
-  dp[0] = 0;
+  const dp: number[] = Array(str.length).fill(0);
   let i = 1;
   let j = 0;
 

@@ -1,10 +1,6 @@
 // https://leetcode-cn.com/problems/super-egg-drop/
 // 887
-export function superEggDrop(count: number, n: number): number {
-  return recursion(count, n, new Map<string, number>());
-}
-
-function recursion(count: number, n: number, cache: Map<string, number>): number {
+export function superEggDrop(count: number, n: number, cache = new Map<string, number>()): number {
   if (count === 1) {
     return n;
   }
@@ -32,8 +28,8 @@ function recursion(count: number, n: number, cache: Map<string, number>): number
 
   while (start <= end) {
     const middle = start + Math.floor((end - start) / 2);
-    const broken = recursion(count - 1, middle - 1, cache);
-    const notBroken = recursion(count, n - middle, cache);
+    const broken = superEggDrop(count - 1, middle - 1, cache);
+    const notBroken = superEggDrop(count, n - middle, cache);
     if (broken < notBroken) {
       start = middle + 1;
     } else if (broken === notBroken) {
