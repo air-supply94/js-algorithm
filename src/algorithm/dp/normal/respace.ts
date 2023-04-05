@@ -3,8 +3,9 @@
 export function respace(dictionary: string[], sentence: string): number {
   const wordSet = new Set<string>(dictionary);
   const n = sentence.length;
-  const dp = Array(n + 1).fill(null);
-  dp[0] = 0;
+
+  // i结尾的字符串最少数量
+  const dp = Array(n + 1).fill(0);
 
   for (let i = 1; i <= n; i++) {
     dp[i] = dp[i - 1] + 1;

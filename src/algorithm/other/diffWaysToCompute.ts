@@ -5,7 +5,7 @@ export function diffWaysToCompute(expression: string): number[] {
     return [];
   }
 
-  if (/^[0-9]+$/.test(expression)) {
+  if (/^\d+$/.test(expression)) {
     return [Number(expression)];
   }
 

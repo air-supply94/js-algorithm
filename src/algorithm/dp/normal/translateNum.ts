@@ -6,14 +6,12 @@ export function translateNum(num: number): number {
     return str.length;
   }
 
-  let tmp: number;
-  let tmp_dp_i_1: number;
   let dp_i_0 = 1;
   let dp_i_1 = 1;
 
   for (let i = 1; i < str.length; i++) {
-    tmp = Number(str[i - 1]) * 10 + Number(str[i]);
-    tmp_dp_i_1 = dp_i_1;
+    const tmp = Number(str[i - 1]) * 10 + Number(str[i]);
+    const tmp_dp_i_1 = dp_i_1;
     if (tmp >= 10 && tmp <= 25) {
       dp_i_1 += dp_i_0;
     }
