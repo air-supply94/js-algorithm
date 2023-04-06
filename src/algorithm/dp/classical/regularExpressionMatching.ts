@@ -3,11 +3,7 @@ const ANY_CHAR = '.';
 
 // https://leetcode-cn.com/problems/regular-expression-matching/
 // 10
-export function regularExpressionMatching(text: string, pattern: string): boolean {
-  return dp(text, pattern, 0, 0, new Map<string, boolean>());
-}
-
-function dp(text: string, pattern: string, i: number, j: number, cache: Map<string, boolean>): boolean {
+export function isMatch(text: string, pattern: string, i = 0, j = 0, cache = new Map<string, boolean>()): boolean {
   if (j === pattern.length) {
     return i === text.length;
   }
@@ -21,9 +17,11 @@ function dp(text: string, pattern: string, i: number, j: number, cache: Map<stri
   let result: boolean;
 
   if (j <= pattern.length - 2 && pattern[j + 1] === ZERO_OR_MORE_CHARS) {
-    result = (firstMatch && dp(text, pattern, i + 1, j, cache)) || dp(text, pattern, i, j + 2, cache);
+    const matchMore = firstMatch && isMatch(text, pattern, i + 1, j, cache);
+    const matchZero = isMatch(text, pattern, i, j + 2, cache);
+    result = matchMore || matchZero;
   } else {
-    result = firstMatch && dp(text, pattern, i + 1, j + 1, cache);
+    result = firstMatch && isMatch(text, pattern, i + 1, j + 1, cache);
   }
 
   cache.set(key, result);
