@@ -6,15 +6,15 @@ export function longestCommonSubstring(a: string, b: string): number {
   let result = 0;
 
   for (let i = 1; i <= height; i++) {
-    let pre = dp[0];
+    let nextPrevious = dp[0];
     dp[0] = 0;
 
     for (let j = 1; j <= width; j++) {
-      const tmp = pre;
-      pre = dp[j];
+      const previous = nextPrevious;
+      nextPrevious = dp[j];
 
       if (a[i - 1] === b[j - 1]) {
-        dp[j] = tmp + 1;
+        dp[j] = previous + 1;
       } else {
         dp[j] = 0;
       }

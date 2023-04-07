@@ -33,15 +33,15 @@ export function longestCommonSubsequence(str1: string, str2: string): number {
   const dp: number[] = Array(width + 1).fill(0);
 
   for (let i = 1; i <= height; i++) {
-    let tmp = dp[0];
+    let nextPrevious = dp[0];
     dp[0] = 0;
 
     for (let j = 1; j <= width; j++) {
-      const pre = tmp;
-      tmp = dp[j];
+      const previous = nextPrevious;
+      nextPrevious = dp[j];
 
       if (str2[i - 1] === str1[j - 1]) {
-        dp[j] = 1 + pre;
+        dp[j] = 1 + previous;
       } else {
         dp[j] = Math.max(dp[j - 1], dp[j]);
       }
