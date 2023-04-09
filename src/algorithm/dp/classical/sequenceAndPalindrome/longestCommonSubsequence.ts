@@ -1,4 +1,6 @@
-function recursion(val1: string, i: number, val2: string, j: number, cache: Map<string, number>): number {
+// https://leetcode-cn.com/problems/longest-common-subsequence/
+// 1143
+export function longestCommonSubsequenceRecursion(str1: string, str2: string, i = str1.length - 1, j = str2.length - 1, cache = new Map<string, number>()): number {
   if (i === -1 || j === -1) {
     return 0;
   }
@@ -9,10 +11,10 @@ function recursion(val1: string, i: number, val2: string, j: number, cache: Map<
   }
 
   let result: number;
-  if (val1[i] === val2[j]) {
-    result = 1 + recursion(val1, i - 1, val2, j - 1, cache);
+  if (str1[i] === str2[j]) {
+    result = 1 + longestCommonSubsequenceRecursion(str1, str2, i - 1, j - 1, cache);
   } else {
-    result = Math.max(recursion(val1, i - 1, val2, j, cache), recursion(val1, i, val2, j - 1, cache));
+    result = Math.max(longestCommonSubsequenceRecursion(str1, str2, i - 1, j, cache), longestCommonSubsequenceRecursion(str1, str2, i, j - 1, cache));
   }
 
   cache.set(key, result);
@@ -21,12 +23,7 @@ function recursion(val1: string, i: number, val2: string, j: number, cache: Map<
 
 // https://leetcode-cn.com/problems/longest-common-subsequence/
 // 1143
-export function longestCommonSubsequenceRecursion(str1: string, str2: string): number {
-  return recursion(str1, str1.length - 1, str2, str2.length - 1, new Map<string, number>());
-}
-
-// https://leetcode-cn.com/problems/longest-common-subsequence/
-// 1143
+// i结尾的str1,j结尾的str2
 export function longestCommonSubsequence(str1: string, str2: string): number {
   const height = str2.length;
   const width = str1.length;
@@ -34,8 +31,6 @@ export function longestCommonSubsequence(str1: string, str2: string): number {
 
   for (let i = 1; i <= height; i++) {
     let nextPrevious = dp[0];
-    dp[0] = 0;
-
     for (let j = 1; j <= width; j++) {
       const previous = nextPrevious;
       nextPrevious = dp[j];

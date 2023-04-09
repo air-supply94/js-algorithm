@@ -7,7 +7,7 @@ function getLongestPalindrome(s: string, leftStart: number, rightStart: number):
     right++;
   }
 
-  return s.substr(left + 1, right - left - 1);
+  return s.substring(left + 1, right);
 }
 
 // https://leetcode-cn.com/problems/longest-palindromic-substring/
