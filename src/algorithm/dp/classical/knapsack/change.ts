@@ -11,8 +11,9 @@ export function change(weight: number, weightList: number[]): number {
 
   for (let i = 1; i <= weightList.length; i++) {
     for (let w = 1; w <= weight; w++) {
-      if (w >= weightList[i - 1]) {
-        dp[i][w] = dp[i - 1][w] + dp[i][w - weightList[i - 1]];
+      const subResult = w - weightList[i - 1];
+      if (subResult >= 0) {
+        dp[i][w] = dp[i - 1][w] + dp[i][subResult];
       } else {
         dp[i][w] = dp[i - 1][w];
       }

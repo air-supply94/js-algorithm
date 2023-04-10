@@ -5,12 +5,13 @@ export function lengthOfLIS(numbers: number[]): number {
     return numbers.length;
   }
 
+  // i结尾
   const dp = Array(numbers.length).fill(1);
 
   for (let i = 0; i < numbers.length; i++) {
-    for (let j = i + 1; j < numbers.length; j++) {
-      if (numbers[j] > numbers[i]) {
-        dp[j] = Math.max(dp[j], dp[i] + 1);
+    for (let j = 0; j < i; j++) {
+      if (numbers[i] > numbers[j]) {
+        dp[i] = Math.max(dp[i], dp[j] + 1);
       }
     }
   }
@@ -46,12 +47,11 @@ export function lengthOfLISBs(numbers: number[]): number {
       }
     }
 
-    if (left < piles.length && piles[left] >= currentValue) {
+    if (left < piles.length && currentValue <= piles[left]) {
       piles[left] = currentValue;
     } else {
       piles.push(currentValue);
     }
   }
-
   return piles.length;
 }

@@ -1,8 +1,9 @@
 // https://www.lintcode.com/problem/79/#
-// i结尾的str1,j结尾的str2
 export function longestCommonSubstring(a: string, b: string): number {
   const height = a.length;
   const width = b.length;
+
+  // i结尾的str1,j结尾的str2
   const dp: number[] = Array(width + 1).fill(0);
   let result = 0;
 
