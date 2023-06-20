@@ -1,23 +1,24 @@
-import { Comparator } from '../../utils';
 import type { Compare } from '../../utils';
+import { Comparator } from '../../utils';
+import type { interfaces } from '../../types';
 
-export class SkipListNode<T = unknown> {
+export class SkipListNode<T = unknown> implements interfaces.SkipListNode<T> {
   constructor(data: T) {
     this.data = data;
   }
 
   public data: T;
 
-  public left: SkipListNode<T> | null = null;
+  public left: interfaces.SkipListNode<T> | null = null;
 
-  public right: SkipListNode<T> | null = null;
+  public right: interfaces.SkipListNode<T> | null = null;
 
-  public up: SkipListNode<T> | null = null;
+  public up: interfaces.SkipListNode<T> | null = null;
 
-  public down: SkipListNode<T> | null = null;
+  public down: interfaces.SkipListNode<T> | null = null;
 }
 
-export class SkipList<T = unknown> {
+export class SkipList<T = unknown> implements interfaces.SkipList<T> {
   constructor(compare?: Compare<T>) {
     this.head.right = this.tail;
     this.tail.left = this.head;
@@ -30,11 +31,7 @@ export class SkipList<T = unknown> {
 
   private level = 0;
 
-  private head: SkipListNode<T> = new SkipListNode<T>(null);
-
-  private tail: SkipListNode<T> = new SkipListNode<T>(null);
-
-  private getFirstLevelLatestNode(data: T): SkipListNode<T> {
+  private getFirstLevelLatestNode(data: T): interfaces.SkipListNode<T> {
     let node = this.head;
     while (node) {
       while (node.right.data != null && this.comparator.lessThanOrEqual(node.right.data, data)) {
@@ -50,7 +47,7 @@ export class SkipList<T = unknown> {
     return node;
   }
 
-  private getNextLevelLatestNode(node: SkipListNode<T>): SkipListNode<T> {
+  private getNextLevelLatestNode(node: interfaces.SkipListNode<T>): interfaces.SkipListNode<T> {
     let nextLevelLatestNode = node;
     while (nextLevelLatestNode.up == null) {
       nextLevelLatestNode = nextLevelLatestNode.left;
@@ -58,14 +55,18 @@ export class SkipList<T = unknown> {
     return nextLevelLatestNode.up;
   }
 
-  private appendNode(previousNode: SkipListNode<T>, newNode: SkipListNode<T>): void {
+  public head: interfaces.SkipListNode<T> = new SkipListNode<T>(null);
+
+  public tail: interfaces.SkipListNode<T> = new SkipListNode<T>(null);
+
+  public appendNode(previousNode: interfaces.SkipListNode<T>, newNode: interfaces.SkipListNode<T>): void {
     newNode.left = previousNode;
     newNode.right = previousNode.right;
     previousNode.right.left = newNode;
     previousNode.right = newNode;
   }
 
-  private addLevel(): void {
+  public addLevel(): void {
     this.level++;
     const newHead = new SkipListNode(null);
     const newTail = new SkipListNode(null);

@@ -1,4 +1,5 @@
 import { swap } from '../../utils';
+import type { interfaces } from '../../types';
 
 function getParentIndex(childIndex: number): number {
   return Math.floor((childIndex - 1) / 2);
@@ -36,15 +37,15 @@ function rightChild<T = unknown>(container: T[], parentIndex: number): T | undef
   return container[getRightChildIndex(parentIndex)];
 }
 
-export class Heap<T = unknown> {
+export class Heap<T = unknown> implements interfaces.Heap<T> {
   constructor(pairIsInCorrectOrder: (firstElement: T, secondElement: T) => boolean) {
     this.heapContainer = [];
     this.pairIsInCorrectOrder = pairIsInCorrectOrder;
   }
 
-  public readonly heapContainer: T[];
-
   private readonly pairIsInCorrectOrder: (firstElement: T, secondElement: T) => boolean;
+
+  public readonly heapContainer: T[];
 
   public peek(): T | undefined {
     return this.heapContainer[0];

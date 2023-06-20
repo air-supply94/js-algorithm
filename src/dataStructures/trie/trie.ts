@@ -1,6 +1,7 @@
 import { TrieNode } from './trieNode';
+import type { interfaces } from '../../types';
 
-function getLastCharacterNode(root: TrieNode, word: string): TrieNode | undefined {
+function getLastCharacterNode(root: interfaces.TrieNode, word: string): interfaces.TrieNode | undefined {
   let currentNode = root;
   let i = 0;
   while (i < word.length && currentNode) {
@@ -11,19 +12,19 @@ function getLastCharacterNode(root: TrieNode, word: string): TrieNode | undefine
   return currentNode;
 }
 
-export function findWordsCount(root: TrieNode, word: string): number {
+export function findWordsCount(root: interfaces.TrieNode, word: string): number {
   const lastCharacter = getLastCharacterNode(root, word);
   return lastCharacter ? lastCharacter.wordCount : 0;
 }
 
-export function findPrefixCount(root: TrieNode, word: string): number {
+export function findPrefixCount(root: interfaces.TrieNode, word: string): number {
   const lastCharacter = getLastCharacterNode(root, word);
   return lastCharacter ? lastCharacter.prefixCount : 0;
 }
 
-export function wordFrequency(root: TrieNode): Record<string, number> {
+export function wordFrequency(root: interfaces.TrieNode): Record<string, number> {
   const result = {};
-  const queue: Array<[string, TrieNode]> = [
+  const queue: Array<[string, interfaces.TrieNode]> = [
     [
       '',
       root,
@@ -49,13 +50,14 @@ export function wordFrequency(root: TrieNode): Record<string, number> {
 
 // https://leetcode-cn.com/problems/design-add-and-search-words-data-structure/
 // 211
+
 // 和此很类似,此类功能更完善
-export class Trie {
+export class Trie implements interfaces.Trie {
   constructor() {
     this.root = new TrieNode('');
   }
 
-  public readonly root: TrieNode;
+  public readonly root: interfaces.TrieNode;
 
   public addWord(word: string): void {
     let currentNode = this.root;

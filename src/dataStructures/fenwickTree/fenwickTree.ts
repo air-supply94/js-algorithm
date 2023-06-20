@@ -1,5 +1,7 @@
+import type { interfaces } from '../../types';
+
 // https://zhuanlan.zhihu.com/p/435561765
-export class FenwickTree {
+export class FenwickTree implements interfaces.FenwickTree {
   constructor(arraySize: number) {
     this.arraySize = arraySize;
 
@@ -11,14 +13,6 @@ export class FenwickTree {
 
   private readonly treeArray: number[];
 
-  public increase(position: number, value: number): void {
-    if (position >= 1 && position <= this.arraySize) {
-      for (let i = position; i <= this.arraySize; i += i & -i) {
-        this.treeArray[i] += value;
-      }
-    }
-  }
-
   public query(position: number): number {
     if (position < 1 || position > this.arraySize) {
       return 0;
@@ -29,6 +23,14 @@ export class FenwickTree {
       sum += this.treeArray[i];
     }
     return sum;
+  }
+
+  public increase(position: number, value: number): void {
+    if (position >= 1 && position <= this.arraySize) {
+      for (let i = position; i <= this.arraySize; i += i & -i) {
+        this.treeArray[i] += value;
+      }
+    }
   }
 
   public queryRange(leftIndex: number, rightIndex: number): number {

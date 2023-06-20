@@ -1,6 +1,8 @@
+import type { interfaces } from '../types';
+
 // https://leetcode-cn.com/problems/design-circular-queue/
 // 622
-export class CircularQueue {
+export class CircularQueue implements interfaces.CircularQueue {
   private readonly data: number[];
 
   private readonly capacity: number;

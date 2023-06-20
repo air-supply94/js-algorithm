@@ -1,3 +1,5 @@
+import type { interfaces } from '../../types';
+
 const bitLength = 32;
 
 function hash1(item: string, length: number): number {
@@ -42,7 +44,7 @@ function getHashValues(item: string, length: number): [number, number, number] {
   ];
 }
 
-export class BloomFilter {
+export class BloomFilter implements interfaces.BloomFilter {
   constructor(size: number) {
     this.data = Array(size)
       .fill(0);

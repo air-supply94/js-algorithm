@@ -1,4 +1,6 @@
-export class TrieNode {
+import type { interfaces } from '../../types';
+
+export class TrieNode implements interfaces.TrieNode {
   constructor(character: string) {
     this.character = character;
   }
@@ -11,13 +13,13 @@ export class TrieNode {
 
   public character: string;
 
-  public children: Map<string, TrieNode> = new Map<string, TrieNode>();
+  public children: Map<string, interfaces.TrieNode> = new Map<string, interfaces.TrieNode>();
 
-  public getChild(character: string): TrieNode | undefined {
+  public getChild(character: string): interfaces.TrieNode | undefined {
     return this.children.get(character);
   }
 
-  public addChild(character: string): TrieNode {
+  public addChild(character: string): interfaces.TrieNode {
     if (!this.hasChild(character)) {
       this.children.set(character, new TrieNode(character));
     }

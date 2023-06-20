@@ -1,4 +1,6 @@
-export class Difference {
+import type { interfaces } from '../types';
+
+export class Difference implements interfaces.Difference {
   constructor(nums: number[]) {
     this.diff = Array(nums.length)
       .fill(null);

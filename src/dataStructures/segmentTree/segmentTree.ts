@@ -1,3 +1,5 @@
+import type { interfaces } from '../../types';
+
 function getLeftChildIndex(parentIndex: number): number {
   return parentIndex * 2 + 1;
 }
@@ -12,7 +14,7 @@ function initSegmentTree(inputArray: number[]): number[] {
 }
 
 // https://zhuanlan.zhihu.com/p/436326746
-export class SegmentTree {
+export class SegmentTree implements interfaces.SegmentTree {
   constructor(inputArray: number[], operation: (...args: number[]) => number, operationFallback: number) {
     this.inputArray = inputArray;
     this.operation = operation;

@@ -1,4 +1,6 @@
-class MonotonicQueue {
+import type { interfaces } from '../types';
+
+class MonotonicQueue implements interfaces.MonotonicQueue {
   constructor() {
     this.queue = [];
   }
