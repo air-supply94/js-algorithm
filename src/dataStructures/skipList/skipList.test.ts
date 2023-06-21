@@ -1,3 +1,4 @@
+import type { interfaces } from '../../types';
 import { SkipList } from './skipList';
 
 test('skipList for number', () => {
@@ -86,7 +87,7 @@ test('skipList for object', () => {
   });
 });
 
-function printSkipList<T = unknown>(skipList: SkipList<T>): string {
+function printSkipList<T = unknown>(skipList: interfaces.SkipList<T>): string {
   return skipList.toArray()
     .join(',');
 }

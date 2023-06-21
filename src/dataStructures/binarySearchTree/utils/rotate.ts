@@ -1,11 +1,11 @@
-import type { BinarySearchTreeNode } from '../binarySearchTree';
+import type { interfaces } from '../../../types';
 import { setLeft, setRight } from './nodeOperate';
 
 // 剪left
 // left连接父节点
 // leftRight节点处理
 // 旋转1次
-export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
+export function rotateLeftLeft<T = unknown>(rootNode: interfaces.BinarySearchTreeNode<T>, setRoot: (root: interfaces.BinarySearchTreeNode<T> | null) => void): void {
   const leftNode = rootNode.left;
   setLeft(rootNode, null);
 
@@ -30,7 +30,7 @@ export function rotateLeftLeft<T = unknown>(rootNode: BinarySearchTreeNode<T>, s
 // 剪leftRight
 // leftRightLeft节点处理
 // 旋转2次
-export function rotateLeftRight(rootNode: BinarySearchTreeNode): void {
+export function rotateLeftRight(rootNode: interfaces.BinarySearchTreeNode): void {
   const leftNode = rootNode.left;
   setLeft(rootNode, null);
 
@@ -47,7 +47,7 @@ export function rotateLeftRight(rootNode: BinarySearchTreeNode): void {
   setLeft(leftRightNode, leftNode);
 }
 
-export function rotateRightLeft(rootNode: BinarySearchTreeNode): void {
+export function rotateRightLeft(rootNode: interfaces.BinarySearchTreeNode): void {
   const rightNode = rootNode.right;
   setRight(rootNode, null);
 
@@ -64,7 +64,7 @@ export function rotateRightLeft(rootNode: BinarySearchTreeNode): void {
   setRight(rightLeftNode, rightNode);
 }
 
-export function rotateRightRight<T = unknown>(rootNode: BinarySearchTreeNode<T>, setRoot: (root: BinarySearchTreeNode<T> | null) => void): void {
+export function rotateRightRight<T = unknown>(rootNode: interfaces.BinarySearchTreeNode<T>, setRoot: (root: interfaces.BinarySearchTreeNode<T> | null) => void): void {
   const rightNode = rootNode.right;
   setRight(rootNode, null);
 

@@ -1,7 +1,7 @@
-import type { Compare } from '../../utils';
+import type { interfaces } from '../../types';
 import { Comparator } from '../../utils';
 
-export function quickSortExchange<T = unknown>(originalArray: T[], compare: Compare<T>): T[] {
+export function quickSortExchange<T = unknown>(originalArray: T[], compare: interfaces.CompareParams<T>): T[] {
   if (originalArray.length <= 1) {
     return originalArray;
   }

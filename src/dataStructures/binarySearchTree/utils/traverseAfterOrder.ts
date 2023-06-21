@@ -1,11 +1,11 @@
-import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
+import type { interfaces } from '../../../types';
 
 export function traverseAfterOrder<T = unknown>(
-  root: BinarySearchTreeNode<T> | null,
-  callback: traverseCallback<T>
+  root: interfaces.BinarySearchTreeNode<T> | null,
+  callback: interfaces.BinarySearchTreeTraverseCallback<T>
 ): void {
-  const nodeStack: Array<BinarySearchTreeNode<T>> = [];
-  let currentVisitedNode: BinarySearchTreeNode<T> = null;
+  const nodeStack: Array<interfaces.BinarySearchTreeNode<T>> = [];
+  let currentVisitedNode: interfaces.BinarySearchTreeNode<T> = null;
   if (root) {
     nodeStack.push(root);
   }

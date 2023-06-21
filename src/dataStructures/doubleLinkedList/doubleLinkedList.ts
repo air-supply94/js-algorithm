@@ -1,9 +1,9 @@
-import type { Compare } from '../../utils';
+import type { interfaces } from '../../types';
 import { Comparator } from '../../utils';
 import { appendNode, prependNode } from './utils';
 
-export class DoubleLinkedListNode<T = unknown> {
-  constructor(value: T | null, next: DoubleLinkedListNode<T> | null = null, previous: DoubleLinkedListNode<T> | null = null) {
+export class DoubleLinkedListNode<T = unknown> implements interfaces.DoubleLinkedListNode<T> {
+  constructor(value: T | null, next: interfaces.DoubleLinkedListNode<T> | null = null, previous: interfaces.DoubleLinkedListNode<T> | null = null) {
     this.value = value;
     this.next = next;
     this.previous = previous;
@@ -11,22 +11,22 @@ export class DoubleLinkedListNode<T = unknown> {
 
   public value: T | null;
 
-  public next: DoubleLinkedListNode<T> | null;
+  public next: interfaces.DoubleLinkedListNode<T> | null;
 
-  public previous: DoubleLinkedListNode<T> | null;
+  public previous: interfaces.DoubleLinkedListNode<T> | null;
 }
 
-export class DoubleLinkedList<T = unknown> {
-  constructor(compare?: Compare<T>) {
+export class DoubleLinkedList<T = unknown> implements interfaces.DoubleLinkedList<T> {
+  constructor(compare?: interfaces.CompareParams<T>) {
     this.clear();
     this.comparator = new Comparator<T>(compare);
   }
 
-  public readonly comparator: Comparator<T>;
+  public readonly comparator: interfaces.Comparator<T>;
 
-  public head: DoubleLinkedListNode<T> | null;
+  public head: interfaces.DoubleLinkedListNode<T> | null;
 
-  public tail: DoubleLinkedListNode<T> | null;
+  public tail: interfaces.DoubleLinkedListNode<T> | null;
 
   public size: number;
 
@@ -40,8 +40,8 @@ export class DoubleLinkedList<T = unknown> {
     return this.size <= 0;
   }
 
-  public toArray(): Array<DoubleLinkedListNode<T>> {
-    const nodes: Array<DoubleLinkedListNode<T>> = [];
+  public toArray(): Array<interfaces.DoubleLinkedListNode<T>> {
+    const nodes: Array<interfaces.DoubleLinkedListNode<T>> = [];
     let currentNode = this.head;
     while (currentNode) {
       nodes.push(currentNode);
@@ -56,15 +56,15 @@ export class DoubleLinkedList<T = unknown> {
     }
   }
 
-  public append(value: T): DoubleLinkedListNode<T> {
+  public append(value: T): interfaces.DoubleLinkedListNode<T> {
     return appendNode(this, new DoubleLinkedListNode(value));
   }
 
-  public prepend(value: T): DoubleLinkedListNode<T> {
+  public prepend(value: T): interfaces.DoubleLinkedListNode<T> {
     return prependNode(this, new DoubleLinkedListNode(value));
   }
 
-  public deleteHead(): DoubleLinkedListNode<T> | null {
+  public deleteHead(): interfaces.DoubleLinkedListNode<T> | null {
     const deletedNode = this.head;
     if (this.size <= 1) {
       this.clear();
@@ -78,7 +78,7 @@ export class DoubleLinkedList<T = unknown> {
     return deletedNode;
   }
 
-  public deleteTail(): DoubleLinkedListNode<T> | null {
+  public deleteTail(): interfaces.DoubleLinkedListNode<T> | null {
     const deletedNode = this.tail;
     if (this.size <= 1) {
       this.clear();

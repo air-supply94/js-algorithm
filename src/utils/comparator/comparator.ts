@@ -1,8 +1,7 @@
-type CompareFunction<T = unknown> = (a?: T, b?: T) => 0 | 1 | -1;
-export type Compare<T = unknown> = Comparator<T> | CompareFunction<T>;
+import type { interfaces } from '../../types';
 
-export class Comparator<T = unknown> {
-  constructor(compare: Compare<T> = function(a, b) {
+export class Comparator<T = unknown> implements interfaces.Comparator<T> {
+  constructor(compare: interfaces.CompareParams<T> = function(a, b) {
     if (a === b) {
       return 0;
     }
@@ -11,10 +10,10 @@ export class Comparator<T = unknown> {
     if (compare instanceof Comparator) {
       return compare;
     }
-    this.compare = compare;
+    this.compare = compare as interfaces.CompareFunction;
   }
 
-  private readonly compare: CompareFunction<T>;
+  public readonly compare: interfaces.CompareFunction<T>;
 
   public equal(a?: T, b?: T): boolean {
     return this.compare(a, b) === 0;

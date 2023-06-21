@@ -1,6 +1,6 @@
-import type { BinarySearchTreeNode } from '../binarySearchTree';
+import type { interfaces } from '../../../types';
 
-function getLeftHeight(root: BinarySearchTreeNode): number {
+function getLeftHeight(root: interfaces.BinarySearchTreeNode): number {
   if (root == null || root.left == null) {
     return 0;
   }
@@ -8,7 +8,7 @@ function getLeftHeight(root: BinarySearchTreeNode): number {
   return getHeight(root.left) + 1;
 }
 
-function getRightHeight(root: BinarySearchTreeNode): number {
+function getRightHeight(root: interfaces.BinarySearchTreeNode): number {
   if (root == null || root.right == null) {
     return 0;
   }
@@ -16,7 +16,7 @@ function getRightHeight(root: BinarySearchTreeNode): number {
   return getHeight(root.right) + 1;
 }
 
-export function getHeight(root: BinarySearchTreeNode): number {
+export function getHeight(root: interfaces.BinarySearchTreeNode): number {
   if (root == null) {
     return 0;
   }
@@ -28,6 +28,6 @@ export function getHeight(root: BinarySearchTreeNode): number {
   return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
 }
 
-export function getBalanceFactor(root: BinarySearchTreeNode): number {
+export function getBalanceFactor(root: interfaces.BinarySearchTreeNode): number {
   return getLeftHeight(root) - getRightHeight(root);
 }

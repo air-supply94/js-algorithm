@@ -1,7 +1,7 @@
-import type { BinarySearchTreeNode } from '../binarySearchTree';
+import type { interfaces } from '../../../types';
 import { traverseInOrder } from './traverseInOrder';
 
-export function setLeft(root: BinarySearchTreeNode, leftNode: BinarySearchTreeNode | null): void {
+export function setLeft(root: interfaces.BinarySearchTreeNode, leftNode: interfaces.BinarySearchTreeNode | null): void {
   if (root.left) {
     root.left.parent = null;
   }
@@ -13,7 +13,7 @@ export function setLeft(root: BinarySearchTreeNode, leftNode: BinarySearchTreeNo
   }
 }
 
-export function setRight(root: BinarySearchTreeNode, node: BinarySearchTreeNode | null): void {
+export function setRight(root: interfaces.BinarySearchTreeNode, node: interfaces.BinarySearchTreeNode | null): void {
   if (root.right) {
     root.right.parent = null;
   }
@@ -25,7 +25,7 @@ export function setRight(root: BinarySearchTreeNode, node: BinarySearchTreeNode 
   }
 }
 
-export function removeChild(root: BinarySearchTreeNode, nodeToRemove: BinarySearchTreeNode): boolean {
+export function removeChild(root: interfaces.BinarySearchTreeNode, nodeToRemove: interfaces.BinarySearchTreeNode): boolean {
   if (nodeToRemove == null) {
     return false;
   }
@@ -41,7 +41,7 @@ export function removeChild(root: BinarySearchTreeNode, nodeToRemove: BinarySear
   }
 }
 
-export function replaceChild(root: BinarySearchTreeNode, nodeToReplace: BinarySearchTreeNode, replacementNode: BinarySearchTreeNode): boolean {
+export function replaceChild(root: interfaces.BinarySearchTreeNode, nodeToReplace: interfaces.BinarySearchTreeNode, replacementNode: interfaces.BinarySearchTreeNode): boolean {
   if (nodeToReplace == null || replacementNode == null) {
     return false;
   }
@@ -57,7 +57,7 @@ export function replaceChild(root: BinarySearchTreeNode, nodeToReplace: BinarySe
   }
 }
 
-export function nodeToString(root: BinarySearchTreeNode): string {
+export function nodeToString(root: interfaces.BinarySearchTreeNode): string {
   const result: unknown[] = [];
   traverseInOrder(root, (node) => {
     result.push(node.value);

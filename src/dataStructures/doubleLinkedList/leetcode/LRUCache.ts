@@ -1,5 +1,5 @@
-import type { DoubleLinkedListNode } from 'src/dataStructures/doubleLinkedList/doubleLinkedList';
-import { DoubleLinkedList } from 'src/dataStructures/doubleLinkedList/doubleLinkedList';
+import type { interfaces } from '../../../types';
+import { DoubleLinkedList } from '../doubleLinkedList';
 import { deleteNode, prependNode } from '../utils';
 
 interface LRUCacheItem {
@@ -13,12 +13,12 @@ export class LRUCache {
   constructor(capacity: number) {
     this.capacity = capacity;
     this.doubleLinkedList = new DoubleLinkedList<LRUCacheItem>();
-    this.nodeMap = new Map<number, DoubleLinkedListNode<LRUCacheItem>>();
+    this.nodeMap = new Map<number, interfaces.DoubleLinkedListNode<LRUCacheItem>>();
   }
 
-  private readonly doubleLinkedList: DoubleLinkedList<LRUCacheItem>;
+  private readonly doubleLinkedList: interfaces.DoubleLinkedList<LRUCacheItem>;
 
-  private readonly nodeMap: Map<number, DoubleLinkedListNode<LRUCacheItem>>;
+  private readonly nodeMap: Map<number, interfaces.DoubleLinkedListNode<LRUCacheItem>>;
 
   private readonly capacity: number;
 

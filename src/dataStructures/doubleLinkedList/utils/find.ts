@@ -1,14 +1,13 @@
-import type { Comparator } from '../../../utils';
-import type { DoubleLinkedListNode } from '../doubleLinkedList';
+import type { interfaces } from '../../../types';
 
 export function find<T = unknown>(
-  head: DoubleLinkedListNode<T>,
+  head: interfaces.DoubleLinkedListNode<T>,
   findParams: {
     value?: T;
     callback?: (value: T) => boolean | void;
   },
-  comparator: Comparator<T>
-): DoubleLinkedListNode<T> | null {
+  comparator: interfaces.Comparator<T>
+): interfaces.DoubleLinkedListNode<T> | null {
   const {
     value,
     callback,

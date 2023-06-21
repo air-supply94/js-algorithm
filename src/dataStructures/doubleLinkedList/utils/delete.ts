@@ -1,7 +1,7 @@
-import type { DoubleLinkedList, DoubleLinkedListNode } from '../doubleLinkedList';
+import type { interfaces } from '../../../types';
 import { get } from './get';
 
-export function deleteValueBase<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, count: number, value?: T): DoubleLinkedListNode<T> | null {
+export function deleteValueBase<T = unknown>(doubleLinkedList: interfaces.DoubleLinkedList<T>, count: number, value?: T): interfaces.DoubleLinkedListNode<T> | null {
   const deleteCount = 0;
   let deletedNode = null;
   let currentNode = doubleLinkedList.head;
@@ -17,7 +17,7 @@ export function deleteValueBase<T = unknown>(doubleLinkedList: DoubleLinkedList<
   return deletedNode;
 }
 
-export function deleteNode<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, node: DoubleLinkedListNode<T>): DoubleLinkedListNode<T> {
+export function deleteNode<T = unknown>(doubleLinkedList: interfaces.DoubleLinkedList<T>, node: interfaces.DoubleLinkedListNode<T>): interfaces.DoubleLinkedListNode<T> {
   if (node === doubleLinkedList.head) {
     return doubleLinkedList.deleteHead();
   } else if (node === doubleLinkedList.tail) {
@@ -32,7 +32,7 @@ export function deleteNode<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, n
   }
 }
 
-export function deleteIndex<T = unknown>(doubleLinkedList: DoubleLinkedList<T>, index: number): DoubleLinkedListNode<T> | null {
+export function deleteIndex<T = unknown>(doubleLinkedList: interfaces.DoubleLinkedList<T>, index: number): interfaces.DoubleLinkedListNode<T> | null {
   const node = get(index, doubleLinkedList.size, doubleLinkedList.head, doubleLinkedList.tail);
   if (node == null) {
     return null;

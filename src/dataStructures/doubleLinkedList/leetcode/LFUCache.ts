@@ -1,5 +1,5 @@
+import type { interfaces } from '../../../types';
 import { DoubleLinkedList } from '../doubleLinkedList';
-import type { DoubleLinkedListNode } from '../doubleLinkedList';
 import { prependNode, deleteNode } from '../utils';
 
 interface LFUCacheItem {
@@ -13,20 +13,20 @@ interface LFUCacheItem {
 export class LFUCache {
   constructor(capacity: number) {
     this.capacity = capacity;
-    this.valueMap = new Map<number, DoubleLinkedListNode<LFUCacheItem>>();
-    this.countMap = new Map<number, DoubleLinkedList<LFUCacheItem>>();
+    this.valueMap = new Map<number, interfaces.DoubleLinkedListNode<LFUCacheItem>>();
+    this.countMap = new Map<number, interfaces.DoubleLinkedList<LFUCacheItem>>();
     this.minCount = 0;
   }
 
   private minCount: number;
 
-  private readonly countMap: Map<number, DoubleLinkedList<LFUCacheItem>>;
+  private readonly countMap: Map<number, interfaces.DoubleLinkedList<LFUCacheItem>>;
 
-  private readonly valueMap: Map<number, DoubleLinkedListNode<LFUCacheItem>>;
+  private readonly valueMap: Map<number, interfaces.DoubleLinkedListNode<LFUCacheItem>>;
 
   private readonly capacity: number;
 
-  private commonExistNodeHandle(node: DoubleLinkedListNode<LFUCacheItem>): void {
+  private commonExistNodeHandle(node: interfaces.DoubleLinkedListNode<LFUCacheItem>): void {
     const oldCount = node.value.count;
     const newCount = oldCount + 1;
     node.value.count = newCount;

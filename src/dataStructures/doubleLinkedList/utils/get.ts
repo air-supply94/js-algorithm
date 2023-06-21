@@ -1,11 +1,11 @@
-import type { DoubleLinkedListNode } from '../doubleLinkedList';
+import type { interfaces } from '../../../types';
 
 export function formatIndex(index: any, size: number): number {
   const indexInt = index | 0;
   return indexInt < 0 ? indexInt + size : indexInt;
 }
 
-export function get<T = unknown>(index: number, size: number, head: DoubleLinkedListNode<T> | null, tail: DoubleLinkedListNode<T> | null): DoubleLinkedListNode<T> | null {
+export function get<T = unknown>(index: number, size: number, head: interfaces.DoubleLinkedListNode<T> | null, tail: interfaces.DoubleLinkedListNode<T> | null): interfaces.DoubleLinkedListNode<T> | null {
   const position = formatIndex(index, size);
   const middleIndex = size >>> 1;
 

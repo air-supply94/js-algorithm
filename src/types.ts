@@ -34,7 +34,7 @@ export namespace interfaces {
   }
 
   export interface Trie {
-    root: interfaces.TrieNode;
+    root: TrieNode;
     addWord: (word: string) => void;
     suggestNextCharacters: (word: string) => string[];
     doesWordExist: (word: string) => boolean;
@@ -83,4 +83,110 @@ export namespace interfaces {
     insert: (item: string) => void;
     contain: (item: string) => boolean;
   }
+
+  export interface DoubleLinkedListNode<T = unknown> {
+    value: T | null;
+    next: DoubleLinkedListNode<T> | null;
+    previous: DoubleLinkedListNode<T> | null;
+  }
+
+  export interface DoubleLinkedList<T = unknown> {
+    comparator: Comparator<T>;
+    head: DoubleLinkedListNode<T> | null;
+    tail: DoubleLinkedListNode<T> | null;
+    size: number;
+    clear: () => void;
+    isEmpty: () => boolean;
+    toArray: () => Array<DoubleLinkedListNode<T>>;
+    fromArray: (values: T[]) => void;
+    append: (value: T) => DoubleLinkedListNode<T>;
+    prepend: (value: T) => DoubleLinkedListNode<T>;
+    deleteHead: () => DoubleLinkedListNode<T> | null;
+    deleteTail: () => DoubleLinkedListNode<T> | null;
+  }
+
+  export enum RED_BLACK_TREE_COLOR {
+    red = 0,
+    black = 1,
+  }
+
+  export interface BinarySearchTreeNode<T = unknown> {
+    left: BinarySearchTreeNode<T> | null;
+    right: BinarySearchTreeNode<T> | null;
+    parent: BinarySearchTreeNode<T> | null;
+    value: T;
+    color: RED_BLACK_TREE_COLOR;
+  }
+
+  export type BinarySearchTreeTraverseCallback<T = unknown> = (node: BinarySearchTreeNode<T>, height?: number) => boolean | void;
+
+  export interface BinarySearchTree<T = unknown> {
+    root: BinarySearchTreeNode<T> | null;
+    setRoot: (root: (BinarySearchTreeNode<T> | null)) => void;
+    comparator: Comparator<T>;
+    insert: (value: T) => BinarySearchTreeNode<T> | null;
+    find: (value: T) => BinarySearchTreeNode<T> | null;
+    contains: (value: T) => boolean;
+    remove: (value: T) => BinarySearchTreeNode<T> | null;
+    findMin: () => BinarySearchTreeNode<T> | null;
+    findMax: () => BinarySearchTreeNode<T> | null;
+    traversePreOrder: () => T[];
+    traversePreOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseInOrder: () => T[];
+    traverseInOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseAfterOrder: () => T[];
+    traverseAfterOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseLevelOrder: () => T[];
+    traverseLevelOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    toString: () => string;
+  }
+
+  export interface AvlTree<T = unknown> {
+    find: (value: T) => BinarySearchTreeNode<T> | null;
+    findMin: () => BinarySearchTreeNode<T> | null;
+    findMax: () => BinarySearchTreeNode<T> | null;
+    traversePreOrder: () => T[];
+    traversePreOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseInOrder: () => T[];
+    traverseInOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseAfterOrder: () => T[];
+    traverseAfterOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseLevelOrder: () => T[];
+    traverseLevelOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    contains: (value: T) => boolean;
+    insert: (value: T) => BinarySearchTreeNode<T> | null;
+    remove: (value: T) => BinarySearchTreeNode<T> | null;
+    toString: () => string;
+  }
+
+  export interface RedBlackTree<T = unknown> {
+    readonly root: BinarySearchTreeNode<T> | null;
+    find: (value: T) => BinarySearchTreeNode<T> | null;
+    findMin: () => BinarySearchTreeNode<T> | null;
+    findMax: () => BinarySearchTreeNode<T> | null;
+    traversePreOrder: () => T[];
+    traversePreOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseInOrder: () => T[];
+    traverseInOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseAfterOrder: () => T[];
+    traverseAfterOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    traverseLevelOrder: () => T[];
+    traverseLevelOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
+    contains: (value: T) => boolean;
+    insert: (value: T) => BinarySearchTreeNode<T> | null;
+    remove: (value: T) => BinarySearchTreeNode<T> | null;
+    toString: () => string;
+  }
+
+  export interface Comparator<T = unknown> {
+    equal: (a?: T, b?: T) => boolean;
+    notEqual: (a?: T, b?: T) => boolean;
+    lessThan: (a?: T, b?: T) => boolean;
+    greaterThan: (a?: T, b?: T) => boolean;
+    lessThanOrEqual: (a?: T, b?: T) => boolean;
+    greaterThanOrEqual: (a?: T, b?: T) => boolean;
+  }
+
+  export type CompareFunction<T = unknown> = (a?: T, b?: T) => 0 | 1 | -1;
+  export type CompareParams<T = unknown> = Comparator<T> | CompareFunction<T>;
 }

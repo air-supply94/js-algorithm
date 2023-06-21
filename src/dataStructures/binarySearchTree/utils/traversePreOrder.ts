@@ -1,13 +1,13 @@
-import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
+import type { interfaces } from '../../../types';
 
 // https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
 // 144
 // 简单改造
 export function traversePreOrder<T = unknown>(
-  root: BinarySearchTreeNode<T> | null,
-  callback: traverseCallback<T>
+  root: interfaces.BinarySearchTreeNode<T> | null,
+  callback: interfaces.BinarySearchTreeTraverseCallback<T>
 ): void {
-  const nodeStack: Array<BinarySearchTreeNode<T>> = [];
+  const nodeStack: Array<interfaces.BinarySearchTreeNode<T>> = [];
   if (root) {
     nodeStack.push(root);
   }

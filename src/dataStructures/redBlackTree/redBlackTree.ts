@@ -1,124 +1,123 @@
-import type { Compare } from '../../utils';
-import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
-import { BinarySearchTree, COLOR_TYPE, findReplaceNode, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder, getUncle, rotateLeftLeft, rotateLeftRight, rotateRightRight, rotateRightLeft } from '../binarySearchTree';
+import { interfaces } from '../../types';
+import { BinarySearchTree, findReplaceNode, getUncle, removeChild, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder } from '../binarySearchTree';
 
-export class RedBlackTree<T = unknown> {
-  constructor(compare?: Compare<T>) {
+export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
+  constructor(compare?: interfaces.CompareParams<T>) {
     this.binarySearchTree = new BinarySearchTree<T>(compare, false);
   }
 
-  private readonly binarySearchTree: BinarySearchTree<T>;
+  private readonly binarySearchTree: interfaces.BinarySearchTree<T>;
 
-  private insertBalance(node: BinarySearchTreeNode<T> | null): void {
+  private insertBalance(node: interfaces.BinarySearchTreeNode<T> | null): void {
     if (node == null) {
       return;
     }
 
     if (node.parent == null) {
-      node.color = COLOR_TYPE.black;
+      node.color = interfaces.RED_BLACK_TREE_COLOR.black;
       return;
     }
 
-    if (node.parent.color === COLOR_TYPE.black) {
+    if (node.parent.color === interfaces.RED_BLACK_TREE_COLOR.black) {
       return;
     }
 
     const uncle = getUncle(node);
-    if (uncle && uncle.color === COLOR_TYPE.red) {
-      node.parent.color = COLOR_TYPE.black;
-      uncle.color = COLOR_TYPE.black;
-      node.parent.parent.color = COLOR_TYPE.red;
+    if (uncle && uncle.color === interfaces.RED_BLACK_TREE_COLOR.red) {
+      node.parent.color = interfaces.RED_BLACK_TREE_COLOR.black;
+      uncle.color = interfaces.RED_BLACK_TREE_COLOR.black;
+      node.parent.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
       return this.insertBalance(node.parent.parent);
     }
 
     if (node.parent === node.parent.parent.left) {
       if (node === node.parent.left) {
-        node.parent.color = COLOR_TYPE.black;
-        node.parent.parent.color = COLOR_TYPE.red;
+        node.parent.color = interfaces.RED_BLACK_TREE_COLOR.black;
+        node.parent.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
         rotateLeftLeft(node.parent.parent, this.binarySearchTree.setRoot);
       } else {
-        node.color = COLOR_TYPE.black;
-        node.parent.parent.color = COLOR_TYPE.red;
+        node.color = interfaces.RED_BLACK_TREE_COLOR.black;
+        node.parent.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
         rotateLeftRight(node.parent.parent);
         rotateLeftLeft(node.parent, this.binarySearchTree.setRoot);
       }
     } else {
       if (node === node.parent.right) {
-        node.parent.color = COLOR_TYPE.black;
-        node.parent.parent.color = COLOR_TYPE.red;
+        node.parent.color = interfaces.RED_BLACK_TREE_COLOR.black;
+        node.parent.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
         rotateRightRight(node.parent.parent, this.binarySearchTree.setRoot);
       } else {
-        node.color = COLOR_TYPE.black;
-        node.parent.parent.color = COLOR_TYPE.red;
+        node.color = interfaces.RED_BLACK_TREE_COLOR.black;
+        node.parent.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
         rotateRightLeft(node.parent.parent);
         rotateRightRight(node.parent, this.binarySearchTree.setRoot);
       }
     }
   }
 
-  private removeBalance(node: BinarySearchTreeNode<T>): void {
+  private removeBalance(node: interfaces.BinarySearchTreeNode<T>): void {
     let currentNode = node;
-    while (currentNode.parent && currentNode.color === COLOR_TYPE.black) {
+    while (currentNode.parent && currentNode.color === interfaces.RED_BLACK_TREE_COLOR.black) {
       if (currentNode === currentNode.parent.left) {
         const sibling = currentNode.parent.right;
 
-        if (sibling.color === COLOR_TYPE.red) {
-          currentNode.parent.color = COLOR_TYPE.red;
-          sibling.color = COLOR_TYPE.black;
+        if (sibling.color === interfaces.RED_BLACK_TREE_COLOR.red) {
+          currentNode.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
+          sibling.color = interfaces.RED_BLACK_TREE_COLOR.black;
           rotateRightRight(currentNode.parent, this.binarySearchTree.setRoot);
-        } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === COLOR_TYPE.black && sibling.right.color === COLOR_TYPE.black)) {
-          sibling.color = COLOR_TYPE.red;
+        } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)) {
+          sibling.color = interfaces.RED_BLACK_TREE_COLOR.red;
           currentNode = currentNode.parent;
-        } else if (sibling.right && sibling.right.color === COLOR_TYPE.red) {
+        } else if (sibling.right && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.red) {
           sibling.color = currentNode.parent.color;
-          currentNode.parent.color = COLOR_TYPE.black;
-          sibling.right.color = COLOR_TYPE.black;
+          currentNode.parent.color = interfaces.RED_BLACK_TREE_COLOR.black;
+          sibling.right.color = interfaces.RED_BLACK_TREE_COLOR.black;
           rotateRightRight(currentNode.parent, this.binarySearchTree.setRoot);
           currentNode = this.root;
-        } else if (sibling.left && sibling.left.color === COLOR_TYPE.red) {
-          sibling.left.color = COLOR_TYPE.black;
-          sibling.color = COLOR_TYPE.red;
+        } else if (sibling.left && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.red) {
+          sibling.left.color = interfaces.RED_BLACK_TREE_COLOR.black;
+          sibling.color = interfaces.RED_BLACK_TREE_COLOR.red;
           rotateRightLeft(currentNode.parent);
         }
       } else {
         const sibling = currentNode.parent.left;
 
-        if (sibling.color === COLOR_TYPE.red) {
-          currentNode.parent.color = COLOR_TYPE.red;
-          sibling.color = COLOR_TYPE.black;
+        if (sibling.color === interfaces.RED_BLACK_TREE_COLOR.red) {
+          currentNode.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
+          sibling.color = interfaces.RED_BLACK_TREE_COLOR.black;
           rotateLeftLeft(currentNode.parent, this.binarySearchTree.setRoot);
-        } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === COLOR_TYPE.black && sibling.right.color === COLOR_TYPE.black)) {
-          sibling.color = COLOR_TYPE.red;
+        } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)) {
+          sibling.color = interfaces.RED_BLACK_TREE_COLOR.red;
           currentNode = currentNode.parent;
-        } else if (sibling.left && sibling.left.color === COLOR_TYPE.red) {
+        } else if (sibling.left && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.red) {
           sibling.color = currentNode.parent.color;
-          currentNode.parent.color = COLOR_TYPE.black;
-          sibling.left.color = COLOR_TYPE.black;
+          currentNode.parent.color = interfaces.RED_BLACK_TREE_COLOR.black;
+          sibling.left.color = interfaces.RED_BLACK_TREE_COLOR.black;
           rotateLeftLeft(currentNode.parent, this.binarySearchTree.setRoot);
           currentNode = this.root;
-        } else if (sibling.right && sibling.right.color === COLOR_TYPE.red) {
-          sibling.right.color = COLOR_TYPE.black;
-          sibling.color = COLOR_TYPE.red;
+        } else if (sibling.right && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.red) {
+          sibling.right.color = interfaces.RED_BLACK_TREE_COLOR.black;
+          sibling.color = interfaces.RED_BLACK_TREE_COLOR.red;
           rotateLeftRight(currentNode.parent);
         }
       }
     }
-    currentNode.color = COLOR_TYPE.black;
+    currentNode.color = interfaces.RED_BLACK_TREE_COLOR.black;
   }
 
-  public get root(): BinarySearchTreeNode<T> | null {
+  public get root(): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.root;
   }
 
-  public find(value: T): BinarySearchTreeNode<T> | null {
+  public find(value: T): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.find(value);
   }
 
-  public findMin(): BinarySearchTreeNode<T> | null {
+  public findMin(): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.findMin();
   }
 
-  public findMax(): BinarySearchTreeNode<T> | null {
+  public findMax(): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.findMax();
   }
 
@@ -130,7 +129,7 @@ export class RedBlackTree<T = unknown> {
     return result;
   }
 
-  public traversePreOrderCallback(callback: traverseCallback<T>): void {
+  public traversePreOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     traversePreOrder(this.root, callback);
   }
 
@@ -142,7 +141,7 @@ export class RedBlackTree<T = unknown> {
     return result;
   }
 
-  public traverseInOrderCallback(callback: traverseCallback<T>): void {
+  public traverseInOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     traverseInOrder(this.root, callback);
   }
 
@@ -154,7 +153,7 @@ export class RedBlackTree<T = unknown> {
     return result;
   }
 
-  public traverseAfterOrderCallback(callback: traverseCallback<T>): void {
+  public traverseAfterOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     traverseAfterOrder(this.root, callback);
   }
 
@@ -166,7 +165,7 @@ export class RedBlackTree<T = unknown> {
     return result;
   }
 
-  public traverseLevelOrderCallback(callback: traverseCallback<T>): void {
+  public traverseLevelOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     traverseLevelOrder(this.root, callback);
   }
 
@@ -174,13 +173,13 @@ export class RedBlackTree<T = unknown> {
     return this.binarySearchTree.contains(value);
   }
 
-  public insert(value: T): BinarySearchTreeNode<T> | null {
+  public insert(value: T): interfaces.BinarySearchTreeNode<T> | null {
     const node = this.binarySearchTree.insert(value);
     this.insertBalance(node);
     return node;
   }
 
-  public remove(value: T): BinarySearchTreeNode<T> | null {
+  public remove(value: T): interfaces.BinarySearchTreeNode<T> | null {
     const replaceNode = findReplaceNode<T>(
       this.root,
       value,
@@ -197,7 +196,7 @@ export class RedBlackTree<T = unknown> {
       return replaceNode;
     }
 
-    if (replaceNode.color === COLOR_TYPE.black) {
+    if (replaceNode.color === interfaces.RED_BLACK_TREE_COLOR.black) {
       this.removeBalance(replaceNode);
     }
 

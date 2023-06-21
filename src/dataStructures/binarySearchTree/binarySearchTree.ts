@@ -1,51 +1,44 @@
-import type { Compare } from '../../utils';
+import { interfaces } from '../../types';
 import { Comparator } from '../../utils';
 import { find, findMax, findMin, findReplaceNode, insert, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder } from './utils';
 
-export enum COLOR_TYPE {
-  red = 0,
-  black = 1,
-}
-
-export class BinarySearchTreeNode<T = unknown> {
+export class BinarySearchTreeNode<T = unknown> implements interfaces.BinarySearchTreeNode<T> {
   constructor(value: T | null = null) {
     this.value = value;
   }
 
-  public left: BinarySearchTreeNode<T> | null = null;
+  public left: interfaces.BinarySearchTreeNode<T> | null = null;
 
-  public right: BinarySearchTreeNode<T> | null = null;
+  public right: interfaces.BinarySearchTreeNode<T> | null = null;
 
-  public parent: BinarySearchTreeNode<T> | null = null;
+  public parent: interfaces.BinarySearchTreeNode<T> | null = null;
 
   public value: T;
 
-  public color: COLOR_TYPE = COLOR_TYPE.red;
+  public color: interfaces.RED_BLACK_TREE_COLOR = interfaces.RED_BLACK_TREE_COLOR.red;
 }
 
-export type traverseCallback<T = unknown> = (node: BinarySearchTreeNode<T>, height?: number) => boolean | void;
-
-export class BinarySearchTree<T = unknown> {
-  constructor(compare?: Compare<T>, isFindMin = true) {
+export class BinarySearchTree<T = unknown> implements interfaces.BinarySearchTree<T> {
+  constructor(compare?: interfaces.CompareParams<T>, isFindMin = true) {
     this.comparator = new Comparator<T>(compare);
     this.isFindMin = isFindMin;
   }
 
   private readonly isFindMin: boolean;
 
-  public root: BinarySearchTreeNode<T> | null = null;
+  public root: interfaces.BinarySearchTreeNode<T> | null = null;
 
-  public setRoot = (root: BinarySearchTreeNode<T> | null): void => {
+  public setRoot = (root: interfaces.BinarySearchTreeNode<T> | null): void => {
     this.root = root;
   };
 
-  public readonly comparator: Comparator<T>;
+  public readonly comparator: interfaces.Comparator<T>;
 
-  public insert(value: T): BinarySearchTreeNode<T> | null {
-    return insert(this.root, value, this.comparator, (root: BinarySearchTreeNode<T> | null) => this.root = root);
+  public insert(value: T): interfaces.BinarySearchTreeNode<T> | null {
+    return insert(this.root, value, this.comparator, (root) => this.root = root);
   }
 
-  public find(value: T): BinarySearchTreeNode<T> | null {
+  public find(value: T): interfaces.BinarySearchTreeNode<T> | null {
     return find(this.root, value, this.comparator);
   }
 
@@ -53,7 +46,7 @@ export class BinarySearchTree<T = unknown> {
     return Boolean(this.find(value));
   }
 
-  public remove(value: T): BinarySearchTreeNode<T> | null {
+  public remove(value: T): interfaces.BinarySearchTreeNode<T> | null {
     const replaceNode = findReplaceNode(this.root, value, this.comparator, this.isFindMin);
     if (replaceNode) {
       if (replaceNode.parent == null) {
@@ -68,11 +61,11 @@ export class BinarySearchTree<T = unknown> {
     return replaceNode;
   }
 
-  public findMin(): BinarySearchTreeNode<T> | null {
+  public findMin(): interfaces.BinarySearchTreeNode<T> | null {
     return findMin(this.root);
   }
 
-  public findMax(): BinarySearchTreeNode<T> | null {
+  public findMax(): interfaces.BinarySearchTreeNode<T> | null {
     return findMax(this.root);
   }
 
@@ -84,7 +77,7 @@ export class BinarySearchTree<T = unknown> {
     return result;
   }
 
-  public traversePreOrderCallback(callback: traverseCallback<T>): void {
+  public traversePreOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     traversePreOrder(this.root, callback);
   }
 
@@ -96,7 +89,7 @@ export class BinarySearchTree<T = unknown> {
     return result;
   }
 
-  public traverseInOrderCallback(callback: traverseCallback<T>): void {
+  public traverseInOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     traverseInOrder(this.root, callback);
   }
 
@@ -108,7 +101,7 @@ export class BinarySearchTree<T = unknown> {
     return result;
   }
 
-  public traverseAfterOrderCallback(callback: traverseCallback<T>): void {
+  public traverseAfterOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     return traverseAfterOrder(this.root, callback);
   }
 
@@ -120,7 +113,7 @@ export class BinarySearchTree<T = unknown> {
     return result;
   }
 
-  public traverseLevelOrderCallback(callback: traverseCallback<T>): void {
+  public traverseLevelOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     traverseLevelOrder(this.root, callback);
   }
 

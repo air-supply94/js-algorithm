@@ -1,15 +1,14 @@
-import type { Compare } from '../../utils';
-import type { BinarySearchTreeNode, traverseCallback } from '../binarySearchTree';
+import type { interfaces } from '../../types';
 import { BinarySearchTree, getBalanceFactor, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
 
-export class AvlTree<T = unknown> {
-  constructor(compare?: Compare<T>) {
+export class AvlTree<T = unknown> implements interfaces.AvlTree<T> {
+  constructor(compare?: interfaces.CompareParams<T>) {
     this.binarySearchTree = new BinarySearchTree<T>(compare, true);
   }
 
-  private readonly binarySearchTree: BinarySearchTree<T>;
+  private readonly binarySearchTree: interfaces.BinarySearchTree<T>;
 
-  private balance(root: BinarySearchTreeNode<T>): void {
+  private balance(root: interfaces.BinarySearchTreeNode<T>): void {
     if (getBalanceFactor(root) > 1) {
       if (getBalanceFactor(root.left) > 0) {
         rotateLeftLeft(root, this.binarySearchTree.setRoot);
@@ -27,19 +26,19 @@ export class AvlTree<T = unknown> {
     }
   }
 
-  public get root(): BinarySearchTreeNode<T> | null {
+  public get root(): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.root;
   }
 
-  public find(value: T): BinarySearchTreeNode<T> | null {
+  public find(value: T): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.find(value);
   }
 
-  public findMin(): BinarySearchTreeNode<T> | null {
+  public findMin(): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.findMin();
   }
 
-  public findMax(): BinarySearchTreeNode<T> | null {
+  public findMax(): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.findMax();
   }
 
@@ -47,7 +46,7 @@ export class AvlTree<T = unknown> {
     return this.binarySearchTree.traversePreOrder();
   }
 
-  public traversePreOrderCallback(callback: traverseCallback<T>): void {
+  public traversePreOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     this.binarySearchTree.traversePreOrderCallback(callback);
   }
 
@@ -55,7 +54,7 @@ export class AvlTree<T = unknown> {
     return this.binarySearchTree.traverseInOrder();
   }
 
-  public traverseInOrderCallback(callback: traverseCallback<T>): void {
+  public traverseInOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     this.binarySearchTree.traverseInOrderCallback(callback);
   }
 
@@ -63,7 +62,7 @@ export class AvlTree<T = unknown> {
     return this.binarySearchTree.traverseAfterOrder();
   }
 
-  public traverseAfterOrderCallback(callback: traverseCallback<T>): void {
+  public traverseAfterOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     this.binarySearchTree.traverseAfterOrderCallback(callback);
   }
 
@@ -71,7 +70,7 @@ export class AvlTree<T = unknown> {
     return this.binarySearchTree.traverseLevelOrder();
   }
 
-  public traverseLevelOrderCallback(callback: traverseCallback<T>): void {
+  public traverseLevelOrderCallback(callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
     this.binarySearchTree.traverseLevelOrderCallback(callback);
   }
 
@@ -79,7 +78,7 @@ export class AvlTree<T = unknown> {
     return this.binarySearchTree.contains(value);
   }
 
-  public insert(value: T): BinarySearchTreeNode<T> | null {
+  public insert(value: T): interfaces.BinarySearchTreeNode<T> | null {
     const node = this.binarySearchTree.insert(value);
     let currentNode = node;
     while (currentNode) {
@@ -90,7 +89,7 @@ export class AvlTree<T = unknown> {
     return node;
   }
 
-  public remove(value: T): BinarySearchTreeNode<T> | null {
+  public remove(value: T): interfaces.BinarySearchTreeNode<T> | null {
     const node = this.binarySearchTree.remove(value);
     let removeNode = node;
     while (removeNode) {

@@ -1,7 +1,7 @@
-import type { Compare } from '../../utils';
+import type { interfaces } from '../../types';
 import { Comparator, swap } from '../../utils';
 
-export function insertionSort<T = unknown>(originalArray: T[], compare?: Compare<T>): T[] {
+export function insertionSort<T = unknown>(originalArray: T[], compare?: interfaces.CompareParams<T>): T[] {
   const comparator = new Comparator(compare);
   const gap = 1;
   for (let i = 0; i < originalArray.length - gap; i++) {
@@ -14,7 +14,7 @@ export function insertionSort<T = unknown>(originalArray: T[], compare?: Compare
   return originalArray;
 }
 
-export function shellSort<T = unknown>(originalArray: T[], compare?: Compare<T>): T[] {
+export function shellSort<T = unknown>(originalArray: T[], compare?: interfaces.CompareParams<T>): T[] {
   const comparator = new Comparator(compare);
   let gap = originalArray.length >>> 1;
 

@@ -1,4 +1,4 @@
-import type { BinarySearchTreeNode } from '../binarySearchTree';
+import type { interfaces } from '../../types';
 import { huffmanTree } from './huffmanTree';
 
 test('huffmanTree', () => {
@@ -52,10 +52,10 @@ test('huffmanTree', () => {
     .toBe(126);
 });
 
-function getHuffmanWPL(root: BinarySearchTreeNode<number> | null): number {
+function getHuffmanWPL(root: interfaces.BinarySearchTreeNode<number> | null): number {
   let result = 0;
 
-  function dfs(node: BinarySearchTreeNode<number>, height: number): void {
+  function dfs(node: interfaces.BinarySearchTreeNode<number>, height: number): void {
     if (node == null) {
       return;
     }

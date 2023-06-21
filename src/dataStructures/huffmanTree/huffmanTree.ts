@@ -1,8 +1,9 @@
+import type { interfaces } from '../../types';
 import { BinarySearchTreeNode, setLeft, setRight } from '../binarySearchTree';
 import { Heap } from '../heap/heap';
 
-export function huffmanTree(data: number[]): BinarySearchTreeNode<number> | null {
-  const minHeap = new Heap<BinarySearchTreeNode<number>>((a, b) => a.value <= b.value);
+export function huffmanTree(data: number[]): interfaces.BinarySearchTreeNode<number> | null {
+  const minHeap = new Heap<interfaces.BinarySearchTreeNode<number>>((a, b) => a.value <= b.value);
   for (let i = 0; i < data.length; i++) {
     minHeap.add(new BinarySearchTreeNode(data[i]));
   }

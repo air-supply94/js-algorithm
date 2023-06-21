@@ -1,4 +1,4 @@
-import type { BinarySearchTreeNode } from '../binarySearchTree';
+import type { interfaces } from '../../../types';
 import { BinarySearchTree } from '../binarySearchTree';
 import { findReplaceNode, getHeight, insert } from '../utils';
 
@@ -51,7 +51,7 @@ describe('BinarySearchTree', () => {
 
     bst.insert(10);
     const originRemove = bst.remove;
-    bst.remove = function <T = unknown>(this: BinarySearchTree<T>, value: T): BinarySearchTreeNode<T> | null {
+    bst.remove = function <T = unknown>(this: BinarySearchTree<T>, value: T): interfaces.BinarySearchTreeNode<T> | null {
       return findReplaceNode(this.root, value, this.comparator);
     };
     expect(bst.remove(10).value)
@@ -124,7 +124,7 @@ describe('BinarySearchTree', () => {
     expect(bst.findMax())
       .toBeNull();
     const originInsert = bst.insert;
-    bst.insert = function <T = unknown>(this: BinarySearchTree<T>, value: T): BinarySearchTreeNode<T> | null {
+    bst.insert = function <T = unknown>(this: BinarySearchTree<T>, value: T): interfaces. BinarySearchTreeNode<T> | null {
       return insert(this.root, value, this.comparator);
     };
     bst.insert(10);
@@ -480,7 +480,7 @@ describe('BinarySearchTree', () => {
     bst.insert(5);
     let result: number[] = [];
 
-    function callback(node: BinarySearchTreeNode<number>) {
+    function callback(node: interfaces.BinarySearchTreeNode<number>) {
       if (result.length >= 3) {
         return false;
       }

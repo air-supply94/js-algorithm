@@ -1,4 +1,3 @@
-import type { Compare } from '../../utils';
 import { Comparator } from '../../utils';
 import type { interfaces } from '../../types';
 
@@ -19,13 +18,13 @@ export class SkipListNode<T = unknown> implements interfaces.SkipListNode<T> {
 }
 
 export class SkipList<T = unknown> implements interfaces.SkipList<T> {
-  constructor(compare?: Compare<T>) {
+  constructor(compare?: interfaces.CompareParams<T>) {
     this.head.right = this.tail;
     this.tail.left = this.head;
     this.comparator = new Comparator<T>(compare);
   }
 
-  private readonly comparator: Comparator<T>;
+  private readonly comparator: interfaces.Comparator<T>;
 
   private PROMOTE_RATE = 0.5;
 
