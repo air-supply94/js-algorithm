@@ -8,9 +8,8 @@ export function insert<T = unknown>(
   comparator: interfaces.Comparator<T>,
   emptyRootCallback?: (root: interfaces.BinarySearchTreeNode<T> | null) => unknown
 ): interfaces.BinarySearchTreeNode<T> | null {
-  const newNode = new BinarySearchTreeNode(value);
-
   if (root == null) {
+    const newNode = new BinarySearchTreeNode(value);
     if (typeof emptyRootCallback === 'function') {
       emptyRootCallback(newNode);
     }
@@ -21,6 +20,7 @@ export function insert<T = unknown>(
     if (root.left) {
       return insert(root.left, value, comparator);
     } else {
+      const newNode = new BinarySearchTreeNode(value);
       setLeft(root, newNode);
       return newNode;
     }
@@ -28,6 +28,7 @@ export function insert<T = unknown>(
     if (root.right) {
       return insert(root.right, value, comparator);
     } else {
+      const newNode = new BinarySearchTreeNode(value);
       setRight(root, newNode);
       return newNode;
     }
