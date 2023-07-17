@@ -4,25 +4,25 @@ import { findMax } from './findMax';
 import { findMin } from './findMin';
 
 export function findReplaceNode<T = unknown>(root: interfaces. BinarySearchTreeNode<T> | null, value: T, comparator: interfaces.Comparator<T>, isFindRightMin = true): interfaces.BinarySearchTreeNode<T> | null {
-  let endNode = find(root, value, comparator);
-  if (endNode == null) {
+  let findNode = find(root, value, comparator);
+  if (findNode == null) {
     return null;
   }
 
-  while (endNode.left || endNode.right) {
-    const startNode = endNode;
-    if (endNode.left && endNode.right) {
-      endNode = isFindRightMin ? findMin(endNode.right) : findMax(endNode.left);
-    } else if (endNode.left) {
-      endNode = endNode.left;
+  while (findNode.left || findNode.right) {
+    const exchangeNode = findNode;
+    if (findNode.left && findNode.right) {
+      findNode = isFindRightMin ? findMin(findNode.right) : findMax(findNode.left);
+    } else if (findNode.left) {
+      findNode = findNode.left;
     } else {
-      endNode = endNode.right;
+      findNode = findNode.right;
     }
 
-    const tmpValue = startNode.value;
-    startNode.value = endNode.value;
-    endNode.value = tmpValue;
+    const tmpValue = exchangeNode.value;
+    exchangeNode.value = findNode.value;
+    findNode.value = tmpValue;
   }
 
-  return endNode;
+  return findNode;
 }

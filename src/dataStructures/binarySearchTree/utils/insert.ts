@@ -1,6 +1,5 @@
 import type { interfaces } from '../../../types';
 import { BinarySearchTreeNode } from '../binarySearchTree';
-import { setLeft, setRight } from './nodeOperate';
 
 export function insert<T = unknown>(
   root: interfaces. BinarySearchTreeNode<T> | null,
@@ -21,7 +20,8 @@ export function insert<T = unknown>(
       return insert(root.left, value, comparator);
     } else {
       const newNode = new BinarySearchTreeNode(value);
-      setLeft(root, newNode);
+      root.left = newNode;
+      newNode.parent = root;
       return newNode;
     }
   } else if (comparator.greaterThan(value, root.value)) {
@@ -29,7 +29,8 @@ export function insert<T = unknown>(
       return insert(root.right, value, comparator);
     } else {
       const newNode = new BinarySearchTreeNode(value);
-      setRight(root, newNode);
+      root.right = newNode;
+      newNode.parent = root;
       return newNode;
     }
   } else {
