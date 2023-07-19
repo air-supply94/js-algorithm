@@ -2,11 +2,7 @@ import { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/maximum-binary-tree/
 // 654
-export function constructMaximumBinaryTree(num: number[]): TreeNode | null {
-  return recursion(num, 0, num.length - 1);
-}
-
-function recursion(num: number[], startIndex: number, endIndex: number): TreeNode | null {
+export function constructMaximumBinaryTree(num: number[], startIndex = 0, endIndex = num.length - 1): TreeNode | null {
   if (startIndex > endIndex) {
     return null;
   }
@@ -22,7 +18,7 @@ function recursion(num: number[], startIndex: number, endIndex: number): TreeNod
   }
 
   const root = new TreeNode(maxValue);
-  root.left = recursion(num, startIndex, maxIndex - 1);
-  root.right = recursion(num, maxIndex + 1, endIndex);
+  root.left = constructMaximumBinaryTree(num, startIndex, maxIndex - 1);
+  root.right = constructMaximumBinaryTree(num, maxIndex + 1, endIndex);
   return root;
 }

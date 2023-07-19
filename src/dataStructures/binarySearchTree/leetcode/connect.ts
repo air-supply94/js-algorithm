@@ -16,7 +16,6 @@ export function connect(root: Node): Node | null {
   return root;
 }
 
-// 三叉树遍历
 function connectTwoNode(left: Node, right: Node): void {
   if (left == null || right == null) {
     return;

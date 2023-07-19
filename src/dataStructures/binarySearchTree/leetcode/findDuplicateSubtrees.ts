@@ -6,13 +6,13 @@ export function findDuplicateSubtrees(root: TreeNode | null): TreeNode[] {
   const cache = new Map<string, number>();
   const list: TreeNode[] = [];
 
-  function recursion(rootNode: TreeNode | null): string {
+  function dfs(rootNode: TreeNode | null): string {
     if (rootNode == null) {
       return ' ';
     }
 
-    const leftValue = recursion(rootNode.left);
-    const rightValue = recursion(rootNode.right);
+    const leftValue = dfs(rootNode.left);
+    const rightValue = dfs(rootNode.right);
     const result = `${rootNode.val}_${leftValue}_${rightValue}`;
     const count = cache.get(result) >>> 0;
 
@@ -24,6 +24,6 @@ export function findDuplicateSubtrees(root: TreeNode | null): TreeNode[] {
     return result;
   }
 
-  recursion(root);
+  dfs(root);
   return list;
 }
