@@ -9,13 +9,13 @@ export function pathSum(root: TreeNode | null, sum: number, result: number[][] =
 
   currentPath.push(root.val);
 
-  const newSum = sum - root.val;
-  if (newSum === 0 && !root.left && !root.right) {
+  sum -= root.val;
+  if (sum === 0 && !root.left && !root.right) {
     result.push(currentPath.slice());
   }
 
-  pathSum(root.left, newSum, result, currentPath);
-  pathSum(root.right, newSum, result, currentPath);
+  pathSum(root.left, sum, result, currentPath);
+  pathSum(root.right, sum, result, currentPath);
 
   currentPath.pop();
   return result;
