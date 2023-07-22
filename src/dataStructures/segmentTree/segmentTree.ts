@@ -34,6 +34,10 @@ export class SegmentTree implements interfaces.SegmentTree {
   private readonly segmentTree: number[];
 
   private buildTreeRecursively(leftInputIndex: number, rightInputIndex: number, position: number) {
+    if (leftInputIndex < rightInputIndex) {
+      return;
+    }
+
     if (leftInputIndex === rightInputIndex) {
       this.segmentTree[position] = this.inputArray[leftInputIndex];
       return;

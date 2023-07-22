@@ -5,19 +5,19 @@ import { Heap } from '../heap';
 export function eatenApples(apples: number[], days: number[]): number {
   const minHeap = new Heap<[number, number]>((a, b) => a[0] <= b[0]);
   let result = 0;
-  let i = 0;
+  let day = 0;
 
-  while (i < apples.length || !minHeap.isEmpty()) {
+  while (day < apples.length || !minHeap.isEmpty()) {
     // 移除过期
-    while (!minHeap.isEmpty() && (minHeap.peek()[0] <= i || minHeap.peek()[1] <= 0)) {
+    while (!minHeap.isEmpty() && (minHeap.peek()[0] <= day || minHeap.peek()[1] <= 0)) {
       minHeap.poll();
     }
 
     // 新增到储物空间
-    if (i < apples.length && apples[i] > 0) {
+    if (day < apples.length && apples[day] > 0) {
       minHeap.add([
-        i + days[i],
-        apples[i],
+        day + days[day],
+        apples[day],
       ]);
     }
 
@@ -27,7 +27,7 @@ export function eatenApples(apples: number[], days: number[]): number {
       minHeap.peek()[1]--;
     }
 
-    i++;
+    day++;
   }
 
   return result;
