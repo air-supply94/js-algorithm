@@ -15,8 +15,10 @@ export function find<T = unknown>(
 
   let currentNode = head;
   while (currentNode) {
-    if (typeof callback === 'function' && callback(currentNode.value)) {
-      return currentNode;
+    if (typeof callback === 'function') {
+      if (callback(currentNode.value)) {
+        return currentNode;
+      }
     } else if (comparator.equal(currentNode.value, value)) {
       return currentNode;
     }

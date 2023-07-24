@@ -1,6 +1,5 @@
 import type { interfaces } from '../../types';
 import { Comparator } from '../../utils';
-import { appendNode, prependNode } from './utils';
 
 export class DoubleLinkedListNode<T = unknown> implements interfaces.DoubleLinkedListNode<T> {
   constructor(value: T | null, next: interfaces.DoubleLinkedListNode<T> | null = null, previous: interfaces.DoubleLinkedListNode<T> | null = null) {
@@ -57,11 +56,33 @@ export class DoubleLinkedList<T = unknown> implements interfaces.DoubleLinkedLis
   }
 
   public append(value: T): interfaces.DoubleLinkedListNode<T> {
-    return appendNode(this, new DoubleLinkedListNode(value));
+    const tail = new DoubleLinkedListNode(value);
+    if (this.isEmpty()) {
+      this.tail = tail;
+      this.head = tail;
+    } else {
+      this.tail.next = tail;
+      tail.previous = this.tail;
+      this.tail = tail;
+    }
+
+    this.size++;
+    return tail;
   }
 
   public prepend(value: T): interfaces.DoubleLinkedListNode<T> {
-    return prependNode(this, new DoubleLinkedListNode(value));
+    const head = new DoubleLinkedListNode(value);
+    if (this.isEmpty()) {
+      this.tail = head;
+      this.head = head;
+    } else {
+      this.head.previous = head;
+      head.next = this.head;
+      this.head = head;
+    }
+
+    this.size++;
+    return head;
   }
 
   public deleteHead(): interfaces.DoubleLinkedListNode<T> | null {
