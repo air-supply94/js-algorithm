@@ -1,11 +1,13 @@
+// import type { interfaces } from '../../../types';
+// import { DoubleLinkedListNode } from '../doubleLinkedList';
 import { ListNode } from './listNode';
 
 /*
-function mergeTwoLists<T = unknown>(firstHead: DoubleLinkedListNode<T> | null, secondHead: DoubleLinkedListNode<T> | null, comparator: Comparator): DoubleLinkedListNode<T> | null {
-  const deathHead: DoubleLinkedListNode<T> = new DoubleLinkedListNode<T>(null);
+function mergeTwoLists<T = unknown>(firstHead: interfaces.DoubleLinkedListNode<T> | null, secondHead: interfaces.DoubleLinkedListNode<T> | null, comparator: interfaces.Comparator): interfaces.DoubleLinkedListNode<T> | null {
+  const virtualHead: interfaces.DoubleLinkedListNode<T> = new DoubleLinkedListNode<T>(null);
   let firstHeadNode = firstHead;
   let secondHeadNode = secondHead;
-  let currentNode: DoubleLinkedListNode<T> = deathHead;
+  let currentNode: DoubleLinkedListNode<T> = virtualHead;
 
   while (firstHeadNode && secondHeadNode) {
     if (comparator.lessThanOrEqual(firstHeadNode.value, secondHeadNode.value)) {
@@ -31,10 +33,10 @@ function mergeTwoLists<T = unknown>(firstHead: DoubleLinkedListNode<T> | null, s
     secondHeadNode.previous = currentNode;
   }
 
-  if (deathHead.next) {
-    const head = deathHead.next;
+  if (virtualHead.next) {
+    const head = virtualHead.next;
     head.previous = null;
-    deathHead.next = null;
+    virtualHead.next = null;
     return head;
   } else {
     return null;
@@ -45,10 +47,10 @@ function mergeTwoLists<T = unknown>(firstHead: DoubleLinkedListNode<T> | null, s
 // https://leetcode-cn.com/problems/merge-two-sorted-lists/
 // 21
 export function mergeTwoLists(firstHead: ListNode | null, secondHead: ListNode | null): ListNode | null {
-  const deathHead: ListNode = new ListNode(null);
+  const virtualHead: ListNode = new ListNode(null);
   let firstHeadNode = firstHead;
   let secondHeadNode = secondHead;
-  let currentNode: ListNode = deathHead;
+  let currentNode: ListNode = virtualHead;
 
   while (firstHeadNode && secondHeadNode) {
     if (firstHeadNode.val <= secondHeadNode.val) {
@@ -67,9 +69,9 @@ export function mergeTwoLists(firstHead: ListNode | null, secondHead: ListNode |
     currentNode.next = secondHeadNode;
   }
 
-  if (deathHead.next) {
-    const head = deathHead.next;
-    deathHead.next = null;
+  if (virtualHead.next) {
+    const head = virtualHead.next;
+    virtualHead.next = null;
     return head;
   } else {
     return null;

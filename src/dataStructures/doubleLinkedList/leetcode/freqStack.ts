@@ -43,7 +43,7 @@ export class FreqStack {
     this.freqMap.set(value, this.freqMap.get(value) - 1);
 
     if (this.freqStackMap.get(this.maxFreq).length === 0) {
-      this.maxFreq -= 1;
+      this.maxFreq--;
     }
 
     return value;

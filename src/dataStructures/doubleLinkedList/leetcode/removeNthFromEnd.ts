@@ -6,7 +6,7 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
   let slow = head;
   let fast = head;
   let count = n;
-  while (count > 0) {
+  while (fast && count > 0) {
     fast = fast.next;
     count--;
   }
