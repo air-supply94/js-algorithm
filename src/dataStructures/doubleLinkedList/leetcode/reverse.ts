@@ -3,17 +3,17 @@ import type { ListNode } from './listNode';
 // https://leetcode-cn.com/problems/reverse-linked-list
 // 206
 export function reverseList(head: ListNode): ListNode | null {
-  let headNode = null;
+  let previousNode = null;
   let currentNode = head;
   let nextNode = null;
 
   while (currentNode) {
     nextNode = currentNode.next;
-    currentNode.next = headNode;
-    headNode = currentNode;
+    currentNode.next = previousNode;
+    previousNode = currentNode;
     currentNode = nextNode;
   }
-  return headNode;
+  return previousNode;
 }
 
 function reverseCount(head: ListNode | null, n: number): ListNode | null {
@@ -28,8 +28,8 @@ function reverseCount(head: ListNode | null, n: number): ListNode | null {
     targetN--;
   }
 
-  if (firstTail.next) {
-    const secondHead = firstTail.next;
+  const secondHead = firstTail.next;
+  if (secondHead) {
     firstTail.next = null;
 
     reverseList(head);
@@ -58,9 +58,8 @@ export function reverseBetween(head: ListNode | null, m: number, n: number): Lis
     firstTail = firstTail.next;
     targetM--;
   }
-
-  if (firstTail.next) {
-    const secondHead = firstTail.next;
+  const secondHead = firstTail.next;
+  if (secondHead) {
     firstTail.next = reverseCount(secondHead, n - m + 1);
   }
 
@@ -85,10 +84,9 @@ export function reverseKGroup(head: ListNode | null, n: number): ListNode | null
     return head;
   }
 
-  if (firstTail.next) {
-    const secondHead = firstTail.next;
+  const secondHead = firstTail.next;
+  if (secondHead) {
     firstTail.next = null;
-
     reverseList(head);
     head.next = reverseKGroup(secondHead, n);
     return firstTail;
