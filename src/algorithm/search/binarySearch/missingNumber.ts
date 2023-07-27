@@ -10,9 +10,7 @@ export function missingNumber(nums: number[]): number {
     if (middle === nums[middle]) {
       left = middle + 1;
     } else {
-      // 可以简化为 right = middle - 1
-      // middle刚好是缺失,left一定会加1
-      right = left === right ? middle - 1 : middle;
+      right = middle - 1;
     }
   }
 

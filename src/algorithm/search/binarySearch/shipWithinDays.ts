@@ -8,10 +8,10 @@ export function shipWithinDays(weights: number[], day: number): number {
 
   while (left <= right) {
     const middle = (left + right) >>> 1;
-    if (getCost(weights, middle) <= day) {
-      right = middle - 1;
-    } else {
+    if (getCost(weights, middle) > day) {
       left = middle + 1;
+    } else {
+      right = middle - 1;
     }
   }
 

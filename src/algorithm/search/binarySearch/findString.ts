@@ -17,12 +17,12 @@ export function findString(words: string[], s: string): number {
       middle--;
     }
 
-    if (s < words[middle]) {
-      right = middle - 1;
+    if (s > words[middle]) {
+      left = middle + 1;
     } else if (s === words[middle]) {
       return middle;
     } else {
-      left = middle + 1;
+      right = middle - 1;
     }
   }
 

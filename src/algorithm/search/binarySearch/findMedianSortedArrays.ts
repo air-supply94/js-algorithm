@@ -15,6 +15,8 @@ export function findMedianSortedArrays(nums1: number[], nums2: number[]): number
   }
 }
 
+// 2个有序数组An和Bn,如果An的长度小于等于Bn
+// A[k/2] < B[k/2],则A[1,2,...,k/2]都不可能是第k小的数(A[1,2,...,k/2] < B[k/2])
 function getKth(arr1: number[], l1: number, r1: number, arr2: number[], l2: number, r2: number, k: number): number {
   const len1 = r1 - l1 + 1;
   const len2 = r2 - l2 + 1;

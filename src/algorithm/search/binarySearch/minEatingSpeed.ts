@@ -6,10 +6,10 @@ export function minEatingSpeed(piles: number[], h: number): number {
 
   while (left <= right) {
     const middle = (left + right) >>> 1;
-    if (getCost(piles, middle) <= h) {
-      right = middle - 1;
-    } else {
+    if (getCost(piles, middle) > h) {
       left = middle + 1;
+    } else {
+      right = middle - 1;
     }
   }
 
