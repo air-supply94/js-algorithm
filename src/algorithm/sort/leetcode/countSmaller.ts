@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
 // 315
+// 这里使用reversePairs第二种思路,还需要遍历左侧到middle的所有元素,故采用第一种思路
 export function countSmaller(nums: number[]): number[] {
   const count: number[] = Array(nums.length)
     .fill(0);
