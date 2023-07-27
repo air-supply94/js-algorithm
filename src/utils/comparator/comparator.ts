@@ -10,7 +10,10 @@ export class Comparator<T = unknown> implements interfaces.Comparator<T> {
     if (compare instanceof Comparator) {
       return compare;
     }
-    this.compare = compare as interfaces.CompareFunction;
+
+    if (typeof compare === 'function') {
+      this.compare = compare;
+    }
   }
 
   public readonly compare: interfaces.CompareFunction<T>;
