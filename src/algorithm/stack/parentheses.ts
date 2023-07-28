@@ -46,44 +46,44 @@ export function isValid(str: string): boolean {
 // 921
 export function minAddToMakeValid(s: string): number {
   let result = 0;
-  let need = 0;
+  let needRightBrace = 0;
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === '(') {
-      need++;
+      needRightBrace++;
     } else {
-      need--;
-      if (need === -1) {
+      needRightBrace--;
+      if (needRightBrace === -1) {
         result++;
-        need = 0;
+        needRightBrace = 0;
       }
     }
   }
 
-  return need + result;
+  return needRightBrace + result;
 }
 
 // https://leetcode-cn.com/problems/minimum-insertions-to-balance-a-parentheses-string/
 // 1541
 export function minInsertions(s: string): number {
   let result = 0;
-  let need = 0;
+  let needRightBrace = 0;
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === '(') {
-      need += 2;
-      if (need & 1) {
+      needRightBrace += 2;
+      if (needRightBrace & 1) {
         result++;
-        need--;
+        needRightBrace--;
       }
     } else {
-      need--;
-      if (need === -1) {
+      needRightBrace--;
+      if (needRightBrace === -1) {
         result++;
-        need = 1;
+        needRightBrace = 1;
       }
     }
   }
 
-  return result + need;
+  return result + needRightBrace;
 }

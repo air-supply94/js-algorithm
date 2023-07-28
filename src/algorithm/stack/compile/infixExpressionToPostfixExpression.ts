@@ -7,6 +7,8 @@ export function infixExpressionToPostfixExpression(infixExpression: string[]): s
   while (i < infixExpression.length) {
     const token = infixExpression[i];
     switch (token) {
+      case ' ':
+        break;
       case '+':
       case '-':
       case '*':
@@ -33,6 +35,7 @@ export function infixExpressionToPostfixExpression(infixExpression: string[]): s
       default:
         expressionStack.push(token);
     }
+    i++;
   }
 
   while (signStack.length > 0) {
