@@ -8,21 +8,23 @@ export function permute(choice: number[], path: number[] = [], visited: number[]
   }
 
   for (let i = 0; i < choice.length; i++) {
-    // 去掉去重复就是: 元素无重可复选
-    if (visited[i] === 0) {
-      // 元素可重不可复选
-      // if (i > 0 && choice[i] == choice[i - 1] && !visited[i - 1]) {
-      //   continue;
-      // }
+    // 元素无重可复选
+    // if (visited[i]) {
+    //   continue;
+    // }
 
-      visited[i] = 1;
-      path.push(choice[i]);
+    // 元素可重不可复选
+    // if (i > 0 && choice[i] == choice[i - 1] && !visited[i - 1]) {
+    //   continue;
+    // }
 
-      permute(choice, path, visited, result);
+    visited[i] = 1;
+    path.push(choice[i]);
 
-      visited[i] = 0;
-      path.pop();
-    }
+    permute(choice, path, visited, result);
+
+    visited[i] = 0;
+    path.pop();
   }
 
   return result;
