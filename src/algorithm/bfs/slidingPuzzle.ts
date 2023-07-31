@@ -1,22 +1,19 @@
 // https://leetcode-cn.com/problems/sliding-puzzle/
 // 773
 export function slidingPuzzle(board: number[][]): number {
-  const h = board.length;
-  const w = board[0].length;
+  const height = 2;
+  const width = 3;
+  const end = '123450';
+
   const visited = new Set<string>();
-
-  let end = '0';
-  for (let i = h * w - 1; i >= 1; i--) {
-    end = `${i}${end}`;
-  }
-
-  const queue: Array<{ root: string; index: number; }> = [];
-  const root = board.map((item) => item.join('')).join('');
-  visited.add(root);
-  queue.push({
-    root,
-    index: root.indexOf('0'),
-  });
+  const queue: Array<[string, number]> = [];
+  const startNode = board.map((item) => item.join(''))
+    .join('');
+  visited.add(startNode);
+  queue.push([
+    startNode,
+    startNode.indexOf('0'),
+  ]);
 
   let level = 0;
   while (queue.length > 0) {
@@ -25,23 +22,14 @@ export function slidingPuzzle(board: number[][]): number {
 
     for (let i = 0; i < size; i++) {
       const currentItem = queue.shift();
-      if (currentItem.root === end) {
+      if (currentItem[0] === end) {
         return level - 1;
       }
 
-      const currentNeighborIndex = getNeighborIndex(h, w, currentItem.index);
-      for (let j = 0; j < currentNeighborIndex.length; j++) {
-        const nextRootList = currentItem.root.split('');
-        nextRootList.splice(currentItem.index, 1, currentItem.root[currentNeighborIndex[j]]);
-        nextRootList.splice(currentNeighborIndex[j], 1, currentItem.root[currentItem.index]);
-        const nextRoot = nextRootList.join('');
-
-        if (!visited.has(nextRoot)) {
-          visited.add(nextRoot);
-          queue.push({
-            root: nextRoot,
-            index: currentNeighborIndex[j],
-          });
+      for (const childNode of getChildren(height, width, currentItem)) {
+        if (!visited.has(childNode[0])) {
+          visited.add(childNode[0]);
+          queue.push(childNode);
         }
       }
     }
@@ -50,23 +38,36 @@ export function slidingPuzzle(board: number[][]): number {
   return -1;
 }
 
-function getNeighborIndex(h: number, w: number, i: number): number[] {
-  const result: number[] = [];
-  if (i >= w) {
-    result.push(i - w);
+function getChildren(height: number, width: number, currentNode: [string, number]): Array<[string, number]> {
+  const neighborIndex: number[] = [];
+  const oldString = currentNode[0];
+  const oldZeroPosition = currentNode[1];
+
+  if (oldZeroPosition >= width) {
+    neighborIndex.push(oldZeroPosition - width);
   }
 
-  if (i < (h - 1) * w) {
-    result.push(i + w);
+  if (oldZeroPosition < (height - 1) * width) {
+    neighborIndex.push(oldZeroPosition + width);
   }
 
-  if (i % w > 0) {
-    result.push(i - 1);
+  if (oldZeroPosition % width > 0) {
+    neighborIndex.push(oldZeroPosition - 1);
   }
 
-  if (i % w < w - 1) {
-    result.push(i + 1);
+  if (oldZeroPosition % width < width - 1) {
+    neighborIndex.push(oldZeroPosition + 1);
   }
 
-  return result;
+  return neighborIndex.map((item) => {
+    const newString = oldString
+      .replace('0', 'a')
+      .replace(oldString[item], '0')
+      .replace('a', oldString[item]);
+
+    return [
+      newString,
+      item,
+    ];
+  });
 }

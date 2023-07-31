@@ -1,6 +1,5 @@
 // https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/
 // 1091
-// graph
 export function shortestPathBinaryMatrix(grid: number[][]): number {
   const height = grid.length;
   const width = grid[0].length;
@@ -61,9 +60,9 @@ export function shortestPathBinaryMatrix(grid: number[][]): number {
         return level;
       }
 
-      for (let k = 0; k < directionMatrix.length; k++) {
-        const h = currentNode[0] + directionMatrix[k][0];
-        const w = currentNode[1] + directionMatrix[k][1];
+      for (let j = 0; j < directionMatrix.length; j++) {
+        const h = currentNode[0] + directionMatrix[j][0];
+        const w = currentNode[1] + directionMatrix[j][1];
         if (h >= 0 && h < height && w >= 0 && w < width && grid[h][w] === 0 && visited[h][w] === 0) {
           visited[h][w] = 1;
           queue.push([
