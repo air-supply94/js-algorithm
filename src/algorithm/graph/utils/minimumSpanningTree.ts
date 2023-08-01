@@ -38,11 +38,11 @@ export function kruskal(graphLength: number, sortedEdges: Array<[number, number,
     parent[i] = i;
   }
 
-  let count = graphLength;
-  let result = 0;
+  let connectCount = graphLength;
+  let sum = 0;
 
   function find(x: number): number {
-    if (parent[x] === x) {
+    if (x === parent[x]) {
       return x;
     } else {
       parent[x] = find(parent[x]);
@@ -54,16 +54,15 @@ export function kruskal(graphLength: number, sortedEdges: Array<[number, number,
     const parentX = find(x);
     const parentY = find(y);
     if (parentX !== parentY) {
-      result += cost;
-      count--;
+      sum += cost;
+      connectCount--;
+      parent[parentX] = parentY;
     }
-
-    parent[parentY] = parentY;
   }
 
   for (let i = 0; i < sortedEdges.length; i++) {
     union(sortedEdges[i][0], sortedEdges[i][1], sortedEdges[i][2]);
   }
 
-  return count <= 1 ? result : Infinity;
+  return connectCount <= 1 ? sum : Infinity;
 }

@@ -15,12 +15,12 @@
 ### `有向图`
 
 - `定义`: 任意 2 个 vertex 之间的 edge 都是有向边
-- `有向完全图`: 在有向图中，任意 2 个 vertex 都存在 edge。边条数: `n*(n - 1)`
+- `有向完全图`: 在有向图中,任意 2 个 vertex 都存在 edge.边条数: `n*(n - 1)`
 
 ### `无向图`
 
 - `定义`: 类比有向图
-- `无向完全图`: 在无向图中，任意 2 个 vertex 都存在 edge。边条数: `n*(n - 1) / 2`
+- `无向完全图`: 在无向图中,任意 2 个 vertex 都存在 edge.边条数: `n*(n - 1) / 2`
 
 ### `有权图`
 
@@ -34,15 +34,15 @@ edge 带有`weight`---`网(network)`
 
 ### `无向图`中
 
-- edge(v1, v2),v1 和 v2 互称为邻接点，关联
-- `vertex的度(degree)`: 和 vertex 关联的 edge 的数量。
+- edge(v1, v2),v1 和 v2 互称为邻接点,关联
+- `vertex的度(degree)`: 和 vertex 关联的 edge 的数量
 - `sum(graph.edge) = sum(graph.degree) / 2`
 
 ### `有向图`中
 
 - edge<v1, v2>,称 v1 邻接到 v2
-- `OutDegree`: `以v1开头`的 edge 的数量。邻接矩阵横向
-- `InDegree`: `以v2结尾`的 edge 的数量。邻接矩阵纵向
+- `OutDegree`: `以v1开头`的 edge 的数量.邻接矩阵横向
+- `InDegree`: `以v2结尾`的 edge 的数量.邻接矩阵纵向
 - `v1的度(degree)`: `InDegree + OutDegree`
 - `sum(graph.edge) = sum(graph.InDegree) = sum(graph.OutDegree)`
 
@@ -58,7 +58,7 @@ edge 带有`weight`---`网(network)`
 
 ### 无向图中
 
-- v1 到 v2 有 path，则称 v1 和 v2 连通
+- v1 到 v2 有 path,则称 v1 和 v2 连通
 - `连通图`: 任意 2 个 vertex 都有 path
 - `连通分量`: 也叫`极大连通子图`
   - `子图`
@@ -68,16 +68,16 @@ edge 带有`weight`---`网(network)`
 
 ### 有向图中
 
-- v1 到 v2 有 path 且 v2 到 v1 有 path，则称 v1 和 v2 连通
+- v1 到 v2 有 path 且 v2 到 v1 有 path,则称 v1 和 v2 连通
 - `强连通图`: 类比上面
 - `强连通分量`: 类比上面
 
 ## 生成树
 
-- `图中n个vertex，小于n - 1条边，一定不连通`
-- `图中n个vertex，大于于n - 1条边，一定有环`
-- `无向图`中`连通`， n 个 vertex 且只有 n - 1 条 edge---连通图的生成树
-- `有向图`中`，顶点 InDegree 为 0，其余 vertex 的 InDegree 为 1
+- `图中n个vertex,小于n - 1条边,一定不连通`
+- `图中n个vertex,大于于n - 1条边,一定有环`
+- `无向图`中`连通`, n 个 vertex 且只有 n - 1 条 edge---连通图的生成树
+- `有向图`中`,顶点 InDegree 为 0,其余 vertex 的 InDegree 为 1
 - 一个有向图由若干`有向树`构成`生成森林`
 
 ## 二分图

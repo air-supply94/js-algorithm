@@ -33,39 +33,6 @@ export function hasCircleDfs(graph: number[][]): boolean {
 }
 
 // 邻接表
-export function hasCircleBfs(graph: number[][]): boolean {
-  const inDegree: number[] = Array(graph.length)
-    .fill(0);
-  for (let i = 0; i < graph.length; i++) {
-    for (let j = 0; j < graph[i].length; j++) {
-      inDegree[graph[i][j]]++;
-    }
-  }
-
-  let visitedCount = 0;
-  const queue: number[] = [];
-  for (let i = 0; i < graph.length; i++) {
-    if (inDegree[i] === 0) {
-      queue.push(i);
-    }
-  }
-
-  while (queue.length > 0) {
-    const currentNode = queue.shift();
-    visitedCount++;
-
-    for (let i = 0; i < graph[currentNode].length; i++) {
-      inDegree[graph[currentNode][i]]--;
-      if (inDegree[graph[currentNode][i]] === 0) {
-        queue.push(graph[currentNode][i]);
-      }
-    }
-  }
-
-  return visitedCount !== graph.length;
-}
-
-// 邻接表
 export function topologicalSortingDfs(graph: number[][]): number[] {
   const visited: number[] = Array(graph.length)
     .fill(0);
@@ -121,16 +88,13 @@ export function topologicalSortingBfs(graph: number[][]): number[] {
     result.push(currentNode);
 
     for (let i = 0; i < graph[currentNode].length; i++) {
-      inDegree[graph[currentNode][i]]--;
-      if (inDegree[graph[currentNode][i]] === 0) {
-        queue.push(graph[currentNode][i]);
+      const childNode = graph[currentNode][i];
+      inDegree[childNode]--;
+      if (inDegree[childNode] === 0) {
+        queue.push(childNode);
       }
     }
   }
 
-  if (result.length === graph.length) {
-    return result;
-  } else {
-    return [];
-  }
+  return result.length === graph.length ? result : [];
 }

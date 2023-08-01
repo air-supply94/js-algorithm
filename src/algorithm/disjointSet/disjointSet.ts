@@ -1,12 +1,13 @@
-// https://leetcode-cn.com/problems/couples-holding-hands/
-// 765
-export function minSwapsCouples(row: number[]): number {
-  const parent: number[] = Array(row.length).fill(null);
-  const n = row.length / 2;
+/*
+export function disjointSet(n: number): void {
+  const parent: number[] = Array(n)
+    .fill(null);
+  const count = Array(n)
+    .fill(1);
   let connectCount = n;
 
-  for (let i = 0; i < row.length; i++) {
-    parent[i] = i - (i & 1);
+  for (let i = 0; i < n; i++) {
+    parent[i] = i;
   }
 
   function find(x: number): number {
@@ -24,12 +25,8 @@ export function minSwapsCouples(row: number[]): number {
     if (parentX !== parentY) {
       connectCount--;
       parent[parentX] = parentY;
+      count[parentY] += count[parentX];
     }
   }
-
-  for (let i = 0; i < row.length; i += 2) {
-    union(row[i], row[i + 1]);
-  }
-
-  return n - connectCount;
 }
+*/
