@@ -88,10 +88,10 @@ export function topologicalSortingBfs(graph: number[][]): number[] {
     result.push(currentNode);
 
     for (let i = 0; i < graph[currentNode].length; i++) {
-      const childNode = graph[currentNode][i];
-      inDegree[childNode]--;
-      if (inDegree[childNode] === 0) {
-        queue.push(childNode);
+      const neighborNode = graph[currentNode][i];
+      inDegree[neighborNode]--;
+      if (inDegree[neighborNode] === 0) {
+        queue.push(neighborNode);
       }
     }
   }

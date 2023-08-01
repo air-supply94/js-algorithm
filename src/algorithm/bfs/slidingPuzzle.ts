@@ -26,10 +26,10 @@ export function slidingPuzzle(board: number[][]): number {
         return level - 1;
       }
 
-      for (const childNode of getChildren(height, width, currentItem)) {
-        if (!visited.has(childNode[0])) {
-          visited.add(childNode[0]);
-          queue.push(childNode);
+      for (const neighborNode of getChildren(height, width, currentItem)) {
+        if (!visited.has(neighborNode[0])) {
+          visited.add(neighborNode[0]);
+          queue.push(neighborNode);
         }
       }
     }

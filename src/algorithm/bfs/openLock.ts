@@ -29,19 +29,19 @@ export function openLock(dead: string[], target: string): number {
 
     const tmpSet = new Set<string>();
     for (const currentNode of startSet) {
-      for (const childNode of getChildren(currentNode)) {
+      for (const neighborNode of getChildren(currentNode)) {
         // 根据条件替换、删除
-        if (deadSet.has(childNode)) {
+        if (deadSet.has(neighborNode)) {
           continue;
         }
 
-        if (endSet.has(childNode)) {
+        if (endSet.has(neighborNode)) {
           return level;
         }
 
-        if (!visited.has(childNode)) {
-          tmpSet.add(childNode);
-          visited.add(childNode);
+        if (!visited.has(neighborNode)) {
+          tmpSet.add(neighborNode);
+          visited.add(neighborNode);
         }
       }
     }

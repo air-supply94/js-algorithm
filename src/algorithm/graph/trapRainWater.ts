@@ -54,18 +54,18 @@ export function trapRainWater(heightMap: number[][]): number {
     const currentWeight = currentItem[2];
 
     for (let i = 0; i < directionMatrix.length; i++) {
-      const h = currentX + directionMatrix[i][0];
-      const w = currentY + directionMatrix[i][1];
-      if (h >= 0 && h < height && w >= 0 && w < width && visited[h][w] === 0) {
-        if (currentWeight > heightMap[h][w]) {
-          result += currentWeight - heightMap[h][w];
+      const neighborH = currentX + directionMatrix[i][0];
+      const neighborW = currentY + directionMatrix[i][1];
+      if (neighborH >= 0 && neighborH < height && neighborW >= 0 && neighborW < width && visited[neighborH][neighborW] === 0) {
+        if (currentWeight > heightMap[neighborH][neighborW]) {
+          result += currentWeight - heightMap[neighborH][neighborW];
         }
 
-        visited[h][w] = 1;
+        visited[neighborH][neighborW] = 1;
         minHeap.add([
-          h,
-          w,
-          currentWeight > heightMap[h][w] ? currentWeight : heightMap[h][w],
+          neighborH,
+          neighborW,
+          Math.max(currentWeight, heightMap[neighborH][neighborW]),
         ]);
       }
     }

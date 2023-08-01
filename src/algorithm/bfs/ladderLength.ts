@@ -25,19 +25,19 @@ export function ladderLength(beginWord: string, endWord: string, wordList: strin
 
     const tmpSet = new Set<string>();
     for (const currentNode of startSet) {
-      for (const childNode of getChildren(currentNode)) {
+      for (const neighborNode of getChildren(currentNode)) {
         // 根据条件替换、删除
-        if (!wordSet.has(childNode)) {
+        if (!wordSet.has(neighborNode)) {
           continue;
         }
 
-        if (endSet.has(childNode)) {
+        if (endSet.has(neighborNode)) {
           return level + 1;
         }
 
-        if (!visitedSet.has(childNode)) {
-          visitedSet.add(childNode);
-          tmpSet.add(childNode);
+        if (!visitedSet.has(neighborNode)) {
+          visitedSet.add(neighborNode);
+          tmpSet.add(neighborNode);
         }
       }
     }
