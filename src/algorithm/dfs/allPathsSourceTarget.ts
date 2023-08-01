@@ -1,6 +1,5 @@
 // https://leetcode-cn.com/problems/all-paths-from-source-to-target/
 // 797
-// graph-dfs
 export function allPathsSourceTarget(graph: number[][], currentNode = 0, result: number[][] = [], path: number[] = []): number[][] {
   if (currentNode === graph.length - 1) {
     result.push(path.concat(currentNode));

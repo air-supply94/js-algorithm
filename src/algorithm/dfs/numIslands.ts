@@ -5,12 +5,8 @@ export function numIslands(grid: string[][]): number {
   const width = grid[0].length;
   let connectCount = 0;
 
-  function dfs(i: number, j: number): void {
-    if (i < 0 || i >= height || j < 0 || j >= width) {
-      return;
-    }
-
-    if (grid[i][j] === '0') {
+  function dfs(i: number, j: number) {
+    if (i < 0 || i >= height || j < 0 || j >= width || grid[i][j] === '0') {
       return;
     }
 

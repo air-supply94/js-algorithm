@@ -4,14 +4,26 @@ export function solve(board: string[][]): void {
   const height = board.length;
   const width = board[0].length;
 
-  for (let i = 0; i < width; i++) {
-    dfs(board, 0, i);
-    dfs(board, height - 1, i);
+  function dfs(h: number, w: number): void {
+    if (h < 0 || w < 0 || h >= board.length || w >= board[0].length || board[h][w] !== 'O') {
+      return;
+    }
+
+    board[h][w] = null;
+    dfs(h - 1, w);
+    dfs(h, w + 1);
+    dfs(h + 1, w);
+    dfs(h, w - 1);
   }
 
-  for (let i = 1; i < height - 1; i++) {
-    dfs(board, i, 0);
-    dfs(board, i, width - 1);
+  for (let i = 0; i < width; i++) {
+    dfs(0, i);
+    dfs(height - 1, i);
+  }
+
+  for (let i = 0; i < height; i++) {
+    dfs(i, 0);
+    dfs(i, width - 1);
   }
 
   for (let i = 0; i < height; i++) {
@@ -21,14 +33,3 @@ export function solve(board: string[][]): void {
   }
 }
 
-function dfs(board: string[][], h: number, w: number): void {
-  if (h < 0 || w < 0 || h >= board.length || w >= board[0].length || board[h][w] !== 'O') {
-    return;
-  }
-
-  board[h][w] = null;
-  dfs(board, h - 1, w);
-  dfs(board, h, w + 1);
-  dfs(board, h + 1, w);
-  dfs(board, h, w - 1);
-}
