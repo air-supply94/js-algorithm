@@ -18,6 +18,7 @@ export function minDistance(str1: string, str2: string): number {
       if (str1[h - 1] === str2[w - 1]) {
         dp[w] = pre;
       } else {
+        // str1替换、插入、删除
         dp[w] = Math.min(pre, dp[w - 1], dp[w]) + 1;
       }
     }
