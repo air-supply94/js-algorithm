@@ -3,16 +3,15 @@
 export function minPathSum(matrix: number[][]): number {
   const height = matrix.length;
   const width = matrix[0].length;
-  const dp = Array(width + 1).fill(Infinity);
-
-  // 第一个元素初始化
-  dp[1] = 0;
+  const dp = Array(width).fill(Infinity);
+  dp[0] = 0;
 
   for (let i = 0; i < height; i++) {
-    for (let j = 0; j < width; j++) {
-      dp[j + 1] = Math.min(dp[j], dp[j + 1]) + matrix[i][j];
+    dp[0] += matrix[i][0];
+    for (let j = 1; j < width; j++) {
+      dp[j] = Math.min(dp[j - 1], dp[j]) + matrix[i][j];
     }
   }
 
-  return dp[width];
+  return dp[width - 1];
 }
