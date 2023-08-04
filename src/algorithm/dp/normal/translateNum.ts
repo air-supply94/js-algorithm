@@ -2,10 +2,6 @@
 // 剑指 Offer 46
 export function translateNum(num: number): number {
   const str = String(num);
-  if (str.length <= 1) {
-    return str.length;
-  }
-
   let dp_i_0 = 1;
   let dp_i_1 = 1;
 
