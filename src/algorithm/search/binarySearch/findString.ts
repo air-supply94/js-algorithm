@@ -17,9 +17,9 @@ export function findString(words: string[], s: string): number {
       middle--;
     }
 
-    if (s > words[middle]) {
+    if (words[middle] < s) {
       left = middle + 1;
-    } else if (s === words[middle]) {
+    } else if (words[middle] === s) {
       return middle;
     } else {
       right = middle - 1;

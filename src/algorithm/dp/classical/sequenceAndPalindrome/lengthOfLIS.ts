@@ -36,18 +36,14 @@ export function lengthOfLISBs(numbers: number[]): number {
 
     while (left <= right) {
       const middleIndex = (left + right) >>> 1;
-      const middleValue = piles[middleIndex];
-
-      if (currentValue < middleValue) {
-        right = middleIndex - 1;
-      } else if (currentValue === middleValue) {
-        right = middleIndex - 1;
-      } else {
+      if (piles[middleIndex] < currentValue) {
         left = middleIndex + 1;
+      } else {
+        right = middleIndex - 1;
       }
     }
 
-    if (left < piles.length && currentValue <= piles[left]) {
+    if (left < piles.length && piles[left] >= currentValue) {
       piles[left] = currentValue;
     } else {
       piles.push(currentValue);
