@@ -4,14 +4,13 @@ function getPmt(str: string): number[] {
   let j = 0;
 
   while (i < str.length) {
-    if (str[i] == str[j]) {
-      ++i;
-      ++j;
+    if (str[i] === str[j]) {
+      i++;
+      j++;
       dp[i - 1] = j;
     } else {
       if (j === 0) {
         i++;
-        dp[i - 1] = 0;
       } else {
         j = dp[j - 1];
       }
@@ -31,7 +30,7 @@ export function strStr(originStr: string, matchStr: string): number {
   let j = 0;
   const pmt = getPmt(matchStr);
   while (i < originStr.length && j < matchStr.length) {
-    if (originStr[i] == matchStr[j]) {
+    if (originStr[i] === matchStr[j]) {
       i++;
       j++;
     } else {
@@ -43,7 +42,7 @@ export function strStr(originStr: string, matchStr: string): number {
     }
   }
 
-  return j == matchStr.length ? i - j : -1;
+  return j === matchStr.length ? i - j : -1;
 }
 
 /*
@@ -55,7 +54,7 @@ function getNext(str: string): number[] {
   let j = -1;
 
   while (i < str.length) {
-    if (j == -1 || str[i] == str[j]) {
+    if (j === -1 || str[i] === str[j]) {
       ++i;
       ++j;
       dp[i] = j;
@@ -74,7 +73,7 @@ export function strStr(originStr: string, matchStr: string): number {
   const next = getNext(matchStr);
 
   while (i < originStr.length && j < matchStr.length) {
-    if (j == -1 || originStr[i] == matchStr[j]) {
+    if (j === -1 || originStr[i] === matchStr[j]) {
       i++;
       j++;
     } else {
@@ -82,7 +81,7 @@ export function strStr(originStr: string, matchStr: string): number {
     }
   }
 
-  if (j == matchStr.length) {
+  if (j === matchStr.length) {
     return i - j;
   } else {
     return -1;

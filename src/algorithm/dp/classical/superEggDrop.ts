@@ -32,8 +32,6 @@ export function superEggDrop(count: number, n: number, cache = new Map<string, n
     const notBroken = superEggDrop(count, n - middle, cache);
     if (broken < notBroken) {
       start = middle + 1;
-    } else if (broken === notBroken) {
-      end = middle - 1;
     } else {
       end = middle - 1;
     }
