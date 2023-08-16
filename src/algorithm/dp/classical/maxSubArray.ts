@@ -1,12 +1,12 @@
 // https://leetcode-cn.com/problems/maximum-subarray/
 // 53
 export function maxSubArray(numbers: number[]): number {
-  let dp_i_0 = -Infinity;
+  let currentSum = -Infinity;
   let result = -Infinity;
 
   for (let i = 0; i < numbers.length; i++) {
-    dp_i_0 = dp_i_0 < 0 ? numbers[i] : dp_i_0 + numbers[i];
-    result = result < dp_i_0 ? dp_i_0 : result;
+    currentSum = currentSum < 0 ? numbers[i] : currentSum + numbers[i];
+    result = result < currentSum ? currentSum : result;
   }
 
   return result;
@@ -25,29 +25,30 @@ export function getMaxMatrix(matrix: number[][]): number[] {
   ];
   let startH = 0;
   let startW = 0;
-  const dp = Array(width).fill(0);
   let maxValue = -Infinity;
+  const dp = Array(width).fill(0);
 
-  for (let i = 0; i < height; i++) {
+  for (let startHeight = 0; startHeight < height; startHeight++) {
     dp.fill(0);
-    for (let j = i; j < height; j++) {
-      let dp_i_0 = -Infinity;
-      for (let k = 0; k < width; k++) {
-        dp[k] += matrix[j][k];
-        if (dp_i_0 < 0) {
-          dp_i_0 = dp[k];
-          startH = i;
-          startW = k;
+    for (let endHeight = startHeight; endHeight < height; endHeight++) {
+      let currentSum = -Infinity;
+      for (let startWidth = 0; startWidth < width; startWidth++) {
+        // 当前矩形对应的列需要累加
+        dp[startWidth] += matrix[endHeight][startWidth];
+        if (currentSum < 0) {
+          currentSum = dp[startWidth];
+          startH = startHeight;
+          startW = startWidth;
         } else {
-          dp_i_0 += dp[k];
+          currentSum += dp[startWidth];
         }
 
-        if (maxValue < dp_i_0) {
-          maxValue = dp_i_0;
+        if (maxValue < currentSum) {
+          maxValue = currentSum;
           result[0] = startH;
           result[1] = startW;
-          result[2] = j;
-          result[3] = k;
+          result[2] = endHeight;
+          result[3] = startWidth;
         }
       }
     }
