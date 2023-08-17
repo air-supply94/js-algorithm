@@ -6,13 +6,10 @@ export function change(weight: number, weightList: number[]): number {
   dp[0] = 1;
 
   for (let i = 1; i <= weightList.length; i++) {
-    const prevDp = dp.slice();
     for (let w = 1; w <= weight; w++) {
       const subResult = w - weightList[i - 1];
       if (subResult >= 0) {
-        dp[w] = prevDp[w] + dp[subResult];
-      } else {
-        dp[w] = prevDp[w];
+        dp[w] += dp[subResult];
       }
     }
   }
