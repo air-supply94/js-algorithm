@@ -1,26 +1,23 @@
-// https://leetcode-cn.com/problems/coin-change-2/
+// https://leetcode.cn/problems/coin-change-ii/
 // 518
 export function change(weight: number, weightList: number[]): number {
-  const dp = Array(weightList.length + 1).fill(null)
-    .map(() => Array(weight + 1)
-      .fill(0));
-
-  for (let i = 0; i <= weightList.length; i++) {
-    dp[i][0] = 1;
-  }
+  const dp: number[] = Array(weight + 1)
+    .fill(0);
+  dp[0] = 1;
 
   for (let i = 1; i <= weightList.length; i++) {
+    const prevDp = dp.slice();
     for (let w = 1; w <= weight; w++) {
       const subResult = w - weightList[i - 1];
       if (subResult >= 0) {
-        dp[i][w] = dp[i - 1][w] + dp[i][subResult];
+        dp[w] = prevDp[w] + dp[subResult];
       } else {
-        dp[i][w] = dp[i - 1][w];
+        dp[w] = prevDp[w];
       }
     }
   }
 
-  return dp[weightList.length][weight];
+  return dp[weight];
 }
 
 /*
