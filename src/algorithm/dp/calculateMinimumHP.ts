@@ -24,11 +24,11 @@ function recursion(dungeon: number[][], h: number, w: number, height: number, wi
     return cache[h][w];
   }
 
-  const result = Math.min(
+  const totalCost = Math.min(
     recursion(dungeon, h, w + 1, height, width, cache),
     recursion(dungeon, h + 1, w, height, width, cache)
   ) - dungeon[h][w];
-  cache[h][w] = result <= 0 ? 1 : result;
+  cache[h][w] = totalCost <= 0 ? 1 : totalCost;
   return cache[h][w];
 }
 
@@ -38,10 +38,11 @@ export function calculateMinimumHPDp(dungeon: number[][]): number {
   const dp = Array(width + 1)
     .fill(Infinity);
 
-  dp[width - 1] = dungeon[height - 1][width - 1] >= 0 ? 1 : -dungeon[height - 1][width - 1] + 1;
   for (let i = height - 1; i >= 0; i--) {
     for (let j = width - 1; j >= 0; j--) {
-      if (!(i === height - 1 && j === width - 1)) {
+      if (i === height - 1 && j === width - 1) {
+        dp[j] = dungeon[i][j] >= 0 ? 1 : -dungeon[i][j] + 1;
+      } else {
         const res = Math.min(dp[j + 1], dp[j]) - dungeon[i][j];
         dp[j] = res <= 0 ? 1 : res;
       }

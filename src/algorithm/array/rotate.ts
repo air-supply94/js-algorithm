@@ -28,10 +28,14 @@ export function rotateMatrix<T = unknown>(array: T[][]): T[][] {
   }
 
   for (let h = 0; h < n; h++) {
-    for (let w = 0; w < n >>> 1; w++) {
-      const tmp = array[h][w];
-      array[h][w] = array[h][n - 1 - w];
-      array[h][n - 1 - w] = tmp;
+    let start = 0;
+    let end = n - 1;
+    while (start < end) {
+      const tmp = array[h][start];
+      array[h][start] = array[h][end];
+      array[h][end] = tmp;
+      start++;
+      end--;
     }
   }
 

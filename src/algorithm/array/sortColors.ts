@@ -19,23 +19,3 @@ export function sortColors(nums: number[]): void {
     }
   }
 }
-
-/*
-function sortColors(nums: number[]): void {
-  let p0 = 0;
-  let p2 = nums.length - 1;
-  let i = 0;
-
-  while (i <= p2) {
-    if (nums[i] === 0) {
-      swap(nums, p0, i);
-      p0++;
-    } else if (nums[i] === 2) {
-      swap(nums, p2, i);
-      p2--;
-      i--;
-    }
-    i++;
-  }
-}
-*/

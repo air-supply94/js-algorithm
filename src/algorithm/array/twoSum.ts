@@ -22,27 +22,3 @@ export function twoSum(nums: number[], target: number): [number, number] {
     -1,
   ];
 }
-
-// https://leetcode-cn.com/problems/two-sum-iii-data-structure-design/
-// 170
-export class TwoSum {
-  constructor() {
-    this.frequency = new Map<number, number>();
-  }
-
-  private readonly frequency: Map<number, number>;
-
-  public add(x: number): void {
-    this.frequency.set(x, (this.frequency.get(x) || 0) + 1);
-  }
-
-  public find(target: number): boolean {
-    for (const value of this.frequency.keys()) {
-      if ((target - value === value && this.frequency.get(target - value) > 1) || this.frequency.has(target - value)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-}
