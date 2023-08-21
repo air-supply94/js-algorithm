@@ -41,5 +41,5 @@ export function minWindow(s: string, t: string): string {
     }
   }
 
-  return length === Infinity ? '' : s.substr(start, length);
+  return length === Infinity ? '' : s.substring(start, start + length);
 }
