@@ -7,17 +7,13 @@ export function multiply(a: number, b: number): number {
     return a;
   }
 
-  if (a === 1) {
-    return b;
+  if (b === -1) {
+    return -a;
   }
 
   if ((b & 1) === 0) {
     return multiply(a << 1, b >> 1);
   }
 
-  if (b > 0) {
-    return multiply(a << 1, (b - 1) >> 1) + a;
-  } else {
-    return multiply(a << 1, (b + 1) >> 1) - a;
-  }
+  return multiply(a << 1, b >> 1) + a;
 }
