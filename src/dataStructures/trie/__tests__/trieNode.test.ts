@@ -1,4 +1,5 @@
 import { TrieNode } from '../trieNode';
+import { expect, test, describe } from 'vitest';
 
 describe('TrieNode', () => {
   test('should create trie node', () => {

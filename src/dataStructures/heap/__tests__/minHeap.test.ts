@@ -1,4 +1,5 @@
 import { Heap } from '../heap';
+import { expect, test, describe } from 'vitest';
 
 describe('MinHeap', () => {
   test('should create an empty min heap', () => {

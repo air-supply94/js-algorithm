@@ -1,5 +1,6 @@
 import { DoubleLinkedList } from '../../doubleLinkedList';
 import { deleteIndex, deleteNode, deleteValueBase } from '../delete';
+import { expect, test } from 'vitest';
 
 test('doubleLinkedList deleteNode', () => {
   const linkedList = new DoubleLinkedList();

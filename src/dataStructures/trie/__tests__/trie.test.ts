@@ -1,4 +1,5 @@
 import { findPrefixCount, findWordsCount, Trie, wordFrequency } from '../trie';
+import { expect, test, describe } from 'vitest';
 
 describe('Trie', () => {
   test('trie findWordsCount findPrefixCount wordFrequency', () => {

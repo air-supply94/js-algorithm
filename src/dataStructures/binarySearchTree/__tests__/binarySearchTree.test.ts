@@ -1,6 +1,7 @@
 import type { interfaces } from '../../../types';
 import { BinarySearchTree } from '../binarySearchTree';
 import { findReplaceNode, getHeight, insert } from '../utils';
+import { expect, test, describe } from 'vitest';
 
 describe('BinarySearchTree', () => {
   test('should create binary search tree', () => {

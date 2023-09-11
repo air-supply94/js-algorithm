@@ -1,6 +1,7 @@
 import { interfaces } from '../../types';
 import { getHeight, nodeToString } from '../binarySearchTree';
 import { RedBlackTree } from './redBlackTree';
+import { expect, test, describe } from 'vitest';
 
 describe('RedBlackTree', () => {
   test('should always color first inserted node as black', () => {

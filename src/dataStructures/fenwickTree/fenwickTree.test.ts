@@ -1,4 +1,5 @@
 import { FenwickTree } from './fenwickTree';
+import { expect, test, describe } from 'vitest';
 
 describe('FenwickTree', () => {
   test('should create correct fenwick tree', () => {

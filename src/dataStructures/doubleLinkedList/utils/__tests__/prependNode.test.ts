@@ -1,5 +1,6 @@
 import { DoubleLinkedList, DoubleLinkedListNode } from '../../doubleLinkedList';
 import { prependNode } from '../appendAndPrependNode';
+import { expect, test } from 'vitest';
 
 test('doubleLinkedList prependNode', () => {
   const linkedList = new DoubleLinkedList<number>();

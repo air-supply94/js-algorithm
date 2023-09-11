@@ -1,6 +1,7 @@
 import { Comparator } from '../../utils';
 import { getBalanceFactor, getHeight } from '../binarySearchTree';
 import { AvlTree } from './avlTree';
+import { expect, test, describe } from 'vitest';
 
 describe('AvlTree', () => {
   test('should do special case', () => {

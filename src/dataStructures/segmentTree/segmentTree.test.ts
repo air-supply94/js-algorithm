@@ -1,4 +1,5 @@
 import { SegmentTree } from './segmentTree';
+import { expect, test, describe } from 'vitest';
 
 describe('SegmentTree', () => {
   test('should do min range query on power of two length array', () => {

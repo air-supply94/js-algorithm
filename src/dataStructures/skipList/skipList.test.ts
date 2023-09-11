@@ -1,5 +1,6 @@
 import type { interfaces } from '../../types';
 import { SkipList } from './skipList';
+import { expect, test } from 'vitest';
 
 test('skipList for number', () => {
   const skipList = new SkipList<number>();

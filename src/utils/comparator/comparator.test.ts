@@ -1,4 +1,5 @@
 import { Comparator } from './comparator';
+import { expect, test } from 'vitest';
 
 test('comparator default function', () => {
   const comparator = new Comparator();

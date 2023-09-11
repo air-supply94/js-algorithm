@@ -1,4 +1,5 @@
 import { pascalTriangle } from './pascalTriangle';
+import { expect, test } from 'vitest';
 
 test('pascalTriangle', () => {
   expect(pascalTriangle(0))
