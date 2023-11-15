@@ -1,1 +1,4 @@
-module.exports = require('@zhouhaifei/code-style').eslintNormal;
+module.exports = {
+  extends: require.resolve('@zhouhaifei/code-style/eslintNode'),
+  rules: {}
+};

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "downlevelIteration": true,
-    "target": "es5", // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES6'/'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+    "target": "es6", // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES6'/'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
     "allowJs": false, // 允许编译 javascript 文件
     "jsx": "preserve", // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
     "declaration": true, // 生成相应的 '.d.ts' 文件
