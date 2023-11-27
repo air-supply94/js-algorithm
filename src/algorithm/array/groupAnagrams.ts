@@ -1,3 +1,5 @@
+// https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-100-liked
+// 49
 export function groupAnagrams(strs: string[]): string[][] {
   const result: Record<string, string[]> = {};
   const aCharCode = 'a'.charCodeAt(0);
