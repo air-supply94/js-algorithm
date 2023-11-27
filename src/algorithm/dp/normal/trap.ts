@@ -1,6 +1,7 @@
 // https://leetcode-cn.com/problems/trapping-rain-water/
 // 42
 // 单一柱子角度
+// top100
 export function trap1(height: number[]): number {
   let result = 0;
   const leftMax = Array(height.length).fill(null);
@@ -69,6 +70,7 @@ export function trap3(height: number[]): number {
 // https://leetcode.cn/problems/container-with-most-water/
 // 11
 // 单一柱子角度
+// top100
 export function maxArea(height: number[]): number {
   let result = 0;
   let left = 0;
