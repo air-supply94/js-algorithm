@@ -2,6 +2,7 @@ import { ListNode } from './listNode';
 
 // https://leetcode-cn.com/problems/add-two-numbers/
 // 2
+// top100
 export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
   const virtualHead = new ListNode(null);
   let current = virtualHead;
@@ -22,11 +23,7 @@ export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNod
     current.next = new ListNode(carry);
   }
 
-  if (virtualHead.next) {
-    const head = virtualHead.next;
-    virtualHead.next = null;
-    return head;
-  } else {
-    return null;
-  }
+  const head = virtualHead.next;
+  virtualHead.next = null;
+  return head;
 }

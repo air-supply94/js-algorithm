@@ -2,6 +2,7 @@ import type { ListNode } from './listNode';
 
 // https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
 // 19
+// top100
 export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
   let slow = head;
   let fast = head;

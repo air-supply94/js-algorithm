@@ -2,6 +2,7 @@ import type { ListNode } from './listNode';
 
 // https://leetcode-cn.com/problems/reverse-linked-list
 // 206
+// top100
 export function reverseList(head: ListNode): ListNode | null {
   let previousNode = null;
   let currentNode = head;
@@ -14,6 +15,21 @@ export function reverseList(head: ListNode): ListNode | null {
     currentNode = nextNode;
   }
   return previousNode;
+}
+
+// https://leetcode.cn/problems/swap-nodes-in-pairs/?envType=study-plan-v2&envId=top-100-liked
+// 24
+// top100
+export function swapPairs(head: ListNode | null): ListNode | null {
+  if (head == null || head.next == null) {
+    return head;
+  }
+
+  const newHead = head.next;
+  const nextHead = newHead.next;
+  newHead.next = head;
+  head.next = swapPairs(nextHead);
+  return newHead;
 }
 
 function reverseCount(head: ListNode | null, n: number): ListNode | null {
@@ -68,19 +84,20 @@ export function reverseBetween(head: ListNode | null, m: number, n: number): Lis
 
 // https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
 // 25
+// top100
 export function reverseKGroup(head: ListNode | null, n: number): ListNode | null {
-  if (head == null || head.next == null) {
+  if (head == null || head.next == null || n === 1) {
     return head;
   }
 
-  let targetN = 1;
+  let count = n;
   let firstTail = head;
-  while (firstTail.next && targetN < n) {
+  while (firstTail.next && count > 1) {
     firstTail = firstTail.next;
-    targetN++;
+    count--;
   }
 
-  if (targetN !== n) {
+  if (count !== 1) {
     return head;
   }
 
