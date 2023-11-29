@@ -103,6 +103,8 @@ export namespace interfaces {
     prepend: (value: T) => DoubleLinkedListNode<T>;
     deleteHead: () => DoubleLinkedListNode<T> | null;
     deleteTail: () => DoubleLinkedListNode<T> | null;
+    appendNode: (node: interfaces.DoubleLinkedListNode<T>) => interfaces.DoubleLinkedListNode<T>;
+    prependNode: (node: interfaces.DoubleLinkedListNode<T>) => interfaces.DoubleLinkedListNode<T>;
   }
 
   export enum RED_BLACK_TREE_COLOR {

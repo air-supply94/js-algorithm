@@ -1,6 +1,5 @@
 import type { interfaces } from '../../types';
 import { Comparator } from '../../utils';
-import { appendNode, prependNode } from './utils';
 
 export class DoubleLinkedListNode<T = unknown> implements interfaces.DoubleLinkedListNode<T> {
   constructor(value: T | null, next: interfaces.DoubleLinkedListNode<T> | null = null, previous: interfaces.DoubleLinkedListNode<T> | null = null) {
@@ -57,11 +56,45 @@ export class DoubleLinkedList<T = unknown> implements interfaces.DoubleLinkedLis
   }
 
   public append(value: T): interfaces.DoubleLinkedListNode<T> {
-    return appendNode(this, new DoubleLinkedListNode(value));
+    return this.appendNode(new DoubleLinkedListNode(value));
+  }
+
+  public appendNode(node: interfaces.DoubleLinkedListNode<T>): interfaces.DoubleLinkedListNode<T> {
+    if (this.isEmpty()) {
+      this.tail = node;
+      this.head = node;
+      node.next = null;
+      node.previous = null;
+    } else {
+      this.tail.next = node;
+      node.previous = this.tail;
+      node.next = null;
+      this.tail = node;
+    }
+
+    this.size++;
+    return node;
   }
 
   public prepend(value: T): interfaces.DoubleLinkedListNode<T> {
-    return prependNode(this, new DoubleLinkedListNode(value));
+    return this.prependNode(new DoubleLinkedListNode(value));
+  }
+
+  public prependNode(node: interfaces.DoubleLinkedListNode<T>): interfaces.DoubleLinkedListNode<T> {
+    if (this.isEmpty()) {
+      this.tail = node;
+      this.head = node;
+      node.next = null;
+      node.previous = null;
+    } else {
+      this.head.previous = node;
+      node.next = this.head;
+      node.previous = null;
+      this.head = node;
+    }
+
+    this.size++;
+    return node;
   }
 
   public deleteHead(): interfaces.DoubleLinkedListNode<T> | null {

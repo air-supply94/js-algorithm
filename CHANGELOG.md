@@ -1,4 +1,4 @@
-# (2023-11-15)
+# (2023-11-29)
 
 ### Bug Fixes
 
@@ -377,6 +377,9 @@
 - 减少函数副作用 ([7b2656c](https://github.com/air-supply94/js-algorithm/commit/7b2656c3be5313eeb2b25b3a8af96546109b1e93))
 - 减少副作用 ([cf3957d](https://github.com/air-supply94/js-algorithm/commit/cf3957dd24d8fa3a5b603e95eb2befbe06900cd5))
 - 切换 vitest 测试工具,jest 难得配置 ([d8d7dd0](https://github.com/air-supply94/js-algorithm/commit/d8d7dd0fcf90353ff2c53885ea8dbbfa06d7b1a7))
+- 增加 groupAnagrams ([811e3a3](https://github.com/air-supply94/js-algorithm/commit/811e3a33a520b94f514edbdc6a336480383d8be6))
+- 增加 groupAnagrams 和 longestConsecutive ([35e3571](https://github.com/air-supply94/js-algorithm/commit/35e35711af11fe2b2cc78865a0436f1295ca13f9))
+- 增加 threeSum ([d3bbad4](https://github.com/air-supply94/js-algorithm/commit/d3bbad4c4d6d8d6b497c0a1eff5dc1e899b8f553))
 - 增加 trie ([605372a](https://github.com/air-supply94/js-algorithm/commit/605372afa097d3c4d0aebbda3f337b08ce07f69c))
 - 增加测试覆盖 ([acb452b](https://github.com/air-supply94/js-algorithm/commit/acb452bcbbb5be7d1801c8ce63581873f80e1830))
 - 增加跳跃游戏、雨滴问题 ([4a0523e](https://github.com/air-supply94/js-algorithm/commit/4a0523ee3728ad5004412c07e78be3b86fea0932))

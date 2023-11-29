@@ -1,6 +1,6 @@
 import type { interfaces } from '../../../types';
 import { DoubleLinkedList } from '../doubleLinkedList';
-import { prependNode, deleteNode } from '../utils';
+import { deleteNode } from '../utils';
 
 interface LFUCacheItem {
   key: number;
@@ -35,7 +35,8 @@ export class LFUCache {
     if (!this.countMap.has(newCount)) {
       this.countMap.set(newCount, new DoubleLinkedList<LFUCacheItem>());
     }
-    prependNode(this.countMap.get(newCount), node);
+
+    this.countMap.get(newCount).prependNode(node);
 
     if (this.minCount === oldCount && this.countMap.get(oldCount)
       .isEmpty()) {
