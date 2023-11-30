@@ -1,22 +1,21 @@
 import type { TreeNode } from './treeNode';
 
-// https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
-// 剑指offer-34
-export function pathSum(root: TreeNode | null, sum: number, result: number[][] = [], currentPath: number[] = []): number[][] {
+// https://leetcode.cn/problems/path-sum-iii/?envType=study-plan-v2&envId=top-100-liked
+// 437
+// top100
+export function pathSum(root: TreeNode | null, targetSum: number): number {
   if (root == null) {
-    return result;
+    return 0;
   }
 
-  currentPath.push(root.val);
+  return dfs(root, targetSum, 0) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);
+}
 
-  sum -= root.val;
-  if (sum === 0 && !root.left && !root.right) {
-    result.push(currentPath.slice());
+function dfs(root: TreeNode | null, targetSum: number, currentSum: number): number {
+  if (root == null) {
+    return 0;
   }
 
-  pathSum(root.left, sum, result, currentPath);
-  pathSum(root.right, sum, result, currentPath);
-
-  currentPath.pop();
-  return result;
+  currentSum += root.val;
+  return dfs(root.left, targetSum, currentSum) + dfs(root.right, targetSum, currentSum) + (currentSum === targetSum ? 1 : 0);
 }
