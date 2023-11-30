@@ -1,7 +1,8 @@
 import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/invert-binary-tree/
-// 226;
+// 226
+// top100
 export function invertTree(root: TreeNode | null): TreeNode | null {
   if (root == null) {
     return null;

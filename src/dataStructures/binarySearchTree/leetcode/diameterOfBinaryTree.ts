@@ -2,6 +2,7 @@ import type { TreeNode } from './treeNode';
 
 // https://leetcode.cn/problems/diameter-of-binary-tree/
 // 543
+// top100
 export function diameterOfBinaryTree(root: TreeNode | null): number {
   let result = 0;
 
@@ -10,10 +11,10 @@ export function diameterOfBinaryTree(root: TreeNode | null): number {
       return 0;
     }
 
-    const leftLevel = dfs(node.left);
-    const rightLevel = dfs(node.right);
-    result = Math.max(result, leftLevel + rightLevel);
-    return 1 + Math.max(leftLevel, rightLevel);
+    const leftHeight = dfs(node.left);
+    const rightHeight = dfs(node.right);
+    result = Math.max(result, leftHeight + rightHeight);
+    return 1 + Math.max(leftHeight, rightHeight);
   }
 
   dfs(root);

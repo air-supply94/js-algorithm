@@ -932,10 +932,10 @@
     loupe "^2.3.6"
     pretty-format "^29.5.0"
 
-"@zhouhaifei/code-style@3.0.7":
-  version "3.0.7"
-  resolved "https://registry.npmmirror.com/@zhouhaifei/code-style/-/code-style-3.0.7.tgz#26475a298408786a2d0dbe4b0238c347e6159621"
-  integrity sha512-xxJsqH5+xjfmfedBghBggs+OyEI0v8XRKmwHcH4W+p1pGw3+B2JrEPjh/Mjrs62528xuF8aLFP9I/lqd/OwI2g==
+"@zhouhaifei/code-style@3.0.9":
+  version "3.0.9"
+  resolved "https://registry.npmmirror.com/@zhouhaifei/code-style/-/code-style-3.0.9.tgz#f9e8b28604634e880d8b18e59600f85ec4542893"
+  integrity sha512-9LJVEv7J/Fij8Z6amjWIQynW7BdfjFgtqwpUb0JD6VSm5Y/6mNm1B6td27g4XmQa/ibd/1ZrpgVD1NW6V79lww==
   dependencies:
     "@commitlint/cli" "17.8.1"
     "@commitlint/config-conventional" "17.8.1"

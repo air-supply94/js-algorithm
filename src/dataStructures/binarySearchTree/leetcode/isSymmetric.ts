@@ -2,6 +2,7 @@ import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/symmetric-tree/
 // 101
+// top100
 export function isSymmetric(root: TreeNode | null): boolean {
   if (root == null) {
     return true;

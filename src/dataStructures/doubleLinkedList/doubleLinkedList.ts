@@ -102,7 +102,7 @@ export class DoubleLinkedList<T = unknown> implements interfaces.DoubleLinkedLis
     if (this.size <= 1) {
       this.clear();
     } else {
-      this.head = this.head.next;
+      this.head = deletedNode.next;
       deletedNode.next = null;
       this.head.previous = null;
       this.size--;
@@ -116,7 +116,7 @@ export class DoubleLinkedList<T = unknown> implements interfaces.DoubleLinkedLis
     if (this.size <= 1) {
       this.clear();
     } else {
-      this.tail = this.tail.previous;
+      this.tail = deletedNode.previous;
       deletedNode.previous = null;
       this.tail.next = null;
       this.size--;

@@ -2,6 +2,7 @@ import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/validate-binary-search-tree/
 // 98
+// top100
 export function isValidBST(root: TreeNode | null): boolean {
   return recursion(root)[0] === 1;
 }
