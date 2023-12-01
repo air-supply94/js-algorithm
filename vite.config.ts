@@ -1,4 +1,5 @@
-// / <reference types="vitest" />
+/* eslint-disable spaced-comment */
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 
 export default defineConfig({

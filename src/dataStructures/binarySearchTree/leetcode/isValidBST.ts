@@ -7,8 +7,8 @@ export function isValidBST(root: TreeNode | null): boolean {
   return recursion(root)[0] === 1;
 }
 
-function recursion(rootNode: TreeNode | null): number[] {
-  if (rootNode == null) {
+function recursion(root: TreeNode | null): number[] {
+  if (root == null) {
     return [
       1,
 
@@ -20,14 +20,14 @@ function recursion(rootNode: TreeNode | null): number[] {
     ];
   }
 
-  const left = recursion(rootNode.left);
-  const right = recursion(rootNode.right);
+  const left = recursion(root.left);
+  const right = recursion(root.right);
 
-  if (left[0] === 1 && right[0] === 1 && rootNode.val > left[2] && rootNode.val < right[1]) {
+  if (left[0] === 1 && right[0] === 1 && root.val > left[2] && root.val < right[1]) {
     return [
       1,
-      Math.min(left[1], rootNode.val),
-      Math.max(right[2], rootNode.val),
+      Math.min(left[1], root.val),
+      Math.max(right[2], root.val),
     ];
   } else {
     return [0];
