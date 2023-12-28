@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
 // 33
+// top100
 export function rotateSearchElement(rotateArray: number[], seekElement: number): number {
   let left = 0;
   let right = rotateArray.length - 1;
@@ -40,7 +41,7 @@ export function rotateSearchMin(rotateArray: number[]): number {
     middle = (left + right) >>> 1;
     if (rotateArray[middle] > rotateArray[right]) {
       left = middle + 1;
-    } else if (rotateArray[middle] === rotateArray[right]) {
+    } else if (rotateArray[middle] === rotateArray[left]) {
       right = middle - 1;
     } else {
       right = middle;
