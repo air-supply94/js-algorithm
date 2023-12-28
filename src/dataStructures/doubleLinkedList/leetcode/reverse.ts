@@ -6,10 +6,9 @@ import type { ListNode } from './listNode';
 export function reverseList(head: ListNode): ListNode | null {
   let previousNode = null;
   let currentNode = head;
-  let nextNode = null;
 
   while (currentNode) {
-    nextNode = currentNode.next;
+    const nextNode = currentNode.next;
     currentNode.next = previousNode;
     previousNode = currentNode;
     currentNode = nextNode;
