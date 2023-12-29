@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/sudoku-solver/
 // 37
+// top100
 export function solveSudoku(board: string[][], h = 0, w = 0, n = 9): boolean {
   if (h === n) {
     return true;

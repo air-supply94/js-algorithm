@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/n-queens-ii/
 // 52
+// top100
 export function totalNQueens(n: number): number {
   const cols = new Set<number>();
   const addVector = new Set<number>();
