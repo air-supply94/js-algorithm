@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
 // 4
+// top100
 export function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
   const length1 = nums1.length;
   const length2 = nums2.length;
@@ -34,9 +35,9 @@ function getKth(arr1: number[], l1: number, r1: number, arr2: number[], l2: numb
 
   const i = l1 + Math.min(len1, k >>> 1) - 1;
   const j = l2 + Math.min(len2, k >>> 1) - 1;
-  if (arr1[i] > arr2[j]) {
-    return getKth(arr1, l1, r1, arr2, j + 1, r2, k - (j - l2 + 1));
-  } else {
+  if (arr1[i] < arr2[j]) {
     return getKth(arr1, i + 1, r1, arr2, l2, r2, k - (i - l1 + 1));
+  } else {
+    return getKth(arr1, l1, r1, arr2, j + 1, r2, k - (j - l2 + 1));
   }
 }
