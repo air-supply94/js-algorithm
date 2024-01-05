@@ -6,7 +6,7 @@ export function maxSubArray(numbers: number[]): number {
 
   for (let i = 0; i < numbers.length; i++) {
     currentSum = currentSum < 0 ? numbers[i] : currentSum + numbers[i];
-    result = result < currentSum ? currentSum : result;
+    result = Math.max(currentSum, result);
   }
 
   return result;

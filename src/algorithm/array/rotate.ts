@@ -2,6 +2,7 @@ import { reverse } from '../../utils';
 
 // https://leetcode-cn.com/problems/rotate-array/
 // 189
+// top100
 export function rotate<T = unknown>(array: T[], k: number): T[] {
   const count = (k >>> 0) % array.length;
   reverse(array, 0, array.length - 1);
@@ -13,10 +14,12 @@ export function rotate<T = unknown>(array: T[], k: number): T[] {
 
 // https://leetcode-cn.com/problems/rotate-matrix-lcci/
 // 07
+// 48
 // 求: f[row][col] = f[col][n - 1 - row]
 // 1对角线: f[row][col] = f[col][row]
 // 2水平对称: f[row][col] = f[row][n - 1 - col]
-export function rotateMatrix<T = unknown>(array: T[][]): T[][] {
+// top100
+export function rotateMatrix(array: number[][]): number[][] {
   const n = array.length;
 
   for (let h = 0; h < n; h++) {

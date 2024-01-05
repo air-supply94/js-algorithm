@@ -2,13 +2,11 @@
 // 27
 export function removeElement(nums: number[], target: number): number {
   let nextNotMatchIndex = 0;
-  let currentIndex = 0;
-  while (currentIndex < nums.length) {
-    if (nums[currentIndex] !== target) {
-      nums[nextNotMatchIndex] = nums[currentIndex];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== target) {
+      nums[nextNotMatchIndex] = nums[i];
       nextNotMatchIndex++;
     }
-    currentIndex++;
   }
 
   return nextNotMatchIndex;
