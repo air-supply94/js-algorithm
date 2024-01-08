@@ -15,7 +15,8 @@ export function isValidEasy(str: string): boolean {
 }
 
 // https://leetcode-cn.com/problems/valid-parentheses/
-// 22
+// 20
+// top100
 export function isValid(str: string): boolean {
   const stack: string[] = [];
   const startSet = new Set<string>([
