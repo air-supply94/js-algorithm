@@ -49,15 +49,10 @@ export function wordFrequency(root: interfaces.TrieNode): Record<string, number>
 }
 
 // https://leetcode-cn.com/problems/design-add-and-search-words-data-structure/
-// 211
-
-// 和此很类似,此类功能更完善
+// 208
+// top100
 export class Trie implements interfaces.Trie {
-  constructor() {
-    this.root = new TrieNode('');
-  }
-
-  public readonly root: interfaces.TrieNode;
+  public readonly root: interfaces.TrieNode = new TrieNode('');
 
   public addWord(word: string): void {
     let currentNode = this.root;
