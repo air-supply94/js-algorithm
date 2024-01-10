@@ -1,41 +1,4 @@
-import { swap } from '../../utils';
 import type { interfaces } from '../../types';
-
-function getParentIndex(childIndex: number): number {
-  return (childIndex - 1) >>> 1;
-}
-
-function hasParent(childIndex: number, length: number): boolean {
-  return getParentIndex(childIndex) > -1 && getParentIndex(childIndex) < length;
-}
-
-function parent<T = unknown>(container: T[], childIndex: number): T | undefined {
-  return container[getParentIndex(childIndex)];
-}
-
-function getLeftChildIndex(parentIndex: number): number {
-  return parentIndex * 2 + 1;
-}
-
-function hasLeftChild(parentIndex: number, length: number): boolean {
-  return getLeftChildIndex(parentIndex) > -1 && getLeftChildIndex(parentIndex) < length;
-}
-
-function leftChild<T = unknown>(container: T[], parentIndex: number): T | undefined {
-  return container[getLeftChildIndex(parentIndex)];
-}
-
-function getRightChildIndex(parentIndex: number): number {
-  return parentIndex * 2 + 2;
-}
-
-function hasRightChild(parentIndex: number, length: number): boolean {
-  return getRightChildIndex(parentIndex) > -1 && getRightChildIndex(parentIndex) < length;
-}
-
-function rightChild<T = unknown>(container: T[], parentIndex: number): T | undefined {
-  return container[getRightChildIndex(parentIndex)];
-}
 
 // https://leetcode.cn/problems/top-k-frequent-elements/description/?envType=study-plan-v2&envId=top-100-liked
 // top100
@@ -74,26 +37,37 @@ export class Heap<T = unknown> implements interfaces.Heap<T> {
   }
 
   public up(startIndex = this.heapContainer.length - 1): void {
-    let i = startIndex;
-    while (hasParent(i, this.heapContainer.length) && !this.pairIsInCorrectOrder(parent(this.heapContainer, i), this.heapContainer[i])) {
-      swap(this.heapContainer, i, getParentIndex(i));
-      i = getParentIndex(i);
+    let childIndex = startIndex;
+    let parentIndex = (childIndex - 1) >>> 1;
+
+    while (parentIndex < childIndex && !this.pairIsInCorrectOrder(this.heapContainer[parentIndex], this.heapContainer[childIndex])) {
+      const tmp = this.heapContainer[childIndex];
+      this.heapContainer[childIndex] = this.heapContainer[parentIndex];
+      this.heapContainer[parentIndex] = tmp;
+      childIndex = parentIndex;
+      parentIndex = (childIndex - 1) >>> 1;
     }
   }
 
   public down(startIndex = 0): void {
-    let i = startIndex;
-    while (hasLeftChild(i, this.heapContainer.length)) {
-      const nextIndex = hasRightChild(i, this.heapContainer.length) && this.pairIsInCorrectOrder(rightChild(this.heapContainer, i), leftChild(this.heapContainer, i))
-        ? getRightChildIndex(i)
-        : getLeftChildIndex(i);
+    let parentIndex = startIndex;
+    let leftChildIndex = parentIndex * 2 + 1;
 
-      if (this.pairIsInCorrectOrder(this.heapContainer[i], this.heapContainer[nextIndex])) {
+    while (leftChildIndex < this.heapContainer.length) {
+      const rightChildIndex = parentIndex * 2 + 2;
+      const nextIndex = rightChildIndex < this.heapContainer.length && this.pairIsInCorrectOrder(this.heapContainer[rightChildIndex], this.heapContainer[leftChildIndex])
+        ? rightChildIndex
+        : leftChildIndex;
+
+      if (this.pairIsInCorrectOrder(this.heapContainer[parentIndex], this.heapContainer[nextIndex])) {
         return;
       }
 
-      swap(this.heapContainer, i, nextIndex);
-      i = nextIndex;
+      const tmp = this.heapContainer[parentIndex];
+      this.heapContainer[parentIndex] = this.heapContainer[nextIndex];
+      this.heapContainer[nextIndex] = tmp;
+      parentIndex = nextIndex;
+      leftChildIndex = parentIndex * 2 + 1;
     }
   }
 }
