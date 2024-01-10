@@ -2,7 +2,7 @@ import { swap } from '../../utils';
 import type { interfaces } from '../../types';
 
 function getParentIndex(childIndex: number): number {
-  return Math.floor((childIndex - 1) / 2);
+  return (childIndex - 1) >>> 1;
 }
 
 function hasParent(childIndex: number, length: number): boolean {
@@ -37,6 +37,8 @@ function rightChild<T = unknown>(container: T[], parentIndex: number): T | undef
   return container[getRightChildIndex(parentIndex)];
 }
 
+// https://leetcode.cn/problems/top-k-frequent-elements/description/?envType=study-plan-v2&envId=top-100-liked
+// top100
 export class Heap<T = unknown> implements interfaces.Heap<T> {
   constructor(pairIsInCorrectOrder: (firstElement: T, secondElement: T) => boolean) {
     this.heapContainer = [];

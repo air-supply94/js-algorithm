@@ -2,18 +2,19 @@ import { swap } from '../../../utils';
 
 // https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
 // 215
+// top100
+// 347. 前 K 个高频元素(思路类似,将其转化为数量的对比即可)
 export function findKthLargest(nums: number[], k: number, left = 0, right = nums.length - 1): number {
   if (left === right) {
     return nums[left];
   }
 
-  const middle = partitionArray(nums, left, right);
-
-  const targetMin = (nums.length - 1) - (k - 1);
-  if (targetMin <= middle - 1) {
-    return findKthLargest(nums, k, left, middle - 1);
+  const partitionIndex = partitionArray(nums, left, right);
+  const targetIndex = (nums.length - 1) - (k - 1);
+  if (targetIndex <= partitionIndex - 1) {
+    return findKthLargest(nums, k, left, partitionIndex - 1);
   } else {
-    return findKthLargest(nums, k, middle, right);
+    return findKthLargest(nums, k, partitionIndex, right);
   }
 }
 

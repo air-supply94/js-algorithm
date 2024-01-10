@@ -2,6 +2,7 @@ import { Heap } from '../heap';
 
 // https://leetcode-cn.com/problems/find-median-from-data-stream/
 // 295
+// top100
 export class MedianFinder {
   constructor() {
     this.minHeap = new Heap<number>((a, b) => a <= b);
