@@ -14,7 +14,7 @@ export function quickSortInPlace<T = unknown>(originalArray: T[], compareCallbac
 }
 
 function partitionArray<T = unknown>(originalArray: T[], comparator: interfaces.Comparator<T>, left: number, right: number): number {
-  const baseItem = originalArray[(left + right) >>> 1];
+  const baseItem = originalArray[left + Math.floor(Math.random() * (right - left + 1))];
   let i = left;
   let j = right;
 

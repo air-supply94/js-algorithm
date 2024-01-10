@@ -7,7 +7,7 @@ export function quickSortExchange<T = unknown>(originalArray: T[], compare: inte
   }
 
   const comparator = new Comparator(compare);
-  const baseItem = originalArray[originalArray.length >>> 1];
+  const baseItem = originalArray[Math.floor(originalArray.length * Math.random())];
   const left = [];
   const center = [];
   const right = [];
