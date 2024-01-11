@@ -40,8 +40,28 @@ export function nextGreaterElements(num: number[]): number[] {
   return result;
 }
 
+// https://leetcode.cn/problems/daily-temperatures/description/?envType=study-plan-v2&envId=top-100-liked
+// 739
+// top100
+export function dailyTemperatures(temperatures: number[]): number[] {
+  const stack: number[] = [];
+  const result: number[] = [];
+
+  for (let i = temperatures.length - 1; i >= 0; i--) {
+    while (stack.length && temperatures[i] >= temperatures[stack[stack.length - 1]]) {
+      stack.pop();
+    }
+
+    result[i] = stack.length ? stack[stack.length - 1] - i : 0;
+    stack.push(i);
+  }
+
+  return result;
+}
+
 // https://leetcode-cn.com/problems/largest-rectangle-in-histogram/
 // 84
+// top100
 export function largestRectangleArea(heights: number[]): number {
   heights.push(0);
   let max = 0;
