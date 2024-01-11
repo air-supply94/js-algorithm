@@ -1,11 +1,7 @@
 import type { interfaces } from '../types';
 
 class MonotonicQueue implements interfaces.MonotonicQueue {
-  constructor() {
-    this.queue = [];
-  }
-
-  private readonly queue: number[];
+  private readonly queue: number[] = [];
 
   public push(x: number): void {
     while (this.queue.length > 0 && this.queue[this.queue.length - 1] < x) {
