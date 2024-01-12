@@ -2,6 +2,7 @@
 // 198
 // https://leetcode-cn.com/problems/the-masseuse-lcci/
 // 金典-17.16
+// top100
 export function rubberHouseEasy(numbers: number[], startIndex = 0, endIndex = numbers.length - 1): number {
   let dp_i0 = 0;
   let dp_i1 = 0;

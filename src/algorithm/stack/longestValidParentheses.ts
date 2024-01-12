@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/longest-valid-parentheses/
 // 32
+// top100
 export function longestValidParentheses(s: string): number {
   const stack: number[] = [];
   const match: number[] = Array(s.length)

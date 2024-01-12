@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/edit-distance/
 // 72
+// top100
 export function minDistance(str1: string, str2: string): number {
   const height = str1.length;
   const width = str2.length;

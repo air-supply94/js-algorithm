@@ -7,13 +7,13 @@ export function maximalSquare(matrix: string[][]): number {
   const dp = Array(width + 1).fill(0);
   let max = 0;
 
-  for (let h = 0; h < height; h++) {
+  for (let h = 1; h <= height; h++) {
     let nextPre = dp[0];
     dp[0] = 0;
     for (let w = 1; w <= width; w++) {
       const pre = nextPre;
       nextPre = dp[w];
-      if (matrix[h][w - 1] === '0') {
+      if (matrix[h - 1][w - 1] === '0') {
         dp[w] = 0;
       } else {
         dp[w] = Math.min(pre, dp[w - 1], dp[w]) + 1;

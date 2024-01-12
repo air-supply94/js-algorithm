@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/majority-element/
 // 169
+// top100
 export function majorityElement(nums: number[]): number {
   let index = 0;
   let count = 1;
