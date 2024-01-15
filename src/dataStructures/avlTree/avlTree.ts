@@ -30,6 +30,14 @@ export class AvlTree<T = unknown> implements interfaces.AvlTree<T> {
     return this.binarySearchTree.root;
   }
 
+  public get comparator(): interfaces.Comparator<T> {
+    return this.binarySearchTree.comparator;
+  }
+
+  public get setRoot(): interfaces.BinarySearchTree<T>['setRoot'] {
+    return this.binarySearchTree.setRoot;
+  }
+
   public find(value: T): interfaces.BinarySearchTreeNode<T> | null {
     return this.binarySearchTree.find(value);
   }

@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace interfaces {
   export interface CircularQueue {
     enQueue: (value: number) => boolean;
@@ -143,42 +142,9 @@ export namespace interfaces {
     toString: () => string;
   }
 
-  export interface AvlTree<T = unknown> {
-    find: (value: T) => BinarySearchTreeNode<T> | null;
-    findMin: () => BinarySearchTreeNode<T> | null;
-    findMax: () => BinarySearchTreeNode<T> | null;
-    traversePreOrder: () => T[];
-    traversePreOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
-    traverseInOrder: () => T[];
-    traverseInOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
-    traverseAfterOrder: () => T[];
-    traverseAfterOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
-    traverseLevelOrder: () => T[];
-    traverseLevelOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
-    contains: (value: T) => boolean;
-    insert: (value: T) => BinarySearchTreeNode<T> | null;
-    remove: (value: T) => BinarySearchTreeNode<T> | null;
-    toString: () => string;
-  }
+  export type AvlTree<T = unknown> = BinarySearchTree<T>;
 
-  export interface RedBlackTree<T = unknown> {
-    readonly root: BinarySearchTreeNode<T> | null;
-    find: (value: T) => BinarySearchTreeNode<T> | null;
-    findMin: () => BinarySearchTreeNode<T> | null;
-    findMax: () => BinarySearchTreeNode<T> | null;
-    traversePreOrder: () => T[];
-    traversePreOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
-    traverseInOrder: () => T[];
-    traverseInOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
-    traverseAfterOrder: () => T[];
-    traverseAfterOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
-    traverseLevelOrder: () => T[];
-    traverseLevelOrderCallback: (callback: BinarySearchTreeTraverseCallback<T>) => void;
-    contains: (value: T) => boolean;
-    insert: (value: T) => BinarySearchTreeNode<T> | null;
-    remove: (value: T) => BinarySearchTreeNode<T> | null;
-    toString: () => string;
-  }
+  export type RedBlackTree<T = unknown> =BinarySearchTree<T>;
 
   export interface Comparator<T = unknown> {
     equal: (a?: T, b?: T) => boolean;
