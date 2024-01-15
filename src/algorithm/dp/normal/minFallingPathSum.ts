@@ -10,10 +10,10 @@ export function minFallingPathSum(matrix: number[][]): number {
   for (let i = 1; i < n; i++) {
     let nextPre = dp[0];
     dp[0] = Infinity;
-    for (let j = 0; j < n; j++) {
+    for (let j = 1; j <= n; j++) {
       const pre = nextPre;
-      nextPre = dp[j + 1];
-      dp[j + 1] = Math.min(pre, dp[j + 1], dp[j + 2]) + matrix[i][j];
+      nextPre = dp[j];
+      dp[j] = Math.min(pre, dp[j], dp[j + 1]) + matrix[i][j - 1];
     }
   }
 

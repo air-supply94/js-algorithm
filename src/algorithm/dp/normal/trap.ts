@@ -25,6 +25,8 @@ export function trap1(height: number[]): number {
 }
 
 // 单一柱子角度
+// 单个柱子接水量 = 左右柱子最大高度的最小值 - 柱子高度
+
 export function trap2(height: number[]): number {
   let result = 0;
   let left = 0;
@@ -36,6 +38,7 @@ export function trap2(height: number[]): number {
     leftMax = Math.max(leftMax, height[left]);
     rightMax = Math.max(rightMax, height[right]);
 
+    // leftMax < rightMax时,当前柱子的接水量取决2者最小值leftMax,rightMax不需要精确。反之同理
     if (leftMax < rightMax) {
       result += leftMax - height[left];
       left++;
@@ -43,26 +46,6 @@ export function trap2(height: number[]): number {
       result += rightMax - height[right];
       right--;
     }
-  }
-  return result;
-}
-
-// 区域角度
-export function trap3(height: number[]): number {
-  let result = 0;
-  const stack: number[] = [];
-  for (let i = 0; i < height.length; ++i) {
-    while (stack.length > 0 && height[i] > height[stack[stack.length - 1]]) {
-      const topIndex = stack.pop();
-
-      if (stack.length > 0) {
-        const left = stack[stack.length - 1];
-        const currWidth = i - left - 1;
-        const currHeight = Math.min(height[left], height[i]) - height[topIndex];
-        result += currWidth * currHeight;
-      }
-    }
-    stack.push(i);
   }
   return result;
 }

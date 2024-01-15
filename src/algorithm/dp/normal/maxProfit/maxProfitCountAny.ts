@@ -1,14 +1,9 @@
-import { maxProfitCountInfinity } from './maxProfitCountInfinity';
-
 // https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
 // 188
 export function maxProfitCountAny(count: number, prices: number[]): number {
+  count = Math.min(prices.length >>> 1, count);
   if (prices.length === 0) {
     return 0;
-  }
-
-  if (count > Math.floor(prices.length / 2)) {
-    return maxProfitCountInfinity(prices);
   }
 
   const dp = Array(prices.length)

@@ -28,11 +28,8 @@ export function coinChange(coins: number[], amount: number, cache = new Map<numb
 
 // https://leetcode-cn.com/problems/coin-change/
 // 322
+// top100
 export function coinChange(coins: number[], amount: number): number {
-  if (coins.length === 0 || amount < 0) {
-    return -1;
-  }
-
   const dp = Array(amount + 1).fill(-1);
   dp[0] = 0;
 
