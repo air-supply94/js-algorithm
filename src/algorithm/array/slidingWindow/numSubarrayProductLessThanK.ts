@@ -1,6 +1,7 @@
 // https://leetcode-cn.com/problems/subarray-product-less-than-k/
 // 713
 // 区间计数
+// top100
 export function numSubarrayProductLessThanK(nums: number[], k: number): number {
   if (k <= 1) {
     return 0;

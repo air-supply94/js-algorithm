@@ -1,6 +1,9 @@
 // https://leetcode-cn.com/problems/permutation-in-string/
 // 567
+// 类似76
+// 类似438
 // 定长区间
+// top100
 export function checkInclusion(t: string, s: string): boolean {
   const needCharMap = new Map<string, number>();
   const matchCharMap = new Map<string, number>();

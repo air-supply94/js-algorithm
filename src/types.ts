@@ -13,12 +13,6 @@ export namespace interfaces {
     toArray: () => number[];
   }
 
-  export interface MonotonicQueue {
-    push: (x: number) => void;
-    pop: (x: number) => void;
-    max: () => number;
-  }
-
   export interface TrieNode {
     wordCount: number;
     prefixCount: number;

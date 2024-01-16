@@ -20,6 +20,7 @@
 
 // https://leetcode-cn.com/problems/subarray-sum-equals-k/
 // 560
+// top100
 export function subarraySum(nums: number[], total: number): number {
   const prefixSum = new Map<number, number>();
   prefixSum.set(0, 1);
