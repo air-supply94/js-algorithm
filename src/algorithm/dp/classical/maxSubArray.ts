@@ -17,16 +17,11 @@ export function maxSubArray(numbers: number[]): number {
 export function getMaxMatrix(matrix: number[][]): number[] {
   const height = matrix.length;
   const width = matrix[0].length;
-  const result = [
-    0,
-    0,
-    0,
-    0,
-  ];
+  const result: number[] = Array(4).fill(0);
   let startH = 0;
   let startW = 0;
   let maxValue = -Infinity;
-  const dp = Array(width).fill(0);
+  const dp: number[] = Array(width).fill(0);
 
   for (let startHeight = 0; startHeight < height; startHeight++) {
     dp.fill(0);

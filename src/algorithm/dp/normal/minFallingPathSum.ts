@@ -8,12 +8,11 @@ export function minFallingPathSum(matrix: number[][]): number {
   }
 
   for (let i = 1; i < n; i++) {
-    let nextPre = dp[0];
-    dp[0] = Infinity;
+    let bottomLeft = dp[0];
     for (let j = 1; j <= n; j++) {
-      const pre = nextPre;
-      nextPre = dp[j];
-      dp[j] = Math.min(pre, dp[j], dp[j + 1]) + matrix[i][j - 1];
+      const tmp = dp[j];
+      dp[j] = Math.min(bottomLeft, dp[j], dp[j + 1]) + matrix[i][j - 1];
+      bottomLeft = tmp;
     }
   }
 

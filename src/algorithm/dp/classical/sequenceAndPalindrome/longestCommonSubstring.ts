@@ -8,19 +8,18 @@ export function longestCommonSubstring(a: string, b: string): number {
   let result = 0;
 
   for (let i = 1; i <= height; i++) {
-    let nextPrevious = dp[0];
-    dp[0] = 0;
+    let topLeft = dp[0];
 
     for (let j = 1; j <= width; j++) {
-      const previous = nextPrevious;
-      nextPrevious = dp[j];
+      const tmp = dp[j];
 
       if (a[i - 1] === b[j - 1]) {
-        dp[j] = previous + 1;
+        dp[j] = topLeft + 1;
       } else {
         dp[j] = 0;
       }
 
+      topLeft = tmp;
       result = Math.max(result, dp[j]);
     }
   }

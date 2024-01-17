@@ -19,7 +19,7 @@ export function superEggDrop(count: number, n: number, cache = new Map<string, n
   /*  for (let i = 1; i <= n; i++) {
     result = Math.min(
       result,
-      Math.max(recursion(count - 1, i - 1, cache), recursion(count, n - i, cache)) + 1
+      Math.max(superEggDrop(count - 1, i - 1, cache), superEggDrop(count, n - i, cache)) + 1
     );
   }*/
 

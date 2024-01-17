@@ -5,9 +5,9 @@ function getPmt(str: string): number[] {
 
   while (i < str.length) {
     if (str[i] === str[j]) {
+      dp[i] = j + 1;
       i++;
       j++;
-      dp[i - 1] = j;
     } else {
       if (j === 0) {
         i++;

@@ -1,10 +1,7 @@
 // https://leetcode-cn.com/problems/longest-increasing-subsequence/
 // 300
+// top100
 export function lengthOfLIS(numbers: number[]): number {
-  if (numbers.length <= 1) {
-    return numbers.length;
-  }
-
   // i结尾
   const dp = Array(numbers.length).fill(1);
 
@@ -21,13 +18,9 @@ export function lengthOfLIS(numbers: number[]): number {
 
 // https://leetcode-cn.com/problems/longest-increasing-subsequence/
 // 300
+// top100
 export function lengthOfLISBs(numbers: number[]): number {
-  if (numbers.length <= 1) {
-    return numbers.length;
-  }
-
-  const piles: number[] = [];
-  piles[0] = numbers[0];
+  const piles: number[] = [numbers[0]];
 
   for (let i = 1; i < numbers.length; i++) {
     let left = 0;
@@ -49,5 +42,6 @@ export function lengthOfLISBs(numbers: number[]): number {
       piles.push(currentValue);
     }
   }
+
   return piles.length;
 }

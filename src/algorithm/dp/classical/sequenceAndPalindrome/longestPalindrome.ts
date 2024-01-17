@@ -12,6 +12,7 @@ function getLongestPalindrome(s: string, leftStart: number, rightStart: number):
 
 // https://leetcode-cn.com/problems/longest-palindromic-substring/
 // 5
+// top100
 export function longestPalindrome(str: string): string {
   let result = '';
   for (let i = 0; i < str.length; i++) {

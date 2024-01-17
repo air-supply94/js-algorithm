@@ -4,15 +4,15 @@ export function minInsertions(str: string): number {
   const dp = Array(str.length + 1).fill(0);
 
   for (let i = str.length; i >= 1; i--) {
-    let nextPrevious = dp[0];
+    let pre = 0;
     for (let j = i + 1; j <= str.length; j++) {
-      const previous = nextPrevious;
-      nextPrevious = dp[j];
+      const tmp = dp[j];
       if (str[i - 1] === str[j - 1]) {
-        dp[j] = previous;
+        dp[j] = pre;
       } else {
         dp[j] = Math.min(dp[j], dp[j - 1]) + 1;
       }
+      pre = tmp;
     }
   }
 
