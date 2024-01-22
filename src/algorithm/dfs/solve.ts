@@ -16,19 +16,19 @@ export function solve(board: string[][]): void {
     dfs(h, w - 1);
   }
 
-  for (let i = 0; i < width; i++) {
-    dfs(0, i);
-    dfs(height - 1, i);
+  for (let w = 0; w < width; w++) {
+    dfs(0, w);
+    dfs(height - 1, w);
   }
 
-  for (let i = 0; i < height; i++) {
-    dfs(i, 0);
-    dfs(i, width - 1);
+  for (let h = 0; h < height; h++) {
+    dfs(h, 0);
+    dfs(h, width - 1);
   }
 
-  for (let i = 0; i < height; i++) {
-    for (let j = 0; j < width; j++) {
-      board[i][j] = board[i][j] === null ? 'O' : 'X';
+  for (let h = 0; h < height; h++) {
+    for (let w = 0; w < width; w++) {
+      board[h][w] = board[h][w] === null ? 'O' : 'X';
     }
   }
 }

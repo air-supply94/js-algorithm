@@ -5,23 +5,23 @@ export function numIslands(grid: string[][]): number {
   const width = grid[0].length;
   let connectCount = 0;
 
-  function dfs(i: number, j: number) {
-    if (i < 0 || i >= height || j < 0 || j >= width || grid[i][j] === '0') {
+  function dfs(h: number, w: number) {
+    if (h < 0 || h >= height || w < 0 || w >= width || grid[h][w] !== '1') {
       return;
     }
 
-    grid[i][j] = '0';
-    dfs(i - 1, j);
-    dfs(i, j + 1);
-    dfs(i + 1, j);
-    dfs(i, j - 1);
+    grid[h][w] = null;
+    dfs(h - 1, w);
+    dfs(h, w + 1);
+    dfs(h + 1, w);
+    dfs(h, w - 1);
   }
 
-  for (let i = 0; i < height; i++) {
-    for (let j = 0; j < width; j++) {
-      if (grid[i][j] === '1') {
+  for (let h = 0; h < height; h++) {
+    for (let w = 0; w < width; w++) {
+      if (grid[h][w] === '1') {
         connectCount++;
-        dfs(i, j);
+        dfs(h, w);
       }
     }
   }
