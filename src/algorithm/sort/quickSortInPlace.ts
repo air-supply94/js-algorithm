@@ -1,5 +1,5 @@
 import type { interfaces } from '../../types';
-import { Comparator, swap } from '../../utils';
+import { Comparator } from '../../utils';
 
 export function quickSortInPlace<T = unknown>(originalArray: T[], compareCallback?: interfaces.CompareParams<T>, left = 0, right: number = originalArray.length - 1): T[] {
   if (left < right) {
@@ -28,7 +28,9 @@ function partitionArray<T = unknown>(originalArray: T[], comparator: interfaces.
     }
 
     if (i <= j) {
-      swap(originalArray, i, j);
+      const t = originalArray[i];
+      originalArray[i] = originalArray[j];
+      originalArray[j] = t;
       i++;
       j--;
     }

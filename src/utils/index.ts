@@ -1,2 +1,2 @@
 export * from './comparator/comparator';
-export * from './helper';
+export * from './reverse';

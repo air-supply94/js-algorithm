@@ -1,5 +1,3 @@
-import { swap } from '../../../utils';
-
 // https://leetcode-cn.com/problems/insert-delete-getrandom-o1/
 // 380
 export class RandomizedSet {
@@ -26,7 +24,9 @@ export class RandomizedSet {
     if (this.hashMap.has(x)) {
       const deleteIndex = this.hashMap.get(x);
       this.hashMap.set(this.items[this.items.length - 1], deleteIndex);
-      swap(this.items, deleteIndex, this.items.length - 1);
+      const t = this.items[deleteIndex];
+      this.items[deleteIndex] = this.items[this.items.length - 1];
+      this.items[this.items.length - 1] = t;
       this.items.pop();
       this.hashMap.delete(x);
       return true;

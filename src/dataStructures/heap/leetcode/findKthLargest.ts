@@ -1,5 +1,3 @@
-import { swap } from '../../../utils';
-
 // https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
 // 215
 // top100
@@ -33,7 +31,9 @@ function partitionArray(originalArray: number[], left: number, right: number): n
     }
 
     if (i <= j) {
-      swap(originalArray, i, j);
+      const t = originalArray[i];
+      originalArray[i] = originalArray[j];
+      originalArray[j] = t;
       i++;
       j--;
     }

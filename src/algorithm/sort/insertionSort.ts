@@ -1,5 +1,5 @@
 import type { interfaces } from '../../types';
-import { Comparator, swap } from '../../utils';
+import { Comparator } from '../../utils';
 
 export function insertionSort<T = unknown>(originalArray: T[], compare?: interfaces.CompareParams<T>): T[] {
   const comparator = new Comparator(compare);
@@ -7,7 +7,9 @@ export function insertionSort<T = unknown>(originalArray: T[], compare?: interfa
   for (let i = 0; i < originalArray.length - gap; i++) {
     let currentIndex = i;
     while (currentIndex >= 0 && comparator.lessThan(originalArray[currentIndex + gap], originalArray[currentIndex])) {
-      swap(originalArray, currentIndex + gap, currentIndex);
+      const t = originalArray[currentIndex + gap];
+      originalArray[currentIndex + gap] = originalArray[currentIndex];
+      originalArray[currentIndex] = t;
       currentIndex -= gap;
     }
   }
@@ -23,7 +25,9 @@ export function shellSort<T = unknown>(originalArray: T[], compare?: interfaces.
       let currentIndex = i;
 
       while (currentIndex >= 0 && comparator.lessThan(originalArray[currentIndex + gap], originalArray[currentIndex])) {
-        swap(originalArray, currentIndex, currentIndex + gap);
+        const t = originalArray[currentIndex];
+        originalArray[currentIndex] = originalArray[currentIndex + gap];
+        originalArray[currentIndex + gap] = t;
         currentIndex -= gap;
       }
     }

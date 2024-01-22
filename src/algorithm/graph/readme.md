@@ -52,7 +52,7 @@ edge 带有`weight`---`网(network)`
 - `路径长`: path 上的 edge 的数目
 - `简单路径`: path 上 vertex 各不相同
 - `环(Cycle)`: path 存在 vertex 相等
-- `简单环`：path 上`只有`第一个 vertex 和最后一个 vertex 相等
+- `简单环`: path 上`只有`第一个 vertex 和最后一个 vertex 相等
 
 ## 连通
 
