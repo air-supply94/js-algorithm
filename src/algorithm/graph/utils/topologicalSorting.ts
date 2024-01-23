@@ -1,12 +1,11 @@
 // 邻接表
 export function hasCircleDfs(graph: number[][]): boolean {
-  const visited: number[] = Array(graph.length)
-    .fill(0);
-  const path: number[] = Array(graph.length)
-    .fill(0);
+  const n = graph.length;
+  const visited: number[] = Array(n).fill(0);
+  const path: number[] = Array(n).fill(0);
   let graphHasCircle = false;
 
-  for (let i = 0; i < graph.length; i++) {
+  for (let i = 0; i < n; i++) {
     if (visited[i] === 0) {
       dfs(i);
     }
@@ -34,15 +33,15 @@ export function hasCircleDfs(graph: number[][]): boolean {
 
 // 邻接表
 export function topologicalSortingDfs(graph: number[][]): number[] {
-  const visited: number[] = Array(graph.length)
-    .fill(0);
+  const n = graph.length;
+  const visited: number[] = Array(n).fill(0);
   const connectedPath: number[] = [];
 
   if (hasCircleDfs(graph)) {
     return [];
   }
 
-  for (let i = 0; i < graph.length; i++) {
+  for (let i = 0; i < n; i++) {
     if (visited[i] === 0) {
       dfs(i);
     }
@@ -67,9 +66,9 @@ export function topologicalSortingDfs(graph: number[][]): number[] {
 
 // 邻接表
 export function topologicalSortingBfs(graph: number[][]): number[] {
-  const inDegree: number[] = Array(graph.length)
-    .fill(0);
-  for (let i = 0; i < graph.length; i++) {
+  const n = graph.length;
+  const inDegree: number[] = Array(n).fill(0);
+  for (let i = 0; i < n; i++) {
     for (let j = 0; j < graph[i].length; j++) {
       inDegree[graph[i][j]]++;
     }
@@ -77,7 +76,7 @@ export function topologicalSortingBfs(graph: number[][]): number[] {
 
   const result: number[] = [];
   const queue: number[] = [];
-  for (let i = 0; i < graph.length; i++) {
+  for (let i = 0; i < n; i++) {
     if (inDegree[i] === 0) {
       queue.push(i);
     }
@@ -96,5 +95,5 @@ export function topologicalSortingBfs(graph: number[][]): number[] {
     }
   }
 
-  return result.length === graph.length ? result : [];
+  return result.length === n ? result : [];
 }
