@@ -6,7 +6,7 @@ function getWeight(point1: [number, number], point2: [number, number]): number {
 
 function buildGraph(points: Array<[number, number]>): number[][] {
   const n = points.length;
-  const graph = Array(n)
+  const graph: number[][] = Array(n)
     .fill(null)
     .map(() => Array(n)
       .fill(0));

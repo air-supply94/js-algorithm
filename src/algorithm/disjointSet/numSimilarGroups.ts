@@ -1,7 +1,7 @@
 // https://leetcode-cn.com/problems/similar-string-groups/
 // 839
 export function numSimilarGroups(str: string[]): number {
-  const parent = Array(str.length).fill(null);
+  const parent: number[] = Array(str.length).fill(null);
   for (let i = 0; i < parent.length; i++) {
     parent[i] = i;
   }

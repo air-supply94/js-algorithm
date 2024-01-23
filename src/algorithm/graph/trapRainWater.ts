@@ -9,7 +9,7 @@ export function trapRainWater(heightMap: number[][]): number {
     return 0;
   }
 
-  const visited = Array(height)
+  const visited: number[][] = Array(height)
     .fill(null)
     .map(() => Array(width)
       .fill(0));

@@ -5,7 +5,7 @@ export function stoneGame(piles: number[]): boolean {
   const n = piles.length;
 
   // [n1,n2]先选和后选获取的stone个数
-  const dp = Array(n).fill(null)
+  const dp: number[][][] = Array(n).fill(null)
     .map(() => Array(n).fill(null)
       .map(() => [
         0,

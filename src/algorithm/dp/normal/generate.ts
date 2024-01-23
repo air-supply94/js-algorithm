@@ -5,7 +5,7 @@
 export function generate(n: number): number[][] {
   const result: number[][] = [[1]];
   for (let i = 2; i <= n; i++) {
-    const rowResult = Array(i).fill(null);
+    const rowResult: number[] = Array(i).fill(null);
     rowResult[0] = 1;
     rowResult[rowResult.length - 1] = 1;
 

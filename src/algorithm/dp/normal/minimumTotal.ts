@@ -22,7 +22,7 @@ export function minimumTotal(grid: number[][], cache = new Map<string, number>()
 // 自底向上左往右
 export function minimumTotalDpLeftToRight(grid: number[][]): number {
   const height = grid.length;
-  const dp = Array(height).fill(null);
+  const dp: number[] = Array(height).fill(null);
   for (let i = 0; i < height; i++) {
     dp[i] = grid[height - 1][i];
   }
@@ -41,7 +41,7 @@ export function minimumTotalDpLeftToRight(grid: number[][]): number {
 // 自底向上右往左
 export function minimumTotalDpRightToLeft(grid: number[][]): number {
   const height = grid.length;
-  const dp = Array(height).fill(null);
+  const dp: number[] = Array(height).fill(null);
   for (let i = 0; i < height; i++) {
     dp[i] = grid[height - 1][i];
   }

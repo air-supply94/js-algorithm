@@ -10,7 +10,7 @@ export function maxCoins(nums: number[]): number {
   }
 
   // (n1,n2)
-  const dp = Array(length)
+  const dp: number[][] = Array(length)
     .fill(null)
     .map(() => Array(length)
       .fill(0));

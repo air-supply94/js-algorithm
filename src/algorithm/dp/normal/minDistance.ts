@@ -5,7 +5,7 @@ export function minDistance(str1: string, str2: string): number {
   const height = str1.length;
   const width = str2.length;
 
-  const dp = Array(width + 1).fill(null);
+  const dp: number[] = Array(width + 1).fill(null);
   for (let i = 0; i <= width; i++) {
     dp[i] = i;
   }

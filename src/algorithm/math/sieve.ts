@@ -2,7 +2,7 @@
 // 204
 // 类似
 export function sieve(n: number): number[] {
-  const result = Array(n + 1)
+  const result: number[] = Array(n + 1)
     .fill(null)
     .map((item, index) => index);
   result[1] = 0;

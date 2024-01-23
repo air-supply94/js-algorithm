@@ -33,7 +33,7 @@ export function prim(graph: number[][]): number {
 }
 
 export function kruskal(graphLength: number, sortedEdges: Array<[number, number, number]>): number {
-  const parent = Array(graphLength).fill(null);
+  const parent: number[] = Array(graphLength).fill(null);
   for (let i = 0; i < graphLength; i++) {
     parent[i] = i;
   }
@@ -64,5 +64,5 @@ export function kruskal(graphLength: number, sortedEdges: Array<[number, number,
     union(sortedEdges[i][0], sortedEdges[i][1], sortedEdges[i][2]);
   }
 
-  return connectCount <= 1 ? sum : Infinity;
+  return connectCount === 1 ? sum : Infinity;
 }

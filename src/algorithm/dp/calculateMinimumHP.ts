@@ -3,7 +3,7 @@
 export function calculateMinimumHP(dungeon: number[][]): number {
   const height = dungeon.length;
   const width = dungeon[0].length;
-  const cache = Array(height)
+  const cache: number[][] = Array(height)
     .fill(null)
     .map(() => Array(width)
       .fill(null));

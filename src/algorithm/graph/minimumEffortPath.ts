@@ -4,7 +4,7 @@
 export function minimumEffortPath(heights: number[][]): number {
   const height = heights.length;
   const width = heights[0].length;
-  const result = Array(height)
+  const result: number[][] = Array(height)
     .fill(null)
     .map(() => Array(width)
       .fill(Infinity));

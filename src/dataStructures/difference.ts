@@ -21,7 +21,7 @@ export class Difference implements interfaces.Difference {
   }
 
   public toArray(): number[] {
-    const result = Array(this.diff.length)
+    const result: number[] = Array(this.diff.length)
       .fill(null);
     result[0] = this.diff[0];
 

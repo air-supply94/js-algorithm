@@ -8,25 +8,25 @@ export function isBipartite(graph: number[][]): boolean {
   let result = true;
 
   for (let i = 0; i < n; i++) {
-    if (visited[i] === 0 && result) {
+    if (visited[i] === 0) {
       dfs(i);
     }
   }
 
-  function dfs(start: number): void {
+  function dfs(startNode: number): void {
     if (!result) {
       return;
     }
 
-    visited[start] = 1;
-    const neighbor = graph[start];
-
-    for (let i = 0; i < neighbor.length; i++) {
-      if (visited[neighbor[i]] === 0) {
-        color[neighbor[i]] = -color[start];
-        dfs(neighbor[i]);
+    visited[startNode] = 1;
+    const neighborNodes = graph[startNode];
+    for (let i = 0; i < neighborNodes.length; i++) {
+      const neighbor = neighborNodes[i];
+      if (visited[neighbor] === 0) {
+        color[neighbor] = -color[startNode];
+        dfs(neighbor);
       } else {
-        if (color[neighbor[i]] === color[start]) {
+        if (color[neighbor] === color[startNode]) {
           result = false;
         }
       }

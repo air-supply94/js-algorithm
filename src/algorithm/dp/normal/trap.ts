@@ -4,8 +4,8 @@
 // top100
 export function trap1(height: number[]): number {
   let result = 0;
-  const leftMax = Array(height.length).fill(null);
-  const rightMax = Array(height.length).fill(null);
+  const leftMax: number[] = Array(height.length).fill(null);
+  const rightMax: number[] = Array(height.length).fill(null);
   let leftTmp = -Infinity;
   let rightTmp = -Infinity;
 

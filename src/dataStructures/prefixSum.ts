@@ -1,5 +1,5 @@
 /* export function subarraySum(nums: number[], total: number): number {
-  const prefixSum = Array(nums.length + 1)
+  const prefixSum: number[] = Array(nums.length + 1)
     .fill(null);
   prefixSum[0] = 0;
 

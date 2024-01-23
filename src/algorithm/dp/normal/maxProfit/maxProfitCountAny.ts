@@ -6,7 +6,7 @@ export function maxProfitCountAny(count: number, prices: number[]): number {
     return 0;
   }
 
-  const dp = Array(prices.length)
+  const dp: number[][][] = Array(prices.length)
     .fill(null)
     .map(() => Array(count + 1)
       .fill(null)
