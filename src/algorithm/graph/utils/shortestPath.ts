@@ -17,7 +17,7 @@ export function dijkstra(graph: Array<Array<[number, number]>>, start: number): 
     for (let i = 0; i < neighbor.length; i++) {
       const neighborNode = neighbor[i][0];
       const neighborWeight = currentWeight + neighbor[i][1];
-      if (neighborWeight <= distance[neighborNode]) {
+      if (neighborWeight < distance[neighborNode]) {
         distance[neighborNode] = neighborWeight;
         queue.push([
           neighborNode,
