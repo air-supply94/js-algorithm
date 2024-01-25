@@ -3,6 +3,7 @@ import type { ListNode } from './listNode';
 // https://leetcode-cn.com/problems/linked-list-cycle-ii/
 // 142-2
 // top100
+// 剑指offer
 export function detectCycle(startNode: ListNode): ListNode | null {
   let slow = startNode;
   let fast = startNode;
