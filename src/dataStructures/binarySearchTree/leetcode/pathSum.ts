@@ -3,6 +3,7 @@ import type { TreeNode } from './treeNode';
 // https://leetcode.cn/problems/path-sum-iii/?envType=study-plan-v2&envId=top-100-liked
 // 437
 // top100
+// 剑指offer 84
 export function pathSum(root: TreeNode | null, targetSum: number): number {
   if (root == null) {
     return 0;

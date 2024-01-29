@@ -1,6 +1,6 @@
 // https://leetcode-cn.com/problems/find-smallest-letter-greater-than-target/
 // 744
-// 类似，需要根据题意简单改动
+// 类似,需要根据题意简单改动
 export function findFirstLarge(arr: number[], target: number): number {
   let left = 0;
   let right = arr.length - 1;

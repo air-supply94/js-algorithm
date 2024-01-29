@@ -2,6 +2,7 @@ import { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/serialize-and-deserialize-bst/submissions/
 // 449
+// 剑指offer 37
 export function serializePreOrder(array: number[]): TreeNode | null {
   let i = 0;
   function serialize(): TreeNode | null {

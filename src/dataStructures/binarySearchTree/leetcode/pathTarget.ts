@@ -1,7 +1,8 @@
 import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
-// 剑指offer-34
+// 剑指offer 82(类似)
+// 剑指offer 34
 export function pathTarget(root: TreeNode | null, sum: number, result: number[][] = [], currentPath: number[] = []): number[][] {
   if (root == null) {
     return result;

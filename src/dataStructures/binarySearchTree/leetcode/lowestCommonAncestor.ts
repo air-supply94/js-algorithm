@@ -3,6 +3,7 @@ import type { TreeNode } from './treeNode';
 // https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
 // 236
 // top100
+// 剑指 Offer 86(类似)
 export function lowestCommonAncestor(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
   if (root === null) {
     return null;
@@ -27,20 +28,21 @@ export function lowestCommonAncestor(root: TreeNode | null, p: TreeNode, q: Tree
 
 // https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 // 235
-export function lowestCommonAncestorBst(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
+// 剑指 Offer 86(类似)
+export function lowestCommonAncestorBst(root: TreeNode | null, p: number, q: number): number {
   if (!root) {
     return null;
   }
 
-  if (root.val === p.val || root.val === q.val) {
-    return root;
+  if (root.val === p || root.val === q) {
+    return root.val;
   }
 
-  if (p.val < root.val && q.val < root.val) {
+  if (p < root.val && q < root.val) {
     return lowestCommonAncestorBst(root.left, p, q);
-  } else if (root.val < p.val && root.val < q.val) {
+  } else if (root.val < p && root.val < q) {
     return lowestCommonAncestorBst(root.right, p, q);
   } else {
-    return root;
+    return root.val;
   }
 }
