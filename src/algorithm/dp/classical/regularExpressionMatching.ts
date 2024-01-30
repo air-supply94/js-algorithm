@@ -3,6 +3,7 @@ const ANY_CHAR = '.';
 
 // https://leetcode-cn.com/problems/regular-expression-matching/
 // 10
+// 剑指offer 19
 export function isMatch(text: string, pattern: string, i = 0, j = 0, cache = new Map<string, boolean>()): boolean {
   if (j === pattern.length) {
     return i === text.length;

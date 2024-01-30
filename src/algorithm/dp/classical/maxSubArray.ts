@@ -1,15 +1,46 @@
 // https://leetcode-cn.com/problems/maximum-subarray/
 // 53
+// 剑指offer 42
 export function maxSubArray(numbers: number[]): number {
   let currentSum = -Infinity;
-  let result = -Infinity;
+  let maxValue = -Infinity;
 
   for (let i = 0; i < numbers.length; i++) {
-    currentSum = currentSum < 0 ? numbers[i] : currentSum + numbers[i];
-    result = Math.max(currentSum, result);
+    currentSum = Math.max(numbers[i], currentSum + numbers[i]);
+    maxValue = Math.max(currentSum, maxValue);
   }
 
-  return result;
+  return maxValue;
+}
+
+// 剑指offer 85
+export function maxSubArray2(array: number[]): number[] {
+  let resultLeft = 0;
+  let resultRight = 0;
+  let left = 0;
+  let right = 0;
+  let maxValue = array[0];
+
+  let currentSum = array[0];
+  for (let i = 1; i < array.length; i++) {
+    right++;
+    if (currentSum >= 0) {
+      currentSum += array[i];
+    } else {
+      currentSum = array[i];
+      left = right;
+    }
+
+    // 子数组和更大
+    // 子数组和相等的情况下区间要更长
+    if (currentSum > maxValue || currentSum === maxValue && (resultRight - resultLeft < right - left)) {
+      maxValue = currentSum;
+      resultLeft = left;
+      resultRight = right;
+    }
+  }
+
+  return array.splice(resultLeft, resultRight - resultLeft + 1);
 }
 
 // https://leetcode-cn.com/problems/max-submatrix-lcci/
