@@ -1,5 +1,4 @@
 // https://leetcode-cn.com/problems/XagZNi/
-// 剑指 Offer II 037
 export function asteroidCollision(asteroids: number[]): number[] {
   const stack: number[] = [];
   for (let i = 0; i < asteroids.length; i++) {

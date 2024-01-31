@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/powx-n/
 // 50
+// 剑指 Offer 16
 export function fastPowering(base: number, power: number): number {
   if (power === 0) {
     return 1;

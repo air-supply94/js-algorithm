@@ -2,6 +2,7 @@
 // 215
 // top100
 // 347. 前 K 个高频元素(思路类似,将其转化为数量的对比即可)
+// 剑指 Offer 40(思路类似,可以重复且判断空数组和k为0的情况)
 export function findKthLargest(nums: number[], k: number, left = 0, right = nums.length - 1): number {
   if (left === right) {
     return nums[left];

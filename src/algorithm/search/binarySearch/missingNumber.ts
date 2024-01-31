@@ -1,5 +1,4 @@
 // https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/
-// 剑指 Offer 53 - II. 0～n-1中缺失的数字
 export function missingNumber(nums: number[]): number {
   let left = 0;
   let right = nums.length - 1;

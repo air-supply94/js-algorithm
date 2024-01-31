@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/number-of-1-bits/
 // 191
+// 剑指 Offer 15
 export function hammingWeight(x: number): number {
   let setBitsCount = 0;
   let number = x;

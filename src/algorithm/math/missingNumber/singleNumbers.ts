@@ -1,5 +1,5 @@
 // https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/
-// 剑指 Offer 56-1
+// 剑指 Offer 56
 export function singleNumbers(nums: number[]): number[] {
   let xor = 0;
   let xor1 = 0;
@@ -22,7 +22,6 @@ export function singleNumbers(nums: number[]): number[] {
 }
 
 // https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/
-// 剑指 Offer 56-2
 export function singleNumber(nums: number[]): number {
   let res = 0;
 
