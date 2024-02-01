@@ -1,6 +1,7 @@
 // https://leetcode-cn.com/problems/majority-element/
 // 169
 // top100
+// 剑指offer 39
 export function majorityElement(nums: number[]): number {
   let index = 0;
   let count = 1;
