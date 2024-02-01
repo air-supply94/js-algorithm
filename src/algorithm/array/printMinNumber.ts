@@ -1,5 +1,5 @@
 // 剑指offer 45
-export function PrintMinNumber(numbers: number[]): string {
+export function printMinNumber(numbers: number[]): string {
   numbers.sort((a, b) => {
     const str1 = `${a}`;
     const str2 = `${b}`;
