@@ -1,4 +1,4 @@
-# (2024-01-31)
+# (2024-02-03)
 
 ### Bug Fixes
 
@@ -12,13 +12,17 @@
 ### Features
 
 - add copyRandomList ([2800162](https://github.com/air-supply94/js-algorithm/commit/28001624c3ea480b3685c3efe78e3780bbc8b4ef))
+- add cutRope ([393b794](https://github.com/air-supply94/js-algorithm/commit/393b794922121e32dd7b098bfb8ebefcf1b0044b))
 - add dailyTemperatures ([6d4916c](https://github.com/air-supply94/js-algorithm/commit/6d4916cce54d11800bb23224d37d0225ca7d4d2d))
 - add deleteDuplication ([eb4ebc4](https://github.com/air-supply94/js-algorithm/commit/eb4ebc465414d02613dea0f81ca5f3830b03f904))
+- add findContinuousSequence ([e11048e](https://github.com/air-supply94/js-algorithm/commit/e11048eef09c4b2be49fbb720fc3d449d1558e8f))
 - add findNthDigit ([7dda471](https://github.com/air-supply94/js-algorithm/commit/7dda471979781008cb8a2962d357ee051188e78c))
 - add isBalanced getNext verifyTraverseAfterOrder ([013dc76](https://github.com/air-supply94/js-algorithm/commit/013dc76e78c91cd97fe4cf8c801d586083608daa))
+- add isContinuous ([adf096e](https://github.com/air-supply94/js-algorithm/commit/adf096eed2aabc18490d718f727ebb58f5c0e6c0))
 - add longestCommonSubstring regularExpressionMatching ([c1ec6ca](https://github.com/air-supply94/js-algorithm/commit/c1ec6ca9180adf00dc15629676b758911d2545e8))
 - add maxProduct findDuplicate nextPermutation ([c19bd0b](https://github.com/air-supply94/js-algorithm/commit/c19bd0b913306082582612407ab1c809db0955e7))
 - add numSquares wordBreak ([4faa9dc](https://github.com/air-supply94/js-algorithm/commit/4faa9dc09ebaa78246b6fb1fc2845d8ab5a11026))
+- add reOrderArray PrintMinNumber ([e045f91](https://github.com/air-supply94/js-algorithm/commit/e045f91da145018a6aedad56ac75a680793ee8f3))
 - add solve movingCount ([7d4ca45](https://github.com/air-supply94/js-algorithm/commit/7d4ca452dda08a69e8b125fe7b5336125d5fe2db))
 - **algorithm/array:** add firstMissingPositive ([9a11272](https://github.com/air-supply94/js-algorithm/commit/9a1127295164aa835c50cf372d39eeb317f3f23c))
 - **algorithm/array:** add productExceptSelf ([9899f1f](https://github.com/air-supply94/js-algorithm/commit/9899f1fc4af25442e7d099936260d4b526fba02f))
@@ -401,6 +405,7 @@
 - 增加 trie ([605372a](https://github.com/air-supply94/js-algorithm/commit/605372afa097d3c4d0aebbda3f337b08ce07f69c))
 - 增加测试覆盖 ([acb452b](https://github.com/air-supply94/js-algorithm/commit/acb452bcbbb5be7d1801c8ce63581873f80e1830))
 - 增加跳跃游戏、雨滴问题 ([4a0523e](https://github.com/air-supply94/js-algorithm/commit/4a0523ee3728ad5004412c07e78be3b86fea0932))
+- 增加递归时间复杂度分析 ([2d324a4](https://github.com/air-supply94/js-algorithm/commit/2d324a43979bf25e6d20eb8c51b2ec59c8761252))
 - 更改 avl 树、红黑树 types ([e01d123](https://github.com/air-supply94/js-algorithm/commit/e01d1237ed4a23f22362d76b1374935b45e367e7))
 - 更新实现 ([57358c4](https://github.com/air-supply94/js-algorithm/commit/57358c428cd2cdd11a97e586065572fae2b2666e))
 - 简单重构 ([94b454e](https://github.com/air-supply94/js-algorithm/commit/94b454edea13c9e781008584280de4841845cb4f))
