@@ -5,6 +5,7 @@ interface TreeLinkNode {
   next: TreeLinkNode | null;
 }
 
+// 剑指 Offer 8
 export function getNext(root: TreeLinkNode): TreeLinkNode | null {
   if (!root) {
     return null;
