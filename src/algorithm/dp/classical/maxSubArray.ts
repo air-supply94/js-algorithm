@@ -18,16 +18,14 @@ export function maxSubArray2(array: number[]): number[] {
   let resultLeft = 0;
   let resultRight = 0;
   let left = 0;
-  let right = 0;
   let maxValue = array[0];
 
   let currentSum = array[0];
-  for (let i = 1; i < array.length; i++) {
-    right++;
+  for (let right = 1; right < array.length; right++) {
     if (currentSum >= 0) {
-      currentSum += array[i];
+      currentSum += array[right];
     } else {
-      currentSum = array[i];
+      currentSum = array[right];
       left = right;
     }
 

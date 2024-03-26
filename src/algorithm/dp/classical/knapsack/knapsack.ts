@@ -1,4 +1,5 @@
-export function knapsack01(weight: number, weightList: number[], value: number[]): number {
+// 01背包(数量有限)
+export function knapsack(weight: number, weightList: number[], value: number[]): number {
   const dp: number[] = Array(weight + 1)
     .fill(0);
 

@@ -1,6 +1,7 @@
 // https://leetcode-cn.com/problems/partition-equal-subset-sum/
 // 416
 // top100
+// 子集背包
 export function canPartition(weightList: number[]): boolean {
   let sum = 0;
   for (let i = 0; i < weightList.length; i++) {

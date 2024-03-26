@@ -25,25 +25,3 @@ export function longestCommonSubstring(a: string, b: string): number {
   }
   return result;
 }
-
-// https://www.lintcode.com/problem/79/#
-/*
-export function longestCommonSubstring(string1: string, string2: string): number {
-  let result = 0;
-
-  for (let i = 0; i < string1.length; i++) {
-    for (let j = 0; j < string2.length; j++) {
-      if (string1[i] === string2[j]) {
-        let x = i;
-        let y = j;
-        while (x < string1.length && y < string2.length && string1[x] === string2[y]) {
-          x++;
-          y++;
-          result = Math.max(x - i, result);
-        }
-      }
-    }
-  }
-  return result;
-}
-*/

@@ -2,10 +2,12 @@
 // 300
 // top100
 export function lengthOfLIS(numbers: number[]): number {
-  // i结尾
-  const dp = Array(numbers.length).fill(1);
+  const length = numbers.length;
 
-  for (let i = 0; i < numbers.length; i++) {
+  // i结尾
+  const dp = Array(length).fill(1);
+
+  for (let i = 0; i < length; i++) {
     for (let j = 0; j < i; j++) {
       if (numbers[i] > numbers[j]) {
         dp[i] = Math.max(dp[i], dp[j] + 1);

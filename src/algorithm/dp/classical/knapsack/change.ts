@@ -1,5 +1,6 @@
 // https://leetcode.cn/problems/coin-change-ii/
 // 518
+// 完全背包(数量无限)
 export function change(weight: number, weightList: number[]): number {
   const dp: number[] = Array(weight + 1)
     .fill(0);

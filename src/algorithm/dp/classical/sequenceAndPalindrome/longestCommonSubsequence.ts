@@ -26,8 +26,8 @@ export function longestCommonSubsequenceRecursion(str1: string, str2: string, i 
 // 1143
 // top100
 export function longestCommonSubsequence(str1: string, str2: string): number {
-  const height = str2.length;
-  const width = str1.length;
+  const height = str1.length;
+  const width = str2.length;
 
   // i结尾的str1,j结尾的str2
   const dp: number[] = Array(width + 1).fill(0);
@@ -36,7 +36,7 @@ export function longestCommonSubsequence(str1: string, str2: string): number {
     let topLeft = dp[0];
     for (let j = 1; j <= width; j++) {
       const tmp = dp[j];
-      if (str2[i - 1] === str1[j - 1]) {
+      if (str1[i - 1] === str2[j - 1]) {
         dp[j] = 1 + topLeft;
       } else {
         dp[j] = Math.max(dp[j - 1], dp[j]);
@@ -45,5 +45,5 @@ export function longestCommonSubsequence(str1: string, str2: string): number {
     }
   }
 
-  return dp[str1.length];
+  return dp[width];
 }
