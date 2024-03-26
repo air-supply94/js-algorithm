@@ -2,20 +2,20 @@
 // 165
 export function crackNumber(num: number): number {
   const str = String(num);
-  let dp_i_0 = 1;
-  let dp_i_1 = 1;
+  let previousValue = 1;
+  let currentValue = 1;
 
   for (let i = 1; i < str.length; i++) {
     const tmp = Number(str[i - 1]) * 10 + Number(str[i]);
-    const tmp_dp_i_1 = dp_i_1;
+    const tmpCurrentValue = currentValue;
     if (tmp >= 10 && tmp <= 25) {
-      dp_i_1 += dp_i_0;
+      currentValue += previousValue;
     }
 
-    dp_i_0 = tmp_dp_i_1;
+    previousValue = tmpCurrentValue;
   }
 
-  return dp_i_1;
+  return currentValue;
 }
 
 // 剑指offer 46
@@ -24,26 +24,24 @@ export function solve(nums: string): number {
     return 0;
   }
 
-  let dp_i_0 = 1;
-  let dp_i_1 = 1;
+  let previousValue = 1;
+  let currentValue = 1;
 
   for (let i = 1; i < nums.length; i++) {
     const high = Number(nums[i - 1]);
     const low = Number(nums[i]);
-    if (low === 0) {
-      if (high !== 1 && high !== 2) {
-        return 0;
-      }
+    if (low === 0 && high !== 1 && high !== 2) {
+      return 0;
     }
 
     const tmp = high * 10 + low;
-    const tmp_dp_i_1 = dp_i_1;
+    const tmpCurrentValue = currentValue;
     if (tmp >= 11 && tmp <= 26 && tmp !== 20) {
-      dp_i_1 += dp_i_0;
+      currentValue += previousValue;
     }
 
-    dp_i_0 = tmp_dp_i_1;
+    previousValue = tmpCurrentValue;
   }
 
-  return dp_i_1;
+  return currentValue;
 }

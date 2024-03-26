@@ -36,23 +36,3 @@ export function minimumTotalDpLeftToRight(grid: number[][]): number {
   return dp[0];
 }
 
-// https://leetcode-cn.com/problems/triangle/
-// 120
-// 自底向上右往左
-export function minimumTotalDpRightToLeft(grid: number[][]): number {
-  const height = grid.length;
-  const dp: number[] = Array(height).fill(null);
-  for (let i = 0; i < height; i++) {
-    dp[i] = grid[height - 1][i];
-  }
-
-  for (let i = height - 2; i >= 0; i--) {
-    const shiftLength = height - grid[i].length;
-    for (let j = height - 1; j >= shiftLength; j--) {
-      dp[j] = Math.min(dp[j], dp[j - 1]) + grid[i][j - shiftLength];
-    }
-  }
-
-  return dp[height - 1];
-}
-

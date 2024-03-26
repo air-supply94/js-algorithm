@@ -9,7 +9,7 @@ export function maxProduct(nums: number[]): number {
   for (let i = 1; i < nums.length; i++) {
     const tmp = max;
     max = Math.max(Math.max(max * nums[i], nums[i]), min * nums[i]);
-    min = Math.min(Math.min(min * nums[i], nums[i]), tmp * nums[i]);
+    min = Math.min(Math.min(tmp * nums[i], nums[i]), min * nums[i]);
     result = Math.max(result, max);
   }
 

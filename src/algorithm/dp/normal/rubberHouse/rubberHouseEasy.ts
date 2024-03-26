@@ -4,14 +4,14 @@
 // 金典-17.16
 // top100
 export function rubberHouseEasy(numbers: number[], startIndex = 0, endIndex = numbers.length - 1): number {
-  let dp_i0 = 0;
-  let dp_i1 = 0;
+  let previousValue = 0;
+  let currentValue = 0;
 
   for (let i = startIndex; i <= endIndex; i++) {
-    const tmp = dp_i1;
-    dp_i1 = Math.max(dp_i1, dp_i0 + numbers[i]);
-    dp_i0 = tmp;
+    const tmp = currentValue;
+    currentValue = Math.max(currentValue, previousValue + numbers[i]);
+    previousValue = tmp;
   }
 
-  return dp_i1;
+  return currentValue;
 }

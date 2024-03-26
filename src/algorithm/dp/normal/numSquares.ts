@@ -6,11 +6,11 @@ export function numSquares(n: number): number {
     .fill(0);
 
   for (let i = 1; i <= n; i++) {
-    let minValue = Infinity;
+    let count = Infinity;
     for (let j = 1; j * j <= i; j++) {
-      minValue = Math.min(minValue, dp[i - j * j]);
+      count = Math.min(count, dp[i - j * j] + 1);
     }
-    dp[i] = minValue + 1;
+    dp[i] = count;
   }
   return dp[n];
 }

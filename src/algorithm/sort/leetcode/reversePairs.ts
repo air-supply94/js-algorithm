@@ -26,14 +26,11 @@ export function reversePairs(nums: number[]): number {
       if (originalArray[j] < originalArray[i]) {
         result[k] = originalArray[j];
 
-        // 第二种思路
-        // count += middleIndex - i + 1;
         k++;
         j++;
       } else {
         result[k] = originalArray[i];
 
-        // 第一种思路
         count += (j - 1) - (middleIndex + 1) + 1;
         k++;
         i++;
@@ -43,7 +40,6 @@ export function reversePairs(nums: number[]): number {
     while (i <= middleIndex) {
       result[k] = originalArray[i];
 
-      // 第一种思路
       count += (j - 1) - (middleIndex + 1) + 1;
       k++;
       i++;

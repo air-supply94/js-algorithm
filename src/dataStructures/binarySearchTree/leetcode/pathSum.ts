@@ -4,19 +4,19 @@ import type { TreeNode } from './treeNode';
 // 437
 // top100
 // 剑指offer 84
-export function pathSum(root: TreeNode | null, targetSum: number): number {
+export function pathSum(root: TreeNode | null, currentSum: number): number {
   if (root == null) {
     return 0;
   }
 
-  return dfs(root, targetSum, 0) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);
+  return dfs(root, currentSum) + pathSum(root.left, currentSum) + pathSum(root.right, currentSum);
 }
 
-function dfs(root: TreeNode | null, targetSum: number, currentSum: number): number {
+function dfs(root: TreeNode | null, currentSum: number): number {
   if (root == null) {
     return 0;
   }
 
-  currentSum += root.val;
-  return dfs(root.left, targetSum, currentSum) + dfs(root.right, targetSum, currentSum) + (currentSum === targetSum ? 1 : 0);
+  currentSum -= root.val;
+  return dfs(root.left, currentSum) + dfs(root.right, currentSum) + (currentSum === 0 ? 1 : 0);
 }
