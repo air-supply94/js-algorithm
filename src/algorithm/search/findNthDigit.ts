@@ -3,8 +3,7 @@ export function findNthDigit(n: number): number {
   let nthDigit = 1;
   let start = 1;
 
-  // 9
-  let sum = (Math.pow(10, nthDigit) - start) * nthDigit;
+  let sum = 9;
   while (n > sum) {
     n -= sum;
     nthDigit++;

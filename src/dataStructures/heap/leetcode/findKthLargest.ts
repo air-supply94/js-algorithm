@@ -42,3 +42,72 @@ function partitionArray(originalArray: number[], left: number, right: number): n
 
   return i;
 }
+
+/*
+interface Item {
+  value: number;
+  count: number;
+}
+
+function topKFrequent(nums: number[], k: number): number[] {
+  const map = new Map<number, number>();
+  for (let i = 0; i < nums.length; i++) {
+    map.set(nums[i], (map.get(nums[i]) || 0) + 1);
+  }
+
+  const array: Item[] = [];
+  for (const mapElement of map) {
+    array.push({
+      value: mapElement[0],
+      count: mapElement[1],
+    });
+  }
+
+  return findKthLargest(array, k);
+}
+
+function findKthLargest(nums: Item[], k: number, left = 0, right = nums.length - 1): number[] {
+  console.log(nums);
+  if (left === right) {
+    return nums.slice(left)
+      .map((item) => item.value);
+  }
+  const partitionIndex = partitionArray(nums, left, right);
+  const targetIndex = nums.length - k;
+  if (targetIndex <= partitionIndex - 1) {
+    return findKthLargest(nums, k, left, partitionIndex - 1);
+  } else {
+    return findKthLargest(nums, k, partitionIndex, right);
+  }
+}
+
+function partitionArray(originalArray: Item[], left: number, right: number): number {
+  const baseItem = originalArray[(left + right) >>> 1];
+  let i = left;
+  let j = right;
+
+  while (i <= j) {
+    while (originalArray[i].count < baseItem.count) {
+      i++;
+    }
+
+    while (originalArray[j].count > baseItem.count) {
+      j--;
+    }
+
+    if (i <= j) {
+      swap(originalArray, i, j);
+      i++;
+      j--;
+    }
+  }
+
+  return i;
+}
+
+function swap(data: unknown[], first: number, second: number): void {
+  const t = data[first];
+  data[first] = data[second];
+  data[second] = t;
+}
+*/
