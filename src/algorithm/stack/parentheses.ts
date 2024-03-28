@@ -46,7 +46,7 @@ export function isValid(str: string): boolean {
 // https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid/
 // 921
 export function minAddToMakeValid(s: string): number {
-  let result = 0;
+  let notMatchCount = 0;
   let needRightBrace = 0;
 
   for (let i = 0; i < s.length; i++) {
@@ -55,36 +55,36 @@ export function minAddToMakeValid(s: string): number {
     } else {
       needRightBrace--;
       if (needRightBrace === -1) {
-        result++;
+        notMatchCount++;
         needRightBrace = 0;
       }
     }
   }
 
-  return needRightBrace + result;
+  return needRightBrace + notMatchCount;
 }
 
 // https://leetcode-cn.com/problems/minimum-insertions-to-balance-a-parentheses-string/
 // 1541
 export function minInsertions(s: string): number {
-  let result = 0;
+  let notMatchCount = 0;
   let needRightBrace = 0;
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === '(') {
       needRightBrace += 2;
       if (needRightBrace & 1) {
-        result++;
+        notMatchCount++;
         needRightBrace--;
       }
     } else {
       needRightBrace--;
       if (needRightBrace === -1) {
-        result++;
+        notMatchCount++;
         needRightBrace = 1;
       }
     }
   }
 
-  return result + needRightBrace;
+  return notMatchCount + needRightBrace;
 }

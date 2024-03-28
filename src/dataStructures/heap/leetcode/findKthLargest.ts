@@ -96,18 +96,14 @@ function partitionArray(originalArray: Item[], left: number, right: number): num
     }
 
     if (i <= j) {
-      swap(originalArray, i, j);
+      const t = originalArray[i];
+      originalArray[i] = originalArray[j];
+      originalArray[j] = t;
       i++;
       j--;
     }
   }
 
   return i;
-}
-
-function swap(data: unknown[], first: number, second: number): void {
-  const t = data[first];
-  data[first] = data[second];
-  data[second] = t;
 }
 */

@@ -26,6 +26,6 @@ export class MinStack {
   }
 
   public getMin(): number {
-    return this.minValueStack[this.minValueStack.length - 1];
+    return this.minValue;
   }
 }
