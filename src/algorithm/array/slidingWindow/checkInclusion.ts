@@ -25,7 +25,7 @@ export function checkInclusion(t: string, s: string): boolean {
       }
     }
 
-    while (right - left === t.length) {
+    if (right - left === t.length) {
       if (matchCharCount === needCharMap.size) {
         return true;
       }

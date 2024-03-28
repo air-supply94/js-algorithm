@@ -3,17 +3,9 @@
 // top100
 export function threeSum(nums: number[]): number[][] {
   nums.sort((a, b) => a - b);
-  const result: number[][] = [];
+  const result = new Set<string>();
 
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] > 0) {
-      return result;
-    }
-
-    if (i > 0 && nums[i] === nums[i - 1]) {
-      continue;
-    }
-
     let j = i + 1;
     let k = nums.length - 1;
 
@@ -22,18 +14,11 @@ export function threeSum(nums: number[]): number[][] {
       if (sum < 0) {
         j++;
       } else if (sum === 0) {
-        result.push([
+        result.add([
           nums[i],
           nums[j],
           nums[k],
-        ]);
-
-        while (j < k && nums[j] === nums[j + 1]) {
-          j++;
-        }
-        while (j < k && nums[k] === nums[k - 1]) {
-          k--;
-        }
+        ].join(','));
 
         j++;
         k--;
@@ -43,5 +28,7 @@ export function threeSum(nums: number[]): number[][] {
     }
   }
 
-  return result;
+  return Array.from(result)
+    .map((item) => item.split(',')
+      .map((val) => Number(val)));
 }

@@ -4,14 +4,14 @@
 // 剑指offer 66
 export function productExceptSelf(nums: number[]): number[] {
   const result = Array(nums.length).fill(1);
-  let prefix = 1;
-  let suffix = 1;
+  let leftResult = 1;
+  let rightResult = 1;
 
   for (let i = 0, j = nums.length - 1; i < nums.length; i++, j--) {
-    result[i] *= prefix;
-    result[j] *= suffix;
-    prefix *= nums[i];
-    suffix *= nums[j];
+    result[i] *= leftResult;
+    result[j] *= rightResult;
+    leftResult *= nums[i];
+    rightResult *= nums[j];
   }
 
   return result;

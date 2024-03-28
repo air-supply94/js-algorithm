@@ -1,10 +1,9 @@
-import { reverse } from '../../utils';
-
 // 剑指offer 21
-
+// https://www.nowcoder.com/practice/ef1f53ef31ca408cada5093c8780f44b
 export function reOrderArray(array: number[]): number[] {
   for (let i = 0; i < array.length; i++) {
-    if ((array[i] % 2) === 0) {
+    const evenValue = array[i];
+    if ((evenValue % 2) === 0) {
       let j = -1;
       for (let k = i + 1; k < array.length && j === -1; k++) {
         if ((array[k] % 2) === 1) {
@@ -16,12 +15,13 @@ export function reOrderArray(array: number[]): number[] {
         return array;
       }
 
-      const tmp = array[i];
       array[i] = array[j];
-      array[j] = tmp;
-
-      reverse(array, i + 1, j);
-      reverse(array, i + 2, j);
+      let nextValue = evenValue;
+      for (let k = i + 1; k <= j; k++) {
+        const tmp = array[k];
+        array[k] = nextValue;
+        nextValue = tmp;
+      }
     }
   }
 
@@ -29,6 +29,7 @@ export function reOrderArray(array: number[]): number[] {
 }
 
 // 剑指offer 81
+// https://www.nowcoder.com/practice/0c1b486d987b4269b398fee374584fc8
 export function reOrderArrayTwo(array: number[]): number[] {
   let left = 0;
   let right = array.length - 1;

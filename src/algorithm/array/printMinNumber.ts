@@ -1,4 +1,5 @@
 // 剑指offer 45
+// https://www.nowcoder.com/practice/8fecd3f8ba334add803bf2a06af1b993
 export function printMinNumber(numbers: number[]): string {
   numbers.sort((a, b) => {
     const str1 = `${a}`;
