@@ -19,7 +19,7 @@ export function longestPalindrome(str: string): string {
     const str1 = getLongestPalindrome(str, i, i);
     const str2 = getLongestPalindrome(str, i, i + 1);
 
-    if (str1.length > result.length) {
+    if (str1.length >= result.length) {
       result = str1;
     }
 

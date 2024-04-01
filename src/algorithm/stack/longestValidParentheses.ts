@@ -18,7 +18,8 @@ export function longestValidParentheses(s: string): number {
   }
 
   let result = 0;
-  for (let i = 0; i < match.length; i++) {
+  let i = 0;
+  while (i < match.length) {
     if (match[i] === 1) {
       let j = i;
       while (j < match.length && match[j] === 1) {
@@ -26,6 +27,8 @@ export function longestValidParentheses(s: string): number {
       }
       result = Math.max(result, j - i);
       i = j;
+    } else {
+      i++;
     }
   }
 

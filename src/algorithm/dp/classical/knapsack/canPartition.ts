@@ -22,9 +22,7 @@ export function canPartition(weightList: number[]): boolean {
     for (let w = 1; w <= weight; w++) {
       const subResult = w - weightList[i - 1];
       if (subResult >= 0) {
-        dp[w] = previousDp[w] || previousDp[subResult];
-      } else {
-        dp[w] = previousDp[w];
+        dp[w] ||= previousDp[subResult];
       }
     }
   }
