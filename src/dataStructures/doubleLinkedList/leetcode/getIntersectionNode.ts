@@ -3,7 +3,6 @@ import type { ListNode } from './listNode';
 // https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
 // 160
 // top100
-// 剑指offer
 export function getIntersectionNode(head1: ListNode | null, head2: ListNode | null): ListNode | null {
   if (head1 === null || head2 === null) {
     return null;

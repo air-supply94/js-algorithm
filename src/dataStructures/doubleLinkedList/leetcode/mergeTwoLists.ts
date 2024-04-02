@@ -47,7 +47,6 @@ function mergeTwoLists<T = unknown>(firstHead: interfaces.DoubleLinkedListNode<T
 // https://leetcode-cn.com/problems/merge-two-sorted-lists/
 // 21
 // top100
-// 剑指offer
 export function mergeTwoLists(firstHead: ListNode | null, secondHead: ListNode | null): ListNode | null {
   const virtualHead: ListNode = new ListNode(null);
   let firstHeadNode = firstHead;

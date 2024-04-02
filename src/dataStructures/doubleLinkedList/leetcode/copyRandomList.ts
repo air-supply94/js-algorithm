@@ -15,7 +15,6 @@ class Node {
 // https://leetcode.cn/problems/copy-list-with-random-pointer/description/?envType=study-plan-v2&envId=top-100-liked
 // 138
 // top100
-// 剑指offer
 export function copyRandomList(head: Node | null): Node | null {
   if (head == null) {
     return null;

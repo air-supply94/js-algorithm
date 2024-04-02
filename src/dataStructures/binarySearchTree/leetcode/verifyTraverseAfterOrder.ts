@@ -1,4 +1,5 @@
-// 剑指 Offer 33
+// 剑指 Offer
+// https://www.nowcoder.com/practice/a861533d45854474ac791d90e447bafd
 export function verifyTraverseAfterOrder(sequence: number[]): boolean {
   if (sequence.length <= 0) {
     return false;

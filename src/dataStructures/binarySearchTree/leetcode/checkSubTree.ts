@@ -1,7 +1,8 @@
 import type { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/check-subtree-lcci/
-// 剑指offer 26(类似)
+// 剑指offer
+// https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88
 export function checkSubTree(root: TreeNode | null, childRoot: TreeNode | null): boolean {
   if (childRoot == null) {
     return true;

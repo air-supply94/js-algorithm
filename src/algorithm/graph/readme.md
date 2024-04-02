@@ -75,7 +75,7 @@ edge 带有`weight`---`网(network)`
 ## 生成树
 
 - `图中n个vertex,小于n - 1条边,一定不连通`
-- `图中n个vertex,大于于n - 1条边,一定有环`
+- `图中n个vertex,大于n - 1条边,一定有环`
 - `无向图`中`连通`, n 个 vertex 且只有 n - 1 条 edge---连通图的生成树
 - `有向图`中`,顶点 InDegree 为 0,其余 vertex 的 InDegree 为 1
 - 一个有向图由若干`有向树`构成`生成森林`
