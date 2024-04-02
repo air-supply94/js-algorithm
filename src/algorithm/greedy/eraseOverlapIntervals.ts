@@ -18,20 +18,21 @@ export function eraseOverlapIntervals(numbers: number[][]): number {
 // https://leetcode.cn/problems/merge-intervals/description/?envType=study-plan-v2&envId=top-100-liked
 // 56
 // top100
-export function merge(numbers: number[][]): number[][] {
+function merge(numbers: number[][]): number[][] {
   numbers.sort((a, b) => a[0] - b[0]);
-  let current = numbers[0];
-  const result: number[][] = [current];
+  const result: number[][] = [];
+  let current = numbers[0].slice();
 
   for (let i = 1; i < numbers.length; i++) {
-    const next = numbers[i];
-    if (current[1] >= next[0]) {
-      current[1] = Math.max(current[1], next[1]);
-    } else {
-      current = next;
+    const currentItem = numbers[i];
+    if (currentItem[0] > current[1]) {
       result.push(current);
+      current = currentItem;
+    } else {
+      current[1] = Math.max(current[1], currentItem[1]);
     }
   }
 
+  result.push(current);
   return result;
 }
