@@ -1,23 +1,24 @@
-import type { TreeNode } from './treeNode';
 
-// https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
-// 剑指offer 82(类似)
-// 剑指offer 34
-export function pathTarget(root: TreeNode | null, sum: number, result: number[][] = [], currentPath: number[] = []): number[][] {
-  if (root == null) {
-    return result;
+export function VerifySquenceOfBST(sequence: number[], left = 0, right = sequence.length - 1): boolean {
+  if (sequence.length <= 0) {
+    return false;
   }
 
-  currentPath.push(root.val);
-
-  sum -= root.val;
-  if (sum === 0 && !root.left && !root.right) {
-    result.push(currentPath.slice());
+  if (left >= right) {
+    return true;
   }
 
-  pathTarget(root.left, sum, result, currentPath);
-  pathTarget(root.right, sum, result, currentPath);
+  const rootValue = sequence[right];
+  let leftRight = right - 1;
+  while (leftRight >= 0 && sequence[leftRight] > rootValue) {
+    leftRight--;
+  }
 
-  currentPath.pop();
-  return result;
+  for (let i = left; i <= leftRight; i++) {
+    if (sequence[left] >= rootValue) {
+      return false;
+    }
+  }
+
+  return VerifySquenceOfBST(sequence, left, leftRight) && VerifySquenceOfBST(sequence, leftRight + 1, right);
 }

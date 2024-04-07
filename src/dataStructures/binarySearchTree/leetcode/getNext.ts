@@ -20,11 +20,14 @@ export function getNext(root: TreeLinkNode): TreeLinkNode | null {
     return minNode;
   }
 
-  while (root.next) {
-    if (root.next.left === root) {
-      return root.next;
+  let parent = root.next;
+  let child = root;
+  while (parent) {
+    if (parent.left === child) {
+      return parent;
     }
-    root = root.next;
+    child = parent;
+    parent = parent.next;
   }
   return null;
 }
