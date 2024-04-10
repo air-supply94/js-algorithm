@@ -1,4 +1,5 @@
-// 剑指 Offer 44
+// 剑指 Offer
+// https://www.nowcoder.com/practice/29311ff7404d44e0b07077f4201418f5
 export function findNthDigit(n: number): number {
   let nthDigit = 1;
   let start = 1;

@@ -1,4 +1,4 @@
-// 剑指 Offer 74
+// 剑指 Offer
 // https://www.nowcoder.com/practice/c451a3fd84b64cb19485dad758a55ebe
 export function findContinuousSequence(sum: number, n = 100): number[][] {
   const result: number[][] = [];

@@ -3,8 +3,6 @@ import type { TreeNode } from './treeNode';
 // https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
 // 236
 // top100
-// 剑指 Offer
-// https://www.nowcoder.com/practice/e0cc33a83afe4530bcec46eba3325116
 export function lowestCommonAncestor(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
   if (root === null) {
     return null;

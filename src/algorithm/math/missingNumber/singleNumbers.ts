@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/
-// 剑指 Offer 56
+// 剑指 Offer
+// https://www.nowcoder.com/practice/389fc1c3d3be4479a154f63f495abff8
 export function singleNumbers(nums: number[]): number[] {
   let xor = 0;
   let xor1 = 0;

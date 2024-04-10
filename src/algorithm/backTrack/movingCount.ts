@@ -1,4 +1,5 @@
-// 剑指offer 13
+// 剑指offer
+// https://www.nowcoder.com/practice/6e5207314b5241fb83f2329e89fdecc8
 export function movingCount(threshold: number, rows: number, cols: number, h = 0, w = 0, cache: number[][] = Array(rows)
   .fill(null)
   .map(() => Array(cols)
@@ -8,7 +9,11 @@ export function movingCount(threshold: number, rows: number, cols: number, h = 0
   }
 
   cache[h][w] = 1;
-  return 1 + movingCount(threshold, rows, cols, h - 1, w, cache) + movingCount(threshold, rows, cols, h, w + 1, cache) + movingCount(threshold, rows, cols, h + 1, w, cache) + movingCount(threshold, rows, cols, h, w - 1, cache);
+  const top = movingCount(threshold, rows, cols, h - 1, w, cache);
+  const right = movingCount(threshold, rows, cols, h, w + 1, cache);
+  const bottom = movingCount(threshold, rows, cols, h + 1, w, cache);
+  const left = movingCount(threshold, rows, cols, h, w - 1, cache);
+  return 1 + top + right + bottom + left;
 }
 
 function cal(num: number) {

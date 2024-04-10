@@ -3,7 +3,6 @@ import { reverse } from '../../utils';
 // https://leetcode-cn.com/problems/rotate-array/
 // 189
 // top100
-// 剑指 Offer 58(类似)
 export function rotate<T = unknown>(array: T[], k: number): T[] {
   const count = (k >>> 0) % array.length;
   reverse(array, 0, array.length - 1);

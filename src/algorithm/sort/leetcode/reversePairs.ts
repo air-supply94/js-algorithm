@@ -1,5 +1,6 @@
 // 类似 https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
-// 剑指 Offer 51
+// 剑指 Offer
+// https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5
 // 归时,左侧元素小于等于右侧元素时,左侧元素必然大于右侧索引减1的所有元素
 export function reversePairs(nums: number[]): number {
   let count = 0;
