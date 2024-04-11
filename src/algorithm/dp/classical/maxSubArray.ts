@@ -1,8 +1,6 @@
 // https://leetcode-cn.com/problems/maximum-subarray/
 // 53
 // top100
-// 剑指offer 42
-
 export function maxSubArray(numbers: number[]): number {
   let currentSum = -Infinity;
   let maxValue = -Infinity;
@@ -15,7 +13,8 @@ export function maxSubArray(numbers: number[]): number {
   return maxValue;
 }
 
-// 剑指offer 85
+// 剑指offer
+// https://www.nowcoder.com/practice/11662ff51a714bbd8de809a89c481e21
 export function maxSubArray2(array: number[]): number[] {
   let resultLeft = 0;
   let resultRight = 0;

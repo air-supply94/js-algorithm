@@ -2,7 +2,6 @@
 // 3
 // 最长区间
 // top100
-// 剑指offer 48
 export function lengthOfLongestSubstring(s: string): number {
   const charCountMap = new Map<string, number>();
   let left = 0;

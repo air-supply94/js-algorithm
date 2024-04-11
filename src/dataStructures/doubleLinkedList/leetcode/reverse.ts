@@ -3,7 +3,6 @@ import type { ListNode } from './listNode';
 // https://leetcode-cn.com/problems/reverse-linked-list
 // 206
 // top100
-// 剑指offer
 export function reverseList(head: ListNode): ListNode | null {
   let previousNode = null;
   let currentNode = head;

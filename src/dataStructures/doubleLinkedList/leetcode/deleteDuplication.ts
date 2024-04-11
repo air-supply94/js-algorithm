@@ -1,7 +1,7 @@
 import { ListNode } from './listNode';
 
-// https://www.nowcoder.com/practice/fc533c45b73a41b0b44ccba763f866ef
 // 剑指offer
+// https://www.nowcoder.com/practice/fc533c45b73a41b0b44ccba763f866ef
 export function deleteDuplication(head: ListNode): ListNode {
   const virtualNode = new ListNode();
   let virtualCurrentNode = virtualNode;

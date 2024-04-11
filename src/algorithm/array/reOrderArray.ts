@@ -1,4 +1,4 @@
-// 剑指offer 21
+// 剑指offer
 // https://www.nowcoder.com/practice/ef1f53ef31ca408cada5093c8780f44b
 export function reOrderArray(array: number[]): number[] {
   for (let i = 0; i < array.length; i++) {
@@ -22,26 +22,6 @@ export function reOrderArray(array: number[]): number[] {
         array[k] = nextValue;
         nextValue = tmp;
       }
-    }
-  }
-
-  return array;
-}
-
-// 剑指offer 81
-// https://www.nowcoder.com/practice/0c1b486d987b4269b398fee374584fc8
-export function reOrderArrayTwo(array: number[]): number[] {
-  let left = 0;
-  let right = array.length - 1;
-
-  while (left < right) {
-    if (array[left] % 2 === 0) {
-      const tmp = array[left];
-      array[left] = array[right];
-      array[right] = tmp;
-      right--;
-    } else {
-      left++;
     }
   }
 

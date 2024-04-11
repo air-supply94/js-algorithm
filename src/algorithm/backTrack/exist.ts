@@ -1,7 +1,6 @@
 // https://leetcode-cn.com/problems/word-search/
 // 79
 // top100
-// 剑指offer 12
 export function exist(board: string[][], word: string): boolean {
   for (let h = 0; h < board.length; h++) {
     for (let w = 0; w < board[h].length; w++) {
