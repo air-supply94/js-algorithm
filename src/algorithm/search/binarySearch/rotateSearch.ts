@@ -33,6 +33,8 @@ export function rotateSearchElement(rotateArray: number[], seekElement: number):
 // https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
 // 153
 // 154(类似)
+// 剑指offer
+// https://www.nowcoder.com/practice/9f3231a991af4f55b95579b44b7a01
 export function rotateSearchMin(rotateArray: number[]): number {
   let left = 0;
   let right = rotateArray.length - 1;
