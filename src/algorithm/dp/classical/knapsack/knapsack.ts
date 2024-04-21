@@ -1,7 +1,6 @@
 // 01背包(数量有限)
 export function knapsack(weight: number, weightList: number[], value: number[]): number {
-  const dp: number[] = Array(weight + 1)
-    .fill(0);
+  const dp: number[] = Array(weight + 1).fill(0);
 
   for (let i = 1; i <= weightList.length; i++) {
     const previousDp = dp.slice();

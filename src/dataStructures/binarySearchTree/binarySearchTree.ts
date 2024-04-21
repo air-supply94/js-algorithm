@@ -35,7 +35,7 @@ export class BinarySearchTree<T = unknown> implements interfaces.BinarySearchTre
   public readonly comparator: interfaces.Comparator<T>;
 
   public insert(value: T): interfaces.BinarySearchTreeNode<T> | null {
-    return insert(this.root, value, this.comparator, (root) => this.root = root);
+    return insert(this.root, value, this.comparator, (root) => (this.root = root));
   }
 
   public find(value: T): interfaces.BinarySearchTreeNode<T> | null {
@@ -118,7 +118,6 @@ export class BinarySearchTree<T = unknown> implements interfaces.BinarySearchTre
   }
 
   public toString(): string {
-    return this.traverseInOrder()
-      .toString();
+    return this.traverseInOrder().toString();
   }
 }

@@ -188,12 +188,7 @@ export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
   }
 
   public remove(value: T): interfaces.BinarySearchTreeNode<T> | null {
-    const replaceNode = findReplaceNode<T>(
-      this.root,
-      value,
-      this.binarySearchTree.comparator,
-      false
-    );
+    const replaceNode = findReplaceNode<T>(this.root, value, this.binarySearchTree.comparator, false);
 
     if (replaceNode == null) {
       return replaceNode;
@@ -213,7 +208,6 @@ export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
   }
 
   public toString(): string {
-    return this.traverseInOrder()
-      .toString();
+    return this.traverseInOrder().toString();
   }
 }

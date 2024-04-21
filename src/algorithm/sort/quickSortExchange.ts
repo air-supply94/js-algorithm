@@ -22,6 +22,5 @@ export function quickSortExchange<T = unknown>(originalArray: T[], compare: inte
     }
   }
 
-  return quickSortExchange(left, comparator)
-    .concat(center, quickSortExchange(right, comparator));
+  return quickSortExchange(left, comparator).concat(center, quickSortExchange(right, comparator));
 }

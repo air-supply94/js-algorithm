@@ -13,10 +13,7 @@ export function infixExpressionToPostfixExpression(infixExpression: string[]): s
       case '-':
       case '*':
       case '/':
-        if (
-          signStack.length === 0 ||
-          signStack[signStack.length - 1] === '(' ||
-          ((token === '*' || token === '/') && (signStack[signStack.length - 1] === '+' || signStack[signStack.length - 1] === '-'))) {
+        if (signStack.length === 0 || signStack[signStack.length - 1] === '(' || ((token === '*' || token === '/') && (signStack[signStack.length - 1] === '+' || signStack[signStack.length - 1] === '-'))) {
           signStack.push(token);
         } else {
           expressionStack.push(signStack.pop());

@@ -19,11 +19,7 @@ export function isValidEasy(str: string): boolean {
 // top100
 export function isValid(str: string): boolean {
   const stack: string[] = [];
-  const startSet = new Set<string>([
-    '(',
-    '{',
-    '[',
-  ]);
+  const startSet = new Set<string>(['(', '{', '[']);
   const endMap = new Map<string, string>();
 
   endMap.set(')', '(');

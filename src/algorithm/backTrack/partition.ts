@@ -2,8 +2,7 @@
 // 131
 // top100
 export function partition(s: string): string[][] {
-  return Array.from(dfs(s))
-    .map((item) => item.split(','));
+  return Array.from(dfs(s)).map((item) => item.split(','));
 }
 
 function dfs(s: string, cache = new Map<string, Set<string>>()): Set<string> {
@@ -16,9 +15,7 @@ function dfs(s: string, cache = new Map<string, Set<string>>()): Set<string> {
   }
 
   const result = new Set<string>();
-  if (s.split('')
-    .reverse()
-    .join('') === s) {
+  if (s.split('').reverse().join('') === s) {
     result.add(s);
   }
 
@@ -30,10 +27,7 @@ function dfs(s: string, cache = new Map<string, Set<string>>()): Set<string> {
 
     for (const left of leftResult) {
       for (const right of rightResult) {
-        result.add([
-          left,
-          right,
-        ].join(','));
+        result.add([left, right].join(','));
       }
     }
   }

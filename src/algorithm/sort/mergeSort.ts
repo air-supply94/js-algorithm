@@ -17,8 +17,7 @@ export function mergeSort<T = unknown>(originalArray: T[], compare?: interfaces.
 }
 
 function mergeSortedArrays<T = unknown>(originalArray: T[], comparator: interfaces.Comparator<T>, left: number, right: number): void {
-  const result: T[] = Array(right - left + 1)
-    .fill(null);
+  const result: T[] = Array(right - left + 1).fill(null);
   const middleIndex = (left + right) >>> 1;
   let l = left;
   let r = middleIndex + 1;

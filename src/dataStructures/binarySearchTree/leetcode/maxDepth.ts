@@ -10,4 +10,3 @@ export function maxDepth(root: TreeNode | null): number {
 
   return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 }
-

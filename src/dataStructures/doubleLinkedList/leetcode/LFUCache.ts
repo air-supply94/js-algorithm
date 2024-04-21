@@ -38,8 +38,7 @@ export class LFUCache {
 
     this.countMap.get(newCount).prependNode(node);
 
-    if (this.minCount === oldCount && this.countMap.get(oldCount)
-      .isEmpty()) {
+    if (this.minCount === oldCount && this.countMap.get(oldCount).isEmpty()) {
       this.minCount = newCount;
     }
   }
@@ -69,16 +68,17 @@ export class LFUCache {
         this.countMap.set(1, new DoubleLinkedList<LFUCacheItem>());
       }
 
-      this.valueMap.set(key, this.countMap.get(1)
-        .prepend({
+      this.valueMap.set(
+        key,
+        this.countMap.get(1).prepend({
           value,
           key,
           count: 1,
-        }));
+        }),
+      );
 
       if (this.valueMap.size > this.capacity) {
-        this.valueMap.delete(this.countMap.get(this.minCount)
-          .deleteTail().value.key);
+        this.valueMap.delete(this.countMap.get(this.minCount).deleteTail().value.key);
       }
 
       this.minCount = 1;

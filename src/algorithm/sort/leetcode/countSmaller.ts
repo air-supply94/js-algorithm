@@ -2,8 +2,7 @@
 // 315
 // 第一种思路
 export function countSmaller(nums: number[]): number[] {
-  const count: number[] = Array(nums.length)
-    .fill(0);
+  const count: number[] = Array(nums.length).fill(0);
 
   function mergeSort(originalArray: Array<[number, number]>, left = 0, right = originalArray.length - 1): void {
     if (left >= right) {
@@ -30,7 +29,7 @@ export function countSmaller(nums: number[]): number[] {
         j++;
       } else {
         result[k] = originalArray[i];
-        count[originalArray[i][1]] += (j - 1) - (middleIndex + 1) + 1;
+        count[originalArray[i][1]] += j - 1 - (middleIndex + 1) + 1;
         k++;
         i++;
       }
@@ -38,7 +37,7 @@ export function countSmaller(nums: number[]): number[] {
 
     while (i <= middleIndex) {
       result[k] = originalArray[i];
-      count[originalArray[i][1]] += (j - 1) - (middleIndex + 1) + 1;
+      count[originalArray[i][1]] += j - 1 - (middleIndex + 1) + 1;
       k++;
       i++;
     }
@@ -54,9 +53,6 @@ export function countSmaller(nums: number[]): number[] {
     }
   }
 
-  mergeSort(nums.map((item, index) => ([
-    item,
-    index,
-  ])));
+  mergeSort(nums.map((item, index) => [item, index]));
   return count;
 }

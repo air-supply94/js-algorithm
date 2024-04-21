@@ -2,25 +2,13 @@
 // 994
 // top100
 const directionMatrix: Array<[number, number]> = [
-  [
-    -1,
-    0,
-  ],
-  [
-    0,
-    -1,
-  ],
-  [
-    0,
-    1,
-  ],
-  [
-    1,
-    0,
-  ],
+  [-1, 0],
+  [0, -1],
+  [0, 1],
+  [1, 0],
 ];
 
-function orangesRotting(grid: number[][]): number {
+export function orangesRotting(grid: number[][]): number {
   let goodOrangeCount = 0;
   const queue: number[][] = [];
   const height = grid.length;
@@ -29,10 +17,7 @@ function orangesRotting(grid: number[][]): number {
     for (let j = 0; j < width; j++) {
       const item = grid[i][j];
       if (item === 2) {
-        queue.push([
-          i,
-          j,
-        ]);
+        queue.push([i, j]);
         grid[i][j] = 0;
       } else if (item === 1) {
         goodOrangeCount++;
@@ -56,10 +41,7 @@ function orangesRotting(grid: number[][]): number {
         const w = item[1] + directionMatrix[j][1];
         if (h >= 0 && h < height && w >= 0 && w < width && grid[h][w] === 1) {
           goodOrangeCount--;
-          queue.push([
-            h,
-            w,
-          ]);
+          queue.push([h, w]);
           grid[h][w] = 0;
         }
       }
@@ -68,4 +50,3 @@ function orangesRotting(grid: number[][]): number {
 
   return goodOrangeCount > 0 ? -1 : level - 1;
 }
-

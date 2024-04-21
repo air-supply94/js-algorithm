@@ -24,15 +24,9 @@ export function findErrorNums(nums: number[]): number[] {
 
   for (let i = 0; i < n; i++) {
     if (nums[i] === xor1) {
-      return [
-        xor1,
-        xor1 ^ xor,
-      ];
+      return [xor1, xor1 ^ xor];
     }
   }
 
-  return [
-    xor1 ^ xor,
-    xor1,
-  ];
+  return [xor1 ^ xor, xor1];
 }

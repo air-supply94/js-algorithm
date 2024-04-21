@@ -1,8 +1,8 @@
 class Node {
   constructor(val?: number, next?: Node, random?: Node) {
-    this.val = (val === undefined ? 0 : val);
-    this.next = (next === undefined ? null : next);
-    this.random = (random === undefined ? null : random);
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+    this.random = random === undefined ? null : random;
   }
 
   public val: number;

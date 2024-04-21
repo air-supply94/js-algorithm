@@ -23,4 +23,3 @@ function getCost(piles: number[], speed: number): number {
   }
   return cost;
 }
-

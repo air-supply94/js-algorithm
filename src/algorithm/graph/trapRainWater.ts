@@ -11,39 +11,22 @@ export function trapRainWater(heightMap: number[][]): number {
 
   const visited: number[][] = Array(height)
     .fill(null)
-    .map(() => Array(width)
-      .fill(0));
+    .map(() => Array(width).fill(0));
   const minHeap = new Heap<[number, number, number]>((a, b) => a[2] <= b[2]);
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
       if (i === 0 || i === height - 1 || j === 0 || j === width - 1) {
         visited[i][j] = 1;
-        minHeap.add([
-          i,
-          j,
-          heightMap[i][j],
-        ]);
+        minHeap.add([i, j, heightMap[i][j]]);
       }
     }
   }
 
   const directionMatrix = [
-    [
-      -1,
-      0,
-    ],
-    [
-      1,
-      0,
-    ],
-    [
-      0,
-      -1,
-    ],
-    [
-      0,
-      1,
-    ],
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
   ];
   let result = 0;
 
@@ -62,11 +45,7 @@ export function trapRainWater(heightMap: number[][]): number {
         }
 
         visited[neighborH][neighborW] = 1;
-        minHeap.add([
-          neighborH,
-          neighborW,
-          Math.max(currentWeight, heightMap[neighborH][neighborW]),
-        ]);
+        minHeap.add([neighborH, neighborW, Math.max(currentWeight, heightMap[neighborH][neighborW])]);
       }
     }
   }

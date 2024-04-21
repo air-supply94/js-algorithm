@@ -32,7 +32,7 @@ export function maxSubArray2(array: number[]): number[] {
 
     // 子数组和更大
     // 子数组和相等的情况下区间要更长
-    if (currentSum > maxValue || currentSum === maxValue && (resultRight - resultLeft < right - left)) {
+    if (currentSum > maxValue || (currentSum === maxValue && resultRight - resultLeft < right - left)) {
       maxValue = currentSum;
       resultLeft = left;
       resultRight = right;

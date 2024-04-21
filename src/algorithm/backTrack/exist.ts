@@ -26,12 +26,7 @@ function dfs(board: string[][], word: string, h: number, w: number, k: number): 
 
   const tempChar = board[h][w];
   board[h][w] = null;
-  const result = (
-    dfs(board, word, h - 1, w, k + 1) ||
-    dfs(board, word, h, w + 1, k + 1) ||
-    dfs(board, word, h + 1, w, k + 1) ||
-    dfs(board, word, h, w - 1, k + 1)
-  );
+  const result = dfs(board, word, h - 1, w, k + 1) || dfs(board, word, h, w + 1, k + 1) || dfs(board, word, h + 1, w, k + 1) || dfs(board, word, h, w - 1, k + 1);
   board[h][w] = tempChar;
   return result;
 }

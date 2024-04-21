@@ -13,8 +13,7 @@ export class CircularQueue implements interfaces.CircularQueue {
 
   constructor(k: number) {
     this.capacity = k + 1;
-    this.data = Array(this.capacity)
-      .fill(null);
+    this.data = Array(this.capacity).fill(null);
   }
 
   public enQueue(value: number): boolean {

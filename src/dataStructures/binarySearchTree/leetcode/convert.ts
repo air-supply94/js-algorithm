@@ -1,4 +1,4 @@
-import { TreeNode } from './treeNode';
+import type { TreeNode } from './treeNode';
 
 // 剑指offer
 // https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5
@@ -7,7 +7,7 @@ export function Convert(root: TreeNode): TreeNode {
     return null;
   }
 
-  let minNode:TreeNode;
+  let minNode: TreeNode;
 
   let previousNode: TreeNode = null;
   function dfs(node: TreeNode) {

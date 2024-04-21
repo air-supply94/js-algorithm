@@ -7,10 +7,7 @@ export function twoSum(nums: number[], target: number): [number, number] {
 
   while (left < right) {
     if (nums[left] + nums[right] === target) {
-      return [
-        left + 1,
-        right + 1,
-      ];
+      return [left + 1, right + 1];
     } else if (nums[left] + nums[right] < target) {
       left++;
     } else {
@@ -18,8 +15,5 @@ export function twoSum(nums: number[], target: number): [number, number] {
     }
   }
 
-  return [
-    -1,
-    -1,
-  ];
+  return [-1, -1];
 }

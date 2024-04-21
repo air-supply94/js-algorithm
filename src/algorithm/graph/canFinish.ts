@@ -30,4 +30,3 @@ export function findOrderDfs(numCourses: number, prerequisites: number[][]): num
 export function findOrderBfs(numCourses: number, prerequisites: number[][]): number[] {
   return topologicalSortingBfs(buildGraph(numCourses, prerequisites));
 }
-

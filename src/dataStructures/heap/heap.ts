@@ -55,9 +55,7 @@ export class Heap<T = unknown> implements interfaces.Heap<T> {
 
     while (leftChildIndex < this.heapContainer.length) {
       const rightChildIndex = parentIndex * 2 + 2;
-      const nextIndex = rightChildIndex < this.heapContainer.length && this.pairIsInCorrectOrder(this.heapContainer[rightChildIndex], this.heapContainer[leftChildIndex])
-        ? rightChildIndex
-        : leftChildIndex;
+      const nextIndex = rightChildIndex < this.heapContainer.length && this.pairIsInCorrectOrder(this.heapContainer[rightChildIndex], this.heapContainer[leftChildIndex]) ? rightChildIndex : leftChildIndex;
 
       if (this.pairIsInCorrectOrder(this.heapContainer[parentIndex], this.heapContainer[nextIndex])) {
         return;

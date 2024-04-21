@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/next-greater-element-i/
 // 496
+
 export function nextGreaterElement(num1: number[], num2: number[]): number[] {
   const stack: number[] = [];
   const hashMap = new Map<number, number>();
@@ -25,8 +26,7 @@ export function nextGreaterElement(num1: number[], num2: number[]): number[] {
 export function nextGreaterElements(num: number[]): number[] {
   const stack: number[] = [];
   const len = num.length;
-  const result: number[] = Array(num.length)
-    .fill(null);
+  const result: number[] = Array(num.length).fill(null);
 
   for (let i = 2 * len - 1; i >= 0; i--) {
     while (stack.length && num[i % len] >= stack[stack.length - 1]) {

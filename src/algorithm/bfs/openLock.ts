@@ -12,10 +12,7 @@ export function openLock(dead: string[], target: string): number {
   }
 
   // 固定模板开始
-  const visited = new Set<string>([
-    startNode,
-    target,
-  ]);
+  const visited = new Set<string>([startNode, target]);
   let startSet = new Set<string>([startNode]);
   let endSet = new Set<string>([target]);
   let level = 0;

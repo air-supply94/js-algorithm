@@ -4,8 +4,7 @@ import type { interfaces } from '../../types';
 export class FenwickTree implements interfaces.FenwickTree {
   constructor(arraySize: number) {
     this.arraySize = arraySize;
-    this.treeArray = Array(this.arraySize + 1)
-      .fill(0);
+    this.treeArray = Array(this.arraySize + 1).fill(0);
   }
 
   private readonly arraySize: number;

@@ -56,4 +56,3 @@ export function isBipartite(graph: number[][]): boolean {
 
   return result;
 }
-

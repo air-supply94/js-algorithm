@@ -1,17 +1,13 @@
 import { dijkstra } from './utils/shortestPath';
 
 function buildGraph(times: Array<[number, number, number]>, n: number): Array<Array<[number, number]>> {
-  const graph: Array<Array<[number, number]>> = Array(n)
-    .fill(null);
+  const graph: Array<Array<[number, number]>> = Array(n).fill(null);
   for (let i = 0; i < n; i++) {
     graph[i] = [];
   }
 
   for (let i = 0; i < times.length; i++) {
-    graph[times[i][0] - 1].push([
-      times[i][1] - 1,
-      times[i][2],
-    ]);
+    graph[times[i][0] - 1].push([times[i][1] - 1, times[i][2]]);
   }
 
   return graph;
@@ -32,4 +28,3 @@ export function networkDelayTime(times: Array<[number, number, number]>, n: numb
 
   return result;
 }
-

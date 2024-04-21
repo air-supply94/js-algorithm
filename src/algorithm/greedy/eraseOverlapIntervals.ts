@@ -18,7 +18,7 @@ export function eraseOverlapIntervals(numbers: number[][]): number {
 // https://leetcode.cn/problems/merge-intervals/description/?envType=study-plan-v2&envId=top-100-liked
 // 56
 // top100
-function merge(numbers: number[][]): number[][] {
+export function merge(numbers: number[][]): number[][] {
   numbers.sort((a, b) => a[0] - b[0]);
   const result: number[][] = [];
   let current = numbers[0].slice();

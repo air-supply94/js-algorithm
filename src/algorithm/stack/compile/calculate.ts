@@ -1,8 +1,7 @@
 // https://leetcode-cn.com/problems/basic-calculator/
 // 224
 export function calculate(s: string): number {
-  return recursion(Array.from(s)
-    .reverse());
+  return recursion(Array.from(s).reverse());
 }
 
 function sum(nums: number[]): number {

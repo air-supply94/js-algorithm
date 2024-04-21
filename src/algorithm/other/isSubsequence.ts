@@ -22,8 +22,7 @@ export function isSubsequenceBs(t: string, s: string): boolean {
   const cache = new Map<string, number[]>();
   for (let i = 0; i < s.length; i++) {
     if (cache.has(s[i])) {
-      cache.get(s[i])
-        .push(i);
+      cache.get(s[i]).push(i);
     } else {
       cache.set(s[i], [i]);
     }

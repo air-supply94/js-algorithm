@@ -8,10 +8,11 @@ export function maxProfitCountAny(count: number, prices: number[]): number {
 
   const dp: number[][][] = Array(prices.length)
     .fill(null)
-    .map(() => Array(count + 1)
-      .fill(null)
-      .map(() => Array(2)
-        .fill(0)));
+    .map(() =>
+      Array(count + 1)
+        .fill(null)
+        .map(() => Array(2).fill(0)),
+    );
 
   for (let i = 0; i < prices.length; i++) {
     for (let j = 1; j <= count; j++) {

@@ -2,8 +2,7 @@
 // 518
 // 完全背包(数量无限)
 export function change(weight: number, weightList: number[]): number {
-  const dp: number[] = Array(weight + 1)
-    .fill(0);
+  const dp: number[] = Array(weight + 1).fill(0);
   dp[0] = 1;
 
   for (let i = 1; i <= weightList.length; i++) {

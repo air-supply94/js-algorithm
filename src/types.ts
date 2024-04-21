@@ -96,8 +96,8 @@ export namespace interfaces {
     prepend: (value: T) => DoubleLinkedListNode<T>;
     deleteHead: () => DoubleLinkedListNode<T> | null;
     deleteTail: () => DoubleLinkedListNode<T> | null;
-    appendNode: (node: interfaces.DoubleLinkedListNode<T>) => interfaces.DoubleLinkedListNode<T>;
-    prependNode: (node: interfaces.DoubleLinkedListNode<T>) => interfaces.DoubleLinkedListNode<T>;
+    appendNode: (node: DoubleLinkedListNode<T>) => DoubleLinkedListNode<T>;
+    prependNode: (node: DoubleLinkedListNode<T>) => DoubleLinkedListNode<T>;
   }
 
   export enum RED_BLACK_TREE_COLOR {
@@ -117,7 +117,7 @@ export namespace interfaces {
 
   export interface BinarySearchTree<T = unknown> {
     root: BinarySearchTreeNode<T> | null;
-    setRoot: (root: (BinarySearchTreeNode<T> | null)) => void;
+    setRoot: (root: BinarySearchTreeNode<T> | null) => void;
     comparator: Comparator<T>;
     insert: (value: T) => BinarySearchTreeNode<T> | null;
     find: (value: T) => BinarySearchTreeNode<T> | null;
@@ -138,7 +138,7 @@ export namespace interfaces {
 
   export type AvlTree<T = unknown> = BinarySearchTree<T>;
 
-  export type RedBlackTree<T = unknown> =BinarySearchTree<T>;
+  export type RedBlackTree<T = unknown> = BinarySearchTree<T>;
 
   export interface Comparator<T = unknown> {
     equal: (a?: T, b?: T) => boolean;

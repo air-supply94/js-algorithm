@@ -3,8 +3,7 @@
 // top100
 export function wordBreak(s: string, wordDict: string[]): boolean {
   const wordSet = new Set<string>(wordDict);
-  const dp: boolean[] = Array(s.length + 1)
-    .fill(false);
+  const dp: boolean[] = Array(s.length + 1).fill(false);
   dp[0] = true;
 
   for (let i = 1; i <= s.length; i++) {

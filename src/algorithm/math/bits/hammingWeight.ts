@@ -7,7 +7,7 @@ export function hammingWeight(x: number): number {
   let number = x;
 
   while (number !== 0) {
-    number &= (number - 1);
+    number &= number - 1;
     setBitsCount++;
   }
 

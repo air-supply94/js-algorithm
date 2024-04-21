@@ -35,4 +35,3 @@ export function minimumTotalDpLeftToRight(grid: number[][]): number {
 
   return dp[0];
 }
-

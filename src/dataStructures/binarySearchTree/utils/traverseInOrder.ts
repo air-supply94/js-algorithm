@@ -3,10 +3,7 @@ import type { interfaces } from '../../../types';
 // https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 // 94
 // 简单改造
-export function traverseInOrder<T = unknown>(
-  root: interfaces.BinarySearchTreeNode<T> | null,
-  callback: interfaces.BinarySearchTreeTraverseCallback<T>
-): void {
+export function traverseInOrder<T = unknown>(root: interfaces.BinarySearchTreeNode<T> | null, callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
   const nodeStack: Array<interfaces.BinarySearchTreeNode<T>> = [];
   let currentInStackNode = root;
 

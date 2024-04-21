@@ -16,8 +16,7 @@ export class FreqStack {
       if (!this.freqStackMap.has(newCount)) {
         this.freqStackMap.set(newCount, []);
       }
-      this.freqStackMap.get(newCount)
-        .push(item);
+      this.freqStackMap.get(newCount).push(item);
 
       this.maxFreq = Math.max(newCount, this.maxFreq);
     } else {
@@ -26,8 +25,7 @@ export class FreqStack {
       if (!this.freqStackMap.has(1)) {
         this.freqStackMap.set(1, []);
       }
-      this.freqStackMap.get(1)
-        .push(item);
+      this.freqStackMap.get(1).push(item);
 
       this.maxFreq = Math.max(1, this.maxFreq);
     }
@@ -38,8 +36,7 @@ export class FreqStack {
       return null;
     }
 
-    const value = this.freqStackMap.get(this.maxFreq)
-      .pop();
+    const value = this.freqStackMap.get(this.maxFreq).pop();
     this.freqMap.set(value, this.freqMap.get(value) - 1);
 
     if (this.freqStackMap.get(this.maxFreq).length === 0) {

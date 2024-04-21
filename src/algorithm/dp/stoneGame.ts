@@ -5,12 +5,13 @@ export function stoneGame(piles: number[]): boolean {
   const n = piles.length;
 
   // [n1,n2]先选和后选获取的stone个数
-  const dp: number[][][] = Array(n).fill(null)
-    .map(() => Array(n).fill(null)
-      .map(() => [
-        0,
-        0,
-      ]));
+  const dp: number[][][] = Array(n)
+    .fill(null)
+    .map(() =>
+      Array(n)
+        .fill(null)
+        .map(() => [0, 0]),
+    );
 
   for (let i = 0; i < n; i++) {
     dp[i][i][0] = piles[i];

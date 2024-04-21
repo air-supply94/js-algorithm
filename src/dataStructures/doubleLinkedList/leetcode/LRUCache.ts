@@ -42,10 +42,13 @@ export class LRUCache {
       this.doubleLinkedList.prependNode(node);
       node.value.value = value;
     } else {
-      this.nodeMap.set(key, this.doubleLinkedList.prepend({
+      this.nodeMap.set(
         key,
-        value,
-      }));
+        this.doubleLinkedList.prepend({
+          key,
+          value,
+        }),
+      );
 
       if (this.doubleLinkedList.size > this.capacity) {
         this.nodeMap.delete(this.doubleLinkedList.deleteTail().value.key);

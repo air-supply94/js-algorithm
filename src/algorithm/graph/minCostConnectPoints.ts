@@ -8,8 +8,7 @@ function buildGraph(points: Array<[number, number]>): number[][] {
   const n = points.length;
   const graph: number[][] = Array(n)
     .fill(null)
-    .map(() => Array(n)
-      .fill(0));
+    .map(() => Array(n).fill(0));
 
   for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
@@ -25,9 +24,5 @@ function buildGraph(points: Array<[number, number]>): number[][] {
 // https://leetcode-cn.com/problems/min-cost-to-connect-all-points/
 // 1584
 export function minCostConnectPoints(points: Array<[number, number]>): number {
-  if (points.length <= 1) {
-    return 0;
-  }
-
   return prim(buildGraph(points));
 }

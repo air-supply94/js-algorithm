@@ -13,7 +13,7 @@ export function getSum(a: number, b: number): number {
 
     rest = rest === 1 ? ai | bi : ai & bi;
 
-    result |= (bitSum << i);
+    result |= bitSum << i;
   }
 
   return result;

@@ -40,7 +40,6 @@ export class TrieNode implements interfaces.TrieNode {
   }
 
   public toString(): string {
-    return `${this.character}${this.suggestChildren()
-      .join('')}`;
+    return `${this.character}${this.suggestChildren().join('')}`;
   }
 }

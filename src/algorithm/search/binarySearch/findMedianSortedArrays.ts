@@ -11,7 +11,7 @@ export function findMedianSortedArrays(nums1: number[], nums2: number[]): number
     return getKth(nums1, 0, nums1.length - 1, nums2, 0, nums2.length - 1, midIndex + 1);
   } else {
     const midIndex1 = (totalLength >>> 1) - 1;
-    const midIndex2 = (totalLength >>> 1);
+    const midIndex2 = totalLength >>> 1;
     return getKth(nums1, 0, nums1.length - 1, nums2, 0, nums2.length - 1, midIndex1 + 1) / 2 + getKth(nums1, 0, nums1.length - 1, nums2, 0, nums2.length - 1, midIndex2 + 1) / 2;
   }
 }

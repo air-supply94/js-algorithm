@@ -3,54 +3,16 @@ import { huffmanTree } from './huffmanTree';
 import { expect, test } from 'vitest';
 
 test('huffmanTree', () => {
-  expect(getHuffmanWPL(huffmanTree([])))
-    .toBe(0);
+  expect(getHuffmanWPL(huffmanTree([]))).toBe(0);
 
-  expect(getHuffmanWPL(huffmanTree([
-    7,
-    5,
-    2,
-    4,
-  ])))
-    .toBe(35);
+  expect(getHuffmanWPL(huffmanTree([7, 5, 2, 4]))).toBe(35);
 
-  expect(getHuffmanWPL(huffmanTree([
-    1,
-    1,
-    2,
-    2,
-  ])))
-    .toBe(12);
+  expect(getHuffmanWPL(huffmanTree([1, 1, 2, 2]))).toBe(12);
 
-  expect(getHuffmanWPL(huffmanTree([
-    5,
-    15,
-    40,
-    30,
-    10,
-  ])))
-    .toBe(205);
+  expect(getHuffmanWPL(huffmanTree([5, 15, 40, 30, 10]))).toBe(205);
 
-  expect(getHuffmanWPL(huffmanTree([
-    5,
-    29,
-    7,
-    8,
-    14,
-    23,
-    3,
-    11,
-  ])))
-    .toBe(271);
-  expect(getHuffmanWPL(huffmanTree([
-    5,
-    8,
-    4,
-    11,
-    9,
-    13,
-  ])))
-    .toBe(126);
+  expect(getHuffmanWPL(huffmanTree([5, 29, 7, 8, 14, 23, 3, 11]))).toBe(271);
+  expect(getHuffmanWPL(huffmanTree([5, 8, 4, 11, 9, 13]))).toBe(126);
 });
 
 function getHuffmanWPL(root: interfaces.BinarySearchTreeNode<number> | null): number {

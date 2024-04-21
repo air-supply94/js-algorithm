@@ -1,9 +1,10 @@
-.eslintcache
-.stylelintcache
-
-.idea
+.cache
 .vscode
-.DS_Store
+.eslintcache
+
 node_modules
+.idea
 coverage
+dist
+.DS_Store
 *.log

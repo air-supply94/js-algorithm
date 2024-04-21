@@ -47,10 +47,7 @@ export class SegmentTree implements interfaces.SegmentTree {
     this.buildTreeRecursively(leftInputIndex, middleIndex, getLeftChildIndex(position));
     this.buildTreeRecursively(middleIndex + 1, rightInputIndex, getRightChildIndex(position));
 
-    this.segmentTree[position] = this.operation(
-      this.segmentTree[getLeftChildIndex(position)],
-      this.segmentTree[getRightChildIndex(position)]
-    );
+    this.segmentTree[position] = this.operation(this.segmentTree[getLeftChildIndex(position)], this.segmentTree[getRightChildIndex(position)]);
   }
 
   private rangeQueryRecursive(queryLeftIndex: number, queryRightIndex: number, leftIndex: number, rightIndex: number, position: number): number {
@@ -70,20 +67,8 @@ export class SegmentTree implements interfaces.SegmentTree {
   }
 
   public rangeQuery(queryLeftIndex: number, queryRightIndex: number): number {
-    [
-      queryLeftIndex,
-      queryRightIndex,
-    ] = [
-      queryLeftIndex | 0,
-      queryRightIndex | 0,
-    ].sort();
+    [queryLeftIndex, queryRightIndex] = [queryLeftIndex | 0, queryRightIndex | 0].sort();
 
-    return this.rangeQueryRecursive(
-      queryLeftIndex,
-      queryRightIndex,
-      0,
-      this.inputArray.length - 1,
-      0
-    );
+    return this.rangeQueryRecursive(queryLeftIndex, queryRightIndex, 0, this.inputArray.length - 1, 0);
   }
 }

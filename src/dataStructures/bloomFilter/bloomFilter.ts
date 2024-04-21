@@ -37,17 +37,12 @@ function hash3(item: string, length: number): number {
 }
 
 function getHashValues(item: string, length: number): [number, number, number] {
-  return [
-    hash1(item, length),
-    hash2(item, length),
-    hash3(item, length),
-  ];
+  return [hash1(item, length), hash2(item, length), hash3(item, length)];
 }
 
 export class BloomFilter implements interfaces.BloomFilter {
   constructor(size: number) {
-    this.data = Array(size)
-      .fill(0);
+    this.data = Array(size).fill(0);
   }
 
   private readonly data: number[];

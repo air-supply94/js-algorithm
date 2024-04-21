@@ -6,35 +6,16 @@ export function minimumEffortPath(heights: number[][]): number {
   const width = heights[0].length;
   const result: number[][] = Array(height)
     .fill(null)
-    .map(() => Array(width)
-      .fill(Infinity));
+    .map(() => Array(width).fill(Infinity));
   result[0][0] = 0;
 
   const directionMatrix = [
-    [
-      -1,
-      0,
-    ],
-    [
-      1,
-      0,
-    ],
-    [
-      0,
-      -1,
-    ],
-    [
-      0,
-      1,
-    ],
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
   ];
-  const queue: Array<[number, number, number]> = [
-    [
-      0,
-      0,
-      0,
-    ],
-  ];
+  const queue: Array<[number, number, number]> = [[0, 0, 0]];
 
   while (queue.length > 0) {
     const currentItem = queue.shift();
@@ -48,11 +29,7 @@ export function minimumEffortPath(heights: number[][]): number {
         const nextWeight = Math.max(result[currentHeight][currentWidth], Math.abs(heights[currentHeight][currentWidth] - heights[h][w]));
         if (result[h][w] > nextWeight) {
           result[h][w] = nextWeight;
-          queue.push([
-            h,
-            w,
-            nextWeight,
-          ]);
+          queue.push([h, w, nextWeight]);
         }
       }
     }

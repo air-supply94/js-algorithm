@@ -1,8 +1,7 @@
 export function integerPartition(number: number): number {
   const dp: number[][] = Array(number + 1)
     .fill(null)
-    .map(() => Array(number + 1)
-      .fill(0));
+    .map(() => Array(number + 1).fill(0));
 
   for (let i = 0; i <= number; i++) {
     dp[i][0] = 1;

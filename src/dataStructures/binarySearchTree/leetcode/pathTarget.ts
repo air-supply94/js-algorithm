@@ -1,4 +1,3 @@
-
 export function VerifySquenceOfBST(sequence: number[], left = 0, right = sequence.length - 1): boolean {
   if (sequence.length <= 0) {
     return false;

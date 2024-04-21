@@ -84,4 +84,3 @@ export function rotateRightRight<T = unknown>(rootNode: interfaces.BinarySearchT
 
   setLeft(rightNode, rootNode);
 }
-

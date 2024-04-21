@@ -5,8 +5,7 @@ export function groupAnagrams(strs: string[]): string[][] {
   const result: Record<string, string[]> = {};
 
   for (const str of strs) {
-    const positionStr = str.split('').sort()
-      .join('');
+    const positionStr = str.split('').sort().join('');
     if (result[positionStr]) {
       result[positionStr].push(str);
     } else {

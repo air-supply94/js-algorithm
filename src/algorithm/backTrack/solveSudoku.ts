@@ -35,11 +35,11 @@ function isValid(board: string[][], h: number, w: number, ch: string, n: number)
     }
   }
 
-  const startHeight = h - h % itemHeight;
-  const startWidth = w - w % itemHeight;
+  const startHeight = h - (h % itemHeight);
+  const startWidth = w - (w % itemHeight);
   for (let i = 0; i < n; i++) {
     const realHeight = startHeight + Math.floor(i / itemHeight);
-    const realWidth = startWidth + i % itemHeight;
+    const realWidth = startWidth + (i % itemHeight);
     if (board[realHeight][realWidth] === ch) {
       return false;
     }

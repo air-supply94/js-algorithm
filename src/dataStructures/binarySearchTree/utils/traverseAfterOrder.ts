@@ -1,9 +1,6 @@
 import type { interfaces } from '../../../types';
 
-export function traverseAfterOrder<T = unknown>(
-  root: interfaces.BinarySearchTreeNode<T> | null,
-  callback: interfaces.BinarySearchTreeTraverseCallback<T>
-): void {
+export function traverseAfterOrder<T = unknown>(root: interfaces.BinarySearchTreeNode<T> | null, callback: interfaces.BinarySearchTreeTraverseCallback<T>): void {
   const nodeStack: Array<interfaces.BinarySearchTreeNode<T>> = [];
   let currentVisitedNode: interfaces.BinarySearchTreeNode<T> = null;
   if (root) {

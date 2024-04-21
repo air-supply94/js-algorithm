@@ -13,4 +13,3 @@ export function sortedArrayToBST(array: number[], start = 0, end = array.length 
   node.right = sortedArrayToBST(array, middle + 1, end);
   return node;
 }
-

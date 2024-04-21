@@ -7,13 +7,9 @@ export function slidingPuzzle(board: number[][]): number {
 
   const visited = new Set<string>();
   const queue: Array<[string, number]> = [];
-  const startNode = board.map((item) => item.join(''))
-    .join('');
+  const startNode = board.map((item) => item.join('')).join('');
   visited.add(startNode);
-  queue.push([
-    startNode,
-    startNode.indexOf('0'),
-  ]);
+  queue.push([startNode, startNode.indexOf('0')]);
 
   let level = 0;
   while (queue.length > 0) {
@@ -60,14 +56,8 @@ function getChildren(height: number, width: number, currentNode: [string, number
   }
 
   return neighborIndex.map((item) => {
-    const newString = oldString
-      .replace('0', 'a')
-      .replace(oldString[item], '0')
-      .replace('a', oldString[item]);
+    const newString = oldString.replace('0', 'a').replace(oldString[item], '0').replace('a', oldString[item]);
 
-    return [
-      newString,
-      item,
-    ];
+    return [newString, item];
   });
 }

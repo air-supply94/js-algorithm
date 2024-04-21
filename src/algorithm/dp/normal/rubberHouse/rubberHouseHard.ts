@@ -22,4 +22,3 @@ export function rubberHouseHard(root: TreeNode | null, cache = new Map<TreeNode,
   cache.set(root, result);
   return result;
 }
-

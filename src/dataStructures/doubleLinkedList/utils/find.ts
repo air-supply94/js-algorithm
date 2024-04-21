@@ -6,12 +6,9 @@ export function find<T = unknown>(
     value?: T;
     callback?: (value: T) => boolean | void;
   },
-  comparator: interfaces.Comparator<T>
+  comparator: interfaces.Comparator<T>,
 ): interfaces.DoubleLinkedListNode<T> | null {
-  const {
-    value,
-    callback,
-  } = findParams;
+  const { value, callback } = findParams;
 
   let currentNode = head;
   while (currentNode) {

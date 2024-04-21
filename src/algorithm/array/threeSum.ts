@@ -14,11 +14,7 @@ export function threeSum(nums: number[]): number[][] {
       if (sum < 0) {
         j++;
       } else if (sum === 0) {
-        result.add([
-          nums[i],
-          nums[j],
-          nums[k],
-        ].join(','));
+        result.add([nums[i], nums[j], nums[k]].join(','));
 
         j++;
         k--;
@@ -28,7 +24,5 @@ export function threeSum(nums: number[]): number[][] {
     }
   }
 
-  return Array.from(result)
-    .map((item) => item.split(',')
-      .map((val) => Number(val)));
+  return Array.from(result).map((item) => item.split(',').map((val) => Number(val)));
 }

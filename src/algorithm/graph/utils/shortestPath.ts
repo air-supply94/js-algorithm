@@ -3,10 +3,7 @@ export function dijkstra(graph: Array<Array<[number, number]>>, start: number): 
   const distance: number[] = Array(graph.length).fill(Infinity);
   distance[start] = 0;
   const queue: Array<[number, number]> = [];
-  queue.push([
-    start,
-    0,
-  ]);
+  queue.push([start, 0]);
 
   while (queue.length > 0) {
     const currentItem = queue.shift();
@@ -19,10 +16,7 @@ export function dijkstra(graph: Array<Array<[number, number]>>, start: number): 
       const neighborWeight = currentWeight + neighbor[i][1];
       if (neighborWeight < distance[neighborNode]) {
         distance[neighborNode] = neighborWeight;
-        queue.push([
-          neighborNode,
-          neighborWeight,
-        ]);
+        queue.push([neighborNode, neighborWeight]);
       }
     }
   }
@@ -36,8 +30,7 @@ export function floyd(graph: number[][]): number[][] {
   const n = graph.length;
   const distance: number[][] = Array(n)
     .fill(null)
-    .map(() => Array(n)
-      .fill(null));
+    .map(() => Array(n).fill(null));
 
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {

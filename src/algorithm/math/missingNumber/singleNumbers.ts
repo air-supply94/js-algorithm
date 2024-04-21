@@ -16,10 +16,7 @@ export function singleNumbers(nums: number[]): number[] {
     }
   }
 
-  return [
-    xor1,
-    xor1 ^ xor,
-  ];
+  return [xor1, xor1 ^ xor];
 }
 
 // https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/
@@ -32,7 +29,7 @@ export function singleNumber(nums: number[]): number {
       tmp += (nums[j] >>> i) & 1;
     }
     if (tmp % 3 === 1) {
-      res |= (1 << i);
+      res |= 1 << i;
     }
   }
 

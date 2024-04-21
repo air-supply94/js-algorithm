@@ -15,10 +15,7 @@ export function eatenApples(apples: number[], days: number[]): number {
 
     // 新增到储物空间
     if (day < apples.length && apples[day] > 0) {
-      minHeap.add([
-        day + days[day],
-        apples[day],
-      ]);
+      minHeap.add([day + days[day], apples[day]]);
     }
 
     // 从储物空间拿出一个来吃

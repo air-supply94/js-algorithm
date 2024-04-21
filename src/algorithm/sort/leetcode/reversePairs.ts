@@ -32,7 +32,7 @@ export function reversePairs(nums: number[]): number {
       } else {
         result[k] = originalArray[i];
 
-        count += (j - 1) - (middleIndex + 1) + 1;
+        count += j - 1 - (middleIndex + 1) + 1;
         k++;
         i++;
       }
@@ -41,7 +41,7 @@ export function reversePairs(nums: number[]): number {
     while (i <= middleIndex) {
       result[k] = originalArray[i];
 
-      count += (j - 1) - (middleIndex + 1) + 1;
+      count += j - 1 - (middleIndex + 1) + 1;
       k++;
       i++;
     }

@@ -2,8 +2,7 @@ import type { interfaces } from '../types';
 
 export class Difference implements interfaces.Difference {
   constructor(nums: number[]) {
-    this.diff = Array(nums.length)
-      .fill(null);
+    this.diff = Array(nums.length).fill(null);
 
     this.diff[0] = nums[0];
     for (let i = 1; i < nums.length; i++) {
@@ -21,8 +20,7 @@ export class Difference implements interfaces.Difference {
   }
 
   public toArray(): number[] {
-    const result: number[] = Array(this.diff.length)
-      .fill(null);
+    const result: number[] = Array(this.diff.length).fill(null);
     result[0] = this.diff[0];
 
     for (let i = 1; i < this.diff.length; i++) {

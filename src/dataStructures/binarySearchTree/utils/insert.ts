@@ -2,10 +2,10 @@ import type { interfaces } from '../../../types';
 import { BinarySearchTreeNode } from '../binarySearchTree';
 
 export function insert<T = unknown>(
-  root: interfaces. BinarySearchTreeNode<T> | null,
+  root: interfaces.BinarySearchTreeNode<T> | null,
   value: T,
   comparator: interfaces.Comparator<T>,
-  emptyRootCallback?: (root: interfaces.BinarySearchTreeNode<T> | null) => unknown
+  emptyRootCallback?: (root: interfaces.BinarySearchTreeNode<T> | null) => unknown,
 ): interfaces.BinarySearchTreeNode<T> | null {
   if (root == null) {
     const newNode = new BinarySearchTreeNode(value);

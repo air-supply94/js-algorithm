@@ -3,8 +3,7 @@
 // top100
 export function longestValidParentheses(s: string): number {
   const stack: number[] = [];
-  const match: number[] = Array(s.length)
-    .fill(0);
+  const match: number[] = Array(s.length).fill(0);
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === '(') {
@@ -38,8 +37,7 @@ export function longestValidParentheses(s: string): number {
 // https://leetcode-cn.com/problems/longest-valid-parentheses/
 // 32
 export function longestValidParenthesesDp(s: string): number {
-  const dp = Array(s.length)
-    .fill(0);
+  const dp = Array(s.length).fill(0);
   let max = 0;
 
   for (let i = 1; i < s.length; i++) {
@@ -60,4 +58,3 @@ export function longestValidParenthesesDp(s: string): number {
 
   return max;
 }
-

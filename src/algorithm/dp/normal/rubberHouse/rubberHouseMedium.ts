@@ -11,9 +11,5 @@ export function rubberHouseMedium(numbers: number[]): number {
     return numbers[0];
   }
 
-  return Math.max(
-    rubberHouseEasy(numbers, 0, numbers.length - 2),
-    rubberHouseEasy(numbers, 1, numbers.length - 1)
-  );
+  return Math.max(rubberHouseEasy(numbers, 0, numbers.length - 2), rubberHouseEasy(numbers, 1, numbers.length - 1));
 }
-

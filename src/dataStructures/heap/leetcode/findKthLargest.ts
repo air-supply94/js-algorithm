@@ -8,7 +8,7 @@ export function findKthLargest(nums: number[], k: number, left = 0, right = nums
   }
 
   const partitionIndex = partitionArray(nums, left, right);
-  const targetIndex = (nums.length - 1) - (k - 1);
+  const targetIndex = nums.length - 1 - (k - 1);
   if (targetIndex <= partitionIndex - 1) {
     return findKthLargest(nums, k, left, partitionIndex - 1);
   } else {

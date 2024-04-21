@@ -4,7 +4,7 @@ export function hanota(from: number[], exchangePlace: number[], destination: num
     destination.push(from.pop());
   }
 
-  const stack: Array<{ n: number; from: number[]; exchangePlace: number[]; destination: number[]; }> = [];
+  const stack: Array<{ n: number; from: number[]; exchangePlace: number[]; destination: number[] }> = [];
   stack.push({
     n: from.length,
     from,

@@ -3,10 +3,10 @@
 export function reOrderArray(array: number[]): number[] {
   for (let i = 0; i < array.length; i++) {
     const evenValue = array[i];
-    if ((evenValue % 2) === 0) {
+    if (evenValue % 2 === 0) {
       let j = -1;
       for (let k = i + 1; k < array.length && j === -1; k++) {
-        if ((array[k] % 2) === 1) {
+        if (array[k] % 2 === 1) {
           j = k;
         }
       }

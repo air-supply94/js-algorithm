@@ -1,12 +1,14 @@
 import type { interfaces } from '../../types';
 
 export class Comparator<T = unknown> implements interfaces.Comparator<T> {
-  constructor(compare: interfaces.CompareParams<T> = function(a, b) {
-    if (a === b) {
-      return 0;
-    }
-    return a < b ? -1 : 1;
-  }) {
+  constructor(
+    compare: interfaces.CompareParams<T> = function (a, b) {
+      if (a === b) {
+        return 0;
+      }
+      return a < b ? -1 : 1;
+    },
+  ) {
     if (compare instanceof Comparator) {
       return compare;
     }
@@ -42,4 +44,3 @@ export class Comparator<T = unknown> implements interfaces.Comparator<T> {
     return this.greaterThan(a, b) || this.equal(a, b);
   }
 }
-

@@ -24,12 +24,7 @@ export function findPrefixCount(root: interfaces.TrieNode, word: string): number
 
 export function wordFrequency(root: interfaces.TrieNode): Record<string, number> {
   const result = {};
-  const queue: Array<[string, interfaces.TrieNode]> = [
-    [
-      '',
-      root,
-    ],
-  ];
+  const queue: Array<[string, interfaces.TrieNode]> = [['', root]];
 
   while (queue.length) {
     const currentItem = queue.shift();
@@ -38,10 +33,7 @@ export function wordFrequency(root: interfaces.TrieNode): Record<string, number>
     }
 
     for (const trieNode of currentItem[1].children.values()) {
-      queue.push([
-        `${currentItem[0]}${trieNode.character}`,
-        trieNode,
-      ]);
+      queue.push([`${currentItem[0]}${trieNode.character}`, trieNode]);
     }
   }
 

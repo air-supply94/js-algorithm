@@ -26,4 +26,3 @@ export function pancakeSort(arr: number[]): number[] {
 
   return result;
 }
-

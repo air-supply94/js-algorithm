@@ -7,10 +7,7 @@ export function ladderLength(beginWord: string, endWord: string, wordList: strin
   }
 
   // 固定模板开始
-  const visitedSet = new Set<string>([
-    beginWord,
-    endWord,
-  ]);
+  const visitedSet = new Set<string>([beginWord, endWord]);
   let startSet = new Set<string>([beginWord]);
   let endSet = new Set<string>([endWord]);
   let level = 0;

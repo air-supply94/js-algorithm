@@ -13,8 +13,7 @@ export function canPartition(weightList: number[]): boolean {
   }
 
   const weight = sum / 2;
-  const dp: boolean[] = Array(weight + 1)
-    .fill(false);
+  const dp: boolean[] = Array(weight + 1).fill(false);
   dp[0] = true;
 
   for (let i = 1; i <= weightList.length; i++) {
