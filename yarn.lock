@@ -816,10 +816,10 @@
     loupe "^2.3.6"
     pretty-format "^29.5.0"
 
-"@zhouhaifei/code-style@3.1.13":
-  version "3.1.13"
-  resolved "https://registry.npmjs.org/@zhouhaifei/code-style/-/code-style-3.1.13.tgz#bf4e87c8ea9de714e0f0262c73c2080fa0a7167e"
-  integrity sha512-lDL+8JJyXRi5LWZqWQHiidMYAgGp4roKtINXba0dDTBMGRtCEKaliittHGshvKYlA+VMgDZnMW2XO5+Cb7R3Dg==
+"@zhouhaifei/code-style@3.1.14":
+  version "3.1.14"
+  resolved "https://registry.npmjs.org/@zhouhaifei/code-style/-/code-style-3.1.14.tgz#20f0156eac1bee4edd78e9a0e0850a2f3cda3e6e"
+  integrity sha512-Vma0U94kjo10rP5c5rMuGAaNnghclmxyQJ+SgIKbWbl8mhqioM7d7HyXxKcxeqW55eaz36TEp9WHoMp412HIwg==
   dependencies:
     "@babel/core" "7.23.2"
     "@babel/eslint-parser" "7.24.5"

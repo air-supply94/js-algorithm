@@ -1,4 +1,4 @@
-#  (2024-05-13)
+#  (2024-05-14)
 
 
 ### Bug Fixes
@@ -413,7 +413,7 @@
 * 增加递归时间复杂度分析 ([7eb5320](https://github.com/air-supply94/js-algorithm/commit/7eb53207fa0ef8d1dc09ac775ea39ab1a2e8ade5))
 * 更改avl树、红黑树types ([e01d123](https://github.com/air-supply94/js-algorithm/commit/e01d1237ed4a23f22362d76b1374935b45e367e7))
 * 更新实现 ([57358c4](https://github.com/air-supply94/js-algorithm/commit/57358c428cd2cdd11a97e586065572fae2b2666e))
-* 更新配置 ([e16493c](https://github.com/air-supply94/js-algorithm/commit/e16493cf0f165ab2fa41a8c15ff2ae956b27aa35))
+* 更新配置 ([0290e33](https://github.com/air-supply94/js-algorithm/commit/0290e3386e4b723b417cec0774c50a7b59bb7263))
 * 简单重构 ([94b454e](https://github.com/air-supply94/js-algorithm/commit/94b454edea13c9e781008584280de4841845cb4f))
 * 限制BST访问 ([26941af](https://github.com/air-supply94/js-algorithm/commit/26941af4a0b513d42ae9ea7dc597967097570738))
 * 限制链表node的访问 ([6879acc](https://github.com/air-supply94/js-algorithm/commit/6879acc3d93cf753b4bf92efefa15e2142076738))
