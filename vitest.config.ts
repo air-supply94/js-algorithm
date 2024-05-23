@@ -1,4 +1,3 @@
-/* eslint-disable spaced-comment */
 /// <reference types="vitest" />
 import { defineConfig } from 'vite';
 
