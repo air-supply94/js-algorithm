@@ -11,23 +11,16 @@
   },
   "license": "MIT",
   "author": "zhouhaifei <zhouhaifei1994@sina.com>",
+  "type": "module",
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "commit": "cz",
-    "lint:js": "cross-env TIMING=1 eslint --fix --cache --quiet --ext .js,.ts .",
-    "prepare": "pnpx husky@9.0.11",
-    "prettier": "prettier --cache --cache-strategy metadata -c --write \"{**/*,*}.{js,ts,yaml,md,html,json}\"",
+    "husky-commitlint": "commitlint -e",
+    "lint": "npm run prettier && npm run lint:js",
+    "lint:js": "cross-env TIMING=1 eslint --fix --cache --quiet --ext .cjs,.mjs,.js,.jsx,.ts,.tsx .",
+    "prepare": "npx husky@9.0.11",
+    "prettier": "prettier --cache --cache-strategy metadata -c --write \"{**/*,*}.{js,cjs,mjs,jsx,ts,tsx,less,css,scss,sass,yaml,md,html,json}\"",
     "test": "vitest"
-  },
-  "lint-staged": {
-    "{**/*,*}.{js,ts,yaml,md,html,json}": [
-      "prettier --cache --cache-strategy metadata -c --write",
-      "git add ."
-    ],
-    "{**/*,*}.{js,ts}": [
-      "eslint --cache --quiet --fix",
-      "git add ."
-    ]
   },
   "config": {
     "commitizen": {
@@ -36,7 +29,7 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "1.6.0",
-    "@zhouhaifei/code-style": "3.1.14",
+    "@zhouhaifei/code-style": "3.1.17",
     "conventional-changelog-cli": "^2.1.1",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "^3.3.0",
