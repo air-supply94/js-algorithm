@@ -5,7 +5,12 @@ export function formatIndex(index: any, size: number): number {
   return indexInt < 0 ? indexInt + size : indexInt;
 }
 
-export function get<T = unknown>(index: number, size: number, head: interfaces.DoubleLinkedListNode<T> | null, tail: interfaces.DoubleLinkedListNode<T> | null): interfaces.DoubleLinkedListNode<T> | null {
+export function get<T = unknown>(
+  index: number,
+  size: number,
+  head: interfaces.DoubleLinkedListNode<T> | null,
+  tail: interfaces.DoubleLinkedListNode<T> | null,
+): interfaces.DoubleLinkedListNode<T> | null {
   const position = formatIndex(index, size);
   const middleIndex = size >>> 1;
 

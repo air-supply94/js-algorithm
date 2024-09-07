@@ -4,7 +4,14 @@ import { TreeNode } from './treeNode';
 // 105
 // 剑指 Offer
 // https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6
-export function serializePreAndInOrder(preorder: number[], inorder: number[], preStartIndex = 0, preEndIndex: number = preorder.length - 1, inStartIndex = 0, inEndIndex: number = inorder.length - 1): TreeNode {
+export function serializePreAndInOrder(
+  preorder: number[],
+  inorder: number[],
+  preStartIndex = 0,
+  preEndIndex: number = preorder.length - 1,
+  inStartIndex = 0,
+  inEndIndex: number = inorder.length - 1,
+): TreeNode {
   if (preStartIndex > preEndIndex) {
     return null;
   }

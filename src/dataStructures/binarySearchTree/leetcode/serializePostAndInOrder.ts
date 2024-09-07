@@ -2,7 +2,14 @@ import { TreeNode } from './treeNode';
 
 // https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 // 106
-export function serializePostAndInOrder(inorder: number[], postorder: number[], inStartIndex = 0, inEndIndex = inorder.length - 1, postStartIndex = 0, postEndIndex = postorder.length - 1): TreeNode {
+export function serializePostAndInOrder(
+  inorder: number[],
+  postorder: number[],
+  inStartIndex = 0,
+  inEndIndex = inorder.length - 1,
+  postStartIndex = 0,
+  postEndIndex = postorder.length - 1,
+): TreeNode {
   if (postStartIndex > postEndIndex) {
     return null;
   }

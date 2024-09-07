@@ -1,5 +1,16 @@
 import { interfaces } from '../../types';
-import { BinarySearchTree, findReplaceNode, getUncle, removeChild, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder } from '../binarySearchTree';
+import {BinarySearchTree,
+  findReplaceNode,
+  getUncle,
+  removeChild,
+  rotateLeftLeft,
+  rotateLeftRight,
+  rotateRightLeft,
+  rotateRightRight,
+  traverseAfterOrder,
+  traverseInOrder,
+  traverseLevelOrder,
+  traversePreOrder,} from '../binarySearchTree';
 
 export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
   constructor(compare?: interfaces.CompareParams<T>) {
@@ -65,7 +76,10 @@ export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
           currentNode.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
           sibling.color = interfaces.RED_BLACK_TREE_COLOR.black;
           rotateRightRight(currentNode.parent, this.binarySearchTree.setRoot);
-        } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)) {
+        } else if (
+          (sibling.left == null && sibling.right == null) ||
+          (sibling.left && sibling.right && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)
+        ) {
           sibling.color = interfaces.RED_BLACK_TREE_COLOR.red;
           currentNode = currentNode.parent;
         } else if (sibling.right && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.red) {
@@ -86,7 +100,10 @@ export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
           currentNode.parent.color = interfaces.RED_BLACK_TREE_COLOR.red;
           sibling.color = interfaces.RED_BLACK_TREE_COLOR.black;
           rotateLeftLeft(currentNode.parent, this.binarySearchTree.setRoot);
-        } else if ((sibling.left == null && sibling.right == null) || (sibling.left && sibling.right && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)) {
+        } else if (
+          (sibling.left == null && sibling.right == null) ||
+          (sibling.left && sibling.right && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)
+        ) {
           sibling.color = interfaces.RED_BLACK_TREE_COLOR.red;
           currentNode = currentNode.parent;
         } else if (sibling.left && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.red) {

@@ -15,7 +15,10 @@ export function rubberHouseHard(root: TreeNode | null, cache = new Map<TreeNode,
     return cache.get(root);
   }
 
-  const rubberRoot = root.val + (root.left ? rubberHouseHard(root.left.left, cache) + rubberHouseHard(root.left.right, cache) : 0) + (root.right ? rubberHouseHard(root.right.left, cache) + rubberHouseHard(root.right.right, cache) : 0);
+  const rubberRoot =
+    root.val +
+    (root.left ? rubberHouseHard(root.left.left, cache) + rubberHouseHard(root.left.right, cache) : 0) +
+    (root.right ? rubberHouseHard(root.right.left, cache) + rubberHouseHard(root.right.right, cache) : 0);
   const rubberChild = rubberHouseHard(root.left, cache) + rubberHouseHard(root.right, cache);
 
   const result = Math.max(rubberRoot, rubberChild);

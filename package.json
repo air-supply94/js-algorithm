@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "1.6.0",
-    "@zhouhaifei/code-style": "3.1.17",
+    "@zhouhaifei/code-style": "3.2.5",
     "conventional-changelog-cli": "^2.1.1",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "^3.3.0",
@@ -37,6 +37,6 @@
     "vitest": "1.6.0"
   },
   "engines": {
-    "node": "20.11.1"
+    "node": ">=20.0.0"
   }
 }

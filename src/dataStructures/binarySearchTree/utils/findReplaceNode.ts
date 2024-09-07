@@ -3,7 +3,12 @@ import { find } from './find';
 import { findMax } from './findMax';
 import { findMin } from './findMin';
 
-export function findReplaceNode<T = unknown>(root: interfaces.BinarySearchTreeNode<T> | null, value: T, comparator: interfaces.Comparator<T>, isFindRightMin = true): interfaces.BinarySearchTreeNode<T> | null {
+export function findReplaceNode<T = unknown>(
+  root: interfaces.BinarySearchTreeNode<T> | null,
+  value: T,
+  comparator: interfaces.Comparator<T>,
+  isFindRightMin = true,
+): interfaces.BinarySearchTreeNode<T> | null {
   let findNode = find(root, value, comparator);
   if (findNode == null) {
     return null;
