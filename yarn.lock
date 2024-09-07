@@ -1032,10 +1032,10 @@
     loupe "^2.3.7"
     pretty-format "^29.7.0"
 
-"@zhouhaifei/code-style@3.2.5":
-  version "3.2.5"
-  resolved "https://registry.npmjs.org/@zhouhaifei/code-style/-/code-style-3.2.5.tgz#49ff3a9cbd1a6aca4babcbbf9548fcb9a0c116a4"
-  integrity sha512-xJrPXUaDC9zokgLiWygBI7Gv2983a1+U+ul2kTdCcQ5fvbfrcBcXC0je+9Nn+tDww6Jpe1jsmRdBrlnz1z3mbw==
+"@zhouhaifei/code-style@3.2.6":
+  version "3.2.6"
+  resolved "https://registry.npmmirror.com/@zhouhaifei/code-style/-/code-style-3.2.6.tgz#aa6225e8da267fdcbcb577abe306250df2439323"
+  integrity sha512-v9jvC1FJ9scvwQzadL40G8E4wlJ+fTpb7i2ijC2ldzu8LW4qo8qowD3k1CCEQSc9G+rcCgsZwFZZGwdrmghfqg==
   dependencies:
     "@babel/core" "7.23.2"
     "@babel/eslint-parser" "7.24.5"
