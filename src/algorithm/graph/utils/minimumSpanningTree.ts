@@ -1,7 +1,7 @@
 // 邻接矩阵
 export function prim(graph: number[][]): number {
   const n = graph.length;
-  const lowCost: number[] = Array(n).fill(Infinity);
+  const lowCost: number[] = Array(n).fill(Number.POSITIVE_INFINITY);
   lowCost[0] = -1;
   for (let i = 1; i < n; i++) {
     lowCost[i] = graph[0][i];
@@ -9,7 +9,7 @@ export function prim(graph: number[][]): number {
   let sum = 0;
 
   for (let i = 1; i < n; i++) {
-    let minValue = Infinity;
+    let minValue = Number.POSITIVE_INFINITY;
     let minIndex = 0;
 
     for (let j = 1; j < n; j++) {
@@ -32,7 +32,7 @@ export function prim(graph: number[][]): number {
   return sum;
 }
 
-export function kruskal(graphLength: number, sortedEdges: Array<[number, number, number]>): number {
+export function kruskal(graphLength: number, sortedEdges: [number, number, number][]): number {
   const parent: number[] = Array(graphLength).fill(null);
   for (let i = 0; i < graphLength; i++) {
     parent[i] = i;
@@ -64,5 +64,5 @@ export function kruskal(graphLength: number, sortedEdges: Array<[number, number,
     union(sortedEdges[i][0], sortedEdges[i][1], sortedEdges[i][2]);
   }
 
-  return connectCount === 1 ? sum : Infinity;
+  return connectCount === 1 ? sum : Number.POSITIVE_INFINITY;
 }

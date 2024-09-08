@@ -1,8 +1,8 @@
 // 邻接表
-export function dijkstra(graph: Array<Array<[number, number]>>, start: number): number[] {
-  const distance: number[] = Array(graph.length).fill(Infinity);
+export function dijkstra(graph: [number, number][][], start: number): number[] {
+  const distance: number[] = Array(graph.length).fill(Number.POSITIVE_INFINITY);
   distance[start] = 0;
-  const queue: Array<[number, number]> = [];
+  const queue: [number, number][] = [];
   queue.push([start, 0]);
 
   while (queue.length > 0) {

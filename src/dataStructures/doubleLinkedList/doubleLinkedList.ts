@@ -2,7 +2,11 @@ import type { interfaces } from '../../types';
 import { Comparator } from '../../utils';
 
 export class DoubleLinkedListNode<T = unknown> implements interfaces.DoubleLinkedListNode<T> {
-  constructor(value: T | null, next: interfaces.DoubleLinkedListNode<T> | null = null, previous: interfaces.DoubleLinkedListNode<T> | null = null) {
+  constructor(
+    value: T | null,
+    next: interfaces.DoubleLinkedListNode<T> | null = null,
+    previous: interfaces.DoubleLinkedListNode<T> | null = null,
+  ) {
     this.value = value;
     this.next = next;
     this.previous = previous;
@@ -39,8 +43,8 @@ export class DoubleLinkedList<T = unknown> implements interfaces.DoubleLinkedLis
     return this.size <= 0;
   }
 
-  public toArray(): Array<interfaces.DoubleLinkedListNode<T>> {
-    const nodes: Array<interfaces.DoubleLinkedListNode<T>> = [];
+  public toArray(): interfaces.DoubleLinkedListNode<T>[] {
+    const nodes: interfaces.DoubleLinkedListNode<T>[] = [];
     let currentNode = this.head;
     while (currentNode) {
       nodes.push(currentNode);

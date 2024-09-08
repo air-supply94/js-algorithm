@@ -2,7 +2,11 @@ import type { interfaces } from '../../../types';
 import { DoubleLinkedListNode } from '../doubleLinkedList';
 import { formatIndex, get } from './get';
 
-export function insert<T = unknown>(doubleLinkedList: interfaces.DoubleLinkedList<T>, value: T, index: number): interfaces.DoubleLinkedListNode<T> {
+export function insert<T = unknown>(
+  doubleLinkedList: interfaces.DoubleLinkedList<T>,
+  value: T,
+  index: number,
+): interfaces.DoubleLinkedListNode<T> {
   const position = formatIndex(index, doubleLinkedList.size);
   if (position <= 0) {
     return doubleLinkedList.prepend(value);

@@ -40,7 +40,10 @@ export class Heap<T = unknown> implements interfaces.Heap<T> {
     let childIndex = startIndex;
     let parentIndex = (childIndex - 1) >>> 1;
 
-    while (parentIndex < childIndex && !this.pairIsInCorrectOrder(this.heapContainer[parentIndex], this.heapContainer[childIndex])) {
+    while (
+      parentIndex < childIndex &&
+      !this.pairIsInCorrectOrder(this.heapContainer[parentIndex], this.heapContainer[childIndex])
+    ) {
       const tmp = this.heapContainer[childIndex];
       this.heapContainer[childIndex] = this.heapContainer[parentIndex];
       this.heapContainer[parentIndex] = tmp;
@@ -56,7 +59,8 @@ export class Heap<T = unknown> implements interfaces.Heap<T> {
     while (leftChildIndex < this.heapContainer.length) {
       const rightChildIndex = parentIndex * 2 + 2;
       const nextIndex =
-        rightChildIndex < this.heapContainer.length && this.pairIsInCorrectOrder(this.heapContainer[rightChildIndex], this.heapContainer[leftChildIndex])
+        rightChildIndex < this.heapContainer.length &&
+        this.pairIsInCorrectOrder(this.heapContainer[rightChildIndex], this.heapContainer[leftChildIndex])
           ? rightChildIndex
           : leftChildIndex;
 

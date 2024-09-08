@@ -1,5 +1,5 @@
-import { TrieNode } from './trieNode';
 import type { interfaces } from '../../types';
+import { TrieNode } from './trieNode';
 
 function getLastCharacterNode(root: interfaces.TrieNode, word: string): interfaces.TrieNode | undefined {
   let currentNode = root;
@@ -24,7 +24,7 @@ export function findPrefixCount(root: interfaces.TrieNode, word: string): number
 
 export function wordFrequency(root: interfaces.TrieNode): Record<string, number> {
   const result = {};
-  const queue: Array<[string, interfaces.TrieNode]> = [['', root]];
+  const queue: [string, interfaces.TrieNode][] = [['', root]];
 
   while (queue.length) {
     const currentItem = queue.shift();

@@ -3,7 +3,12 @@ import { Comparator } from '../../utils';
 
 // https://leetcode-cn.com/problems/sort-an-array/submissions/
 // 912
-export function mergeSort<T = unknown>(originalArray: T[], compare?: interfaces.CompareParams<T>, left = 0, right = originalArray.length - 1): T[] {
+export function mergeSort<T = unknown>(
+  originalArray: T[],
+  compare?: interfaces.CompareParams<T>,
+  left = 0,
+  right = originalArray.length - 1,
+): T[] {
   if (left >= right) {
     return originalArray;
   }
@@ -16,7 +21,12 @@ export function mergeSort<T = unknown>(originalArray: T[], compare?: interfaces.
   return originalArray;
 }
 
-function mergeSortedArrays<T = unknown>(originalArray: T[], comparator: interfaces.Comparator<T>, left: number, right: number): void {
+function mergeSortedArrays<T = unknown>(
+  originalArray: T[],
+  comparator: interfaces.Comparator<T>,
+  left: number,
+  right: number,
+): void {
   const result: T[] = Array(right - left + 1).fill(null);
   const middleIndex = (left + right) >>> 1;
   let l = left;

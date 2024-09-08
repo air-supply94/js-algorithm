@@ -6,7 +6,7 @@ export function pancakeSort(arr: number[]): number[] {
   const result: number[] = [];
 
   for (let i = arr.length - 1; i > 0; i--) {
-    let maxValue = -Infinity;
+    let maxValue = Number.NEGATIVE_INFINITY;
     let maxIndex = 0;
 
     for (let j = 0; j <= i; j++) {

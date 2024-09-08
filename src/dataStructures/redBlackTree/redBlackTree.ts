@@ -1,5 +1,6 @@
 import { interfaces } from '../../types';
-import {BinarySearchTree,
+import {
+  BinarySearchTree,
   findReplaceNode,
   getUncle,
   removeChild,
@@ -10,7 +11,8 @@ import {BinarySearchTree,
   traverseAfterOrder,
   traverseInOrder,
   traverseLevelOrder,
-  traversePreOrder,} from '../binarySearchTree';
+  traversePreOrder,
+} from '../binarySearchTree';
 
 export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
   constructor(compare?: interfaces.CompareParams<T>) {
@@ -78,7 +80,10 @@ export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
           rotateRightRight(currentNode.parent, this.binarySearchTree.setRoot);
         } else if (
           (sibling.left == null && sibling.right == null) ||
-          (sibling.left && sibling.right && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)
+          (sibling.left &&
+            sibling.right &&
+            sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black &&
+            sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)
         ) {
           sibling.color = interfaces.RED_BLACK_TREE_COLOR.red;
           currentNode = currentNode.parent;
@@ -102,7 +107,10 @@ export class RedBlackTree<T = unknown> implements interfaces.RedBlackTree<T> {
           rotateLeftLeft(currentNode.parent, this.binarySearchTree.setRoot);
         } else if (
           (sibling.left == null && sibling.right == null) ||
-          (sibling.left && sibling.right && sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black && sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)
+          (sibling.left &&
+            sibling.right &&
+            sibling.left.color === interfaces.RED_BLACK_TREE_COLOR.black &&
+            sibling.right.color === interfaces.RED_BLACK_TREE_COLOR.black)
         ) {
           sibling.color = interfaces.RED_BLACK_TREE_COLOR.red;
           currentNode = currentNode.parent;

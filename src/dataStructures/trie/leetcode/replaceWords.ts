@@ -23,7 +23,7 @@ export function replaceWords(dictionary: string[], sentence: string): string {
       j++;
     }
 
-    if (currentNode && currentNode.isCompleteWord) {
+    if (currentNode?.isCompleteWord) {
       result.push(sentence.slice(0, j));
     } else {
       result.push(sentence);

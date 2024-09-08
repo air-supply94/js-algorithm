@@ -4,7 +4,7 @@ import { reverseList } from './reverse';
 export function getHalfNode(head: ListNode): ListNode | null {
   let fast = head;
   let slow = head;
-  while (fast && fast.next && fast.next.next) {
+  while (fast?.next?.next) {
     fast = fast.next.next;
     slow = slow.next;
   }

@@ -1,6 +1,6 @@
+import { describe, expect, test } from 'vitest';
 import { Comparator } from '../../utils';
 import { DoubleLinkedList, DoubleLinkedListNode } from './doubleLinkedList';
-import { expect, test, describe } from 'vitest';
 
 describe('doubleLinkedList node', () => {
   test('should create list node with value', () => {

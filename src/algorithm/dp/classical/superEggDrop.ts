@@ -14,7 +14,7 @@ export function superEggDrop(count: number, n: number, cache = new Map<string, n
     return cache.get(key);
   }
 
-  let result = Infinity;
+  let result = Number.POSITIVE_INFINITY;
 
   /*  for (let i = 1; i <= n; i++) {
     result = Math.min(

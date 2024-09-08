@@ -2,8 +2,8 @@
 // 53
 // top100
 export function maxSubArray(numbers: number[]): number {
-  let currentSum = -Infinity;
-  let maxValue = -Infinity;
+  let currentSum = Number.NEGATIVE_INFINITY;
+  let maxValue = Number.NEGATIVE_INFINITY;
 
   for (let i = 0; i < numbers.length; i++) {
     currentSum = Math.max(numbers[i], currentSum + numbers[i]);
@@ -50,13 +50,13 @@ export function getMaxMatrix(matrix: number[][]): number[] {
   const result: number[] = Array(4).fill(0);
   let startH = 0;
   let startW = 0;
-  let maxValue = -Infinity;
+  let maxValue = Number.NEGATIVE_INFINITY;
   const dp: number[] = Array(width).fill(0);
 
   for (let startHeight = 0; startHeight < height; startHeight++) {
     dp.fill(0);
     for (let endHeight = startHeight; endHeight < height; endHeight++) {
-      let currentSum = -Infinity;
+      let currentSum = Number.NEGATIVE_INFINITY;
       for (let startWidth = 0; startWidth < width; startWidth++) {
         // 当前矩形对应的列需要累加
         dp[startWidth] += matrix[endHeight][startWidth];

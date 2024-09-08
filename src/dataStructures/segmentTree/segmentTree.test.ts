@@ -1,10 +1,10 @@
+import { describe, expect, test } from 'vitest';
 import { SegmentTree } from './segmentTree';
-import { expect, test, describe } from 'vitest';
 
 describe('SegmentTree', () => {
   test('should do min range query on power of two length array', () => {
     const array = [-1, 3, 4, 0, 2, 1];
-    const segmentTree = new SegmentTree(array, Math.min, Infinity);
+    const segmentTree = new SegmentTree(array, Math.min, Number.POSITIVE_INFINITY);
 
     expect(segmentTree.rangeQuery(0, 5)).toBe(-1);
     expect(segmentTree.rangeQuery(0, 2)).toBe(-1);
@@ -16,7 +16,7 @@ describe('SegmentTree', () => {
 
   test('should do min range query on not power of two length array', () => {
     const array = [-1, 2, 4, 0];
-    const segmentTree = new SegmentTree(array, Math.min, Infinity);
+    const segmentTree = new SegmentTree(array, Math.min, Number.POSITIVE_INFINITY);
 
     expect(segmentTree.rangeQuery(0, 4)).toBe(-1);
     expect(segmentTree.rangeQuery(0, 1)).toBe(-1);
@@ -28,7 +28,7 @@ describe('SegmentTree', () => {
 
   test('should do max range query', () => {
     const array = [-1, 3, 4, 0, 2, 1];
-    const segmentTree = new SegmentTree(array, Math.max, -Infinity);
+    const segmentTree = new SegmentTree(array, Math.max, Number.NEGATIVE_INFINITY);
 
     expect(segmentTree.rangeQuery(0, 5)).toBe(4);
     expect(segmentTree.rangeQuery(0, 1)).toBe(3);

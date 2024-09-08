@@ -1,5 +1,5 @@
+import { beforeEach, describe, expect, test } from 'vitest';
 import { BloomFilter } from './bloomFilter';
-import { expect, test, describe, beforeEach } from 'vitest';
 
 describe('BloomFilter', () => {
   let bloomFilter: BloomFilter;

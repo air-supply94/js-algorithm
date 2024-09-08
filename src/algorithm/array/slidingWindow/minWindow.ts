@@ -10,7 +10,7 @@ export function minWindow(s: string, t: string): string {
   let left = 0;
   let right = 0;
   let matchCharCount = 0;
-  let length = Infinity;
+  let length = Number.POSITIVE_INFINITY;
   let start = 0;
 
   for (let i = 0; i < t.length; i++) {
@@ -48,5 +48,5 @@ export function minWindow(s: string, t: string): string {
     }
   }
 
-  return length === Infinity ? '' : s.substring(start, start + length);
+  return length === Number.POSITIVE_INFINITY ? '' : s.substring(start, start + length);
 }

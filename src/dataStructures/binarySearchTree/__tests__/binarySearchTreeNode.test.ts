@@ -1,6 +1,15 @@
+import { describe, expect, test } from 'vitest';
 import { BinarySearchTreeNode } from '../binarySearchTree';
-import { getBalanceFactor, getHeight, getUncle, nodeToString, removeChild, replaceChild, setLeft, setRight } from '../utils';
-import { expect, test, describe } from 'vitest';
+import {
+  getBalanceFactor,
+  getHeight,
+  getUncle,
+  nodeToString,
+  removeChild,
+  replaceChild,
+  setLeft,
+  setRight,
+} from '../utils';
 
 describe('BinarySearchTreeNode', () => {
   test('should create node', () => {

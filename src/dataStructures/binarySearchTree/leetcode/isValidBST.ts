@@ -13,10 +13,10 @@ function recursion(root: TreeNode | null): number[] {
       1,
 
       // 最小值
-      Infinity,
+      Number.POSITIVE_INFINITY,
 
       // 最大值
-      -Infinity,
+      Number.NEGATIVE_INFINITY,
     ];
   }
 

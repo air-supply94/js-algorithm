@@ -16,7 +16,7 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
     return head.next;
   }
 
-  while (fast && fast.next) {
+  while (fast?.next) {
     slow = slow.next;
     fast = fast.next;
   }

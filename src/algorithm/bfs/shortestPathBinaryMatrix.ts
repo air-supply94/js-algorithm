@@ -3,7 +3,7 @@
 export function shortestPathBinaryMatrix(grid: number[][]): number {
   const height = grid.length;
   const width = grid[0].length;
-  const directionMatrix: Array<[number, number]> = [
+  const directionMatrix: [number, number][] = [
     [-1, -1],
     [-1, 0],
     [-1, 1],
@@ -13,7 +13,7 @@ export function shortestPathBinaryMatrix(grid: number[][]): number {
     [1, 0],
     [1, 1],
   ];
-  const queue: Array<[number, number]> = [];
+  const queue: [number, number][] = [];
 
   const visited: number[][] = Array(height)
     .fill(null)

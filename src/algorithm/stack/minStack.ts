@@ -22,6 +22,8 @@ export class MinStack {
   }
 
   public getMin(): number {
-    return this.minValueStack.length === 0 ? Infinity : this.minValueStack[this.minValueStack.length - 1];
+    return this.minValueStack.length === 0
+      ? Number.POSITIVE_INFINITY
+      : this.minValueStack[this.minValueStack.length - 1];
   }
 }

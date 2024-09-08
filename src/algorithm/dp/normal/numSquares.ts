@@ -2,7 +2,7 @@
 // 279
 // top100
 export function numSquares(n: number): number {
-  const dp: number[] = Array(n + 1).fill(Infinity);
+  const dp: number[] = Array(n + 1).fill(Number.POSITIVE_INFINITY);
   dp[0] = 0;
 
   for (let i = 1; i <= n; i++) {

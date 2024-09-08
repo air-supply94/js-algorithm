@@ -6,7 +6,7 @@ export function slidingPuzzle(board: number[][]): number {
   const end = '123450';
 
   const visited = new Set<string>();
-  const queue: Array<[string, number]> = [];
+  const queue: [string, number][] = [];
   const startNode = board.map((item) => item.join('')).join('');
   visited.add(startNode);
   queue.push([startNode, startNode.indexOf('0')]);
@@ -34,7 +34,7 @@ export function slidingPuzzle(board: number[][]): number {
   return -1;
 }
 
-function getChildren(height: number, width: number, currentNode: [string, number]): Array<[string, number]> {
+function getChildren(height: number, width: number, currentNode: [string, number]): [string, number][] {
   const neighborIndex: number[] = [];
   const oldString = currentNode[0];
   const oldZeroPosition = currentNode[1];

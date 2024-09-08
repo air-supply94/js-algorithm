@@ -25,7 +25,10 @@ export function setRight(root: interfaces.BinarySearchTreeNode, node: interfaces
   }
 }
 
-export function removeChild(root: interfaces.BinarySearchTreeNode, nodeToRemove: interfaces.BinarySearchTreeNode): boolean {
+export function removeChild(
+  root: interfaces.BinarySearchTreeNode,
+  nodeToRemove: interfaces.BinarySearchTreeNode,
+): boolean {
   if (nodeToRemove == null) {
     return false;
   }
@@ -41,7 +44,11 @@ export function removeChild(root: interfaces.BinarySearchTreeNode, nodeToRemove:
   }
 }
 
-export function replaceChild(root: interfaces.BinarySearchTreeNode, nodeToReplace: interfaces.BinarySearchTreeNode, replacementNode: interfaces.BinarySearchTreeNode): boolean {
+export function replaceChild(
+  root: interfaces.BinarySearchTreeNode,
+  nodeToReplace: interfaces.BinarySearchTreeNode,
+  replacementNode: interfaces.BinarySearchTreeNode,
+): boolean {
   if (nodeToReplace == null || replacementNode == null) {
     return false;
   }

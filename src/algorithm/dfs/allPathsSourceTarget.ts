@@ -1,6 +1,11 @@
 // https://leetcode-cn.com/problems/all-paths-from-source-to-target/
 // 797
-export function allPathsSourceTarget(graph: number[][], currentNode = 0, result: number[][] = [], path: number[] = []): number[][] {
+export function allPathsSourceTarget(
+  graph: number[][],
+  currentNode = 0,
+  result: number[][] = [],
+  path: number[] = [],
+): number[][] {
   if (currentNode === graph.length - 1) {
     result.push(path.concat(currentNode));
     return result;

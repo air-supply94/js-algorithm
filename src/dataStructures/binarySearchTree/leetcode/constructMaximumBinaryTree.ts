@@ -8,7 +8,7 @@ export function constructMaximumBinaryTree(num: number[], startIndex = 0, endInd
   }
 
   let maxIndex = -1;
-  let maxValue = -Infinity;
+  let maxValue = Number.NEGATIVE_INFINITY;
 
   for (let i = startIndex; i <= endIndex; i++) {
     if (num[i] > maxValue) {

@@ -4,7 +4,7 @@
 export function countSmaller(nums: number[]): number[] {
   const count: number[] = Array(nums.length).fill(0);
 
-  function mergeSort(originalArray: Array<[number, number]>, left = 0, right = originalArray.length - 1): void {
+  function mergeSort(originalArray: [number, number][], left = 0, right = originalArray.length - 1): void {
     if (left >= right) {
       return;
     }
@@ -15,8 +15,8 @@ export function countSmaller(nums: number[]): number[] {
     mergeSortedArrays(originalArray, left, right);
   }
 
-  function mergeSortedArrays(originalArray: Array<[number, number]>, left: number, right: number): void {
-    const result: Array<[number, number]> = Array(right - left + 1);
+  function mergeSortedArrays(originalArray: [number, number][], left: number, right: number): void {
+    const result: [number, number][] = Array(right - left + 1);
     const middleIndex = (left + right) >>> 1;
     let i = left;
     let j = middleIndex + 1;

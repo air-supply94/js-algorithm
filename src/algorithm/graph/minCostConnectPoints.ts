@@ -4,7 +4,7 @@ function getWeight(point1: [number, number], point2: [number, number]): number {
   return Math.abs(point1[0] - point2[0]) + Math.abs(point1[1] - point2[1]);
 }
 
-function buildGraph(points: Array<[number, number]>): number[][] {
+function buildGraph(points: [number, number][]): number[][] {
   const n = points.length;
   const graph: number[][] = Array(n)
     .fill(null)
@@ -23,6 +23,6 @@ function buildGraph(points: Array<[number, number]>): number[][] {
 
 // https://leetcode-cn.com/problems/min-cost-to-connect-all-points/
 // 1584
-export function minCostConnectPoints(points: Array<[number, number]>): number {
+export function minCostConnectPoints(points: [number, number][]): number {
   return prim(buildGraph(points));
 }

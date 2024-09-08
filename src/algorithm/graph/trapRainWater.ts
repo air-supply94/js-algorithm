@@ -39,7 +39,13 @@ export function trapRainWater(heightMap: number[][]): number {
     for (let i = 0; i < directionMatrix.length; i++) {
       const neighborH = currentX + directionMatrix[i][0];
       const neighborW = currentY + directionMatrix[i][1];
-      if (neighborH >= 0 && neighborH < height && neighborW >= 0 && neighborW < width && visited[neighborH][neighborW] === 0) {
+      if (
+        neighborH >= 0 &&
+        neighborH < height &&
+        neighborW >= 0 &&
+        neighborW < width &&
+        visited[neighborH][neighborW] === 0
+      ) {
         if (currentWeight > heightMap[neighborH][neighborW]) {
           result += currentWeight - heightMap[neighborH][neighborW];
         }

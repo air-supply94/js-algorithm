@@ -2,7 +2,7 @@
 // 931
 export function minFallingPathSum(matrix: number[][]): number {
   const n = matrix.length;
-  const dp = Array(n + 2).fill(Infinity);
+  const dp = Array(n + 2).fill(Number.POSITIVE_INFINITY);
   for (let i = 0; i < n; i++) {
     dp[i + 1] = matrix[0][i];
   }

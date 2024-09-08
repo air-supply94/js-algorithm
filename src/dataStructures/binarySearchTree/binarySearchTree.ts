@@ -1,6 +1,17 @@
 import { interfaces } from '../../types';
 import { Comparator } from '../../utils';
-import { find, findMax, findMin, findReplaceNode, insert, removeChild, traverseAfterOrder, traverseInOrder, traverseLevelOrder, traversePreOrder } from './utils';
+import {
+  find,
+  findMax,
+  findMin,
+  findReplaceNode,
+  insert,
+  removeChild,
+  traverseAfterOrder,
+  traverseInOrder,
+  traverseLevelOrder,
+  traversePreOrder,
+} from './utils';
 
 export class BinarySearchTreeNode<T = unknown> implements interfaces.BinarySearchTreeNode<T> {
   constructor(value: T | null = null) {
@@ -35,7 +46,9 @@ export class BinarySearchTree<T = unknown> implements interfaces.BinarySearchTre
   public readonly comparator: interfaces.Comparator<T>;
 
   public insert(value: T): interfaces.BinarySearchTreeNode<T> | null {
-    return insert(this.root, value, this.comparator, (root) => (this.root = root));
+    return insert(this.root, value, this.comparator, (root) => {
+      this.root = root;
+    });
   }
 
   public find(value: T): interfaces.BinarySearchTreeNode<T> | null {

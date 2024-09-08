@@ -96,7 +96,11 @@ export function removeDuplicateLetters(s: string): string {
     countMap.set(item, countMap.get(item) - 1);
 
     if (!stack.includes(item)) {
-      while (stack.length > 0 && s.charCodeAt(i) <= stack[stack.length - 1].charCodeAt(0) && countMap.get(stack[stack.length - 1]) > 0) {
+      while (
+        stack.length > 0 &&
+        s.charCodeAt(i) <= stack[stack.length - 1].charCodeAt(0) &&
+        countMap.get(stack[stack.length - 1]) > 0
+      ) {
         stack.pop();
       }
 

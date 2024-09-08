@@ -3,7 +3,7 @@ import type { TreeNode } from './treeNode';
 // https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
 // 783
 export function minDiffInBST(root: TreeNode | null): number {
-  let min = Infinity;
+  let min = Number.POSITIVE_INFINITY;
   let pre: number | null = null;
 
   function dfs(tmpRoot: TreeNode) {

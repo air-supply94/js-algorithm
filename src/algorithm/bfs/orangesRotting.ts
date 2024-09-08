@@ -1,7 +1,7 @@
 // https://leetcode.cn/problems/rotting-oranges/description/?envType=study-plan-v2&envId=top-100-liked
 // 994
 // top100
-const directionMatrix: Array<[number, number]> = [
+const directionMatrix: [number, number][] = [
   [-1, 0],
   [0, -1],
   [0, 1],

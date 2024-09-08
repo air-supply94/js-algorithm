@@ -2,8 +2,8 @@
 // https://www.nowcoder.com/practice/762836f4d43d43ca9deb273b3de8e1f4
 export function IsContinuous(numbers: number[]): boolean {
   let bitMap = 0;
-  let minValue = Infinity;
-  let maxValue = -Infinity;
+  let minValue = Number.POSITIVE_INFINITY;
+  let maxValue = Number.NEGATIVE_INFINITY;
 
   for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] !== 0) {

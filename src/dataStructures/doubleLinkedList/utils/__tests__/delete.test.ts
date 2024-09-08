@@ -1,6 +1,6 @@
+import { expect, test } from 'vitest';
 import { DoubleLinkedList } from '../../doubleLinkedList';
 import { deleteIndex, deleteNode, deleteValueBase } from '../delete';
-import { expect, test } from 'vitest';
 
 test('doubleLinkedList deleteNode', () => {
   const linkedList = new DoubleLinkedList();
@@ -53,7 +53,7 @@ test('doubleLinkedList deleteValueBase', () => {
   expect(linkedList.head.value).toBe(1);
   expect(linkedList.tail.value).toBe(5);
 
-  const deletedNode = deleteValueBase(linkedList, Infinity, 3);
+  const deletedNode = deleteValueBase(linkedList, Number.POSITIVE_INFINITY, 3);
   expect(linkedList.size).toBe(5);
   expect(deletedNode.value).toBe(3);
   expect(
@@ -64,7 +64,7 @@ test('doubleLinkedList deleteValueBase', () => {
   ).toBe('1,1,2,4,5');
   expect(linkedList.tail.previous.previous.value).toBe(2);
 
-  deleteValueBase(linkedList, Infinity, 3);
+  deleteValueBase(linkedList, Number.POSITIVE_INFINITY, 3);
   expect(linkedList.size).toBe(5);
   expect(
     linkedList
@@ -73,7 +73,7 @@ test('doubleLinkedList deleteValueBase', () => {
       .join(','),
   ).toBe('1,1,2,4,5');
 
-  deleteValueBase(linkedList, Infinity, 1);
+  deleteValueBase(linkedList, Number.POSITIVE_INFINITY, 1);
   expect(linkedList.size).toBe(3);
   expect(
     linkedList
@@ -87,20 +87,20 @@ test('doubleLinkedList deleteValueBase', () => {
   expect(linkedList.tail.previous.previous).toBe(linkedList.head);
   expect(linkedList.tail.value).toBe(5);
 
-  deleteValueBase(linkedList, Infinity, 5);
+  deleteValueBase(linkedList, Number.POSITIVE_INFINITY, 5);
   expect(linkedList.size).toBe(2);
 
   expect(linkedList.head.value).toBe(2);
   expect(linkedList.tail.value).toBe(4);
 
-  deleteValueBase(linkedList, Infinity, 4);
+  deleteValueBase(linkedList, Number.POSITIVE_INFINITY, 4);
   expect(linkedList.size).toBe(1);
 
   expect(linkedList.head.value).toBe(2);
   expect(linkedList.tail.value).toBe(2);
   expect(linkedList.head).toBe(linkedList.tail);
 
-  deleteValueBase(linkedList, Infinity, 2);
+  deleteValueBase(linkedList, Number.POSITIVE_INFINITY, 2);
   expect(linkedList.size).toBe(0);
 });
 
@@ -119,7 +119,7 @@ test('doubleLinkedList deleteValueBase head and tail 1', () => {
       .map((item) => item.value)
       .join(','),
   ).toBe('1,1,2,1,1');
-  deleteValueBase(linkedList, Infinity, 1);
+  deleteValueBase(linkedList, Number.POSITIVE_INFINITY, 1);
   expect(linkedList.size).toBe(1);
   expect(linkedList.head.next).toBeNull();
   expect(linkedList.head.value).toBe(2);
@@ -142,7 +142,7 @@ test('doubleLinkedList deleteValueBase head and tail 2', () => {
       .map((item) => item.value)
       .join(','),
   ).toBe('1,1,2,1,1,3');
-  deleteValueBase(linkedList, Infinity, 1);
+  deleteValueBase(linkedList, Number.POSITIVE_INFINITY, 1);
   expect(linkedList.size).toBe(2);
   expect(linkedList.head.next.value).toBe(3);
   expect(linkedList.head.value).toBe(2);

@@ -3,8 +3,11 @@ import type { interfaces } from '../../../types';
 // https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
 // 102
 // 简单改造
-export function traverseLevelOrder<T = unknown>(root: interfaces.BinarySearchTreeNode<T> | null, callback: interfaces.BinarySearchTreeTraverseCallback<T>): number {
-  const queue: Array<interfaces.BinarySearchTreeNode<T>> = [];
+export function traverseLevelOrder<T = unknown>(
+  root: interfaces.BinarySearchTreeNode<T> | null,
+  callback: interfaces.BinarySearchTreeTraverseCallback<T>,
+): number {
+  const queue: interfaces.BinarySearchTreeNode<T>[] = [];
   let level = 0;
   if (root) {
     queue.push(root);

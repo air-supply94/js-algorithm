@@ -1,6 +1,6 @@
+import { expect, test } from 'vitest';
 import { DoubleLinkedList } from '../../doubleLinkedList';
 import { insert } from '../insert';
-import { expect, test } from 'vitest';
 
 test('DoubleLinkedList insert', () => {
   const linkedList = new DoubleLinkedList();

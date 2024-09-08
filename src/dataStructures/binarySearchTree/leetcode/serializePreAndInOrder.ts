@@ -21,7 +21,14 @@ export function serializePreAndInOrder(
   const root = new TreeNode(equalValue);
   const size = equalIndex - inStartIndex + 1;
 
-  root.left = serializePreAndInOrder(preorder, inorder, preStartIndex + 1, size + preStartIndex - 1, inStartIndex, equalIndex - 1);
+  root.left = serializePreAndInOrder(
+    preorder,
+    inorder,
+    preStartIndex + 1,
+    size + preStartIndex - 1,
+    inStartIndex,
+    equalIndex - 1,
+  );
   root.right = serializePreAndInOrder(preorder, inorder, size + preStartIndex, preEndIndex, equalIndex + 1, inEndIndex);
   return root;
 }

@@ -1,7 +1,12 @@
 // https://leetcode-cn.com/problems/permutations/submissions/
 // 46
 // top100
-export function permute(choice: number[], path: number[] = [], visited: number[] = Array(choice.length).fill(0), result: number[][] = []): number[][] {
+export function permute(
+  choice: number[],
+  path: number[] = [],
+  visited: number[] = Array(choice.length).fill(0),
+  result: number[][] = [],
+): number[][] {
   // 达到n层(n可以换成m层)
   if (choice.length === path.length) {
     result.push(path.slice());

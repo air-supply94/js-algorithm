@@ -1,5 +1,12 @@
 import type { interfaces } from '../../types';
-import { BinarySearchTree, getBalanceFactor, rotateLeftLeft, rotateLeftRight, rotateRightLeft, rotateRightRight } from '../binarySearchTree';
+import {
+  BinarySearchTree,
+  getBalanceFactor,
+  rotateLeftLeft,
+  rotateLeftRight,
+  rotateRightLeft,
+  rotateRightRight,
+} from '../binarySearchTree';
 
 export class AvlTree<T = unknown> implements interfaces.AvlTree<T> {
   constructor(compare?: interfaces.CompareParams<T>) {

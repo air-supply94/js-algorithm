@@ -16,7 +16,8 @@ export function infixExpressionToPostfixExpression(infixExpression: string[]): s
         if (
           signStack.length === 0 ||
           signStack[signStack.length - 1] === '(' ||
-          ((token === '*' || token === '/') && (signStack[signStack.length - 1] === '+' || signStack[signStack.length - 1] === '-'))
+          ((token === '*' || token === '/') &&
+            (signStack[signStack.length - 1] === '+' || signStack[signStack.length - 1] === '-'))
         ) {
           signStack.push(token);
         } else {
@@ -27,12 +28,13 @@ export function infixExpressionToPostfixExpression(infixExpression: string[]): s
       case '(':
         signStack.push(token);
         break;
-      case ')':
+      case ')': {
         while (signStack.length > 0 && signStack[signStack.length - 1] !== '(') {
           expressionStack.push(signStack.pop());
         }
         signStack.pop();
         break;
+      }
       default:
         expressionStack.push(token);
     }

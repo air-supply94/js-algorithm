@@ -4,7 +4,7 @@ import type { TreeNode } from './treeNode';
 // 124
 // top100
 export function maxPathSum(root: TreeNode | null): number {
-  let result = -Infinity;
+  let result = Number.NEGATIVE_INFINITY;
   function traverse(node: TreeNode): number {
     if (node == null) {
       return 0;

@@ -1,7 +1,12 @@
 // https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
 // 17
 // top100
-export function letterCombinations(digits: string, path: string[] = [], startIndex = 0, result: string[] = []): string[] {
+export function letterCombinations(
+  digits: string,
+  path: string[] = [],
+  startIndex = 0,
+  result: string[] = [],
+): string[] {
   if (digits.length === 0) {
     return [];
   }

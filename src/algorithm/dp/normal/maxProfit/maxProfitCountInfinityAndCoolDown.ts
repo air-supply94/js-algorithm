@@ -2,7 +2,7 @@
 // 309
 export function maxProfitCountInfinityAndCoolDown(prices: number[]): number {
   let dp_i_n_0 = 0;
-  let dp_i_n_1 = -Infinity;
+  let dp_i_n_1 = Number.NEGATIVE_INFINITY;
 
   // dp[i - 2][0]
   let dp_i_n_0_previous = 0;

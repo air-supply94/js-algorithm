@@ -19,7 +19,14 @@ export function findRotateSteps(ring: string, key: string): number {
  * 自顶向下
  * 当前选择 = ring中对应key的字母的位置(顺时针和逆时针)
  */
-function dfs(ring: string, key: string, i: number, count: number, positionMap: Map<string, number[]>, cache = new Map<string, number>()): number {
+function dfs(
+  ring: string,
+  key: string,
+  i: number,
+  count: number,
+  positionMap: Map<string, number[]>,
+  cache = new Map<string, number>(),
+): number {
   if (count === key.length) {
     return 0;
   }
@@ -29,7 +36,7 @@ function dfs(ring: string, key: string, i: number, count: number, positionMap: M
     return cache.get(cacheKey);
   }
 
-  let result = Infinity;
+  let result = Number.POSITIVE_INFINITY;
   const currentChoice = positionMap.get(key[count]);
   for (let j = 0; j < currentChoice.length; j++) {
     const dx = Math.abs(i - currentChoice[j]);

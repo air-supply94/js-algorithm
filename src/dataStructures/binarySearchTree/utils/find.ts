@@ -1,6 +1,10 @@
 import type { interfaces } from '../../../types';
 
-export function find<T = unknown>(root: interfaces.BinarySearchTreeNode<T> | null, value: T, comparator: interfaces.Comparator<T>): interfaces.BinarySearchTreeNode<T> | null {
+export function find<T = unknown>(
+  root: interfaces.BinarySearchTreeNode<T> | null,
+  value: T,
+  comparator: interfaces.Comparator<T>,
+): interfaces.BinarySearchTreeNode<T> | null {
   if (root == null) {
     return null;
   }

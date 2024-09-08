@@ -1,7 +1,12 @@
 import type { interfaces } from '../../types';
 import { Comparator } from '../../utils';
 
-export function quickSortInPlace<T = unknown>(originalArray: T[], compareCallback?: interfaces.CompareParams<T>, left = 0, right: number = originalArray.length - 1): T[] {
+export function quickSortInPlace<T = unknown>(
+  originalArray: T[],
+  compareCallback?: interfaces.CompareParams<T>,
+  left = 0,
+  right: number = originalArray.length - 1,
+): T[] {
   if (left < right) {
     const comparator = new Comparator(compareCallback);
     const baseIndex = partitionArray(originalArray, comparator, left, right);
@@ -13,7 +18,12 @@ export function quickSortInPlace<T = unknown>(originalArray: T[], compareCallbac
   return originalArray;
 }
 
-function partitionArray<T = unknown>(originalArray: T[], comparator: interfaces.Comparator<T>, left: number, right: number): number {
+function partitionArray<T = unknown>(
+  originalArray: T[],
+  comparator: interfaces.Comparator<T>,
+  left: number,
+  right: number,
+): number {
   const baseItem = originalArray[left + Math.floor(Math.random() * (right - left + 1))];
   let i = left;
   let j = right;

@@ -1,5 +1,5 @@
-import { Comparator } from '../../utils';
 import type { interfaces } from '../../types';
+import { Comparator } from '../../utils';
 
 export class SkipListNode<T = unknown> implements interfaces.SkipListNode<T> {
   constructor(data: T) {

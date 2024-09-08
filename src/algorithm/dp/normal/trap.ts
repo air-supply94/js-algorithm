@@ -6,8 +6,8 @@ export function trap1(height: number[]): number {
   let result = 0;
   const leftMax: number[] = Array(height.length).fill(null);
   const rightMax: number[] = Array(height.length).fill(null);
-  let leftTmp = -Infinity;
-  let rightTmp = -Infinity;
+  let leftTmp = Number.NEGATIVE_INFINITY;
+  let rightTmp = Number.NEGATIVE_INFINITY;
 
   for (let i = 0; i < height.length; i++) {
     leftTmp = Math.max(leftTmp, height[i]);

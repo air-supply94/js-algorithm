@@ -47,10 +47,19 @@ export class SegmentTree implements interfaces.SegmentTree {
     this.buildTreeRecursively(leftInputIndex, middleIndex, getLeftChildIndex(position));
     this.buildTreeRecursively(middleIndex + 1, rightInputIndex, getRightChildIndex(position));
 
-    this.segmentTree[position] = this.operation(this.segmentTree[getLeftChildIndex(position)], this.segmentTree[getRightChildIndex(position)]);
+    this.segmentTree[position] = this.operation(
+      this.segmentTree[getLeftChildIndex(position)],
+      this.segmentTree[getRightChildIndex(position)],
+    );
   }
 
-  private rangeQueryRecursive(queryLeftIndex: number, queryRightIndex: number, leftIndex: number, rightIndex: number, position: number): number {
+  private rangeQueryRecursive(
+    queryLeftIndex: number,
+    queryRightIndex: number,
+    leftIndex: number,
+    rightIndex: number,
+    position: number,
+  ): number {
     if (queryLeftIndex <= leftIndex && queryRightIndex >= rightIndex) {
       return this.segmentTree[position];
     }
@@ -60,8 +69,20 @@ export class SegmentTree implements interfaces.SegmentTree {
     }
 
     const middleIndex = leftIndex + Math.floor((rightIndex - leftIndex) / 2);
-    const left = this.rangeQueryRecursive(queryLeftIndex, queryRightIndex, leftIndex, middleIndex, getLeftChildIndex(position));
-    const right = this.rangeQueryRecursive(queryLeftIndex, queryRightIndex, middleIndex + 1, rightIndex, getRightChildIndex(position));
+    const left = this.rangeQueryRecursive(
+      queryLeftIndex,
+      queryRightIndex,
+      leftIndex,
+      middleIndex,
+      getLeftChildIndex(position),
+    );
+    const right = this.rangeQueryRecursive(
+      queryLeftIndex,
+      queryRightIndex,
+      middleIndex + 1,
+      rightIndex,
+      getRightChildIndex(position),
+    );
 
     return this.operation(left, right);
   }

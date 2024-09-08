@@ -4,7 +4,7 @@
 export function minSubArrayLen(target: number, nums: number[]): number {
   let right = 0;
   let left = 0;
-  let length = Infinity;
+  let length = Number.POSITIVE_INFINITY;
   let sum = 0;
 
   while (right < nums.length) {
@@ -21,5 +21,5 @@ export function minSubArrayLen(target: number, nums: number[]): number {
     }
   }
 
-  return length === Infinity ? 0 : length;
+  return length === Number.POSITIVE_INFINITY ? 0 : length;
 }

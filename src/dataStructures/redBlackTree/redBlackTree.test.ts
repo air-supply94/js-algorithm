@@ -1,7 +1,7 @@
+import { describe, expect, test } from 'vitest';
 import { interfaces } from '../../types';
 import { getHeight, nodeToString } from '../binarySearchTree';
 import { RedBlackTree } from './redBlackTree';
-import { expect, test, describe } from 'vitest';
 
 describe('RedBlackTree', () => {
   test('should always color first inserted node as black', () => {
@@ -510,7 +510,7 @@ describe('RedBlackTree', () => {
 });
 
 function treeUtils<T = unknown>(tree: interfaces.RedBlackTree<T>) {
-  const items: Array<interfaces.BinarySearchTreeNode<T>> = [];
+  const items: interfaces.BinarySearchTreeNode<T>[] = [];
   tree.traverseLevelOrderCallback((node) => {
     items.push(node);
   });

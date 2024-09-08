@@ -90,7 +90,7 @@ export namespace interfaces {
     size: number;
     clear: () => void;
     isEmpty: () => boolean;
-    toArray: () => Array<DoubleLinkedListNode<T>>;
+    toArray: () => DoubleLinkedListNode<T>[];
     fromArray: (values: T[]) => void;
     append: (value: T) => DoubleLinkedListNode<T>;
     prepend: (value: T) => DoubleLinkedListNode<T>;
@@ -113,7 +113,10 @@ export namespace interfaces {
     color: RED_BLACK_TREE_COLOR;
   }
 
-  export type BinarySearchTreeTraverseCallback<T = unknown> = (node: BinarySearchTreeNode<T>, height?: number) => boolean | void;
+  export type BinarySearchTreeTraverseCallback<T = unknown> = (
+    node: BinarySearchTreeNode<T>,
+    height?: number,
+  ) => boolean | void;
 
   export interface BinarySearchTree<T = unknown> {
     root: BinarySearchTreeNode<T> | null;

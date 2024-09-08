@@ -1,6 +1,8 @@
 import type { interfaces } from '../../../types';
 
-export function findMin<T = unknown>(root: interfaces.BinarySearchTreeNode<T> | null): interfaces.BinarySearchTreeNode<T> | null {
+export function findMin<T = unknown>(
+  root: interfaces.BinarySearchTreeNode<T> | null,
+): interfaces.BinarySearchTreeNode<T> | null {
   if (root == null) {
     return null;
   }

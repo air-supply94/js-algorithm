@@ -1,6 +1,6 @@
+import { expect, test } from 'vitest';
 import { DoubleLinkedList } from '../../doubleLinkedList';
 import { find } from '../find';
-import { expect, test } from 'vitest';
 
 test('should find node by value', () => {
   const linkedList = new DoubleLinkedList();

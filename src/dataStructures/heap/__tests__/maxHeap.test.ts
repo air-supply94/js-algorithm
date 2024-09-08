@@ -1,5 +1,5 @@
+import { describe, expect, test } from 'vitest';
 import { Heap } from '../heap';
-import { expect, test, describe } from 'vitest';
 
 describe('MaxHeap', () => {
   test('should create an empty max heap', () => {

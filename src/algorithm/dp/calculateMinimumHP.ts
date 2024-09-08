@@ -10,20 +10,29 @@ export function calculateMinimumHP(dungeon: number[][]): number {
   return recursion(dungeon, 0, 0, height, width, cache);
 }
 
-function recursion(dungeon: number[][], h: number, w: number, height: number, width: number, cache: number[][]): number {
+function recursion(
+  dungeon: number[][],
+  h: number,
+  w: number,
+  height: number,
+  width: number,
+  cache: number[][],
+): number {
   if (h === height - 1 && w === width - 1) {
     return dungeon[h][w] >= 0 ? 1 : -dungeon[h][w] + 1;
   }
 
   if (h === height || w === width) {
-    return Infinity;
+    return Number.POSITIVE_INFINITY;
   }
 
   if (cache[h][w] !== null) {
     return cache[h][w];
   }
 
-  const totalCost = Math.min(recursion(dungeon, h, w + 1, height, width, cache), recursion(dungeon, h + 1, w, height, width, cache)) - dungeon[h][w];
+  const totalCost =
+    Math.min(recursion(dungeon, h, w + 1, height, width, cache), recursion(dungeon, h + 1, w, height, width, cache)) -
+    dungeon[h][w];
   cache[h][w] = totalCost <= 0 ? 1 : totalCost;
   return cache[h][w];
 }
@@ -31,7 +40,7 @@ function recursion(dungeon: number[][], h: number, w: number, height: number, wi
 export function calculateMinimumHPDp(dungeon: number[][]): number {
   const height = dungeon.length;
   const width = dungeon[0].length;
-  const dp = Array(width + 1).fill(Infinity);
+  const dp = Array(width + 1).fill(Number.POSITIVE_INFINITY);
 
   for (let i = height - 1; i >= 0; i--) {
     for (let j = width - 1; j >= 0; j--) {

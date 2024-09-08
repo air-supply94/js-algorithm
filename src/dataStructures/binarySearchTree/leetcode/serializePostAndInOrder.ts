@@ -18,7 +18,21 @@ export function serializePostAndInOrder(
   const equalIndex = inorder.findIndex((item) => item === rootValue, inStartIndex);
   const size = equalIndex - inStartIndex + 1;
   const root = new TreeNode(rootValue);
-  root.left = serializePostAndInOrder(inorder, postorder, inStartIndex, equalIndex - 1, postStartIndex, postStartIndex + size - 2);
-  root.right = serializePostAndInOrder(inorder, postorder, equalIndex + 1, inEndIndex, postStartIndex + size - 1, postEndIndex - 1);
+  root.left = serializePostAndInOrder(
+    inorder,
+    postorder,
+    inStartIndex,
+    equalIndex - 1,
+    postStartIndex,
+    postStartIndex + size - 2,
+  );
+  root.right = serializePostAndInOrder(
+    inorder,
+    postorder,
+    equalIndex + 1,
+    inEndIndex,
+    postStartIndex + size - 1,
+    postEndIndex - 1,
+  );
   return root;
 }

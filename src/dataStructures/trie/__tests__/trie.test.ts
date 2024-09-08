@@ -1,5 +1,5 @@
-import { findPrefixCount, findWordsCount, Trie, wordFrequency } from '../trie';
-import { expect, test, describe } from 'vitest';
+import { describe, expect, test } from 'vitest';
+import { Trie, findPrefixCount, findWordsCount, wordFrequency } from '../trie';
 
 describe('Trie', () => {
   test('trie findWordsCount findPrefixCount wordFrequency', () => {

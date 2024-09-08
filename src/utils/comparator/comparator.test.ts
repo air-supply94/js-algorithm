@@ -1,5 +1,5 @@
-import { Comparator } from './comparator';
 import { expect, test } from 'vitest';
+import { Comparator } from './comparator';
 
 test('comparator default function', () => {
   const comparator = new Comparator();

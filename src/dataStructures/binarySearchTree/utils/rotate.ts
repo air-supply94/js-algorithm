@@ -5,7 +5,10 @@ import { setLeft, setRight } from './nodeOperate';
 // left连接父节点
 // leftRight节点处理
 // 旋转1次
-export function rotateLeftLeft<T = unknown>(rootNode: interfaces.BinarySearchTreeNode<T>, setRoot: (root: interfaces.BinarySearchTreeNode<T> | null) => void): void {
+export function rotateLeftLeft<T = unknown>(
+  rootNode: interfaces.BinarySearchTreeNode<T>,
+  setRoot: (root: interfaces.BinarySearchTreeNode<T> | null) => void,
+): void {
   const leftNode = rootNode.left;
   setLeft(rootNode, null);
 
@@ -64,7 +67,10 @@ export function rotateRightLeft(rootNode: interfaces.BinarySearchTreeNode): void
   setRight(rightLeftNode, rightNode);
 }
 
-export function rotateRightRight<T = unknown>(rootNode: interfaces.BinarySearchTreeNode<T>, setRoot: (root: interfaces.BinarySearchTreeNode<T> | null) => void): void {
+export function rotateRightRight<T = unknown>(
+  rootNode: interfaces.BinarySearchTreeNode<T>,
+  setRoot: (root: interfaces.BinarySearchTreeNode<T> | null) => void,
+): void {
   const rightNode = rootNode.right;
   setRight(rootNode, null);
 

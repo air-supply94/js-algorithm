@@ -1,7 +1,7 @@
+import { describe, expect, test } from 'vitest';
 import type { interfaces } from '../../../types';
 import { BinarySearchTree } from '../binarySearchTree';
 import { findReplaceNode, getHeight, insert } from '../utils';
-import { expect, test, describe } from 'vitest';
 
 describe('BinarySearchTree', () => {
   test('should create binary search tree', () => {
@@ -44,7 +44,10 @@ describe('BinarySearchTree', () => {
 
     bst.insert(10);
     const originRemove = bst.remove;
-    bst.remove = function <T = unknown>(this: BinarySearchTree<T>, value: T): interfaces.BinarySearchTreeNode<T> | null {
+    bst.remove = function <T = unknown>(
+      this: BinarySearchTree<T>,
+      value: T,
+    ): interfaces.BinarySearchTreeNode<T> | null {
       return findReplaceNode(this.root, value, this.comparator);
     };
     expect(bst.remove(10).value).toBe(10);
@@ -106,7 +109,10 @@ describe('BinarySearchTree', () => {
     expect(bst.findMin()).toBeNull();
     expect(bst.findMax()).toBeNull();
     const originInsert = bst.insert;
-    bst.insert = function <T = unknown>(this: BinarySearchTree<T>, value: T): interfaces.BinarySearchTreeNode<T> | null {
+    bst.insert = function <T = unknown>(
+      this: BinarySearchTree<T>,
+      value: T,
+    ): interfaces.BinarySearchTreeNode<T> | null {
       return insert(this.root, value, this.comparator);
     };
     bst.insert(10);

@@ -1,6 +1,6 @@
+import { expect, test } from 'vitest';
 import type { interfaces } from '../../types';
 import { huffmanTree } from './huffmanTree';
-import { expect, test } from 'vitest';
 
 test('huffmanTree', () => {
   expect(getHuffmanWPL(huffmanTree([]))).toBe(0);

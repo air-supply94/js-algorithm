@@ -2,7 +2,7 @@ import type { interfaces } from '../../types';
 
 export class Comparator<T = unknown> implements interfaces.Comparator<T> {
   constructor(
-    compare: interfaces.CompareParams<T> = function (a, b) {
+    compare: interfaces.CompareParams<T> = (a, b) => {
       if (a === b) {
         return 0;
       }
@@ -10,6 +10,7 @@ export class Comparator<T = unknown> implements interfaces.Comparator<T> {
     },
   ) {
     if (compare instanceof Comparator) {
+      // biome-ignore lint/correctness/noConstructorReturn: <explanation>
       return compare;
     }
 
