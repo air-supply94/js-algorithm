@@ -728,10 +728,10 @@
     loupe "^2.3.7"
     pretty-format "^29.7.0"
 
-"@zhouhaifei/code-style@3.3.2":
-  version "3.3.2"
-  resolved "https://registry.npmjs.org/@zhouhaifei/code-style/-/code-style-3.3.2.tgz#42dd84c4f9ab59df88a657d19c3146fffd4825d5"
-  integrity sha512-UaWbOWdU5J8GmCST7wopjGnUQ3m57WTq9mW/SkilSsFOU0oHYx6LuM3x2SFG9eQe1XXQVNCa6E7fmtxRENltSg==
+"@zhouhaifei/code-style@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.npmmirror.com/@zhouhaifei/code-style/-/code-style-3.4.0.tgz#c62239cd6344c74a8a25f85cc337d18d13be8516"
+  integrity sha512-kXBugwNAOVsnbmzkVE/nYZGX+pTwg9HnVJVKl2ev9mkM54AjuL5OtC39cakU+r1VH9LSwtlsRvOK0roMaiupBg==
   dependencies:
     "@biomejs/biome" "1.8.3"
     "@commitlint/cli" "19.3.0"
