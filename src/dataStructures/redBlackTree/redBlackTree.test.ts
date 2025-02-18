@@ -524,5 +524,5 @@ function treeUtils<T = unknown>(tree: interfaces.RedBlackTree<T>) {
 function testData() {
   return Array(10)
     .fill(0)
-    .map((item, index) => (index + 1) * 10);
+    .map((_item, index) => (index + 1) * 10);
 }

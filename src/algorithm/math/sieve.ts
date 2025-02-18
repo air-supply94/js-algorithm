@@ -4,7 +4,7 @@
 export function sieve(n: number): number[] {
   const result: number[] = Array(n + 1)
     .fill(null)
-    .map((item, index) => index);
+    .map((_item, index) => index);
   result[1] = 0;
 
   for (let i = 2; i <= Math.floor(Math.pow(n, 0.5)); i++) {
