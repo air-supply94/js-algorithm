@@ -1,4 +1,4 @@
-#  (2024-05-14)
+#  (2025-02-25)
 
 
 ### Bug Fixes
@@ -403,6 +403,7 @@
 * 减少函数副作用 ([7b2656c](https://github.com/air-supply94/js-algorithm/commit/7b2656c3be5313eeb2b25b3a8af96546109b1e93))
 * 减少副作用 ([cf3957d](https://github.com/air-supply94/js-algorithm/commit/cf3957dd24d8fa3a5b603e95eb2befbe06900cd5))
 * 切换vitest测试工具,jest难得配置 ([d8d7dd0](https://github.com/air-supply94/js-algorithm/commit/d8d7dd0fcf90353ff2c53885ea8dbbfa06d7b1a7))
+* 增加biome ([9aea642](https://github.com/air-supply94/js-algorithm/commit/9aea642340256a691f1d9aee42e9ca8863ebae78))
 * 增加groupAnagrams ([811e3a3](https://github.com/air-supply94/js-algorithm/commit/811e3a33a520b94f514edbdc6a336480383d8be6))
 * 增加groupAnagrams和longestConsecutive ([35e3571](https://github.com/air-supply94/js-algorithm/commit/35e35711af11fe2b2cc78865a0436f1295ca13f9))
 * 增加threeSum ([d3bbad4](https://github.com/air-supply94/js-algorithm/commit/d3bbad4c4d6d8d6b497c0a1eff5dc1e899b8f553))
@@ -413,6 +414,8 @@
 * 增加递归时间复杂度分析 ([7eb5320](https://github.com/air-supply94/js-algorithm/commit/7eb53207fa0ef8d1dc09ac775ea39ab1a2e8ade5))
 * 更改avl树、红黑树types ([e01d123](https://github.com/air-supply94/js-algorithm/commit/e01d1237ed4a23f22362d76b1374935b45e367e7))
 * 更新实现 ([57358c4](https://github.com/air-supply94/js-algorithm/commit/57358c428cd2cdd11a97e586065572fae2b2666e))
+* 更新配置 ([ff85268](https://github.com/air-supply94/js-algorithm/commit/ff852684e71e25366822f0e22e70b839310efae0))
+* 更新配置 ([ef5268d](https://github.com/air-supply94/js-algorithm/commit/ef5268daf88113c1c78ca1287e69dba007884174))
 * 更新配置 ([0290e33](https://github.com/air-supply94/js-algorithm/commit/0290e3386e4b723b417cec0774c50a7b59bb7263))
 * 简单重构 ([94b454e](https://github.com/air-supply94/js-algorithm/commit/94b454edea13c9e781008584280de4841845cb4f))
 * 限制BST访问 ([26941af](https://github.com/air-supply94/js-algorithm/commit/26941af4a0b513d42ae9ea7dc597967097570738))
